@@ -1,0 +1,163 @@
+// Rem output with px fallback
+.font-size(@font-size) {
+	font-size: (@font-size * 10) * 1px;
+	font-size: @font-size * 1rem;
+}
+
+// Center block
+.center-block() {
+	display: block;
+	margin: 0 auto;
+}
+
+// Clearfix
+.clearfix() {
+    clear: both;
+    &::before,
+    &::after {
+        content: "";
+        display: table;
+    }
+    &::after {clear: both;}
+}
+
+// Clear after (not all clearfix need this also)
+.clearfix-after() {clear: both;}
+
+// BEGIN CUSTOM STYLES
+
+.text-shadow() {text-shadow: 1px 1px 1px fade(black,50%);}
+
+.aspect-ratio(@width, @height) {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: (@height/@width) * 100%;
+    }
+}
+
+.btn-color(@buttoncolor: @black, @hover: @yellow) {
+    border: 2px @buttoncolor solid;
+	color: @buttoncolor;
+    &::after {
+        background-color: @hover;
+    }
+}
+
+// --------------------------------------------------
+// Useful CSS3 LESS Mixins
+// https://css-tricks.com/snippets/css/useful-css3-less-mixins/
+// --------------------------------------------------
+
+.gradient (@startColor: fade(@black, 50%), @endColor: fade(@black, 75%)) {
+	background-color: @startColor;
+	background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background: -webkit-linear-gradient(top, @startColor, @endColor);
+	background: -moz-linear-gradient(top, @startColor, @endColor);
+	background: -ms-linear-gradient(top, @startColor, @endColor);
+	background: -o-linear-gradient(top, @startColor, @endColor);
+}
+
+.scale (@ratio) {
+	-webkit-transform: scale(@ratio);
+        -ms-transform: scale(@ratio);
+            transform: scale(@ratio);
+}
+
+.scale3d (@x:1, @y:1, @z:1) {
+  -webkit-transform: scale3d(@x,@y,@z);
+      -ms-transform: scale3d(@x,@y,@z);
+          transform: scale3d(@x,@y,@z);
+}
+
+.rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+        -ms-transform: rotate(@deg);
+            transform: rotate(@deg);
+}
+
+.translate3d (@x:0, @y:0, @z:0) {
+    -webkit-transform: translate3d(@x,@y,@z);
+        -ms-transform: translate3d(@x,@y,@z);
+            transform: translate3d(@x,@y,@z);
+}
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+            transition: @transition;
+}
+
+// --------------------------------------------------
+// Flexbox LESS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// https://gist.github.com/jayj/4012969
+// --------------------------------------------------
+
+.flex-display(@display: flex) {
+	display: ~"-webkit-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: ~"-ms-@{display}"; // IE11
+	display: @display;
+}
+.flex(@columns: initial) {
+  -webkit-flex: @columns;
+      -ms-flex: @columns;
+          flex: @columns;
+}
+.flex-direction(@direction: column) {
+  -webkit-flex-direction: @direction;
+      -ms-flex-direction: @direction;
+          flex-direction: @direction;
+}
+.flex-wrap(@wrap: nowrap) {
+  -webkit-flex-wrap: @wrap;
+      -ms-flex-wrap: @wrap;
+          flex-wrap: @wrap;
+}
+.flex-flow(@flow) {
+  -webkit-flex-flow: @flow;
+      -ms-flex-flow: @flow;
+          flex-flow: @flow;
+}
+.flex-order(@order: 0) {
+  -webkit-order: @order;
+      -ms-order: @order;
+          order: @order;
+}
+.flex-grow(@grow: 0) {
+  -webkit-flex-grow: @grow;
+      -ms-flex-grow: @grow;
+          flex-grow: @grow;
+}
+.flex-shrink(@shrink: 1) {
+  -webkit-flex-shrink: @shrink;
+      -ms-flex-shrink: @shrink;
+          flex-shrink: @shrink;
+}
+.flex-basis(@width: auto) {
+  -webkit-flex-basis: @width;
+      -ms-flex-basis: @width;
+          flex-basis: @width;
+}
+.justify-content(@justify: flex-start) {
+  -webkit-justify-content: @justify;
+      -ms-justify-content: @justify;
+          justify-content: @justify;
+}
+.align-content(@align: stretch) {
+  -webkit-align-content: @align;
+      -ms-align-content: @align;
+          align-content: @align;
+}
+.align-items(@align: stretch) {
+  -webkit-align-items: @align;
+      -ms-align-items: @align;
+          align-items: @align;
+}
+.align-self(@align: auto) {
+  -webkit-align-self: @align;
+      -ms-align-self: @align;
+          align-self: @align;
+}

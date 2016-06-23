@@ -1,0 +1,27 @@
+ul, ol, dl {
+    // roughly the same as <p>
+    font-size: inherit;
+	font-family: inherit;
+	font-weight: 400;
+	line-height: 1.7em;
+    margin: 0 0 1.7em 1em;
+    color: inherit;
+    widows: 3;
+    orphans: 3;
+}
+ul {list-style: disc;}
+ol {list-style: decimal;}
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1em;
+}
+
+#likes,
+#dislikes {
+    width: 50%;
+    float: left;
+    ul {list-style: none;}
+}
+#likes li::before {content: "\f00c";}
+#dislikes li::before {content: "\f00d";}

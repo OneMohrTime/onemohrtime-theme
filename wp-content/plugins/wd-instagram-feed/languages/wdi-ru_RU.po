@@ -1,0 +1,1965 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-06-15 18:50+0400\n"
+"PO-Revision-Date: 2016-06-15 18:50+0400\n"
+"Last-Translator: Alex Petrin <shoroop.spb@gmail.com>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin-functions.php:30
+msgid "Succesfully Uninstalled!"
+msgstr "Установка успешна!"
+
+#: admin-functions.php:36
+msgid "Already Unistalled"
+msgstr "Уже удалено"
+
+#: admin-functions.php:476
+msgid ""
+"You need Access Token for using plugin, click sign in with Instagram button "
+"above to get yours"
+msgstr ""
+"Для использования плагина Вам необходимо получить токен авторизации. Нажмите "
+"на кнопку \"Войти в Instagram\", чтобы получить токен"
+
+#: admin-functions.php:552
+msgid "Access Token"
+msgstr "Токен доступа"
+
+#: admin-functions.php:553
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: admin-functions.php:555
+msgid "Custom CSS"
+msgstr "Своя таблица стилей CSS"
+
+#: admin-functions.php:556
+msgid "Custom JavaScript"
+msgstr "Свой JavaScript"
+
+#: admin-functions.php:611
+msgid "Database error, please uninstall the plugin and install again"
+msgstr "Ошибка базы данных, пожалуйста, удалите плагин и установите его заново"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:177
+#: admin/controllers/WDIControllerFeeds_wdi.php:207
+#: admin/controllers/WDIControllerFeeds_wdi.php:242
+#: admin/controllers/WDIControllerThemes_wdi.php:348
+msgid "Cannot Write on database"
+msgstr "Невозможно записать в базу данных"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:182
+#: admin/controllers/WDIControllerFeeds_wdi.php:215
+#: admin/controllers/WDIControllerFeeds_wdi.php:250
+msgid "You have not made new changes"
+msgstr "Вы не внесли никаких изменений"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:184
+msgid "Successfully saved"
+msgstr "Успешно сохранено"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:218
+msgid "Changes have been successfully applied"
+msgstr "Изменения успешно применены"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:253
+msgid "Feed successfully reseted"
+msgstr "Фид успешно сброшен"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:268
+msgid "Item Succesfully Duplicated."
+msgstr "Элемент успешно дублирован"
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:291
+#: admin/controllers/WDIControllerThemes_wdi.php:382
+msgid "Item Succesfully Deleted."
+msgstr "Элемент успешно удален."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:294
+#: admin/controllers/WDIControllerFeeds_wdi.php:326
+#: admin/controllers/WDIControllerFeeds_wdi.php:363
+#: admin/controllers/WDIControllerThemes_wdi.php:385
+msgid "Error. Please install plugin again."
+msgstr "Ошибка. Пожалуйста, переустановите плагин."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:311
+#: admin/controllers/WDIControllerThemes_wdi.php:414
+msgid "Items Succesfully Deleted."
+msgstr "Элемент успешно удален."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:314
+#: admin/controllers/WDIControllerFeeds_wdi.php:351
+#: admin/controllers/WDIControllerFeeds_wdi.php:388
+#: admin/controllers/WDIControllerThemes_wdi.php:418
+msgid "You must select at least one item."
+msgstr "Вы должны выбрать хотя бы один элемент."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:323
+msgid "Item Succesfully Published."
+msgstr "Элемент успешно опубликован."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:348
+msgid "Items Succesfully Published."
+msgstr "Элементы успешно опубликованы."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:360
+msgid "Item Succesfully Unpublished."
+msgstr "Публикация элемента успешно отменена."
+
+#: admin/controllers/WDIControllerFeeds_wdi.php:385
+msgid "Items Succesfully Unpublished."
+msgstr "Публикация элементов успешно отменена."
+
+#: admin/controllers/WDIControllerThemes_wdi.php:345
+msgid "Please select at least one item"
+msgstr "Пожалуйста, выберите хотя бы один элемент."
+
+#: admin/controllers/WDIControllerThemes_wdi.php:350
+msgid "Items Succesfully Duplicated."
+msgstr "Элементы успешно дублированы."
+
+#: admin/controllers/WDIControllerThemes_wdi.php:388
+#: admin/controllers/WDIControllerThemes_wdi.php:409
+msgid "You cannot delete default theme."
+msgstr "Вы не можете удалить стандартную тему"
+
+#: admin/controllers/WDIControllerWidget.php:22
+msgid "Show your instagram feeds in your widget area"
+msgstr "Показ Ваших фидов Инстаграм в области виджетов"
+
+#: admin/controllers/WDIControllerWidget.php:27
+msgid "Instagram WD Widget"
+msgstr "Instagram WD Widget"
+
+#: admin/views/WDIViewEditorShortcode.php:100
+msgid "Select Feed:"
+msgstr "Выбрать фид:"
+
+#: admin/views/WDIViewFeeds_wdi.php:39
+msgid "This Section Allows You to Add/Edit Feeds"
+msgstr "В данном разделе Вы можете добавлять и править фиды"
+
+#: admin/views/WDIViewFeeds_wdi.php:40 admin/views/WDIViewFeeds_wdi.php:330
+#: admin/views/WDIViewSettings_wdi.php:50 admin/views/WDIViewThemes_wdi.php:31
+msgid "Read More in User Manual"
+msgstr "Подробнее в руководстве пользователя"
+
+#: admin/views/WDIViewFeeds_wdi.php:54 wd-instagram-feed.php:153
+msgid "Feeds"
+msgstr "Фиды"
+
+#: admin/views/WDIViewFeeds_wdi.php:58
+msgid "Add new"
+msgstr "Добавить"
+
+#: admin/views/WDIViewFeeds_wdi.php:63
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: admin/views/WDIViewFeeds_wdi.php:77 admin/views/WDIViewFeeds_wdi.php:98
+#: frontend/views/WDIViewGalleryBox.php:1348
+#: frontend/views/WDIViewGalleryBox.php:1376
+#: frontend/views/WDIViewGalleryBox.php:1383
+msgid "Name"
+msgstr "Название"
+
+#: admin/views/WDIViewFeeds_wdi.php:92
+msgid "Feed"
+msgstr "Фид"
+
+#: admin/views/WDIViewFeeds_wdi.php:101
+msgid "Shortcode"
+msgstr "Шорткод"
+
+#: admin/views/WDIViewFeeds_wdi.php:102
+msgid "PHP function"
+msgstr "Функция PHP"
+
+#: admin/views/WDIViewFeeds_wdi.php:108
+msgid "Published"
+msgstr "Опубликовано"
+
+#: admin/views/WDIViewFeeds_wdi.php:111
+msgid "Edit"
+msgstr "Редактировать"
+
+#: admin/views/WDIViewFeeds_wdi.php:112
+msgid "Delete"
+msgstr "Удалить"
+
+#: admin/views/WDIViewFeeds_wdi.php:209
+msgid "Feed Name"
+msgstr "Название фида"
+
+#: admin/views/WDIViewFeeds_wdi.php:209
+msgid "The name of your feed which can be displayed in feed's header section"
+msgstr "Название Вашего фида, которое будет отображаться в секции заголовка"
+
+#: admin/views/WDIViewFeeds_wdi.php:210
+msgid "Changing Theme is Available Only in PRO version"
+msgstr "Изменение темы доступно только в PRO-версии"
+
+#: admin/views/WDIViewFeeds_wdi.php:210
+msgid "Theme"
+msgstr "Тема"
+
+#: admin/views/WDIViewFeeds_wdi.php:210
+msgid "The theme of your feed, you can create themes in themes menu"
+msgstr "Тема Вашего фида (Вы можете создавать темы в меню тем)"
+
+#: admin/views/WDIViewFeeds_wdi.php:211
+msgid "Feed Usernames and Hashtags"
+msgstr "Имена пользователей и хештеги"
+
+#: admin/views/WDIViewFeeds_wdi.php:211
+msgid ""
+"Enter usernames or hashtags to your feed, hashtags must start with #, "
+"username's shouldn't start with @"
+msgstr ""
+"Введите имя пользователя или хештег Вашего фида (хештег должен начинаться с "
+"символа #, а имя пользователя - @)"
+
+#: admin/views/WDIViewFeeds_wdi.php:212
+msgid "Featured Image"
+msgstr "Основное изображение"
+
+#: admin/views/WDIViewFeeds_wdi.php:212
+msgid "Select Featured Image For Header Section"
+msgstr "Выберите основное изображение, которое будет отображаться в шапке"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Feed Display Type"
+msgstr "Тип отображения фида"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Pagination"
+msgstr "Нумерация страниц"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Load More Button"
+msgstr "Кнопка \"Загрузить еще\""
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "Infinite Scroll"
+msgstr "Бесконечная прокрутка"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "This Feature is Available in PRO version"
+msgstr "Эта функция доступна только в PRO-версии"
+
+#: admin/views/WDIViewFeeds_wdi.php:213
+msgid "How to load and display new images"
+msgstr "Как загрузить и отобразить новые картинки"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Sort Images By"
+msgstr "Сортировать картинки по"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Date"
+msgstr "Дате"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Likes"
+msgstr "Лайкам"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "Comments"
+msgstr "Комментариям"
+
+#: admin/views/WDIViewFeeds_wdi.php:214 framework/WDILibrary.php:767
+msgid "Random"
+msgstr "Случайно"
+
+#: admin/views/WDIViewFeeds_wdi.php:214
+msgid "How to sort images"
+msgstr "Как сортировать картинки"
+
+#: admin/views/WDIViewFeeds_wdi.php:215
+msgid "Order By"
+msgstr "Сортировать по"
+
+#: admin/views/WDIViewFeeds_wdi.php:215
+msgid "Sorting order either Ascending or Descending"
+msgstr "Восходящая или нисходящая сортировка"
+
+#: admin/views/WDIViewFeeds_wdi.php:216
+msgid "Follow on Instagram Button"
+msgstr "Кнопка \"Подписаться на Instagram\""
+
+#: admin/views/WDIViewFeeds_wdi.php:217
+msgid "Display Header"
+msgstr "Заголовок"
+
+#: admin/views/WDIViewFeeds_wdi.php:217
+msgid "Displays feed's header, header includes feed name and feed users"
+msgstr ""
+"Отображает заголовок фида, который содержит название фида и имя пользователя"
+
+#: admin/views/WDIViewFeeds_wdi.php:218
+msgid "Number of Photos to Display"
+msgstr "Количество отображаемых фото"
+
+#: admin/views/WDIViewFeeds_wdi.php:218
+msgid "Number of images to load when page loads first time"
+msgstr "Количество загружаемых изображений при загрузке страницы"
+
+#: admin/views/WDIViewFeeds_wdi.php:219
+msgid "Number of Photos to Load"
+msgstr "Количество загружаемых фото"
+
+#: admin/views/WDIViewFeeds_wdi.php:219
+msgid ""
+"Number of images to load when clicking load more button or triggering "
+"infinite scroll"
+msgstr ""
+"Количество загружаемых изображений по нажатию кнопки \"Загрузить еще\" или "
+"при бесконечной прокрутке"
+
+#: admin/views/WDIViewFeeds_wdi.php:220
+msgid "Number of Images Per Page"
+msgstr "Количество изображений на страницу"
+
+#: admin/views/WDIViewFeeds_wdi.php:220
+msgid "Number Of Images To Show On Each Pagination Page"
+msgstr "Количество изображений, показываемое на каждой странице"
+
+#: admin/views/WDIViewFeeds_wdi.php:221
+msgid "Number of Pages To Preload"
+msgstr "Количество страниц для предзагрузки"
+
+#: admin/views/WDIViewFeeds_wdi.php:221 admin/views/WDIViewFeeds_wdi.php:222
+msgid "This Will Preload Images For Pagination"
+msgstr "Количество страниц, изображения для которых будут предзагружены"
+
+#: admin/views/WDIViewFeeds_wdi.php:222
+msgid "Number of Images To Preload"
+msgstr "Количество изображений для предзагрузки"
+
+#: admin/views/WDIViewFeeds_wdi.php:223
+msgid "Number of Images To Load Each Time"
+msgstr ""
+"Количество изображений, которые должны загружаться каждый раз при обновлении "
+"страницы"
+
+#: admin/views/WDIViewFeeds_wdi.php:223
+msgid "Number Of Photos To Load on Each Load"
+msgstr ""
+"Количество изображений, которые должны загружаться каждый раз при загрузке "
+"страницы"
+
+#: admin/views/WDIViewFeeds_wdi.php:224
+msgid "Number of Columns"
+msgstr "Количество колонок"
+
+#: admin/views/WDIViewFeeds_wdi.php:224
+msgid "Feed item's column count"
+msgstr "Счетчик колонок элементов фида"
+
+#: admin/views/WDIViewFeeds_wdi.php:225
+msgid "Sort Again Whole Feed After Loading New Images"
+msgstr "Пересортировать фид после добавления новых изображений"
+
+#: admin/views/WDIViewFeeds_wdi.php:225
+msgid "Sort both newly loaded and existing images alltogether"
+msgstr "Сортировать и новые, и уже загруженные картинки вместе"
+
+#: admin/views/WDIViewFeeds_wdi.php:226
+msgid "Show Likes"
+msgstr "Показать лайки"
+
+#: admin/views/WDIViewFeeds_wdi.php:226 admin/views/WDIViewFeeds_wdi.php:227
+#: admin/views/WDIViewFeeds_wdi.php:228 admin/views/WDIViewFeeds_wdi.php:229
+#: admin/views/WDIViewFeeds_wdi.php:243 admin/views/WDIViewFeeds_wdi.php:244
+#: admin/views/WDIViewFeeds_wdi.php:246 admin/views/WDIViewFeeds_wdi.php:247
+#: admin/views/WDIViewFeeds_wdi.php:251 admin/views/WDIViewFeeds_wdi.php:253
+#: admin/views/WDIViewFeeds_wdi.php:256
+msgid "This Feature is Available Only in PRO version"
+msgstr "Эта функция доступна только в PRO-версии"
+
+#: admin/views/WDIViewFeeds_wdi.php:227
+msgid "Show Description"
+msgstr "Показать описание"
+
+#: admin/views/WDIViewFeeds_wdi.php:228
+#: frontend/views/WDIViewGalleryBox.php:2333
+msgid "Show Comments"
+msgstr "Показать комментарии"
+
+#: admin/views/WDIViewFeeds_wdi.php:229
+msgid "Show Username On Image Thumb"
+msgstr "Показывать имя пользователя при предпросмотре"
+
+#: admin/views/WDIViewFeeds_wdi.php:230
+msgid "Show User Data"
+msgstr "Показывать данные пользователя"
+
+#: admin/views/WDIViewFeeds_wdi.php:231
+msgid "Display User Bio"
+msgstr "Показывать биографию пользователя"
+
+#: admin/views/WDIViewFeeds_wdi.php:231
+msgid "User bio will be displayed if feed has only one user"
+msgstr ""
+"Данные о пользователе будут показаны, если в фид добавлен только один "
+"пользователь."
+
+#: admin/views/WDIViewFeeds_wdi.php:232
+msgid "Display User Posts and Followers count"
+msgstr "Показывать количество постов и подписчиков пользователя"
+
+#: admin/views/WDIViewFeeds_wdi.php:233
+msgid "Show Full Description"
+msgstr "Показывать полное описание"
+
+#: admin/views/WDIViewFeeds_wdi.php:233
+msgid "Discription will be shown no matter how long it is"
+msgstr "Описание будет показано независимо от его длины"
+
+#: admin/views/WDIViewFeeds_wdi.php:234
+msgid "Disable Mobile Layout"
+msgstr "Отключить мобильную раскладку"
+
+#: admin/views/WDIViewFeeds_wdi.php:234
+msgid "Column number stays the same in all screens"
+msgstr "Количество колонок остается одинаковым на всех экранах"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Image Onclick"
+msgstr "Действие по клику на картинке"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Open Lightbox"
+msgstr "Открыть лайтбокс"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Redirect To Instagram"
+msgstr "Перейти в Инстаграм"
+
+#: admin/views/WDIViewFeeds_wdi.php:235
+msgid "Do Nothing"
+msgstr "Ничего не делать"
+
+#: admin/views/WDIViewFeeds_wdi.php:237
+msgid "Full width lightbox"
+msgstr "Полная ширина лайтбокса"
+
+#: admin/views/WDIViewFeeds_wdi.php:237 admin/views/WDIViewFeeds_wdi.php:241
+#: admin/views/WDIViewFeeds_wdi.php:243 admin/views/WDIViewFeeds_wdi.php:246
+#: admin/views/WDIViewFeeds_wdi.php:247 admin/views/WDIViewFeeds_wdi.php:248
+#: admin/views/WDIViewFeeds_wdi.php:249 admin/views/WDIViewFeeds_wdi.php:250
+#: admin/views/WDIViewFeeds_wdi.php:252 admin/views/WDIViewFeeds_wdi.php:253
+#: admin/views/WDIViewFeeds_wdi.php:254 admin/views/WDIViewFeeds_wdi.php:255
+#: admin/views/WDIViewFeeds_wdi.php:256 admin/views/WDIViewFeeds_wdi.php:257
+#: admin/views/WDIViewFeeds_wdi.php:258 admin/views/WDIViewFeeds_wdi.php:259
+#: admin/views/WDIViewFeeds_wdi.php:260 admin/views/WDIViewFeeds_wdi.php:261
+#: admin/views/WDIViewFeeds_wdi.php:262 admin/views/WDIViewFeeds_wdi.php:265
+msgid "Yes"
+msgstr "Да"
+
+#: admin/views/WDIViewFeeds_wdi.php:237 admin/views/WDIViewFeeds_wdi.php:241
+#: admin/views/WDIViewFeeds_wdi.php:243 admin/views/WDIViewFeeds_wdi.php:246
+#: admin/views/WDIViewFeeds_wdi.php:247 admin/views/WDIViewFeeds_wdi.php:248
+#: admin/views/WDIViewFeeds_wdi.php:249 admin/views/WDIViewFeeds_wdi.php:250
+#: admin/views/WDIViewFeeds_wdi.php:252 admin/views/WDIViewFeeds_wdi.php:253
+#: admin/views/WDIViewFeeds_wdi.php:254 admin/views/WDIViewFeeds_wdi.php:255
+#: admin/views/WDIViewFeeds_wdi.php:256 admin/views/WDIViewFeeds_wdi.php:257
+#: admin/views/WDIViewFeeds_wdi.php:258 admin/views/WDIViewFeeds_wdi.php:259
+#: admin/views/WDIViewFeeds_wdi.php:260 admin/views/WDIViewFeeds_wdi.php:261
+#: admin/views/WDIViewFeeds_wdi.php:262 admin/views/WDIViewFeeds_wdi.php:265
+msgid "No"
+msgstr "Нет"
+
+#: admin/views/WDIViewFeeds_wdi.php:238
+msgid "Lightbox Width"
+msgstr "Ширина лайтбокса"
+
+#: admin/views/WDIViewFeeds_wdi.php:239
+msgid "Lightbox Height"
+msgstr "Высота лайтбокса"
+
+#: admin/views/WDIViewFeeds_wdi.php:240
+msgid "Lightbox Effect"
+msgstr "Эффект лайтбокса"
+
+#: admin/views/WDIViewFeeds_wdi.php:241
+msgid "Lightbox autoplay"
+msgstr "Автозапуск лайтбокса"
+
+#: admin/views/WDIViewFeeds_wdi.php:242
+msgid "Time Interval"
+msgstr "Врем. интервал"
+
+#: admin/views/WDIViewFeeds_wdi.php:243
+msgid "Enable filmstrip in lightbox"
+msgstr "Вкл. диафильм в лайтбоксе"
+
+#: admin/views/WDIViewFeeds_wdi.php:244
+msgid "Filmstrip size"
+msgstr "Размеры диафильма"
+
+#: admin/views/WDIViewFeeds_wdi.php:245
+msgid "Show Next / Previous Buttons"
+msgstr "Показать кнопки Следующий / Предыдущий:"
+
+#: admin/views/WDIViewFeeds_wdi.php:245
+msgid "On Hover"
+msgstr "При наведении курсора"
+
+#: admin/views/WDIViewFeeds_wdi.php:245
+msgid "Always"
+msgstr "Всегда"
+
+#: admin/views/WDIViewFeeds_wdi.php:246
+msgid "Display info by default"
+msgstr "Отображать данные по умолчанию"
+
+#: admin/views/WDIViewFeeds_wdi.php:247
+msgid "Full width info"
+msgstr "Данные во всю ширину"
+
+#: admin/views/WDIViewFeeds_wdi.php:248
+msgid "Enable Loop"
+msgstr "Вкл. цикл"
+
+#: admin/views/WDIViewFeeds_wdi.php:249
+msgid "Enable Right Click Protection"
+msgstr "Включить защиту от правого клика"
+
+#: admin/views/WDIViewFeeds_wdi.php:250
+msgid "Enable control buttons"
+msgstr "Вкл. кнопки управления"
+
+#: admin/views/WDIViewFeeds_wdi.php:251
+msgid "Enable info"
+msgstr "Вкл. данные"
+
+#: admin/views/WDIViewFeeds_wdi.php:252
+msgid "Enable fullscreen"
+msgstr "Вкл. на весь экран"
+
+#: admin/views/WDIViewFeeds_wdi.php:253
+msgid "Enable comments"
+msgstr "Вкл. комментарии"
+
+#: admin/views/WDIViewFeeds_wdi.php:254
+msgid "Link To Instagram Button"
+msgstr "Кнопка ссылки на Instagram"
+
+#: admin/views/WDIViewFeeds_wdi.php:255
+msgid "Enable Download Button"
+msgstr "Вкл. кнопку \"Скачать\""
+
+#: admin/views/WDIViewFeeds_wdi.php:256
+msgid "Enable Share Buttons"
+msgstr "Вкл. кнопку \"Поделиться\""
+
+#: admin/views/WDIViewFeeds_wdi.php:257
+msgid "Enable Facebook button"
+msgstr "Вкл. кнопку Facebook"
+
+#: admin/views/WDIViewFeeds_wdi.php:258
+msgid "Enable Twitter button"
+msgstr "Вкл. кнопку Twitter"
+
+#: admin/views/WDIViewFeeds_wdi.php:259
+msgid "Enable Google+ button"
+msgstr "Вкл. кнопку Google+"
+
+#: admin/views/WDIViewFeeds_wdi.php:260
+msgid "Enable Pinterest button"
+msgstr "Вкл. кнопку Pinterest"
+
+#: admin/views/WDIViewFeeds_wdi.php:261
+msgid "Enable Tumblr button"
+msgstr "Вкл. кнопку Tumblr"
+
+#: admin/views/WDIViewFeeds_wdi.php:262
+msgid "Show Images Count"
+msgstr "Показать счетчик фото"
+
+#: admin/views/WDIViewFeeds_wdi.php:265
+msgid "Enable Conditional Filters"
+msgstr "Вкл. фильтры по содержимому"
+
+#: admin/views/WDIViewFeeds_wdi.php:266
+msgid "Filter Logic"
+msgstr "Логика фильтра"
+
+#: admin/views/WDIViewFeeds_wdi.php:283 admin/views/WDIViewFeeds_wdi.php:288
+msgid "Available In Pro Version"
+msgstr "Доступно в PRO-версии"
+
+#: admin/views/WDIViewFeeds_wdi.php:304
+msgid "Feed Settings"
+msgstr "Настройки фида"
+
+#: admin/views/WDIViewFeeds_wdi.php:305
+msgid "Lightbox Settings"
+msgstr "Настройки лайтбокса"
+
+#: admin/views/WDIViewFeeds_wdi.php:306 admin/views/WDIViewLicensing_wdi.php:42
+msgid "Conditional Filters"
+msgstr "Фильтры по содержимому"
+
+#: admin/views/WDIViewFeeds_wdi.php:329
+msgid "Here You Can Change Feed Parameters"
+msgstr "Здесь Вы можете изменить настройки фида"
+
+#: admin/views/WDIViewFeeds_wdi.php:341
+msgid "Edit feed"
+msgstr "Редактировать фид"
+
+#: admin/views/WDIViewFeeds_wdi.php:344
+msgid "Add new Feed"
+msgstr "Добавить фид"
+
+#: admin/views/WDIViewFeeds_wdi.php:374
+msgid ""
+"This is FREE version, Conditional filters are available only in PRO version"
+msgstr ""
+
+#: admin/views/WDIViewFeeds_wdi.php:398
+msgid "Add"
+msgstr "Добавить"
+
+#: admin/views/WDIViewFeeds_wdi.php:414
+msgid "Save"
+msgstr "Сохранить"
+
+#: admin/views/WDIViewFeeds_wdi.php:416
+msgid "Apply"
+msgstr "Применить"
+
+#: admin/views/WDIViewFeeds_wdi.php:417 framework/WDILibrary.php:189
+#: framework/WDILibrary.php:717
+msgid "Reset"
+msgstr "Сброс"
+
+#: admin/views/WDIViewFeeds_wdi.php:418
+msgid "Cancel"
+msgstr "Отмена"
+
+#: admin/views/WDIViewLicensing_wdi.php:29
+msgid "ready"
+msgstr "Готово"
+
+#: admin/views/WDIViewLicensing_wdi.php:31
+msgid "Responsive Design and Layout"
+msgstr "\"Резиновые\" дизайн и разметка"
+
+#: admin/views/WDIViewLicensing_wdi.php:32
+msgid "SEO Friendly"
+msgstr "Готово для SEO"
+
+#: admin/views/WDIViewLicensing_wdi.php:33
+msgid "Thumbnails layout"
+msgstr "Макет для предпросмотра"
+
+#: admin/views/WDIViewLicensing_wdi.php:34
+msgid "Image Browser layout"
+msgstr "Макет для просмотрщика изображений"
+
+#: admin/views/WDIViewLicensing_wdi.php:35
+msgid "Lightbox"
+msgstr "Лайтбокс"
+
+#: admin/views/WDIViewLicensing_wdi.php:36
+msgid "Load More Button / Classic Pagination"
+msgstr "Кнопка \"Еще\"/Стандартная нумерация страниц"
+
+#: admin/views/WDIViewLicensing_wdi.php:37
+msgid "Image Sorting"
+msgstr "Сортировка изображений"
+
+#: admin/views/WDIViewLicensing_wdi.php:38
+msgid "Widget"
+msgstr "Виджет"
+
+#: admin/views/WDIViewLicensing_wdi.php:39
+msgid "Slideshow/Lightbox Effects"
+msgstr "Эффекты слайдшоу/Лайтбокса"
+
+#: admin/views/WDIViewLicensing_wdi.php:43
+msgid "Image On Hover Effects"
+msgstr ""
+
+#: admin/views/WDIViewLicensing_wdi.php:44
+msgid "Infinite Scroll Load More"
+msgstr "Бесконечная прокрутка с подзагрузкой"
+
+#: admin/views/WDIViewLicensing_wdi.php:45
+msgid "Full Style Customization With Themes"
+msgstr "Полная кастомизация стиля с поддержкой тем"
+
+#: admin/views/WDIViewLicensing_wdi.php:46
+msgid "Filmstrip"
+msgstr "Лента слайдов"
+
+#: admin/views/WDIViewLicensing_wdi.php:47
+msgid "Instagram Comments in Lightbox"
+msgstr "Комменты из Instagram в Лайтбоксе"
+
+#: admin/views/WDIViewLicensing_wdi.php:48
+msgid "Blog Style layout"
+msgstr "Макет стиля блога"
+
+#: admin/views/WDIViewLicensing_wdi.php:49
+msgid "Masonry layout"
+msgstr "Макет-\"кладка\""
+
+#: admin/views/WDIViewLicensing_wdi.php:50
+msgid "Videos in BlogStyle, ImageBrowser and Lightbox"
+msgstr "Видео в Лайтбоксе, Просмотрщике изображений и Стиле блога"
+
+#: admin/views/WDIViewLicensing_wdi.php:51
+msgid "Social Share Buttons"
+msgstr "Кнопки \"Поделиться в соцсетях\""
+
+#: admin/views/WDIViewLicensing_wdi.php:52
+msgid "Multiple User/Hashtag Feeds"
+msgstr "Фиды с несколькими пользователями/хэштегами"
+
+#: admin/views/WDIViewLicensing_wdi.php:53
+msgid "Filtering Images Based on Users/Hashtags"
+msgstr "Фильтрация изображений по пользователю/хэштегу"
+
+#: admin/views/WDIViewLicensing_wdi.php:54
+msgid "Support / Updates"
+msgstr "Поддержка / Обновления"
+
+#: admin/views/WDIViewLicensing_wdi.php:57
+msgid "Free"
+msgstr "Бесплатная"
+
+#: admin/views/WDIViewLicensing_wdi.php:81
+msgid "Only Bug Fixes"
+msgstr "Только устранение ошибок"
+
+#: admin/views/WDIViewLicensing_wdi.php:84
+msgid "Pro Version"
+msgstr "PRO-версия"
+
+#: admin/views/WDIViewLicensing_wdi.php:108
+msgid "Full Support"
+msgstr "Полная поддержка"
+
+#: admin/views/WDIViewLicensing_wdi.php:120
+msgid "After purchasing the commercial version follow these steps:"
+msgstr "После покупки платной версии выполните следующее:"
+
+#: admin/views/WDIViewLicensing_wdi.php:122
+msgid "Deactivate Instagram Feed WD plugin."
+msgstr "Деактивируйте плагин WD Instagram Feed."
+
+#: admin/views/WDIViewLicensing_wdi.php:123
+msgid "Delete Instagram Feed WD plugin."
+msgstr "Удалите плагин WD Instagram Feed."
+
+#: admin/views/WDIViewLicensing_wdi.php:124
+msgid "Install the downloaded commercial version of the plugin."
+msgstr "Установите скачанную платную версию плагина."
+
+#: admin/views/WDIViewSettings_wdi.php:49
+msgid "This Section Allows You To Set API Parameters"
+msgstr "Этот раздел позволяет настроить параметры API"
+
+#: admin/views/WDIViewSettings_wdi.php:60
+msgid "Instagram WD Settings"
+msgstr "Instagram WD Widget"
+
+#: admin/views/WDIViewSettings_wdi.php:65
+msgid "Reset Access Token and Username"
+msgstr "Сбросить токен авторизации и пользователя"
+
+#: admin/views/WDIViewSettings_wdi.php:80
+msgid ""
+"Are you sure that you want to reset access token and username, after "
+"resetting it you will need to log in with Instagram again for using plugin"
+msgstr ""
+"Вы уверены, что хотите сбросить токен авторизации и имя пользователя? После "
+"сброса для дальнейшего использования плагина нужно будет авторизоваться "
+"повторно."
+
+#: admin/views/WDIViewThemes_wdi.php:30
+msgid "Here You Can Customize Your Themes"
+msgstr "Здесь Вы можете настроить свои темы"
+
+#: admin/views/WDIViewThemes_wdi.php:40
+msgid ""
+"This is FREE version, Customizing themes is available only in PRO version"
+msgstr ""
+"Это бесплатная версия плагина. Кастомизация тем доступна только в PRO-версии."
+
+#: admin/views/WDIViewUninstall_wdi.php:22
+#: admin/views/WDIViewUninstall_wdi.php:68
+#: admin/views/WDIViewUninstall_wdi.php:80
+msgid "Uninstalling Instagram Feed WD"
+msgstr "Удаление плагина WD Instagram Feed"
+
+#: admin/views/WDIViewUninstall_wdi.php:24
+msgid ""
+"Deactivating Instagram Feed WD plugin does not remove any data that may have "
+"been created. To completely remove this plugin, you can uninstall it here."
+msgstr ""
+"Деактивация плагина не удаляет данные, которые были созданы плагином. Для "
+"полного удаления плагина Вы можете удалить данные здесь."
+
+#: admin/views/WDIViewUninstall_wdi.php:25
+msgid ""
+"WARNING: Once uninstalled, this can't be undone. You should use a Database "
+"Backup plugin of WordPress to back up all the data first."
+msgstr ""
+"ВНИМАНИЕ: Удаление не может быть отменено. Для сохранения бэкапа потребуется "
+"бэкап БД WordPress."
+
+#: admin/views/WDIViewUninstall_wdi.php:26
+msgid "The following Database Tables will be deleted:"
+msgstr "Будут удалены следующие таблицы в БД:"
+
+#: admin/views/WDIViewUninstall_wdi.php:42
+#: admin/views/WDIViewUninstall_wdi.php:55
+msgid "Are you sure you want to uninstall plugin?"
+msgstr "Вы уверены, что хотите удалить плагин?"
+
+#: admin/views/WDIViewUninstall_wdi.php:70
+msgid "Instagram Feed WD is uninstalled"
+msgstr "Плагин WD Instagram Feed удален."
+
+#: admin/views/WDIViewUninstall_wdi.php:70
+#: admin/views/WDIViewUninstall_wdi.php:93
+msgid "Click Here"
+msgstr "Нажмите здесь"
+
+#: admin/views/WDIViewUninstall_wdi.php:70
+#: admin/views/WDIViewUninstall_wdi.php:93
+msgid "to deactivate it"
+msgstr "для его отключения"
+
+#: admin/views/WDIViewUninstall_wdi.php:82
+msgid "The following Database Tables has been successfully deleted:"
+msgstr "Следующие таблицы в БД были успешно удалены:"
+
+#: admin/views/WDIViewUninstall_wdi.php:93
+msgid "Instagram Feed WD is successfully uninstalled"
+msgstr "Плагин WD Instagram Feed был успешно удален"
+
+#: framework/WDILibrary.php:188 framework/WDILibrary.php:720
+msgid "Search"
+msgstr "Поиск"
+
+#: framework/WDILibrary.php:511
+msgid " item(s)"
+msgstr "элемент(ы)"
+
+#: framework/WDILibrary.php:516
+msgid "First"
+msgstr "Первый"
+
+#: framework/WDILibrary.php:517
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: framework/WDILibrary.php:518
+msgid "Next"
+msgstr "Следующий"
+
+#: framework/WDILibrary.php:519
+msgid "Last"
+msgstr "Последний"
+
+#: framework/WDILibrary.php:537
+msgid "Go to the first page"
+msgstr "Перейти к первой странице"
+
+#: framework/WDILibrary.php:538
+msgid "Go to the previous page"
+msgstr "Перейти к предыдущей странице"
+
+#: framework/WDILibrary.php:540
+msgid "of"
+msgstr "из"
+
+#: framework/WDILibrary.php:544
+msgid "Go to the next page"
+msgstr "Перейти к следующей странице"
+
+#: framework/WDILibrary.php:545
+msgid "Go to the last page"
+msgstr "Перейти к последней странице"
+
+#: framework/WDILibrary.php:557
+msgid "Load More..."
+msgstr "Загрузить еще..."
+
+#: framework/WDILibrary.php:762
+msgid "Order by: "
+msgstr "Сортировать по:"
+
+#: framework/WDILibrary.php:764
+msgid "Default"
+msgstr "По умолчанию"
+
+#: framework/WDILibrary.php:765
+msgid "Filename"
+msgstr "Имени файла"
+
+#: framework/WDILibrary.php:766
+msgid "Size"
+msgstr "Размеру"
+
+#: framework/WDI_admin_view.php:717
+msgid "Preview"
+msgstr "Превью"
+
+#: frontend/shortcode.php:28
+msgid "Invalid shortcode"
+msgstr "Неверный шорткод"
+
+#: frontend/shortcode.php:43
+msgid "Access Token is invalid, please get it again "
+msgstr "Токен авторизации недействителен. Пожалуйста, получите новый токен"
+
+#: frontend/shortcode.php:48
+msgid "Feed Doesn't exists "
+msgstr "Фид не существует"
+
+#: frontend/shortcode.php:72
+msgid "Unable to display unpublished feed "
+msgstr "Отображение неопубликованного фида невозможно"
+
+#: frontend/shortcode.php:95
+msgid "Invalid feed type"
+msgstr "Неверный тип фида"
+
+#: frontend/shortcode.php:131
+msgid "Connection Error, try again later :("
+msgstr "Ошибка соединения. Пожалуйста, попробуйте позднее :С"
+
+#: frontend/shortcode.php:132
+msgid "Username not found"
+msgstr "Пользователь не найден"
+
+#: frontend/shortcode.php:133
+msgid "Network error, please try again later :("
+msgstr "Ошибка соединения с Сетью. Пожалуйста, попробуйте позднее :С"
+
+#: frontend/shortcode.php:134
+msgid "There is no data for that hashtag"
+msgstr "По этому хэштегу нет данных"
+
+#: frontend/shortcode.php:135
+msgid "Click to filter images by this user"
+msgstr "Кликните для фильтрации изображений по этому имени пользователя"
+
+#: frontend/shortcode.php:171
+msgid "Field is required."
+msgstr "Поле обязательно для заполнения."
+
+#: frontend/shortcode.php:172 frontend/views/WDIViewGalleryBox.php:1335
+msgid "This is not a valid email address."
+msgstr "Это неправильный адрес электронной почты."
+
+#: frontend/shortcode.php:173
+msgid "There are no images matching your search."
+msgstr "По вашему поиску изображений не найдено"
+
+#: frontend/views/WDIViewGalleryBox.php:1006
+msgid "The image has been deleted."
+msgstr "Изображение было удалено."
+
+#: frontend/views/WDIViewGalleryBox.php:1027
+#: frontend/views/WDIViewGalleryBox.php:2890
+msgid "Play"
+msgstr "Старт"
+
+#: frontend/views/WDIViewGalleryBox.php:1031
+#: frontend/views/WDIViewGalleryBox.php:2161
+#: frontend/views/WDIViewGalleryBox.php:2717
+#: frontend/views/WDIViewGalleryBox.php:2814
+msgid "Maximize"
+msgstr "Увеличить"
+
+#: frontend/views/WDIViewGalleryBox.php:1035
+#: frontend/views/WDIViewGalleryBox.php:2163
+#: frontend/views/WDIViewGalleryBox.php:2816
+msgid "Fullscreen"
+msgstr "Во весь экран"
+
+#: frontend/views/WDIViewGalleryBox.php:1037
+#: frontend/views/WDIViewGalleryBox.php:2581
+msgid "Show info"
+msgstr "Показать информацию"
+
+#: frontend/views/WDIViewGalleryBox.php:1039
+msgid "Show comments"
+msgstr "Показать комментарии"
+
+#: frontend/views/WDIViewGalleryBox.php:1041
+#: frontend/views/WDIViewGalleryBox.php:2594
+msgid "Show rating"
+msgstr "Показать рейтинг"
+
+#: frontend/views/WDIViewGalleryBox.php:1047
+#: frontend/views/WDIViewGalleryBox.php:1048
+msgid "Share on Facebook"
+msgstr "Поделиться на Facebook"
+
+#: frontend/views/WDIViewGalleryBox.php:1054
+#: frontend/views/WDIViewGalleryBox.php:1055
+msgid "Share on Twitter"
+msgstr "Поделиться в Twitter"
+
+#: frontend/views/WDIViewGalleryBox.php:1061
+#: frontend/views/WDIViewGalleryBox.php:1062
+msgid "Share on Google+"
+msgstr "Поделиться на Google+"
+
+#: frontend/views/WDIViewGalleryBox.php:1068
+#: frontend/views/WDIViewGalleryBox.php:1069
+msgid "Share on Pinterest"
+msgstr "Поделиться на Pinterest"
+
+#: frontend/views/WDIViewGalleryBox.php:1075
+#: frontend/views/WDIViewGalleryBox.php:1076
+msgid "Share on Tumblr"
+msgstr "Поделиться на Tumblr"
+
+#: frontend/views/WDIViewGalleryBox.php:1084
+msgid "Share"
+msgstr "Поделиться"
+
+#: frontend/views/WDIViewGalleryBox.php:1103
+msgid "Open image in Instagram."
+msgstr "Открыть изображение в Инстаграме."
+
+#: frontend/views/WDIViewGalleryBox.php:1131
+msgid "Download original image"
+msgstr "Скачать оригинальное изображение"
+
+#: frontend/views/WDIViewGalleryBox.php:1328
+msgid "Error. Incorrect Verification Code."
+msgstr "Ошибка. Неправильный код подтверждения."
+
+#: frontend/views/WDIViewGalleryBox.php:1343
+#: frontend/views/WDIViewGalleryBox.php:2381
+msgid "Hide Comments"
+msgstr "Скрыть комментарии"
+
+#: frontend/views/WDIViewGalleryBox.php:1354
+#: frontend/views/WDIViewGalleryBox.php:1376
+#: frontend/views/WDIViewGalleryBox.php:1383
+msgid "Email"
+msgstr "Email"
+
+#: frontend/views/WDIViewGalleryBox.php:1361
+#: frontend/views/WDIViewGalleryBox.php:1376
+#: frontend/views/WDIViewGalleryBox.php:1383
+msgid "Comment"
+msgstr "Комментарий"
+
+#: frontend/views/WDIViewGalleryBox.php:1366
+msgid "Verification Code"
+msgstr "Код подтверждения"
+
+#: frontend/views/WDIViewGalleryBox.php:1389
+msgid "Submit"
+msgstr "Отправить"
+
+#: frontend/views/WDIViewGalleryBox.php:1390
+msgid "Your comment is awaiting moderation"
+msgstr "Ваш комментарий на модерации"
+
+#: frontend/views/WDIViewGalleryBox.php:1397
+#: frontend/views/WDIViewGalleryBox.php:2066
+#: frontend/views/WDIViewGalleryBox.php:2391
+msgid "There are no comments to show"
+msgstr "Комменты для отображения отсутствуют"
+
+#: frontend/views/WDIViewGalleryBox.php:2567
+msgid "Hide info"
+msgstr "Скрыть информацию"
+
+#: frontend/views/WDIViewGalleryBox.php:2590
+msgid "Hide rating"
+msgstr "Скрыть рейтинг"
+
+#: frontend/views/WDIViewGalleryBox.php:2754
+#: frontend/views/WDIViewGalleryBox.php:2974
+msgid "Restore"
+msgstr "Восстановить"
+
+#: frontend/views/WDIViewGalleryBox.php:2869
+msgid "Exit Fullscreen"
+msgstr "Выход из полноэкранного вида"
+
+#: frontend/views/WDIViewGalleryBox.php:2884
+#: frontend/views/WDIViewGalleryBox.php:2901
+msgid "Pause"
+msgstr "Пауза"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "First Page"
+msgstr "Первая страница"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "Previous Page"
+msgstr "Предыдущая страница"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "Next Page"
+msgstr "Следующая страница"
+
+#: frontend/views/WDIViewImageBrowser_view.php:39
+#: frontend/views/WDIViewImageBrowser_view.php:51
+#: frontend/views/WDIViewThumbnails_view.php:42
+#: frontend/views/WDIViewThumbnails_view.php:59
+msgid "Last Page"
+msgstr "Последняя страница"
+
+#: frontend/views/WDIViewImageBrowser_view.php:46
+#: frontend/views/WDIViewThumbnails_view.php:52
+msgid "Load More"
+msgstr "Еще..."
+
+#: instagram-wdi-notices.php:218
+msgid "Leave A Review?"
+msgstr "Оставить отзыв?"
+
+#: instagram-wdi-notices.php:219
+#, php-format
+msgid ""
+"We hope you've enjoyed using WordPress %s! Would you consider leaving us a "
+"review on WordPress.org?"
+msgstr ""
+"Мы надеемся, что вам понравилось, использовать WordPress %s! Оставьте нам "
+"свой отзыв на WordPress.org."
+
+#: instagram-wdi-notices.php:220 instagram-wdi-notices.php:239
+msgid "Sure! I'd love to!"
+msgstr "Конечно! С удовольствием!"
+
+#: instagram-wdi-notices.php:221
+msgid "I've already left a review"
+msgstr "Я уже оставил отзыв"
+
+#: instagram-wdi-notices.php:222
+msgid "Maybe Later"
+msgstr "Может быть позже"
+
+#: instagram-wdi-notices.php:223 instagram-wdi-notices.php:233
+#: instagram-wdi-notices.php:247
+msgid "Never show again"
+msgstr "Никогда больше не показывать"
+
+#: instagram-wdi-notices.php:229 instagram-wdi-notices.php:245
+msgid "Hey! How's It Going?"
+msgstr "Привет! Как дела?"
+
+#: instagram-wdi-notices.php:230
+#, php-format
+msgid ""
+"Thank you for using WordPress %s! We hope that you've found everything you "
+"need, but if you have any questions:"
+msgstr ""
+"Благодарим Вас за использование WordPress %s! Мы надеемся, что Вы нашли все, "
+"что нужно, но если у вас есть какие-либо вопросы:"
+
+#: instagram-wdi-notices.php:231
+msgid "Check out User Guide"
+msgstr "Ознакомьтесь с Руководством пользователя"
+
+#: instagram-wdi-notices.php:232
+msgid "Get Some Help"
+msgstr "Получить помощь"
+
+#: instagram-wdi-notices.php:237
+msgid "Important"
+msgstr ""
+
+#: instagram-wdi-notices.php:238
+msgid ""
+"Instagram changed the API. You need to get a new access token by using "
+"\"Sign in with Instagram\" button on the Settings page in order to keep your "
+"Instagram Feed WD plugin functioning after June 1."
+msgstr ""
+
+#: templates/plugin-uninstalled.php:28
+msgid "you have uninstalled"
+msgstr "вы удалили"
+
+#: templates/plugin-uninstalled.php:28
+msgid ""
+"plugin,if you want to use it again simply deactivate and activate it again"
+msgstr ""
+"плагин, если Вы хотите его использовать снова - просто деактивируйте и "
+"активируйте его заново"
+
+#: wd-instagram-feed.php:121
+msgid "Configure"
+msgstr "Настройка"
+
+#: wd-instagram-feed.php:124
+msgid "Customize"
+msgstr "Кастомизация"
+
+#: wd-instagram-feed.php:152
+msgid "Instagram Feed WD"
+msgstr "WD Instagram Feed"
+
+#: wd-instagram-feed.php:154
+msgid "Themes"
+msgstr "Темы"
+
+#: wd-instagram-feed.php:155
+msgid "Settings"
+msgstr "Настройки"
+
+#: wd-instagram-feed.php:156
+msgid "Buy Pro"
+msgstr "Купить PRO-версию"
+
+#: wd-instagram-feed.php:162
+msgid "Uninstall"
+msgstr "Удалить"
+
+#: wd-instagram-feed.php:236
+msgid "All the data will be removed from the database. Continue?"
+msgstr "Все данные будут удалены из базы данных. Продолжить?"
+
+#: wd-instagram-feed.php:237
+msgid "Some error with instagram servers, try agian later :("
+msgstr "Ошибка сервера Инстаграма. Пожалуйста, попробуйте позже :("
+
+#: wd-instagram-feed.php:238
+msgid "Invalid user:"
+msgstr "Неверное имя пользователя"
+
+#: wd-instagram-feed.php:239
+msgid "already added!"
+msgstr "уже добавлено!"
+
+#: wd-instagram-feed.php:240
+msgid "User does not exist."
+msgstr "Пользователь не существует."
+
+#: wd-instagram-feed.php:241
+msgid "Network Error, please try again later. :("
+msgstr "Ошибка сети. Пожалуйста, попробуйте позже :("
+
+#: wd-instagram-feed.php:242
+msgid "Invalid hashtag"
+msgstr "Неверный хештег"
+
+#: wd-instagram-feed.php:243
+msgid "This hashtag currently has no posts. Are you sure you want to add it?"
+msgstr "По этому хэштегу нет постов. Вы все равно хотите его добавить?"
+
+#: wd-instagram-feed.php:244
+msgid "You can add only one username or hashtag in FREE Version"
+msgstr ""
+"В бесплатной версии можно добавить только одно имя пользователя или один "
+"хэштег"
+
+#: wd-instagram-feed.php:245
+msgid "Available in PRO"
+msgstr "Доступно в PRO-версии"
+
+#: wd-instagram-feed.php:246
+msgid "Combined Usernames/Hashtags are available only in PRO version"
+msgstr "Выбор нескольких пользователей/хэштегов доступен только в PRO-версии"
+
+#: wd-instagram-feed.php:247
+msgid "Customizing Themes is available only in PRO version"
+msgstr "Кастомизация тем доступна только в PRO-версии"
+
+#: wd-instagram-feed.php:248
+msgid "URL is not valid"
+msgstr "URL задан некорректно"
+
+#: wd-instagram-feed.php:249
+msgid "Please Select Condition Type"
+msgstr "Пожалуйста, выберите тип содержимого"
+
+#: wd-instagram-feed.php:250
+msgid "Show Posts Which Have All Of The Conditions"
+msgstr "Показывать посты, которые соответствуют всем фильтрам содержимого"
+
+#: wd-instagram-feed.php:251
+msgid "Show Posts Which Have At Least One Of The Conditions"
+msgstr ""
+"Показывать посты, которые соответствуют хотя бы одному фильтру содержимого"
+
+#: wd-instagram-feed.php:252
+msgid "Hide Posts Which Have At Least One Of The Conditions"
+msgstr ""
+"Не показывать посты, которые соответствуют хотя бы одному фильтру содержимого"
+
+#: wd-instagram-feed.php:253
+msgid "EITHER"
+msgstr "ИЛИ"
+
+#: wd-instagram-feed.php:254
+msgid "NEITHER"
+msgstr "НИ"
+
+#: wd-instagram-feed.php:255
+msgid "EXCEPT"
+msgstr "КРОМЕ"
+
+#: wd-instagram-feed.php:256
+msgid "AND"
+msgstr "И"
+
+#: wd-instagram-feed.php:257
+msgid "OR"
+msgstr "ИЛИ"
+
+#: wd-instagram-feed.php:258
+msgid "NOR"
+msgstr "НИ"
+
+#~ msgid "Source of filtering"
+#~ msgstr "Исходные данные для фильтрации"
+
+#~ msgid ""
+#~ "Please note that filters are being applied to maximum 330 image per load. "
+#~ "This means that even if you have 25 images per load but only 20 images "
+#~ "correspond to your filter then those 20 images will be displayed during "
+#~ "the load."
+#~ msgstr ""
+#~ "Пожалуйста, учитывайте, что фильтры будут применены не более чем к 330 "
+#~ "изображениям за одну загрузку. Это означает, что даже если у Вас для "
+#~ "загрузки отмечено 25 изображений, но подходят по фильтру только 20 - "
+#~ "будут показаны только 20 изображений."
+
+#~ msgid "Add Condition"
+#~ msgstr "Добавить сожержимое"
+
+#~ msgid "Enter Your Codition Here..."
+#~ msgstr "Введите нужное содержимое здесь."
+
+#~ msgid "Condition Type"
+#~ msgstr "Тип содержимого"
+
+#~ msgid "Hashtag"
+#~ msgstr "Хэштег"
+
+#~ msgid "Mention"
+#~ msgstr "Упоминание"
+
+#~ msgid "Description"
+#~ msgstr "Описание"
+
+#~ msgid "Instagram Media Link"
+#~ msgstr "Ссылка на изображение в Instagram"
+
+#~ msgid "Add New Condition"
+#~ msgstr "Добавить новое содержимое"
+
+#~ msgid ""
+#~ "Write your condition, select condition type and click on Add New "
+#~ "Condition. You can add as many conditions as you want. You can add "
+#~ "different condition types mixed together as well."
+#~ msgstr ""
+#~ "Опишите нужное содержимое, выберите нужный тип и нажмите на кнопку "
+#~ "\"Добавить новое содержимое\". Вы можете добавить так много содержимого, "
+#~ "сколько нужно Вам, а также комбинировать типы содержимого."
+
+#~ msgid "Result"
+#~ msgstr "Результат"
+
+#~ msgid "Posts Which Meet Following Condition Would Be Shown"
+#~ msgstr "Посты, которые подходят под содержимое, будут отображены."
+
+#~ msgid "Click here to get your access token and user ID"
+#~ msgstr "Нажмите здесь, чтобы получить свой токен и ID"
+
+#~ msgid "This section allows you to create, edit and delete Feeds."
+#~ msgstr "Этот раздел позволяет вам создавать, редактировать и удалять фиды."
+
+#~ msgid "Follow on Instagram button"
+#~ msgstr "Кнопка \"Следовать в Инстаграме\""
+
+#~ msgid "Resort After Loading New Images"
+#~ msgstr "Пересортировка после загрузки новых изображений"
+
+#~ msgid "Show Usernames"
+#~ msgstr "Показать имена пользователей"
+
+#~ msgid "Enable Original Image Display Button"
+#~ msgstr "Вкл. кнопку Отобр. оригин. изобр."
+
+#~ msgid "Delete all plugin related data from database"
+#~ msgstr "Удалить из базы данных все данные, касающиеся плагина"
+
+#~ msgid "This section allows you to create, edit and delete Themes."
+#~ msgstr "Этот раздел позволяет вам создавать, редактировать и удалять темы."
+
+#~ msgid "Read More in User Manual."
+#~ msgstr "Подробнее в руководстве пользователя"
+
+#~ msgid "Theme Name"
+#~ msgstr "Название темы"
+
+#~ msgid "Feed Container Width"
+#~ msgstr "Ширина контейнера фида"
+
+#~ msgid "Includes all feed elements"
+#~ msgstr "Включает все элементы фида"
+
+#~ msgid "Feed Container Background Color"
+#~ msgstr "Фоновый цвет контейнера фида"
+
+#~ msgid "Feed Wrapper Width"
+#~ msgstr "Ширина враппера фида"
+
+#~ msgid "Includes only feed images, does not include feed header"
+#~ msgstr "Включает только  картинки фида, но не заголовок"
+
+#~ msgid "Feed Wrapper Background Color"
+#~ msgstr "Фоновый цвет враппера фида"
+
+#~ msgid "Header Margin"
+#~ msgstr "Отступ заголовка"
+
+#~ msgid "Header Padding"
+#~ msgstr "Внутренний отступ заголовка"
+
+#~ msgid "Header Border Size"
+#~ msgstr "Размер рамки заголовка"
+
+#~ msgid "Header Border Color"
+#~ msgstr "Цвет рамки заголовка"
+
+#~ msgid "Header Position"
+#~ msgstr "Позиция заголовка"
+
+#~ msgid "Left"
+#~ msgstr "Слева"
+
+#~ msgid "Center"
+#~ msgstr "По центру"
+
+#~ msgid "Right"
+#~ msgstr "Справа"
+
+#~ msgid "Header Image Width"
+#~ msgstr "Ширина названия картинки"
+
+#~ msgid "Header Border Radius"
+#~ msgstr "Радиус рамки заголовка"
+
+#~ msgid "Header Text Padding"
+#~ msgstr "Внутренний отступ текста заголовка"
+
+#~ msgid "Header Text Color"
+#~ msgstr "Цвет текста заголовка"
+
+#~ msgid "Header Font Weight"
+#~ msgstr "Толщина шрифта заголовка"
+
+#~ msgid "400 (Normal)"
+#~ msgstr "400 (нормальный)"
+
+#~ msgid "Header Text Font Size"
+#~ msgstr "Размер шрифта текста заголовка"
+
+#~ msgid "Header Text Font Style"
+#~ msgstr "Стиль шрифта текста заголовка"
+
+#~ msgid "Min Image Width"
+#~ msgstr "Минимальная ширина изображения"
+
+#~ msgid "Max Image Width"
+#~ msgstr "Максимальная ширина изображения"
+
+#~ msgid "User Horizontal Margin"
+#~ msgstr "Горизонтальный отступ имени пользователя"
+
+#~ msgid "User Padding"
+#~ msgstr "Внутренний отступ имени пользователя"
+
+#~ msgid "User Border Size"
+#~ msgstr "Размер рамки имени пользователя"
+
+#~ msgid "User Border Color"
+#~ msgstr "Цвет рамки имени пользователя"
+
+#~ msgid "User Border Radius"
+#~ msgstr "Радиус рамки имени пользователя"
+
+#~ msgid "User Background Color"
+#~ msgstr "Фоновый цвет имени пользователя"
+
+#~ msgid "Users Border Color"
+#~ msgstr "Цвет рамки имен пользователей"
+
+#~ msgid "Users Background Color"
+#~ msgstr "Фоновый цвет ‪имен пользователей"
+
+#~ msgid "Load More Button Position"
+#~ msgstr "Позиция кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Padding"
+#~ msgstr "Внутренний отступ кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Background Color"
+#~ msgstr "Фоновый цвет кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Border Radius"
+#~ msgstr "Радиус рамки кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Height"
+#~ msgstr "Высота кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Width"
+#~ msgstr "Ширина кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Border Size"
+#~ msgstr "Ширина рамки кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Border Color"
+#~ msgstr "Цвет рамки кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Text Color"
+#~ msgstr "Цвет текста кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Text Font Size"
+#~ msgstr "Размер шрифта кнопки \"Загрузить еще\""
+
+#~ msgid "Load More Button Hover Color"
+#~ msgstr "Цвет при наведении на кнопку \"Загрузить еще\""
+
+#~ msgid "Pagination Color"
+#~ msgstr "Цвет нумерации страниц"
+
+#~ msgid "Pagination Height"
+#~ msgstr "Высота нумерации страниц"
+
+#~ msgid "Pagination Button Margins"
+#~ msgstr "Отступы кнопки нумерации страниц"
+
+#~ msgid "Pagination Hover Color"
+#~ msgstr "Цвет при наведении на нумерацию страниц"
+
+#~ msgid "Pagination Buttons Alignment"
+#~ msgstr "Выравнивание кнопок нумерации страниц"
+
+#~ msgid "Pagination Buttons Position"
+#~ msgstr "Позиция кнопок нумерации страниц"
+
+#~ msgid "Top"
+#~ msgstr "Верх"
+
+#~ msgid "Bottom"
+#~ msgstr "Низ"
+
+#~ msgid "Overlay Background Color"
+#~ msgstr "Цвет фона наложения"
+
+#~ msgid "Overlay background transparency"
+#~ msgstr "Прозрачность фона наложения"
+
+#~ msgid "Lightbox Background Color"
+#~ msgstr "Цвет фона лайтбокса"
+
+#~ msgid "Control Buttons Height"
+#~ msgstr "Высота кнопок управления"
+
+#~ msgid "Control Buttons Margin (top)"
+#~ msgstr "Отступ кнопок управления (сверху)"
+
+#~ msgid "Control Buttons Margin (left)"
+#~ msgstr "Отступ кнопок управления (слева)"
+
+#~ msgid "Control Buttons Position"
+#~ msgstr "Положение кнопок управления"
+
+#~ msgid "Control Buttons Background Color"
+#~ msgstr "Цвет фона кнопок управления"
+
+#~ msgid "Control Buttons Container Border Radius"
+#~ msgstr "Радиус рамки контейнера кнопок управления"
+
+#~ msgid "Control Buttons Transparency"
+#~ msgstr "Прозрачность кнопок управления"
+
+#~ msgid "Control Buttons Alignment"
+#~ msgstr "Выравнивание кнопок управления"
+
+#~ msgid "Control Buttons Color"
+#~ msgstr "Цвет кнопок управления"
+
+#~ msgid "Toggle Button Height"
+#~ msgstr "Высота переключателя"
+
+#~ msgid "Toggle Button Width"
+#~ msgstr "Ширина переключателя"
+
+#~ msgid "Close Button Border Radius"
+#~ msgstr "Радиус рамки кнопки \"Закрыть\""
+
+#~ msgid "Close Button Border Width"
+#~ msgstr "Ширина рамки кнопки \"Закрыть\""
+
+#~ msgid "Close Button Border Style"
+#~ msgstr "Стиль рамки кнопки \"Закрыть\""
+
+#~ msgid "Close Button Border Color"
+#~ msgstr "Цвет рамки кнопки \"Закрыть\""
+
+#~ msgid "Close Button Box Shadow"
+#~ msgstr "Тень блока кнопки \"Закрыть\""
+
+#~ msgid "Close Button Background Color"
+#~ msgstr "Цвет фона кнопки \"Закрыть\""
+
+#~ msgid "Close Button Transparency"
+#~ msgstr "Прозрачность кнопки \"Закрыть\""
+
+#~ msgid "Close Button Width"
+#~ msgstr "Ширина кнопки \"Закрыть\""
+
+#~ msgid "Close Button Height"
+#~ msgstr "Высота кнопки \"Закрыть\""
+
+#~ msgid "Close Button Top"
+#~ msgstr "Верхний отступ кнопки \"Закрыть\""
+
+#~ msgid "Close Button Right"
+#~ msgstr "Правый отступ кнопки \"Закрыть\""
+
+#~ msgid "Close Button Size"
+#~ msgstr "Размер кнопки \"Закрыть\""
+
+#~ msgid "Close Button Color"
+#~ msgstr "Цвет кнопки \"Закрыть\""
+
+#~ msgid "Fullscreen Close Button Color"
+#~ msgstr "Полноэкранный цвет кнопки \"Закрыть\""
+
+#~ msgid "Share Buttons Color"
+#~ msgstr "Цвет кнопок \"Поделиться\""
+
+#~ msgid "Right, Left Buttons Style"
+#~ msgstr "Стиль кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Background Color"
+#~ msgstr "Фоновой цвет кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Transparency"
+#~ msgstr "Прозрачность кнопок влево / вправо"
+
+#~ msgid "Right, Left Buttons Box Shadow: "
+#~ msgstr "Тень блока кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Height"
+#~ msgstr "Высота кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Width"
+#~ msgstr "Ширина кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Size"
+#~ msgstr "Размеры кнопок вправо / влево "
+
+#~ msgid "Right, Left, Close Buttons Hover Color"
+#~ msgstr "Цвет при наведении на кнопки Вправо, Влево, Закрыть"
+
+#~ msgid "Right, Left Buttons Color"
+#~ msgstr "Цвет кнопок влево / вправо"
+
+#~ msgid "Right, Left Buttons Border Radius"
+#~ msgstr "Радиус рамки кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Border Width"
+#~ msgstr "Ширина рамки кнопок враво / влево"
+
+#~ msgid "Right, Left Buttons Border Style"
+#~ msgstr "Стиль рамки кнопок вправо / влево"
+
+#~ msgid "Right, Left Buttons Border Color"
+#~ msgstr "Цвет рамки кнопок вправо / влево"
+
+#~ msgid "Filmstrip Position"
+#~ msgstr "Позиция диафильма"
+
+#~ msgid "Filmstrip Thumbnail Margin"
+#~ msgstr "Отступ между миниатюрами диафильма"
+
+#~ msgid "Filmstrip Thumbnail Border Width"
+#~ msgstr "Ширина рамок миниатюр диафильма"
+
+#~ msgid "Filmstrip Thumbnail Border Style"
+#~ msgstr "Стиль рамок миниатюр диафильма"
+
+#~ msgid "Filmstrip Thumbnail Border Color"
+#~ msgstr "Цвет рамок миниатюр диафильма"
+
+#~ msgid "Filmstrip Thumbnail Border Radius"
+#~ msgstr "Радиус рамок миниатюр диафильма"
+
+#~ msgid "Filmstrip Thumbnail Active Border Width"
+#~ msgstr "Ширина рамок активной миниатюры диафильма"
+
+#~ msgid "Filmstrip Thumbnail Active Border Color"
+#~ msgstr "Цвет рамки активной миниатюры диафильма"
+
+#~ msgid "Filmstrip Thumbnail Deactive Transparency"
+#~ msgstr "Прозрачность неактивных миниатюр диафильма"
+
+#~ msgid "Filmstrip Right, Left Buttons Size"
+#~ msgstr "Размер кнопок вправо / влево на диафильме"
+
+#~ msgid "Filmstrip Right, Left Buttons Color"
+#~ msgstr "Цвет кнопок влево / вправо в диафильме"
+
+#~ msgid "Filmstrip Right, Left Button Background Color"
+#~ msgstr "Цвет фона кнопок влево / вправо в диафильме"
+
+#~ msgid "Info Position"
+#~ msgstr "Позиция информации"
+
+#~ msgid "Info Alignment"
+#~ msgstr "Выравнивание информации"
+
+#~ msgid "Info Background Color"
+#~ msgstr "Цвет фона информации"
+
+#~ msgid "Info Background Transparency"
+#~ msgstr "Прозрачность фона информации"
+
+#~ msgid "Info border width"
+#~ msgstr "Ширина рамки информации"
+
+#~ msgid "Info Border Style"
+#~ msgstr "Стиль рамки информации"
+
+#~ msgid "Info Border Color"
+#~ msgstr "Цвет рамки информации"
+
+#~ msgid "Info Border Radius"
+#~ msgstr "Радиус рамки информации"
+
+#~ msgid "Info Padding"
+#~ msgstr "Внутренний отступ информации"
+
+#~ msgid "Info Margin"
+#~ msgstr "Отступ информации"
+
+#~ msgid "Title Font Color"
+#~ msgstr "Цвет шрифта названия"
+
+#~ msgid "Title Font Family"
+#~ msgstr "Семейство шрифтов названия"
+
+#~ msgid "Title Font Weight"
+#~ msgstr "Толщина шрифта названия"
+
+#~ msgid "Title Font Size"
+#~ msgstr "Размер шрифта названия"
+
+#~ msgid "Description Font Color"
+#~ msgstr "Цвет шрифта описания"
+
+#~ msgid "Description Font Family"
+#~ msgstr "Семейство шрифтов описания"
+
+#~ msgid "Description Font Weight"
+#~ msgstr "Толщина шрифта описания"
+
+#~ msgid "Description Font Size"
+#~ msgstr "Размер шрифта описания"
+
+#~ msgid "Comments Width"
+#~ msgstr "Ширина комментариев"
+
+#~ msgid "Comments Position"
+#~ msgstr "Положение комментариев"
+
+#~ msgid "Comments Background Color"
+#~ msgstr "Цвет фона комментариев"
+
+#~ msgid "Comments Font Size"
+#~ msgstr "Размер шрифта  комментариев"
+
+#~ msgid "Comments Font Color"
+#~ msgstr "Цвет шрифта комментариев"
+
+#~ msgid "Comments Font Family"
+#~ msgstr "Семейство шрифтов комментариев"
+
+#~ msgid "Comments Author Font Size"
+#~ msgstr "Размер шрифта автора комментариев"
+
+#~ msgid "Users and Hashtag Color"
+#~ msgstr "Цвет ‪имен пользователей и хештегов"
+
+#~ msgid "Users and Hashtag Hover Color"
+#~ msgstr "Цвет ‪имен пользователей и хештегов при наведении"
+
+#~ msgid "Comments Date Font Size"
+#~ msgstr "Размер шрифта даты комментариев"
+
+#~ msgid "Comments Body Font Size"
+#~ msgstr "Размер шрифта тела комментариев"
+
+#~ msgid "Comment Input Border Width"
+#~ msgstr "Ширина рамки поля ввода комментариев"
+
+#~ msgid "Comment Input Border Style"
+#~ msgstr "Стиль рамки поля ввода комментариев"
+
+#~ msgid "Comment Input Border Color"
+#~ msgstr "Цвет рамки поля ввода комментариев"
+
+#~ msgid "Comment Input Border Radius"
+#~ msgstr "Радиус рамки поля ввода комментариев"
+
+#~ msgid "Comment Input Padding"
+#~ msgstr "Внутренний отступ поля ввода комментариев"
+
+#~ msgid "Comment Input Background Color"
+#~ msgstr "Цвет фона поля ввода комментариев"
+
+#~ msgid "Comment Button Background Color"
+#~ msgstr "Цвет фона кнопки комментирования"
+
+#~ msgid "Comment Button Padding"
+#~ msgstr "Внутренний отступ кнопки комментирования"
+
+#~ msgid "Comment Button Border Width"
+#~ msgstr "Ширина рамки кнопки комментирования"
+
+#~ msgid "Comment Button Border Style"
+#~ msgstr "Стиль рамки кнопки комментирования"
+
+#~ msgid "Comment Button Border Color"
+#~ msgstr "Цвет рамки кнопки комментирования"
+
+#~ msgid "Comment Button Border Radius"
+#~ msgstr "Радиус рамки кнопки комментирования"
+
+#~ msgid "Comment Separator Width"
+#~ msgstr "Ширина разделителя комментариев"
+
+#~ msgid "Comment Separator Style"
+#~ msgstr "Стиль разделителя комментариев"
+
+#~ msgid "Comment Separator Color"
+#~ msgstr "Цвет разделителя комментариев"
+
+#~ msgid "Photo Wrapper Padding"
+#~ msgstr "Внутренний отступ враппера изображений"
+
+#~ msgid "Photo Wrapper Border Size"
+#~ msgstr "Ширина рамки враппера изображений"
+
+#~ msgid "Photo Wrapper Border Color"
+#~ msgstr "Цвет рамки враппера изображений"
+
+#~ msgid "Photo border Radius"
+#~ msgstr "Радиус рамки изображения"
+
+#~ msgid "Photo Wrapper Background Color"
+#~ msgstr "Фоновый цвет враппера изображения"
+
+#~ msgid "Photo Meta Background Color"
+#~ msgstr "Фоновый цвет МЕТА-информации изображения"
+
+#~ msgid "Same Line For Likes and Comments"
+#~ msgstr "Одна линия для лайков и комментариев"
+
+#~ msgid "\"Likes\" Text Color"
+#~ msgstr "Цвет текста лайков"
+
+#~ msgid "\"Comments\" Text Color"
+#~ msgstr "Цвет текста комментариев"
+
+#~ msgid "Photo Caption Font Size"
+#~ msgstr "Размер шрифта подписи фото"
+
+#~ msgid "Photo Caption Color"
+#~ msgstr "Цвет подписи фото"
+
+#~ msgid "Photo Margin"
+#~ msgstr "Отступ подписи фото"
+
+#~ msgid "Photo Caption Hover Color"
+#~ msgstr "Цвет при наведении на подпись фото"
+
+#~ msgid "\"Likes\" and \"Comments\" Font Size"
+#~ msgstr "Размер шрифта  лайков и комментариев"
+
+#~ msgid "Access Token is invalid, please get it again"
+#~ msgstr "Токен доступа неверный, пожалуйста, получите его заново"
+
+#~ msgid "Feed Doesn't exists"
+#~ msgstr "Фид не существует"
+
+#~ msgid "Unable to display unpublished feed"
+#~ msgstr "Невозможно отобразить неопубликованный фид"
+
+#~ msgid "Instagram WDI"
+#~ msgstr "Instagram WDI"
+
+#~ msgid "Already added!"
+#~ msgstr "Уже добавлено!"
+
+#~ msgid "Instagram WD description."
+#~ msgstr "Описание Instagram WD"
+
+#~ msgid "Updates"
+#~ msgstr "Обновления"
+
+#~ msgid ""
+#~ "You can download the latest version of your plugins from your %s "
+#~ "account.\n"
+#~ "            After deactivate and delete the current version.\n"
+#~ "            Install the downloaded latest version of the plugin."
+#~ msgstr ""
+#~ "Вы можете загрузить последнюю версию плагинов из своего %s аккаунта.\n"
+#~ "            После деактивации удалите текущую версию.\n"
+#~ "            Установите загруженную последнюю плагина."
+
+#~ msgid "Current version %s"
+#~ msgstr "Текущая версия %s"
+
+#~ msgid "There is a new %s version"
+#~ msgstr "Есть новая %s версия"
+
+#~ msgid "What's new:"
+#~ msgstr "Что нового:"
+
+#~ msgid "More updates"
+#~ msgstr "Больше обновлений"
+
+#~ msgid "%s is up to date."
+#~ msgstr "%s обновлен."
+
+#~ msgid "Show less"
+#~ msgstr "Показать меньше информации"
+
+#~ msgid "Close Button: "
+#~ msgstr "Кнопка Закрыть"

@@ -1,0 +1,135 @@
+// _s inherited styles
+.sticky {display: block;}
+
+//.hentry {margin: 0 0 1.5em;}
+
+.byline,
+.updated:not(.published){display: none;}
+
+.single .byline,
+.group-blog .byline {display: inline;}
+
+//.page-content, .entry-content, .entry-summary {margin: 1.5em 0 0;}
+
+.page-links {clear: both; margin: 0 0 1.5em;}
+
+// onemohrtime styles
+
+#content {
+    padding-top: 100px;
+    background-color: @white;
+    @media @screen768 {
+        background: no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+.project,
+.project-all,
+.page-content,
+.entry-content,
+.entry-summary,
+.halfie-content {
+    font-size: 1em;
+    @media @screen1024 {
+        font-size: 1.3125em;
+    }
+}
+
+.project-all {
+    &-header {
+        padding: 0 1em;
+        text-align: center;
+    }
+    &-content {
+        padding: 0 1.7em;
+        @media @screen600 {padding: 0 10%;}
+        @media @screen840 {padding: 0 15%;}
+        @media @screen1024 {padding: 0 20%;}
+        @media @screen1600 {padding: 0 25%;}
+    }
+}
+
+.project {
+    &-header {
+        position: relative;
+        hgroup {
+            padding: 0 1.7em 1.7em;
+            @media @screen840 {
+                position: absolute;
+                bottom: 3.4em;
+                left: 1.7em;
+                padding: 0;
+                color: @white;
+                max-width: 75%;
+                .text-shadow;
+            }
+        }
+    }
+    &-banner {
+        position: relative;
+        margin: 0;
+        height: 500px;
+        // Issue in compiling:
+        // stackoverflow.com/questions/27256849/it-is-possible-to-use-vh-minus-pixels-in-a-css-calc
+        // height: calc(100vh - 100px);
+        height: calc(~"100vh - 100px");
+        background: @white no-repeat center center scroll;
+        background-size: cover;
+        .btn {
+            .btn-color(@white,@yellow);
+            position: absolute;
+            bottom: 1.7em;
+            right: 1.7em;
+        }
+    }
+    &-description {
+        padding: 0 1.7em 1.7em;
+        @media @screen600 {padding: 0 10% 1.7em;}
+        @media @screen840 {padding: 0 15% 1.7em;}
+        @media @screen1024 {padding: 0 20% 1.7em;}
+        @media @screen1600 {padding: 0 25% 1.7em;}
+    }
+    &-specs {
+        padding: 0 1.7em 1.7em;
+        h4 {margin-bottom: 1em;}
+        ul {
+            list-style: none;
+            margin: 0;
+            li {
+                display: block;
+                width: 100%;
+                padding: .5em;
+                &:nth-of-type(odd) {font-weight: 700;}
+            }
+            @media @screen480 {
+                display: flex;
+                flex-flow: row wrap;
+                li {
+                    flex: 1 0 50%;
+                    border-bottom: 1px @lightgray solid;
+                    &:nth-last-child(-n+2) {border-bottom: 0;}
+                }
+            }
+        }
+        @media @screen600 {padding: 0 10% 1.7em;}
+        @media @screen840 {padding: 0 15% 1.7em;}
+        @media @screen1024 {padding: 0 20% 1.7em;}
+        @media @screen1600 {padding: 0 25% 1.7em;}
+    }
+}
+
+.halfie {
+    width: 100%;
+    padding: 0 20px 20px;
+    #breadcrumbs {padding-left: 0;}
+    @media @screen540 {padding: 0 30px 30px;}
+    @media @screen768 {
+        width: 66.66666%;
+        margin-left: 33.33333%;
+    }
+    @media @screen960 {
+        width: 50%;
+        margin-left: 50%;
+    }
+}

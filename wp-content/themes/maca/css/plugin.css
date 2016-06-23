@@ -1,0 +1,543 @@
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* Icon Fonts
+*********************************/
+/* Font-face Icons */
+@font-face {
+	font-family: 'flexslider-icon';
+	src:url('fonts/flexslider-icon.eot');
+	src:url('fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/flexslider-icon.woff') format('woff'),
+		url('fonts/flexslider-icon.ttf') format('truetype'),
+		url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { margin: 0 0 60px; background: #fff; border: 4px solid #fff; position: relative; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2); -o-box-shadow: 0 1px 4px rgba(0,0,0,.2); box-shadow: 0 1px 4px rgba(0,0,0,.2); zoom: 1; }
+.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px; }
+.flexslider .slides { zoom: 1; }
+.carousel li { margin-right: 5px; }
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a  { display: block; width: 40px; height: 40px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer; color: rgba(0,0,0,0.8); text-shadow: 1px 1px 0 rgba(255,255,255,0.3); -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; }
+.flex-direction-nav .flex-prev { left: -50px; }
+.flex-direction-nav .flex-next { right: -50px; text-align: right; }
+.flexslider:hover .flex-prev { opacity: 0.7; left: 10px; }
+.flexslider:hover .flex-next { opacity: 0.7; right: 10px; }
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; }
+.flex-direction-nav .flex-disabled { opacity: 0!important; filter:alpha(opacity=0); cursor: default; }
+.flex-direction-nav a:before  { font-family: "flexslider-icon"; font-size: 40px; display: inline-block; content: '\f001'; }
+.flex-direction-nav a.flex-next:before  { content: '\f002'; }
+
+/* Pause/Play */
+.flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
+.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: '\f004'; }
+.flex-pauseplay a:hover  { opacity: 1; }
+.flex-pauseplay a.flex-play:before { content: '\f003'; }
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: -40px; text-align: center;}
+.flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {width: 11px; height: 11px; display: block; background: #666; background: rgba(0,0,0,0.5); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); -o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); box-shadow: inset 0 0 3px rgba(0,0,0,0.3); }
+.flex-control-paging li a:hover { background: #333; background: rgba(0,0,0,0.7); }
+.flex-control-paging li a.flex-active { background: #000; background: rgba(0,0,0,0.9); cursor: default; }
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev { opacity: 1; left: 10px;}
+  .flex-direction-nav .flex-next { opacity: 1; right: 10px;}
+}
+
+/* ================= */
+
+
+
+/* SmartMenus Core CSS (it's not recommended editing this)
+===============================================================*/
+
+.sm,.sm ul,.sm li{display:block;list-style:none;padding:0;margin:0;line-height:normal;direction:ltr;}
+ul.sm li{position:relative;}
+ul.sm a{position:relative;display:block;}
+ul.sm a.disabled{cursor:default;}
+ul.sm ul{position:absolute;top:-999999px;left:-800px;width:100px;}
+ul.sm li{float:left;}
+ul.sm-rtl{direction:rtl;}
+ul.sm-rtl li{float:right;}
+ul.sm ul li,ul.sm-vertical li{float:none;}
+ul.sm a{white-space:nowrap;}
+ul.sm ul a,ul.sm-vertical a{white-space:normal;}
+* html ul.sm-vertical li{float:left;width:100%;}
+* html ul.sm-vertical ul li{float:none;width:auto;}
+*:first-child+html ul.sm-vertical>li{float:left;width:100%;}
+ul.sm ul.sm-nowrap>li>a{white-space:nowrap;}
+ul.sm:after{content:"\00a0";display:block;height:0;font:0/0 serif;clear:both;visibility:hidden;overflow:hidden;}
+* html ul.sm{height:1px;}
+*:first-child+html ul.sm{min-height:1px;}
+ul.sm li *,ul.sm li *:before,ul.sm li *:after{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
+ul.sm{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+
+
+
+
+
+
+
+
+
+/* Import "PT Sans Narrow" font from Google fonts */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+
+
+/*
+---------------------------------------------------------------
+  Note that styles you apply to the main menu items are inherited by the sub menus items too.
+  If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
+  .sm-blue > li > a { ... } instead of .sm-blue a { ... }
+---------------------------------------------------------------*/
+
+
+/* Menu box
+===================*/
+
+	.sm-blue {
+		background:#3193c0; /* Old browsers */
+		background-image:url(css-gradients-fallback/main-menu-bg.png);
+		background-image:-moz-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#4cb1e0),color-stop(100%,#1675a1));
+		background-image:-webkit-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:-o-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:-ms-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		-moz-box-shadow:0 1px 1px rgba(0,0,0,0.3);
+		-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3);
+		box-shadow:0 1px 1px rgba(0,0,0,0.3);
+	}
+	.sm-blue-vertical {
+		-moz-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+		-webkit-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+		box-shadow:0 1px 4px rgba(0,0,0,0.3);
+	}
+	.sm-blue ul {
+		border:1px solid #a9a9a9;
+		padding:7px 0;
+		background:#fff;
+		-moz-border-radius:0 0 4px 4px;
+		-webkit-border-radius:0 0 4px 4px;
+		border-radius:0 0 4px 4px;
+		-moz-box-shadow:0 5px 12px rgba(0,0,0,0.3);
+		-webkit-box-shadow:0 5px 12px rgba(0,0,0,0.3);
+		box-shadow:0 5px 12px rgba(0,0,0,0.3);
+	}
+	/* for vertical main menu subs and 2+ level horizontal main menu subs round all corners */
+	.sm-blue-vertical ul,
+	.sm-blue ul ul {
+		-moz-border-radius:4px;
+		-webkit-border-radius:4px;
+		border-radius:4px;
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-blue a {
+		padding:13px 24px;
+		color:#fff;
+		font-size:18px;
+		line-height:23px;
+		font-family:"PT Sans Narrow","Arial Narrow",Arial,Helvetica,sans-serif;
+		font-weight:bold;
+		text-decoration:none;
+		text-shadow:0 1px 0 rgba(0,0,0,0.3);
+	}
+	.sm-blue a:hover, .sm-blue a:focus, .sm-blue a:active,
+	.sm-blue a.highlighted {
+		background:#1983af; /* Old browsers */
+		background-image:url(css-gradients-fallback/main-item-hover-bg.png);
+		background-image:-moz-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:-webkit-gradient(linear,left top, left bottom,color-stop(0%,#34a2d0),color-stop(100%,#006791));
+		background-image:-webkit-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:-o-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:-ms-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:linear-gradient(top,#34a2d0 0%,#006791 100%);
+		color:#fff;
+	}
+	.sm-blue-vertical a {
+		padding:9px 40px 8px 23px;
+		background:#3193c0; /* Old browsers */
+		background-image:url(css-gradients-fallback/vertical-main-item-bg.png);
+		background-image:-moz-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3fa3d1),color-stop(100%,#2586b3));
+		background-image:-webkit-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
+		background-image:-o-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
+		background-image:-ms-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
+		background-image:linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
+	}
+	.sm-blue ul a {
+		padding:9px 40px 8px 23px;
+		background:transparent;
+		color:#247eab;
+		font-size:16px;
+		text-shadow:none;
+	}
+	.sm-blue ul a:hover, .sm-blue ul a:focus, .sm-blue ul a:active,
+	.sm-blue ul a.highlighted {
+		background:#3193c0; /* Old browsers */
+		background-image:url(css-gradients-fallback/main-menu-bg.png);
+		background-image:-moz-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#4cb1e0),color-stop(100%,#1675a1));
+		background-image:-webkit-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:-o-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:-ms-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		background-image:linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+		color:#fff;
+		text-shadow:0 1px 0 rgba(0,0,0,0.3);
+	}
+	/* current items - add the class manually to some item or check the "markCurrentItem" script option */
+	.sm-blue a.current, .sm-blue a.current:hover, .sm-blue a.current:focus, .sm-blue a.current:active,
+	.sm-blue ul a.current, .sm-blue ul a.current:hover, .sm-blue ul a.current:focus, .sm-blue ul a.current:active {
+		background:#006892;
+		background-image:url(css-gradients-fallback/current-item-bg.png);
+		background-image:-moz-linear-gradient(top,#005a84 0%,#00749f 100%);
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#005a84),color-stop(100%,#00749f));
+		background-image:-webkit-linear-gradient(top,#005a84 0%,#00749f 100%);
+		background-image:-o-linear-gradient(top,#005a84 0%,#00749f 100%);
+		background-image:-ms-linear-gradient(top,#005a84 0%,#00749f 100%);
+		background-image:linear-gradient(top,#005a84 0%,#00749f 100%);
+		color:#fff;
+		text-shadow:0 1px 0 rgba(0,0,0,0.3);
+	}
+	/* round the left corners of the first item for horizontal main menu */
+	.sm-blue > li:first-child > a {
+		-moz-border-radius:8px 0 0 8px;
+		-webkit-border-radius:8px 0 0 8px;
+		border-radius:8px 0 0 8px;
+	}
+	/* round the corners of the first and last items for vertical main menu */
+	.sm-blue-vertical > li:first-child > a {
+		-moz-border-radius:8px 8px 0 0;
+		-webkit-border-radius:8px 8px 0 0;
+		border-radius:8px 8px 0 0;
+	}
+	.sm-blue-vertical > li:last-child > a {
+		-moz-border-radius:0 0 8px 8px;
+		-webkit-border-radius:0 0 8px 8px;
+		border-radius:0 0 8px 8px;
+	}
+	.sm-blue a.has-submenu {
+
+	}
+
+
+/* Sub menu indicators
+===================*/
+
+	.sm-blue a span.sub-arrow {
+		position:absolute;
+		bottom:2px;
+		left:50%;
+		margin-left:-5px;
+		/* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+		width:0;
+		height:0;
+		overflow:hidden;
+		border-width:5px; /* tweak size of the arrow */
+		border-style:solid dashed dashed dashed;
+		border-color:#a4cde1 transparent transparent transparent;
+	}
+	.sm-blue-vertical a span.sub-arrow,
+ 	.sm-blue ul a span.sub-arrow {
+		bottom:auto;
+		top:50%;
+		margin-top:-5px;
+		right:15px;
+		left:auto;
+		margin-left:0;
+		border-style:dashed dashed dashed solid;
+		border-color:transparent transparent transparent #a4cde1;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-blue li {
+		border-left:1px solid #1a8bb9;
+	}
+	.sm-blue li:first-child,
+	.sm-blue-vertical li,
+	.sm-blue ul li {
+		border-left:0;
+	}
+
+
+/* Scrolling arrows containers for tall sub menus - test sub menu: "Sub test" -> "more..." -> "more..." in the default download package
+===================*/
+
+	.sm-blue span.scroll-up, .sm-blue span.scroll-down {
+		position:absolute;
+		display:none;
+		visibility:hidden;
+		overflow:hidden;
+		background:#ffffff;
+		height:20px;
+		/* width and position will be automatically set by the script */
+	}
+	.sm-blue span.scroll-up-arrow, .sm-blue span.scroll-down-arrow {
+		position:absolute;
+		top:-2px;
+		left:50%;
+		margin-left:-8px;
+		/* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+		width:0;
+		height:0;
+		overflow:hidden;
+		border-width:8px; /* tweak size of the arrow */
+		border-style:dashed dashed solid dashed;
+		border-color:transparent transparent #247eab transparent;
+	}
+	.sm-blue span.scroll-down-arrow {
+		top:6px;
+		border-style:solid dashed dashed dashed;
+		border-color:#247eab transparent transparent transparent;
+	}
+
+
+
+/*
+---------------------------------------------------------------
+  Responsiveness
+  These will make the sub menus collapsible when the screen width is too small.
+---------------------------------------------------------------*/
+
+
+/* decrease horizontal main menu items left/right padding to avoid wrapping */
+@media screen and (max-width: 850px) {
+	.sm-blue:not(.sm-blue-vertical) > li > a {
+		padding-left:18px;
+		padding-right:18px;
+	}
+}
+@media screen and (max-width: 750px) {
+	.sm-blue:not(.sm-blue-vertical) > li > a {
+		padding-left:10px;
+		padding-right:10px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+
+	/* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
+	ul.sm-blue{width:auto !important;}
+	ul.sm-blue ul{display:none;position:static !important;top:auto !important;left:auto !important;margin-left:0 !important;margin-top:0 !important;width:auto !important;min-width:0 !important;max-width:none !important;}
+	ul.sm-blue>li{float:none;}
+	ul.sm-blue>li>a,ul.sm-blue ul.sm-nowrap>li>a{white-space:normal;}
+	ul.sm-blue iframe{display:none;}
+
+	/* Uncomment this rule to disable completely the sub menus for small screen devices */
+	/*.sm-blue ul, .sm-blue span.sub-arrow, .sm-blue iframe {
+		display:none !important;
+	}*/
+
+
+/* Menu box
+===================*/
+
+	.sm-blue {
+		background:transparent;
+		-moz-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+		-webkit-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+		box-shadow:0 1px 4px rgba(0,0,0,0.3);
+	}
+	.sm-blue ul {
+		border:0;
+		padding:0;
+		background:#fff;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+		-moz-box-shadow:none;
+		-webkit-box-shadow:none;
+		box-shadow:none;
+	}
+	.sm-blue ul ul {
+		/* darken the background of the 2+ level sub menus and remove border rounding */
+		background:rgba(100,100,100,0.1);
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-blue a {
+		padding:10px 5px 10px 28px !important; /* add some additional left padding to make room for the sub indicator */
+		background:#3193c0 !important; /* Old browsers */
+		background-image:url(css-gradients-fallback/vertical-main-item-bg.png) !important;
+		background-image:-moz-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3fa3d1),color-stop(100%,#2586b3)) !important;
+		background-image:-webkit-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:-o-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:-ms-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		color:#fff !important;
+	}
+	.sm-blue ul a {
+		background:transparent !important;
+		color:#247eab !important;
+		text-shadow:none !important;
+	}
+	.sm-blue a.current {
+		background:#006892 !important; /* Old browsers */
+		background-image:url(css-gradients-fallback/current-item-bg.png) !important;
+		background-image:-moz-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#005a84),color-stop(100%,#00749f)) !important;
+		background-image:-webkit-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-o-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-ms-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		color:#fff !important;
+	}
+	/* add some text indentation for the 2+ level sub menu items */
+	.sm-blue ul a {
+		border-left:8px solid transparent;
+	}
+	.sm-blue ul ul a {
+		border-left:16px solid transparent;
+	}
+	.sm-blue ul ul ul a {
+		border-left:24px solid transparent;
+	}
+	.sm-blue ul ul ul ul a {
+		border-left:32px solid transparent;
+	}
+	.sm-blue ul ul ul ul ul a {
+		border-left:40px solid transparent;
+	}
+	/* round the corners of the first and last items */
+	.sm-blue > li:first-child > a {
+		-moz-border-radius:8px 8px 0 0;
+		-webkit-border-radius:8px 8px 0 0;
+		border-radius:8px 8px 0 0;
+	}
+	/* presume we have 4 levels max */
+	.sm-blue > li:last-child > a,
+	.sm-blue > li:last-child > ul > li:last-child > a,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > a,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a,
+	.sm-blue > li:last-child > ul,
+	.sm-blue > li:last-child > ul > li:last-child > ul,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul {
+		-moz-border-radius:0 0 8px 8px;
+		-webkit-border-radius:0 0 8px 8px;
+		border-radius:0 0 8px 8px;
+	}
+	/* highlighted items, don't need rounding since their sub is open */
+	.sm-blue > li:last-child > a.highlighted,
+	.sm-blue > li:last-child > ul > li:last-child > a.highlighted,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted,
+	.sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted {
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+	}
+
+
+/* Sub menu indicators
+===================*/
+
+	.sm-blue a span.sub-arrow,
+	.sm-blue ul a span.sub-arrow {
+		top:50%;
+		margin-top:-9px;
+		right:auto;
+		left:6px;
+		margin-left:0;
+		width:17px;
+		height:17px;
+		font:bold 16px/16px monospace !important;
+		text-align:center;
+		border:0;
+		text-shadow:none;
+		background:rgba(0,0,0,0.1);
+		-moz-border-radius:100px;
+		-webkit-border-radius:100px;
+		border-radius:100px;
+	}
+	/* Hide sub indicator "+" when item is expanded - we enable the item link when it's expanded */
+	.sm-blue a.highlighted span.sub-arrow {
+		display:none !important;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-blue li {
+		border-left:0;
+	}
+	.sm-blue ul li {
+		border-top:1px solid rgba(0,0,0,0.05);
+	}
+	.sm-blue ul li:first-child {
+		border-top:0;
+	}
+
+}

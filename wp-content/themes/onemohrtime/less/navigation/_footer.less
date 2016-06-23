@@ -1,0 +1,46 @@
+.site-footer {
+    background-color: @black;
+    color: @white;
+    width: 100vw;
+    height: auto;
+    padding: 4em 1em;
+    text-align: center;
+    ul {
+        list-style: none;
+        margin: 0 0 1.7em;
+    }
+    &-credits {
+        a {
+            display: inline-block;
+            vertical-align: baseline;
+            border-bottom: 1px @white solid;
+        }
+    }
+    hr {
+        height: 2px;
+        border: 0;
+        background-color: @yellow;
+        width: 100px;
+    }
+    &-social {
+        max-width: 250px;
+        margin: 0 auto;
+        font-size: 1.5em;
+        ul {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            margin-bottom: 0;
+        }
+        li {flex: 0 1 auto;}
+        a {
+            padding: .5em;
+        }
+    }
+    @media @screen960 {
+        a:hover {
+            color: @yellow;
+            border-color: @yellow;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "onemohrtime",
+  "version": "1.0.0",
+  "description": "Package management for WP OneMohrTime theme",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@OneMohrTime",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "clean-css": "^3.4.18",
+    "cssnano": "^3.7.1",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-less": "^1.3.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-uncss": "^0.5.2",
+    "jquery": "^3.0.0",
+    "less": "^2.7.1",
+    "less-plugin-autoprefix": "^1.5.1",
+    "pixrem": "^3.0.1",
+    "postcss": "^5.0.21",
+    "postcss-cli": "^2.5.2"
+  }
+}
