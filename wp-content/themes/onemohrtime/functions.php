@@ -158,10 +158,11 @@ function about_dropdown( $atts , $content = null ) {
 	$atts = shortcode_atts(
 		array(
 			'title' => '',
+            'id' => ''
 		),
 		$atts, 'about'
 	);
-    $return_string = '<section class="about-me"><h3 class="toggle-show">' . $atts[title] . '<span class="fa fa-chevron-down pull-right"></span></h3>';
+    $return_string = '<section class="about-me scroll" id="education"><h3 class="toggle-show">' . $atts[title] . '<span class="fa fa-chevron-down pull-right"></span></h3>';
     $return_string .= '<div class="toggle-hidden">' . $content . '</div></section>';
     return $return_string;
 }

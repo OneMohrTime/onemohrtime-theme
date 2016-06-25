@@ -527,6 +527,11 @@ hr {
   background: no-repeat center center scroll;
   background-size: cover;
 }
+@media (max-width: 768px) {
+  .site-content {
+    background-image: none !important;
+  }
+}
 #breadcrumbs {
   margin: 1.7em 0;
   color: #9b9a95;
@@ -621,6 +626,7 @@ hr {
 .homepage-intro figure img {
   flex: 0 1 auto;
   height: 200px;
+  width: auto;
 }
 @media only screen and (min-width: 1024px) {
   .homepage-intro figure img {
@@ -733,12 +739,26 @@ hr {
   background-color: #fef7e3;
   text-align: center;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
 }
 .homepage-icons img {
   pointer-events: none;
+}
+.homepage-icons .btn {
+  margin: 0 0 1em;
+  border: 2px #ffc300 solid;
+  color: #ffc300;
+}
+.homepage-icons .btn::after {
+  background-color: #ffc300;
+}
+@media only screen and (min-width: 1024px) {
+  .homepage-icons .btn {
+    margin-bottom: 2em;
+  }
 }
 .homepage-work {
   width: 100vw;
@@ -1274,7 +1294,7 @@ a {
   z-index: 5000;
 }
 .mm-header-image {
-  background-image: url('http://localhost:8888/wordpress/wp-content/uploads/logo-color.png');
+  background-image: url('//onemohrti.me/wp-content/uploads/logo-color.png');
 }
 .mm-menu.mm-theme-white {
   color: #171409;
@@ -1676,8 +1696,7 @@ a {
 .project-banner {
   position: relative;
   margin: 0;
-  height: 500px;
-  height: calc(100vh - 100px);
+  height: 200px;
   background: #fffefa no-repeat center center scroll;
   background-size: cover;
 }
@@ -1690,6 +1709,31 @@ a {
 }
 .project-banner .btn::after {
   background-color: #ffc300;
+}
+@media only screen and (min-width: 480px) {
+  .project-banner {
+    height: 250px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .project-banner {
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .project-banner {
+    height: 350px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .project-banner {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .project-banner {
+    height: calc(100vh - 100px);
+  }
 }
 .project-description {
   padding: 0 1.7em 1.7em;
@@ -1727,10 +1771,17 @@ a {
 .project-specs ul li {
   display: block;
   width: 100%;
-  padding: .5em;
 }
 .project-specs ul li:nth-of-type(odd) {
   font-weight: 700;
+}
+.project-specs ul li:nth-of-type(even) {
+  padding-bottom: .5em;
+}
+@media only screen and (min-width: 480px) {
+  .project-specs ul li {
+    padding: .5em;
+  }
 }
 @media only screen and (min-width: 480px) {
   .project-specs ul {
@@ -2092,7 +2143,10 @@ object {
   }
 }
 .img-bg {
-  background: #fffefa no-repeat center center fixed;
+  background-color: #fffefa;
+  background-repeat: no-repeat;
+  background-position: center center !important;
+  background-attachment: fixed;
   background-size: cover;
   height: 250px;
   margin: 0 -1.7em 1.7em;

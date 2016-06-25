@@ -153,7 +153,10 @@
         @media @screen1600 {margin: 0 -25% 1.7em;}
     }
     &-bg {
-        background: @white no-repeat center center fixed;
+        background-color: @white;
+        background-repeat: no-repeat;
+        background-position: ~"center center !important";
+        background-attachment: fixed;
         background-size: cover;
         height: 250px;
         margin: 0 -1.7em 1.7em;

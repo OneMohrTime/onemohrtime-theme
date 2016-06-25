@@ -19,7 +19,7 @@
             <ul>
                 <li>Powered by <a href="//wordpress.org" target="_blank">Wordpress</a></li>
                 <li>Built with <a href="//brackets.io" target="_blank">Brackets.io</a> and <a href="//underscores.me" target="_blank">_s</a></li>
-                <li>Hosted by <a href="//andimal.co" target="_blank">@and1mal</a></li>
+                <li>Hosted by <a href="//webfaction.com" target="_blank">WebFaction</a></li>
             </ul>
         </div>
         

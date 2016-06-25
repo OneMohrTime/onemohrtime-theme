@@ -50,7 +50,7 @@ get_header(); ?>
             
         <section class="homepage-icons animatedParent animateOnce" data-appear-top-offset="-200">
             <img src="<?php echo $homeIcns['url']; ?>" class="animated fadeIn" />
-            <a href="design/">View Portfolio</a>
+            <a href="design/" class="btn">View Portfolio</a>
         </section>
         
         <section class="homepage-dribbble">

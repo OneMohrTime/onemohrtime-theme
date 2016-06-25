@@ -23,6 +23,7 @@ hr {
 .site-content {
     background: no-repeat center center scroll;
     background-size: cover;
+    @media(max-width: 768px) {background-image: none !important;}
 }
 
 #breadcrumbs {
@@ -114,6 +115,7 @@ hr {
             img {
                 flex: 0 1 auto;
                 height: 200px;
+                width: auto;
                 @media @screen1024 {height: 300px;}
             }
             .btn {
@@ -173,17 +175,25 @@ hr {
         background-color: @lightyellow;
         text-align: center;
         display: flex;
+        flex-flow: row wrap;
         justify-content: center;
         align-content: center;
         align-items: center;
         img {pointer-events: none;}
+        .btn {
+            margin: 0 0 1em;
+            .btn-color(@yellow, @yellow);
+            @media @screen1024 {margin-bottom: 2em;}
+        }
     }
     &-work {
         width: 100vw;
         padding: 20px;
         background-color: @yellow;
         text-align: center;
-        .btn {.btn-color(@lightyellow,@lightyellow);}
+        .btn {
+            .btn-color(@lightyellow,@lightyellow);
+        }
     }
     &-dribbble {
         width: 100vw;

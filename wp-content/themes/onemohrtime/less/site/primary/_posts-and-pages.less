@@ -69,11 +69,7 @@
     &-banner {
         position: relative;
         margin: 0;
-        height: 500px;
-        // Issue in compiling:
-        // stackoverflow.com/questions/27256849/it-is-possible-to-use-vh-minus-pixels-in-a-css-calc
-        // height: calc(100vh - 100px);
-        height: calc(~"100vh - 100px");
+        height: 200px;
         background: @white no-repeat center center scroll;
         background-size: cover;
         .btn {
@@ -81,6 +77,16 @@
             position: absolute;
             bottom: 1.7em;
             right: 1.7em;
+        }
+        @media @screen480 {height: 250px;}
+        @media @screen600 {height: 300px;}
+        @media @screen768 {height: 350px;}
+        @media @screen960 {height: 400px;}
+        @media @screen1024 {
+            // Issue in compiling:
+            // stackoverflow.com/questions/27256849/it-is-possible-to-use-vh-minus-pixels-in-a-css-calc
+            // height: calc(100vh - 100px);
+            height: calc(~"100vh - 100px");
         }
     }
     &-description {
@@ -99,8 +105,9 @@
             li {
                 display: block;
                 width: 100%;
-                padding: .5em;
                 &:nth-of-type(odd) {font-weight: 700;}
+                &:nth-of-type(even) {padding-bottom: .5em;}
+                @media @screen480 {padding: .5em;}
             }
             @media @screen480 {
                 display: flex;
