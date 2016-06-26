@@ -145,8 +145,13 @@
     }
     &-full {
         margin: 0 0 1.7em;
-        .clearfix;
-        img {float: left;}
+        display: flex;
+        flex-flow: row wrap;
+        img {
+            flex: 1 0 100%;
+            height: auto !important;
+            float: left;
+        }
         @media @screen600 {margin: 0 -10% 1.7em;}
         @media @screen840 {margin: 0 -15% 1.7em;}
         @media @screen1024 {margin: 0 -20% 1.7em;}
