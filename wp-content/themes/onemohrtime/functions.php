@@ -123,7 +123,7 @@ function onemohrtime_scripts() {
 
 	wp_enqueue_script( 'onemohrtime-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'onemohrtime-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	//wp_enqueue_script( 'onemohrtime-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
     
     // FancyBox 2.1.5
     wp_enqueue_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array('jquery'), null, true);
@@ -131,8 +131,8 @@ function onemohrtime_scripts() {
     // CSS3 Animate It
     wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);
     
-    // Embedagram plugin
-    wp_enqueue_script('instagram', get_template_directory_uri() . '/js/instagram.js', array('jquery'), null, true);
+    // FortAwesome Fonticons
+    wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
     
     // Dribbble plugin
     wp_enqueue_script('dribbble', get_template_directory_uri() . '/js/jribbble.min.js', array('jquery'), null, true);

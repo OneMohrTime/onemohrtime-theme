@@ -20,17 +20,6 @@ $(document).ready(function() {
 		this.previousTop = currentTop;
 	});
     
-    // embedagram
-    // OUTDATED JUNE 1ST
-    /*
-    $('#instagram').embedagram({
-        instagram_id : 12939736,
-        wrap_tag : 'figure',
-        thumb_width : '612',
-        limit : 4
-    });
-	*/
-    
 	// Fancybox 2.1.5
 	$('.fancybox').fancybox({
 		padding : 0,
@@ -56,6 +45,9 @@ $(document).ready(function() {
 		$(this).next('.toggle-hidden:hidden').slideToggle();
         //$('.toggle-hidden').slideToggle();
     });
+    
+    // Remove inline anchor styles from images
+    $('#content a > img').addClass('no-style');
 	
 	// remove fancybox on mobile devices
 	if (window.matchMedia('(max-width: 768px)').matches) {

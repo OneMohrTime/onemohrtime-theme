@@ -9,7 +9,7 @@
   "author": "@OneMohrTime",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
+    "autoprefixer": "^6.3.7",
     "clean-css": "^3.4.18",
     "cssnano": "^3.7.1",
     "grunt": "^1.0.1",

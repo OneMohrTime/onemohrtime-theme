@@ -44,6 +44,17 @@ and Blueprint http://www.blueprintcss.org/
 	12.1 Captions
 	12.2 Galleries
 --------------------------------------------------------------*/
+.clearfix {
+  clear: both;
+}
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
 /*--------------------------------------------------------------
 1.0 Reset
 --------------------------------------------------------------*/
@@ -395,6 +406,13 @@ mark {
     background-color: #fef7e3;
   }
 }
+#content a:not(.btn).no-style,
+.site-info a:not(.btn).no-style {
+  color: inherit;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+}
 .pull-quote {
   color: #9b9a95;
   font-size: 1.75em;
@@ -483,6 +501,19 @@ li > ol {
 #likes ul,
 #dislikes ul {
   list-style: none;
+  margin: 0;
+}
+#likes li,
+#dislikes li {
+  margin-left: 1em;
+  position: relative;
+}
+#likes li::before,
+#dislikes li::before {
+  font-family: FontAwesome;
+  font-size: .75em;
+  position: absolute;
+  left: 0;
 }
 #likes li::before {
   content: "\f00c";
@@ -1615,21 +1646,6 @@ a {
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
-.sticky {
-  display: block;
-}
-.byline,
-.updated:not(.published) {
-  display: none;
-}
-.single .byline,
-.group-blog .byline {
-  display: inline;
-}
-.page-links {
-  clear: both;
-  margin: 0 0 1.5em;
-}
 #content {
   padding-top: 100px;
   background-color: #fffefa;
@@ -1663,7 +1679,7 @@ a {
   text-align: center;
 }
 .project-all-content {
-  padding: 0 1.7em;
+  padding: 0 1em;
 }
 @media only screen and (min-width: 600px) {
   .project-all-content {
@@ -1849,6 +1865,29 @@ a {
     margin-left: 50%;
   }
 }
+.error-404 {
+  padding: 0 1em 1.7em;
+}
+@media only screen and (min-width: 600px) {
+  .error-404 {
+    padding: 0 10% 1.7em;
+  }
+}
+@media only screen and (min-width: 840px) {
+  .error-404 {
+    padding: 0 15% 1.7em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .error-404 {
+    padding: 0 20% 1.7em;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .error-404 {
+    padding: 0 25% 1.7em;
+  }
+}
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/
@@ -1928,7 +1967,7 @@ object {
   border: 0;
 }
 #gallery {
-  padding: 1em;
+  margin-top: 1.7em;
 }
 #gallery .page-list-ext {
   display: flex;
@@ -1939,18 +1978,18 @@ object {
   flex: 0 1 auto;
   position: relative;
   width: 100%;
-  margin: 0;
+  margin: 0 1em 1em;
   color: #171409;
 }
 @media only screen and (min-width: 400px) {
   #gallery .page-list-ext-item {
-    width: 50%;
-    padding: 1em;
+    width: calc(50% - 2em);
   }
 }
 @media only screen and (min-width: 768px) {
   #gallery .page-list-ext-item {
-    padding: 2em;
+    width: calc(50% - 4em);
+    margin: 0 2em 2em;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2002,6 +2041,7 @@ object {
 }
 #gallery .page-list-ext-title {
   font-size: 1.25em;
+  margin: 0;
 }
 #gallery .page-list-ext-title a {
   border-bottom: 0;

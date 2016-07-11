@@ -21,7 +21,20 @@ li > ol {
 #dislikes {
     width: 50%;
     float: left;
-    ul {list-style: none;}
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+    li {
+        margin-left: 1em;
+        position: relative;
+        &::before {
+            font-family: FontAwesome;
+            font-size: .75em;
+            position: absolute;
+            left: 0;
+        }
+    }
 }
 #likes li::before {content: "\f00c";}
 #dislikes li::before {content: "\f00d";}

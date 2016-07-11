@@ -11,7 +11,7 @@
 }
 
 // Clearfix
-.clearfix() {
+.clearfix {
     clear: both;
     &::before,
     &::after {
@@ -25,6 +25,13 @@
 .clearfix-after() {clear: both;}
 
 // BEGIN CUSTOM STYLES
+
+.unstyled() {
+    color: inherit;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+}
 
 .text-shadow() {text-shadow: 1px 1px 1px fade(black,50%);}
 
