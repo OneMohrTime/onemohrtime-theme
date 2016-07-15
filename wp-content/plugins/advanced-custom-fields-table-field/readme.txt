@@ -2,7 +2,7 @@
 Contributors: jonua
 Tags: acf table
 Requires at least: 4.5
-Tested up to: 4.5.2
+Tested up to: 4.5.3
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -87,6 +87,12 @@ However, only when activated as a plugin will updates be available.
 
 
 == Changelog ==
+
+= 1.1.12 =
+* Adds support for field groups post taxonomy rule
+
+= 1.1.11 =
+* Fixed rerendering of tables while changing other content
 
 = 1.1.10 =
 * Fixed table functionality with respect to the ACF rules

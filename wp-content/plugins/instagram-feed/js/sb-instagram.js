@@ -122,6 +122,11 @@ if(!sbi_js_exists){
                         //Always check to make sure it exists
                         if(image.caption != null) image.caption.text = image.caption.text.replace(/[^a-zA-Z ]/g, "");
 
+                        //Remove caching key from image sources to prevent duplicate content issue
+                        image.images.thumbnail.url = image.images.thumbnail.url.split("?ig_cache_key")[0];
+                        image.images.standard_resolution.url = image.images.standard_resolution.url.split("?ig_cache_key")[0];
+                        image.images.low_resolution.url = image.images.low_resolution.url.split("?ig_cache_key")[0];
+
                         return true;
                     },
                     userId: parseInt( entry, 10 ),

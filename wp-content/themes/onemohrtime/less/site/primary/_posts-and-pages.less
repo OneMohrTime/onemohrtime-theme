@@ -134,6 +134,59 @@
     }
 }
 
+.blog,
+.single-post {
+    article[class^="post-"] {
+        margin: 0 0 1.7em;
+        padding-bottom: 1.7em;
+        position: relative;
+        display: block;
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            width: 75%;
+            background-color: @lightgray;
+            margin: 1.7em 12.5% 0;
+            @media @screen960 {
+                width: 50%;
+                margin: 1.7em 25% 0;
+            }
+        }
+    }
+    .entry-footer {
+        position: relative;
+        .edit-link {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        @media @screen960 {
+            font-size: .75em;
+        }
+    }
+    @media @screen960 {
+        #content {
+            display: flex;
+            flex-direction: row;
+            #primary {
+                flex: 0 1 auto;
+                width: calc(~"66.66666% - 3em");
+                margin: 0 1em 0 2em;
+            }
+            #secondary {
+                flex: 0 1 auto;
+                width: calc(~"33.33333% - 2em");
+                margin: 0 2em 0 1em;
+                padding-left: 2em;
+                border-left: 2px @lightgray solid;
+            }
+        }
+    }
+}
+
 .error-404 {
     padding: 0 1em 1.7em;
     @media @screen600 {padding: 0 10% 1.7em;}

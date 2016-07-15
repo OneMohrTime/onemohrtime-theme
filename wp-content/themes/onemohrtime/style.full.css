@@ -324,6 +324,17 @@ h6 span {
   font-weight: 400;
   text-transform: none;
 }
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: inherit !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+}
 .entry-header h1,
 .project-header h1,
 .project-all-header h1,
@@ -408,7 +419,7 @@ mark {
 }
 #content a:not(.btn).no-style,
 .site-info a:not(.btn).no-style {
-  color: inherit;
+  color: inherit !important;
   padding: 0 !important;
   border: 0 !important;
   background: none !important;
@@ -575,6 +586,12 @@ hr {
   #breadcrumbs {
     line-height: 1.7em;
   }
+}
+.byline {
+  display: none;
+}
+.posted-on .updated {
+  display: none;
 }
 .about-me {
   margin-bottom: 1.7em;
@@ -1630,15 +1647,15 @@ a {
 9.0 Widgets
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1.5em;
-  /* Make sure select elements fit in widgets */
+  margin: 0 0 1.7em;
 }
-.widget select {
-  max-width: 100%;
+.widget ul {
+  list-style: none;
+  margin: 0;
 }
-/* Search widget */
-.widget_search .search-submit {
-  display: none;
+#sb_instagram .sbi_photo {
+  padding: 0;
+  width: 100%;
 }
 /*--------------------------------------------------------------
 10.0 Content
@@ -1863,6 +1880,68 @@ a {
   .halfie {
     width: 50%;
     margin-left: 50%;
+  }
+}
+.blog article[class^="post-"],
+.single-post article[class^="post-"] {
+  margin: 0 0 1.7em;
+  padding-bottom: 1.7em;
+  position: relative;
+  display: block;
+}
+.blog article[class^="post-"]::after,
+.single-post article[class^="post-"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 75%;
+  background-color: #c0c0bc;
+  margin: 1.7em 12.5% 0;
+}
+@media only screen and (min-width: 960px) {
+  .blog article[class^="post-"]::after,
+  .single-post article[class^="post-"]::after {
+    width: 50%;
+    margin: 1.7em 25% 0;
+  }
+}
+.blog .entry-footer,
+.single-post .entry-footer {
+  position: relative;
+}
+.blog .entry-footer .edit-link,
+.single-post .entry-footer .edit-link {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media only screen and (min-width: 960px) {
+  .blog .entry-footer,
+  .single-post .entry-footer {
+    font-size: .75em;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .blog #content,
+  .single-post #content {
+    display: flex;
+    flex-direction: row;
+  }
+  .blog #content #primary,
+  .single-post #content #primary {
+    flex: 0 1 auto;
+    width: calc(66.66666% - 3em);
+    margin: 0 1em 0 2em;
+  }
+  .blog #content #secondary,
+  .single-post #content #secondary {
+    flex: 0 1 auto;
+    width: calc(33.33333% - 2em);
+    margin: 0 2em 0 1em;
+    padding-left: 2em;
+    border-left: 2px #c0c0bc solid;
   }
 }
 .error-404 {

@@ -3,7 +3,7 @@
 Plugin Name: Instagram Feed WD
 Plugin URI: https://web-dorado.com/products/wordpress-instagram-feed-wd.html
 Description: WD Instagram Feed is a user-friendly tool for displaying user or hashtag-based feeds on your website. You can create feeds with one of the available layouts. It allows displaying image metadata, open up images in lightbox, download them and even share in social networking websites.
-Version: 1.1.4
+Version: 1.1.6
 Author: WebDorado
 Author URI: https://web-dorado.com
 License: GPLv2 or later
@@ -20,7 +20,7 @@ define("WDI_META", "_".WDI_VAR."_meta");
 //define("wdi",'wdi');
 define('WDI_FEED_TABLE','wdi_feeds');
 define('WDI_THEME_TABLE','wdi_themes');
-define('WDI_VERSION','1.1.4');
+define('WDI_VERSION','1.1.6');
 define('WDI_IS_PRO','false');
 
 

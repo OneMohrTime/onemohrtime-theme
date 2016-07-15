@@ -47,7 +47,10 @@ $(document).ready(function() {
     });
     
     // Remove inline anchor styles from images
-    $('#content a > img').addClass('no-style');
+    $('#content a > img').parent().addClass('no-style');
+    
+    // Sticky-kit
+    $('.blog #secondary').stick_in_parent();
 	
 	// remove fancybox on mobile devices
 	if (window.matchMedia('(max-width: 768px)').matches) {
@@ -88,8 +91,9 @@ $(document).ready(function() {
 	
 });
 
-$(window).load(function() {
-	
+//$(window).load(function() {
+$(window).on('load', function() {
+
 	// loading screen won't fade until entire page has loaded
 	$('#loading').fadeOut('slow');
 	

@@ -75,6 +75,9 @@ wdi_responsive.columnControl = function(currentFeed,load,customWidth){
 		
 		
 		var wrapper = jQuery('#wdi_feed_'+currentFeed.feed_row.wdi_feed_counter+" .wdi_feed_wrapper");
+		if(wrapper.length == 0){
+			return;
+		}
 		var itemWidth = jQuery('#wdi_feed_'+currentFeed.feed_row.wdi_feed_counter+" .wdi_feed_item").css('width')+'';
 		var containerWidth = wrapper.width();
 

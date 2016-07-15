@@ -340,7 +340,7 @@ wdi_front.saveUserData = function(data, user, currentFeed) {
 			/*removing load more button of feed has finished*/
 			if( !wdi_front.activeUsersCount(currentFeed) ){
 				if (currentFeed.feed_row.feed_display_view == 'load_more_btn') {
-					let feed_container = jQuery('#wdi_feed_' + currentFeed.feed_row.wdi_feed_counter);
+					var feed_container = jQuery('#wdi_feed_' + currentFeed.feed_row.wdi_feed_counter);
 					feed_container.find('.wdi_load_more').addClass('wdi_hidden');
 					feed_container.find('.wdi_spinner').addClass('wdi_hidden');
 				}
@@ -536,8 +536,10 @@ wdi_front.updateUsersImages = function(currentFeed) {
 wdi_front.masonryDisplayFeedItems = function(data, currentFeed) {
 	var masonryColEnds = [];
 	var masonryColumns = [];
-
-
+	if(jQuery('#wdi_feed_'+currentFeed.feed_row.wdi_feed_counter+" .wdi_feed_wrapper").length == 0){
+		//no feed in DOM, ignore
+		return;
+	}
 	jQuery('#wdi_feed_' + currentFeed.feed_row['wdi_feed_counter'] + ' .wdi_masonry_column').each(function() {
 
 		//if resorte after load more is on then reset columns on every load more
@@ -1229,7 +1231,7 @@ wdi_front.getPhotoTemplate = function(currentFeed) {
 		customClass += ' wdi_full_caption';
 	}
 
-	let onclickevent = "";
+	var onclickevent = "";
 	if( currentFeed.feed_row.feed_type !== "blog_style" ){
 		if( currentFeed.feed_row.feed_type == 'masonry'){
 			onclickevent = "wdi_responsive.showMasonryCaption(jQuery(this),"+currentFeed.feed_row.wdi_feed_counter+");"
@@ -1343,7 +1345,7 @@ wdi_front.getVideoTemplate = function(currentFeed) {
 		customClass += ' wdi_full_caption';
 	}
 
-	let onclickevent = "";
+	var onclickevent = "";
 	if( currentFeed.feed_row.feed_type !== "blog_style" ){
 		if( currentFeed.feed_row.feed_type == 'masonry'){
 			onclickevent = "wdi_responsive.showMasonryCaption(jQuery(this),"+currentFeed.feed_row.wdi_feed_counter+");"

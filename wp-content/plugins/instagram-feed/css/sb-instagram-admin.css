@@ -310,3 +310,64 @@
 	color: #dd3d36;
 	text-decoration: none;
 }
+
+/* Review notice */
+.sbi_review_notice{
+    position: relative;
+    overflow: hidden;
+    max-width: 870px;
+    margin-top: 10px;
+    padding: 10px 10px 7px 10px;
+
+    background: #E6F0E8;
+    border: 1px solid #6AB074;
+    color: #214F28;
+}
+.sbi_review_notice img{
+    width: 84px;
+    margin: 0 0 0 -100% !important;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.sbi_review_notice .ctf-notice-text{
+    float: left;
+    clear: none;
+    width: 100%;
+    padding: 4px 0;
+}
+.sbi_review_notice p{
+    float: left;
+    clear: both;
+    width: auto;
+    margin: 0 0 0 100px !important;
+    padding: 4px 40px 4px 0;
+}
+.sbi_review_notice a{
+    display: inline-block;
+    padding: 0 8px;
+    color: #178529;
+}
+.sbi_review_notice a:hover,
+.sbi_review_notice a:focus{
+    color: #0c7abf;
+}
+.sbi_review_notice .links{
+    margin: 0 0 0 92px !important;
+    padding: 4px 0 0 0;
+}
+.sbi_review_notice .links a:first-child{
+    /*padding-left: 0;*/
+}
+.sbi_review_notice .sbi_notice_close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    line-height: 1;
+}
+.sbi_review_notice .sbi_notice_close:hover,
+.sbi_review_notice .sbi_notice_close:focus{
+    color: #a34100;
+}

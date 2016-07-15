@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-postcss');
     
     grunt.initConfig({
         
@@ -11,7 +12,7 @@ module.exports = function(grunt) {
         
         watch : {
             files : '**/*.less',
-            tasks : ['less']
+            tasks : ['less','postcss']
         },
         
         less: {
@@ -35,9 +36,24 @@ module.exports = function(grunt) {
             }
         },
         
+        postcss : {
+            options : {
+                map : true, // inline sourcemaps
+                processors : [
+                    require('autoprefixer')({browsers: 'last 2 versions, > 5% in US, ie 9-11'}), // add vendor prefixes
+                    require('cssnano')() // minify the result
+                ]
+            },
+            dist : {
+                src : 'style.css'
+            }
+        },
+        
         uglify : {
-            files : {
-                'js/main.min.js' : 'js/main.js'
+            dist : {
+                files : {
+                    'js/main.min.js' : 'js/main.js'
+                }
             }
 		}
     });

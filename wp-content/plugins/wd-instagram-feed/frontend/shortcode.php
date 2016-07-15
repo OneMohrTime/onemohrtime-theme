@@ -119,11 +119,11 @@ function wdi_feed($atts,$widget_params='') {
 
 function wdi_load_frontend_scripts(){
   
-  wp_enqueue_script('wdi_instagram',plugins_url('../js/wdi_instagram.js', __FILE__),array("jquery"), WDI_VERSION );
+  wp_enqueue_script('wdi_instagram',plugins_url('../js/wdi_instagram.js', __FILE__),array("jquery"), WDI_VERSION, true );
 
-  wp_enqueue_script('wdi_frontend',plugins_url('../js/wdi_frontend.js', __FILE__),array("jquery",'wdi_instagram'), WDI_VERSION);
+  wp_enqueue_script('wdi_frontend',plugins_url('../js/wdi_frontend.js', __FILE__),array("jquery",'wdi_instagram'), WDI_VERSION, true);
 
-  wp_enqueue_script('wdi_responsive',plugins_url('../js/wdi_responsive.js', __FILE__),array("jquery","wdi_frontend"), WDI_VERSION);
+  wp_enqueue_script('wdi_responsive',plugins_url('../js/wdi_responsive.js', __FILE__),array("jquery","wdi_frontend"), WDI_VERSION, true);
   wp_localize_script("wdi_frontend", 'wdi_ajax',array( 'ajax_url' => admin_url( 'admin-ajax.php' )), WDI_VERSION);
   wp_localize_script("wdi_frontend", 'wdi_url',array('plugin_url'=>plugin_dir_url(__FILE__),
                                                       'ajax_url' => admin_url( 'admin-ajax.php' )), WDI_VERSION);

@@ -254,6 +254,14 @@ function sb_instagram_settings_page() {
                                 <p class="sbi_tooltip"><?php _e("Display posts from a specific hashtag instead of from a user", 'instagram-feed'); ?></p>
                             </span>
 
+                            <div class="sbi_pro sbi_row">
+                                <input disabled type="radio" name="sb_instagram_type" id="sb_instagram_type_self_likes" value="liked" <?php if($sb_instagram_type == "liked") echo "checked"; ?> />
+                                <label class="sbi_radio_label" for="sb_instagram_type_self_likes">Liked:</label>
+                                <input readonly type="text" size="25" />
+                                    &nbsp;<a class="sbi_tooltip_link sbi_pro" href="JavaScript:void(0);"><?php _e("What is this?"); ?></a><span class="sbi_note"> - <a href="https://smashballoon.com/instagram-feed/" target="_blank">Upgrade to Pro to show posts that you've Liked</a></span>
+                                <p class="sbi_tooltip"><?php _e("Display posts that your user account has liked."); ?></p>
+                            </div>
+
                             <span class="sbi_pro sbi_row">
                                 <input disabled type="radio" name="sb_instagram_type" id="sb_instagram_type_location" value="location" <?php if($sb_instagram_type == "location") echo "checked"; ?> />
                                 <label class="sbi_radio_label" for="sb_instagram_type_location">Location:</label>
@@ -1146,5 +1154,83 @@ function sb_instagram_token_nag_ignore_2016() {
              add_user_meta($user_id, 'sb_instagram_ignore_notice_2016', 'true', true);
     }
 }
+
+
+
+//REVIEW REQUEST NOTICE
+
+// checks $_GET to see if the nag variable is set and what it's value is
+function sbi_check_nag_get( $get, $nag, $option, $transient ) {
+    if ( isset( $_GET[$nag] ) && $get[$nag] == 1 ) {
+        update_option( $option, 'dismissed' );
+    } elseif ( isset( $_GET[$nag] ) && $get[$nag] == 'later' ) {
+        $time = 2 * WEEK_IN_SECONDS;
+        set_transient( $transient, 'waiting', $time );
+        update_option( $option, 'pending' );
+    }
+}
+
+// will set a transient if the notice hasn't been dismissed or hasn't been set yet
+function sbi_maybe_set_transient( $transient, $option ) {
+    $sbi_rating_notice_waiting = get_transient( $transient );
+    $notice_status = get_option( $option, false );
+
+    if ( ! $sbi_rating_notice_waiting && !( $notice_status === 'dismissed' || $notice_status === 'pending' ) ) {
+        $time = 2 * WEEK_IN_SECONDS;
+        set_transient( $transient, 'waiting', $time );
+        update_option( $option, 'pending' );
+    }
+}
+
+// generates the html for the admin notice
+function sbi_rating_notice_html() {
+
+    //Only show to admins
+    if ( current_user_can( 'manage_options' ) ){
+
+        global $current_user;
+        $user_id = $current_user->ID;
+
+        /* Check that the user hasn't already clicked to ignore the message */
+        if ( ! get_user_meta( $user_id, 'sbi_ignore_rating_notice') ) {
+
+            _e("
+            <div class='sbi_notice sbi_review_notice'>
+                <img src='". plugins_url( 'instagram-feed/img/sbi-icon.png' ) ."' alt='Instagram Feed'>
+                <div class='ctf-notice-text'>
+                    <p>It's great to see that you've been using the <strong>Instagram Feed</strong> plugin for a while now. Hopefully you're happy with it!&nbsp; If so, would you consider leaving a positive review? It really helps to support the plugin and helps others to discover it too!</p>
+                    <p class='links'>
+                        <a class='sbi_notice_dismiss' href='https://wordpress.org/support/view/plugin-reviews/instagram-feed' target='_blank'>Sure, I'd love to!</a>
+                        &middot;
+                        <a class='sbi_notice_dismiss' href='" .esc_url( add_query_arg( 'sbi_ignore_rating_notice_nag', '1' ) ). "'>No thanks</a>
+                        &middot;
+                        <a class='sbi_notice_dismiss' href='" .esc_url( add_query_arg( 'sbi_ignore_rating_notice_nag', '1' ) ). "'>I've already given a review</a>
+                        &middot;
+                        <a class='sbi_notice_dismiss' href='" .esc_url( add_query_arg( 'sbi_ignore_rating_notice_nag', 'later' ) ). "'>Ask Me Later</a>
+                    </p>
+                </div>
+                <a class='sbi_notice_close' href='" .esc_url( add_query_arg( 'sbi_ignore_rating_notice_nag', '1' ) ). "'><i class='fa fa-close'></i></a>
+            </div>
+            ");
+
+        }
+
+    }
+}
+
+// variables to define certain terms
+$transient = 'instagram_feed_rating_notice_waiting';
+$option = 'sbi_rating_notice';
+$nag = 'sbi_ignore_rating_notice_nag';
+
+sbi_check_nag_get( $_GET, $nag, $option, $transient );
+sbi_maybe_set_transient( $transient, $option );
+$notice_status = get_option( $option, false );
+
+// only display the notice if the time offset has passed and the user hasn't already dismissed it
+if ( get_transient( $transient ) !== 'waiting' && $notice_status !== 'dismissed' ) {
+    add_action( 'admin_notices', 'sbi_rating_notice_html' );
+}
+
 
 ?>
