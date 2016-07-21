@@ -187,14 +187,15 @@ class Helper {
 	 * @param mixed $arg that you want to error_log
 	 * @return void
 	 */
-	public static function error_log( $arg ) {
-		if ( !WP_DEBUG ) {
+	public static function error_log( $error ) {
+		global $timber_disable_error_log;
+		if ( !WP_DEBUG || $timber_disable_error_log ) {
 			return;
 		}
-		if ( is_object($arg) || is_array($arg) ) {
-			$arg = print_r($arg, true);
+		if ( is_object($error) || is_array($error) ) {
+			$error = print_r($error, true);
 		}
-		return error_log($arg);
+		return error_log($error);
 	}
 
 	/**
@@ -513,9 +514,12 @@ class Helper {
 					}
 					$link = str_replace(' ', '+', $link);
 					$link = untrailingslashit($link);
+					$link = esc_url(apply_filters('paginate_links', $link));
+					$link = user_trailingslashit($link);
+
 					$page_links[] = array(
 						'class' => 'page-number page-numbers',
-						'link' => esc_url(apply_filters('paginate_links', $link)),
+						'link' => $link,
 						'title' => $n_display,
 						'name' => $n_display,
 						'current' => $args['current'] == $n
@@ -530,6 +534,7 @@ class Helper {
 				}
 			}
 		}
+
 		return $page_links;
 	}
 

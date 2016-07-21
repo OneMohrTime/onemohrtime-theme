@@ -4,7 +4,7 @@ Plugin Name: Routes
 Plugin URI: http://routes.upstatement.com
 Description: The WordPress Timber Library allows you to write themes using the power Twig templates
 Author: Jared Novack + Upstatement
-Version: 0.1
+Version: 0.3.1
 Author URI: http://upstatement.com/
 
 Usage:
@@ -21,12 +21,16 @@ class Routes {
 
 	function __construct(){
 		add_action('init', array($this, 'match_current_request') );
+		add_action('wp_loaded', array($this, 'match_current_request') );
 	}
 
 	static function match_current_request() {
 		global $upstatement_routes;
 		if (isset($upstatement_routes->router)) {
 			$route = $upstatement_routes->router->match();
+			
+			unset($upstatement_routes->router);
+			
 			if ($route && isset($route['target'])) {
 				if ( isset($route['params']) ) {
 					call_user_func($route['target'], $route['params']);
@@ -62,8 +66,8 @@ class Routes {
 			$upstatement_routes->router->setBasePath($base_path);
 		}
 		$route = self::convert_route($route);
-		$upstatement_routes->router->map('GET|POST', trailingslashit($route), $callback, $args);
-		$upstatement_routes->router->map('GET|POST', untrailingslashit($route), $callback, $args);
+		$upstatement_routes->router->map('GET|POST|PUT|DELETE', trailingslashit($route), $callback, $args);
+		$upstatement_routes->router->map('GET|POST|PUT|DELETE', untrailingslashit($route), $callback, $args);
 	}
 
 	/**

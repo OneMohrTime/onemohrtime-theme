@@ -30,5 +30,4 @@ get_header(); ?>
     <?php get_sidebar('sidebar'); ?>
 
 <?php
-//get_sidebar();
 get_footer();

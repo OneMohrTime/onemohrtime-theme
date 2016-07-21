@@ -3,7 +3,7 @@ Contributors: elliotcondon
 Tags: custom, field, custom field, advanced, simple fields, magic fields, more fields, repeater, matrix, post, type, text, textarea, file, image, edit, admin
 Requires at least: 3.5.0
 Tested up to: 4.5.0
-Stable tag: 4.4.7
+Stable tag: 4.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -115,6 +115,9 @@ http://support.advancedcustomfields.com/
 
 
 == Changelog ==
+
+= 4.4.8 =
+* Google Map: Added new 'acf/fields/google_map/api' filter
 
 = 4.4.7 =
 * Relationship field: Fixed bug preventing values from being selected in WP 4.5

@@ -13,6 +13,7 @@
             display: flex;
             flex-flow: row wrap;
             align-items: flex-start;
+            @media @screen1024 {margin: 0 1em;}
             &-item {
                 flex: 0 1 auto;
                 position: relative;
@@ -20,10 +21,7 @@
                 margin: 0 1em 1em;
                 color: @black;
                 @media @screen400 {width: calc(~"50% - 2em");}
-                @media @screen768 {
-                    width: calc(~"50% - 4em");
-                    margin: 0 2em 2em;
-                }
+                @media @screen768 {margin: 0 1em 2em;}
                 @media @screen1024 {
                     color: @white;
                     text-align: center;
@@ -39,8 +37,8 @@
                         }
                     }
                 }
-                @media @screen1440 {width: 33.33333%;}
-                @media @screen1920 {width: 25%;}
+                @media @screen1440 {width: calc(~"33.33333% - 2em");}
+                @media @screen1920 {width: calc(~"25% - 2em");}
             }
             &-image {
                 background-color: @yellow;
@@ -59,6 +57,7 @@
                     opacity: 1;
                     transition: opacity 250ms;
                 }
+                @media @screen1024 {margin: 0;}
             }
             &-title {
                 font-size: 1.25em;
@@ -66,7 +65,7 @@
                 a {
                     border-bottom: 0;
                     margin-bottom: 1em;
-                    padding-bottom: 1em;
+                    padding-bottom: 1em !important;
                     &:hover {background-color: transparent;}
                     &::after {
                         content: "";
@@ -81,7 +80,7 @@
                     @media @screen1024 {
                         color: @white;
                         margin-bottom: 0;
-                        padding-bottom: 0;
+                        padding-bottom: 0 !important;
                     }
                 }
                 @media @screen960 {font-size: 1.5em;}
@@ -90,7 +89,7 @@
                     top: 50%;
                     left: 0;
                     width: 100%;
-                    padding: 0 3em;
+                    padding: 0 1em;
                     margin-top: -1em;
                     .text-shadow;
                     transform: translate3d(0,0,0);
@@ -108,7 +107,7 @@
                     top: 50%;
                     left: 0;
                     width: 100%;
-                    padding: 0 3em;
+                    padding: 0 1em;
                     margin-bottom: -1em;
                     opacity: 0;
                     transform: translate3d(0,2em,0);

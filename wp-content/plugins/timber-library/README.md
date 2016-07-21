@@ -5,7 +5,7 @@ By Jared Novack (<a href="https://twitter.com/jarednova">@JaredNova</a>) and <a 
 </div>
 
 [![Build Status](https://img.shields.io/travis/timber/timber/master.svg?style=flat-square)](https://travis-ci.org/timber/timber)
-[![Coverage Status](https://img.shields.io/coveralls/timber/timber.svg?style=flat-square)](https://coveralls.io/r/timber/timber?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/timber/timber.svg?style=flat-square)](hhttps://codecov.io/gh/timber/timber)
 [![Dependency Status](https://www.versioneye.com/user/projects/574e40e6e298f30048059b9f/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/574e40e6e298f30048059b9f)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/timber/timber.svg?style=flat-square)](https://scrutinizer-ci.com/g/timber/timber/?branch=master)
 [![Latest Stable Version](https://img.shields.io/packagist/v/timber/timber.svg?style=flat-square)](https://packagist.org/packages/timber/timber)
@@ -98,20 +98,24 @@ Timber is great for any WordPress developer who cares about writing good, mainta
 Please post on [StackOverflow under the "Timber" tag](http://stackoverflow.com/questions/tagged/timber). Please use GitHub issues only for specific bugs, feature requests and other types of issues.
 
 #### Should I use it?
-It's MIT-licensed, so please use in personal or commercial work. Just don't re-sell it. While Timber is still in development, it's also in-use on [hundreds of sites](http://timber.github.io/timber/#showcase). While much has been stabilized since the first major push back in June 2013, you should expect some breaking changes as development progresses towards a version 1.0.
+It's MIT-licensed, so please use in personal or commercial work. Just don't re-sell it. Timber is used on [hundreds of sites](http://timber.github.io/timber/#showcase) (and tons more we don't know about)
 
 #### Contributing
 Read the [contributor guidelines](https://github.com/timber/timber/wiki#contributing) in the wiki.
 
 
+## [Documentation](http://timber.github.io/timber/)
 
-## How To...
+Documentation for Timber classes and functions is [auto generated](https://github.com/jarednova/PHP-Markdown-Documentation-Generator), so any changes to the object reference docs should be made by editing the function's DocBlock.  To make a change to one of the guides, edit the relevant file in the `docs` directory.
 
-#### Generate documentation
-```bash
-$ cd /srv/www/timber
-$ ./bin/generate-docs.sh
-```
+To publish docs:
+1. `composer install` if not already run
+2. Clone the [timber/slate](https://github.com/timber/slate) repo at the same directory level as Timber
+3. From the root of the slate directory
+	- `gem install bundler`
+	- `bundle install` (you'll need at least Ruby 2.0 or newer)
+	- `sh publish-docs.sh`
+
 
 
 

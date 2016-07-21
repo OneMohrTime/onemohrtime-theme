@@ -83,7 +83,7 @@
         }
     }
     &-description {
-        padding: 0 1.7em 1.7em;
+        padding: 0 1em 1.7em;
         @media @screen600 {padding: 0 10% 1.7em;}
         @media @screen840 {padding: 0 15% 1.7em;}
         @media @screen1024 {padding: 0 20% 1.7em;}
@@ -137,7 +137,7 @@
 .blog,
 .single-post {
     article[class^="post-"] {
-        margin: 0 0 1.7em;
+        margin: 0 1em 1.7em;
         padding-bottom: 1.7em;
         position: relative;
         display: block;
@@ -155,17 +155,8 @@
                 margin: 1.7em 25% 0;
             }
         }
-    }
-    .entry-footer {
-        position: relative;
-        .edit-link {
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-        @media @screen960 {
-            font-size: .75em;
-        }
+        @media @screen540 {margin: 0 2em 1.7em;}
+        @media @screen960 {margin: 0 0 1.7em;}
     }
     @media @screen960 {
         #content {
@@ -183,6 +174,46 @@
                 padding-left: 2em;
                 border-left: 2px @lightgray solid;
             }
+        }
+    }
+    @media @screen1280 {
+        #content {
+            #primary {width: calc(~"75% - 3em");}
+            #secondary {width: calc(~"25% - 3em");}
+        }
+    }
+}
+
+.entry {
+    &-header {
+        margin-bottom: 1em;
+    }
+    &-content {
+        margin-bottom: 1em;
+        .attachment-post-thumbnail {
+            display: block;
+            margin-bottom: 1em;
+        }
+    }
+    &-footer {
+        position: relative;
+        .cat-links {
+            display: block;
+            width: 100%;
+            margin: 0 0 1em;
+        }
+        .comments-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .edit-link {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        @media @screen960 {
+            font-size: .75em;
         }
     }
 }
