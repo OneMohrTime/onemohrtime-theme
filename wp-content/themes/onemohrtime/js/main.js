@@ -46,14 +46,16 @@ $(document).ready(function() {
         //$('.toggle-hidden').slideToggle();
     });
     
-    // Remove inline anchor styles from images
+    // Remove inline anchor styles from certain elements
     $('#content a > img').parent().addClass('no-style');
+    $('.sharedaddy a').addClass('btn');
     
     // Sticky-kit
-    //$('.blog #secondary').stick_in_parent();
+    /*
     if (window.matchMedia('(max-width: 1279px)').matches) {
 		$('.single .entry-featured-image').stick_in_parent();
 	};
+    */
 	
 	// remove fancybox on mobile devices
 	if (window.matchMedia('(max-width: 768px)').matches) {

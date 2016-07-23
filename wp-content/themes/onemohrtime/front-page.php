@@ -29,16 +29,19 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 		
         <figure class="homepage-banner" style="background-image: url('<?php echo $homeHero['url']; ?>');">
-            <img src="<?php echo $homeLogo['url']; $homeLogo['alt']; ?>" id="homepage_logo" />
+            <!--<img src="<?php echo $homeLogo['url']; $homeLogo['alt']; ?>" id="homepage_logo" />-->
+            <div id="homepage_logo">
+                <h1>Designer + Coder.<span>|</span></h1>
+            </div>
         </figure>
         
-        <section class="homepage-intro animatedParent animateOnce" data-appear-top-offset="-100">
+        <section class="homepage-intro animatedParent animateOnce">
             <figure class="animated fadeInLeftShort">
                 <img src="<?php echo $homeProfile['url']; ?>" />
                 <a href="about" class="btn">About Me</a>
             </figure>
             <article class="animated fadeInRightShort">
-                <h1><span>I&rsquo;m a</span> <?php echo $homeTitle ?></h1>
+                <h2><span>I&rsquo;m a</span> <?php echo $homeTitle ?></h2>
                 <?php //echo $homeDesc ?>
                 <?php the_content(); ?>
             </article>
@@ -48,9 +51,9 @@ get_header(); ?>
             //echo do_shortcode("[metaslider id=101]"); 
         ?>
             
-        <section class="homepage-icons animatedParent animateOnce" data-appear-top-offset="-200">
-            <img src="<?php echo $homeIcns['url']; ?>" class="animated fadeIn" />
-            <a href="design/" class="btn">View Portfolio</a>
+        <section class="homepage-icons animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
+            <img src="<?php echo $homeIcns['url']; ?>" class="animated fadeIn" data-id="1" />
+            <a href="design/" class="btn" data-id="2">View Portfolio</a>
         </section>
         
         <section class="homepage-dribbble">

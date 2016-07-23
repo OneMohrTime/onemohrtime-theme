@@ -53,6 +53,53 @@ hr {
     }
 }
 
+// Jetpack social sharing
+.sharedaddy {
+    .sd-title {
+        display: inline-block;
+        position: relative;
+        margin-bottom: .5em;
+        padding-bottom: .5em;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            height: 2px;
+            width: 50%;
+            background-color: @yellow;
+        }
+    }
+    .sd-content {
+        ul {
+            list-style: none;
+            margin: 0;
+        }
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .btn {
+            font-size: .75em;
+            line-height: 1em;
+            position: relative;
+            span {
+                margin-left: 1em;
+            }
+            &::before {
+                position: absolute;
+                font-family: FontAwesome;
+                font-size: .75em;
+                margin-left: -.25em;
+            }
+            &.share-facebook::before {content: "\f021";}
+            &.share-twitter::before {content: "\f004";}
+            &.share-pinterest::before {content: "\f020";}
+            &.share-tumblr::before {content: "\f00a";}
+        }
+    }
+}
+
 .comments-area {
     margin: 0 1em 1.7em;
     p[class^="comment-form-"] {
@@ -61,6 +108,8 @@ hr {
     .form-submit {
         margin-top: .5em;
     }
+    @media @screen540 {margin: 0 2em 1.7em;}
+    @media @screen960 {margin: 0 0 1.7em;}
 }
 
 .about {
@@ -115,6 +164,19 @@ hr {
         display: flex;
         justify-content: center;
         align-items: center;
+        h1 {
+            color: @white;
+            font-size: 1.5em;
+            line-height: 1em;
+            margin: 0;
+            span {
+                font-weight: 700;
+                animation: blink 1s infinite;
+            }
+            @media @screen768 {font-size: 2.25em;}
+            @media @screen1280 {font-size: 3em;}
+            @media @screen1600 {font-size: 3.75em;}
+        }
         img {
             display: block;
             max-width: 100px;
@@ -163,7 +225,7 @@ hr {
             order: 1;
             width: 100vw;
             padding: 20px;
-            h1 {
+            h2 {
                 position: relative;
                 font-size: 1.5em;
                 margin-bottom: .5em;
@@ -269,6 +331,10 @@ hr {
         }
         @media @screen960 {padding: 150px 0;}
     }
+}
+
+@keyframes blink{
+    to {opacity: .0;}
 }
 
 .shots {
