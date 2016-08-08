@@ -42,7 +42,6 @@ get_header(); ?>
             </figure>
             <article class="animated fadeInRightShort">
                 <h2><span>I&rsquo;m a</span> <?php echo $homeTitle ?></h2>
-                <?php //echo $homeDesc ?>
                 <?php the_content(); ?>
             </article>
         </section>
@@ -64,7 +63,7 @@ get_header(); ?>
             <div class="shots"></div>
         </section>
             
-        <section class="homepage-contact animatedParent animateOnce" data-sequence="300" data-appear-top-offset="-250">
+        <section class="homepage-contact animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
             <h3 class="animated fadeInUpShort" data-id="1">Like What You See?</h3>
             <a href="hello" class="btn animated fadeInUpShort" data-id="2">Get At Me</a>
         </section>

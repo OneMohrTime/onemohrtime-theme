@@ -164,10 +164,10 @@ function WDIInstagram(args) {
     var instagram = this,
       noArgument = false,
       successFlag = false,
-      statusCode = this.statusCode;
+      statusCode = this.statusCode,
       errorFlag = false,
       argFlag = false,
-      filter = this.getFilter('getTagRecentMedia');
+      filter = this.getFilter('getTagRecentMedia'),
       
     baseUrl = 'https://api.instagram.com/v1/tags/' + tagname + '/media/recent?access_token=' + getAccessToken();
 

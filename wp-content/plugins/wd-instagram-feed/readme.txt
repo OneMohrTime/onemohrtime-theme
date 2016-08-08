@@ -1,10 +1,10 @@
 === Instagram ===
 Contributors: webdorado, progmastery 
 Donate link: https://web-dorado.com/products/wordpress-instagram-feed-wd.html
-Tags: : custom instagram Feed, instagram, instagram account, instagram feed, instagram photos, instagram plugin, instagram posts, instagram stream, instagram wall, mobile instagram, responsive instagram, gallery, hashtag, images, photos, shortcode, widget ,Grid instagram view, instagram gallery, instagram images, instagram page, instagram plugin, instagram responsive, instagram touch, Instagram widgets, lightbox instagram, lightbox, feed
+Tags: : custom instagram feed, feed, instagram, hashtag, Instagram feed, instagram gallery, instagram posts, Instagram images, Instagram photos, Instagram wall, lightbox, photos
 Requires at least: 3.9
 Tested up to: 4.5
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,6 +106,10 @@ After downloading the ZIP file of the Instagram Feed WD plugin,
 5.  WordPress Instagram Feed WD - Theme Settings   
 
 == Changelog ==
+
+= 1.1.7 =
+New: Featured themes admin page     
+Fixed: Javascript error in hashtag feed    
 
 = 1.1.6 =
 Change: Added compatibility with "All in one SEO pack" and other plugins running shortcodes in page head    

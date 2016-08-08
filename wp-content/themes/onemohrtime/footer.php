@@ -28,10 +28,10 @@
         <nav class="site-footer-social">
             <ul>
                 <li><a target="_blank" href="//twitter.com/OneMohrTime"><i class="fa fa-twitter"></i></a></li>
-                <li><a target="_blank" href="//instagram.com/onemohrtime"><i class="fa fa-instagram"></i></a></li>
+                <li><a target="_blank" href="//instagram.com/onemohrtimedesign"><i class="fa fa-instagram"></i></a></li>
+                <li><a target="_blank" href="//plus.google.com/+DerekMohr" rel="author"><i class="fa fa-google-plus"></i></a></li>
                 <li><a target="_blank" href="//dribbble.com/OneMohrTime"><i class="fa fa-dribbble"></i></a></li>
                 <li><a target="_blank" href="//onemohrtime.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
-                <li><a target="_blank" href="//plus.google.com/+DerekMohr" rel="author"><i class="fa fa-google-plus"></i></a></li>
             </ul>
         </nav>
         
