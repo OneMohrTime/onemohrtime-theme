@@ -13,12 +13,20 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'onemohrtime' ); ?></h1>
-				</header><!-- .page-header -->
+                
+                <!-- animation from https://codepen.io/escapedcat/pen/uCgJf -->
+                <figure class="error-cogs">
+                    <span class="fa fa-spin fa-cog"></span>
+                    <span class="fa fa-spin fa-spin-reverse fa-cog"></span>
+                    <span class="fa fa-spin fa-cog"></span>
+                </figure>
+                
+				<header class="entry-header">
+					<h1 class="entry-title"><?php esc_html_e( 'The Dreaded 404 Page', 'onemohrtime' ); ?></h1>
+				</header>
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'onemohrtime' ); ?></p>
+				<div class="entry-content">
+					<p><?php esc_html_e( 'Not saying it&rsquo;s my fault, but either I moved that page or you typed something wrong. Maybe one of these are what you&rsquo;re looking for?', 'onemohrtime' ); ?></p>
 
 					<?php
 						get_search_form();

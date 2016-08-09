@@ -641,16 +641,16 @@ hr {
   margin-left: -0.25em;
 }
 .sharedaddy .sd-content .btn.share-facebook::before {
-  content: "\f021";
+  content: "\f09a";
 }
 .sharedaddy .sd-content .btn.share-twitter::before {
-  content: "\f004";
+  content: "\f099";
 }
 .sharedaddy .sd-content .btn.share-pinterest::before {
-  content: "\f020";
+  content: "\f231";
 }
 .sharedaddy .sd-content .btn.share-tumblr::before {
-  content: "\f00a";
+  content: "\f173";
 }
 .comments-area {
   margin: 0 1em 1.7em;
@@ -2118,6 +2118,34 @@ a {
 .error-404 {
   padding: 0 1em 1.7em;
 }
+.error-404 .error-cogs {
+  width: 9em;
+  height: 9em;
+  font-size: 1em;
+  position: relative;
+  margin: 0 auto;
+}
+.error-404 .error-cogs span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: 4em;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 5s;
+}
+.error-404 .error-cogs span:nth-child(2) {
+  font-size: 6em;
+  top: 0.4em;
+  left: 0.25em;
+}
+.error-404 .error-cogs span:nth-child(3) {
+  font-size: 3em;
+  top: 0.2em;
+  left: 1.7em;
+}
 @media only screen and (min-width: 600px) {
   .error-404 {
     padding: 0 10% 1.7em;
@@ -2137,6 +2165,9 @@ a {
   .error-404 {
     padding: 0 25% 1.7em;
   }
+}
+.error-404 .fa-spin.fa-spin-reverse {
+  animation-direction: reverse;
 }
 /*--------------------------------------------------------------
 10.2 Asides
