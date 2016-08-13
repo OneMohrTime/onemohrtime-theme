@@ -25,7 +25,9 @@
 @white: #fffefa;
 
 @yellow: #ffc300;
-@lightyellow: #fef7e3;
+//@lightyellow: #fef7e3;
+@yellow-transparent: fade(@yellow,1%);
+@lightyellow: lighten(@yellow-transparent, 1%);
 
 @gray: #9b9a95;
 @lightgray: lighten(@gray,15%);

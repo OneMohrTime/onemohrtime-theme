@@ -67,6 +67,9 @@ Thumbs.db
 *.tar
 *.zip
 
+#ignore css map
+*.map
+
 # ignore everything in the "wp-content" directory, except:
 # "themes" directory
 wp-content/*
