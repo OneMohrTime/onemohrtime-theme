@@ -44,6 +44,28 @@ and Blueprint http://www.blueprintcss.org/
 	12.1 Captions
 	12.2 Galleries
 --------------------------------------------------------------*/
+/*
+@color__background-body: #fff;
+@color__background-screen: #f1f1f1;
+@color__background-hr: #ccc;
+@color__background-button: #e6e6e6;
+@color__background-pre: #eee;
+@color__background-ins: #fff9c0;
+
+@color__text-screen: #21759b;
+@color__text-input: #666;
+@color__text-input-focus: #111;
+@color__link: royalblue;
+@color__link-visited: purple;
+@color__link-hover: midnightblue;
+@color__text-main: #404040;
+
+@color__border-button: #ccc #ccc #bbb;
+@color__border-button-hover: #ccc #bbb #aaa;
+@color__border-button-focus: #aaa #bbb #bbb;
+@color__border-input: #ccc;
+@color__border-abbr: #666;
+*/
 .clearfix {
   clear: both;
 }
@@ -408,13 +430,13 @@ mark {
   #content a:not(.btn),
   .site-info a:not(.btn) {
     padding: 2px;
-    border-bottom-color: rgba(255, 196, 5, 0.01);
+    border-bottom-color: #fef7e3;
     transition: all 300ms;
   }
   #content a:not(.btn):hover,
   .site-info a:not(.btn):hover {
-    border-color: rgba(255, 196, 5, 0.01);
-    background-color: rgba(255, 196, 5, 0.01);
+    border-color: #ffc300;
+    background-color: rgba(254, 247, 227, 0.75);
   }
 }
 #content a:not(.btn).no-style,
@@ -787,11 +809,11 @@ hr {
 .homepage-intro figure .btn {
   flex: 0 1 auto;
   margin: 20px 0 0;
-  border: 2px rgba(255, 196, 5, 0.01) solid;
-  color: rgba(255, 196, 5, 0.01);
+  border: 2px #fef7e3 solid;
+  color: #fef7e3;
 }
 .homepage-intro figure .btn::after {
-  background-color: rgba(255, 196, 5, 0.01);
+  background-color: #fef7e3;
 }
 @media only screen and (min-width: 1024px) {
   .homepage-intro figure .btn {
@@ -887,7 +909,7 @@ hr {
 .homepage-icons {
   width: 100vw;
   padding: 20px;
-  background-color: rgba(255, 196, 5, 0.01);
+  background-color: #fef7e3;
   text-align: center;
   display: flex;
   flex-flow: row wrap;
@@ -918,11 +940,11 @@ hr {
   text-align: center;
 }
 .homepage-work .btn {
-  border: 2px rgba(255, 196, 5, 0.01) solid;
-  color: rgba(255, 196, 5, 0.01);
+  border: 2px #fef7e3 solid;
+  color: #fef7e3;
 }
 .homepage-work .btn::after {
-  background-color: rgba(255, 196, 5, 0.01);
+  background-color: #fef7e3;
 }
 .homepage-dribbble {
   width: 100vw;
@@ -1481,7 +1503,7 @@ a {
 }
 .mm-menu.mm-theme-white .mm-listview > li.mm-selected a:not(.mmnext),
 .mm-menu.mm-theme-white .mm-listview > li.mm-selected span {
-  background-color: rgba(255, 196, 5, 0.01);
+  background-color: #fef7e3;
 }
 .mm-menu.mm-theme-white .mm-listview > li.mm-selected::after {
   border-bottom-color: #ffc300;
@@ -1659,14 +1681,13 @@ a {
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-  background-color: #f1f1f1;
+  background-color: #fffefa;
   border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(23, 20, 9, 0.6);
   clip: auto !important;
-  color: #21759b;
+  color: #171409;
   display: block;
-  font-size: 14px;
-  font-size: 1.4rem;
+  font-size: 1.4em;
   font-weight: bold;
   height: auto;
   left: 5px;
