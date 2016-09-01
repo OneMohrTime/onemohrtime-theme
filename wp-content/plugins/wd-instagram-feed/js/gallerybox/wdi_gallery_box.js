@@ -106,7 +106,7 @@ function wdi_spider_destroypopup(duration) {
       jQuery(".wdi_spider_popup_loading").css({display: "none"});
       jQuery(".wdi_spider_popup_overlay").css({display: "none"});
       jQuery(document).off("keydown");
-      jQuery("html").attr("style", "overflow:auto !important");
+      jQuery("html").attr("style", "");
     }, 20);
   }
   isPopUpOpened = false;

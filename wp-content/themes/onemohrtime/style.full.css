@@ -3,7 +3,7 @@ Theme Name: OneMohrTime
 Theme URI: http://onemohrti.me/
 Author: Derek Mohr
 Author URI: http://onemohrti.me/
-Description: no description yet
+Description: <strong>OneMohrTime</strong> is a theme built by <strong>@onemohrtime</strong> for the use of the portfolio site <a href="//onemohrti.me">onemohrti.me</a>. It's not optimized for any other site at this point.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -318,6 +318,7 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 /*--------------------------------------------------------------
 2.0 Typography
@@ -1030,11 +1031,6 @@ hr {
     padding: 150px 0;
   }
 }
-@keyframes blink {
-  to {
-    opacity: .0;
-  }
-}
 .shots {
   display: flex;
   flex-flow: row wrap;
@@ -1055,6 +1051,18 @@ hr {
 @media only screen and (min-width: 1440px) {
   .shots .shot {
     width: calc(16.66666667%);
+  }
+}
+@media only screen and (min-width: 960px) {
+  .background-attribution {
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    padding: 5px 10px;
+    background-color: rgba(255, 254, 250, 0.75);
+    border-radius: 3px;
+    font-size: .75em;
+    line-height: 1em;
   }
 }
 #loading {
@@ -1132,105 +1140,6 @@ hr {
   top: 50px;
   animation: object_big 2s infinite;
   animation-delay: 0.5s;
-}
-@-webkit-keyframes object_big {
-  50% {
-    -webkit-transform: scale(0.5);
-  }
-}
-@keyframes object_big {
-  50% {
-    transform: scale(0.5);
-    -webkit-transform: scale(0.5);
-  }
-}
-@-webkit-keyframes object_one {
-  50% {
-    -webkit-transform: translate(-65px, -65px);
-  }
-}
-@keyframes object_one {
-  50% {
-    transform: translate(-65px, -65px);
-    -webkit-transform: translate(-65px, -65px);
-  }
-}
-@-webkit-keyframes object_two {
-  50% {
-    -webkit-transform: translate(0, -65px);
-  }
-}
-@keyframes object_two {
-  50% {
-    transform: translate(0, -65px);
-    -webkit-transform: translate(0, -65px);
-  }
-}
-@-webkit-keyframes object_three {
-  50% {
-    -webkit-transform: translate(65px, -65px);
-  }
-}
-@keyframes object_three {
-  50% {
-    transform: translate(65px, -65px);
-    -webkit-transform: translate(65px, -65px);
-  }
-}
-@-webkit-keyframes object_four {
-  50% {
-    -webkit-transform: translate(65px, 0);
-  }
-}
-@keyframes object_four {
-  50% {
-    transform: translate(65px, 0);
-    -webkit-transform: translate(65px, 0);
-  }
-}
-@-webkit-keyframes object_five {
-  50% {
-    -webkit-transform: translate(65px, 65px);
-  }
-}
-@keyframes object_five {
-  50% {
-    transform: translate(65px, 65px);
-    -webkit-transform: translate(65px, 65px);
-  }
-}
-@-webkit-keyframes object_six {
-  50% {
-    -webkit-transform: translate(0, 65px);
-  }
-}
-@keyframes object_six {
-  50% {
-    transform: translate(0, 65px);
-    -webkit-transform: translate(0, 65px);
-  }
-}
-@-webkit-keyframes object_seven {
-  50% {
-    -webkit-transform: translate(-65px, 65px);
-  }
-}
-@keyframes object_seven {
-  50% {
-    transform: translate(-65px, 65px);
-    -webkit-transform: translate(-65px, 65px);
-  }
-}
-@-webkit-keyframes object_eight {
-  50% {
-    -webkit-transform: translate(-65px, 0);
-  }
-}
-@keyframes object_eight {
-  50% {
-    transform: translate(-65px, 0);
-    -webkit-transform: translate(-65px, 0);
-  }
 }
 /*--------------------------------------------------------------
 4.0 Forms
@@ -2167,6 +2076,14 @@ a {
   top: 0.2em;
   left: 1.7em;
 }
+.error-404 .links ul {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+}
+.error-404 .links li {
+  display: inline-block;
+}
 @media only screen and (min-width: 600px) {
   .error-404 {
     padding: 0 10% 1.7em;
@@ -2543,11 +2460,14 @@ object {
 /*--------------------------------------------------------------
 13.0 Animations
 --------------------------------------------------------------*/
-/*animations*/
+/*--------------------------------------------------------------
+    Animations
+--------------------------------------------------------------*/
+/**********
+CSS3 Animate It
+**********/
 .animated {
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 .fadeInRight,
@@ -2555,21 +2475,7 @@ object {
 .fadeInUp,
 .fadeInDown {
   opacity: 0;
-  -webkit-transform: translateX(400px);
-  -ms-transform: translateX(400px);
   transform: translateX(400px);
-}
-/**********
-* Fade In *
-**********/
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    display: block;
-  }
 }
 @keyframes fadeIn {
   0% {
@@ -2584,29 +2490,11 @@ object {
   opacity: 0;
 }
 .fadeIn.go {
-  -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-}
-/*************
-* FadeInLeft *
-*************/
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-400px);
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
 }
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-400px);
     transform: translateX(-400px);
   }
   50% {
@@ -2614,40 +2502,19 @@ object {
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
 .fadeInLeft {
   opacity: 0;
-  -webkit-transform: translateX(-400px);
-  -ms-transform: translateX(-400px);
   transform: translateX(-400px);
 }
 .fadeInLeft.go {
-  -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-}
-/*************
-* FadeInRight *
-*************/
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(400px);
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
 }
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(400px);
     transform: translateX(400px);
   }
   50% {
@@ -2655,40 +2522,19 @@ object {
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
 .fadeInRight {
   opacity: 0;
-  -webkit-transform: translateX(400px);
-  -ms-transform: translateX(400px);
   transform: translateX(400px);
 }
 .fadeInRight.go {
-  -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-}
-/*************
-* FadeInUp *
-*************/
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(400px);
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
 }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(400px);
     transform: translateY(400px);
   }
   50% {
@@ -2696,40 +2542,19 @@ object {
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 .fadeInUp {
   opacity: 0;
-  -webkit-transform: translateY(400px);
-  -ms-transform: translateY(400px);
   transform: translateY(400px);
 }
 .fadeInUp.go {
-  -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
-}
-/*************
-* FadeInDown *
-*************/
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-400px);
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
 }
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-400px);
     transform: translateY(-400px);
   }
   50% {
@@ -2737,157 +2562,143 @@ object {
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 .fadeInDown {
   opacity: 0;
-  -webkit-transform: translateY(-400px);
-  -ms-transform: translateY(-400px);
   transform: translateY(-400px);
 }
 .fadeInDown.go {
-  -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-}
-/*********************
-* fadeInUpShort
-*********************/
-@-webkit-keyframes fadeInUpShort {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
 }
 @keyframes fadeInUpShort {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(20px);
     transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 .fadeInUpShort {
   opacity: 0;
-  -webkit-transform: translateY(20px);
-  -ms-transform: translateY(20px);
   transform: translateY(20px);
 }
 .fadeInUpShort.go {
-  -webkit-animation-name: fadeInUpShort;
   animation-name: fadeInUpShort;
-}
-/*********************
-* fadeInDownShort
-*********************/
-@-webkit-keyframes fadeInDownShort {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
 }
 @keyframes fadeInDownShort {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 .fadeInDownShort {
   opacity: 0;
-  -webkit-transform: translateY(-20px);
-  -ms-transform: translateY(-20px);
   transform: translateY(-20px);
 }
 .fadeInDownShort.go {
-  -webkit-animation-name: fadeInDownShort;
   animation-name: fadeInDownShort;
-}
-/*********************
-* fadeInRightShort 
-*********************/
-@-webkit-keyframes fadeInRightShort {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
 }
 @keyframes fadeInRightShort {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(20px);
     transform: translateX(20px);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
 .fadeInRightShort {
   opacity: 0;
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
   transform: translateX(20px);
 }
 .fadeInRightShort.go {
-  -webkit-animation-name: fadeInRightShort;
   animation-name: fadeInRightShort;
-}
-/*********************
-* fadeInLeftShort 
-*********************/
-@-webkit-keyframes fadeInLeftShort {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
 }
 @keyframes fadeInLeftShort {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-20px);
     transform: translateX(-20px);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
 .fadeInLeftShort {
   opacity: 0;
-  -webkit-transform: translateX(-20px);
-  -ms-transform: translateX(-20px);
   transform: translateX(-20px);
 }
 .fadeInLeftShort.go {
-  -webkit-animation-name: fadeInLeftShort;
   animation-name: fadeInLeftShort;
+}
+/**********
+Blinking Homepage Cursor
+**********/
+@keyframes blink {
+  to {
+    opacity: .0;
+  }
+}
+/**********
+Faux Loading Screen
+**********/
+@keyframes object_big {
+  50% {
+    transform: scale(0.5);
+  }
+}
+@keyframes object_one {
+  50% {
+    transform: translate(-65px, -65px);
+  }
+}
+@keyframes object_two {
+  50% {
+    transform: translate(0, -65px);
+  }
+}
+@keyframes object_three {
+  50% {
+    transform: translate(65px, -65px);
+  }
+}
+@keyframes object_four {
+  50% {
+    transform: translate(65px, 0);
+  }
+}
+@keyframes object_five {
+  50% {
+    transform: translate(65px, 65px);
+  }
+}
+@keyframes object_six {
+  50% {
+    transform: translate(0, 65px);
+  }
+}
+@keyframes object_seven {
+  50% {
+    transform: translate(-65px, 65px);
+  }
+}
+@keyframes object_eight {
+  50% {
+    transform: translate(-65px, 0);
+  }
+}
+/**********
+Reverse FontAwesome animation
+**********/
+.fa-spin.fa-spin-reverse {
+  animation-direction: reverse;
 }

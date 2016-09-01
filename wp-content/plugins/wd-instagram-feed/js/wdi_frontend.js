@@ -1202,7 +1202,7 @@ wdi_front.getPhotoTemplate = function(currentFeed) {
 	var pagination = '';
 	var onclick = '';
 	var overlayCustomClass = '';
-	var thumbClass = 'fa-fullscreen';
+	var thumbClass = 'fa-arrows-alt';
 	var showUsernameOnThumb = '';
 	if (currentFeed.feed_row.feed_type == 'blog_style' || currentFeed.feed_row.feed_type == 'image_browser') {
 		thumbClass = '';

@@ -1028,11 +1028,11 @@ class WDIViewGalleryBox {
           <?php if ($enable_image_fullscreen) {
                   if (!$open_with_fullscreen) {
           ?>
-          <i title="<?php echo __('Maximize', "wdi"); ?>" class="wdi_ctrl_btn wdi_resize-full fa fa-resize-full "></i>
+          <i title="<?php echo __('Maximize', "wdi"); ?>" class="wdi_ctrl_btn wdi_resize-full fa fa-expand "></i>
           <?php
           }
           ?>
-          <i title="<?php echo __('Fullscreen', "wdi"); ?>" class="wdi_ctrl_btn wdi_fullscreen fa fa-fullscreen"></i>
+          <i title="<?php echo __('Fullscreen', "wdi"); ?>" class="wdi_ctrl_btn wdi_fullscreen fa fa-arrows-alt"></i>
           <?php } if ($popup_enable_info) { ?>
           <i title="<?php echo __('Show info', "wdi"); ?>" class="wdi_ctrl_btn wdi_info fa fa-info"></i>
           <?php } if ($enable_comment_social) { ?>
@@ -2157,9 +2157,9 @@ class WDIViewGalleryBox {
           if (jQuery.isFunction(jQuery().fullscreen)) {
             if (!jQuery.fullscreen.isFullScreen()) {
               jQuery(".wdi_resize-full").show();
-              jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-resize-full");
+              jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-expand");
               jQuery(".wdi_resize-full").attr("title", "<?php echo __('Maximize', "wdi"); ?>");
-              jQuery(".wdi_fullscreen").attr("class", "wdi_ctrl_btn wdi_fullscreen fa fa-fullscreen");
+              jQuery(".wdi_fullscreen").attr("class", "wdi_ctrl_btn wdi_fullscreen fa fa-arrows-alt");
               jQuery(".wdi_fullscreen").attr("title", "<?php echo __('Fullscreen', "wdi"); ?>");
             }
           }
@@ -2661,7 +2661,7 @@ class WDIViewGalleryBox {
           if (jQuery(".wdi_comment_container").hasClass("wdi_open")) {
             comment_container_width = jQuery(".wdi_comment_container").width();
           }
-          if (jQuery(".wdi_resize-full").hasClass("fa-resize-small")) {
+          if (jQuery(".wdi_resize-full").hasClass("fa-compress")) {
             if (jQuery(window).width() > <?php echo $image_width; ?>) {
               wdi_popup_current_width = <?php echo $image_width; ?>;
             }
@@ -2713,7 +2713,7 @@ class WDIViewGalleryBox {
             jQuery(".wdi_filmstrip").animate({<?php echo $width_or_height; ?>: wdi_popup_current_<?php echo $width_or_height; ?> - <?php echo ($filmstrip_direction == 'horizontal' ? 'comment_container_width' : 0); ?> - 40}, 500);
             /* Set filmstrip initial position.*/
             wdi_set_filmstrip_pos(wdi_popup_current_<?php echo $width_or_height; ?> - 40);
-            jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-resize-full");
+            jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-expand");
             jQuery(".wdi_resize-full").attr("title", "<?php echo __('Maximize', "wdi"); ?>");
           }
           else {
@@ -2750,7 +2750,7 @@ class WDIViewGalleryBox {
             jQuery(".wdi_filmstrip").animate({<?php echo $width_or_height; ?>: jQuery(window).<?php echo $width_or_height; ?>() - <?php echo ($filmstrip_direction == 'horizontal' ? 'comment_container_width' : 0); ?> - 40}, 500);
             /* Set filmstrip initial position.*/
             wdi_set_filmstrip_pos(jQuery(window).<?php echo $width_or_height; ?>() - <?php echo ($filmstrip_direction == 'horizontal' ? 'comment_container_width' : 0); ?> - 40);
-            jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-resize-small");
+            jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-compress");
             jQuery(".wdi_resize-full").attr("title", "<?php echo __('Restore', "wdi"); ?>");
             jQuery(".wdi_spider_popup_close").attr("class", "wdi_ctrl_btn wdi_spider_popup_close_fullscreen");
           }
@@ -2810,9 +2810,9 @@ class WDIViewGalleryBox {
               /* Set filmstrip initial position.*/
               wdi_set_filmstrip_pos(wdi_popup_current_<?php echo $width_or_height; ?> - 40);
               jQuery(".wdi_resize-full").show();
-              jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-resize-full");
+              jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-expand");
               jQuery(".wdi_resize-full").attr("title", "<?php echo __('Maximize', "wdi"); ?>");
-              jQuery(".wdi_fullscreen").attr("class", "wdi_ctrl_btn wdi_fullscreen fa fa-fullscreen");
+              jQuery(".wdi_fullscreen").attr("class", "wdi_ctrl_btn wdi_fullscreen fa fa-arrows-alt");
               jQuery(".wdi_fullscreen").attr("title", "<?php echo __('Fullscreen', "wdi"); ?>");
               if (jQuery("#wdi_spider_popup_wrap").width() < jQuery(window).width()) {
                 if (jQuery("#wdi_spider_popup_wrap").height() < jQuery(window).height()) {
@@ -2865,7 +2865,7 @@ class WDIViewGalleryBox {
                   /* Set filmstrip initial position.*/
                   wdi_set_filmstrip_pos(screen_<?php echo $width_or_height; ?> - <?php echo ($filmstrip_direction == 'horizontal' ? 'comment_container_width' : 0); ?> - 40);
                   jQuery(".wdi_resize-full").hide();
-                  jQuery(".wdi_fullscreen").attr("class", "wdi_ctrl_btn wdi_fullscreen fa fa-resize-small");
+                  jQuery(".wdi_fullscreen").attr("class", "wdi_ctrl_btn wdi_fullscreen fa fa-compress");
                   jQuery(".wdi_fullscreen").attr("title", "<?php echo __('Exit Fullscreen', "wdi"); ?>");
                   jQuery(".wdi_spider_popup_close").attr("class", "wdi_ctrl_btn wdi_spider_popup_close_fullscreen");
                 /*});
@@ -2970,7 +2970,7 @@ class WDIViewGalleryBox {
         /* Set filmstrip initial position.*/
         wdi_set_filmstrip_pos(jQuery(window).<?php echo $width_or_height; ?>() - <?php echo ($filmstrip_direction == 'horizontal' ? 'comment_container_width' : 0); ?> - 40);
 
-        jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-resize-small");
+        jQuery(".wdi_resize-full").attr("class", "wdi_ctrl_btn wdi_resize-full fa fa-compress");
         jQuery(".wdi_resize-full").attr("title", "<?php echo __('Restore', "wdi"); ?>");
         jQuery(".wdi_spider_popup_close").attr("class", "wdi_ctrl_btn wdi_spider_popup_close_fullscreen");         
       }

@@ -142,8 +142,8 @@ function wdi_load_frontend_scripts(){
 function wdi_load_frontend_styles() {
   wp_register_style('wdi_frontend_thumbnails', plugins_url('../css/wdi_frontend.css', __FILE__));
   wp_enqueue_style('wdi_frontend_thumbnails');
-  wp_register_style('font_awesome', plugins_url('../css/font-awesome/font-awesome.css', __FILE__));
-  wp_enqueue_style('font_awesome');
+  wp_register_style('font-awesome', plugins_url('../css/font-awesome/css/font-awesome.css', __FILE__));
+  wp_enqueue_style('font-awesome');
 }
 
 
