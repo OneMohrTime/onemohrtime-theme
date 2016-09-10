@@ -35,7 +35,7 @@ use Timber\Loader;
  */
 class Timber {
 
-	public static $version = '1.1.1';
+	public static $version = '1.1.5';
 	public static $locations;
 	public static $dirname = 'views';
 	public static $twig_cache = false;
@@ -56,7 +56,7 @@ class Timber {
 			$this->test_compatibility();
 			$this->backwards_compatibility();
 			$this->init_constants();
-			$this::init();
+			$this->init();
 		}
 	}
 
@@ -103,12 +103,12 @@ class Timber {
 	/**
 	 * @codeCoverageIgnore
 	 */
-	protected static function init() {
+	protected function init() {
 		if ( class_exists('\WP') && !defined('TIMBER_LOADED') ) {
 			Twig::init();
 			ImageHelper::init();
 			Admin::init();
-			Integrations::init();
+			new Integrations();
 			define('TIMBER_LOADED', true);
 		}
 	}
@@ -225,7 +225,7 @@ class Timber {
 	 */
 	public static function get_context() {
 		if ( empty(self::$context_cache) ) {
-			self::$context_cache['http_host'] = 'http://'.URLHelper::get_host();
+			self::$context_cache['http_host'] = URLHelper::get_scheme().'://'.URLHelper::get_host();
 			self::$context_cache['wp_title'] = Helper::get_wp_title();
 			self::$context_cache['wp_head'] = Helper::function_wrapper('wp_head');
 			self::$context_cache['wp_footer'] = Helper::function_wrapper('wp_footer');
@@ -252,7 +252,7 @@ class Timber {
 	 * @api
 	 * @param array   $filenames
 	 * @param array   $data
-	 * @param bool    $expires
+	 * @param boolean|integer    $expires
 	 * @param string  $cache_mode
 	 * @param bool    $via_render
 	 * @return bool|string
@@ -324,9 +324,9 @@ class Timber {
 	 * @api
 	 * @param array   $filenames
 	 * @param array   $data
-	 * @param bool    $expires
+	 * @param boolean|integer    $expires
 	 * @param string  $cache_mode
-	 * @return bool|string
+	 * @return boolean|string
 	 */
 	public static function render( $filenames, $data = array(), $expires = false, $cache_mode = Loader::CACHE_USE_DEFAULT ) {
 		$output = self::fetch($filenames, $data, $expires, $cache_mode);

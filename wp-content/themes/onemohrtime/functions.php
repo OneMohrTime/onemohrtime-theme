@@ -123,6 +123,9 @@ function onemohrtime_scripts() {
     
 	wp_enqueue_script( 'onemohrtime-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
     
+    // modernizr 3.3.1
+    wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), null, true);
+    
 	//wp_enqueue_script( 'onemohrtime-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
     
     // FancyBox 2.1.5
@@ -135,7 +138,7 @@ function onemohrtime_scripts() {
     wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
     
     // Sticky-kit.js
-    wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
+    //wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
     
     // Dribbble plugin
     wp_enqueue_script('dribbble', get_template_directory_uri() . '/js/jribbble.min.js', array('jquery'), null, true);
@@ -170,6 +173,19 @@ function about_dropdown( $atts , $content = null ) {
     return $return_string;
 }
 add_shortcode( 'about', 'about_dropdown' );
+
+/**
+ * Custom navigation menus
+ */
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'desktop-menu' => __( 'Desktop-only Menu' ),
+            'social-menu' => __( 'Footer Social Media Links' )
+        )
+    );
+}
+add_action( 'init', 'register_my_menus' );
 
 /**
  * Implement the Custom Header feature.

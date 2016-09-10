@@ -62,19 +62,36 @@
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif; ?>
-		</div><!-- .site-branding -->
+		</div>
         
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle btn" aria-controls="primary-menu" aria-expanded="false">
+            <button class="menu-toggle btn" aria-controls="mobile_menu" aria-expanded="false">
                 <?php esc_html_e( '', 'onemohrtime' ); ?>
                 <span class="menuTrigger">
                     <span class="mainLine"></span>
                 </span>
             </button>
-            <a href="/wordpress/hello/" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+			<?php
+                // Mobile Menu
+                wp_nav_menu( array(
+                    'theme_location' => 'primary',
+                    'menu_id' => 'mobile_menu'
+                ) );
+            ?>
+            <?php
+                // Desktop Menu
+                wp_nav_menu( array(
+                    'theme_location' => 'desktop-menu',
+                    'menu_id' => 'desktop_menu',
+                    'depth' => '1'
+                ) );
+            ?>
+            <a href="<?php echo get_template_directory_uri() . "/hello/" ?>" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
+            <a href="/" class="desktop-logo">
+                <img src="<?php echo get_template_directory_uri() . "/img/logo-color.png" ?>" alt="onemohrtime design logo" class="responsive" />
+            </a>
+		</nav>
+	</header>
     
     <?php
         // Page Vars

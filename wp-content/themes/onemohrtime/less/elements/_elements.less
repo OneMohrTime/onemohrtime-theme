@@ -228,13 +228,14 @@ hr {
             h2 {
                 position: relative;
                 font-size: 1.5em;
-                margin-bottom: .5em;
+                line-height: 1em;
+                margin-bottom: 30px;
                 &::after {
                     content: "";
                     position: absolute;
                     left: 0;
-                    bottom: -.25em;
-                    height: 2px;
+                    bottom: -15px;
+                    height: 10px;
                     width: 100px;
                     background-color: @yellow;
                 }
@@ -291,18 +292,19 @@ hr {
         text-align: center;
         h3 {
             font-size: 1.375em;
+            line-height: 1em;
             margin-bottom: 20px;
             position: relative;
             @media @screen768 {font-size: 1.875em;}
             @media @screen960 {
-                margin-bottom: 50px;
+                margin-bottom: 30px;
                 &::after {
                     content: "";
                     position: absolute;
                     left: 50%;
                     margin-left: -50px;
-                    bottom: -.25em;
-                    height: 2px;
+                    bottom: -15px;
+                    height: 10px;
                     width: 100px;
                     background-color: @yellow;
                 }

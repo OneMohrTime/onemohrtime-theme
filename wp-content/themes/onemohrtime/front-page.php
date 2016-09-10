@@ -19,7 +19,6 @@ get_header(); ?>
         $homeHero = get_field('homepage_hero');
         $homeLogo = get_field('homepage_logo');
         $homeTitle = get_field('homepage_title');
-        //$homeDesc = get_field('homepage_desc');
         $homeProfile = get_field('homepage_profile');
         $homeIcns = get_field('homepage_icons');
     ?>

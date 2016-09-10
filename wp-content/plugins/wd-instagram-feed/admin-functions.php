@@ -506,6 +506,10 @@ function wdi_field_callback($element){
       $wdi_formBuilder->textarea($setting);
       break;
     }
+    case 'select':{
+      $wdi_formBuilder->select($setting);
+      break;
+    }
   }
 }
 
@@ -551,13 +555,15 @@ function wdi_get_settings(){
   $settings = array(
       'wdi_access_token' => array('name' => 'wdi_access_token','sanitize_type'=>'text', 'required' =>'required','input_size'=>'55','type'=>'input','readonly'=>'readonly','default'=>'','field_or_not'=>'field','section'=>'wdi_configure_section','title'=>__('Access Token',"wdi")),
       'wdi_user_name' => array('name' => 'wdi_user_name','sanitize_type'=>'text','required' =>'required','type'=>'input','section'=>'wdi_configure_section','readonly'=>'readonly','field_or_not'=>'field','default'=>'','title'=>__('Username',"wdi")),
+      'wdi_feeds_min_capability' => array('name'=>'wdi_feeds_min_capability',"sanitize_type"=> "text",'title'=>__('Minimal role to add and manage Feeds or Themes',"wdi"),'type'=>'select','field_or_not'=>'field',"default"=>"manage_options",'section'=>'wdi_configure_section','valid_options'=>array('manage_options'=>__('Administrator', 'wdi'),'publish_posts'=>__('Author', 'wdi'))),
+
       'wdi_user_id' => array('name' => 'wdi_user_id','sanitize_type'=>'text','type'=>'input','section'=>'wdi_configure_section','readonly'=>'readonly','default'=>'','field_or_not'=>'no_field'),
       'wdi_custom_css'=>array('name'=>'wdi_custom_css','sanitize_type'=>'css','type'=>'textarea','section'=>'wdi_customize_section','field_or_not'=>'field','default'=>'','title'=>__('Custom CSS',"wdi")),
-      'wdi_custom_js'=>array('name'=>'wdi_custom_js','sanitize_type'=>'css','type'=>'textarea','section'=>'wdi_customize_section','field_or_not'=>'field','default'=>'','title'=>__('Custom JavaScript',"wdi")),
       //'wdi_preserve_settings_when_remove'=>array('name'=>'wdi_preserve_settings_when_remove','field_or_not'=>'field','type'=>'checkbox','default'=>'1', 'section'=>'wdi_configure_section','title'=>__('Preserve Settings When Remove',"wdi")),
       'wdi_plugin_uninstalled' => array('name'=>'wdi_plugin_uninstalled','sanitize_type'=>'bool','field_or_not'=>'field','type'=>'input','input_type'=>'hidden','section'=>'wdi_customize_section','title'=>'','default'=>'false','value'=>'false'),
       //'wdi_version' => array('name'=>'wdi_version','field_or_not'=>'no_field','default'=>WDI_VERSION),
       //'wdi_first_time'=>array('name'=>'wdi_first_time','field_or_not'=>'no_field','default'=>'1')
+      'wdi_custom_js'=>array('name'=>'wdi_custom_js','sanitize_type'=>'css','type'=>'textarea','section'=>'wdi_customize_section','field_or_not'=>'field','default'=>'','title'=>__('Custom JavaScript',"wdi")),
     );
   return $settings;
 }

@@ -505,7 +505,7 @@ class WDI_admin_view{
     else{
       global $wdi_options;
       $optionname = isset($element["multiple"]) ? WDI_OPT.'[' .$element['name']. '][]' : WDI_OPT.'[' .$element['name']. ']';
-      $opt_val = $wdi_options[$element['name']];
+      $opt_val = isset($wdi_options[$element['name']]) ? $wdi_options[$element['name']] : $element["default"];
     }
     $opt_val = is_array($opt_val) ? $opt_val : array($opt_val);
     $multiple = isset($element["multiple"]) ? true : false;

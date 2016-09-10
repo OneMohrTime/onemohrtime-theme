@@ -4,7 +4,7 @@ Donate link: https://web-dorado.com/products/wordpress-instagram-feed-wd.html
 Tags: : custom instagram feed, feed, instagram, hashtag, Instagram feed, instagram gallery, instagram posts, Instagram images, Instagram photos, Instagram wall, lightbox, photos
 Requires at least: 3.9
 Tested up to: 4.6
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,6 +106,10 @@ After downloading the ZIP file of the Instagram Feed WD plugin,
 5.  WordPress Instagram Feed WD - Theme Settings   
 
 == Changelog ==
+
+= 1.1.9 =
+New: Option to set minimal user role for adding and managing feeds and themes       
+Fixed: Masonry feed thumbnails overlay opacity (Pro)     
 
 = 1.1.8 =
 Changed: Font-Awesome updated to version 4.6.3    
