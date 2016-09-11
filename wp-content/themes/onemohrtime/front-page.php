@@ -30,7 +30,7 @@ get_header(); ?>
         <figure class="homepage-banner" style="background-image: url('<?php echo $homeHero['url']; ?>');">
             <!--<img src="<?php echo $homeLogo['url']; $homeLogo['alt']; ?>" id="homepage_logo" />-->
             <div id="homepage_logo">
-                <h1>Designer + Coder.<span>|</span></h1>
+                <h1>Freelance Designer.<span>|</span></h1>
             </div>
         </figure>
         

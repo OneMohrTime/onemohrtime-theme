@@ -20,9 +20,6 @@ $(document).ready(function() {
 		this.previousTop = currentTop;
 	});
     
-    // main nav triggered on hover
-    //if(window).matchMedia
-    
 	// Fancybox 2.1.5
 	$('.fancybox').fancybox({
 		padding : 0,

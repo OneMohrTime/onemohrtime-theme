@@ -50,6 +50,15 @@
                         }
                     }
                 }
+                &.active {
+                    > a {
+                        color: @yellow;
+                        &::after {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                }
             }
         }
     }
@@ -200,6 +209,41 @@
             .mainLine {
                 &::before {top: -15px;}
                 &::after {top: 15px;}
+            }
+        }
+    }
+}
+
+// Blog categories
+.posts-categories {
+    background-color: lighten(@gray,35%);
+    font-size: .75em;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px @lightgray solid;
+    border-radius: 3px;
+    ul {
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-flow: row wrap;
+        li {
+            flex: 0 1 auto;
+            margin-right: 1em;
+            &.current-cat {
+                a {
+                    font-weight: 700;
+                }
+            }
+            a {
+                .unstyled;
+                color: @gray;
+                line-height: 1;
+                border-radius: 3px;
+                padding: .25em !important;
+                &:hover {
+                    background-color: @lightgray !important;
+                }
             }
         }
     }

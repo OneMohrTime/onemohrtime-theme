@@ -48,22 +48,6 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'onemohrtime' ); ?></a>
     
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-            
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div>
-        
 		<nav id="site-navigation" class="main-navigation" role="navigation">
             <button class="menu-toggle btn" aria-controls="mobile_menu" aria-expanded="false">
                 <?php esc_html_e( '', 'onemohrtime' ); ?>
@@ -86,7 +70,7 @@
                     'depth' => '1'
                 ) );
             ?>
-            <a href="<?php echo get_template_directory_uri() . "/hello/" ?>" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
+            <a href="/hello/" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
             <a href="/" class="desktop-logo">
                 <img src="<?php echo get_template_directory_uri() . "/img/logo-color.png" ?>" alt="onemohrtime design logo" class="responsive" />
             </a>

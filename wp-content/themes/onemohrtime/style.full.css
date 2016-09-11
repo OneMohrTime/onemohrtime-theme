@@ -1460,6 +1460,13 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
+  #menu-location-desktop-menu ul li.active > a {
+    color: #ffc300;
+  }
+  #menu-location-desktop-menu ul li.active > a::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .menu-toggle {
   overflow: visible;
@@ -1621,6 +1628,40 @@ a {
   .menuTrigger:hover .mainLine::after {
     top: 15px;
   }
+}
+.posts-categories {
+  background-color: #f2f2f1;
+  font-size: .75em;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px #c0c0bc solid;
+  border-radius: 3px;
+}
+.posts-categories ul {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+}
+.posts-categories ul li {
+  flex: 0 1 auto;
+  margin-right: 1em;
+}
+.posts-categories ul li.current-cat a {
+  font-weight: 700;
+}
+.posts-categories ul li a {
+  color: inherit !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  color: #9b9a95;
+  line-height: 1;
+  border-radius: 3px;
+  padding: .25em !important;
+}
+.posts-categories ul li a:hover {
+  background-color: #c0c0bc !important;
 }
 /*--------------------------------------------------------------
 5.3 Footer
@@ -1816,6 +1857,9 @@ a {
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
+#page {
+  background-color: #fffefa;
+}
 #content {
   padding-top: 100px;
   background-color: #fffefa;
@@ -2036,6 +2080,8 @@ a {
   }
 }
 .blog article[class^="post-"],
+.archive article[class^="post-"],
+.category article[class^="post-"],
 .single-post article[class^="post-"] {
   margin: 0 1em 1.7em;
   padding-bottom: 1.7em;
@@ -2043,6 +2089,8 @@ a {
   display: block;
 }
 .blog article[class^="post-"]::after,
+.archive article[class^="post-"]::after,
+.category article[class^="post-"]::after,
 .single-post article[class^="post-"]::after {
   content: "";
   display: block;
@@ -2055,6 +2103,8 @@ a {
 }
 @media only screen and (min-width: 960px) {
   .blog article[class^="post-"]::after,
+  .archive article[class^="post-"]::after,
+  .category article[class^="post-"]::after,
   .single-post article[class^="post-"]::after {
     height: 10px;
     width: 25%;
@@ -2062,34 +2112,46 @@ a {
   }
 }
 .blog article[class^="post-"]:last-child::after,
+.archive article[class^="post-"]:last-child::after,
+.category article[class^="post-"]:last-child::after,
 .single-post article[class^="post-"]:last-child::after {
   display: none;
 }
 @media only screen and (min-width: 540px) {
   .blog article[class^="post-"],
+  .archive article[class^="post-"],
+  .category article[class^="post-"],
   .single-post article[class^="post-"] {
     margin: 0 2em 1.7em;
   }
 }
 @media only screen and (min-width: 960px) {
   .blog article[class^="post-"],
+  .archive article[class^="post-"],
+  .category article[class^="post-"],
   .single-post article[class^="post-"] {
     margin: 0 0 1.7em;
   }
 }
 @media only screen and (min-width: 960px) {
   .blog #content,
+  .archive #content,
+  .category #content,
   .single-post #content {
     display: flex;
     flex-direction: row;
   }
   .blog #content #primary,
+  .archive #content #primary,
+  .category #content #primary,
   .single-post #content #primary {
     flex: 0 1 auto;
     width: calc(66.66666% - 3em);
     margin: 0 1em 0 2em;
   }
   .blog #content #secondary,
+  .archive #content #secondary,
+  .category #content #secondary,
   .single-post #content #secondary {
     flex: 0 1 auto;
     width: calc(33.33333% - 2em);
@@ -2100,10 +2162,14 @@ a {
 }
 @media only screen and (min-width: 1280px) {
   .blog #content #primary,
+  .archive #content #primary,
+  .category #content #primary,
   .single-post #content #primary {
     width: calc(75% - 3em);
   }
   .blog #content #secondary,
+  .archive #content #secondary,
+  .category #content #secondary,
   .single-post #content #secondary {
     width: calc(25% - 3em);
   }

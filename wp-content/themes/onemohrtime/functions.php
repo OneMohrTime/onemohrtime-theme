@@ -72,10 +72,12 @@ function onemohrtime_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
+    /*
 	add_theme_support( 'custom-background', apply_filters( 'onemohrtime_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+    */
 }
 endif;
 add_action( 'after_setup_theme', 'onemohrtime_setup' );
@@ -186,11 +188,19 @@ function register_my_menus() {
     );
 }
 add_action( 'init', 'register_my_menus' );
+// add hover to custom navigation menus
+function special_nav_class ($classes, $item) {
+    if (in_array('current-menu-item', $classes) ){
+        $classes[] = 'active ';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
