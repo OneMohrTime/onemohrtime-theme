@@ -848,6 +848,7 @@ hr {
 .homepage-intro article {
   order: 1;
   width: 100vw;
+  background-color: #fffefa;
   padding: 20px;
 }
 .homepage-intro article h2 {
@@ -1046,25 +1047,67 @@ hr {
     padding: 150px 0;
   }
 }
-.shots {
+.dribbbles {
   display: flex;
   flex-flow: row wrap;
+  margin: 0 1em;
 }
-.shots .shot {
+.dribbble {
   width: 50%;
+  position: relative;
+  background-color: #fffefa;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(155, 154, 149, 0.3);
+  margin: 0 1em 2em;
+}
+.dribbble-shot {
+  padding: 1em;
+}
+.dribbble-img {
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  overflow: hidden;
+}
+.dribbble-img img {
+  max-width: 100%;
+}
+@media only screen and (min-width: 960px) {
+  .dribbble-img:hover .dribbble-over {
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .dribbble-over {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 2em;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    color: #9b9a95;
+    background-color: rgba(255, 254, 250, 0.9);
+    overflow: hidden;
+    transition: opacity 300ms;
+  }
+  .dribbble-over h6 {
+    color: #171409;
+  }
 }
 @media only screen and (min-width: 540px) {
-  .shots .shot {
+  .dribbble {
     width: calc(33.33333333%);
   }
 }
 @media only screen and (min-width: 768px) {
-  .shots .shot {
-    width: 25%;
+  .dribbble {
+    width: calc(25% - 2em);
   }
 }
 @media only screen and (min-width: 1440px) {
-  .shots .shot {
+  .dribbble {
     width: calc(16.66666667%);
   }
 }

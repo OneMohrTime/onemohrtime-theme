@@ -336,15 +336,61 @@ hr {
     }
 }
 
-.shots {
+// jribbble.js styles
+.dribbbles {
     display: flex;
     flex-flow: row wrap;
-    .shot {
-        width: 50%;
-        @media @screen540 {width: calc(100% / 3);}
-        @media @screen768 {width: 25%;}
-        @media @screen1440 {width: calc(100% / 6);}
+    margin: 0 1em;
+}
+.dribbble {
+    width: 50%;
+    position: relative;
+    background-color: @white;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px fade(@gray,30%);
+    margin: 0 1em 2em;
+    &-shot {
+        padding: 1em;
     }
+    &-img {
+        max-width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        overflow: hidden;
+        img {max-width: 100%;}
+        @media @screen960 {
+            &:hover {
+                .dribbble-over {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &-link {
+        
+    }
+    &-over {
+        @media @screen960 {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            bottom: 2em;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding: 1em;
+            color: @gray;
+            background-color: fade(@white,90%);
+            overflow: hidden;
+            transition: opacity 300ms;
+            h6 {
+                color: @black;
+            }
+        }
+    }
+    @media @screen540 {width: calc(100% / 3);}
+    @media @screen768 {width: calc(~"25% - 2em");}
+    @media @screen1440 {width: calc(100% / 6);}
 }
 
 .background-attribution {

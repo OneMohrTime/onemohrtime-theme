@@ -86,12 +86,21 @@ $(document).ready(function() {
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
-            html.push('<figure class="shot">');
-            html.push('<a href="' + shot.html_url + '" target="_blank">');
-            html.push('<img src="' + shot.images.normal + '" class="img-responsive" />');
-            html.push('</a></figure>');
+            html.push('<div class="dribbble">');
+            html.push('<div class="dribbble-shot">');
+            html.push('<figure class="dribbble-img">');
+            html.push('<a class="dribbble-link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '">');
+            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + ' />');
+            html.push('</a>');
+            html.push('<a class="dribbble-over" href="' + shot.html_url + '" target="_blank">');
+            html.push('<h6>' + shot.title + '</h6>');
+            html.push('<p class="views"><span class="fa fa-eye"></span> ' + shot.views_count + '</p>');
+            html.push('</a>');
+            html.push('</figure>');
+            html.push('</div>');
+            html.push('</div>');
         });
-        $('.shots').html(html.join(''));
+        $('.dribbbles').html(html.join(''));
     });
 	
 });

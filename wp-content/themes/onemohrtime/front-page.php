@@ -59,7 +59,7 @@ get_header(); ?>
                 Latest Shots
                 <span>on dribbble</span>
             </h3>
-            <div class="shots"></div>
+            <article class="dribbbles"></article>
         </section>
             
         <section class="homepage-contact animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
