@@ -12,27 +12,41 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
 	<header class="posts-header">
-        <h2 class="posts-title">
-            <a href="<?php the_permalink(); ?>">
-                <?php the_title(); ?>
-            </a>
-        </h2>
-		<?php if ( 'post' === get_post_type() ) : ?>
-            <div class="posts-meta">
-                <?php onemohrtime_posted_on(); ?>
-            </div>
-		<?php endif; ?>
+        <?php if ( 'post' === get_post_type() ) : ?>
+            <figure class="posts-date">
+                <a href="<?php echo the_permalink(); ?>">
+                    <span class="month"><?php echo get_the_date('M'); ?></span>
+                    <span class="day"><?php echo get_the_date('d'); ?></span>
+                </a>
+            </figure>
+        <?php endif; ?>
+        <section class="posts-content">
+            <h2 class="posts-title">
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
+                </a>
+            </h2>
+            <?php 
+                $categories_list = get_the_category_list( esc_html__( ', ', 'onemohrtime' ) );
+                if ( $categories_list && onemohrtime_categorized_blog() ) {
+                    printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'onemohrtime' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+                }
+            ?>
+            <?php the_excerpt(); ?>
+        </section>
 	</header>
     
-	<div class="posts-content">
-        <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail(); ?>
-        </a>
-		<?php the_excerpt(); ?>
-    </div>
+    <?php
+        $postThumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+    ?>
+	<figure class="posts-image" style="background-image: url('<?php echo $postThumb[0]; ?>');">
+        <a href="<?php the_permalink(); ?>"></a>
+    </figure>
     
 	<footer class="posts-footer">
-		<?php onemohrtime_entry_footer(); ?>
+		<?php 
+            //onemohrtime_entry_footer();
+        ?>
 	</footer>
     
 </article>

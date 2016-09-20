@@ -3,7 +3,7 @@
 Plugin Name: Instagram Feed WD
 Plugin URI: https://web-dorado.com/products/wordpress-instagram-feed-wd.html
 Description: WD Instagram Feed is a user-friendly tool for displaying user or hashtag-based feeds on your website. You can create feeds with one of the available layouts. It allows displaying image metadata, open up images in lightbox, download them and even share in social networking websites.
-Version: 1.1.9
+Version: 1.1.10
 Author: WebDorado
 Author URI: https://web-dorado.com
 License: GPLv2 or later
@@ -20,7 +20,7 @@ define("WDI_META", "_".WDI_VAR."_meta");
 //define("wdi",'wdi');
 define('WDI_FEED_TABLE','wdi_feeds');
 define('WDI_THEME_TABLE','wdi_themes');
-define('WDI_VERSION','1.1.9');
+define('WDI_VERSION','1.1.10');
 define('WDI_IS_PRO','false');
 
 
@@ -158,6 +158,7 @@ function WDI_instagram_menu() {
    add_submenu_page('wdi_feeds',__('Themes',"wdi"),__('Themes',"wdi"),$min_feeds_capability,'wdi_themes','WDI_instagram_themes_page');
    add_submenu_page('wdi_feeds',__('Settings',"wdi"),__('Settings',"wdi"),'manage_options','wdi_settings','WDI_instagram_settings_page');
    add_submenu_page('wdi_feeds',__('Featured Themes',"wdi"),__('Featured Themes',"wdi"),$min_feeds_capability,'wdi_featured_themes','wdi_featured_themes');
+   add_submenu_page('wdi_feeds',__('Featured Plugins',"wdi"),__('Featured Plugins',"wdi"),$min_feeds_capability,'wdi_featured_plugins','wdi_featured_plugins');
    add_submenu_page('wdi_feeds',__('Buy Pro',"wdi"),__('Buy Pro',"wdi"),$min_feeds_capability,'wdi_licensing','WDI_instagram_licensing_page');
 
 }
@@ -207,8 +208,14 @@ function WDI_instagram_licensing_page(){
 }
 
 function wdi_featured_themes(){
-  require_once(WDI_DIR . '/WDIFeaturedThemes.php');
+  require_once(WDI_DIR . '/featured/WDIFeaturedThemes.php');
   $controller = new WDIFeaturedThemes();
+  $controller->display();
+}
+
+function wdi_featured_plugins(){
+  require_once(WDI_DIR . '/featured/WDIFeaturedPlugins.php');
+  $controller = new WDIFeaturedPlugins();
   $controller->display();
 }
 

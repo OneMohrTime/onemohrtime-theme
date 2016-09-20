@@ -1233,7 +1233,7 @@ function sbi_rating_notice_html() {
                 <div class='ctf-notice-text'>
                     <p>It's great to see that you've been using the <strong>Instagram Feed</strong> plugin for a while now. Hopefully you're happy with it!&nbsp; If so, would you consider leaving a positive review? It really helps to support the plugin and helps others to discover it too!</p>
                     <p class='links'>
-                        <a class='sbi_notice_dismiss' href='https://wordpress.org/support/view/plugin-reviews/instagram-feed' target='_blank'>Sure, I'd love to!</a>
+                        <a class='sbi_notice_dismiss' href='https://wordpress.org/support/plugin/instagram-feed/reviews/' target='_blank'>Sure, I'd love to!</a>
                         &middot;
                         <a class='sbi_notice_dismiss' href='" .esc_url( add_query_arg( 'sbi_ignore_rating_notice_nag', '1' ) ). "'>No thanks</a>
                         &middot;

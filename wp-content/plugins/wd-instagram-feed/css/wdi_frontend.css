@@ -302,3 +302,7 @@ div[id^="wdi_container"] p {
   word-wrap: break-word;
   z-index: 11;
 }
+
+.wdi_photo_wrap_inner {
+  text-align: center;
+}

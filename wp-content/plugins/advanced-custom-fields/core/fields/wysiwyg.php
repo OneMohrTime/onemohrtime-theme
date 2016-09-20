@@ -215,7 +215,7 @@ class acf_field_wysiwyg extends acf_field
 		
 		
 		// vars
-		$id = 'wysiwyg-' . $field['id'] . '-' . uniqid();
+		$id = uniqid('acf-editor-');
 		$default_editor = 'tinymce';
 				
 		
@@ -245,7 +245,7 @@ class acf_field_wysiwyg extends acf_field
 		$field['value'] = apply_filters( 'acf_the_editor_content', $field['value'], $default_editor );
 		
 		?>
-		<div id="wp-<?php echo $id; ?>-wrap" class="acf_wysiwyg wp-core-ui wp-editor-wrap" data-toolbar="<?php echo $field['toolbar']; ?>" data-upload="<?php echo $field['media_upload']; ?>">
+		<div id="wp-<?php echo $id; ?>-wrap" class="acf_wysiwyg wp-core-ui wp-editor-wrap tmce-active" data-toolbar="<?php echo $field['toolbar']; ?>" data-upload="<?php echo $field['media_upload']; ?>">
 			<div id="wp-<?php echo $id; ?>-editor-tools" class="wp-editor-tools hide-if-no-js">
 				<?php if( user_can_richedit() && $field['media_upload'] == 'yes' ): ?>
 				<div id="wp-<?php echo $id; ?>-media-buttons" class="wp-media-buttons">

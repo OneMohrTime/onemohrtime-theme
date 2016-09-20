@@ -198,6 +198,18 @@ function special_nav_class ($classes, $item) {
 add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
 /**
+ * Posts excerpts
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 20;
+}
+function wpdocs_excerpt_more( $more ) {
+    return '&nbsp;' . '<a href="' . get_the_permalink() . '">[&thinsp;&hellip;&thinsp;]</a>';
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';

@@ -35,7 +35,7 @@ use Timber\Loader;
  */
 class Timber {
 
-	public static $version = '1.1.5';
+	public static $version = '1.1.6';
 	public static $locations;
 	public static $dirname = 'views';
 	public static $twig_cache = false;
@@ -56,7 +56,7 @@ class Timber {
 			$this->test_compatibility();
 			$this->backwards_compatibility();
 			$this->init_constants();
-			$this->init();
+			self::init();
 		}
 	}
 
@@ -103,7 +103,7 @@ class Timber {
 	/**
 	 * @codeCoverageIgnore
 	 */
-	protected function init() {
+	protected static function init() {
 		if ( class_exists('\WP') && !defined('TIMBER_LOADED') ) {
 			Twig::init();
 			ImageHelper::init();

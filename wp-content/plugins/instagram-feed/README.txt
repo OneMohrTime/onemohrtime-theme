@@ -3,7 +3,7 @@ Contributors: smashballoon
 Tags: Instagram, Instagram feed, Instagram photos, Custom Instagram Feed, responsive Instagram, mobile Instagram, Instagram wall, Instagram gallery, Instagram galleries, Instagram widget, beautiful Instagram
 Requires at least: 3.0
 Tested up to: 4.6
-Stable tag: 1.4.7
+Stable tag: 1.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -562,8 +562,12 @@ No Waiver of Rights by Instagram: Instagram's failure to exercise or enforce any
 
 == Changelog ==
 
+= 1.4.8 =
+* Tweak: Updated plugin links for new WordPress.org repo
+* Fix: Minor bug fixes
+
 = 1.4.7 =
-* Fix: Fixed a security vulnerability
+* Fix: Fixed a security vulnerabiliy
 * Tested with upcoming WordPress 4.6 update
 
 = 1.4.6.2 =

@@ -32,6 +32,9 @@ public function display(){
 						 	<p style="background-color:#F3EFEF;margin: 0;border-top: 1px solid #888888;border-bottom: 1px solid #888888;padding:2px;font-size:20px;">Options From <?php echo $wpdb->prefix , 'options' ?></p>
 						 	<li style="padding-bottom:5px;padding-left:5px;font-weight: bold;margin:0;">3) wdi_user_name</li>
 					 		<li style="padding-bottom:5px;padding-left:5px;font-weight: bold;margin:0;">4) wdi_access_token</li>
+					 		<li style="padding-bottom:5px;padding-left:5px;font-weight: bold;margin:0;">5) wdi_custom_css</li>
+					 		<li style="padding-bottom:5px;padding-left:5px;font-weight: bold;margin:0;">6) wdi_custom_js</li>
+					 		<li style="padding-bottom:5px;padding-left:5px;font-weight: bold;margin:0;">7) wdi_feeds_min_capability</li>
 					 	</ul>
 					 </div>
 					
