@@ -685,6 +685,28 @@ hr {
 .sharedaddy .sd-content .btn.share-tumblr::before {
   content: "\f173";
 }
+#jp-relatedposts {
+  display: block;
+}
+#jp-relatedposts .jp-relatedposts-headline {
+  float: none;
+  font-size: .75em;
+}
+#jp-relatedposts .jp-relatedposts-items {
+  clear: none;
+  display: flex;
+  flex-direction: row;
+}
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+  flex: 0 1 auto;
+  width: 33.33333%;
+  padding-right: 1em;
+  float: none;
+}
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post span {
+  font-family: "Montserrat", "Futura", sans-serif;
+  font-weight: 700;
+}
 .comments-area {
   margin: 0 1em 1.7em;
 }

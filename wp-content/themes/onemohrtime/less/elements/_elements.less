@@ -95,6 +95,29 @@ hr {
         }
     }
 }
+// Jetpack related posts
+#jp-relatedposts  {
+    display: block;
+    .jp-relatedposts-headline {
+        float: none;
+        font-size: .75em;
+    }
+    .jp-relatedposts-items {
+        clear: none;
+        display: flex;
+        flex-direction: row;
+        .jp-relatedposts-post {
+            flex: 0 1 auto;
+            width: 33.33333%;
+            padding-right: 1em;
+            float: none;
+            span {
+                font-family: @header-font;
+                font-weight: 700;
+            }
+        }
+    }
+}
 
 .comments-area {
     margin: 0 1em 1.7em;
