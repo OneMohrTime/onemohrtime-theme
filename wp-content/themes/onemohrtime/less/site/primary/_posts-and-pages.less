@@ -52,6 +52,10 @@
                 .text-shadow;
             }
         }
+        #breadcrumbs {
+            // add padding to project page breadcrumbs
+            padding: 0 1.7em;
+        }
     }
     &-banner {
         position: relative;
@@ -330,6 +334,7 @@
             margin-left: 40%;
         }
         @media @screen960 {
+            .pseudo-border;
             width: 75%;
             margin-left: 25%;
         }
@@ -337,8 +342,67 @@
 }
 
 .entry {
+    &-featured-image {
+        background: @white no-repeat center center;
+        background-size: cover;
+        .aspect-ratio(4,3);
+        @media @screen768 {
+            .aspect-ratio(16,9);
+        }
+        @media @screen768 {
+            .aspect-ratio(2,1);
+        }
+        @media @screen960 {
+            .aspect-ratio(16,9);
+        }
+        @media @screen1024 {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .aspect-ratio(2,1);
+        }
+        @media @screen1440 {
+            .aspect-ratio(3,1);
+        }
+    }
     &-header {
-        margin-bottom: 1em;
+        background-color: @white;
+        padding: 1em 0;
+        z-index: 20;
+        @media @screen1024 {
+            position: absolute;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: fade(@white,90%);
+        }
+    }
+    &-title {
+        @media @screen1024 {
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 200px;
+                left: 50%;
+                margin-left: -100px;
+                background-color: @black;
+            }
+            &::before {top: 1em;}
+            &::after {bottom: 1em;}
+        }
+    }
+    &-meta {
+        .updated {
+            display: none;
+        }
     }
     &-content {
         margin-bottom: 1em;

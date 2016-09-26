@@ -32,7 +32,6 @@ hr {
     font-size: .75em;
     font-weight: 500;
     line-height: 1em;
-    padding: 0 1.7em;
     @media @screen960 {line-height: 1.7em;}
 }
 
@@ -98,9 +97,16 @@ hr {
 // Jetpack related posts
 #jp-relatedposts  {
     display: block;
-    .jp-relatedposts-headline {
+    padding-top: 0;
+    h3.jp-relatedposts-headline {
         float: none;
         font-size: .75em;
+        em::before {
+            border: 0 !important;
+            height: 10px;
+            background-color: @yellow;
+            margin-bottom: 1em;
+        }
     }
     .jp-relatedposts-items {
         clear: none;
@@ -111,9 +117,8 @@ hr {
             width: 33.33333%;
             padding-right: 1em;
             float: none;
-            span {
+            .jp-relatedposts-post-title {
                 font-family: @header-font;
-                font-weight: 700;
             }
         }
     }
