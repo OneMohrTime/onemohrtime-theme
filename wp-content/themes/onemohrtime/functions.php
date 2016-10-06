@@ -100,15 +100,24 @@ add_action( 'after_setup_theme', 'onemohrtime_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function onemohrtime_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'onemohrtime' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
+	register_sidebar ( array(
+		'name'          => esc_html__( 'Blog Listing','onemohrtime' ),
+		'id'            => 'sidebar-listing',
+		'description'   => 'Sidebar for blog listing',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+    register_sidebar ( array(
+        'name'          => esc_html__( 'Blog Post','onemohrtime' ),
+        'id'            => 'sidebar-post',
+        'description'   => 'Sidebar for blog posts',
+        'before_widget' => '<section id="%1$s" class="widget %2%s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
 }
 add_action( 'widgets_init', 'onemohrtime_widgets_init' );
 

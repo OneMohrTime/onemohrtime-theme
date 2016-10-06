@@ -715,8 +715,20 @@ hr {
 .comments-area {
   margin: 0 1em 1.7em;
 }
-.comments-area p[class^="comment-form-"] {
+.comments-area .comment-form {
   margin-bottom: 0;
+}
+@media only screen and (min-width: 600px) {
+  .comments-area .comment-form-author {
+    float: left;
+    width: 50%;
+    padding-right: 1em;
+  }
+  .comments-area .comment-form-email {
+    float: left;
+    width: 50%;
+    padding-left: 1em;
+  }
 }
 .comments-area .form-submit {
   margin-top: .5em;

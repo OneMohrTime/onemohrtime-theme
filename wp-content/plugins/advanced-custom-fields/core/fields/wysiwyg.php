@@ -215,7 +215,8 @@ class acf_field_wysiwyg extends acf_field
 		
 		
 		// vars
-		$id = uniqid('acf-editor-');
+		//$id = uniqid('acf-editor-');
+		$id = 'wysiwyg-' . $field['id'] . '-' . uniqid();
 		$default_editor = 'tinymce';
 				
 		

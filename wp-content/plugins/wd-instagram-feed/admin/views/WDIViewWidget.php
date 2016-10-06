@@ -75,11 +75,11 @@ class WDIViewWidget {
     ?>
 
     <p>
-      <label for="<?php echo $id_title; ?>">Title:</label>
+      <label for="<?php echo $id_title; ?>"><?php _e("Title", 'wdi'); ?></label>
       <input class="widefat" id="<?php echo $id_title; ?>" name="<?php echo $name_title; ?>'" type="text" value="<?php echo $instance['title']; ?>"/>
     </p>
     <p>
-      <label for="<?php echo $id_feed_id; ?>">Feed:</label>
+      <label for="<?php echo $id_feed_id; ?>"><?php _e("Feed", 'wdi'); ?></label>
       <select onchange="wdi_toggle(jQuery(this));" class="widefat" id="<?php echo $id_feed_id; ?>" name="<?php echo $name_feed_id; ?>'" type="text"?>">
         <?php foreach ($feeds as $feed) {
           ?>
@@ -90,7 +90,7 @@ class WDIViewWidget {
     </p>
     
     <p class="wdi_number_of_columns">
-      <label for="<?php echo $id_number_of_columns; ?>">Number of columns:</label>
+      <label for="<?php echo $id_number_of_columns; ?>"><?php _e("Number of columns", 'wdi'); ?></label>
       <select class="widefat" id="<?php echo $id_number_of_columns; ?>" name="<?php echo $name_number_of_columns; ?>'" type="text" >
         <?php for ($k = 1 ;$k <= 10; $k++) {
           ?>
@@ -102,16 +102,16 @@ class WDIViewWidget {
 
 
     <p>
-      <label for="<?php echo $id_img_number; ?>">How many images to show:</label>
+      <label for="<?php echo $id_img_number; ?>"><?php _e("Number of images to show", 'wdi'); ?></label>
       <input class="widefat" id="<?php echo $id_img_number; ?>" name="<?php echo $name_img_number; ?>'" type="text" value="<?php echo $instance['img_number']; ?>"/>
     </p>
     <p>
       <input <?php if($instance['show_likes_comments']=='1') echo "checked"?> class="widefat" id="<?php echo $id_show_likes_comments; ?>" name="<?php echo $name_show_likes_comments; ?>'" type="checkbox" value="<?php echo $instance['show_likes_comments']; ?>"/>
-      <label for="<?php echo $id_show_likes_comments; ?>">Show likes and comments</label>
+      <label for="<?php echo $id_show_likes_comments; ?>"><?php _e("Show likes and comments", 'wdi'); ?></label>
     </p>
     <p>
       <input <?php if($instance['enable_loading_buttons']=='1') echo "checked"?> class="widefat" id="<?php echo $id_enable_loading_buttons; ?>" name="<?php echo $name_enable_loading_buttons; ?>'" type="checkbox" value="<?php echo $instance['enable_loading_buttons']; ?>"/>
-      <label for="<?php echo $id_enable_loading_buttons; ?>">Enable loading new images</label>
+      <label for="<?php echo $id_enable_loading_buttons; ?>"><?php _e("Enable loading new images", 'wdi'); ?></label>
     </p>
     <script>
     jQuery(document).ready(function(){

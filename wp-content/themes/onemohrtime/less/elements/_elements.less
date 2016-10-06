@@ -126,8 +126,21 @@ hr {
 
 .comments-area {
     margin: 0 1em 1.7em;
-    p[class^="comment-form-"] {
+    .comment-form {
         margin-bottom: 0;
+        @media @screen600 {
+            &-author {
+                float: left;
+                width: 50%;
+                padding-right: 1em;
+            }
+            &-email {
+                float: left;
+                width: 50%;
+                padding-left: 1em;
+            }
+        }
+        
     }
     .form-submit {
         margin-top: .5em;
