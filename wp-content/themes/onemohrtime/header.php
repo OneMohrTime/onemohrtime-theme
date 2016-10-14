@@ -72,7 +72,7 @@
             ?>
             <a href="/hello/" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
             <a href="/" class="desktop-logo">
-                <img src="<?php echo get_template_directory_uri() . "/img/logo-color.png" ?>" alt="onemohrtime design logo" class="responsive" />
+                <img src="<?php echo get_template_directory_uri() . "/img/logo-color-rotate.gif" ?>" alt="onemohrtime design logo" class="responsive" />
             </a>
 		</nav>
 	</header>

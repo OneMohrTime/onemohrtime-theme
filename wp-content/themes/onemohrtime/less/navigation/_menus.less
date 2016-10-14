@@ -127,7 +127,7 @@
     position: absolute;
 	top: 0;
 	left: 0;
-    background-color: fade(@white, 90%);
+    background-color: @white;
     height: 100px;
     width: 100vw;
     padding: 1em;
@@ -142,6 +142,7 @@
         transition: all 300ms;
 	}
     &.nav-visible {
+        box-shadow: 0 1px 1px 0 fade(@black,50%);
         transform: translate3d(0,100%,0);
     }
     .btn {
@@ -247,9 +248,10 @@
             }
         }
     }
-    @media @screen960 {
-        margin: 0 0 1em;
+    @media @screen540 {
+        margin: 0 2em 1.7em;
     }
+    //@media @screen960 {margin: 0 0 1em;}
 }
 
 // Navigate between posts

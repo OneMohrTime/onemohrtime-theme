@@ -146,7 +146,14 @@ hr {
         margin-top: .5em;
     }
     @media @screen540 {margin: 0 2em 1.7em;}
-    @media @screen960 {margin: 0 0 1.7em;}
+    @media @screen960 {
+        margin: 0 0 1.7em;
+    }
+    .single-post & {
+        @media @screen960 {
+            margin: 0 2em 1.7em;
+        }
+    }
 }
 
 .about {

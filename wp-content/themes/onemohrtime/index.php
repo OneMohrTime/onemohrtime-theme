@@ -53,6 +53,6 @@ get_header(); ?>
 
 <?php
 
-get_sidebar('blog-post');
+//get_sidebar('blog-post');
 
 get_footer();

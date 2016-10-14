@@ -1,17 +1,17 @@
 [
     {
         "name": "composer/installers",
-        "version": "v1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/composer/installers.git",
-            "reference": "a3595c5272a6f247228abb20076ed27321e4aae9"
+            "reference": "d78064c68299743e0161004f2de3a0204e33b804"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/composer/installers/zipball/a3595c5272a6f247228abb20076ed27321e4aae9",
-            "reference": "a3595c5272a6f247228abb20076ed27321e4aae9",
+            "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
+            "reference": "d78064c68299743e0161004f2de3a0204e33b804",
             "shasum": ""
         },
         "require": {
@@ -25,7 +25,7 @@
             "composer/composer": "1.0.*@dev",
             "phpunit/phpunit": "4.1.*"
         },
-        "time": "2016-07-05 06:18:20",
+        "time": "2016-08-13 20:53:52",
         "type": "composer-plugin",
         "extra": {
             "class": "Composer\\Installers\\Plugin",
@@ -60,6 +60,7 @@
             "MODX Evo",
             "Mautic",
             "OXID",
+            "Plentymarkets",
             "RadPHP",
             "SMF",
             "Thelia",
@@ -67,9 +68,11 @@
             "agl",
             "aimeos",
             "annotatecms",
+            "attogram",
             "bitrix",
             "cakephp",
             "chef",
+            "cockpit",
             "codeigniter",
             "concrete5",
             "croogo",
@@ -93,29 +96,31 @@
             "piwik",
             "ppi",
             "puppet",
+            "reindex",
             "roundcube",
             "shopware",
             "silverstripe",
             "symfony",
             "typo3",
             "wordpress",
+            "yawik",
             "zend",
             "zikula"
         ]
     },
     {
         "name": "twig/twig",
-        "version": "v1.24.1",
-        "version_normalized": "1.24.1.0",
+        "version": "v1.24.2",
+        "version_normalized": "1.24.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
+            "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
-            "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
+            "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
             "shasum": ""
         },
         "require": {
@@ -125,7 +130,7 @@
             "symfony/debug": "~2.7",
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2016-05-30 09:11:59",
+        "time": "2016-09-01 17:50:53",
         "type": "library",
         "extra": {
             "branch-alias": {

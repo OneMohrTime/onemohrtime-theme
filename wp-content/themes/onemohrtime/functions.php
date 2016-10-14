@@ -149,7 +149,7 @@ function onemohrtime_scripts() {
     wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
     
     // Sticky-kit.js
-    //wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
+    wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
     
     // Dribbble plugin
     wp_enqueue_script('dribbble', get_template_directory_uri() . '/js/jribbble.min.js', array('jquery'), null, true);

@@ -394,7 +394,7 @@ class Post extends Core implements CoreInterface {
 		$last_p_tag = null;
 		if ( isset($this->post_excerpt) && strlen(trim($this->post_excerpt)) ) {
 			if ( $force ) {
-				$text = Helper::trim_words($this->post_excerpt, $len, false);
+				$text = TextHelper::trim_words($this->post_excerpt, $len, false);
 				$trimmed = true;
 			} else {
 				$text = $this->post_excerpt;
@@ -404,13 +404,13 @@ class Post extends Core implements CoreInterface {
 			$pieces = explode($readmore_matches[0], $this->post_content);
 			$text = $pieces[0];
 			if ( $force ) {
-				$text = Helper::trim_words($text, $len, false);
+				$text = TextHelper::trim_words($text, $len, false);
 				$trimmed = true;
 			}
 			$text = do_shortcode($text);
 		}
 		if ( !strlen($text) ) {
-			$text = Helper::trim_words($this->get_content(), $len, false);
+			$text = TextHelper::trim_words($this->get_content(), $len, false);
 			$trimmed = true;
 		}
 		if ( !strlen(trim($text)) ) {
@@ -533,6 +533,29 @@ class Post extends Core implements CoreInterface {
 	 * Get the terms associated with the post
 	 * This goes across all taxonomies by default
 	 * @api
+	 * @example
+	 * ```twig
+	 * <section id="job-feed">
+	 * {% for post in job %}
+	 * <div class="job">
+	 *   <h2>{{ post.title }}</h2> 
+	 *    <p>{{ post.terms('category') | join(', ') }}
+	 *  </div>
+	 * {% endfor %}    
+	 * </section>
+	 * ```
+	 * ```html
+	 * <section id="job-feed">
+	 *   <div class="job">
+	 * 	   <h2>Cheese Maker</h2>
+	 *     <p>Food, Cheese, Fromage</p>
+	 *   </div>
+	 *   <div class="job">
+	 * 	   <h2>Mime</h2>
+	 *     <p>Performance, Silence</p>
+	 *   </div>
+	 * </section>
+	 * ```
 	 * @param string|array $tax What taxonom(y|ies) to pull from. Defaults to all registered taxonomies for the post type. You can use custom ones, or built-in WordPress taxonomies (category, tag). Timber plays nice and figures out that tag/tags/post_tag are all the same (and categories/category), for custom taxonomies you're on your own.
 	 * @param bool $merge Should the resulting array be one big one (true)? Or should it be an array of sub-arrays for each taxonomy (false)?
 	 * @return array
@@ -812,7 +835,7 @@ class Post extends Core implements CoreInterface {
 	 *     {% endfor %}
 	 * {% endif %}
 	 * ```
-	 * @param string $post_type _optional_ use to find children of a particular post type (attachment vs. page for example). You might want to restrict to certain types of children in case other stuff gets all mucked in there. You can use 'parent' to use the parent's post type
+	 * @param string|array $post_type _optional_ use to find children of a particular post type (attachment vs. page for example). You might want to restrict to certain types of children in case other stuff gets all mucked in there. You can use 'parent' to use the parent's post type or you can pass an array of post types.
 	 * @param string|bool $childPostClass _optional_ a custom post class (ex: 'MyTimber\Post') to return the objects as. By default (false) it will use Timber\Post::$post_class value.
 	 * @return array
 	 */
@@ -823,7 +846,11 @@ class Post extends Core implements CoreInterface {
 		if ( $post_type == 'parent' ) {
 			$post_type = $this->post_type;
 		}
-		$children = get_children('post_parent='.$this->ID.'&post_type='.$post_type.'&numberposts=-1&orderby=menu_order title&order=ASC&post_status=publish');
+		if ( is_array($post_type) ) {
+			$post_type = implode('&post_type[]=', $post_type);
+		}
+		$query = 'post_parent='.$this->ID.'&post_type[]='.$post_type.'&numberposts=-1&orderby=menu_order title&order=ASC&post_status=publish';
+		$children = get_children($query);
 		foreach ( $children as &$child ) {
 			$child = new $childPostClass($child->ID);
 		}

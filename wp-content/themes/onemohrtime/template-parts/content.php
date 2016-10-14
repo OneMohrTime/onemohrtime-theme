@@ -15,7 +15,16 @@
         //$posts_page_id = get_option( 'page_for_posts' );
         $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
     ?>
-    <figure class="entry-featured-image" style="background-image: url('<?php echo $featuredImage[0]; ?>')">
+    <!--<figure class="entry-featured-image" style="background-image: url('<?php echo $featuredImage[0]; ?>')">
+        
+    </figure>-->
+    <figure class="entry-featured-image">
+        <div class="entry-featured-image-frame">
+            <img src="<?php the_post_thumbnail_url(); ?>" />
+        </div>
+    </figure>
+    
+	<div class="entry-content">
         
         <header class="entry-header">
             
@@ -31,9 +40,6 @@
             <?php endif; ?>
             
         </header>
-    </figure>
-    
-	<div class="entry-content">
         
         <?php
             if ( function_exists('yoast_breadcrumb') ) 
@@ -52,10 +58,11 @@
 				'after'  => '</div>',
 			) );
 		?>
+        
+        <footer class="entry-footer">
+            <?php onemohrtime_entry_footer(); ?>
+        </footer>
+        
 	</div><!-- .entry-content -->
-    
-	<footer class="entry-footer">
-		<?php onemohrtime_entry_footer(); ?>
-	</footer>
     
 </article>

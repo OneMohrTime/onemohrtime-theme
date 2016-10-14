@@ -51,11 +51,10 @@ $(document).ready(function() {
     $('.sharedaddy a').addClass('btn');
     
     // Sticky-kit
-    /*
-    if (window.matchMedia('(max-width: 1279px)').matches) {
-		$('.single .entry-featured-image').stick_in_parent();
-	};
-    */
+    //if (window.matchMedia('(max-width: 1279px)').matches) {
+		$('.entry-featured-image-frame').stick_in_parent();
+        $('.entry-header').stick_in_parent();
+	//};
 	
 	// remove fancybox on mobile devices
 	if (window.matchMedia('(max-width: 768px)').matches) {

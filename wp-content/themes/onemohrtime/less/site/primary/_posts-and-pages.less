@@ -203,8 +203,13 @@
         }
         &:last-child::after {display: none;}
         @media @screen540 {margin: 0 2em 1.7em;}
-        @media @screen960 {margin: 0 0 1.7em;}
+        @media @screen960 {
+            display: flex;
+            flex-direction: row;
+            margin: 0 0 1.7em;
+        }
     }
+    /*
     @media @screen960 {
         #content {
             display: flex;
@@ -229,6 +234,7 @@
             #secondary {width: calc(~"25% - 3em");}
         }
     }
+    */
 }
 
 .posts {
@@ -345,16 +351,30 @@
     &-featured-image {
         background: @white no-repeat center center;
         background-size: cover;
-        .aspect-ratio(4,3);
+        z-index: 0;
+        //.aspect-ratio(4,3);
         @media @screen768 {
-            .aspect-ratio(16,9);
+            //.aspect-ratio(16,9);
         }
         @media @screen768 {
-            .aspect-ratio(2,1);
+            //.aspect-ratio(2,1);
         }
         @media @screen960 {
-            .aspect-ratio(16,9);
+            //.aspect-ratio(16,9);
+            &-frame {
+                width: 50vw;
+                width: calc(50vw - 3em);
+                margin-left: 2em;
+                padding-right: 1em;
+                overflow: hidden;
+                img {
+                    min-height: 100vh;
+                    min-width: 100vw;
+                }
+            }
+            
         }
+        /*
         @media @screen1024 {
             position: relative;
             display: flex;
@@ -365,7 +385,36 @@
         @media @screen1440 {
             .aspect-ratio(3,1);
         }
+        */
     }
+    &-content {
+        z-index: 1;
+        @media @screen960 {
+            width: 50vw;
+            padding: 0 2em;
+        }
+    }
+    &-header {
+        background-color: @white;
+        margin-left: -1em;
+        margin-right: -1em;
+        padding: 1em;
+        z-index: 2;
+        &.is_stuck {
+            box-shadow: 0 1px 1px 0 fade(@black,50%);
+        }
+        @media @screen960 {
+            margin-top: 2em;
+            margin-left: -25vw;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            &.is_stuck {
+                width: 75vw !important;
+                //box-shadow: 0 1px 1px 0 fade(@black,50%);
+            }
+        }
+    }
+    /*
     &-header {
         background-color: @white;
         padding: 1em 0;
@@ -399,11 +448,13 @@
             &::after {bottom: 1em;}
         }
     }
+    */
     &-meta {
         .updated {
             display: none;
         }
     }
+    /*
     &-content {
         margin-bottom: 1em;
         .attachment-post-thumbnail {
@@ -432,6 +483,7 @@
             font-size: .75em;
         }
     }
+    */
 }
 
 .error-404 {
