@@ -73,6 +73,7 @@ Thumbs.db
 # ignore everything in the "wp-content" directory, except:
 # "themes" directory
 wp-content/*
+wp-content/plugins/
 !wp-content/themes/
 
 # ignore these plugins
