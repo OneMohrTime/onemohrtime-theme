@@ -30,6 +30,8 @@ get_header(); ?>
                 </ul>
             </nav>
             
+            <?php query_posts('cat=-1,-13'); ?>
+            
 			<?php
                 while ( have_posts() ) : the_post();
                     get_template_part( 'template-parts/content-blog', 'page' );
