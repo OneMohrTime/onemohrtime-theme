@@ -400,9 +400,6 @@
         margin-right: -1em;
         padding: 1em;
         z-index: 2;
-        &.is_stuck {
-            box-shadow: 0 1px 1px 0 fade(@black,50%);
-        }
         @media @screen960 {
             margin-top: 2em;
             margin-left: -25vw;
@@ -410,6 +407,7 @@
             border-bottom-left-radius: 3px;
             &.is_stuck {
                 width: 75vw !important;
+                box-shadow: 0 1px 1px 0 fade(@black,50%);
                 //box-shadow: 0 1px 1px 0 fade(@black,50%);
             }
         }
