@@ -256,14 +256,79 @@
 
 // Navigate between posts
 .single-post {
-    .nav-links {
-        margin: 0 0 1.7em;
+    .nav {
+        &-links {
+            //margin: 0 0 1.7em;
+            a {
+                .unstyled();
+                display: block !important;
+                padding: 1em 2em !important;
+                background-color: fade(@white,50%) !important;
+                .meta-nav {
+                    display: block;
+                    position: relative;
+                    margin-bottom: 1em;
+                    padding-bottom: 1em;
+                    font-family: @header-font;
+                    font-size: .875em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 50px;
+                        height: 5px;
+                        background-color: @yellow;
+                        margin-top: 1em;
+                        z-index: 1;
+                    }
+                }
+                @media @screen960 {
+                    padding: 2em !important;
+                    background-color: transparent !important;
+                    transition: background-color 300ms;
+                    &:hover {
+                        background-color: fade(@white,80%) !important;
+                    }
+                }
+            }
+            @media @screen960 {
+                display: flex;
+                flex-flow: row nowrap;
+            }
+        }
+        &-previous,
+        &-next {
+            a {
+                .pseudo-border(10);
+            }
+        }
+        &-previous {
+            width: 100%;
+            margin: 0 0 1em;
+            @media @screen540 {margin: 0 0 1.7em;}
+            @media @screen960 {
+                width: 50%;
+                margin: 0 1em 0 0;
+            }
+        }
+        &-next {
+            width: 100%;
+            @media @screen960 {
+                width: 50%;
+                margin: 0 0 0 1em;
+            }
+        }
+    }
+    .post-navigation {
+        margin: 0 1em 1.7em;
+        @media @screen540 {
+            margin: 0 2em 1.7em;
+        }
     }
 }
 
 .comment-navigation,
 .posts-navigation {}
-
-.post-navigation {
-    
-}

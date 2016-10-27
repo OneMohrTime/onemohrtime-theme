@@ -66,10 +66,10 @@ get_header(); ?>
             <h3 class="animated fadeInUpShort" data-id="1">Like What You See?</h3>
             <a href="hello" class="btn animated fadeInUpShort" data-id="2">Get At Me</a>
         </section>
-
+        
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-//get_sidebar();
+<?php 
+
 get_footer();

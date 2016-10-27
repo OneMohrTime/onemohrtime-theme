@@ -37,6 +37,7 @@ hr {
 
 .byline {display: none;}
 
+/*
 .nav-links {
     display: flex;
     flex-flow: row wrap;
@@ -47,6 +48,7 @@ hr {
         width: 100%;
     }
 }
+*/
 
 // Jetpack social sharing
 .sharedaddy {
@@ -395,6 +397,13 @@ hr {
     margin: 0 1em 2em;
     &-shot {
         padding: 1em;
+        @media @screen960 {
+            &:hover {
+                .dribbble-link .views {
+                    transform: translate3d(0,0,0);
+                }
+            }
+        }
     }
     &-img {
         max-width: 100%;
@@ -402,16 +411,23 @@ hr {
         padding-bottom: 75%;
         overflow: hidden;
         img {max-width: 100%;}
-        @media @screen960 {
-            &:hover {
-                .dribbble-over {
-                    opacity: 1;
-                }
-            }
-        }
     }
     &-link {
-        
+        position: relative;
+        .views {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 1em;
+            padding: .5em 0;
+            color: @lightgray;
+            background-color: @white;
+            font-weight: 500;
+            @media @screen960 {
+                transform: translate3d(0,100%,0);
+                transition: transform 300ms;
+            }
+        }
     }
     &-over {
         @media @screen960 {
