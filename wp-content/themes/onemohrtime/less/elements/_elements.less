@@ -114,13 +114,31 @@ hr {
         clear: none;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        margin-right: 0;
         .jp-relatedposts-post {
             flex: 0 1 auto;
-            width: 33.33333%;
-            padding-right: 1em;
+            width: calc(~"33.33333% - 1em");
+            padding-right: 0;
+            opacity: 1;
             float: none;
+            &-a {
+                .unstyled();
+                @media @screen960 {
+                    .pseudo-border();
+                }
+            }
             .jp-relatedposts-post-title {
                 font-family: @header-font;
+            }
+            @media @screen960 {
+                &:hover {
+                    .jp-relatedposts-post-a {
+                        img {
+                            opacity: .1;
+                        }
+                    }
+                }
             }
         }
     }

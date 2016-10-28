@@ -639,15 +639,52 @@ hr {
   clear: none;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-right: 0;
 }
 #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
   flex: 0 1 auto;
-  width: 33.33333%;
-  padding-right: 1em;
+  width: calc(33.33333% - 1em);
+  padding-right: 0;
+  opacity: 1;
   float: none;
+}
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a {
+  color: inherit !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+}
+@media only screen and (min-width: 960px) {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a {
+    position: relative;
+    z-index: 1;
+  }
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px #ffc300 solid;
+    opacity: 1;
+    z-index: -1;
+    transform: translate3d(-10px, 10px, 0);
+    transition: transform 300ms, opacity 300ms;
+  }
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a:hover::before {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
 }
 #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-title {
   font-family: "Montserrat", "Futura", sans-serif;
+}
+@media only screen and (min-width: 960px) {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post:hover .jp-relatedposts-post-a img {
+    opacity: .1;
+  }
 }
 .comments-area {
   margin: 0 1em 1.7em;
