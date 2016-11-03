@@ -34,12 +34,12 @@ get_header(); ?>
             </div>
         </figure>
         
-        <section class="homepage-intro animatedParent animateOnce">
-            <figure class="animated fadeInLeftShort">
+        <section class="homepage-intro">
+            <figure>
                 <img src="<?php echo $homeProfile['url']; ?>" />
                 <a href="about" class="btn">About Me</a>
             </figure>
-            <article class="animated fadeInRightShort">
+            <article>
                 <h2><span>I&rsquo;m a</span> <?php echo $homeTitle ?></h2>
                 <?php the_content(); ?>
             </article>
