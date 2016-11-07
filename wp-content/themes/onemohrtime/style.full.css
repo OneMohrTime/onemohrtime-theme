@@ -366,6 +366,31 @@ mark {
   background-color: transparent;
   font-weight: 700;
 }
+abbr {
+  cursor: help;
+  padding: 2px 4px;
+  border-bottom: 1px #171409 dotted;
+  background-color: rgba(23, 20, 9, 0.1);
+}
+blockquote {
+  padding: 5px 0 10px 1em;
+  margin-bottom: 1.7em;
+  border-left: 10px #ffc300 solid;
+  font-size: .75em;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+blockquote footer {
+  font-size: .75em;
+  color: #9b9a95;
+}
+blockquote footer cite {
+  font-weight: 700;
+}
+blockquote footer::before {
+  content: "\2014 \00A0";
+}
 #content a:not(.btn),
 .site-info a:not(.btn) {
   color: #ffc300;
@@ -575,15 +600,15 @@ hr {
 .sharedaddy .sd-title {
   display: inline-block;
   position: relative;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
   padding-bottom: .5em;
 }
 .sharedaddy .sd-title::after {
   content: "";
   position: absolute;
+  top: 100%;
   left: 0;
-  bottom: 2px;
-  height: 2px;
+  height: 10px;
   width: 50%;
   background-color: #ffc300;
 }
@@ -655,12 +680,15 @@ hr {
   border: 0 !important;
   background: none !important;
 }
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-title {
+  font-family: "Montserrat", "Futura", sans-serif;
+}
 @media only screen and (min-width: 960px) {
-  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
     position: relative;
     z-index: 1;
   }
-  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a::before {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post::before {
     content: "";
     position: absolute;
     top: 0;
@@ -673,15 +701,10 @@ hr {
     transform: translate3d(-10px, 10px, 0);
     transition: transform 300ms, opacity 300ms;
   }
-  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post-a:hover::before {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post:hover::before {
     opacity: 0;
     transform: translate3d(0, 0, 0);
   }
-}
-#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-title {
-  font-family: "Montserrat", "Futura", sans-serif;
-}
-@media only screen and (min-width: 960px) {
   #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post:hover .jp-relatedposts-post-a img {
     opacity: .1;
   }
@@ -964,18 +987,119 @@ hr {
     margin-bottom: 2em;
   }
 }
+.homepage-services {
+  width: 100vw;
+  background-color: #fef7e3;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1em;
+}
+.homepage-services .service {
+  width: 100%;
+  margin: 0 0 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.homepage-services .service:last-child {
+  margin: 0;
+}
+.homepage-services .service-img {
+  width: 100px;
+  height: 100px;
+}
+@media only screen and (min-width: 840px) {
+  .homepage-services .service-img {
+    width: auto;
+    height: auto;
+    min-width: 100px;
+    min-height: 100px;
+  }
+}
+.homepage-services .service-header {
+  position: relative;
+  margin: 1em 0;
+  padding-bottom: 10px;
+  font-size: 1.375em;
+}
+.homepage-services .service-header::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  height: 10px;
+  background-color: #ffc300;
+  margin-bottom: 1em;
+}
+@media only screen and (min-width: 600px) {
+  .homepage-services .service-header {
+    width: 100%;
+    text-align: center;
+  }
+}
+.homepage-services .service-body {
+  font-size: .875em;
+}
+@media only screen and (min-width: 1024px) {
+  .homepage-services .service-body {
+    font-size: 1em;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .homepage-services .service-btn.btn {
+    border: 2px #ffc300 solid;
+    color: #ffc300;
+  }
+  .homepage-services .service-btn.btn::after {
+    background-color: #ffc300;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .homepage-services .service {
+    width: calc(33.33333% - 2em);
+    margin: 1em;
+    padding: 1em;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+    border: 2px #cc9c00 solid;
+    border-radius: 3px;
+  }
+  .homepage-services .service:last-child {
+    margin: 1em;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .homepage-services .service {
+    color: #ffc300;
+    transition: all 300ms;
+  }
+  .homepage-services .service:hover {
+    background-color: #fffefa;
+    color: #171409;
+  }
+  .homepage-services .service:hover .service-btn.btn {
+    border: 2px #171409 solid;
+    color: #171409;
+  }
+  .homepage-services .service:hover .service-btn.btn::after {
+    background-color: #ffc300;
+  }
+}
 .homepage-work {
   width: 100vw;
-  padding: 20px;
-  background-color: #ffc300;
+  background-color: #fef7e3;
+  padding: 1em 1em 2em;
   text-align: center;
 }
 .homepage-work .btn {
-  border: 2px #fef7e3 solid;
-  color: #fef7e3;
+  border: 2px #171409 solid;
+  color: #171409;
 }
 .homepage-work .btn::after {
-  background-color: #fef7e3;
+  background-color: #ffc300;
 }
 .homepage-dribbble {
   width: 100vw;
@@ -1068,7 +1192,7 @@ hr {
   margin: 0 1em;
 }
 .dribbble {
-  width: 50%;
+  width: calc(50% - 2em);
   position: relative;
   background-color: #fffefa;
   border-radius: 3px;
@@ -1132,7 +1256,7 @@ hr {
 }
 @media only screen and (min-width: 540px) {
   .dribbble {
-    width: calc(33.33333333%);
+    width: calc(33.33333% - 2em);
   }
 }
 @media only screen and (min-width: 768px) {
@@ -1142,7 +1266,7 @@ hr {
 }
 @media only screen and (min-width: 1440px) {
   .dribbble {
-    width: calc(16.66666667%);
+    width: calc(16.66666 - 2em);
   }
 }
 @media only screen and (min-width: 960px) {
@@ -2650,6 +2774,14 @@ a {
 }
 .bypostauthor {
   display: block;
+}
+#disqus_thread {
+  margin: 0 1em 1.7em;
+}
+@media only screen and (min-width: 540px) {
+  #disqus_thread {
+    margin: 0 2em 1.7em;
+  }
 }
 /*--------------------------------------------------------------
 11.0 Infinite scroll

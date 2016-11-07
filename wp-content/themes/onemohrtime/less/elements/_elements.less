@@ -55,14 +55,14 @@ hr {
     .sd-title {
         display: inline-block;
         position: relative;
-        margin-bottom: .5em;
+        margin-bottom: 1em;
         padding-bottom: .5em;
         &::after {
             content: "";
             position: absolute;
+            top: 100%;
             left: 0;
-            bottom: 2px;
-            height: 2px;
+            height: 10px;
             width: 50%;
             background-color: @yellow;
         }
@@ -124,14 +124,12 @@ hr {
             float: none;
             &-a {
                 .unstyled();
-                @media @screen960 {
-                    .pseudo-border();
-                }
             }
             .jp-relatedposts-post-title {
                 font-family: @header-font;
             }
             @media @screen960 {
+                .pseudo-border();
                 &:hover {
                     .jp-relatedposts-post-a {
                         img {
@@ -341,13 +339,98 @@ hr {
             @media @screen1024 {margin-bottom: 2em;}
         }
     }
+    &-services {
+        width: 100vw;
+        background-color: @lightyellow;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 1em;
+        .service {
+            width: 100%;
+            margin: 0 0 1em;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            &:last-child {
+                margin: 0;
+            }
+            &-img {
+                width: 100px;
+                height: 100px;
+                @media @screen840 {
+                    width: auto;
+                    height: auto;
+                    min-width: 100px;
+                    min-height: 100px;
+                }
+            }
+            &-header {
+                position: relative;
+                margin: 1em 0;
+                padding-bottom: 10px;
+                font-size: 1.375em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -50px;
+                    width: 100px;
+                    height: 10px;
+                    background-color: @yellow;
+                    margin-bottom: 1em;
+                }
+                @media @screen600 {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            &-body {
+                font-size: .875em;
+                @media @screen1024 {
+                    font-size: 1em;
+                }
+            }
+            &-btn {
+                @media @screen960 {
+                    &.btn {
+                        .btn-color(@yellow,@yellow);
+                    }
+                }
+            }
+            @media @screen600 {
+                width: calc(~"33.33333% - 2em");
+                margin: 1em;
+                padding: 1em;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-content: flex-start;
+                border: 2px @darkyellow solid;
+                border-radius: 3px;
+                &:last-child {
+                    margin: 1em;
+                }
+            }
+            @media @screen960 {
+                color: @yellow;
+                transition: all 300ms;
+                &:hover {
+                    background-color: @white;
+                    color: @black;
+                    .service-btn.btn {
+                        .btn-color(@black,@yellow);
+                    }
+                }
+            }
+        }
+    }
     &-work {
         width: 100vw;
-        padding: 20px;
-        background-color: @yellow;
+        background-color: @lightyellow;
+        padding: 1em 1em 2em;
         text-align: center;
         .btn {
-            .btn-color(@lightyellow,@lightyellow);
+            .btn-color(@black,@yellow);
         }
     }
     &-dribbble {
@@ -407,7 +490,7 @@ hr {
     margin: 0 1em;
 }
 .dribbble {
-    width: 50%;
+    width: calc(~"50% - 2em");
     position: relative;
     background-color: @white;
     border-radius: 3px;
@@ -466,9 +549,9 @@ hr {
             }
         }
     }
-    @media @screen540 {width: calc(100% / 3);}
+    @media @screen540 {width: calc(~"33.33333% - 2em");}
     @media @screen768 {width: calc(~"25% - 2em");}
-    @media @screen1440 {width: calc(100% / 6);}
+    @media @screen1440 {width: calc(~"16.66666 - 2em");}
 }
 
 .background-attribution {
