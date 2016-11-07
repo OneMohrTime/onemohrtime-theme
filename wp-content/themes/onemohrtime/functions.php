@@ -219,6 +219,17 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 /**
+ * Allow for relative urls
+ */
+function internal_link_to_relative(  $url, $post, $leavename ) {
+    if ( $post->post_type == 'post' ) {
+        $url = wp_make_link_relative($url);
+    }
+    return $url;
+}
+add_filter( 'post_link', 'internal_link_to_relative', 10, 3 );
+
+/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';
