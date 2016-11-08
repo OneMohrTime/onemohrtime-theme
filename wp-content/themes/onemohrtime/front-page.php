@@ -57,19 +57,19 @@ get_header(); ?>
         
         <section class="homepage-services animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
             <div class="service animated fadeInUpShort" data-id="1">
-                <img src="/img/service-graphic-design.png" alt="graphic design" class="service-img" />
+                <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-graphic-design.png" alt="graphic design" class="service-img" />
                 <h4 class="service-header">Graphic Design</h4>
                 <p class="service-body">Schlitz lyft intelligentsia fixie bushwick, forage raw denim raclette. Bitters gochujang whatever, cray authentic pour-over banh mi tousled.</p>
                 <a href="graphic-design/" class="service-btn btn">Hear More</a>
             </div>
             <div class="service animated fadeInUpShort" data-id="2">
-                <img src="/img/service-web-design.png" alt="web design" class="service-img" />
+                <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-web-design.png" alt="web design" class="service-img" />
                 <h4 class="service-header">Web Design</h4>
                 <p class="service-body">Brunch microdosing subway tile next level disrupt. Offal gentrify chicharrones, chillwave pok pok schlitz pour-over +1 subway tile jean shorts neutra butcher semiotics.</p>
                 <a href="web-design/" class="service-btn btn">Hear More</a>
             </div>
             <div class="service animated fadeInUpShort" data-id="3">
-                <img src="/img/service-web-dev.png" alt="front-end development" class="service-img" />
+                <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-web-dev.png" alt="front-end development" class="service-img" />
                 <h4 class="service-header">Front-end Dev</h4>
                 <p class="service-body">Pok pok ennui trust fund, stumptown la croix sar- torial jianbing fap. Cred you probably haven't heard of them occupy hella, organic chicharrones tilde marfa next level.</p>
                 <a href="web-dev/" class="service-btn btn">Hear More</a>
