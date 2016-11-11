@@ -52,15 +52,6 @@
         $projTable = get_field( 'project_specs' );
         if ( $projTable ) {
             echo '<h4>Additional Project Details</h4>';
-            /*
-            if ( $projTable['header'] ) {
-                echo '<h4>';
-                    foreach ( $projTable['header'] as $th ) {
-                        echo $th['c'];
-                    }
-                echo '</h4>';
-            }
-            */
             echo '<ul>';
                 foreach ( $projTable['body'] as $tr ) {
                     foreach ( $tr as $td ) {

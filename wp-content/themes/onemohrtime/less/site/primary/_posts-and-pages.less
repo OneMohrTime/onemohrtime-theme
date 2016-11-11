@@ -117,6 +117,121 @@
     }
 }
 
+.gallery {
+    margin: 1.7em 0 0;
+    &-project {
+        position: relative;
+        margin: 0 1em 1.7em;
+        @media @screen960 {
+            background-color: @white;
+        }
+        &-image {
+            display: block;
+            margin-bottom: 1em;
+            @media @screen960 {
+                margin-bottom: 0;
+                opacity: 1;
+                transition: opacity 300ms;
+            }
+        }
+        &-header {
+            margin-bottom: 1em;
+            font-size: 1.375em;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                height: 10px;
+                width: 100px;
+                background-color: @yellow;
+            }
+            @media @screen960 {
+                margin: 0;
+                &::after {display: none;}
+            }
+        }
+        &-content {
+            @media @screen960 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 2em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 1em;
+                    left: 1em;
+                    right: 1em;
+                    height: calc(~"50% - 1em");
+                    border: 10px @black solid;
+                    transform: translate3d(0,-100%,0);
+                    transition: border-color 300ms, transform 300ms;
+                }
+            }
+        }
+        &-excerpt {
+            margin-bottom: 1em;
+            @media @screen960 {
+                margin-bottom: 0;
+                position: absolute;
+                bottom: 2em;
+                left: calc(~"2em + 10px");
+                right: calc(~"2em + 10px");
+                font-size: .875em;
+                font-weight: 500;
+                opacity: 0;
+                transform: translate3d(0,-100%,0);
+                transition: opacity 300ms, transform 300ms;
+            }
+        }
+        &-link {
+            @media @screen960 {
+                z-index: 1000;
+                text-indent: 9999;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 0;
+                opacity: 0;
+            }
+        }
+        @media @screen540 {
+            margin: 0 2em 1.7em;
+        }
+        @media @screen600 {
+            width: calc(~"50% - 2em");
+            margin: 0 1em 1em;
+        }
+        @media @screen960 {
+            margin: 0 1em 2em;
+            &:hover {
+                .gallery-project-image {opacity: 0.05;}
+                .gallery-project-content::after {
+                    border-color: @yellow;
+                    transform: translate3d(0,0,0);
+                }
+                .gallery-project-excerpt {
+                    opacity: 1;
+                    transform: translate3d(0,0,0);
+                }
+            }
+        }
+        @media @screen1024 {
+            position: relative;
+        }
+    }
+    @media @screen600 {
+        margin: 1.7em 1em 0;
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+
 .halfie {
     width: 100%;
     padding: 0 20px 20px;
