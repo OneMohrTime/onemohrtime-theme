@@ -59,19 +59,19 @@ get_header(); ?>
             <div class="service animated fadeInUpShort" data-id="1">
                 <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-graphic-design.png" alt="graphic design" class="service-img" />
                 <h4 class="service-header">Graphic Design</h4>
-                <p class="service-body">Schlitz lyft intelligentsia fixie bushwick, forage raw denim raclette. Bitters gochujang whatever, cray authentic pour-over banh mi tousled.</p>
+                <p class="service-body">A big chunk of my free time is spent uploading <a href="//dribbble.com/onemohrtime">dribbbles</a> of logo and badge designs.</p>
                 <a href="graphic-design/" class="service-btn btn">Hear More</a>
             </div>
             <div class="service animated fadeInUpShort" data-id="2">
                 <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-web-design.png" alt="web design" class="service-img" />
                 <h4 class="service-header">Web Design</h4>
-                <p class="service-body">Brunch microdosing subway tile next level disrupt. Offal gentrify chicharrones, chillwave pok pok schlitz pour-over +1 subway tile jean shorts neutra butcher semiotics.</p>
+                <p class="service-body">As a designer-who-codes, I&rsquo;ve made a lot of websites, and it somehow never gets old.</p>
                 <a href="web-design/" class="service-btn btn">Hear More</a>
             </div>
             <div class="service animated fadeInUpShort" data-id="3">
                 <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-web-dev.png" alt="front-end development" class="service-img" />
                 <h4 class="service-header">Front-end Dev</h4>
-                <p class="service-body">Pok pok ennui trust fund, stumptown la croix sar- torial jianbing fap. Cred you probably haven't heard of them occupy hella, organic chicharrones tilde marfa next level.</p>
+                <p class="service-body">Always looking for a new coding language to learn, each one keeps getting better.</p>
                 <a href="web-dev/" class="service-btn btn">Hear More</a>
             </div>
         </section>
