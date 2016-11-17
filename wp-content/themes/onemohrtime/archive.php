@@ -42,8 +42,8 @@ get_header(); ?>
 		</main>
 	</div>
     
-    <?php get_sidebar('sidebar'); ?>
-    
 <?php
+
+get_sidebar('blog-listing');
 
 get_footer();

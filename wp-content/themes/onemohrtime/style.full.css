@@ -1871,6 +1871,18 @@ a {
     margin: 0 2em 1.7em;
   }
 }
+@media only screen and (min-width: 960px) {
+  .single-post .posts-categories {
+    margin: 0 2em 1.7em;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .blog .posts-categories,
+  .archive .posts-categories,
+  .category .posts-categories {
+    margin: 0 0 1.7em;
+  }
+}
 .single-post .nav-links a {
   color: inherit !important;
   padding: 0 !important;
@@ -2539,15 +2551,26 @@ a {
   flex-flow: column wrap;
   margin: 0 1em 1.7em;
 }
+@media only screen and (min-width: 600px) {
+  .blog article[class^="post-"],
+  .archive article[class^="post-"],
+  .category article[class^="post-"] {
+    margin: 0 2em 1.7em;
+  }
+}
 @media only screen and (min-width: 840px) {
   .blog article[class^="post-"],
   .archive article[class^="post-"],
   .category article[class^="post-"] {
     flex-direction: row;
-    margin: 0 0 1.7em;
   }
 }
 @media only screen and (min-width: 960px) {
+  .blog article[class^="post-"],
+  .archive article[class^="post-"],
+  .category article[class^="post-"] {
+    margin: 0 0 1.7em;
+  }
   .blog article[class^="post-"] .posts-image,
   .archive article[class^="post-"] .posts-image,
   .category article[class^="post-"] .posts-image {
@@ -2821,8 +2844,7 @@ a {
   .entry-header {
     margin-top: 2em;
     margin-left: -25vw;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-left: 10px #ffc300 solid;
   }
   .entry-header.is_stuck {
     width: 75vw !important;

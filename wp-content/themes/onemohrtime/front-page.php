@@ -20,7 +20,6 @@ get_header(); ?>
         $homeLogo = get_field('homepage_logo');
         $homeTitle = get_field('homepage_title');
         $homeProfile = get_field('homepage_profile');
-        $homeIcns = get_field('homepage_icons');
     ?>
 
 	<div id="primary" class="content-area">
@@ -47,13 +46,6 @@ get_header(); ?>
                 <?php the_content(); ?>
             </article>
         </section>
-        
-        <!--
-        <section class="homepage-icons animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
-            <img src="<?php echo $homeIcns['url']; ?>" class="animated fadeIn" data-id="1" />
-            <a href="design/" class="btn" data-id="2">View Portfolio</a>
-        </section>
-        -->
         
         <section class="homepage-services animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
             <div class="service animated fadeInUpShort" data-id="1">
