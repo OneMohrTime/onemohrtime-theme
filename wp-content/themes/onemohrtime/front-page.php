@@ -13,21 +13,13 @@
  */
 
 get_header(); ?>
-
-    <?php
-        // homepage variables
-        $homeHero = get_field('homepage_hero');
-        $homeLogo = get_field('homepage_logo');
-        $homeTitle = get_field('homepage_title');
-        $homeProfile = get_field('homepage_profile');
-    ?>
-
+    
 	<div id="primary" class="content-area">
         
 		<main id="main" class="site-main" role="main">
 		
+        <?php $homeHero = get_field('homepage_hero'); ?>
         <figure class="homepage-banner" style="background-image: url('<?php echo $homeHero['url']; ?>');">
-            <!--<img src="<?php echo $homeLogo['url']; $homeLogo['alt']; ?>" id="homepage_logo" />-->
             <div id="homepage_logo">
                 <h1>
                     <?php the_title(); ?>
@@ -38,39 +30,58 @@ get_header(); ?>
         
         <section class="homepage-intro">
             <figure>
-                <img src="<?php echo $homeProfile['url']; ?>" />
+                <?php $homeProfile = get_field('homepage_profile'); ?>
+                <img src="<?php echo $homeProfile['url']; $homeProfile['alt']; ?>" />
                 <a href="about/" class="btn">About Me</a>
             </figure>
             <article>
+                <?php $homeTitle = get_field('homepage_title'); ?>
                 <h2><span>I&rsquo;m a</span> <?php echo $homeTitle ?></h2>
                 <?php the_content(); ?>
             </article>
         </section>
         
-        <section class="homepage-services animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
-            <div class="service animated fadeInUpShort" data-id="1">
-                <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-graphic-design.png" alt="graphic design" class="service-img" />
-                <h4 class="service-header">Graphic Design</h4>
-                <p class="service-body">A big chunk of my free time is spent uploading <a href="//dribbble.com/onemohrtime">dribbbles</a> of logo and badge designs.</p>
-                <a href="graphic-design/" class="service-btn btn">Hear More</a>
-            </div>
-            <div class="service animated fadeInUpShort" data-id="2">
-                <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-web-design.png" alt="web design" class="service-img" />
-                <h4 class="service-header">Web Design</h4>
-                <p class="service-body">As a designer-who-codes, I&rsquo;ve made a lot of websites, and it somehow never gets old.</p>
-                <a href="web-design/" class="service-btn btn">Hear More</a>
-            </div>
-            <div class="service animated fadeInUpShort" data-id="3">
-                <img src="http://onemohrti.me/wp-content/themes/onemohrtime/img/service-web-dev.png" alt="front-end development" class="service-img" />
-                <h4 class="service-header">Front-end Dev</h4>
-                <p class="service-body">Always looking for a new coding language to learn, each one keeps getting better.</p>
-                <a href="web-dev/" class="service-btn btn">Hear More</a>
-            </div>
-        </section>
-        
-        <aside class="homepage-work">
-            <a href="design/" class="btn">Featured Projects</a>
-        </aside>
+        <?php if( have_rows('homepage_services') ): ?>
+            
+            <section class="homepage-services animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
+            
+            <?php
+                while ( have_rows('homepage_services') ) : the_row();
+                
+                $header = get_sub_field('service_title');
+                $image = get_sub_field('service_image');
+                $content = get_sub_field('service_body');
+                $link = get_sub_field('service_link');
+                ?>
+                
+                <div class="service animated fadeInUpShort" data-id="1">
+                    <?php if($image): ?>
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="service-img" />
+                    <?php endif; ?>
+                    <?php if($header): ?>
+                        <h4 class="service-header">
+                            <?php echo $header; ?>
+                        </h4>
+                    <?php endif; ?>
+                    <?php if($content): ?>
+                        <div class="service-body">
+                            <?php echo $content; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if($link): ?>
+                        <a href="<?php echo '//onemohrti.me/' . $link ?>" class="service-btn btn">Hear More</a>
+                    <?php endif; ?>
+                </div>
+                
+            <?php endwhile; ?>
+            
+            </section>
+            
+            <aside class="homepage-work">
+                <a href="design/" class="btn">Featured Projects</a>
+            </aside>
+            
+        <?php endif; ?>
         
         <section class="homepage-dribbble">
             <h3>
@@ -87,7 +98,7 @@ get_header(); ?>
         
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
+    
 <?php 
 
 get_footer();

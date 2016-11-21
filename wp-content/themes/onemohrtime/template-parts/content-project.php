@@ -31,7 +31,7 @@
             {yoast_breadcrumb('<p id="breadcrumbs">','</p>');}
         ?>
         
-        <hgroup class="animatedParent animateOnce" data-sequence="100">
+        <hgroup class="animatedParent animateOnce" data-sequence="100" data-appear-offset-top="0">
             <?php the_title( '<h1 class="project-title animated fadeInUpShort" data-id="1">', '</h1>' ); ?>
             
             <?php if (get_field('project_dates')): ?>
@@ -46,6 +46,7 @@
 		<?php the_content(); ?>
         
     </article>
+    
     
     <aside class="project-specs">
         <?php
@@ -64,5 +65,6 @@
         }
         ?>
     </aside>
+    
     
 </section>
