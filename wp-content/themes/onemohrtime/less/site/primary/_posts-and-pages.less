@@ -29,55 +29,66 @@
         text-align: center;
     }
     &-content {
-        padding: 0 1em;
-        @media @screen600 {padding: 0 10%;}
-        @media @screen840 {padding: 0 15%;}
-        @media @screen1024 {padding: 0 20%;}
-        @media @screen1600 {padding: 0 25%;}
+        padding: 0 1em 1.7em;
+        @media @screen600 {padding: 0 10% 1.7em;}
+        @media @screen840 {padding: 0 15% 1.7em;}
+        @media @screen1024 {padding: 0 20% 1.7em;}
+        @media @screen1600 {padding: 0 25% 1.7em;}
     }
 }
 
 .project {
     &-header {
         position: relative;
-        hgroup {
-            padding: 0 1.7em 1.7em;
-            @media @screen840 {
-                position: absolute;
-                bottom: 3.4em;
-                left: 1.7em;
-                padding: 0;
-                color: @white;
-                max-width: 75%;
-                .text-shadow;
-            }
-        }
         #breadcrumbs {
-            // add padding to project page breadcrumbs
-            padding: 0 1.7em;
+            margin: 16px !important;
+            @media @screen960 {margin: 21px 35px !important;}
         }
     }
     &-banner {
         position: relative;
-        margin: 0;
-        height: 200px;
-        background: @white no-repeat center center scroll;
-        background-size: cover;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-end;
+        height: calc(~"100vh - 100px");
+        color: @white;
+        .text-shadow();
+        padding: 1em;
+        h1 {
+            flex: 1 0 100%;
+            margin: 0;
+        }
+        h2 {
+            flex: 1 0 100%;
+            margin: 0;
+        }
+    }
+    &-button {
+        position: relative;
+        margin-top: 20px;
+        padding-top: 30px;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 10px;
+            background-color: @yellow;
+            margin-bottom: 10px;
+        }
         .btn {
             .btn-color(@white,@yellow);
-            position: absolute;
-            bottom: 1.7em;
-            right: 1.7em;
         }
-        @media @screen480 {height: 250px;}
-        @media @screen600 {height: 300px;}
-        @media @screen768 {height: 350px;}
-        @media @screen960 {height: 400px;}
-        @media @screen1024 {
-            // Issue in compiling:
-            // stackoverflow.com/questions/27256849/it-is-possible-to-use-vh-minus-pixels-in-a-css-calc
-            // height: calc(100vh - 100px);
-            height: calc(~"100vh - 100px");
+        @media @screen960 {
+            position: absolute;
+            bottom: 1em;
+            right: 1em;
+            margin: 0;
+            padding: 0;
+            &::before {display: none;}
         }
     }
     &-description {
@@ -87,8 +98,59 @@
         @media @screen1024 {padding: 0 20% 1.7em;}
         @media @screen1600 {padding: 0 25% 1.7em;}
     }
+    &-double {
+        margin-bottom: 1.7em;
+        img {display: block;}
+        &-left {
+            padding: 1em;
+        }
+        &-right {
+            padding: 1em;
+        }
+    }
+    &-gallery {
+        display: flex;
+        flex-flow: row wrap;
+        margin-bottom: 1.7em;
+        a {
+            float: left;
+        }
+        img {
+            display: block;
+        }
+        figure {
+            overflow: hidden;
+            width: 100%;
+            @media @screen600 {width: 50%;}
+            @media @screen840 {width: 33.33333%;}
+            @media @screen1024 {width: 25%;}
+        }
+    }
+    &-background {
+        background-color: @white;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        height: 400px;
+        height: 100vh;
+        margin-bottom: 1.7em;
+        @media @screen1024 {height: 500px;}
+        @media @screen1600 {height: 600px;}
+    }
+    &-image {
+        margin: 0 1em 1.7em;
+        img {
+            display: block;
+            pointer-events: none;
+        }
+        @media @screen600 {margin: 0 5% 1.7em;}
+        @media @screen840 {margin: 0 7.5% 1.7em;}
+        @media @screen1024 {margin: 0 10% 1.7em;}
+        @media @screen1600 {margin: 0 12.5% 1.7em;}
+    }
     &-specs {
-        padding: 0 1.7em 1.7em;
+        padding: 0 1em 1.7em;
         h4 {margin-bottom: 1em;}
         ul {
             list-style: none;
@@ -96,6 +158,14 @@
             li {
                 display: block;
                 width: 100%;
+                span {
+                    &::after {
+                        content: ", ";
+                    }
+                    &:last-child::after {
+                        content: "";
+                    }
+                }
                 &:nth-of-type(odd) {font-weight: 700;}
                 &:nth-of-type(even) {padding-bottom: .5em;}
                 @media @screen480 {padding: .5em;}
@@ -135,6 +205,8 @@
             }
         }
         &-header {
+            position: relative;
+            padding-bottom: 10px;
             margin-bottom: 1em;
             font-size: 1.375em;
             &::after {
@@ -148,6 +220,7 @@
             }
             @media @screen960 {
                 margin: 0;
+                padding: 0;
                 &::after {display: none;}
             }
         }

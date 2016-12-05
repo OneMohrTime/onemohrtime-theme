@@ -9,12 +9,6 @@
 
 ?>
 
-<?php
-    // vars
-    $entryId = get_field('entry_id');
-    $projGrid = get_field('project_grid');
-?>
-
 <section class="project-all">
     
 	<header class="project-all-header">
@@ -24,32 +18,16 @@
     <section id="gallery" class="gallery">
         
         <?php
-            /*
-            wp_list_pages( array(
-                'title_li' => '',
-                'child_of' => $post->ID
-            ) );
-            */
+            $projects = array(
+                'post_parent' => $post->ID,
+                'post_type' => 'page',
+                'orderby' => 'desc'
+            );
+            $childPage = new WP_Query($projects);
         ?>
-        
         <?php
-            //get_template_part('template-parts/gallery-project','');
-        ?>
-        
-        <?php
-            $mypages = get_pages( array(
-                'child_of' => $post->ID,
-                'sort_column' => 'post_date',
-                'sort_order' => 'desc'
-            ) );
-            
-            foreach( $mypages as $page ) {      
-                $content = $page->post_content;
-                if ( ! $content ) // Check for empty page
-                    continue;
-                    
-                $pageThumb = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
-                $pageExcerpt = get_the_excerpt( $post );
+            while($childPage->have_posts()): $childPage->the_post();
+            $pageThumb = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
         ?>
             <figure class="gallery-project">
                 
@@ -58,30 +36,22 @@
                 <figcaption class="gallery-project-content">
                     
                     <h2 class="gallery-project-header">
-                        <a href="<?php echo get_page_link( $page->ID ); ?>">
-                            <?php echo $page->post_title; ?>
+                        <a href="<?php echo get_page_link( $post->ID ); ?>">
+                            <?php echo $post->post_title; ?>
                         </a>
                     </h2>
                     
-                    <p class="gallery-project-excerpt">
-                        <?php
-                            // echo $pageExcerpt;
-                        ?>
-                        <a href="<?php echo get_page_link( $page->ID ); ?>">Click to see project</a>
-                    </p>
+                    <div class="gallery-project-excerpt">
+                        <?php the_excerpt(); ?>
+                    </div>
                     
-                    <a href="<?php echo get_page_link( $page->ID ); ?>" class="gallery-project-link btn">See Project</a>
+                    <a href="<?php echo get_page_link( $post->ID ); ?>" class="gallery-project-link btn">See Project</a>
                     
                 </figcaption>
                 
             </figure>
-        <?php
-            }   
-        ?>
-        
-        <?php 
-            // echo $projGrid;
-        ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
     </section>
     
     <article id="<?php echo $entryId ?>" class="project-all-content">

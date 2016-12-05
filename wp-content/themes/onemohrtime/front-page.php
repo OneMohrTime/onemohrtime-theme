@@ -54,7 +54,7 @@ get_header(); ?>
                 $link = get_sub_field('service_link');
                 ?>
                 
-                <div class="service animated fadeInUpShort" data-id="1">
+                <div class="service animated fadeInUpShort" data-id="<?php echo get_row_index(); ?>">
                     <?php if($image): ?>
                         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="service-img" />
                     <?php endif; ?>
