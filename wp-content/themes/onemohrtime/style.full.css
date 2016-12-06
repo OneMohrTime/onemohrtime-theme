@@ -2244,6 +2244,8 @@ a {
   }
 }
 .project-banner {
+  background: #fffefa no-repeat center center scroll;
+  background-size: cover;
   position: relative;
   display: flex;
   flex-flow: row wrap;
