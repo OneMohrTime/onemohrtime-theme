@@ -21,30 +21,29 @@ get_header(); ?>
                     <span class="fa fa-spin fa-cog"></span>
                 </figure>
                 
-				<header class="entry-header">
-					<h1 class="entry-title"><?php esc_html_e( 'The Dreaded 404 Page', 'onemohrtime' ); ?></h1>
+				<header class="error-header">
+					<h1 class="error-title"><?php esc_html_e( 'The Dreaded 404 Page', 'onemohrtime' ); ?></h1>
 				</header>
                 
-				<div class="entry-content">
+				<div class="error-content">
 					<p><?php esc_html_e( 'Not saying it&rsquo;s my fault, but either I moved that page or you typed something wrong. Maybe one of these are what you&rsquo;re looking for?', 'onemohrtime' ); ?></p>
-                    
-					<?php
-						get_search_form();
-                        
-						// Only show the widget if site has multiple categories.
-						if ( onemohrtime_categorized_blog() ) :
-					?>
-                    
-					<?php endif; ?>
 				</div>
                 
-                <div class="links">
+                <div class="error-links">
                     <ul>
                         <li><a class="btn" href="design">Designs</a></li>
                         <li><a class="btn" href="about">About Me</a></li>
                         <li><a class="btn" href="hello">Contact</a></li>
                         <li><a class="btn" href="blog">Blog</a></li>
                     </ul>
+                </div>
+                
+                <div class="error-search">
+                    <?php
+                        get_search_form();
+                        // Only show the widget if site has multiple categories.
+                        if ( onemohrtime_categorized_blog() ) :
+                    endif; ?>
                 </div>
                 
 			</section>
