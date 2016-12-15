@@ -51,7 +51,7 @@
     try {document.addEventListener('DOMContentLoaded', $buo_f,false)}
     catch(e){window.attachEvent('onload', $buo_f)}
 </script> 
-<!--
+
 <script type="application/ld+json">
     {
         "@context": "http://schema.org/",
@@ -72,7 +72,6 @@
         "worksFor" : "SalesPad LLC"
     }
 </script>
--->
 
 </body>
 </html>
