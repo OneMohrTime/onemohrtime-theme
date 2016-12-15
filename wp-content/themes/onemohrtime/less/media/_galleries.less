@@ -70,3 +70,57 @@
         }
     }
 }
+
+// imgbox.css
+#imgbox{ 
+    &-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: fade(@black,60%);
+    }
+    &-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+    }
+    &-bar {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: fade(@black,50%);
+        display: table;
+        width: 100%;
+        color: fade(@white,90%);
+        vertical-align: middle;
+    }
+    &-information {
+        display: table-cell;
+        padding: 1em;
+    }
+    &-fraction {
+        font-weight: 700;
+        &::before {content: "["}
+        &::after {content: "]"}
+    }
+    &-navigation {
+        display: table-cell;
+        text-align: right;
+        white-space: nowrap;
+        padding: 1em;
+        a {
+            color: @yellow;
+            &:hover {
+                color: @black;
+            }
+        }
+    }
+}

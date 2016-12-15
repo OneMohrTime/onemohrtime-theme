@@ -16,42 +16,32 @@
 	</header>
     
     <section id="gallery" class="gallery">
-        
         <?php
-            $projects = array(
-                'post_parent' => $post->ID,
-                'post_type' => 'page',
-                'orderby' => 'desc'
-            );
-            $childPage = new WP_Query($projects);
+            $projects = new WP_Query(array(
+                'post_type' => 'design',
+                'post_status' => 'published',
+                'posts_per_page' => -1
+            ));
         ?>
-        <?php
-            while($childPage->have_posts()): $childPage->the_post();
-            $pageThumb = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
-        ?>
+        <?php while($projects->have_posts()): $projects->the_post(); ?>
             <figure class="gallery-project">
-                
-                <img src="<?php echo $pageThumb[0]; ?>" alt="" class="gallery-project-image" />
-                    
+                <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery-project-image" />
                 <figcaption class="gallery-project-content">
-                    
                     <h2 class="gallery-project-header">
-                        <a href="<?php echo get_page_link( $post->ID ); ?>">
-                            <?php echo $post->post_title; ?>
+                        <a href="<?php the_permalink ?>">
+                            <?php the_title(); ?>
                         </a>
                     </h2>
-                    
                     <div class="gallery-project-excerpt">
                         <?php the_excerpt(); ?>
                     </div>
-                    
-                    <a href="<?php echo get_page_link( $post->ID ); ?>" class="gallery-project-link btn">See Project</a>
-                    
+                    <a href="<?php the_permalink(); ?>" class="gallery-project-link btn">See Project</a>
                 </figcaption>
-                
             </figure>
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
+        <?php
+            endwhile;
+            wp_reset_query();
+        ?>
     </section>
     
     <article id="<?php echo $entryId ?>" class="project-all-content">

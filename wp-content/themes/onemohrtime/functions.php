@@ -130,7 +130,7 @@ function onemohrtime_scripts() {
     // Loading jQuery 2.1.4 instead of default
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true );
-    //wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="assets/js/jquery.min.js"><\/script>\')', array(), null, true );
+    wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="assets/js/jquery.min.js"><\/script>\')' );
     
 	wp_enqueue_script( 'onemohrtime-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
     
@@ -139,8 +139,8 @@ function onemohrtime_scripts() {
     
 	//wp_enqueue_script( 'onemohrtime-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
     
-    // FancyBox 2.1.5
-    // wp_enqueue_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array('jquery'), null, true);
+    // imgbox.js
+    wp_enqueue_script('imgbox', get_template_directory_uri() . '/js/src/imgbox.js', array('jquery'), null, true);
     
     // CSS3 Animate It
     wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);
@@ -162,6 +162,38 @@ function onemohrtime_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'onemohrtime_scripts' );
+
+/**
+ * Project Custom Post Type
+ */
+add_action( 'init', 'cptui_register_my_cpts_design' );
+function cptui_register_my_cpts_design() {
+	$labels = array(
+		"name" => __( 'Projects', 'onemohrtime' ),
+		"singular_name" => __( 'Project', 'onemohrtime' ),
+    );
+	$args = array(
+		"label" => __( 'Projects', 'onemohrtime' ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+        "exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => true,
+		"rewrite" => array( "slug" => "design", "with_front" => true ),
+		"query_var" => true,
+		"menu_position" => 5,"menu_icon" => "dashicons-align-left",
+		"supports" => array( "title", "thumbnail" ),
+    );
+	register_post_type( "design", $args );
+}
 
 /**
  * Custom Shortcodes
@@ -217,14 +249,6 @@ function wpdocs_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
-
-/**
- * Enables the Excerpt meta box in Page edit screen.
- */
-function wpcodex_add_excerpt_support_for_pages() {
-	add_post_type_support( 'page', 'excerpt' );
-}
-add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
 
 /**
  * Implement the Custom Header feature.

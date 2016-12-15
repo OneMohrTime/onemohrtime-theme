@@ -20,7 +20,11 @@ $(document).ready(function() {
 		this.previousTop = currentTop;
 	});
     
+    // imgbox.js
+    $('.imgbox').imgBox();
+    
 	// Fancybox 2.1.5
+    /*
 	$('.fancybox').fancybox({
 		padding : 0,
 		margin : 5,
@@ -30,6 +34,7 @@ $(document).ready(function() {
 			media : true
 		}
 	});
+    */
 	
 	// click to scroll
 	$('.scroll').click(function(e){
@@ -47,8 +52,9 @@ $(document).ready(function() {
     });
     
     // Remove inline anchor styles from certain elements
-    $('#content a > img').parent().addClass('no-style');
+    $('#content a > img:not(.imgbox)').parent().addClass('no-style');
     $('.sharedaddy a').addClass('btn');
+    $('.gallery-pagination-span a').addClass('btn');
     
     // Sticky-kit
     //if (window.matchMedia('(max-width: 1279px)').matches) {
@@ -57,7 +63,7 @@ $(document).ready(function() {
 	
 	// remove fancybox on mobile devices
 	if (window.matchMedia('(max-width: 768px)').matches) {
-		$('.fancybox').removeClass('fancybox').attr('target','_blank');
+		$('.imgbox').removeClass('imgbox').attr('target','_blank');
 	};
     
     // homepage parallax
