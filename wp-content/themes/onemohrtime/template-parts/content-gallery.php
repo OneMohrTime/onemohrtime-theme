@@ -19,8 +19,9 @@
         <?php
             $projects = new WP_Query(array(
                 'post_type' => 'design',
-                'post_status' => 'published',
-                'posts_per_page' => -1
+                'post_status' => 'publish',
+                'posts_per_page' => 6,
+                'order' => 'DESC'
             ));
         ?>
         <?php while($projects->have_posts()): $projects->the_post(); ?>
