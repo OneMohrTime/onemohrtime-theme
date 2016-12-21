@@ -43,7 +43,7 @@
         
         <?php
             if ( function_exists('yoast_breadcrumb') ) 
-            {yoast_breadcrumb('<p id="breadcrumbs">','</p>');}
+            {yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');}
         ?>
         
         <?php

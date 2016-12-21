@@ -44,28 +44,6 @@ and Blueprint http://www.blueprintcss.org/
 	12.1 Captions
 	12.2 Galleries
 --------------------------------------------------------------*/
-/*
-@color__background-body: #fff;
-@color__background-screen: #f1f1f1;
-@color__background-hr: #ccc;
-@color__background-button: #e6e6e6;
-@color__background-pre: #eee;
-@color__background-ins: #fff9c0;
-
-@color__text-screen: #21759b;
-@color__text-input: #666;
-@color__text-input-focus: #111;
-@color__link: royalblue;
-@color__link-visited: purple;
-@color__link-hover: midnightblue;
-@color__text-main: #404040;
-
-@color__border-button: #ccc #ccc #bbb;
-@color__border-button-hover: #ccc #bbb #aaa;
-@color__border-button-focus: #aaa #bbb #bbb;
-@color__border-input: #ccc;
-@color__border-abbr: #666;
-*/
 .clearfix {
   clear: both;
 }
@@ -576,12 +554,14 @@ hr {
 #breadcrumbs {
   margin: 1.7em 0;
   color: #9b9a95;
+}
+#breadcrumbs p {
   font-size: .75em;
   font-weight: 500;
   line-height: 1em;
 }
 @media only screen and (min-width: 960px) {
-  #breadcrumbs {
+  #breadcrumbs p {
     line-height: 1.7em;
   }
 }
@@ -1482,26 +1462,32 @@ input[type="submit"].pull-right,
     left: 0;
   }
 }
-/*
 input[type="checkbox"],
 input[type="radio"] {
-	display: none;
-    &+ br + label {
-        cursor: pointer;
-        &::before {
-            font-family: "FontAwesome";
-            font-size: 1em;
-            display: inline-block;
-            position: relative;
-            width: 1em;
-            text-align: left;
-        }
-    }
+  display: none;
 }
-input[type="checkbox"] + br + label::before {content: "\f096";}
-input[type="radio"] + br +label::before {content: "\f046";}
-input[type="checkbox"]:checked + br + label::before {content: "\f046";}
-*/
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
+  font-family: "FontAwesome";
+  font-size: 1em;
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  text-align: left;
+}
+input[type="checkbox"] + label::before {
+  content: "\f096";
+}
+input[type="radio"] + label::before {
+  content: "\f046";
+}
+input[type="checkbox"]:checked + label::before {
+  content: "\f046";
+}
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -1553,28 +1539,48 @@ textarea {
   color: rgba(155, 154, 149, 0.5);
 }
 label {
-  font-size: 1em;
+  font-size: .75em;
+  font-weight: 700;
   line-height: 1.7em;
+  text-transform: uppercase;
+  color: #3c3417;
   width: 100%;
   display: block;
 }
-span.wpcf7-list-item {
+.nf-before-form-content {
+  margin-bottom: 1.7em;
+  font-size: .75em;
+  font-weight: 700;
+}
+.nf-field-container {
+  margin-bottom: 10px !important;
+}
+.ninja-forms-field {
+  border-width: 2px !important;
+}
+.label-above .nf-field-label {
+  margin-bottom: 0 !important;
+}
+.list-checkbox-wrap li label {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1em;
+  text-transform: none;
+}
+.nf-input-limit,
+.nf-error-msg {
+  font-family: "Inconsolata", Monaco, monospace;
+  font-size: .75em;
+  line-height: 1.7em;
   margin: 0;
 }
-.wpcf7-checkbox br {
-  display: none;
+.ninja-forms-req-symbol,
+.nf-error-msg {
+  color: #9c0000 !important;
 }
-.wpcf7-recaptcha {
-  margin: 0 0 1.7em;
-}
-div.wpcf7-response-output {
-  margin: 0 0 1.7em;
-  padding: 1em;
-  text-align: center;
-  border-radius: 3px;
-}
-div.wpcf7-mail-sent-ok {
-  border-color: #417c40;
+.ninja-forms-req-symbol .ninja-forms-field,
+.nf-error-msg .ninja-forms-field {
+  border-color: #9c0000 !important;
 }
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -3058,6 +3064,16 @@ a {
 }
 .error .fa-spin.fa-spin-reverse {
   animation-direction: reverse;
+}
+.error-project {
+  flex: 0 1 auto;
+  font-family: "Inconsolata", Monaco, monospace;
+  margin: 0 auto 1.7em;
+  padding: .5em 1em;
+  border: 1px #ffc300 solid;
+  background-color: #fef7e3;
+  color: #cc9c00;
+  text-shadow: 1px 1px 0 #fef7e3, 2px 2px 0 #ffc300;
 }
 /*--------------------------------------------------------------
 10.2 Asides

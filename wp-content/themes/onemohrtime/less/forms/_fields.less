@@ -1,8 +1,7 @@
-/*
 input[type="checkbox"],
 input[type="radio"] {
 	display: none;
-    &+ br + label {
+    &+ label {
         cursor: pointer;
         &::before {
             font-family: "FontAwesome";
@@ -14,10 +13,9 @@ input[type="radio"] {
         }
     }
 }
-input[type="checkbox"] + br + label::before {content: "\f096";}
-input[type="radio"] + br +label::before {content: "\f046";}
-input[type="checkbox"]:checked + br + label::before {content: "\f046";}
-*/
+input[type="checkbox"] + label::before {content: "\f096";}
+input[type="radio"] +label::before {content: "\f046";}
+input[type="checkbox"]:checked + label::before {content: "\f046";}
 
 input[type="text"],
 input[type="email"],
@@ -60,25 +58,45 @@ textarea {
 		 *::-moz-placeholder {color: @gray; color: fade(@gray, 50%);}
 
 label {
-	font-size: 1em;
-	line-height:1.7em;
+	font-size: .75em;
+    font-weight: 700;
+	line-height: 1.7em;
+    text-transform: uppercase;
+    color: @lightblack;
 	width: 100%;
 	display: block;
 }
 
-// Contact Form 7 styles
-span.wpcf7-list-item {margin: 0;}
-.wpcf7-checkbox {
-    br {display: none;}
-    //.wpcf7-list-item {display: block;}
+// Ninja Forms
+.nf-before-form-content {
+    margin-bottom: 1.7em;
+    font-size: .75em;
+    font-weight: 700;
 }
-.wpcf7-recaptcha {margin: 0 0 1.7em;}
-div.wpcf7-response-output {
-    margin: 0 0 1.7em;
-    padding: 1em;
-    text-align: center;
-    border-radius: 3px;
+.nf-field-container {margin-bottom: 10px !important;}
+.ninja-forms-field {border-width: 2px !important;}
+.label-above .nf-field-label {margin-bottom: 0 !important;}
+.list-checkbox-wrap {
+    li {
+        label {
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1em;
+            text-transform: none;
+        }
+    }
 }
-div.wpcf7-mail-sent-ok {
-    border-color: #417c40;
+.nf-input-limit,
+.nf-error-msg {
+    font-family: @code-font;
+    font-size: .75em;
+    line-height: 1.7em;
+    margin: 0;
+}
+.ninja-forms-req-symbol,
+.nf-error-msg {
+    color: @required;
+    .ninja-forms-field {
+        border-color: @required !important;
+    }
 }
