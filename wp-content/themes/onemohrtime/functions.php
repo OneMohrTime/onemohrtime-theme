@@ -196,6 +196,11 @@ function cptui_register_my_cpts_design() {
 }
 
 /**
+ * Custom MCE editor
+ */
+add_editor_style();
+
+/**
  * Custom Post Pagination
  */
 function custom_pagination($numpages = '', $pagerange = '', $paged='') {
