@@ -23,18 +23,15 @@ $(document).ready(function() {
     // imgbox.js
     $('.imgbox').imgBox();
     
-	// Fancybox 2.1.5
-    /*
-	$('.fancybox').fancybox({
-		padding : 0,
-		margin : 5,
-		openEffect : 'elastic',
-		closeEffect : 'none',
-		helpers : {
-			media : true
-		}
-	});
-    */
+    // temporary snowfall.js
+    $('.homepage-banner').snowfall({
+        shadow : true,
+        flakeCount : 250,
+        deviceorientation : true,
+        round : true,
+        minSize : 2,
+        maxSize : 5
+    });
 	
 	// click to scroll
 	$('.scroll').click(function(e){

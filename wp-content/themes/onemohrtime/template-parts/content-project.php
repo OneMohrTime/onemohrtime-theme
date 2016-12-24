@@ -6,7 +6,6 @@
  *
  * @package onemohrtime
  */
-
 ?>
 
 <section class="project">
@@ -43,10 +42,9 @@
                     </div>
                     
                 </figure>
-                <?php
-                    if ( function_exists('yoast_breadcrumb') ) 
-                    {yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');}
-                ?>
+                <?php if(function_exists('yoast_breadcrumb')) {
+                    yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+                } ?>
             <?php endwhile; ?>
         </header>
     <?php endif; ?>

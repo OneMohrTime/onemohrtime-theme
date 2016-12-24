@@ -41,6 +41,9 @@
 
 <?php wp_footer(); ?>
 
+<!-- Snowfall.JS for holiday season -->
+<script src="<?php echo get_template_directory_uri() . '/js/snowfall.jquery.min.js' ?>"></script>
+
 <script type="application/ld+json">
     {
         "@context": "http://schema.org/",
