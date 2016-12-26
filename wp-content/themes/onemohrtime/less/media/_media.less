@@ -1,4 +1,12 @@
 img {
+    position: relative;
+    &[caption] {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        color: @white;
+        .text-shadow;
+    }
     &.bordered {
         .pseudo-border;
     }

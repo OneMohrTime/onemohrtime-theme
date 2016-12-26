@@ -3115,6 +3115,16 @@ a {
 /*--------------------------------------------------------------
 12.0 Media
 --------------------------------------------------------------*/
+img {
+  position: relative;
+}
+img[caption] {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #fffefa;
+  text-shadow: 1px 1px 1px rgba(23, 20, 9, 0.5);
+}
 img.bordered {
   position: relative;
   z-index: 1;
@@ -3154,25 +3164,19 @@ object {
 12.1 Captions
 --------------------------------------------------------------*/
 .wp-caption {
-  margin-bottom: 1.5em;
+  margin: 0 0 1.7em;
   max-width: 100%;
-}
-.wp-caption img[class*="wp-image-"] {
-  display: block;
-  margin: 0 auto;
-}
-.wp-caption .wp-caption-text {
-  margin: 0.8075em 0;
+  position: relative;
 }
 .wp-caption-text {
-  text-align: center;
-}
-.metaslider .caption {
-  padding: 1em !important;
-}
-.metaslider .caption-wrap {
-  background-color: #171409 !important;
-  color: #fffefa !important;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  color: #fffefa;
+  font-size: .75em;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(23, 20, 9, 0.5);
+  max-width: 50%;
 }
 /*--------------------------------------------------------------
 12.2 Galleries
