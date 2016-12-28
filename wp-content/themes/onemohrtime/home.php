@@ -21,8 +21,8 @@ get_header(); ?>
                     <?php 
                         wp_list_categories( array(
                             'orderby' => 'name',
-                            'current_category' => '',
                             'exclude' => array(1,13),
+                            'current_category' => '',
                             'title_li' => '',
                             'show_option_all' => 'All Categories'
                         ) );
