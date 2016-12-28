@@ -41,29 +41,5 @@
 
 <?php wp_footer(); ?>
 
-<!-- Snowfall.JS for holiday season -->
-<script src="<?php echo get_template_directory_uri() . '/js/snowfall.jquery.min.js' ?>"></script>
-
-<script type="application/ld+json">
-    {
-        "@context": "http://schema.org/",
-        "@type": "Person",
-        "name": "Derek Mohr",
-        "description" : "I'm a Front-end Designer out of Grand Rapids, MI. Also I sweat a lot.",
-        "jobTitle": "Web Designer",
-        "url": "http://onemohrti.me",
-        "sameAs": [
-            "http://www.dribbble.com/OneMohrTime",
-            "http://www.twitter.com/onemohrtime",
-            "http://www.instagram.com/onemohrtime",
-            "http://onemohrtime.tumblr.com",
-            "http://plus.google.com/+DerekMohr"
-        ],
-        "alumniOf": "Northern Michigan University",
-        "homeLocation": "Grand Rapids, MI",
-        "worksFor" : "SalesPad LLC"
-    }
-</script>
-
 </body>
 </html>

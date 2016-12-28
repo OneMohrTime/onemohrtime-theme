@@ -22,16 +22,6 @@ $(document).ready(function() {
     
     // imgbox.js
     $('.imgbox').imgBox();
-    
-    // temporary snowfall.js
-    $('.homepage-banner').snowfall({
-        shadow : true,
-        flakeCount : 250,
-        deviceorientation : true,
-        round : true,
-        minSize : 2,
-        maxSize : 5
-    });
 	
 	// click to scroll
 	$('.scroll').click(function(e){
