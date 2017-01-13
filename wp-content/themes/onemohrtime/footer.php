@@ -41,5 +41,22 @@
 
 <?php wp_footer(); ?>
 
+<!--
+    
+    Site details:
+    ________________________
+    
+    modernizr 3.3.1 - https://modernizr.com/
+    imgbox.js - http://tsi.github.io/jQuery.imgBox/
+    CSS3 Animate It - http://jackonthe.net/css3animateit/
+    FortAwesome Fonticons - https://fortawesome.com/
+    Typed.js - https://github.com/mattboldt/typed.js/
+    Sticky-kit.js - https://github.com/leafo/sticky-kit
+    Dribbble plugin - https://github.com/tylergaw/jribbble
+    
+    @onemohrtime
+    
+-->
+
 </body>
 </html>

@@ -132,12 +132,10 @@ function onemohrtime_scripts() {
     wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true );
     wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="assets/js/jquery.min.js"><\/script>\')' );
     
-	wp_enqueue_script( 'onemohrtime-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	// wp_enqueue_script( 'onemohrtime-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
     
     // modernizr 3.3.1
     wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), null, true);
-    
-	//wp_enqueue_script( 'onemohrtime-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
     
     // imgbox.js
     wp_enqueue_script('imgbox', get_template_directory_uri() . '/js/src/imgbox.js', array('jquery'), null, true);
@@ -147,6 +145,9 @@ function onemohrtime_scripts() {
     
     // FortAwesome Fonticons
     wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
+    
+    // Typed.js
+    wp_enqueue_script('typed', get_template_directory_uri() . '/js/typed.min.js', array('jquery'), null, true);
     
     // Sticky-kit.js
     wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
@@ -317,19 +318,9 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 /**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-//require get_template_directory() . '/inc/extras.php';
 
 /**
  * Customizer additions.
