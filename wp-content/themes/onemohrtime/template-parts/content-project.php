@@ -65,7 +65,7 @@
                     <section class="project-gallery animatedParent animateOnce" data-sequence="100" data-appear-top="-100">
                         <?php foreach($images as $image): ?>
                             <figure class="animated fadeInUpShort" data-id="<?php echo $counter ?>">
-                                 <a href="<?php echo $image['url']; ?>" class="imgbox" data-set="gallery"<?php if($image['caption']): ?> data-caption="<?php echo $image['caption'] ?>"<?php endif; ?>>
+                                 <a href="<?php echo $image['url']; ?>" class="strip" data-strip-group="gallery"<?php if($image['caption']): ?> data-strip-caption="<?php echo $image['caption'] ?>"<?php endif; ?>>
                                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
                                 </a>
                             </figure>

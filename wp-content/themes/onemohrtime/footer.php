@@ -47,7 +47,7 @@
     ________________________
     
     modernizr 3.3.1 - https://modernizr.com/
-    imgbox.js - http://tsi.github.io/jQuery.imgBox/
+    strip.js - https://github.com/staaky/strip
     CSS3 Animate It - http://jackonthe.net/css3animateit/
     FortAwesome Fonticons - https://fortawesome.com/
     Typed.js - https://github.com/mattboldt/typed.js/

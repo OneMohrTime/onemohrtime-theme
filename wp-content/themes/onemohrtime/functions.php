@@ -125,20 +125,20 @@ add_action( 'widgets_init', 'onemohrtime_widgets_init' );
  * Enqueue scripts and styles.
  */
 function onemohrtime_scripts() {
+    wp_enqueue_style('strp-css', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
+    
 	wp_enqueue_style( 'onemohrtime-style', get_stylesheet_uri() );
     
-    // Loading jQuery 2.1.4 instead of default
-    wp_deregister_script( 'jquery' );
-    wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true );
-    wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="assets/js/jquery.min.js"><\/script>\')' );
-    
-	// wp_enqueue_script( 'onemohrtime-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+    // Loading jQuery 3.0.0 instead of default
+    wp_deregister_script('jquery');
+    wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true);
+    wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="assets/js/jquery.min.js"><\/script>\')');
     
     // modernizr 3.3.1
     wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), null, true);
     
-    // imgbox.js
-    wp_enqueue_script('imgbox', get_template_directory_uri() . '/js/src/imgbox.js', array('jquery'), null, true);
+    // strip.js lightbox
+    wp_enqueue_script('strp-js', get_template_directory_uri() . '/js/strip.pkgd.min.js', array('jquery'), null, true);
     
     // CSS3 Animate It
     wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);

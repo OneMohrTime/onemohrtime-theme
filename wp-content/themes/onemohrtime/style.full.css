@@ -3407,59 +3407,45 @@ object {
 .single-post .img-full {
   margin: 0 0 1.7em;
 }
-#imgbox-overlay {
-  position: fixed;
+.strp-window {
+  font-family: "Raleway", "Gill Sans", sans-serif;
+  font-size: 1em;
+  line-height: 1.7em;
+  background: #171409;
+  box-shadow: -1px 0 2px 0 rgba(23, 20, 9, 0.5);
+}
+.strp-close:focus {
+  outline: 0;
+}
+.strp-close:hover .strp-close-background {
+  background-color: transparent;
+}
+.strp-close-background,
+.strp-close-icon {
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(23, 20, 9, 0.6);
+  width: 48px;
+  height: 48px;
+  opacity: 1;
 }
-#imgbox-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
+.strp-close-background {
+  background-color: transparent;
+  opacity: 1;
+  border-left: 2px #fffefa solid;
+  border-bottom: 2px #fffefa solid;
 }
-#imgbox-bar {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(23, 20, 9, 0.5);
-  display: table;
-  width: 100%;
-  color: rgba(255, 254, 250, 0.9);
-  vertical-align: middle;
-}
-#imgbox-information {
-  display: table-cell;
-  padding: 1em;
-}
-#imgbox-fraction {
-  font-weight: 700;
-}
-#imgbox-fraction::before {
-  content: "[";
-}
-#imgbox-fraction::after {
-  content: "]";
-}
-#imgbox-navigation {
-  display: table-cell;
-  text-align: right;
-  white-space: nowrap;
-  padding: 1em;
-}
-#imgbox-navigation a {
-  color: #ffc300;
-}
-#imgbox-navigation a:hover {
+.strp-info {
+  background: #fffefa;
   color: #171409;
+  font-weight: 500;
+}
+.strp-info-padder {
+  padding: 1em;
+}
+.strp-position {
+  color: #9b9a95;
+  line-height: 1.7em;
+  opacity: 1;
 }
 /*--------------------------------------------------------------
 13.0 Animations

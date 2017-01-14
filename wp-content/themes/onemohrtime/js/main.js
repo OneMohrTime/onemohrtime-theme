@@ -20,8 +20,7 @@ $(document).ready(function() {
 		this.previousTop = currentTop;
 	});
     
-    // imgbox.js
-    $('.imgbox').imgBox();
+    // strip.js
 	
 	// click to scroll
 	$('.scroll').click(function(e){
@@ -39,7 +38,7 @@ $(document).ready(function() {
     });
     
     // Remove inline anchor styles from certain elements
-    $('#content a > img:not(.imgbox)').parent().addClass('no-style');
+    $('#content a > img:not(.strip)').parent().addClass('no-style');
     $('.sharedaddy a').addClass('btn');
     $('.gallery-pagination-span a').addClass('btn');
     
@@ -47,11 +46,6 @@ $(document).ready(function() {
     //if (window.matchMedia('(max-width: 1279px)').matches) {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
-	
-	// remove fancybox on mobile devices
-	if (window.matchMedia('(max-width: 768px)').matches) {
-		$('.imgbox').removeClass('imgbox').attr('target','_blank');
-	};
     
     // homepage parallax
     $(window).scroll(function() {
@@ -63,7 +57,7 @@ $(document).ready(function() {
         windowScroll = $(this).scrollTop();
         // Slow scroll of logo
 		logo.css({
-          'margin-top' : (windowScroll/1)+"px",
+            'margin-top' : (windowScroll/1)+"px",
         })
         // Fade logo
 		var percent = $(document).scrollTop() / ($(document).height() - $(window).height());
