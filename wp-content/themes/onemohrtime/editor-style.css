@@ -1,5 +1,5 @@
 body {
-    font-family: "Raleway", "Gill Sans", sans-serif;
+    font-family: "Source Sans Pro", "Gill Sans", sans-serif;
     color: #171409
 }
 h1, h2, h3, h4, h5, h6 {
@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2em;
     text-transform: uppercase;
-    margin: 0 0 0.2em;
+    margin: 0 0 0.5em;
 }
 h1 {font-size: 3.375em;}
 h2 {font-size: 2.625em;}

@@ -125,7 +125,7 @@ add_action( 'widgets_init', 'onemohrtime_widgets_init' );
  * Enqueue scripts and styles.
  */
 function onemohrtime_scripts() {
-    wp_enqueue_style('strp-css', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
+    wp_enqueue_style('strp', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
     
     // default wordpress style.css
 	// wp_enqueue_style('onemohrtime-style', get_stylesheet_uri());
