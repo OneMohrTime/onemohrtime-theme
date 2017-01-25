@@ -69,7 +69,7 @@ get_header(); ?>
                         </div>
                     <?php endif; ?>
                     <?php if($link): ?>
-                        <a href="<?php echo '//onemohrti.me/' . $link ?>" class="service-btn btn">Hear More</a>
+                        <a href="<?php echo home_url($link,'relative'); ?>" class="service-btn btn">Hear More</a>
                     <?php endif; ?>
                 </div>
                 
