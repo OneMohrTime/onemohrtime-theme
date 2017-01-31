@@ -11,16 +11,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-	<header class="posts-header">
+	<header class="posts-header animatedParent animateOnce">
         <?php if ( 'post' === get_post_type() ) : ?>
-            <figure class="posts-date">
+            <figure class="posts-date animated fadeInRightShort">
                 <a href="<?php echo the_permalink(); ?>">
                     <span class="month"><?php echo get_the_date('M'); ?></span>
                     <span class="day"><?php echo get_the_date('d'); ?></span>
                 </a>
             </figure>
         <?php endif; ?>
-        <section class="posts-content">
+        <section class="posts-content fadeInUpShort">
             <h2 class="posts-title">
                 <a href="<?php the_permalink(); ?>">
                     <?php the_title(); ?>

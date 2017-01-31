@@ -15,7 +15,7 @@
 		<?php the_title( '<h1 class="project-all-title">', '</h1>' ); ?>
 	</header>
     
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery animatedParent animateOnce" data-sequence="150">
         <?php
             $paged = (get_query_var('paged')) ? get_query_var('paged'): 1;
             $projects = new WP_Query(array(
@@ -25,23 +25,25 @@
                 'order' => 'DESC',
                 'paged' => $paged
             ));
+            $projCount = 1;
         ?>
         <?php if($projects->have_posts()): ?>
             <?php while($projects->have_posts()): $projects->the_post(); ?>
-                <figure class="gallery-project">
+                <figure class="gallery-project animated fadeInUpShort" data-id="<?php echo $projCount ?>">
                     <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery-project-image" />
-                    <figcaption class="gallery-project-content">
-                        <h2 class="gallery-project-header">
+                    <figcaption class="gallery-project-content animatedParent animateOnce">
+                        <h2 class="gallery-project-header animated fadeInDownShort">
                             <a href="<?php the_permalink ?>">
                                 <?php the_title(); ?>
                             </a>
                         </h2>
-                        <div class="gallery-project-excerpt">
+                        <div class="gallery-project-excerpt animated fadeInUpShort">
                             <?php the_excerpt(); ?>
                         </div>
-                        <a href="<?php the_permalink(); ?>" class="gallery-project-link btn">See Project</a>
+                        <a href="<?php the_permalink(); ?>" class="gallery-project-link btn animated fadeInUpShort">See Project</a>
                     </figcaption>
                 </figure>
+                <?php $projCount++ ?>
             <?php endwhile; ?>
             <nav class="gallery-pagination">
                 <span><?php echo get_next_posts_link( 'Older Projects', $projects->max_num_pages ); ?></span>

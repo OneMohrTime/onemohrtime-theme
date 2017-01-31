@@ -78,7 +78,7 @@ get_header(); ?>
             </section>
             
             <aside class="homepage-work">
-                <a href="design/" class="btn">Featured Projects</a>
+                <a href="<?php echo home_url('design','relative'); ?>" class="btn">Featured Projects</a>
             </aside>
             
         <?php endif; ?>
