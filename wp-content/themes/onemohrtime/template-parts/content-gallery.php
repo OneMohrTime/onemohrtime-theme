@@ -28,12 +28,13 @@
             $projCount = 1;
         ?>
         <?php if($projects->have_posts()): ?>
-            <?php while($projects->have_posts()): $projects->the_post(); ?>
+            <?php while($projects->have_posts()): $projects->the_post();
+                $projImg = get_the_post_thumbnail(); ?>
                 <figure class="gallery-project animated fadeInUpShort" data-id="<?php echo $projCount ?>">
-                    <img src="<?php echo get_the_post_thumbnail(); ?>" alt="" class="gallery-project-image" />
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery-project-image" />
                     <figcaption class="gallery-project-content animatedParent animateOnce">
                         <h2 class="gallery-project-header animated fadeInDownShort">
-                            <a href="<?php the_permalink ?>">
+                            <a href="<?php the_permalink(); ?>">
                                 <?php the_title(); ?>
                             </a>
                         </h2>
