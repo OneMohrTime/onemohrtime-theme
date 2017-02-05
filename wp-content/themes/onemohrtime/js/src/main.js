@@ -1,32 +1,15 @@
 $(document).ready(function() {
 	
-	// menu visible when scrolling up
-	var headerHeight = $('#site-navigation').height();
-	$(window).on('scroll', {previousTop : 0}, function() {
-		var currentTop = $(window).scrollTop();
-		//check if user is scrolling up
-		if (currentTop < this.previousTop ) {
-			//if scrolling up...
-			if (currentTop > 0 && $('#site-navigation').hasClass('nav-fixed')) {
-				$('#site-navigation').addClass('nav-visible');
-			} else {
-				$('#site-navigation').removeClass('nav-visible nav-fixed');
-			}
-		} else {
-			//if scrolling down...
-			$('#site-navigation').removeClass('nav-visible');
-			if( currentTop > headerHeight && !$('#site-navigation').hasClass('nav-fixed')) $('#site-navigation').addClass('nav-fixed');
-		}
-		this.previousTop = currentTop;
-	});
-    
-    // strip.js
-	
-	// click to scroll
-	$('.scroll').click(function(e){
+	// click to smoothscroll
+	$('a[href^="#"]').on('click',function(e) {
 		e.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 1500);
 	});
+    
+    // add scrolling class to contact
+    $('#desktop_menu li:nth-child(4) > a, a[href^="#contact"]').on('click', function() {
+        $('#contact').addClass('said-hi');
+    });
 	
 	// toggle About sections
     $('.toggle-hidden').hide();
@@ -34,7 +17,6 @@ $(document).ready(function() {
         $(this).parent().not('.toggle-active').toggleClass('toggle-active');
         $('.toggle-hidden:visible').slideToggle().parent().removeClass('toggle-active');
 		$(this).next('.toggle-hidden:hidden').slideToggle();
-        //$('.toggle-hidden').slideToggle();
     });
     
     // Remove inline anchor styles from certain elements
@@ -46,23 +28,6 @@ $(document).ready(function() {
     //if (window.matchMedia('(max-width: 1279px)').matches) {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
-    
-    // homepage parallax
-    $(window).scroll(function() {
-        homepageParallax();
-    });
-    function homepageParallax() {
-        var logo = $('#homepage_logo')
-        // Get scroll position of window
-        windowScroll = $(this).scrollTop();
-        // Slow scroll of logo
-		logo.css({
-            'margin-top' : (windowScroll/1)+"px",
-        })
-        // Fade logo
-		var percent = $(document).scrollTop() / ($(document).height() - $(window).height());
-		logo.css('opacity', 1 - percent*7.5);
-    }
     
     // Dribbble
     $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
@@ -90,10 +55,44 @@ $(document).ready(function() {
 	
 });
 
-//$(window).load(function() {
-$(window).on('load', function() {
+// menu visible when scrolling up
+var headerHeight = $('#site-navigation').height();
+$(window).on('scroll', {previousTop : 0}, function() {
+    var currentTop = $(window).scrollTop();
+    //check if user is scrolling up
+    if (currentTop < this.previousTop ) {
+        //if scrolling up...
+        if (currentTop > 0 && $('#site-navigation').hasClass('nav-fixed')) {
+            $('#site-navigation').addClass('nav-visible');
+        } else {
+            $('#site-navigation').removeClass('nav-visible nav-fixed');
+        }
+    } else {
+        //if scrolling down...
+        $('#site-navigation').removeClass('nav-visible');
+        if( currentTop > headerHeight && !$('#site-navigation').hasClass('nav-fixed')) $('#site-navigation').addClass('nav-fixed');
+    }
+    this.previousTop = currentTop;
+});
 
+// homepage parallax
+$(window).scroll(function() {
+    homepageParallax();
+});
+function homepageParallax() {
+    var logo = $('#homepage_logo')
+    // Get scroll position of window
+    windowScroll = $(this).scrollTop();
+    // Slow scroll of logo
+    logo.css({
+        'margin-top' : (windowScroll/1)+"px",
+    })
+    // Fade logo
+    var percent = $(document).scrollTop() / ($(document).height() - $(window).height());
+    logo.css('opacity', 1 - percent*7.5);
+}
+
+$(window).on('load', function() {
 	// loading screen won't fade until entire page has loaded
 	$('#loading').fadeOut('slow');
-	
 });

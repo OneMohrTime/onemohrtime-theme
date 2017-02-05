@@ -38,6 +38,8 @@ get_header(); ?>
                 endwhile; // End of the loop.
 			?>
             
+            <?php echo get_template_part('template-parts/contact') ?>
+            
 		</main>
 	</div>
     

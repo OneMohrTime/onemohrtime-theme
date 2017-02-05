@@ -16,6 +16,8 @@ get_header(); ?>
 				get_template_part( 'template-parts/content-half', 'page' );
 			endwhile; ?>
             
+            <?php echo get_template_part('template-parts/contact') ?>
+            
 		</main><!-- #main -->
 	</div><!-- #primary -->
     
