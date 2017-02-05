@@ -520,7 +520,19 @@ hr {
             font-size: 1.375em;
             margin-bottom: 20px;
             @media @screen768 {font-size: 1.875em;}
-            @media @screen960 {margin-bottom: 30px;}
+            @media @screen960 {
+                margin-bottom: 30px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -50px;
+                    bottom: -15px;
+                    height: 10px;
+                    width: 100px;
+                    background-color: @yellow;
+                }
+            }
             @media @screen1024 {font-size: 2.75em;}
         }
         @media @screen960 {padding: 150px 0;}

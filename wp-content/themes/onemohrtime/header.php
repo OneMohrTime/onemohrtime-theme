@@ -70,7 +70,7 @@
                     'depth' => '1'
                 ) );
             ?>
-            <a href="<?php echo home_url('hello','relative'); ?>" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
+            <a href="#contact" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
             <a href="<?php echo home_url(); ?>" class="desktop-logo">
                 <img src="<?php echo get_template_directory_uri() . "/img/logo-color-rotate.gif" ?>" alt="onemohrtime design logo" class="responsive" />
             </a>

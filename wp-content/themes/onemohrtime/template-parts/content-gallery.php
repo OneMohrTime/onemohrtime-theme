@@ -30,7 +30,7 @@
         <?php if($projects->have_posts()): ?>
             <?php while($projects->have_posts()): $projects->the_post(); ?>
                 <figure class="gallery-project animated fadeInUpShort" data-id="<?php echo $projCount ?>">
-                    <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery-project-image" />
+                    <img src="<?php echo get_the_post_thumbnail(); ?>" alt="" class="gallery-project-image" />
                     <figcaption class="gallery-project-content animatedParent animateOnce">
                         <h2 class="gallery-project-header animated fadeInDownShort">
                             <a href="<?php the_permalink ?>">
@@ -40,7 +40,7 @@
                         <div class="gallery-project-excerpt animated fadeInUpShort">
                             <?php the_excerpt(); ?>
                         </div>
-                        <a href="<?php the_permalink(); ?>" class="gallery-project-link btn animated fadeInUpShort">See Project</a>
+                        <a href="<?php the_permalink(); ?>" class="gallery-project-link animated fadeInUpShort">See Project</a>
                     </figcaption>
                 </figure>
                 <?php $projCount++ ?>
