@@ -25,17 +25,14 @@ get_header(); ?>
                     ?>
                 </ul>
             </nav>
-
-            <?php
-            if ( have_posts() ) : ?>
+            
+            <?php if(have_posts()): ?>
                 
-                <?php
-                
-                while ( have_posts() ) : the_post();
-                    get_template_part( 'template-parts/content-blog', get_post_format() );
+                <?php while(have_posts()): the_post();
+                    get_template_part('template-parts/content-blog',get_post_format());
                 endwhile;
                 
-            else :
+            else:
                 get_template_part( 'template-parts/content-blog', 'page' );
             endif; ?>
             

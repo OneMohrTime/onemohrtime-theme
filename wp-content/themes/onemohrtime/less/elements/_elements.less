@@ -101,6 +101,7 @@ hr {
     .sd-title {
         display: inline-block;
         position: relative;
+        font-size: 1em;
         margin-bottom: 1em;
         padding-bottom: .5em;
         &::after {
@@ -400,7 +401,7 @@ hr {
             &:last-child {
                 margin: 0;
             }
-            &-img {
+            &__img {
                 width: 100px;
                 height: 100px;
                 @media @screen840 {
@@ -410,7 +411,7 @@ hr {
                     min-height: 100px;
                 }
             }
-            &-header {
+            &__header {
                 position: relative;
                 margin: 1em 0;
                 padding-bottom: 10px;
@@ -431,14 +432,14 @@ hr {
                     text-align: center;
                 }
             }
-            &-body {
+            &__body {
                 font-size: .875em;
                 margin-bottom: 1em;
                 @media @screen1024 {
                     font-size: 1em;
                 }
             }
-            &-btn {
+            &__btn {
                 @media @screen960 {
                     &.btn {
                         .btn-color(@yellow,@yellow);
@@ -465,7 +466,7 @@ hr {
                     background-color: @white;
                     border-color: @black;
                     color: @black;
-                    .service-btn.btn {
+                    .service__btn.btn {
                         .btn-color(@black,@yellow);
                     }
                 }

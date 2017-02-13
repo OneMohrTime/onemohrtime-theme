@@ -18,27 +18,23 @@ get_header(); ?>
             
             <nav class="posts-categories">
                 <ul>
-                    <?php 
-                        wp_list_categories( array(
-                            'orderby' => 'name',
-                            'exclude' => array(1,13),
-                            'current_category' => '',
-                            'title_li' => '',
-                            'show_option_all' => 'All Categories'
-                        ) );
-                    ?>
+                    <?php wp_list_categories(array(
+                        'orderby' => 'name',
+                        'exclude' => array(1,13),
+                        'current_category' => '',
+                        'title_li' => '',
+                        'show_option_all' => 'All Categories'
+                    )); ?>
                 </ul>
             </nav>
             
             <?php query_posts('cat=-1,-13'); ?>
             
-			<?php
-                while ( have_posts() ) : the_post();
-                    get_template_part( 'template-parts/content-blog', 'page' );
-                endwhile; // End of the loop.
-			?>
+			<?php while(have_posts()): the_post();
+                get_template_part('template-parts/content-blog','page');
+            endwhile; ?>
             
-            <?php echo get_template_part('template-parts/contact') ?>
+            <?php echo get_template_part('template-parts/contact'); ?>
             
 		</main>
 	</div>

@@ -20,7 +20,7 @@
                 </a>
             </figure>
         <?php endif; ?>
-        <section class="posts-content fadeInUpShort">
+        <section class="posts-content animated fadeInUpShort">
             <h2 class="posts-title">
                 <a href="<?php the_permalink(); ?>">
                     <?php the_title(); ?>

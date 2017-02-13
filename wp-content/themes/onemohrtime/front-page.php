@@ -41,36 +41,35 @@ get_header(); ?>
                 </article>
             </section>
             
-            <?php if( have_rows('homepage_services') ): ?>
+            <?php if(have_rows('homepage_services')): ?>
                 
-                <section class="homepage-services animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
+                <section class="homepage-services animatedParent animateOnce" data-sequence="100">
                 
-                <?php
-                    while ( have_rows('homepage_services') ) : the_row();
+                <?php while(have_rows('homepage_services')): the_row();
                     
                     $header = get_sub_field('service_title');
                     $image = get_sub_field('service_image');
                     $content = get_sub_field('service_body');
                     $link = get_sub_field('service_link'); ?>
                     
-                    <div class="service animated fadeInUpShort" data-id="<?php echo get_row_index(); ?>">
-                        <?php if($image): ?>
-                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="service-img" />
-                        <?php endif; ?>
+                    <figure class="service animated fadeInUpShort" data-id="<?php echo get_row_index(); ?>">
                         <?php if($header): ?>
-                            <h4 class="service-header">
+                            <h4 class="service__header">
                                 <?php echo $header; ?>
                             </h4>
                         <?php endif; ?>
+                        <?php if($image): ?>
+                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="service__img" />
+                        <?php endif; ?>
                         <?php if($content): ?>
-                            <div class="service-body">
+                            <figcaption class="service__body">
                                 <?php echo $content; ?>
-                            </div>
+                            </figcaption>
                         <?php endif; ?>
                         <?php if($link): ?>
-                            <a href="<?php echo home_url($link,'relative'); ?>" class="service-btn btn">Hear More</a>
+                            <a href="<?php echo home_url($link,'relative'); ?>" class="service__btn btn">Hear More</a>
                         <?php endif; ?>
-                    </div>
+                    </figure>
                     
                 <?php endwhile; ?>
                 

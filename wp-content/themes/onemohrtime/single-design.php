@@ -30,26 +30,25 @@ get_header(); ?>
                                 <h1 class="project-title animated fadeInUpShort" data-id="1"><?php the_title(); ?></h1>
                                 
                                 <?php if($sub): ?>
-                                    <h2 class="proj-dates animated fadeInUpShort" data-id="2"><?php echo $sub ?></h2>
+                                    <h2 class="project-dates animated fadeInUpShort" data-id="2"><?php echo $sub ?></h2>
                                 <?php endif; ?>
                                 
                                 <div class="project-button animated fadeInRightShort" data-id="3">
-                                    <?php if($btnType == ''): ?>
-                                        <a href="#article" class="btn scroll">Read More</a>
-                                    <?php elseif($btnType == 'website'): ?>
+                                    <?php if($btnType == 'website'): ?>
                                         <a href="<?php echo $wurl ?>" target="_blank" class="btn">View Site</a>
                                     <?php elseif($btnType == 'article'): ?>
                                         <a href="<?php echo $aurl ?>" target="_blank" class="btn">Article</a>
                                     <?php elseif($btnType == 'post'): ?>
-                                        <a href="<?php echo $burl ?>" class="btn"></a>
+                                        <a href="<?php echo $burl ?>" class="btn">Post</a>
+                                    <?php else: ?>
+                                        <a href="#article" class="btn">Read More</a>
                                     <?php endif; ?>
                                 </div>
                                 
                             </figure>
-                            <?php
-                                if ( function_exists('yoast_breadcrumb') ) 
-                                {yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');}
-                            ?>
+                            <?php if(function_exists('yoast_breadcrumb')) {
+                                yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+                            } ?>
                         <?php endwhile; ?>
                     </header>
                 <?php endif; ?>
