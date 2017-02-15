@@ -125,7 +125,11 @@ add_action( 'widgets_init', 'onemohrtime_widgets_init' );
  * Enqueue scripts and styles.
  */
 function onemohrtime_scripts() {
+    // strip.js styles
     wp_enqueue_style('strp', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
+    
+    // swiper.js styles
+    wp_enqueue_style('swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), null, 'all');
     
     // default wordpress style.css
 	// wp_enqueue_style('onemohrtime-style', get_stylesheet_uri());

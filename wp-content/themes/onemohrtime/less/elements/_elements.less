@@ -394,21 +394,38 @@ hr {
         padding: 1em;
         .service {
             width: 100%;
-            margin: 0 0 1em;
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            &:last-child {
-                margin: 0;
-            }
+            &:nth-child(1) {margin-bottom: 1em}
             &__img {
+                height: auto;
                 width: 100px;
-                height: 100px;
-                @media @screen840 {
-                    width: auto;
-                    height: auto;
-                    min-width: 100px;
-                    min-height: 100px;
+                svg {
+                    .designer {
+                        &-stroke {
+                            fill: none;
+                            stroke: @darkyellow;
+                            stroke-width: 5;
+                            stroke-linejoin: round;
+                            stroke-miterlimit: 10;
+                        }
+                        &-fill {
+                            fill: @yellow;
+                        }
+                    }
+                    .developer {
+                        &-stroke {
+                            fill: none;
+                            stroke: @darkyellow;
+                            stroke-width: 5;
+                            stroke-linejoin: round;
+                            stroke-miterlimit: 10;
+                        }
+                        &-fill {
+                            fill: @yellow;
+                        }
+                    }
                 }
             }
             &__header {
@@ -439,29 +456,33 @@ hr {
                     font-size: 1em;
                 }
             }
-            &__btn {
-                @media @screen960 {
-                    &.btn {
-                        .btn-color(@yellow,@yellow);
-                    }
-                }
-            }
+            &__btn {}
             @media @screen600 {
-                width: calc(~"33.33333% - 2em");
-                margin: 1em;
-                padding: 1em;
+                background-color: transparent;
+                width: 50%;
+                padding: 2em;
                 flex-flow: row wrap;
                 justify-content: center;
                 align-content: flex-start;
-                border: 2px @darkyellow solid;
-                border-radius: 3px;
-                &:last-child {
-                    margin: 1em;
-                }
+                &:nth-child(1) {margin-bottom: 0;}
             }
             @media @screen960 {
                 color: @yellow;
                 transition: all 300ms;
+                &:nth-child(1) {
+                    background-color: @lightyellow;
+                    color: @yellow;
+                    .service__btn.btn {
+                        .btn-color(@yellow,@yellow);
+                    }
+                }
+                &:nth-child(2) {
+                    background-color: @darkyellow;
+                    color: @lightyellow;
+                    .service__btn.btn {
+                        .btn-color(@lightyellow,@lightyellow);
+                    }
+                }
                 &:hover {
                     background-color: @white;
                     border-color: @black;
@@ -471,6 +492,13 @@ hr {
                     }
                 }
             }
+            @media @screen1024 {
+                padding-left: calc(100% / 12);
+                padding-right: calc(100% / 12);
+            }
+        }
+        @media @screen600 {
+            padding: 0;
         }
     }
     &-work {
@@ -480,6 +508,81 @@ hr {
         text-align: center;
         .btn {
             .btn-color(@black,@yellow);
+        }
+        @media @screen600 {padding: 2em;}
+    }
+    &__slideshow {
+        width: 100vw;
+        max-width: 100%;
+        .slide {
+            display: flex;
+            flex-flow: column nowrap;
+            background-color: @white;
+            &__img {
+                order: 1;
+                @media @screen840 {
+                    order: 2;
+                    width: 50%;
+                }
+            }
+            &__content {
+                order: 2;
+                position: relative;
+                padding: 20px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -1em;
+                    left: calc(~"50% - 5px");
+                    width: 10px;
+                    height: calc(~"100% + 2em");
+                    background-color: @yellow;
+                    z-index: -1;
+                }
+                @media @screen840 {
+                    order: 1;
+                    width: 50%;
+                    padding: 1em 50px;
+                    text-align: center;
+                }
+                @media @screen1024 {
+                    font-size: 1.3125em;
+                    padding: 0;
+                }
+            }
+            &__title {
+                font-size: 1.375em;
+                @media @screen1024 {font-size: 1.875em;}
+            }
+            &__text {
+                margin-bottom: 1em;
+                @media @screen840 {text-align: left;}
+                @media @screen1024 {
+                    width: 50%;
+                    margin: 0 auto 1em;
+                }
+            }
+            @media @screen840 {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        .swiper-pagination {
+            &-progress {background-color: @lightyellow;}
+            &-progressbar {background-color: @yellow;}
+        }
+        .swiper-button {
+            &-prev,
+            &-next {
+                // display:none for now
+                display: none;
+                background-image: none;
+                font-size: 25px;
+                color: @black;
+                opacity: 1;
+            }
+            &-prev {left: 1em;}
+            &-next {right: 1em;}
         }
     }
     &-dribbble {
@@ -523,16 +626,15 @@ hr {
         text-align: center;
         h3 {
             font-size: 1.375em;
-            margin-bottom: 20px;
+            margin-bottom: 1em;
+            padding: 1em;
             @media @screen768 {font-size: 1.875em;}
             @media @screen960 {
-                margin-bottom: 30px;
                 &::after {
                     content: "";
                     position: absolute;
-                    left: 50%;
-                    margin-left: -50px;
-                    bottom: -15px;
+                    left: calc(~"50% - 50px");
+                    bottom: 0;
                     height: 10px;
                     width: 100px;
                     background-color: @yellow;

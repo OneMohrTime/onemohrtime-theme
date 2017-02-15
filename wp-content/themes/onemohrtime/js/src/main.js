@@ -29,6 +29,28 @@ $(document).ready(function() {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
     
+    // Swiper.js
+    var mySwiper = new Swiper ('.swiper-container', {
+        loop : true,
+        effect : 'coverflow',
+        coverflow : {
+            rotate : 50,
+            stretch : 0,
+            depth : 100,
+            modifier : 1,
+            slideShadows : true
+        },
+        autoplay : 6000,
+        pagination : '.swiper-pagination',
+        paginationType : 'progress',
+        nextButton : '.swiper-button-next',
+        prevButton : '.swiper-button-prev',
+        slidesPerView: 1,
+        grabCursor : true,
+        preloadImages: false,
+        lazyLoading: true
+    });
+    
     // Dribbble
     $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
     $.jribbble.users('onemohrtime').shots({
