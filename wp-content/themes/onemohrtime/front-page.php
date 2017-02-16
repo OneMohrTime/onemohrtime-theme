@@ -123,10 +123,6 @@ get_header(); ?>
                     <h4 class="service__header animated fadeInLeftShort" data-id="1">Developer</h4>
                     <div class="service__img animated fadeInLeftShort" data-id="2">
                         <svg version="1.1" id="icn_developer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
-                            <style type="text/css">
-                                .developer-stroke{fill:none;stroke:#cc9c00;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;}
-                                .developer-fill{fill:#fffefa;}
-                            </style>
                             <g>
                                 <g>
                                     <g>
@@ -165,15 +161,11 @@ get_header(); ?>
                     </div>
                     <figcaption class="service__body animated fadeInLeftShort" data-id="3">
                         <p>As a designer-who-codes, I’ve made a lot of websites, and it somehow never gets old.</p>
-                        <p>Always looking for a new coding language to learn, each one keeps getting better.</p>
+                        <!--<p>Always looking for a new coding language to learn, each one keeps getting better.</p>-->
                     </figcaption>
                     <a href="<?php echo home_url('about/web-dev','relative'); ?>" class="service__btn btn animated fadeInLeftShort" data-id="4">Hear More</a>
                 </figure>
             </section>
-            
-            <aside class="homepage-work">
-                <a href="<?php echo home_url('design','relative'); ?>" class="btn">Featured Projects</a>
-            </aside>
             
             <?php if(have_rows('homepage_slideshow')): ?>
                 <section class="homepage__slideshow swiper-container">
@@ -220,6 +212,10 @@ get_header(); ?>
                     
                 </section>
             <?php endif; ?>
+            
+            <aside class="homepage__work">
+                <a href="<?php echo home_url('design','relative'); ?>" class="btn">All Featured Projects</a>
+            </aside>
             
             <section class="homepage-dribbble">
                 <h3>

@@ -409,6 +409,7 @@ hr {
                             stroke-width: 5;
                             stroke-linejoin: round;
                             stroke-miterlimit: 10;
+                            
                         }
                         &-fill {
                             fill: @yellow;
@@ -421,9 +422,14 @@ hr {
                             stroke-width: 5;
                             stroke-linejoin: round;
                             stroke-miterlimit: 10;
+                            @media @screen960 {
+                            }
                         }
                         &-fill {
                             fill: @yellow;
+                            @media @screen960 {
+                                fill: @lightyellow;
+                            }
                         }
                     }
                 }
@@ -437,8 +443,7 @@ hr {
                     content: "";
                     position: absolute;
                     top: 100%;
-                    left: 50%;
-                    margin-left: -50px;
+                    left: calc(~"50% - 50px");
                     width: 100px;
                     height: 10px;
                     background-color: @yellow;
@@ -448,6 +453,7 @@ hr {
                     width: 100%;
                     text-align: center;
                 }
+                @media @screen960 {font-size: 1.875em;}
             }
             &__body {
                 font-size: .875em;
@@ -467,8 +473,7 @@ hr {
                 &:nth-child(1) {margin-bottom: 0;}
             }
             @media @screen960 {
-                color: @yellow;
-                transition: all 300ms;
+                transition: background-color 300ms, color 300ms;
                 &:nth-child(1) {
                     background-color: @lightyellow;
                     color: @yellow;
@@ -479,13 +484,18 @@ hr {
                 &:nth-child(2) {
                     background-color: @darkyellow;
                     color: @lightyellow;
+                    .service__header::after {
+                        background-color: @lightyellow;
+                    }
                     .service__btn.btn {
                         .btn-color(@lightyellow,@lightyellow);
+                    }
+                    &:hover {
+                        .service__header::after {background-color: @yellow;}
                     }
                 }
                 &:hover {
                     background-color: @white;
-                    border-color: @black;
                     color: @black;
                     .service__btn.btn {
                         .btn-color(@black,@yellow);
@@ -500,16 +510,6 @@ hr {
         @media @screen600 {
             padding: 0;
         }
-    }
-    &-work {
-        width: 100vw;
-        background-color: @lightyellow;
-        padding: 1em 1em 2em;
-        text-align: center;
-        .btn {
-            .btn-color(@black,@yellow);
-        }
-        @media @screen600 {padding: 2em;}
     }
     &__slideshow {
         width: 100vw;
@@ -568,7 +568,11 @@ hr {
             }
         }
         .swiper-pagination {
-            &-progress {background-color: @lightyellow;}
+            &-progress {
+                background-color: @lightyellow;
+                top: auto;
+                bottom: 0;
+            }
             &-progressbar {background-color: @yellow;}
         }
         .swiper-button {
@@ -584,6 +588,16 @@ hr {
             &-prev {left: 1em;}
             &-next {right: 1em;}
         }
+    }
+    &__work {
+        width: 100vw;
+        background-color: @yellow;
+        padding: 1em 1em 2em;
+        text-align: center;
+        .btn {
+            .btn-color(@lightyellow,@lightyellow);
+        }
+        @media @screen600 {padding: 2em;}
     }
     &-dribbble {
         width: 100vw;
