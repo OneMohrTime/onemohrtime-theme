@@ -189,7 +189,7 @@ get_header(); ?>
                                     <?php echo $slideText ?>
                                 </figcaption>
                                 <?php endif; ?>
-
+                                
                                 <?php if(!empty($slideLink)): ?>
                                 <a href="<?php echo $slideLink ?>" class="slide__link btn">Read More</a>
                                 <?php endif; ?>
