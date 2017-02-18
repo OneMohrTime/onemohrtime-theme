@@ -161,7 +161,6 @@ get_header(); ?>
                     </div>
                     <figcaption class="service__body animated fadeInLeftShort" data-id="3">
                         <p>As a designer-who-codes, I’ve made a lot of websites, and it somehow never gets old.</p>
-                        <!--<p>Always looking for a new coding language to learn, each one keeps getting better.</p>-->
                     </figcaption>
                     <a href="<?php echo home_url('about/web-dev','relative'); ?>" class="service__btn btn animated fadeInLeftShort" data-id="4">Hear More</a>
                 </figure>
@@ -217,7 +216,7 @@ get_header(); ?>
                 <a href="<?php echo home_url('design','relative'); ?>" class="btn">All Featured Projects</a>
             </aside>
             
-            <section class="homepage-dribbble">
+            <section class="homepage__dribbble">
                 <h3>
                     Latest Shots
                     <span>on dribbble</span>
@@ -225,14 +224,14 @@ get_header(); ?>
                 <article class="dribbbles"></article>
             </section>
             
-            <section class="homepage-contact animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
+            <section class="homepage__contact animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">
                 <h3 class="animated fadeInUpShort" data-id="1">Like What You See?</h3>
                 <a href="#contact" class="btn animated fadeInUpShort" data-id="2">Get At Me</a>
             </section>
             
             <?php echo get_template_part('template-parts/contact') ?>
             
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
     
 <?php get_footer();

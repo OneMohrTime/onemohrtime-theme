@@ -505,8 +505,7 @@ hr {
                 }
             }
             @media @screen1024 {
-                padding-left: calc(100% / 12);
-                padding-right: calc(100% / 12);
+                padding: calc(~"100% / 12");
             }
         }
         @media @screen600 {
@@ -558,6 +557,9 @@ hr {
             }
             &__text {
                 margin-bottom: 1em;
+                p {
+                    @media @screen1024 {font-size: .75em;}
+                }
                 @media @screen840 {text-align: left;}
                 @media @screen1024 {
                     width: 50%;
@@ -594,14 +596,14 @@ hr {
     &__work {
         width: 100vw;
         background-color: @yellow;
-        padding: 1em 1em 2em;
+        padding: 2em;
         text-align: center;
         .btn {
             .btn-color(@lightyellow,@lightyellow);
         }
-        @media @screen600 {padding: 2em;}
+        @media @screen840 {padding: 5em 2em;}
     }
-    &-dribbble {
+    &__dribbble {
         width: 100vw;
         padding: 20px 0 0;
         background-color: @white;
@@ -609,7 +611,8 @@ hr {
         h3 {
             font-size: 1.375em;
             line-height: 1em;
-            margin-bottom: 20px;
+            padding: 1em;
+            margin-bottom: 1em;
             position: relative;
             @media @screen768 {font-size: 1.875em;}
             @media @screen960 {
@@ -635,7 +638,7 @@ hr {
         @media @screen960 {padding: 100px 0 0;}
         @media @screen1600 {max-width: 1600px; margin: 0 auto;}
     }
-    &-contact {
+    &__contact {
         width: 100vw;
         padding: 50px 20px;
         background-color: @white;

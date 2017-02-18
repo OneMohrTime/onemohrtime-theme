@@ -29,6 +29,11 @@ $(document).ready(function() {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
     
+    // typed.js
+//    $('.project-title').typed({
+//        stringsElement : null
+//    });
+    
     // Swiper.js
     var mySwiper = new Swiper ('.swiper-container', {
         loop : true,
@@ -46,9 +51,10 @@ $(document).ready(function() {
         nextButton : '.swiper-button-next',
         prevButton : '.swiper-button-prev',
         slidesPerView: 1,
+        keyboardControl : true,
         grabCursor : true,
-        preloadImages: false,
-        lazyLoading: true
+        preloadImages : false,
+        lazyLoading : true
     });
     
     // Dribbble
