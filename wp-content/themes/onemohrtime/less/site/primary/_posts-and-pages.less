@@ -55,13 +55,13 @@
         align-items: center;
         color: @white;
         .text-shadow();
-        padding: 1em;
+        padding: 50px 1em;
         h1 {
             margin: 0;
             max-width: 75%;
         }
         h2 {margin: 0;}
-        @media @screen600 {padding: 50px 1em;}
+        @media @screen600 {padding: 100px 1em;}
         @media @screen960 {
             align-items: flex-start;
             justify-content: flex-end;
@@ -386,8 +386,8 @@
 
 .single-post {
     article[class^="post-"] {
-        margin: 0 1em 1.7em;
-        padding-bottom: 1.7em;
+        margin: 0 1em 50px;
+        padding-bottom: 50px;
         position: relative;
         display: block;
         &::after {
@@ -406,11 +406,12 @@
             }
         }
         &:last-child::after {display: none;}
-        @media @screen540 {margin: 0 2em 1.7em;}
+        @media @screen540 {margin: 0 2em 50px;}
         @media @screen960 {
             display: flex;
             flex-direction: row;
-            margin: 0 0 1.7em;
+            margin: 0 0 100px;
+            padding-bottom: 100px;
         }
     }
 }

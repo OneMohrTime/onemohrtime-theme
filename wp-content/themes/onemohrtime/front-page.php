@@ -120,8 +120,8 @@ get_header(); ?>
                     <a href="<?php echo home_url('about/graphic-design','relative'); ?>" class="service__btn btn animated fadeInLeftShort" data-id="4">Hear More</a>
                 </figure>
                 <figure class="service animatedParent animateOnce" data-sequence="150">
-                    <h4 class="service__header animated fadeInLeftShort" data-id="1">Developer</h4>
-                    <div class="service__img animated fadeInLeftShort" data-id="2">
+                    <h4 class="service__header animated fadeInRightShort" data-id="1">Developer</h4>
+                    <div class="service__img animated fadeInRightShort" data-id="2">
                         <svg version="1.1" id="icn_developer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
                             <g>
                                 <g>
@@ -159,10 +159,10 @@ get_header(); ?>
                             </g>
                         </svg>
                     </div>
-                    <figcaption class="service__body animated fadeInLeftShort" data-id="3">
+                    <figcaption class="service__body animated fadeInRightShort" data-id="3">
                         <p>As a designer-who-codes, I’ve made a lot of websites, and it somehow never gets old.</p>
                     </figcaption>
-                    <a href="<?php echo home_url('about/web-dev','relative'); ?>" class="service__btn btn animated fadeInLeftShort" data-id="4">Hear More</a>
+                    <a href="<?php echo home_url('about/web-dev','relative'); ?>" class="service__btn btn animated fadeInRightShort" data-id="4">Hear More</a>
                 </figure>
             </section>
             

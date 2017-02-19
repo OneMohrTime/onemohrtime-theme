@@ -7,7 +7,7 @@ $(document).ready(function() {
 	});
     
     // add scrolling class to contact
-    $('#desktop_menu li:nth-child(4) > a, a[href^="#contact"]').on('click', function() {
+    $('#desktop_menu li:nth-child(4) > a, a[href^="#contact"], .contact-toggle').on('click', function() {
         $('#contact').addClass('said-hi');
     });
 	
