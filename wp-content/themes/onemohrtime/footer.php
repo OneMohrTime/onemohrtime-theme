@@ -17,8 +17,8 @@
         
         <div class="site-footer-credits">
             <ul>
-                <li>Powered by <a href="//wordpress.org" target="_blank">Wordpress</a></li>
-                <li>Built with <a href="//brackets.io" target="_blank">Brackets.io</a> and <a href="//underscores.me" target="_blank">_s</a></li>
+                <li>Powered by <a href="//advancedcustomfields.com/pro" target="_blank">ACF Pro</a> and <a href="//webdevstudios.com/plugins/custom-post-type-ui" target="_blank">CPT UI</a></li>
+                <li>Built with <a href="//wordpress.org" target="_blank">Wordpress</a>, <a href="//brackets.io" target="_blank">Brackets.io</a> and <a href="//underscores.me" target="_blank">_s</a></li>
                 <li>Hosted by <a href="//webfaction.com" target="_blank">WebFaction</a></li>
             </ul>
         </div>
