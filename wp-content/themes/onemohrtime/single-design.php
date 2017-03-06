@@ -23,17 +23,22 @@ get_header(); ?>
                             $btnType = get_sub_field('proj_type');
                             $wurl = get_sub_field('proj_link_url');
                             $aurl = get_sub_field('proj_type_article');
-                            $burl = get_sub_field('proj_type_blog');
-                            ?>
+                            $burl = get_sub_field('proj_type_blog'); ?>
+                            
                             <figure class="project-banner animatedParent animateOnce" data-sequence="100" style="background-image: url(<?php echo $banner['url'] ?>);">
                                 
-                                <h1 class="project-title animated fadeInUpShort" data-id="1"><?php the_title(); ?></h1>
+                                <h1 class="project-title">
+                                    <div id="typed-strings">
+                                        <?php the_title('<p class="screen-reader-text">','</p>'); ?>
+                                    </div>
+                                    <span id="typed"></span>
+                                </h1>
                                 
                                 <?php if($sub): ?>
-                                    <h2 class="project-dates animated fadeInUpShort" data-id="2"><?php echo $sub ?></h2>
+                                    <h2 class="project-dates animated fadeInUpShort" data-id="1"><?php echo $sub ?></h2>
                                 <?php endif; ?>
                                 
-                                <div class="project-button animated fadeInRightShort" data-id="3">
+                                <div class="project-button animated fadeInRightShort" data-id="2">
                                     <?php if($btnType == 'website'): ?>
                                         <a href="<?php echo $wurl ?>" target="_blank" class="btn">View Site</a>
                                     <?php elseif($btnType == 'article'): ?>

@@ -1,0 +1,58 @@
+/*--------------------------------------------------------------
+    Colors
+--------------------------------------------------------------*/
+
+@black: #171409;
+@lightblack: lighten(@black, 10%);
+
+@white: #fffefa;
+
+@yellow: #ffc300;
+@lightyellow: #fef7e3;
+@yellow-transparent: fade(@lightyellow,75%);
+@darkyellow: darken(@yellow,10%);
+
+@gray: #9b9a95;
+@lightgray: lighten(@gray,15%);
+
+@red: #ff5252;
+@required: #9c0000 !important;
+
+/*--------------------------------------------------------------
+    Typography
+--------------------------------------------------------------*/
+
+//@font__main: sans-serif;
+//@font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+//@font__pre: "Courier 10 Pitch", Courier, monospace;
+//@font__line-height-body: 1.5;
+//@font__line-height-pre: 1.6;
+
+@main-font: "Source Sans Pro", "Gill Sans", sans-serif;
+@header-font: "Montserrat", "Futura", sans-serif;
+@code-font: "Inconsolata", Monaco, monospace;
+
+/*--------------------------------------------------------------
+    Structure
+--------------------------------------------------------------*/
+
+//@size__site-main: 100%;
+//@size__site-sidebar: 25%;
+
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+
+@screen400: ~"only screen and (min-width: 400px)";
+@screen480: ~"only screen and (min-width: 480px)";
+@screen540: ~"only screen and (min-width: 540px)";
+@screen600: ~"only screen and (min-width: 600px)";
+@screen768: ~"only screen and (min-width: 768px)";
+@screen840: ~"only screen and (min-width: 840px)";
+@screen960: ~"only screen and (min-width: 960px)";
+@screen1024: ~"only screen and (min-width: 1024px)";
+@screen1280: ~"only screen and (min-width: 1280px)";
+@screen1440: ~"only screen and (min-width: 1440px)";
+@screen1600: ~"only screen and (min-width: 1600px)";
+@screen1920: ~"only screen and (min-width: 1920px)";

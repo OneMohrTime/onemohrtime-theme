@@ -29,11 +29,6 @@ $(document).ready(function() {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
     
-    // typed.js
-//    $('.project-title').typed({
-//        stringsElement : null
-//    });
-    
     // Swiper.js
     var mySwiper = new Swiper ('.swiper-container', {
         loop : true,
@@ -123,4 +118,19 @@ function homepageParallax() {
 $(window).on('load', function() {
 	// loading screen won't fade until entire page has loaded
 	$('#loading').fadeOut('slow');
+    
+    // typed.js
+    $('#typed').typed({
+        stringsElement : $('#typed-strings'),
+        typeSpeed : 100,
+        startDelay: 300,
+        showCursor : true,
+        // cursorChar : "&nbsp;&#9608;",
+        cursorChar : " |",
+        contentType : 'text'
+    });
+    setTimeout(function() {
+        $('.typed-cursor').hide();
+    }, 8000);
+    
 });
