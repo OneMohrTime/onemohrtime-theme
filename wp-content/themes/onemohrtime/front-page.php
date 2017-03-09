@@ -166,6 +166,10 @@ get_header(); ?>
                 </figure>
             </section>
             
+            <aside class="homepage__work">
+                <a href="<?php echo home_url('design','relative'); ?>" class="btn">All Featured Projects</a>
+            </aside>
+            
             <?php if(have_rows('homepage_slideshow')): ?>
                 <section class="homepage__slideshow swiper-container">
                     <div class="swiper-wrapper">
@@ -211,10 +215,6 @@ get_header(); ?>
                     
                 </section>
             <?php endif; ?>
-            
-            <aside class="homepage__work">
-                <a href="<?php echo home_url('design','relative'); ?>" class="btn">All Featured Projects</a>
-            </aside>
             
             <section class="homepage__dribbble">
                 <h3>
