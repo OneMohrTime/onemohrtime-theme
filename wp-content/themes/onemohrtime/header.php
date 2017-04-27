@@ -27,6 +27,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php include_once("analyticstracking.php”); ?>
     
 <section id="loading">
     <div id="loading-center">
