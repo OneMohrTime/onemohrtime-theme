@@ -28,7 +28,7 @@
 
 <body <?php body_class(); ?>>
 
-<?php include_once("analyticstracking.php”); ?>
+<?php include_once('/inc/analyticstracking.php'); ?>
     
 <section id="loading">
     <div id="loading-center">
