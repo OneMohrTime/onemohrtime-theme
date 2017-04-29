@@ -36,9 +36,7 @@
         </section>
 	</header>
     
-    <?php
-        $postThumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
-    ?>
+    <?php $postThumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 	<figure class="posts-image" style="background-image: url('<?php echo $postThumb[0]; ?>');">
         <a href="<?php the_permalink(); ?>"></a>
     </figure>

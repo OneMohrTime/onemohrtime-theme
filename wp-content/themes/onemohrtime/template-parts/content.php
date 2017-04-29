@@ -13,7 +13,11 @@
     
     <figure class="entry-featured-image">
         <div class="entry-featured-image-frame">
+            <?php if(!empty($page_bg)): ?>
+            <img src="<?php echo $page_bg['url']; ?>" alt="<?php echo $page_bg['alt']; ?>" />
+            <?php else: ?>
             <img src="<?php the_post_thumbnail_url(); ?>" />
+            <?php endif; ?>
         </div>
     </figure>
     
@@ -22,23 +26,22 @@
         <header class="entry-header animatedParent animateOnce">
             
             <?php
-                the_title( '<h1 class="entry-title animated fadeInLeftShort">', '</h1>' );
-                
-                if ( 'post' === get_post_type() ) : ?>
-                
-                <div class="entry-meta">
-                    <?php onemohrtime_posted_on(); ?>
-                </div><!-- .entry-meta -->
-                
+            
+            the_title('<h1 class="entry-title animated fadeInLeftShort">', '</h1>' );
+            
+            if ('post' === get_post_type()): ?>
+            
+            <div class="entry-meta">
+                <?php onemohrtime_posted_on(); ?>
+            </div><!-- .entry-meta -->
+            
             <?php endif; ?>
             
         </header>
         
-        <?php
-            if (function_exists('yoast_breadcrumb')) {
-                yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
-            }
-        ?>
+        <?php if (function_exists('yoast_breadcrumb')) {
+            yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+        } ?>
         
         <?php
 			the_content( sprintf(
