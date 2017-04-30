@@ -138,8 +138,8 @@ function onemohrtime_scripts() {
     
     // Loading jQuery 3.0.0 instead of default
     wp_deregister_script('jquery');
-    wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true);
-    wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="assets/js/jquery.min.js"><\/script>\')');
+    wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+    wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.1.1.min.js"><\/script>\')');
     
     // vendor grunt concat
     wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.min.js', array('jquery'), null, true);
