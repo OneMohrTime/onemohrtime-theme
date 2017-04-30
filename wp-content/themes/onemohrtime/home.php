@@ -20,7 +20,8 @@ get_header(); ?>
                 <ul>
                     <?php wp_list_categories(array(
                         'orderby' => 'name',
-                        'exclude' => array(1,13),
+                        'exclude' => array(1,14),
+                        'hide_empty' => true,
                         'current_category' => '',
                         'title_li' => '',
                         'show_option_all' => 'All Categories'
@@ -28,7 +29,7 @@ get_header(); ?>
                 </ul>
             </nav>
             
-            <?php query_posts('cat=-1,-13'); ?>
+            <?php query_posts('cat=-1,-14'); ?>
             
 			<?php while(have_posts()): the_post();
                 get_template_part('template-parts/content-blog','page');
