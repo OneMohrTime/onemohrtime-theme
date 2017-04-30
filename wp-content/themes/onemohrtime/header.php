@@ -77,9 +77,4 @@
 		</nav>
 	</header>
     
-    <?php
-        // Page Vars
-        $bgFull = get_field('page_bg');
-    ?>
-    
-	<div id="content" class="site-content" style="background-image: url(<?php echo $bgFull['url']?>);">
+	<div id="content" class="site-content">

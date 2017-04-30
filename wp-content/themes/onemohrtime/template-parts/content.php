@@ -13,11 +13,16 @@
     
     <figure class="entry-featured-image">
         <div class="entry-featured-image-frame">
-            <?php if(!empty($page_bg)): ?>
-            <img src="<?php echo $page_bg['url']; ?>" alt="<?php echo $page_bg['alt']; ?>" />
+            
+            <?php
+            $stickyImg = get_field('page_bg');
+            
+            if(!empty($stickyImg)): ?>
+            <img src="<?php echo $stickyImg['url']; ?>" alt="<?php echo $stickyImg['alt']; ?>" />
             <?php else: ?>
             <img src="<?php the_post_thumbnail_url(); ?>" />
             <?php endif; ?>
+            
         </div>
     </figure>
     
