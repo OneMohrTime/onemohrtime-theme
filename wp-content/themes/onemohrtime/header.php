@@ -17,8 +17,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-<?php include_once(get_template_directory_uri() + '/inc/analyticstracking.php'); ?>
     
 <section id="loading">
     <div id="loading-center">
