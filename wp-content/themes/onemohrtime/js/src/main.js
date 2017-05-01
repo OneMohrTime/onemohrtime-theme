@@ -29,30 +29,7 @@ $(document).ready(function() {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
     
-    // Swiper.js
-    var mySwiper = new Swiper ('.swiper-container', {
-        loop : true,
-        effect : 'coverflow',
-        coverflow : {
-            rotate : 50,
-            stretch : 0,
-            depth : 100,
-            modifier : 1,
-            slideShadows : true
-        },
-        autoplay : 6000,
-        pagination : '.swiper-pagination',
-        paginationType : 'progress',
-        nextButton : '.swiper-button-next',
-        prevButton : '.swiper-button-prev',
-        slidesPerView: 1,
-        keyboardControl : true,
-        grabCursor : true,
-        preloadImages : false,
-        lazyLoading : true
-    });
-    
-    // Dribbble
+    // Dribbble gallery
     $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
     $.jribbble.users('onemohrtime').shots({
         per_page: 12
@@ -73,9 +50,27 @@ $(document).ready(function() {
             html.push('</div>');
             html.push('</div>');
         });
-        $('.dribbbles').html(html.join(''));
+        $('#dribbble_gallery').html(html.join(''));
     });
-	
+    
+    // Dribbble swiper
+	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+    $.jribbble.users('onemohrtime').shots({
+        per_page: 20
+    }).then(function(shots) {
+        var html = [];
+        shots.forEach(function(shot) {
+            html.push('<figure id="shot_' + shot.id + '" class="swiper-slide">');
+            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + '" />');
+            html.push('<a href="' + shot.html_url + '" target="_blank" class="dribbble__link">');
+            html.push('<span class="fa fa-link"></span>');
+            html.push('<span>' + shot.title + '</span>');
+            html.push('</a>');
+            html.push('</figure>');
+        });
+        $('#dribbble_swiper').html(html.join(''));
+    });
+    
 });
 
 // menu visible when scrolling up
@@ -115,7 +110,52 @@ function homepageParallax() {
     logo.css('opacity', 1 - percent*7.5);
 }
 
+// Swiper on home page
+var homeSwiper = new Swiper ('.homepage__slideshow', {
+    loop : true,
+    effect : 'coverflow',
+    coverflow : {
+        rotate : 50,
+        stretch : 0,
+        depth : 100,
+        modifier : 1,
+        slideShadows : true
+    },
+    autoplay : 6000,
+    pagination : '.swiper-pagination',
+    paginationType : 'progress',
+    nextButton : '.swiper-button-next',
+    prevButton : '.swiper-button-prev',
+    slidesPerView: 1,
+    keyboardControl : true,
+    grabCursor : true,
+    preloadImages : false,
+    lazyLoading : true
+});
+
+// Swiper on work page
+ var workSwiper = new Swiper ('.project-all-dribbble .swiper-container', {
+//var workSwiper = new Swiper ('#dribbble_swiper', {
+    loop : true,
+    spaceBetween : null,
+    slidesPerView : 3,
+    slidesPerColumn : 2,
+//    breakpoints : {
+//        1440 : {
+//            slidesPerView : 2
+//        },
+//        600 : {
+//            slidesPerView : 1
+//        }
+//    },
+    autoplay : 5000,
+    pagination : '.swiper-pagination',
+    paginationClickable : true,
+    keyboardControl : true
+});
+
 $(window).on('load', function() {
+    
 	// loading screen won't fade until entire page has loaded
 	$('#loading').fadeOut('slow');
     

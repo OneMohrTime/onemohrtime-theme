@@ -1,18 +1,4 @@
-<?php
-/**
- * The home page template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package onemohrtime
- */
-
-get_header(); ?>
+<?php get_header(); ?>
     
 	<div id="primary" class="content-area">
         
@@ -27,61 +13,6 @@ get_header(); ?>
                     </h1>
                 </div>
             </figure>
-            
-            <!--
-            <section class="homepage-intro">
-                <figure>
-                    <?php $homeProfile = get_field('homepage_profile'); ?>
-                    <img src="<?php echo $homeProfile['url']; $homeProfile['alt']; ?>" />
-                    <a href="about/" class="btn">About Me</a>
-                </figure>
-                <article>
-                    <?php $homeTitle = get_field('homepage_title'); ?>
-                    <h2><span>I&rsquo;m a</span> <?php echo $homeTitle ?></h2>
-                    <?php the_content(); ?>
-                </article>
-            </section>
-            
-            <?php if(have_rows('homepage_services')): ?>
-                
-                <section class="homepage-services animatedParent animateOnce" data-sequence="100">
-                
-                <?php while(have_rows('homepage_services')): the_row();
-                    
-                    $header = get_sub_field('service_title');
-                    $image = get_sub_field('service_image');
-                    $content = get_sub_field('service_body');
-                    $link = get_sub_field('service_link'); ?>
-                    
-                    <figure class="service animated fadeInUpShort" data-id="<?php echo get_row_index(); ?>">
-                        <?php if($header): ?>
-                            <h4 class="service__header">
-                                <?php echo $header; ?>
-                            </h4>
-                        <?php endif; ?>
-                        <?php if($image): ?>
-                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="service__img" />
-                        <?php endif; ?>
-                        <?php if($content): ?>
-                            <figcaption class="service__body">
-                                <?php echo $content; ?>
-                            </figcaption>
-                        <?php endif; ?>
-                        <?php if($link): ?>
-                            <a href="<?php echo home_url($link,'relative'); ?>" class="service__btn btn">Hear More</a>
-                        <?php endif; ?>
-                    </figure>
-                    
-                <?php endwhile; ?>
-                
-                </section>
-                
-                <aside class="homepage-work">
-                    <a href="<?php echo home_url('design','relative'); ?>" class="btn">Featured Projects</a>
-                </aside>
-                
-            <?php endif; ?>
-            -->
             
             <section class="homepage-services">
                 <figure class="service animatedParent animateOnce" data-sequence="150">
@@ -114,7 +45,7 @@ get_header(); ?>
                             </g>
                         </svg>
                     </div>
-                    <figcaption class="service__body animated fadeInLeftShort" data-id="3">
+                    <figcaption class="service__body wysiwyg animated fadeInLeftShort" data-id="3">
                         <p>A big chunk of my free time is spent uploading <a href="//dribbble.com/onemohrtime" target="_blank">dribbbles</a> of logo and badge designs.</p>
                     </figcaption>
                     <a href="<?php echo home_url('about/graphic-design','relative'); ?>" class="service__btn btn animated fadeInLeftShort" data-id="4">Hear More</a>
@@ -159,7 +90,7 @@ get_header(); ?>
                             </g>
                         </svg>
                     </div>
-                    <figcaption class="service__body animated fadeInRightShort" data-id="3">
+                    <figcaption class="service__body wysiwyg animated fadeInRightShort" data-id="3">
                         <p>As a designer-who-codes, I’ve made a lot of websites, and it somehow never gets old.</p>
                     </figcaption>
                     <a href="<?php echo home_url('about/web-dev','relative'); ?>" class="service__btn btn animated fadeInRightShort" data-id="4">Hear More</a>
@@ -171,49 +102,50 @@ get_header(); ?>
             </aside>
             
             <?php if(have_rows('homepage_slideshow')): ?>
-                <section class="homepage__slideshow swiper-container">
-                    <div class="swiper-wrapper">
-                        <?php while(have_rows('homepage_slideshow')): the_row();
-                            $slideImg = get_sub_field('slide_image');
-                            $slideTitle = get_sub_field('slide_title');
-                            $slideText = get_sub_field('slide_text');
-                            $slideLink = get_sub_field('slide_link'); ?>
+            <section class="homepage__slideshow swiper-container">
+                <div class="swiper-wrapper">
+                    
+                    <?php while(have_rows('homepage_slideshow')): the_row();
+                        $slideImg = get_sub_field('slide_image');
+                        $slideTitle = get_sub_field('slide_title');
+                        $slideText = get_sub_field('slide_text');
+                        $slideLink = get_sub_field('slide_link'); ?>
                         
-                        <figure class="slide swiper-slide">
+                    <figure class="slide swiper-slide">
+                        
+                        <div class="slide__content">
                             
-                            <div class="slide__content">
-                                
-                                <?php if(!empty($slideTitle)): ?>
-                                <h4 class="slide__title"><?php echo $slideTitle ?></h4>
-                                <?php endif; ?>
-                                
-                                <?php if(!empty($slideText)): ?>
-                                <figcaption class="slide__text">
-                                    <?php echo $slideText ?>
-                                </figcaption>
-                                <?php endif; ?>
-                                
-                                <?php if(!empty($slideLink)): ?>
-                                <a href="<?php echo $slideLink ?>" class="slide__link btn">Read More</a>
-                                <?php endif; ?>
-                                
-                            </div>
-                            
-                            <?php if(!empty($slideImg)): ?>
-                            <img src="<?php echo $slideImg['url'] ?>" alt="<?php echo $slideImg['alt'] ?>" class="slide__img" />
+                            <?php if(!empty($slideTitle)): ?>
+                            <h4 class="slide__title"><?php echo $slideTitle ?></h4>
                             <?php endif; ?>
                             
-                        </figure>
+                            <?php if(!empty($slideText)): ?>
+                            <figcaption class="slide__text wysiwyg">
+                                <?php echo $slideText ?>
+                            </figcaption>
+                            <?php endif; ?>
+                            
+                            <?php if(!empty($slideLink)): ?>
+                            <a href="<?php echo $slideLink ?>" class="slide__link btn">Read More</a>
+                            <?php endif; ?>
+                            
+                        </div>
                         
-                        <?php endwhile; ?>
-                    </div>
+                        <?php if(!empty($slideImg)): ?>
+                        <img src="<?php echo $slideImg['url'] ?>" alt="<?php echo $slideImg['alt'] ?>" class="slide__img" />
+                        <?php endif; ?>
+                        
+                    </figure>
                     
-                    <div class="swiper-pagination"></div>
-                    
-                    <div class="swiper-button-prev"><span class="fa fa-angle-left"></span></div>
-                    <div class="swiper-button-next"><span class="fa fa-angle-right"></span></div>
-                    
-                </section>
+                    <?php endwhile; ?>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+                
+                <div class="swiper-button-prev"><span class="fa fa-angle-left"></span></div>
+                <div class="swiper-button-next"><span class="fa fa-angle-right"></span></div>
+                
+            </section>
             <?php endif; ?>
             
             <section class="homepage__dribbble">
@@ -221,7 +153,7 @@ get_header(); ?>
                     Latest Shots
                     <span>on dribbble</span>
                 </h3>
-                <article class="dribbbles"></article>
+                <div id="dribbble_gallery" class="dribbbles"></div>
             </section>
             
             <section class="homepage__contact animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">

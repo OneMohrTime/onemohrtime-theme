@@ -14,15 +14,27 @@ get_header(); ?>
 <div id="primary" class="content-area" style="background-image: url('<?php echo $bgFull['url']; ?>');">
     <main id="main" class="site-main" role="main">
         
-        <?php while(have_posts()): the_post();
-            get_template_part( 'template-parts/content-half', 'page' );
-        endwhile; ?>
+        <section class="halfie">
+            
+            <header class="halfie__header">
+                <?php the_title('<h1 class="halfie__title">', '</h1>'); ?>
+            </header>
+            
+            <article class="halfie__content wysiwyg">
+                <?php the_content(); ?>
+            </article>
+            
+            <footer class="halfie__footer">
+                <?php if(function_exists('yoast_breadcrumb')) {
+                    yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+                } ?>
+            </footer>
+            
+        </section><!-- /.halfie -->
         
         <?php echo get_template_part('template-parts/contact') ?>
-
+        
     </main><!-- /.site-main -->
 </div><!-- /.content-area -->
     
-<?php
-
-get_footer();
+<?php get_footer();
