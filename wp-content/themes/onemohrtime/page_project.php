@@ -18,7 +18,7 @@ get_header(); ?>
             
             <?php echo get_template_part('template-parts/contact') ?>
             
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main><!-- /.site-main -->
+	</div><!-- /.content-area -->
     
 <?php get_footer();

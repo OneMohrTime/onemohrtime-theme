@@ -2,20 +2,23 @@
 
 @import "_tables";
 
-::selection {background-color: @yellow; color: @color__black; text-shadow: none;}
-::-moz-selection {background-color: @yellow; color: @color__black; text-shadow: none;}
-
-img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+::selection {
+    background-color: @color__yellow;
+    color: @color__black;
+    text-shadow: none;
 }
 
-figure {margin: 0;}
+img {
+	height: auto; // Make sure images are scaled correctly.
+	max-width: 100%; // Adhere to container width.
+}
+
+figure { margin: 0; }
 
 hr {
 	border: 0;
-    border-bottom: 1px dashed @gray;
-    background-color: @lightgray;
+    border-bottom: 1px dashed @color__gray;
+    background-color: @color__gray--light;
 	margin: 0 auto 1.7em;
     width: 50%;
 }
@@ -53,7 +56,7 @@ hr {
         align-items: center;
         width: 100vw;
         padding: 2em;
-        background-color: @yellow;
+        background-color: @color__yellow;
         box-shadow: inset 0 1px 1px 0 fade(@color__black,10%),
                     inset 0 -1px 1px 0 fade(@color__black,10%);
         img {
@@ -85,7 +88,7 @@ hr {
 
 #breadcrumbs {
     margin: 1.7em 0;
-    color: @gray;
+    color: @color__gray;
     p {
         font-size: .75em;
         font-weight: 500;
@@ -111,7 +114,7 @@ hr {
             left: 0;
             height: 10px;
             width: 50%;
-            background-color: @yellow;
+            background-color: @color__yellow;
         }
     }
     .sd-content {
@@ -154,7 +157,7 @@ hr {
         em::before {
             border: 0 !important;
             height: 10px;
-            background-color: @yellow;
+            background-color: @color__yellow;
             margin-bottom: 1em;
         }
     }
@@ -174,7 +177,7 @@ hr {
                 .unstyled();
             }
             .jp-relatedposts-post-title {
-                font-family: @header-font;
+                font-family: @font__header;
             }
             @media @screen960 {
                 .pseudo-border();
@@ -309,7 +312,7 @@ hr {
             align-items: center;
             width: 100vw;
             padding: 20px;
-            background-color: @yellow;
+            background-color: @color__yellow;
             text-align: center;
             img {
                 flex: 0 1 auto;
@@ -320,7 +323,7 @@ hr {
             .btn {
                 flex: 0 1 auto;
                 margin: 20px 0 0;
-                .btn-color(@lightyellow, @lightyellow);
+                .btn-color(@color__yellow--light, @color__yellow--light);
                 @media @screen1024 {font-size: .75em;}
             }
             @media @screen768 {
@@ -348,7 +351,7 @@ hr {
                     bottom: -15px;
                     height: 10px;
                     width: 100px;
-                    background-color: @yellow;
+                    background-color: @color__yellow;
                 }
                 span {
                     display: block;
@@ -373,7 +376,7 @@ hr {
     &-icons {
         width: 100vw;
         padding: 20px;
-        background-color: @lightyellow;
+        background-color: @color__yellow--light;
         text-align: center;
         display: flex;
         flex-flow: row wrap;
@@ -383,22 +386,74 @@ hr {
         img {pointer-events: none;}
         .btn {
             margin: 0 0 1em;
-            .btn-color(@yellow, @yellow);
+            .btn-color(@color__yellow, @color__yellow);
             @media @screen1024 {margin-bottom: 2em;}
         }
     }
     &-services {
         width: 100vw;
-        background-color: @lightyellow;
+        background-color: @color__yellow--light;
         display: flex;
         flex-flow: row wrap;
         padding: 1em;
+        @media @screen600 { padding: 0; }
         .service {
             width: 100%;
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            &:nth-child(1) {margin-bottom: 1em}
+            &:nth-child(1) {
+                margin-bottom: 1em;
+                @media @screen600 { margin-bottom: 0; }
+            }
+            @media @screen600 {
+                background-color: transparent;
+                width: 50%;
+                padding: 2em;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-content: flex-start;
+            }
+            @media @screen960 {
+                transition: background-color 300ms, color 300ms;
+                &:nth-child(1) {
+                    background-color: @color__yellow--light;
+                    color: @color__yellow;
+                    .service__img .designer-stroke {stroke: @color__yellow;}
+                    .service__btn.btn {
+                        .btn-color(@color__yellow,@color__yellow);
+                    }
+                    &:hover {
+                        background-color: @color__white;
+                        color: @color__black;
+                        .service__img .designer-stroke {stroke: @color__yellow--dark;}
+                        .service__btn.btn {
+                            .btn-color(@color__black,@color__yellow);
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    background-color: @color__yellow--dark;
+                    color: @color__yellow--light;
+                    .service__header::after {
+                        background-color: @color__yellow--light;
+                    }
+                    .service__img .developer-stroke {stroke: @color__yellow--light;}
+                    .service__btn.btn {
+                        .btn-color(@color__yellow--light,@color__yellow--light);
+                    }
+                    &:hover {
+                        background-color: @color__black;
+                        color: @color__white;
+                        .service__header::after {background-color: @color__yellow;}
+                        .service__img .developer-fill {fill: @color__yellow;}
+                        .service__btn.btn {
+                            .btn-color(@color__white,@color__yellow);
+                        }
+                    }
+                }
+            }
+            @media @screen1024 { padding: calc(~"100% / 12"); }
             &__img {
                 height: auto;
                 width: 100px;
@@ -406,20 +461,20 @@ hr {
                     .designer {
                         &-stroke {
                             fill: none;
-                            stroke: @darkyellow;
+                            stroke: @color__yellow--dark;
                             stroke-width: 5;
                             stroke-linejoin: round;
                             stroke-miterlimit: 10;
                             
                         }
                         &-fill {
-                            fill: @yellow;
+                            fill: @color__yellow;
                         }
                     }
                     .developer {
                         &-stroke {
                             fill: none;
-                            stroke: @darkyellow;
+                            stroke: @color__yellow--dark;
                             stroke-width: 5;
                             stroke-linejoin: round;
                             stroke-miterlimit: 10;
@@ -427,9 +482,9 @@ hr {
                             }
                         }
                         &-fill {
-                            fill: @yellow;
+                            fill: @color__yellow;
                             @media @screen960 {
-                                fill: @lightyellow;
+                                fill: @color__yellow--light;
                             }
                         }
                     }
@@ -447,7 +502,7 @@ hr {
                     left: calc(~"50% - 50px");
                     width: 100px;
                     height: 10px;
-                    background-color: @yellow;
+                    background-color: @color__yellow;
                     margin-bottom: 1em;
                 }
                 @media @screen600 {
@@ -464,52 +519,6 @@ hr {
                 }
             }
             &__btn {}
-            @media @screen600 {
-                background-color: transparent;
-                width: 50%;
-                padding: 2em;
-                flex-flow: row wrap;
-                justify-content: center;
-                align-content: flex-start;
-                &:nth-child(1) {margin-bottom: 0;}
-            }
-            @media @screen960 {
-                transition: background-color 300ms, color 300ms;
-                &:nth-child(1) {
-                    background-color: @lightyellow;
-                    color: @yellow;
-                    .service__btn.btn {
-                        .btn-color(@yellow,@yellow);
-                    }
-                }
-                &:nth-child(2) {
-                    background-color: @darkyellow;
-                    color: @lightyellow;
-                    .service__header::after {
-                        background-color: @lightyellow;
-                    }
-                    .service__btn.btn {
-                        .btn-color(@lightyellow,@lightyellow);
-                    }
-                    &:hover {
-                        .service__header::after {background-color: @yellow;}
-                        .service__img .developer-fill {fill: @yellow;}
-                    }
-                }
-                &:hover {
-                    background-color: @color__white;
-                    color: @color__black;
-                    .service__btn.btn {
-                        .btn-color(@color__black,@yellow);
-                    }
-                }
-            }
-            @media @screen1024 {
-                padding: calc(~"100% / 12");
-            }
-        }
-        @media @screen600 {
-            padding: 0;
         }
     }
     &__work {
@@ -517,10 +526,10 @@ hr {
         background-color: @color__white;
         padding: 2em;
         text-align: center;
+        @media @screen840 {padding: 5em 2em;}
         .btn {
             .btn-color();
         }
-        @media @screen840 {padding: 5em 2em;}
     }
     &__slideshow {
         width: 100vw;
@@ -547,7 +556,7 @@ hr {
                     left: calc(~"50% - 5px");
                     width: 10px;
                     height: calc(~"100% + 2em");
-                    background-color: @yellow;
+                    background-color: @color__yellow;
                     z-index: -1;
                 }
                 @media @screen840 {
@@ -583,11 +592,11 @@ hr {
         }
         .swiper-pagination {
             &-progress {
-                background-color: @lightyellow;
+                background-color: @color__yellow--light;
                 top: auto;
                 bottom: 0;
             }
-            &-progressbar {background-color: @yellow;}
+            &-progressbar {background-color: @color__yellow;}
         }
         .swiper-button {
             &-prev,
@@ -625,7 +634,7 @@ hr {
                     bottom: -15px;
                     height: 10px;
                     width: 100px;
-                    background-color: @yellow;
+                    background-color: @color__yellow;
                 }
             }
             @media @screen1024 {font-size: 2.75em;}
@@ -656,7 +665,7 @@ hr {
                     bottom: 0;
                     height: 10px;
                     width: 100px;
-                    background-color: @yellow;
+                    background-color: @color__yellow;
                 }
             }
             @media @screen1024 {font-size: 2.75em;}
@@ -676,7 +685,7 @@ hr {
     position: relative;
     background-color: @color__white;
     border-radius: 3px;
-    box-shadow: 0 1px 3px fade(@gray,30%);
+    box-shadow: 0 1px 3px fade(@color__gray,30%);
     margin: 0 1em 2em;
     &-shot {
         padding: 1em;
@@ -703,7 +712,7 @@ hr {
             right: 0;
             bottom: 1em;
             padding: .5em 0;
-            color: @lightgray;
+            color: @color__gray--light;
             background-color: @color__white;
             font-weight: 500;
             @media @screen960 {
@@ -722,7 +731,7 @@ hr {
             width: 100%;
             margin: 0;
             padding: 1em;
-            color: @gray;
+            color: @color__gray;
             background-color: fade(@color__white,90%);
             overflow: hidden;
             transition: opacity 300ms;
@@ -824,7 +833,7 @@ hr {
 .object {
     width: 20px;
     height: 20px;
-    background-color: @yellow;
+    background-color: @color__yellow;
     position: absolute;
     left: 65px;
     top: 65px;

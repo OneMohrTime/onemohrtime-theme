@@ -7,37 +7,32 @@
 
 @color__white: #fffefa;
 
-@yellow: #ffc300;
-@lightyellow: #fef7e3;
-@yellow-transparent: fade(@lightyellow,75%);
-@darkyellow: darken(@yellow,10%);
+@color__yellow: #ffc300;
+@color__yellow--light: #fef7e3;
+@color__yellow--transparent: fade(@color__yellow--light,75%);
+@color__yellow--dark: darken(@color__yellow,10%);
 
-@gray: #9b9a95;
-@lightgray: lighten(@gray,15%);
+@color__gray: #9b9a95;
+@color__gray--light: lighten(@color__gray,15%);
 
-@red: #ff5252;
-@required: #9c0000 !important;
+@color__red: #9c0000;
+
+//@color--notice: #9c0000 !important;
+//@color--success: #9c0000 !important;
+//@color--warning: #9c0000 !important;
+@color--error: @color__red;
 
 /*--------------------------------------------------------------
     Typography
 --------------------------------------------------------------*/
 
-//@font__main: sans-serif;
-//@font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-//@font__pre: "Courier 10 Pitch", Courier, monospace;
-//@font__line-height-body: 1.5;
-//@font__line-height-pre: 1.6;
-
-@main-font: "Source Sans Pro", "Gill Sans", sans-serif;
-@header-font: "Montserrat", "Futura", sans-serif;
-@code-font: "Inconsolata", Monaco, monospace;
+@font__main: "Source Sans Pro", "Gill Sans", sans-serif;
+@font__header: "Montserrat", "Futura", sans-serif;
+@font__code: "Inconsolata", Monaco, monospace;
 
 /*--------------------------------------------------------------
     Structure
 --------------------------------------------------------------*/
-
-//@size__site-main: 100%;
-//@size__site-sidebar: 25%;
 
 @highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
               ~"only screen and (min--moz-device-pixel-ratio: 1.5)",

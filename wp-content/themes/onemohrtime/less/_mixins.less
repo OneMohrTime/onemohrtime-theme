@@ -51,7 +51,7 @@
     }
 }
 
-.btn-color(@buttoncolor: @color__black, @hover: @yellow) {
+.btn-color(@buttoncolor: @color__black, @hover: @color__yellow) {
     border: 2px @buttoncolor solid;
 	color: @buttoncolor;
     &::after {
@@ -69,7 +69,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border: 3px @yellow solid;
+        border: 3px @color__yellow solid;
         opacity: 1;
         z-index: @zindex;
         transform: translate3d(-10px,10px,0);

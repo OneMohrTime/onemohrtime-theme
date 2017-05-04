@@ -23,7 +23,7 @@
                     //> a {padding-right: 0;}
                 }
                 > a {
-                    font-family: @header-font;
+                    font-family: @font__header;
                     font-weight: 700;
                     text-transform: uppercase;
                     display: block;
@@ -37,13 +37,13 @@
                         left: 0;
                         width: 100%;
                         height: 2px;
-                        background-color: @lightyellow;
+                        background-color: @color__yellow--light;
                         opacity: 0;
                         transition: opacity 300ms, transform 300ms;
                         transform: translateY(15px);
                     }
                     &:hover {
-                        color: @yellow;
+                        color: @color__yellow;
                         &::after {
                             opacity: 1;
                             transform: translateY(0);
@@ -52,7 +52,7 @@
                 }
                 &.active {
                     > a {
-                        color: @yellow;
+                        color: @color__yellow;
                         &::after {
                             opacity: 1;
                             transform: translateY(0);
@@ -103,8 +103,8 @@
                 }
                 &.mm-selected {
                     a:not(.mmnext),
-                    span {background-color: @lightyellow;}
-                    &::after {border-bottom-color: @yellow;}
+                    span {background-color: @color__yellow--light;}
+                    &::after {border-bottom-color: @color__yellow;}
                 }
             }
         }
@@ -217,7 +217,7 @@
 
 // Blog categories
 .posts-categories {
-    background-color: lighten(@gray,35%);
+    background-color: lighten(@color__gray,35%);
     padding: .5em 1em;
     margin: 1em 1em 1.7em;
     @media @screen540 {
@@ -239,13 +239,13 @@
             }
             a {
                 .unstyled;
-                color: @gray;
+                color: @color__gray;
                 font-size: .75em;
                 line-height: 1;
                 border-radius: 3px;
                 padding: .25em !important;
                 &:hover {
-                    background-color: @lightgray !important;
+                    background-color: @color__gray--light !important;
                 }
             }
         }
@@ -279,7 +279,7 @@
                     position: relative;
                     margin-bottom: 1em;
                     padding-bottom: 1em;
-                    font-family: @header-font;
+                    font-family: @font__header;
                     font-size: .875em;
                     font-weight: 700;
                     text-transform: uppercase;
@@ -290,7 +290,7 @@
                         bottom: 0;
                         width: 50px;
                         height: 5px;
-                        background-color: @yellow;
+                        background-color: @color__yellow;
                         margin-top: 1em;
                         z-index: 1;
                     }

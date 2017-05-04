@@ -28,13 +28,13 @@ textarea {
 	position: relative;
 	width: 100%;
 	background-color: transparent;
-	border: 2px @gray solid;
+	border: 2px @color__gray solid;
 	border-radius: 3px;
 	font-family: inherit;
 	font-size: 1.313rem;
 	font-weight: 400;
 	line-height: 1.7em;
-	color: @gray;
+	color: @color__gray;
 	padding: 0 .25em;
 	margin: 0 0 .5em;
     -webkit-appearance: none;
@@ -53,9 +53,9 @@ textarea {
     min-height: 100px;
 }
 
-*::-webkit-input-placeholder {color: @gray; color: fade(@gray, 50%);}
-	 *:-ms-input-placeholder {color: @gray; color: fade(@gray, 50%);}
-		 *::-moz-placeholder {color: @gray; color: fade(@gray, 50%);}
+*::-webkit-input-placeholder {color: @color__gray; color: fade(@color__gray, 50%);}
+	 *:-ms-input-placeholder {color: @color__gray; color: fade(@color__gray, 50%);}
+		 *::-moz-placeholder {color: @color__gray; color: fade(@color__gray, 50%);}
 
 label {
 	font-size: .75em;
@@ -88,15 +88,15 @@ label {
 }
 .nf-input-limit,
 .nf-error-msg {
-    font-family: @code-font;
+    font-family: @font__code;
     font-size: .75em;
     line-height: 1.7em;
     margin: 0;
 }
 .ninja-forms-req-symbol,
 .nf-error-msg {
-    color: @required;
+    color: @color--error;
     .ninja-forms-field {
-        border-color: @required !important;
+        border-color: @color--error !important;
     }
 }

@@ -1,12 +1,12 @@
 h1, h2, h3, h4, h5, h6 {
 	color: inherit;
-	font-family: @header-font;
+	font-family: @font__header;
     font-weight: 700;
 	line-height: 1.2em;
     text-transform: uppercase;
 	margin: 0 0 0.5em;
     span:not(#typed) {
-        font-family: @main-font;
+        font-family: @font__main;
         font-size: .75em;
         font-weight: 400;
         text-transform: none;
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
     h3:not(.jp-relatedposts-headline),
     h4:not(.jp-relatedposts-post-title) {
         position: absolute;
-        color: @yellow;
+        color: @color__yellow;
         line-height: 1em;
         margin-bottom: 0;
         padding-bottom: 1em;
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
             bottom: 0;
             height: 10px;
             width: 100px;
-            background-color: @yellow;
+            background-color: @color__yellow;
         }
     }
     h3 {font-size: 1.75em;}
