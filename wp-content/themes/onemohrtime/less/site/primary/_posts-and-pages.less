@@ -42,81 +42,150 @@
 }
 
 .project {
-    &-header {
+    &__story {
+        // .project__story
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    &__section {
+        // .project__section
+        flex: 1 1 100%;
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+    }
+    &__header {
+        // .project__header
         position: relative;
         #breadcrumbs {
             margin: 16px !important;
             @media @screen960 {margin: 21px 35px !important;}
         }
     }
-    &-banner {
-        background: @color__white no-repeat center center scroll;
-        background-size: cover;
+    &__banner {
+        // .project__banner
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: @color__yellow no-repeat center center scroll;
+        background-size: cover;
+        background-blend-mode: multiply;
         color: @color__white;
-        .text-shadow();
         padding: 50px 1em;
-        h1 {
-            margin: 0;
-            max-width: 75%;
-        }
-        h2 {margin: 0;}
         @media @screen600 {padding: 100px 1em;}
         @media @screen960 {
             align-items: flex-start;
             justify-content: flex-end;
-            padding: 1em;
+            padding: 0 1em;
             height: calc(~"100vh - 100px");
         }
     }
-    &-button {
-        position: relative;
-        margin-top: 20px;
-        padding-top: 30px;
-        &::before {
-            content: "";
-            position: absolute;
-            left: calc(~"50% - 50px");
-            top: 0;
-            width: 100px;
-            height: 10px;
-            background-color: @color__yellow;
-            margin-bottom: 10px;
-        }
-        .btn {
-            .btn-color(@color__white,@color__yellow);
-        }
+    &__title {
+        // .project__title
+        margin: 0;
         @media @screen960 {
-            position: absolute;
-            bottom: 1em;
-            right: 1em;
-            margin: 0;
-            padding: 0;
-            &::before {display: none;}
+            position: relative;
+            max-width: 75%;
+            line-height: 1em;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100px;
+                height: 10px;
+                background-color: @color__white;
+            }
+        }
+        @media @screen1440 {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
         }
     }
-    &-description {
-        position: relative;
+    &__subtitle {
+        // .project__subtitle
+        margin: 0;
+    }
+    &__text {
+        // .project__text
         padding: 0 1em 1.7em;
         @media @screen600 {padding: 0 10% 1.7em;}
         @media @screen840 {padding: 0 15% 1.7em;}
         @media @screen1024 {padding: 0 20% 1.7em;}
         @media @screen1600 {padding: 0 25% 1.7em;}
     }
-    &-double {
-        margin-bottom: 1.7em;
-        img {display: block;}
-        &-left {
-            padding: 1em;
+    &__text-image {
+        // .project__text-image
+        padding: 0 1em 1.7em;
+        @media @screen768 {
+            align-items: center;
+            padding: 0;
         }
-        &-right {
-            padding: 1em;
+        .content--half {
+            order: 1;
+            margin: 0 0 1em;
+            @media @screen768 {
+                flex: 0 1 50%;
+                margin: 0;
+                padding: 1em;
+            }
+            @media @screen1024 {
+                padding: 2em;
+            }
+            @media @screen1024 {
+                padding: 3em;
+            }
+        }
+        .image--half {
+            order: 2;
+            margin: 0;
+            @media @screen768 {
+                flex: 0 1 50%;
+            }
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        &--reversed {
+            // .project__text-image--reversed
+            .content--half {
+                order: 2;
+                margin: 0;
+            }
+            .image--half {
+                order: 1;
+                margin: 0 0 1em;
+                @media @screen768 {
+                    margin: 0;
+                }
+            }
         }
     }
-    &-gallery {
+    &__image {
+        align-items: center;
+        // .project__image
+        &--default {
+            // .project__image--default
+            padding: 1em;
+        }
+        &--wide {
+            // .project__image--wide
+            padding: 0;
+        }
+        &--fixed {
+            // .project__image--fixed
+            background: @color__yellow no-repeat center center fixed;
+            background-size: cover;
+        }
+    }
+    &__gallery {
         display: flex;
         flex-flow: row wrap;
         margin-bottom: 1.7em;
@@ -134,7 +203,7 @@
             @media @screen1024 {width: 25%;}
         }
     }
-    &-background {
+    &__background {
         background-color: @color__white;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -146,17 +215,17 @@
         @media @screen1024 {height: 500px;}
         @media @screen1600 {height: 600px;}
     }
-    &-image {
-        margin: 0 1em 1.7em;
-        img {
-            display: block;
-            pointer-events: none;
-        }
-        @media @screen600 {margin: 0 5% 1.7em;}
-        @media @screen840 {margin: 0 7.5% 1.7em;}
-        @media @screen1024 {margin: 0 10% 1.7em;}
-        @media @screen1600 {margin: 0 12.5% 1.7em;}
-    }
+//    &__image {
+//        margin: 0 1em 1.7em;
+//        img {
+//            display: block;
+//            pointer-events: none;
+//        }
+//        @media @screen600 {margin: 0 5% 1.7em;}
+//        @media @screen840 {margin: 0 7.5% 1.7em;}
+//        @media @screen1024 {margin: 0 10% 1.7em;}
+//        @media @screen1600 {margin: 0 12.5% 1.7em;}
+//    }
     &-specs {
         padding: 0 1em 1.7em;
         h4 {margin-bottom: 1em;}

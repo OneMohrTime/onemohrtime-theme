@@ -14,96 +14,127 @@ get_header(); ?>
             
             <section class="project">
                 
-                <?php if( have_rows('project_header') ): ?>
-                    <header class="project-header">
-                        <?php while( have_rows('project_header') ): the_row(); 
-                            // vars
-                            $banner = get_sub_field('proj_banner');
-                            $sub = get_sub_field('proj_subheader');
-                            $btnType = get_sub_field('proj_type');
-                            $wurl = get_sub_field('proj_link_url');
-                            $aurl = get_sub_field('proj_type_article');
-                            $burl = get_sub_field('proj_type_blog'); ?>
+                <?php if(have_rows('project_header')): ?>
+                    <header class="project__header">
+                        
+                        <?php while(have_rows('project_header')): the_row(); 
+                        
+                        $projBanner = get_sub_field('proj_banner');
+                        $projSub = get_sub_field('proj_subheader'); ?>
+                        
+                        <figure class="project__banner animatedParent animateOnce" data-sequence="100" style="background-image: url(<?php echo $projBanner['url'] ?>);">
                             
-                            <figure class="project-banner animatedParent animateOnce" data-sequence="100" style="background-image: url(<?php echo $banner['url'] ?>);">
-                                
-                                <h1 class="project-title">
-                                    <div id="typed-strings">
-                                        <?php the_title('<p class="screen-reader-text">','</p>'); ?>
-                                    </div>
-                                    <span id="typed"></span>
-                                </h1>
-                                
-                                <?php if($sub): ?>
-                                    <h2 class="project-dates animated fadeInUpShort" data-id="1"><?php echo $sub ?></h2>
-                                <?php endif; ?>
-                                
-                                <div class="project-button animated fadeInRightShort" data-id="2">
-                                    <?php if($btnType == 'website'): ?>
-                                        <a href="<?php echo $wurl ?>" target="_blank" class="btn">View Site</a>
-                                    <?php elseif($btnType == 'article'): ?>
-                                        <a href="<?php echo $aurl ?>" target="_blank" class="btn">Article</a>
-                                    <?php elseif($btnType == 'post'): ?>
-                                        <a href="<?php echo $burl ?>" class="btn">Post</a>
-                                    <?php else: ?>
-                                        <a href="#article" class="btn">Read More</a>
-                                    <?php endif; ?>
+                            <?php if($projSub): ?>
+                                <h2 class="project__subtitle"><?php echo $projSub ?></h2>
+                            <?php endif; ?>
+                            
+                            <h1 class="project__title">
+                                <div id="typed-strings">
+                                    <?php the_title('<p class="screen-reader-text">','</p>'); ?>
                                 </div>
-                                
-                            </figure>
-                            <?php if(function_exists('yoast_breadcrumb')) {
-                                yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
-                            } ?>
+                                <span id="typed"></span>
+                            </h1>
+                            
+                        </figure>
+                        
+                        <?php if(function_exists('yoast_breadcrumb')) {
+                            yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+                        } ?>
                         <?php endwhile; ?>
+                        
                     </header>
                 <?php endif; ?>
                 
                 <?php if(have_rows('project_specs')): ?>
-                    <article id="article">
-                        <?php while(have_rows('project_specs')): the_row();
-                            
-                            if(get_row_layout() == 'detail_text'): ?>
-                                <section class="project-description">
-                                    <?php the_sub_field('text'); ?>
-                                </section>
-                                
-                            <?php elseif(get_row_layout() == 'detail_gallery'):
-                                $images = get_sub_field('images');
-                                $counter = 1;
-                                if($images): ?>
-                                <section class="project-gallery animatedParent animateOnce" data-sequence="100" data-appear-top="-100">
-                                    <?php foreach($images as $image): ?>
-                                        <figure class="animated fadeInUpShort" data-id="<?php echo $counter ?>">
-                                             <a href="<?php echo $image['url']; ?>" class="strip" data-strip-group="gallery"<?php if($image['caption']): ?> data-strip-caption="<?php echo $image['caption'] ?>"<?php endif; ?>>
-                                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-                                            </a>
-                                        </figure>
-                                        <?php $counter++; ?>
-                                    <?php endforeach; ?>
-                                </section>
-                                <?php endif;
-                                
-                            elseif(get_row_layout() == 'detail_fixed'):
-                                $bg = get_sub_field('bg_image');
-                                $height = get_sub_field('bg_height'); ?>
-                                <section class="project-background" style="background-image: url('<?php echo $bg ?>');<?php if($height): ?> height: <?php echo $height ?>px;<?php endif; ?>"></section>
-                                
-                            <?php elseif(get_row_layout() == 'detail_image'):
-                                $img = get_sub_field('image');
-                                if(!empty($img)):
-                                ?>
-                                    <section class="project-image animatedParent animateOnce">
-                                        <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" class="animated fadeInUpShort" />
-                                    </section>
-                                <?php endif; ?>
-                            <?php endif;
-                            
-                        endwhile; ?>
-                    </article>
+                <article id="article" class="project__story">
+                    
+                    <?php while(have_rows('project_specs')): the_row();
+                    
+                    // TEXT
+                    if(get_row_layout() == 'detail_text'): ?>
+                    <div class="project__section project__text wysiwyg">
+                        <?php the_sub_field('text'); ?>
+                    </div>
+                    
+                    <?php
+                    // TEXT/IMAGE
+                    elseif(get_row_layout() == 'detail_text_image'):
+                    $detailText = get_sub_field('text');
+                    $detailImg = get_sub_field('image');
+                    $detailReverse = get_sub_field('reverse');
+                    ?>
+                    <div class="project__section project__text-image<?php if($detailReverse == '1'): ?> project__text-image--reversed<?php endif; ?>">
+                        <div class="content--half wysiwyg">
+                            <?php echo $detailText ?>
+                        </div>
+                        <figure class="image--half">
+                            <img src="<?php echo $detailImg['sizes']['medium'] ?>" alt="<?php echo $detailImg['alt'] ?>" srcset="<?php echo $detailImg['sizes']['large'] ?> 1000w, <?php echo $detailImg['url'] ?>, 2000w" />
+                        </figure>
+                    </div>
+                    
+                    <?php
+                    // IMAGE
+                    elseif(get_row_layout() == 'detail_image'):
+                    $display = get_sub_field('display');
+                    $standard = $display['standard'];
+                    $wide = $display['wide'];
+                    $fixed = $display['fixed'];
+                    $image = get_sub_field('image');
+                    ?>
+                    
+                    <?php if($standard): ?>
+                    <div class="project__section project__image project__image--default">
+                    <?php elseif($wide): ?>
+                    <div class="project__section project__image project__image--wide">
+                    <?php elseif($fixed): ?>
+                    <div class="project__section project__image project__image--fixed" style="background-image: url(<?php echo $image['url'] ?>);">
+                    <?php endif; ?>
+                        <?php //if($display['standard','wide']): ?>
+                        <img src="<?php echo $image['sizes']['large'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php echo $image['url'] ?> 1200w" />
+                        <?php //endif; ?>
+                    </div>
+                    
+                    <?php
+                    // GALLERY
+                    elseif(get_row_layout() == 'detail_gallery'):
+                    $images = get_sub_field('images');
+                    $counter = 1;
+                    if($images):
+                    ?>
+                    <div class="project__section project__gallery animatedParent animateOnce" data-sequence="100" data-appear-top="-100">
+                        <?php foreach($images as $image): ?>
+                            <figure class="animated fadeInUpShort" data-id="<?php echo $counter ?>">
+                                 <a href="<?php echo $image['url']; ?>" class="strip" data-strip-group="gallery"<?php if($image['caption']): ?> data-strip-caption="<?php echo $image['caption'] ?>"<?php endif; ?>>
+                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                </a>
+                            </figure>
+                            <?php $counter++; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif;
+
+                    elseif(get_row_layout() == 'detail_fixed'):
+                    $bg = get_sub_field('bg_image');
+                    $height = get_sub_field('bg_height'); ?>
+                    <div class="project__section project__background" style="background-image: url('<?php echo $bg ?>');<?php if($height): ?> height: <?php echo $height ?>px;<?php endif; ?>"></div>
+
+                    <?php elseif(get_row_layout() == 'detail_image'):
+                    $img = get_sub_field('image');
+                    if(!empty($img)):
+                    ?>
+                    <div class="project__section project__image animatedParent animateOnce">
+                        <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" class="animated fadeInUpShort" />
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php endif; // end ACF Flexible Field
+                    
+                    endwhile; ?>
+                </article>
                 <?php endif; ?>
                 
-                <?php if( have_rows('project_deets') ): ?>
-                    <aside class="project-specs">
+                <?php if(have_rows('project_deets')): ?>
+                    <aside class="project-specs wysisyg">
                         <h4>Additional Project Details</h4>
                         <ul>
                             <?php
