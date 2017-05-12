@@ -1,4 +1,5 @@
 h1, h2, h3, h4, h5, h6 {
+    position: relative;
 	color: inherit;
 	font-family: @font__header;
     font-weight: 700;
@@ -18,7 +19,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .wysiwyg {
     h1, h2, h3, h4, h5, h6 {
-        position: relative;
         display: inline-block;
         color: @color__yellow;
         line-height: 1em;
@@ -26,15 +26,7 @@ h1, h2, h3, h4, h5, h6 {
         margin-bottom: 0;
         transform: translate3d(-10px,-10px,0);
         z-index: -1;
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -1.2em;
-            height: 5px;
-            width: 50px;
-            background-color: @color__yellow;
-        }
+        .underlined();
         @media @screen768 { transform: translate3d(-15px,-15px,0); }
         @media @screen960 { transform: translate3d(-20px,-20px,0); }
         @media @screen1280 { transform: translate3d(-25px,-25px,0); }

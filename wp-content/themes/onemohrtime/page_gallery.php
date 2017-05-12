@@ -48,10 +48,13 @@ get_header(); ?>
             
             <section class="project-all-dribbble">
                 <h2>Latest on <a href="//dribbble.com/OneMohrTime" target="_blank">Dribbble</a></h2>
+                <div id="dribbbles" class="dribbbles"></div>
+                <!--
                 <div class="swiper-container">
-                    <div id="dribbble_swiper" class="swiper-wrapper"></div>
+                    <div class="swiper-wrapper"></div>
                     <div class="swiper-pagination"></div>
                 </div>
+                -->
             </section>
             
             <article id="<?php echo $entryId ?>" class="project-all-content wysiwyg">

@@ -10,14 +10,34 @@ $(document).ready(function() {
     $('#desktop_menu li:nth-child(4) > a, a[href^="#contact"], .contact-toggle').on('click', function() {
         $('#contact').addClass('said-hi');
     });
+    
+    // Text Rotator
+    $('.rotate').each(function () {
+        var el = $(this);
+        var text = $(this).html().split(",");
+        el.html(text[0]);
+        setInterval(function () {
+            el.animate({
+                textShadowBlur : 20,
+                opacity : 0
+            }, 500, function () {
+                index = $.inArray(el.html(), text)
+                if ((index + 1) == text.length) index = -1
+                el.text(text[index + 1]).animate({
+                    textShadowBlur : 0,
+                    opacity : 1
+                }, 500);
+            });
+        }, 2000);
+    });
 	
 	// toggle About sections
-    $('.toggle-hidden').hide();
-    $('.toggle-show').click(function(){
-        $(this).parent().not('.toggle-active').toggleClass('toggle-active');
-        $('.toggle-hidden:visible').slideToggle().parent().removeClass('toggle-active');
-		$(this).next('.toggle-hidden:hidden').slideToggle();
-    });
+//    $('.toggle-hidden').hide();
+//    $('.toggle-show').click(function(){
+//        $(this).parent().not('.toggle-active').toggleClass('toggle-active');
+//        $('.toggle-hidden:visible').slideToggle().parent().removeClass('toggle-active');
+//		$(this).next('.toggle-hidden:hidden').slideToggle();
+//    });
     
     // Remove inline anchor styles from certain elements
     $('#content a > img:not(.strip)').parent().addClass('no-style');
@@ -36,19 +56,14 @@ $(document).ready(function() {
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
-            html.push('<div class="dribbble">');
-            html.push('<div class="dribbble-shot">');
-            html.push('<figure class="dribbble-img">');
-            html.push('<a class="dribbble-link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '">');
-            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + ' />');
-            html.push('</a>');
-            html.push('<a class="dribbble-over" href="' + shot.html_url + '" target="_blank">');
-            html.push('<h6>' + shot.title + '</h6>');
-            html.push('<p class="views"><span class="fa fa-eye"></span> ' + shot.views_count + '</p>');
-            html.push('</a>');
+            html.push('<figure id="' + shot.id + '" class="shot">');
+            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+            html.push('<figcaption class="shot__hover">');
+            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
+            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
+            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+            html.push('</figcaption>');
             html.push('</figure>');
-            html.push('</div>');
-            html.push('</div>');
         });
         $('#dribbble_gallery').html(html.join(''));
     });
@@ -56,19 +71,19 @@ $(document).ready(function() {
     // Dribbble swiper
 	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
     $.jribbble.users('onemohrtime').shots({
-        per_page: 20
+        per_page: 12
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
-            html.push('<figure id="shot_' + shot.id + '" class="swiper-slide">');
-            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + '" />');
+            html.push('<figure id="shot_' + shot.id + '" class="dribbble">');
+            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + '" class="dribbble__image" />');
             html.push('<a href="' + shot.html_url + '" target="_blank" class="dribbble__link">');
-            html.push('<span class="fa fa-link"></span>');
-            html.push('<span>' + shot.title + '</span>');
+            html.push('<span class="dribbble__title">' + shot.title + '</span>');
+            html.push('<span class="dribbble__icon fa fa-link"></span>');
             html.push('</a>');
             html.push('</figure>');
         });
-        $('#dribbble_swiper').html(html.join(''));
+        $('#dribbbles').html(html.join(''));
     });
     
 });
@@ -134,25 +149,25 @@ var homeSwiper = new Swiper ('.homepage__slideshow', {
 });
 
 // Swiper on work page
- var workSwiper = new Swiper ('.project-all-dribbble .swiper-container', {
+//var workSwiper = new Swiper ('.project-all-dribbble .swiper-container', {
 //var workSwiper = new Swiper ('#dribbble_swiper', {
-    loop : true,
-    spaceBetween : null,
-    slidesPerView : 3,
-    slidesPerColumn : 2,
-//    breakpoints : {
-//        1440 : {
-//            slidesPerView : 2
-//        },
-//        600 : {
-//            slidesPerView : 1
-//        }
-//    },
-    autoplay : 5000,
-    pagination : '.swiper-pagination',
-    paginationClickable : true,
-    keyboardControl : true
-});
+//    loop : true,
+//    spaceBetween : null,
+//    slidesPerView : 3,
+//    slidesPerColumn : 2,
+////    breakpoints : {
+////        1440 : {
+////            slidesPerView : 2
+////        },
+////        600 : {
+////            slidesPerView : 1
+////        }
+////    },
+//    autoplay : 5000,
+//    pagination : '.swiper-pagination',
+//    paginationClickable : true,
+//    keyboardControl : true
+//});
 
 $(window).on('load', function() {
     

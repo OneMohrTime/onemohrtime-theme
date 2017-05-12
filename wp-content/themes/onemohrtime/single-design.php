@@ -76,9 +76,9 @@ get_header(); ?>
                     // IMAGE
                     elseif(get_row_layout() == 'detail_image'):
                     $display = get_sub_field('display');
-                    $standard = $display['standard'];
-                    $wide = $display['wide'];
-                    $fixed = $display['fixed'];
+                    $standard = $display == 'standard';
+                    $wide = $display == 'wide';
+                    $fixed = $display == 'fixed';
                     $image = get_sub_field('image');
                     ?>
                     
@@ -89,9 +89,9 @@ get_header(); ?>
                     <?php elseif($fixed): ?>
                     <div class="project__section project__image project__image--fixed" style="background-image: url(<?php echo $image['url'] ?>);">
                     <?php endif; ?>
-                        <?php //if($display['standard','wide']): ?>
+                        <?php if($standard or $wide): ?>
                         <img src="<?php echo $image['sizes']['large'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php echo $image['url'] ?> 1200w" />
-                        <?php //endif; ?>
+                        <?php endif; ?>
                     </div>
                     
                     <?php
@@ -101,7 +101,7 @@ get_header(); ?>
                     $counter = 1;
                     if($images):
                     ?>
-                    <div class="project__section project__gallery animatedParent animateOnce" data-sequence="100" data-appear-top="-100">
+                    <div class="project__section project__gallery animatedParent animateOnce">
                         <?php foreach($images as $image): ?>
                             <figure class="animated fadeInUpShort" data-id="<?php echo $counter ?>">
                                  <a href="<?php echo $image['url']; ?>" class="strip" data-strip-group="gallery"<?php if($image['caption']): ?> data-strip-caption="<?php echo $image['caption'] ?>"<?php endif; ?>>
@@ -110,20 +110,6 @@ get_header(); ?>
                             </figure>
                             <?php $counter++; ?>
                         <?php endforeach; ?>
-                    </div>
-                    <?php endif;
-
-                    elseif(get_row_layout() == 'detail_fixed'):
-                    $bg = get_sub_field('bg_image');
-                    $height = get_sub_field('bg_height'); ?>
-                    <div class="project__section project__background" style="background-image: url('<?php echo $bg ?>');<?php if($height): ?> height: <?php echo $height ?>px;<?php endif; ?>"></div>
-
-                    <?php elseif(get_row_layout() == 'detail_image'):
-                    $img = get_sub_field('image');
-                    if(!empty($img)):
-                    ?>
-                    <div class="project__section project__image animatedParent animateOnce">
-                        <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" class="animated fadeInUpShort" />
                     </div>
                     <?php endif; ?>
                     

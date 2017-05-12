@@ -59,6 +59,18 @@
     }
 }
 
+.underlined {
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1.2em;
+        height: 5px;
+        width: 50px;
+        background-color: @color__yellow;
+    }
+}
+
 .pseudo-border(@zindex: -1) {
     position: relative;
     z-index: 1;
