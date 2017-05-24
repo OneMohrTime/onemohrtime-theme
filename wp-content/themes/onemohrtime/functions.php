@@ -7,7 +7,7 @@
  * @package onemohrtime
  */
 
-if ( ! function_exists( 'onemohrtime_setup' ) ) :
+if (!function_exists('onemohrtime_setup')):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -89,10 +89,10 @@ add_action( 'after_setup_theme', 'onemohrtime_setup' );
  *
  * @global int $content_width
  */
-function onemohrtime_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'onemohrtime_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'onemohrtime_content_width', 0 );
+//function onemohrtime_content_width() {
+//	$GLOBALS['content_width'] = apply_filters( 'onemohrtime_content_width', 640 );
+//}
+//add_action( 'after_setup_theme', 'onemohrtime_content_width', 0 );
 
 /**
  * Register widget area.
@@ -126,7 +126,7 @@ add_action( 'widgets_init', 'onemohrtime_widgets_init' );
  */
 function onemohrtime_scripts() {
     // strip.js styles
-    wp_enqueue_style('strp', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
+//    wp_enqueue_style('strp', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
     
     // swiper.js styles
     wp_enqueue_style('swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), null, 'all');
@@ -144,12 +144,6 @@ function onemohrtime_scripts() {
     // vendor grunt concat
     wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.min.js', array('jquery'), null, true);
     
-    // modernizr 3.3.1
-    // wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), null, true);
-    
-    // strip.js lightbox
-    // wp_enqueue_script('strp-js', get_template_directory_uri() . '/js/strip.pkgd.min.js', array('jquery'), null, true);
-    
     // CSS3 Animate It
     // wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);
     
@@ -166,7 +160,7 @@ function onemohrtime_scripts() {
     //wp_enqueue_script('dribbble', get_template_directory_uri() . '/js/jribbble.min.js', array('jquery'), null, true);
     
     // Custom jQuery
-    wp_enqueue_script('onemohrtime-main.js', get_template_directory_uri() . '/js/main.min.js', array('jquery'), null, true);
+    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.min.js', array('jquery'), null, true);
     
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -175,14 +169,13 @@ function onemohrtime_scripts() {
 add_action( 'wp_enqueue_scripts', 'onemohrtime_scripts' );
 
 /**
- * Project Custom Post Type
+ * Post Type: Projects.
  */
-add_action( 'init', 'cptui_register_my_cpts_design' );
 function cptui_register_my_cpts_design() {
 	$labels = array(
 		"name" => __( 'Projects', 'onemohrtime' ),
 		"singular_name" => __( 'Project', 'onemohrtime' ),
-    );
+	);
 	$args = array(
 		"label" => __( 'Projects', 'onemohrtime' ),
 		"labels" => $labels,
@@ -194,17 +187,19 @@ function cptui_register_my_cpts_design() {
 		"rest_base" => "",
 		"has_archive" => false,
 		"show_in_menu" => true,
-        "exclude_from_search" => false,
+		"exclude_from_search" => false,
 		"capability_type" => "post",
 		"map_meta_cap" => true,
 		"hierarchical" => true,
 		"rewrite" => array( "slug" => "design", "with_front" => true ),
 		"query_var" => true,
-		"menu_position" => 5,"menu_icon" => "dashicons-align-left",
+		"menu_position" => 5,
+		"menu_icon" => "dashicons-align-left",
 		"supports" => array( "title", "thumbnail" ),
-    );
+	);
 	register_post_type( "design", $args );
 }
+add_action( 'init', 'cptui_register_my_cpts_design' );
 
 /**
  * Custom MCE editor

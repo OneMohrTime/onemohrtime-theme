@@ -120,9 +120,9 @@ get_header(); ?>
                 <?php endif; ?>
                 
                 <?php if(have_rows('project_deets')): ?>
-                    <aside class="project-specs wysisyg">
+                    <aside class="project-specs">
                         <h4>Additional Project Details</h4>
-                        <ul>
+                        <ul class="wysiwyg">
                             <?php
                                 while( have_rows('project_deets') ): the_row();
                                 

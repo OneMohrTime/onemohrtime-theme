@@ -10,8 +10,7 @@
     
     <meta name="msvalidate.01" content="6C74BDEA0684C6599CD7829CA7630D48" />
     
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:700,400" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,700" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Bitter:400,400i,700" />
     
     <?php wp_head(); ?>
 </head>

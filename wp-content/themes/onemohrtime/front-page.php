@@ -7,14 +7,6 @@
             <?php $homeHero = get_field('homepage_hero'); ?>
             <figure class="homepage-banner" style="background-image: url('<?php echo $homeHero['url']; ?>');">
                 <h1>Grand Rapids <span class="rotate">designer,developer</span></h1>
-<!--
-                <div id="homepage_logo">
-                    <h1>
-                        <?php the_title(); ?>
-                        <span>|</span>
-                    </h1>
-                </div>
--->
             </figure>
             
             <section class="homepage-services">
