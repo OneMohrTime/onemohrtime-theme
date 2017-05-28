@@ -12,16 +12,16 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 400;
         text-transform: none;
     }
-    a {
-        .unstyled;
-    }
+//    a {
+//        .unstyled;
+//    }
 }
 
 .wysiwyg {
     position: relative;
     z-index: 0;
-    h1, h2, h3, h4, h5, h6 {
-        display: inline-block;
+    h3, h4, h5 {
+        display: block;
         color: @color__yellow;
         line-height: 1em;
         height: 0;
@@ -118,19 +118,22 @@ p {
 	widows: 3;
 	orphans: 3;
     hyphens: auto;
-    &:last-child { margin-bottom: 0 !important; }
+    &:last-child,
+    &:only-child { margin-bottom: 0 !important; }
 }
 
-b, strong {font-weight: 700;}
+b, strong { font-weight: 700; }
+
+i, em { font-style: italic; }
 
 sub, sup {
-    font-size: .885em;
+    font-size: .75em;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
 }
-sup {top: -0.5em;}
-sub {bottom: -0.25em;}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
 
 pre, code {
     display: block;

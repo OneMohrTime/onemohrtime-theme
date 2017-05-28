@@ -1,17 +1,20 @@
 $(document).ready(function() {
 	
 	// click to smoothscroll
+    
 	$('a[href^="#"]').on('click',function(e) {
 		e.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 1500);
 	});
     
     // add scrolling class to contact
+    
     $('#desktop_menu li:nth-child(4) > a, a[href^="#contact"], .contact-toggle').on('click', function() {
         $('#contact').addClass('said-hi');
     });
     
     // Text Rotator
+    
     $('.rotate').each(function () {
         var el = $(this);
         var text = $(this).html().split(",");
@@ -31,28 +34,24 @@ $(document).ready(function() {
         }, 2000);
     });
 	
-	// toggle About sections
-//    $('.toggle-hidden').hide();
-//    $('.toggle-show').click(function(){
-//        $(this).parent().not('.toggle-active').toggleClass('toggle-active');
-//        $('.toggle-hidden:visible').slideToggle().parent().removeClass('toggle-active');
-//		$(this).next('.toggle-hidden:hidden').slideToggle();
-//    });
-    
     // Remove inline anchor styles from certain elements
+    
     $('#content a > img:not(.strip)').parent().addClass('no-style');
     $('.sharedaddy a').addClass('btn');
     $('.gallery-pagination-span a').addClass('btn');
     
     // Sticky-kit
+    
     //if (window.matchMedia('(max-width: 1279px)').matches) {
 		$('.entry-featured-image-frame').stick_in_parent();
 	//};
     
-    // Dribbble gallery
+    // Dribbble galleries
+    
     $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
     $.jribbble.users('onemohrtime').shots({
-        per_page: 12
+        per_page : 6,
+        sort : 'views'
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
@@ -61,6 +60,7 @@ $(document).ready(function() {
             html.push('<figcaption class="shot__hover">');
             html.push('<h4 class="shot__title">' + shot.title + '</h4>');
             html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
+            html.push('<span class="shot__icon fa fa-link"></span>');
             html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
             html.push('</figcaption>');
             html.push('</figure>');
@@ -68,27 +68,66 @@ $(document).ready(function() {
         $('#dribbble_gallery').html(html.join(''));
     });
     
-    // Dribbble swiper
-	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
     $.jribbble.users('onemohrtime').shots({
-        per_page: 12
+        per_page : 12,
+        sort : 'recent'
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
-            html.push('<figure id="shot_' + shot.id + '" class="dribbble">');
-            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + '" class="dribbble__image" />');
-            html.push('<a href="' + shot.html_url + '" target="_blank" class="dribbble__link">');
-            html.push('<span class="dribbble__title">' + shot.title + '</span>');
-            html.push('<span class="dribbble__icon fa fa-link"></span>');
-            html.push('</a>');
+            html.push('<figure id="' + shot.id + '" class="shot">');
+            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+            html.push('<figcaption class="shot__hover">');
+            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
+            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
+            html.push('<span class="shot__icon fa fa-link"></span>');
+            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+            html.push('</figcaption>');
             html.push('</figure>');
         });
         $('#dribbbles').html(html.join(''));
     });
     
+//    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+//    $.jribbble.users('onemohrtime').shots({
+//        per_page: 12
+//    }).then(function(shots) {
+//        var html = [];
+//        shots.forEach(function(shot) {
+//            html.push('<figure id="' + shot.id + '" class="shot">');
+//            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+//            html.push('<figcaption class="shot__hover">');
+//            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
+//            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
+//            html.push('<span class="shot__icon fa fa-link"></span>');
+//            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+//            html.push('</figcaption>');
+//            html.push('</figure>');
+//        });
+//        $('#dribbbles').html(html.join(''));
+//    });
+    
+//	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+//    $.jribbble.users('onemohrtime').shots({
+//        per_page: 12
+//    }).then(function(shots) {
+//        var html = [];
+//        shots.forEach(function(shot) {
+//            html.push('<figure id="shot_' + shot.id + '" class="dribbble">');
+//            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + '" class="dribbble__image" />');
+//            html.push('<a href="' + shot.html_url + '" target="_blank" class="dribbble__link">');
+//            html.push('<span class="dribbble__title">' + shot.title + '</span>');
+//            html.push('<span class="dribbble__icon fa fa-link"></span>');
+//            html.push('</a>');
+//            html.push('</figure>');
+//        });
+//        $('#dribbbles').html(html.join(''));
+//    });
+    
 });
 
 // menu visible when scrolling up
+
 var headerHeight = $('#site-navigation').height();
 $(window).on('scroll', {previousTop : 0}, function() {
     var currentTop = $(window).scrollTop();
@@ -109,6 +148,7 @@ $(window).on('scroll', {previousTop : 0}, function() {
 });
 
 // homepage parallax
+
 $(window).scroll(function() {
     homepageParallax();
 });
@@ -126,6 +166,7 @@ function homepageParallax() {
 }
 
 // Swiper on home page
+
 var homeSwiper = new Swiper ('.homepage__slideshow', {
     loop : true,
     effect : 'coverflow',
@@ -148,33 +189,14 @@ var homeSwiper = new Swiper ('.homepage__slideshow', {
     lazyLoading : true
 });
 
-// Swiper on work page
-//var workSwiper = new Swiper ('.project-all-dribbble .swiper-container', {
-//var workSwiper = new Swiper ('#dribbble_swiper', {
-//    loop : true,
-//    spaceBetween : null,
-//    slidesPerView : 3,
-//    slidesPerColumn : 2,
-////    breakpoints : {
-////        1440 : {
-////            slidesPerView : 2
-////        },
-////        600 : {
-////            slidesPerView : 1
-////        }
-////    },
-//    autoplay : 5000,
-//    pagination : '.swiper-pagination',
-//    paginationClickable : true,
-//    keyboardControl : true
-//});
-
 $(window).on('load', function() {
     
 	// loading screen won't fade until entire page has loaded
+    
 	$('#loading').fadeOut('slow');
     
     // typed.js
+    
     $('#typed').typed({
         stringsElement : $('#typed-strings'),
         typeSpeed : 100,
