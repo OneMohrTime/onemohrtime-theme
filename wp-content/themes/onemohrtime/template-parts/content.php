@@ -11,11 +11,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-    <figure class="entry-featured-image">
-        <div class="entry-featured-image-frame">
+    <figure class="entry__featured-image">
+        <div class="entry__featured-image--frame">
             
-            <?php
-            $stickyImg = get_field('page_bg');
+            <?php $stickyImg = get_field('page_bg');
             
             if(!empty($stickyImg)): ?>
             <img src="<?php echo $stickyImg['url']; ?>" alt="<?php echo $stickyImg['alt']; ?>" />
@@ -26,17 +25,15 @@
         </div>
     </figure>
     
-	<div class="entry-content wysiwyg">
+	<div class="entry__content wysiwyg">
         
-        <header class="entry-header animatedParent animateOnce">
+        <header class="entry__header">
             
-            <?php
+            <?php the_title('<h1 class="entry__title">', '</h1>');
             
-            the_title('<h1 class="entry-title animated fadeInLeftShort">', '</h1>' );
+            if('post' === get_post_type()): ?>
             
-            if ('post' === get_post_type()): ?>
-            
-            <div class="entry-meta">
+            <div class="entry__meta">
                 <?php onemohrtime_posted_on(); ?>
             </div><!-- .entry-meta -->
             
@@ -44,8 +41,8 @@
             
         </header>
         
-        <?php if (function_exists('yoast_breadcrumb')) {
-            yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+        <?php if(function_exists('yoast_breadcrumb')) {
+            yoast_breadcrumb('<div id="breadcrumbs" class="entry__breadcrumb">','</div>');
         } ?>
         
         <?php the_content( sprintf(
@@ -59,10 +56,10 @@
             'after'  => '</div>',
         )); ?>
         
-        <footer class="entry-footer">
+        <footer class="entry__footer">
             <?php onemohrtime_entry_footer(); ?>
         </footer>
         
-	</div><!-- .entry-content -->
+	</div><!-- .entry__content -->
     
 </article>

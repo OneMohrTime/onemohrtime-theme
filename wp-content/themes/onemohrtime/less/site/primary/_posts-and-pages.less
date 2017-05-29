@@ -669,12 +669,14 @@
 }
 
 .entry {
-    &-featured-image {
+    &__featured-image {
+        // .entry__featured-image
         background: @color__white no-repeat center center;
         background-size: cover;
         z-index: 0;
         @media @screen960 {
-            &-frame {
+            &--frame {
+                // .entry__featured-image--frame
                 width: 50vw;
                 width: calc(50vw - 3em);
                 margin-left: 2em;
@@ -689,7 +691,7 @@
             
         }
     }
-    &-content {
+    &__content {
         position: relative;
         z-index: 1;
         @media @screen960 {
@@ -701,7 +703,7 @@
             margin: 0 0 1.5em;
         }
     }
-    &-header {
+    &__header {
         background-color: @color__white;
         margin-left: -1em;
         margin-right: -1em;
@@ -717,12 +719,12 @@
             }
         }
     }
-    &-meta {
+    &__meta {
         .updated {
             display: none;
         }
     }
-    &-footer {
+    &__footer {
         span {display: block;}
     }
 }

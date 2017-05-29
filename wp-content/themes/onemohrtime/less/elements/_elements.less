@@ -257,7 +257,6 @@ hr {
 
 .homepage {
     &-banner {
-        width: 100%;
         width: 100vw;
         height: 250px;
         background: @color__yellow no-repeat center center scroll;
@@ -269,29 +268,29 @@ hr {
             color: @color__white;
             font-size: 1.5em;
             line-height: 1em;
-            margin: 0;
+            margin: 0 0 30px;
             padding: 0 1em;
             span {
-                font-size: inherit !important;
-                font-family: @font__header !important;
-                font-weight: 700 !important;
-                text-transform: uppercase !important;
-                padding: 0 5px;
-                background-color: fade(@color__white, 85%);
+                font-style: italic;
+                padding: 5px 10px;
+                background-color: fade(@color__white, 90%);
                 color: @color__yellow;
             }
-            @media @screen768 {font-size: 2.25em;}
-            @media @screen1280 {font-size: 3em;}
-            @media @screen1600 {font-size: 3.75em;}
+            @media @screen768 { font-size: 2.25em; }
+            @media @screen1280 { font-size: 3em; }
+            @media @screen1600 { font-size: 3.75em; }
         }
         img {
             display: block;
             max-width: 100px;
             height: auto;
             pointer-events: none;
-            @media @screen1024 {max-width: 175px;}
+            @media @screen1024 { max-width: 175px; }
         }
-        @media @screen1024 {height: 400px;}
+        @media @screen1024 {
+            align-items: flex-end;
+            height: 400px;
+        }
     }
     &-intro {
         display: flex;
