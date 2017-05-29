@@ -20,12 +20,12 @@ get_header(); ?>
             
             <?php $projects = get_field('project_grid'); ?>
             
-            <?php if($projects): ?>
+            <?php if($projects): $i = 0; ?>
             <section id="gallery" class="gallery animatedParent animateOnce" data-sequence="150">
                 
-                <?php foreach($projects as $post): setup_postdata($post); ?>
+                <?php foreach($projects as $post): setup_postdata($post); $i++; ?>
                 
-                <figure class="gallery__project animated fadeInUpShort" data-id="<?php echo get_row_index(); ?>">
+                <figure class="gallery__project animated fadeInUpShort" data-id="<?php echo $i; ?>">
                     <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery__project--image" />
                     <figcaption class="gallery__project--content">
                         <h2 class="gallery__project--header">
@@ -40,8 +40,8 @@ get_header(); ?>
                     </figcaption>
                 </figure><!-- /.gallery__project -->
                 
-                <?php endforeach;
-                wp_reset_postdata(); ?>
+                <?php wp_reset_postdata();
+                endforeach; ?>
                 
             </section><!-- /.gallery -->
             <?php endif; ?>

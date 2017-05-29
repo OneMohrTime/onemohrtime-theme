@@ -36,7 +36,7 @@ get_header(); ?>
                     </h1>
                     
                     <?php if(function_exists('yoast_breadcrumb')): {
-                        yoast_breadcrumb('<div id="breadcrumbs" class="project__breadcrumb"><ul>','</ul></div>');
+                        yoast_breadcrumb('<div id="breadcrumbs" class="project__breadcrumb">','</div>');
                     } endif; ?>
                     <?php endwhile; ?>
                     

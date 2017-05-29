@@ -188,14 +188,14 @@ function cptui_register_my_cpts_design() {
 		"has_archive" => false,
 		"show_in_menu" => true,
 		"exclude_from_search" => false,
-		"capability_type" => "post",
+		"capability_type" => "page",
 		"map_meta_cap" => true,
 		"hierarchical" => true,
 		"rewrite" => array( "slug" => "design", "with_front" => true ),
 		"query_var" => true,
-		"menu_position" => 5,
+		"menu_position" => 0,
 		"menu_icon" => "dashicons-align-left",
-		"supports" => array( "title", "thumbnail" ),
+		"supports" => array( "title", "thumbnail", "excerpt" ),
 	);
 	register_post_type( "design", $args );
 }

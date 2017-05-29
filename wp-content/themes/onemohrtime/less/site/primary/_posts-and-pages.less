@@ -63,6 +63,7 @@
     &__header {
         // .project__header
         position: relative;
+        margin-bottom: 1.7em;
     }
     &__banner {
         // .project__banner
@@ -91,8 +92,8 @@
             max-width: 75%;
             line-height: 1em;
             margin-top: 20px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
             &::after {
                 content: "";
                 position: absolute;
@@ -104,9 +105,9 @@
             }
         }
         @media @screen1440 {
-            margin-top: 30px;
-            margin-bottom: 30px;
-            padding-bottom: 25px;
+//            margin-top: 30px;
+//            margin-bottom: 30px;
+//            padding-bottom: 25px;
         }
     }
     &__subtitle {
@@ -120,13 +121,42 @@
         margin: 0;
         padding: 5px 10px;
     }
+    &__breadcrumb {
+        // .project__breadcrumb
+        display: flex;
+        align-items: center;
+        margin: 0 0 1em;
+        font-size: .75em;
+        span {
+            margin-left: 5px;
+            & > span {
+                display: flex;
+                align-items: center;
+            }
+        }
+        a,
+        .breadcrumb_last {
+            background-color: @color__white;
+            color: @color__yellow;
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+        a {
+            &:hover,
+            &:focus { color: @color__black; }
+        }
+        .breadcrumb_last {
+            margin-right: 0;
+            font-style: italic;
+        }
+    }
     &__text {
         // .project__text
         padding: 0 1em 1.7em;
-        @media @screen600 {padding: 0 10% 1.7em;}
-        @media @screen840 {padding: 0 15% 1.7em;}
-        @media @screen1024 {padding: 0 20% 1.7em;}
-        @media @screen1600 {padding: 0 25% 1.7em;}
+        @media @screen600 { padding: 0 10% 1.7em; }
+        @media @screen840 { padding: 0 15% 1.7em; }
+        @media @screen1024 { padding: 0 20% 1.7em; }
+        @media @screen1600 { padding: 0 25% 1.7em; }
     }
     &__text-image {
         // .project__text-image
@@ -260,13 +290,20 @@
 
 .gallery {
     margin: 1.7em 0 0;
+    @media @screen600 {
+        margin: 1.7em 1em 0;
+        display: flex;
+        flex-flow: row wrap;
+    }
     &__project {
+        // .gallery__project
         position: relative;
         margin: 0 1em 1.7em;
         @media @screen960 {
             background-color: @color__white;
         }
         &--image {
+            // .gallery__project--image
             display: block;
             margin-bottom: 1em;
             @media @screen960 {
@@ -276,6 +313,7 @@
             }
         }
         &--header {
+            // .gallery__project--header
             position: relative;
             padding-bottom: 10px;
             margin-bottom: 1em;
@@ -296,6 +334,7 @@
             }
         }
         &--content {
+            // .gallery__project--content
             @media @screen960 {
                 position: absolute;
                 top: 0;
@@ -317,6 +356,7 @@
             }
         }
         &--excerpt {
+            // .gallery__project--excerpt
             margin-bottom: 1em;
             @media @screen960 {
                 margin-bottom: 0;
@@ -333,6 +373,7 @@
             .sharedaddy { display: none; }
         }
         &--link {
+            // .gallery__project--link
             @media @screen960 {
                 z-index: 1000;
                 text-indent: 9999;
@@ -355,7 +396,7 @@
         @media @screen960 {
             margin: 0 1em 2em;
             &:hover {
-                .gallery__project--image {opacity: 0.05;}
+                .gallery__project--image { opacity: 0.05; }
                 .gallery__project--content::after {
                     border-color: @color__yellow;
                     transform: translate3d(0,0,0);
@@ -366,54 +407,75 @@
                 }
             }
         }
-        @media @screen1024 {
-            position: relative;
-        }
+        @media @screen1024 { position: relative; }
     }
-    &__pagination {
-        margin: 0 0 1.7em;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    @media @screen600 {
-        margin: 1.7em 1em 0;
-        display: flex;
-        flex-flow: row wrap;
-    }
+//    &__pagination {
+//        // .gallery__pagination
+//        margin: 0 0 1.7em;
+//        display: flex;
+//        flex-flow: row wrap;
+//        justify-content: center;
+//        width: 100%;
+//    }
 }
 
 .halfie {
+    position: relative;
     @media @screen600 {
         display: flex;
         flex-direction: row;
-        align-items: flex-end;
+        align-items: flex-start;
     }
     &__content {
+        // .halfie__content
         width: 100%;
+        padding: 0 1em;
         @media @screen600 {
-            width: 50%;
-            margin-left: 50%;
+            flex: 0 1 50%;
+            width: auto;
+            padding-left: 0 0 0 2em;
+        }
+    }
+    &__header {
+        // .halfie__header
+        @media @screen600 {
+            position: relative;
+            margin: 1em 0;
+            padding-bottom: calc(~"1em + 5px");
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 10px;
+                width: 100px;
+                background-color: @color__yellow;
+            }
+        }
+    }
+    &__title {
+        // .halfie__title
+        @media @screen600 {
+            margin: 0;
         }
     }
     &__img {
+        // .halfie__img
         background: @color__yellow no-repeat center center;
         background-size: cover;
         width: 100%;
         height: 300px;
         box-shadow: inset 0 0 0 1em @color__white;
         @media @screen600 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: calc(~"100vh - 100px");
+            flex: 0 1 50%;
+            width: auto;
             height: 100vh;
             box-shadow: inset 0 0 0 2em @color__white;
-            z-index: -1;
         }
         @media @screen1600 { box-shadow: inset 0 0 0 100px @color__white; }
+    }
+    &__breadcrumb {
+        display: block;
     }
 }
 

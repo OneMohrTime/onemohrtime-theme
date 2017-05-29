@@ -312,21 +312,19 @@ hr {
                 flex: 0 1 auto;
                 height: 200px;
                 width: auto;
-                @media @screen1024 {height: 300px;}
+                @media @screen1024 { height: 300px; }
             }
             .btn {
                 flex: 0 1 auto;
                 margin: 20px 0 0;
                 .btn-color(@color__yellow--light, @color__yellow--light);
-                @media @screen1024 {font-size: .75em;}
+                @media @screen1024 { font-size: .75em; }
             }
             @media @screen768 {
                 order: 1;
                 width: 40%;
             }
-            @media @screen1024 {
-                width: 33.33333%;
-            }
+            @media @screen1024 { width: 33.33333%; }
         }
         article {
             order: 1;
@@ -349,23 +347,23 @@ hr {
                 }
                 span {
                     display: block;
-                    @media @screen768 {line-height: 1em;}
-                    @media @screen1280 {font-size: .5em;}
+                    @media @screen768 { line-height: 1em; }
+                    @media @screen1280 { font-size: .5em; }
                 }
-                @media @screen768 {font-size: 2.25em;}
-                @media @screen1440 {font-size: 3em;}
-                @media @screen1600 {font-size: 3.75em;}
+                @media @screen768 { font-size: 2.25em; }
+                @media @screen1440 { font-size: 3em; }
+                @media @screen1600 { font-size: 3.75em; }
             }
             @media @screen768 {
                 order: 2;
                 width: 60%;
                 padding: 30px;
             }
-            @media @screen960 {padding: 30px 50px;}
-            @media @screen1024 {width: 66.66666%; padding: 75px 100px;}
+            @media @screen960 { padding: 30px 50px; }
+            @media @screen1024 { width: 66.66666%; padding: 75px 100px; }
         }
-        @media @screen768 {font-size: 1.125em;}
-        @media @screen1024 {font-size: 1.313em;}
+        @media @screen768 { font-size: 1.125em; }
+        @media @screen1024 { font-size: 1.313em; }
     }
     &-icons {
         width: 100vw;
@@ -377,11 +375,11 @@ hr {
         justify-content: center;
         align-content: center;
         align-items: center;
-        img {pointer-events: none;}
+        img { pointer-events: none; }
         .btn {
             margin: 0 0 1em;
             .btn-color(@color__yellow, @color__yellow);
-            @media @screen1024 {margin-bottom: 2em;}
+            @media @screen1024 { margin-bottom: 2em; }
         }
     }
     &-services {
@@ -665,11 +663,11 @@ hr {
         margin: 1.7em 1em 0;
     }
     h2 {
-        font-size: 1.375em;
+        font-size: 1.75em;
         text-align: center;
         margin-bottom: 1em;
         padding: 1em;
-        @media @screen768 {font-size: 1.875em;}
+        @media @screen768 { font-size: 2.125em; }
         @media @screen960 {
             &::after {
                 content: "";
@@ -681,7 +679,7 @@ hr {
                 background-color: @color__yellow;
             }
         }
-        @media @screen1024 {font-size: 2.75em;}
+        @media @screen1280 { font-size: 2.875em; }
     }
 }
 
@@ -705,7 +703,7 @@ hr {
             margin-bottom: 2em;
             &:hover,
             &:focus {
-                .shot__image { opacity: 0.1; }
+                .shot__image { opacity: 0.05; }
                 .shot__hover { opacity: 1; }
             }
         }
@@ -790,18 +788,18 @@ hr {
     }
 }
 
-.background-attribution {
-    @media @screen960 {
-        position: absolute;
-        left: 1em;
-        bottom: 1em;
-        padding: 5px 10px;
-        background-color: fade(@color__white, 90%);
-        border-radius: 3px;
-        font-size: .75em;
-        line-height: 1em;
-    }
-}
+//.background-attribution {
+//    @media @screen960 {
+//        position: absolute;
+//        left: 1em;
+//        bottom: 1em;
+//        padding: 5px 10px;
+//        background-color: fade(@color__white, 90%);
+//        border-radius: 3px;
+//        font-size: .75em;
+//        line-height: 1em;
+//    }
+//}
 
 #loading {
     background-color: fade(@color__white, 95%);

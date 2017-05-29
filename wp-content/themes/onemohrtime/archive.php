@@ -14,15 +14,14 @@ get_header(); ?>
             
             <nav class="posts-categories">
                 <ul>
-                    <?php 
-                        wp_list_categories( array(
-                            'orderby' => 'name',
-                            'current_category' => '',
-                            'exclude' => array(1,13),
-                            'title_li' => '',
-                            'show_option_all' => 'All Categories'
-                        ) );
-                    ?>
+                    <?php wp_list_categories(array(
+                        'orderby' => 'name',
+                        'exclude' => array(1,14),
+                        'hide_empty' => true,
+                        'current_category' => '',
+                        'title_li' => '',
+                        'show_option_all' => 'All Categories'
+                    )); ?>
                 </ul>
             </nav>
             

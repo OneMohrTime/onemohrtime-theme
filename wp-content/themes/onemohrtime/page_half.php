@@ -28,7 +28,7 @@ get_header(); ?>
             
             <footer class="halfie__footer">
                 <?php if(function_exists('yoast_breadcrumb')): {
-                    yoast_breadcrumb('<div id="breadcrumbs"><p>','</p></div>');
+                    yoast_breadcrumb('<div id="breadcrumbs" class="halfie__breadcrumb"><p>','</p></div>');
                 } endif; ?>
             </footer>
             

@@ -42,9 +42,11 @@ $(document).ready(function() {
     
     // Sticky-kit
     
-    //if (window.matchMedia('(max-width: 1279px)').matches) {
-		$('.entry-featured-image-frame').stick_in_parent();
-	//};
+    $('.entry-featured-image-frame').stick_in_parent();
+    
+    if(window.matchMedia('(min-width: 600px)').matches) {
+		$('.halfie__img').stick_in_parent();
+	};
     
     // Dribbble galleries
     
