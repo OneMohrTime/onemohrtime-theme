@@ -127,7 +127,7 @@
                         </div>
                         
                         <?php if(!empty($slideImg)): ?>
-                        <img src="<?php echo $slideImg['url'] ?>" alt="<?php echo $slideImg['alt'] ?>" class="slide__img" />
+                        <img src="<?php echo $slideImg['thumbnail'] ?>" alt="<?php echo $slideImg['alt'] ?>" class="slide__img" srcset="<?php echo $detailImg['sizes']['medium'] ?> 1024w, <?php echo $detailImg['sizes']['large'] ?> 1440w, <?php echo $detailImg['url'] ?> 1920w" />
                         <?php endif; ?>
                         
                     </figure>

@@ -68,7 +68,7 @@ get_header(); ?>
                         <?php echo $detailText ?>
                     </div>
                     <figure class="image--half">
-                        <img src="<?php echo $detailImg['sizes']['medium'] ?>" alt="<?php echo $detailImg['alt'] ?>" srcset="<?php echo $detailImg['sizes']['large'] ?> 1000w, <?php echo $detailImg['url'] ?>, 2000w" />
+                        <img src="<?php echo $detailImg['sizes']['thumbnail'] ?>" alt="<?php echo $detailImg['alt'] ?>" srcset="<?php echo $detailImg['sizes']['medium'] ?> 1024w, <?php echo $detailImg['sizes']['large'] ?> 1440w, <?php echo $detailImg['url'] ?> 1920w" />
                     </figure>
                 </div>
                 
@@ -90,7 +90,7 @@ get_header(); ?>
                 <div class="project__section project__image project__image--fixed" style="background-image: url(<?php echo $image['url'] ?>);">
                 <?php endif; ?>
                     <?php if($standard or $wide): ?>
-                    <img src="<?php echo $image['sizes']['large'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php echo $image['url'] ?> 1200w" />
+                    <img src="<?php echo $image['sizes']['thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php echo $image['sizes']['medium'] ?> 1024w, <?php echo $image['sizes']['large'] ?> 1440w, <?php echo $image['url'] ?> 1920w" />
                     <?php endif; ?>
                 </div>
                 
