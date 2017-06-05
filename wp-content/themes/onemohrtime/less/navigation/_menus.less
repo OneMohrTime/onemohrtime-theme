@@ -1,4 +1,67 @@
-#menu-location-primary {display: none;}
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    width: 250px;
+    background-color: @color__white;
+    padding: 25px;
+    margin: 25px;
+    box-shadow: 0 0 5px 0 fade(@color__black, 15%);
+    border-radius: 3px;
+    transform: translateX(-300px);
+    transition: transform 300ms;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    z-index: 1000;
+    &.is-visible { transform: translateX(0); }
+    &__close {
+        // .menu__close
+        position: absolute;
+        padding: 0;
+        border: 0;
+        line-height: 1;
+        font-size: 44px;
+        font-weight: 300;
+    }
+    .menu {
+        flex: 1 0 auto;
+        list-style: none;
+        margin: 0;
+        font-family: @font__header;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        &-item {
+            // .mobile-item
+            flex: 1 0 auto;
+            margin: 5px 0;
+            padding: 5px 0;
+            &.current-menu-item,
+            &.current-page-parent,
+            &.current-page-ancestor,
+            &.current_page_item,
+            &.current_page_parent,
+            &.current_page_ancestor {
+                color: @color__yellow;
+            }
+        }
+        &__logo {
+            // .mobile__logo
+            flex: 0 1 auto;
+            margin: 0 auto 25px;
+            img {
+                width: 100px;
+            }
+        }
+    }
+}
+
 .menu-desktop-nav-container {
     display: none;
     @media @screen960 {
@@ -68,15 +131,15 @@
 }
 
 .menu-toggle {
-    overflow: visible;
-    z-index: 5000;
-    @media @screen960 {display: none !important;}
+    border: 0;
+    padding: 0;
+    @media @screen960 { display: none !important; }
 }
 
 .contact-toggle {
     font-size: 32px;
     z-index: 5000;
-    @media @screen960 {display: none !important;}
+    @media @screen960 { display: none !important; }
 }
 
 .desktop-logo {
@@ -138,7 +201,7 @@
     width: 100vw;
     padding: 1em;
     .box-shadow();
-    z-index: 1500;
+    z-index: 900;
     &.nav-fixed {
 		//background-color: fade(@color__white, 90%);
 		position: fixed;
@@ -215,6 +278,27 @@
                 &::after {top: 15px;}
             }
         }
+    }
+}
+
+// Fade for mobile menu
+.menu__fade {
+    @include position(fixed, 0 0 0 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: @color__white;
+    opacity: 0;
+    transition: all 300ms;
+    visibility: hidden;
+    z-index: 999;
+    &.is-visible {
+        opacity: 0.9;
+        visibility: visible;
     }
 }
 

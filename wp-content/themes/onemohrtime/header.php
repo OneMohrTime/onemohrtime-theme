@@ -48,32 +48,47 @@
     
 	<header id="masthead" class="site-header" role="banner">
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle btn" aria-controls="mobile_menu" aria-expanded="false">
-                <?php esc_html_e( '', 'onemohrtime' ); ?>
+            <button id="menu__toggle" class="menu-toggle">
                 <span class="menuTrigger">
                     <span class="mainLine"></span>
                 </span>
             </button>
-			<?php
-                // Mobile Menu
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'menu_id' => 'mobile_menu'
-                ) );
-            ?>
             <?php
-                // Desktop Menu
-                wp_nav_menu( array(
-                    'theme_location' => 'desktop-menu',
-                    'menu_id' => 'desktop_menu',
-                    'depth' => '1'
-                ) );
+            // Desktop Menu
+            wp_nav_menu(array(
+                'theme_location' => 'desktop-menu',
+                'menu_id' => 'desktop_menu',
+                'depth' => '1'
+            ));
             ?>
-            <a href="#contact" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
+            <a href="<?php home_url('contact','relative') ?>" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
+            
             <a href="<?php echo home_url(); ?>" class="desktop-logo">
-                <img src="<?php echo get_template_directory_uri() . "/img/logo-color-rotate.gif" ?>" alt="onemohrtime design logo" class="responsive" />
+                <img src="<?php echo get_template_directory_uri() . '/img/logo-color-rotate.gif' ?>" alt="onemohrtime design logo" class="responsive" />
             </a>
+            
 		</nav>
+        
+        <nav id="mobile_menu" class="mobile-menu">
+            <button id="menu__close" class="mobile-menu__close">&times;</button>
+            <figure class="menu__logo">
+                <img src="<?php echo get_template_directory_uri() . '/img/logo-color.png' ?>" alt="onemohrtime design" />
+            </figure>
+            <?php
+            // Mobile Menu
+            wp_nav_menu(array(
+                'menu_class' => '',
+                'menu_id' => '',
+                'container' => '',
+                //'container_class' => 'mobile-menu',
+                //'container_id' => 'mobile_menu',
+                'theme_location' => 'primary',
+                'items_wrap' => '<ul class="menu">%3$s</ul>'
+            )); ?>
+        </nav>
+        
+        <div id="screen_fade" class="menu__fade"></div>
+        
 	</header>
     
 	<div id="content" class="site-content">

@@ -1,104 +1,50 @@
 <?php
-/**
- * onemohrtime functions and definitions.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package onemohrtime
- */
+// https://developer.wordpress.org/themes/basics/theme-functions/
 
 if (!function_exists('onemohrtime_setup')):
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+// Sets up theme defaults and registers support for various WordPress features.
+
 function onemohrtime_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on onemohrtime, use a find and replace
-	 * to change 'onemohrtime' to the name of your theme in all the template files.
-	 */
+	// Make theme available for translation.
+	// Translations can be filed in the /languages/ directory.
 	load_theme_textdomain( 'onemohrtime', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
+	// Let WordPress manage the document title.
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
+	//Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'onemohrtime' ),
-	) );
+	));
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
+	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
+	add_theme_support('html5', array(
 		'search-form',
 		'comment-form',
 		'comment-list',
 		'gallery',
 		'caption',
-	) );
+	));
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
+	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array(
 		'aside',
 		'image',
 		'video',
 		'quote',
 		'link',
-	) );
-
-	// Set up the WordPress core custom background feature.
-    /*
-	add_theme_support( 'custom-background', apply_filters( 'onemohrtime_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-    */
+	));
 }
 endif;
 add_action( 'after_setup_theme', 'onemohrtime_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-//function onemohrtime_content_width() {
-//	$GLOBALS['content_width'] = apply_filters( 'onemohrtime_content_width', 640 );
-//}
-//add_action( 'after_setup_theme', 'onemohrtime_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
+// Register widget area.
 function onemohrtime_widgets_init() {
 	register_sidebar ( array(
 		'name'          => esc_html__( 'Blog Listing','onemohrtime' ),
@@ -131,14 +77,14 @@ function onemohrtime_scripts() {
     // swiper.js styles
     wp_enqueue_style('swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), null, 'all');
     
-    // default wordpress style.css
-	// wp_enqueue_style('onemohrtime-style', get_stylesheet_uri());
     // load minified css instead
+	// wp_enqueue_style('onemohrtime-style', get_stylesheet_uri());
     wp_enqueue_style('main', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
     
-    // Loading jQuery 3.0.0 instead of default
+    // Loading jQuery 3.1.1 instead of default
     wp_deregister_script('jquery');
-    wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '3.1.1', true);
+    wp_enqueue_script('jquery');
     wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.1.1.min.js"><\/script>\')');
     
     // vendor grunt concat
@@ -207,67 +153,6 @@ add_action( 'init', 'cptui_register_my_cpts_design' );
 add_editor_style();
 
 /**
- * Custom Post Pagination
- */
-function custom_pagination($numpages = '', $pagerange = '', $paged='') {
-
-  if (empty($pagerange)) {
-    $pagerange = 2;
-  }
-
-  /**
-   * This first part of our function is a fallback
-   * for custom pagination inside a regular loop that
-   * uses the global $paged and global $wp_query variables.
-   * 
-   * It's good because we can now override default pagination
-   * in our theme, and use this function in default quries
-   * and custom queries.
-   */
-  global $paged;
-  if (empty($paged)) {
-    $paged = 1;
-  }
-  if ($numpages == '') {
-    global $wp_query;
-    $numpages = $wp_query->max_num_pages;
-    if(!$numpages) {
-        $numpages = 1;
-    }
-  }
-
-  /** 
-   * We construct the pagination arguments to enter into our paginate_links
-   * function. 
-   */
-  $pagination_args = array(
-    'base'            => get_pagenum_link(1) . '%_%',
-    'format'          => 'page/%#%',
-    'total'           => $numpages,
-    'current'         => $paged,
-    'show_all'        => False,
-    'end_size'        => 1,
-    'mid_size'        => $pagerange,
-    'prev_next'       => True,
-    'prev_text'       => __('&laquo;'),
-    'next_text'       => __('&raquo;'),
-    'type'            => 'plain',
-    'add_args'        => false,
-    'add_fragment'    => ''
-  );
-
-  $paginate_links = paginate_links($pagination_args);
-
-  if ($paginate_links) {
-    echo "<nav class='custom-pagination'>";
-      echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
-      echo $paginate_links;
-    echo "</nav>";
-  }
-
-}
-
-/**
  * Custom Shortcodes
  */
 function pull_quote( $atts, $quote='' ) {
@@ -275,19 +160,19 @@ function pull_quote( $atts, $quote='' ) {
 }
 add_shortcode( 'pullquote', 'pull_quote' );
 
-function about_dropdown( $atts , $content = null ) {
-	$atts = shortcode_atts(
-		array(
-			'title' => '',
-            'id' => ''
-		),
-		$atts, 'about'
-	);
-    $return_string = '<section class="about-me scroll" id="education"><h3 class="toggle-show">' . $atts[title] . '<span class="fa fa-chevron-down pull-right"></span></h3>';
-    $return_string .= '<div class="toggle-hidden">' . $content . '</div></section>';
-    return $return_string;
-}
-add_shortcode( 'about', 'about_dropdown' );
+//function about_dropdown( $atts , $content = null ) {
+//	$atts = shortcode_atts(
+//		array(
+//			'title' => '',
+//            'id' => ''
+//		),
+//		$atts, 'about'
+//	);
+//    $return_string = '<section class="about-me scroll" id="education"><h3 class="toggle-show">' . $atts[title] . '<span class="fa fa-chevron-down pull-right"></span></h3>';
+//    $return_string .= '<div class="toggle-hidden">' . $content . '</div></section>';
+//    return $return_string;
+//}
+//add_shortcode( 'about', 'about_dropdown' );
 
 /**
  * Custom navigation menus
@@ -295,30 +180,11 @@ add_shortcode( 'about', 'about_dropdown' );
 function register_my_menus() {
     register_nav_menus(
         array(
-            'desktop-menu' => __( 'Desktop-only Menu' ),
-            'social-menu' => __( 'Footer Social Media Links' )
+            'desktop-menu' => __( 'Desktop' )
         )
     );
 }
 add_action( 'init', 'register_my_menus' );
-// add hover to custom navigation menus
-//add_filter('nav_menu_css_class', 'add_active_class', 10, 2 );
-//
-//function add_active_class($classes, $item) {
-//
-//  if( $item->menu_item_parent == 0 && 
-//    in_array( 'current-menu-item', $classes ) ||
-//    in_array( 'current-menu-ancestor', $classes ) ||
-//    in_array( 'current-menu-parent', $classes ) ||
-//    in_array( 'current_page_parent', $classes ) ||
-//    in_array( 'current_page_ancestor', $classes )
-//    ) {
-//
-//    $classes[] = "active";
-//  }
-//
-//  return $classes;
-//}
 
 /**
  * Posts excerpts

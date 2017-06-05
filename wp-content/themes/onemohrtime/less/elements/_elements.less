@@ -530,6 +530,7 @@ hr {
         .slide {
             display: flex;
             flex-flow: column nowrap;
+            align-items: center;
             background-color: @color__white;
             &__img {
                 order: 1;
@@ -696,7 +697,7 @@ hr {
             flex: 0 1 calc(~"50% - 2em");
             margin: 0 1em 1em;
         }
-        @media @screen600 { flex-basis: calc(~"33.33333% - 1em"); }
+        @media @screen600 { flex-basis: calc(~"33.33333% - 2em"); }
         @media @screen1024 {
             flex-basis: calc(~"33.33333% - 2em");
             margin-bottom: 2em;

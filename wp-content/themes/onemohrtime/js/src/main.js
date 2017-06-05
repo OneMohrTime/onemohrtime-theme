@@ -1,10 +1,23 @@
 $(document).ready(function() {
+    
+    // bourbon refills nav
+    
+    $('#menu__toggle,#menu__fade,#menu__close').on('click touchstart', function(e) {
+        $('#mobile_menu,#screen_fade').toggleClass('is-visible');
+        e.preventDefault();
+    });
+    
+    if($('#mobile_menu').hasClass('is-visible')) {
+        $('#site-navigation').hide();
+    }
 	
 	// click to smoothscroll
     
 	$('a[href^="#"]').on('click',function(e) {
 		e.preventDefault();
-		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 1500);
+		$('html,body').animate({
+            scrollTop : $(this.hash).offset().top
+        }, 1500);
 	});
     
     // add scrolling class to contact
@@ -57,7 +70,7 @@ $(document).ready(function() {
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
-            html.push('<figure id="' + shot.id + '" class="shot">');
+            html.push('<figure id="shot_' + shot.id + '" class="shot">');
             html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
             html.push('<figcaption class="shot__hover">');
             html.push('<h4 class="shot__title">' + shot.title + '</h4>');
@@ -89,42 +102,6 @@ $(document).ready(function() {
         });
         $('#dribbbles').html(html.join(''));
     });
-    
-//    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-//    $.jribbble.users('onemohrtime').shots({
-//        per_page: 12
-//    }).then(function(shots) {
-//        var html = [];
-//        shots.forEach(function(shot) {
-//            html.push('<figure id="' + shot.id + '" class="shot">');
-//            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-//            html.push('<figcaption class="shot__hover">');
-//            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
-//            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
-//            html.push('<span class="shot__icon fa fa-link"></span>');
-//            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-//            html.push('</figcaption>');
-//            html.push('</figure>');
-//        });
-//        $('#dribbbles').html(html.join(''));
-//    });
-    
-//	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-//    $.jribbble.users('onemohrtime').shots({
-//        per_page: 12
-//    }).then(function(shots) {
-//        var html = [];
-//        shots.forEach(function(shot) {
-//            html.push('<figure id="shot_' + shot.id + '" class="dribbble">');
-//            html.push('<img src="' + shot.images.normal + '" alt="' + shot.title + '" class="dribbble__image" />');
-//            html.push('<a href="' + shot.html_url + '" target="_blank" class="dribbble__link">');
-//            html.push('<span class="dribbble__title">' + shot.title + '</span>');
-//            html.push('<span class="dribbble__icon fa fa-link"></span>');
-//            html.push('</a>');
-//            html.push('</figure>');
-//        });
-//        $('#dribbbles').html(html.join(''));
-//    });
     
 });
 
