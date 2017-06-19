@@ -1,0 +1,298 @@
+/*
+* === 6.1 HOME ===
+*/
+
+.homepage {
+    &__banner {
+		// .homepage__banner
+		position: relative;
+		background: no-repeat center center, linear-gradient(to right top, $color__yellow, $color__yellow--light);
+        height: 250px;
+		padding: $gutter;
+		overflow: hidden;
+		@supports (object-fit: cover) {
+			padding: 0;
+		}
+		@include media('>=screen768') {
+			height: 350px;
+		}
+		@include media('>=screen1024') { height: 450px; }
+        @include media('>=screen1440') {
+            height: 550px;
+        }
+		&--image {
+			// .homepage__banner--image
+			@supports (object-fit: cover) {
+				object-fit: cover;
+				filter: grayscale(100%);
+				mix-blend-mode: overlay;
+				height: 100%;
+				min-width: 100vw;
+			}
+		}
+        &--title {
+			// .homepage__banner--title
+            color: $color__white;
+			margin-bottom: 0;
+			@supports (object-fit: cover) {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				padding: $gutter;
+			}
+            .rotate {
+                color: $color__yellow;
+                font-style: italic;
+                background-color: fade-out($color__white, 0.1);
+                padding: 5px 10px;
+            }
+        }
+    }
+    &__services {
+		// .homepage__services
+        display: flex;
+        flex-flow: row wrap;
+        background-color: $color__yellow--light;
+        padding: $gutter;
+        @include media('>=screen600') { padding: 0; }
+        .service {
+			flex: 1 1 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            &:nth-child(1) {
+                margin-bottom: $gutter;
+                @include media('>=screen600') { margin-bottom: 0; }
+            }
+            @include media('>=screen600') {
+				flex: 1 1 50%;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-content: flex-start;
+                background-color: transparent;
+                padding: $gutter;
+            }
+            @include media('>=screen960') {
+                transition: background-color 300ms, color 300ms;
+                &:nth-child(1) {
+                    background-color: $color__yellow--light;
+                    color: $color__yellow;
+                    .service__img .designer-stroke {stroke: $color__yellow;}
+                    .service__btn.btn {
+                        @include btn-color($color__yellow,$color__yellow);
+                    }
+                    &:hover {
+                        background-color: $color__white;
+                        color: $color__black;
+                        .service__img .designer-stroke {stroke: $color__yellow--dark;}
+                        .service__btn.btn {
+                            @include btn-color($color__black,$color__yellow);
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    background-color: $color__yellow--dark;
+                    color: $color__yellow--light;
+                    .service__header::after {
+                        background-color: $color__yellow--light;
+                    }
+                    .service__img .developer-stroke {stroke: $color__yellow--light;}
+                    .service__btn.btn {
+                        @include btn-color($color__yellow--light,$color__yellow--light);
+                    }
+                    &:hover {
+                        background-color: $color__black;
+                        color: $color__white;
+                        .service__header::after {background-color: $color__yellow;}
+                        .service__img .developer-fill {fill: $color__yellow;}
+                        .service__btn.btn {
+                            @include btn-color($color__white,$color__yellow);
+                        }
+                    }
+                }
+            }
+            @include media('>=screen1280') { padding: $gutter * 2; }
+            &__img {
+				// .service__img
+                height: auto;
+                width: 100px;
+                svg {
+                    .designer {
+                        &-stroke {
+							// .designer-stroke
+                            fill: none;
+                            stroke: $color__yellow--dark;
+                            stroke-width: 5;
+                            stroke-linejoin: round;
+                            stroke-miterlimit: 10;
+                            
+                        }
+                        &-fill {
+							// .designer-fill
+                            fill: $color__yellow;
+                        }
+                    }
+                    .developer {
+                        &-stroke {
+							// .developer-stroke
+                            fill: none;
+                            stroke: $color__yellow--dark;
+                            stroke-width: 5;
+                            stroke-linejoin: round;
+                            stroke-miterlimit: 10;
+                            @include media('>=screen960') {
+                            }
+                        }
+                        &-fill {
+							// .developer-fill
+                            fill: $color__yellow;
+                            @include media('>=screen960') {
+                                fill: $color__yellow--light;
+                            }
+                        }
+                    }
+                }
+            }
+            &__header {
+				// .service__header
+                position: relative;
+                margin: 0 0 1em;
+                padding-bottom: 10px;
+                font-size: 1.375em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: calc(50% - 50px);
+                    width: 100px;
+                    height: 10px;
+                    background-color: $color__yellow;
+                    margin-bottom: 1em;
+                }
+                @include media('>=screen600') {
+                    width: 100%;
+                    text-align: center;
+                }
+                @include media('>=screen960') {font-size: 1.875em;}
+            }
+            &__body {
+				// .service__body
+                margin-bottom: 1em;
+            }
+            &__btn {
+				// .service__btn
+			}
+        }
+    }
+    &__work {
+		// .homepage__work
+        background-color: $color__white;
+        padding: $gutter;
+        text-align: center;
+        @include media('>=screen840') {
+			padding-top: $gutter * 2;
+			padding-bottom: $gutter * 2;
+		}
+    }
+    &__slideshow {
+        // .homepage__slideshow
+        width: 100vw;
+        max-width: 100%;
+        margin: 0 0 1em;
+        .slide {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            background-color: $color__white;
+            &__img {
+                order: 1;
+                @include media('>=screen840') {
+                    order: 2;
+                    width: 50%;
+                }
+            }
+            &__content {
+                order: 2;
+                position: relative;
+                padding: 20px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -1em;
+                    left: calc(50% - 5px);
+                    width: 10px;
+                    height: calc(100% + 2em);
+                    background-color: $color__yellow;
+                    z-index: -1;
+                }
+                @include media('>=screen840') {
+                    order: 1;
+                    width: 50%;
+                    padding: 1em 50px;
+                    text-align: center;
+                }
+                @include media('>=screen1024') {
+                    font-size: 1.3125em;
+                    padding: 0;
+                }
+            }
+            &__title {
+                font-size: 1.375em;
+                @include media('>=screen1024') {font-size: 1.875em;}
+            }
+            &__text {
+                margin-bottom: 1em;
+                p {
+                    @include media('>=screen1024') {font-size: .75em;}
+                }
+                @include media('>=screen840') {text-align: left;}
+                @include media('>=screen1024') {
+                    width: 50%;
+                    margin: 0 auto 1em;
+                }
+            }
+            @include media('>=screen840') {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        .swiper-pagination {
+            &-progress {
+                background-color: $color__yellow--light;
+                top: auto;
+                bottom: 0;
+            }
+            &-progressbar {background-color: $color__yellow;}
+        }
+        .swiper-button {
+            &-prev,
+            &-next {
+                // display:none for now
+                display: none;
+                background-image: none;
+                font-size: 25px;
+                color: $color__black;
+                opacity: 1;
+            }
+            &-prev {left: 1em;}
+            &-next {right: 1em;}
+        }
+    }
+	&__dribbble {
+		// .homepage__dribbble
+		&--title {
+			// .homepage__dribbble--title
+			@include underlined();
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+	}
+	&__contact {
+		// .homepage__contact
+		margin: 0 $gutter $gutter;
+		background-color: $color__white;
+		h3 {
+			@include underlined();
+		}
+	}
+}

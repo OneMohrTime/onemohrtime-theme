@@ -1,0 +1,51 @@
+/*
+* === 4.4 SIDEBAR ===
+*/
+
+.widget {
+	margin: 0 0 $gutter;
+    @include media('>=screen540') {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+    @include media('>=screen960') {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+// Smash Balloon Instagram
+#sb_instagram {
+    .sbi_photo {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+// Recent Posts Widget Extended
+.rpwe {
+    &-img {
+        @include unstyled();
+        @include pseudo-border();
+        margin-bottom: 1em;
+        img { display: block; }
+    }
+    &-title {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 10px;
+            width: 100px;
+            background-color: $color__yellow;
+        }
+        a {margin-bottom: 1em;}
+    }
+    &-time {
+        color: $color__gray;
+        font-size: .75em;
+        font-weight: 700;
+    }
+}

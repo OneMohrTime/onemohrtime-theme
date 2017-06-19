@@ -1,0 +1,96 @@
+/*
+* === 5.8 JETPACK ===
+*/
+
+.sharedaddy {
+    .sd-title {
+        display: inline-block;
+        position: relative;
+        font-size: 1em;
+        margin-bottom: 1em;
+        padding-bottom: .5em;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 10px;
+            width: 50%;
+            background-color: $color__yellow;
+        }
+    }
+    .sd-content {
+        padding-top: calc(3.2em + 10px);
+        ul {
+            list-style: none;
+            margin: 0;
+        }
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .btn {
+            font-size: .75em;
+            line-height: 1em;
+            position: relative;
+            span {
+                margin-left: 1em;
+            }
+            &::before {
+                position: absolute;
+                font-family: FontAwesome;
+                font-size: .75em;
+                margin-left: -.25em;
+            }
+            &.share-facebook::before {content: "\f09a";}
+            &.share-twitter::before {content: "\f099";}
+            &.share-pinterest::before {content: "\f231";}
+            &.share-tumblr::before {content: "\f173";}
+        }
+    }
+}
+// Jetpack related posts
+#jp-relatedposts  {
+    display: block;
+    padding-top: 0;
+    h3.jp-relatedposts-headline {
+        float: none;
+        font-size: .75em;
+        em::before {
+            border: 0 !important;
+            height: 10px;
+            background-color: $color__yellow;
+            margin-bottom: 1em;
+        }
+    }
+    .jp-relatedposts-items {
+        clear: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 0;
+        .jp-relatedposts-post {
+            flex: 0 1 auto;
+            width: calc(33.33333% - 1em);
+            padding-right: 0;
+            opacity: 1;
+            float: none;
+            &-a {
+                @include unstyled();
+            }
+            .jp-relatedposts-post-title {
+                font-family: $font__header;
+            }
+            @include media('>=screen960') {
+                @include pseudo-border();
+                &:hover {
+                    .jp-relatedposts-post-a {
+                        img {
+                            opacity: .1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

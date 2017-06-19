@@ -1,0 +1,165 @@
+
+
+//.single-post {
+//    article[class^="post-"] {
+//        margin: 0 1em 50px;
+//        padding-bottom: 50px;
+//        position: relative;
+//        display: block;
+//        &::after {
+//            content: "";
+//            display: block;
+//            position: absolute;
+//            bottom: 0;
+//            height: 5px;
+//            width: 50%;
+//            background-color: $color__yellow;
+//            margin: 1.7em 25% 0;
+//            @include media('>=screen960') {
+//                height: 10px;
+//                width: 25%;
+//                margin: 1.7em 37.5% 0;
+//            }
+//        }
+//        &:last-child::after {display: none;}
+//        @include media('>=screen540') {margin: 0 2em 50px;}
+//        @include media('>=screen960') {
+//            display: flex;
+//            flex-direction: row;
+//            margin: 0 0 100px;
+//            padding-bottom: 100px;
+//        }
+//    }
+//}
+
+//.posts {
+//    &-header {
+//        order: 2;
+//        display: flex;
+//        flex-direction: row;
+//        h2 {
+//            text-transform: none;
+//            margin-bottom: 1em;
+//            @include media('>=screen840') {
+//                margin-bottom: .2em;
+//            }
+//        }
+//        @include media('>=screen840') {
+//            order: 1;
+//            align-items: center;
+//            position: absolute;
+//            width: 60%;
+//            height: 300px;
+//            z-index: 100;
+//        }
+//        @include media('>=screen960') {
+//            width: 75%;
+//        }
+//    }
+//    &-date {
+//        flex: 0 1 20%;
+//        display: flex;
+//        justify-content: center;
+//        align-items: center;
+//        background-color: $color__yellow;
+//        text-align: center;
+//        padding: .5em;
+//        .month {
+//            display: block;
+//            line-height: 0;
+//        }
+//        .day {
+//            display: block;
+//            font-weight: 700;
+//            font-size: 2em;
+//        }
+//        .updated {display: none;}
+//        a {
+//            @include unstyled();
+//            color: $color__yellow--light !important;
+//            font-size: 1.5em;
+//            @include media('>=screen840') {
+//                display: flex !important;
+//                flex-flow: row wrap;
+//                align-content: center;
+//                width: 100px;
+//                height: 100px;
+//                border: 2px $color__black solid !important;
+//            }
+//        }
+//        @include media('>=screen840') {
+//            background-color: transparent !important;
+//            .month {
+//                flex: 1 0 auto;
+//                color: $color__black;
+//                line-height: 1em;
+//                width: 100%;
+//            }
+//            .day {
+//                flex: 1 0 auto;
+//                color: $color__yellow;
+//                line-height: 1em;
+//                width: 100%;
+//            }
+//        }
+//    }
+//    &-content {
+//        flex: 1 0 80%;
+//        padding-top: 1em;
+//        padding-left: 1em;
+//        display: block;
+//        .cat-links {
+//            display: block;
+//            font-size: .75em;
+//            margin-bottom: .5em;
+//        }
+//        @include media('>=screen840') {
+//            flex: 0 1 auto;
+//            padding-top: 0;
+//        }
+//    }
+//    &-image {
+//        order: 1;
+//        background: $color__white no-repeat center center scroll;
+//        background-size: cover;
+//        width: 100%;
+//        height: 300px;
+//        a {
+//            @include unstyled();
+//            height: 300px;
+//            width: 100%;
+//        }
+//        @include media('>=screen840') {
+//            order: 2;
+//            width: 60%;
+//            margin-left: 40%;
+//        }
+//        @include media('>=screen960') {
+//            @include pseudo-border();
+//            width: 75%;
+//            margin-left: 25%;
+//        }
+//    }
+//}
+
+// asides
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+// comments
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+#disqus_thread {
+    margin: 0 1em 1.7em;
+    @include media('>=screen540') {
+        margin: 0 2em 1.7em;
+    }
+}

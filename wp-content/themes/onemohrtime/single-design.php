@@ -9,6 +9,8 @@
 
 get_header(); ?>
 
+<pre>single-design.php</pre>
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
         
@@ -32,7 +34,7 @@ get_header(); ?>
                         <div id="typed-strings">
                             <?php the_title('<p class="screen-reader-text">','</p>'); ?>
                         </div>
-                        <span id="typed"></span>
+                        <span id="typed" class="typing"></span>
                     </h1>
                     
                     <?php if(function_exists('yoast_breadcrumb')): {

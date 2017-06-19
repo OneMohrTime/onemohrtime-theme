@@ -8,21 +8,22 @@ function onemohrtime_setup() {
 	// Make theme available for translation.
 	// Translations can be filed in the /languages/ directory.
 	load_theme_textdomain( 'onemohrtime', get_template_directory() . '/languages' );
-
+	
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
-
+	
 	// Let WordPress manage the document title.
 	add_theme_support( 'title-tag' );
-
+	
 	//Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
-
+	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'onemohrtime' ),
+		'primary' => esc_html__('Primary', 'onemohrtime'),
+		'desktop-menu' => esc_html__('Desktop', 'onemohrtime')
 	));
-
+	
 	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
 	add_theme_support('html5', array(
 		'search-form',
@@ -31,7 +32,7 @@ function onemohrtime_setup() {
 		'gallery',
 		'caption',
 	));
-
+	
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array(
 		'aside',
@@ -71,33 +72,28 @@ add_action( 'widgets_init', 'onemohrtime_widgets_init' );
  * Enqueue scripts and styles.
  */
 function onemohrtime_scripts() {
-    // strip.js styles
-//    wp_enqueue_style('strp', get_template_directory_uri() . '/css/strip.css', array(), null, 'screen');
-    
-    // swiper.js styles
-    wp_enqueue_style('swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), null, 'all');
-    
-    // load minified css instead
-	// wp_enqueue_style('onemohrtime-style', get_stylesheet_uri());
-    wp_enqueue_style('main', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
-    
-    // Loading jQuery 3.1.1 instead of default
-    wp_deregister_script('jquery');
-    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '3.1.1', true);
-    wp_enqueue_script('jquery');
-    wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.1.1.min.js"><\/script>\')');
-    
-    // vendor grunt concat
-    wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.min.js', array('jquery'), null, true);
-    
-    // CSS3 Animate It
-    // wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);
-    
-    // FortAwesome Fonticons
-    wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
-    
-    // Typed.js
-    // wp_enqueue_script('typed', get_template_directory_uri() . '/js/typed.min.js', array('jquery'), null, true);
+	
+	// load minified css instead
+	wp_enqueue_style('dev', get_stylesheet_uri());
+//	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
+	
+	// Loading jQuery 3.1.1 instead of default
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '3.1.1', true);
+	wp_enqueue_script('jquery');
+	wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.1.1.min.js"><\/script>\')');
+	
+	// vendor grunt concat
+	wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.min.js', array('jquery'), null, true);
+	
+	// CSS3 Animate It
+	// wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);
+	
+	// FortAwesome Fonticons
+	wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
+	
+	// Typed.js
+	// wp_enqueue_script('typed', get_template_directory_uri() . '/js/typed.min.js', array('jquery'), null, true);
     
     // Sticky-kit.js
     // wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
@@ -105,47 +101,47 @@ function onemohrtime_scripts() {
     // Dribbble plugin
     //wp_enqueue_script('dribbble', get_template_directory_uri() . '/js/jribbble.min.js', array('jquery'), null, true);
     
-    // Custom jQuery
+    // Custom jQuery/JS
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.min.js', array('jquery'), null, true);
     
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+//	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+//		wp_enqueue_script( 'comment-reply' );
+//	}
 }
 add_action( 'wp_enqueue_scripts', 'onemohrtime_scripts' );
 
 /**
  * Post Type: Projects.
  */
-function cptui_register_my_cpts_design() {
-	$labels = array(
-		"name" => __( 'Projects', 'onemohrtime' ),
-		"singular_name" => __( 'Project', 'onemohrtime' ),
-	);
-	$args = array(
-		"label" => __( 'Projects', 'onemohrtime' ),
-		"labels" => $labels,
-		"description" => "",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => false,
-		"rest_base" => "",
-		"has_archive" => false,
-		"show_in_menu" => true,
-		"exclude_from_search" => false,
-		"capability_type" => "page",
-		"map_meta_cap" => true,
-		"hierarchical" => true,
-		"rewrite" => array( "slug" => "design", "with_front" => true ),
-		"query_var" => true,
-		"menu_position" => 0,
-		"menu_icon" => "dashicons-align-left",
-		"supports" => array( "title", "thumbnail", "excerpt" ),
-	);
-	register_post_type( "design", $args );
-}
-add_action( 'init', 'cptui_register_my_cpts_design' );
+//function cptui_register_my_cpts_design() {
+//	$labels = array(
+//		"name" => __( 'Projects', 'onemohrtime' ),
+//		"singular_name" => __( 'Project', 'onemohrtime' ),
+//	);
+//	$args = array(
+//		"label" => __( 'Projects', 'onemohrtime' ),
+//		"labels" => $labels,
+//		"description" => "",
+//		"public" => true,
+//		"publicly_queryable" => true,
+//		"show_ui" => true,
+//		"show_in_rest" => false,
+//		"rest_base" => "",
+//		"has_archive" => false,
+//		"show_in_menu" => true,
+//		"exclude_from_search" => false,
+//		"capability_type" => "page",
+//		"map_meta_cap" => true,
+//		"hierarchical" => true,
+//		"rewrite" => array( "slug" => "design", "with_front" => true ),
+//		"query_var" => true,
+//		"menu_position" => 0,
+//		"menu_icon" => "dashicons-align-left",
+//		"supports" => array( "title", "thumbnail", "excerpt" ),
+//	);
+//	register_post_type( "design", $args );
+//}
+//add_action( 'init', 'cptui_register_my_cpts_design' );
 
 /**
  * Custom MCE editor
@@ -177,14 +173,14 @@ add_shortcode( 'pullquote', 'pull_quote' );
 /**
  * Custom navigation menus
  */
-function register_my_menus() {
-    register_nav_menus(
-        array(
-            'desktop-menu' => __( 'Desktop' )
-        )
-    );
-}
-add_action( 'init', 'register_my_menus' );
+//function register_my_menus() {
+//    register_nav_menus(
+//        array(
+//            'desktop-menu' => __( 'Desktop' )
+//        )
+//    );
+//}
+//add_action( 'init', 'register_my_menus' );
 
 /**
  * Posts excerpts

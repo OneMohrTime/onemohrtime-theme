@@ -1,0 +1,26 @@
+/*
+* === 4.1 HEADER ===
+*/
+
+.site__header {
+	grid-column: span 4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@include box-shadow();
+	padding-left: $gutter;
+	padding-right: $gutter;
+	background-color: $color__white;
+	z-index: 20;
+	&--logo {
+		// .site__header--logo
+		height: 100%;
+		max-height: 100%;
+		padding-top: $gutter/2;
+		padding-bottom: $gutter/2;
+		img {
+			height: 100%;
+			max-height: 100%;
+		}
+	}
+}

@@ -1,8 +1,7 @@
 <!doctype html>
-
 <html <?php language_attributes(); ?>>
-<head>
     
+<head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -44,51 +43,54 @@
 </section>
     
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'onemohrtime' ); ?></a>
     
-	<header id="masthead" class="site-header" role="banner">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-            <button id="menu__toggle" class="menu-toggle">
-                <span class="menuTrigger">
-                    <span class="mainLine"></span>
-                </span>
-            </button>
+	<header id="masthead" class="site__header" role="banner">
+		
+		<div id="menu_toggle" class="toggle__menu">
+			<!-- https://codepen.io/RobinBertilsson/pen/EPaLmo -->
+			<span class="m">M</span>
+			<span class="e">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</span>
+			<span class="n">N</span>
+			<span class="u">U</span>
+		</div>
+		
+		<nav id="desktop" class="main-navigation" role="navigation">
+			
             <?php
             // Desktop Menu
             wp_nav_menu(array(
-                'theme_location' => 'desktop-menu',
                 'menu_id' => 'desktop_menu',
-                'depth' => '1'
-            ));
-            ?>
-            <a href="<?php home_url('contact','relative') ?>" class="btn contact-toggle"><i class="fa fa-envelope-o"></i></a>
-            
-            <a href="<?php echo home_url(); ?>" class="desktop-logo">
-                <img src="<?php echo get_template_directory_uri() . '/img/logo-color-rotate.gif' ?>" alt="onemohrtime design logo" class="responsive" />
-            </a>
-            
-		</nav>
-        
-        <nav id="mobile_menu" class="mobile-menu">
-            <button id="menu__close" class="mobile-menu__close">&times;</button>
-            <figure class="menu__logo">
-                <img src="<?php echo get_template_directory_uri() . '/img/logo-color.png' ?>" alt="onemohrtime design" />
-            </figure>
-            <?php
-            // Mobile Menu
-            wp_nav_menu(array(
-                'menu_class' => '',
-                'menu_id' => '',
                 'container' => '',
-                //'container_class' => 'mobile-menu',
-                //'container_id' => 'mobile_menu',
-                'theme_location' => 'primary',
-                'items_wrap' => '<ul class="menu">%3$s</ul>'
+                'depth' => '1',
+                'theme_location' => 'desktop-menu'
             )); ?>
-        </nav>
+			
+		</nav><!-- /.main-navigation -->
+		
+		<a href="<?php echo home_url(); ?>" class="site__header--logo">
+			<img src="<?php echo get_template_directory_uri() . '/img/logo-color-rotate.gif' ?>" alt="onemohrtime design logo" />
+		</a>
         
-        <div id="screen_fade" class="menu__fade"></div>
+		<a href="<?php home_url('contact','relative') ?>" class="contact-toggle">
+			<i class="fa fa-envelope-o"></i>
+		</a>
+		
+		<?php
+		// Mobile Menu
+		wp_nav_menu(array(
+			'menu_class' => '',
+			'menu_id' => '',
+			'container' => '',
+			//'container_class' => 'mobile-menu',
+			//'container_id' => 'mobile_menu',
+			'theme_location' => 'primary',
+			'items_wrap' => '<ul id="mobile_menu" class="menu__mobile">%3$s</ul>'
+		)); ?>
         
-	</header>
+	</header><!-- /.site__header -->
     
-	<div id="content" class="site-content">
+	<main id="main" class="site__main">

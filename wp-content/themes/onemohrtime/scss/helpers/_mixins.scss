@@ -1,0 +1,70 @@
+ @mixin unstyled() {
+	color: inherit !important;
+	padding: 0 !important;
+	border: 0 !important;
+	background: none !important;
+}
+
+@mixin text-shadow() {
+	text-shadow: 1px 1px 1px fade-out($color__black, 0.85);
+}
+
+@mixin box-shadow() {
+	box-shadow: 0 1px 1px 0 fade-out($color__black, 0.85);
+}
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height/$width) * 100%;
+	}
+}
+
+@mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
+    border: 2px $buttoncolor solid;
+	color: $buttoncolor;
+    &::after {
+        background-color: $hover;
+    }
+}
+
+@mixin underlined() {
+	position: relative;
+	padding-bottom: calc(.5em + 10px);
+	margin-bottom: .5em;
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+//		bottom: -1.2em;
+		height: 10px;
+		width: 100px;
+		background-color: $color__yellow;
+	}
+}
+
+@mixin pseudo-border($zindex: -1) {
+	position: relative;
+	z-index: 1;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 3px $color__yellow solid;
+		opacity: 1;
+		z-index: $zindex;
+		transform: translate3d(-10px,10px,0);
+		transition: transform 300ms, opacity 300ms;
+	}
+	&:hover::before {
+		opacity: 0;
+		transform: translate3d(0,0,0);
+	}
+}

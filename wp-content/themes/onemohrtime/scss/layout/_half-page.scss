@@ -1,0 +1,39 @@
+/*
+* === 4.3 HALF PAGE ===
+*/
+
+.halfie {
+    &__img {
+        // .halfie__img
+        background: $color__yellow no-repeat center center;
+        background-size: cover;
+        height: 300px;
+		border: $gutter $color__white solid;
+        @include media('>=screen768') {
+            height: 100vh;
+			border-right: 0;
+        }
+    }
+    &__content {
+        // .halfie__content
+		margin: 0 $gutter $gutter;
+		@include media('>=screen768') {
+			margin-left: 0;
+		}
+    }
+    &__header {
+        // .halfie__header
+		margin-bottom: $gutter;
+		@include media('>=screen768') {
+			margin: $gutter 0;
+		}
+    }
+    &__title {
+        // .halfie__title
+        @include underlined();
+    }
+    &__breadcrumb {
+        display: block;
+		margin-top: $gutter;
+    }
+}
