@@ -73,15 +73,17 @@
 		}
 		span.e {
 			display: inline-block;
-			height: 12px;
+			height: 10px;
 			width: 17px;
 			&.toggle__close {
+				height: 11px;
 				span.bar:nth-child(1) {
 					top: 5px;
 					transform: rotate(45deg);
 					transition: $speed;
 				}
 				span.bar:nth-child(2) {
+					margin: 4px 0;
 					opacity: 0;
 					transition: $speed;
 				}

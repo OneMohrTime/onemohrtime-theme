@@ -200,61 +200,46 @@
 		width: 100vw;
 		margin: 0 0 1.5em;
 		.slide {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            background-color: $color__white;
-            &__img {
-                order: 1;
-                @include media('>=screen840') {
-                    order: 2;
-                    width: 50%;
-                }
-            }
-            &__content {
-                order: 2;
-                position: relative;
-                padding: 20px;
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: -1em;
-                    left: calc(50% - 5px);
-                    width: 10px;
-                    height: calc(100% + 2em);
-                    background-color: $color__yellow;
-                    z-index: -1;
-                }
-                @include media('>=screen840') {
+			display: flex;
+			flex-direction: column;;
+			align-items: center;
+			width: 100vw;
+			background-color: $color__white;
+			@include media('>=screen768') { flex-direction: row; }
+			&__img {
+				order: 1;
+				width: 100%;
+				@include media('>=screen768') {
+					order: 2;
+					width: 50%;
+				}
+			}
+			&__content {
+				order: 2;
+				position: relative;
+				width: 100%;
+				margin: $gutter 0;
+				padding: 0 $gutter;
+				&::before {
+					content: "";
+					position: absolute;
+					top: -1em;
+					left: calc(50% - 5px);
+					width: 10px;
+					height: calc(100% + 2em);
+					background-color: $color__yellow;
+					z-index: -1;
+				}
+                @include media('>=screen768') {
                     order: 1;
                     width: 50%;
-                    padding: 1em 50px;
-                    text-align: center;
                 }
                 @include media('>=screen1024') {
-                    font-size: 1.3125em;
                     padding: 0;
                 }
             }
-            &__title {
-                font-size: 1.375em;
-                @include media('>=screen1024') {font-size: 1.875em;}
-            }
-            &__text {
-                margin-bottom: 1em;
-                p {
-                    @include media('>=screen1024') {font-size: .75em;}
-                }
-                @include media('>=screen840') {text-align: left;}
-                @include media('>=screen1024') {
-                    width: 50%;
-                    margin: 0 auto 1em;
-                }
-            }
-            @include media('>=screen840') {
-                flex-direction: row;
-                align-items: center;
-            }
+            &__title { width: 100%; }
+			&__text { margin-bottom: 1em; }
         }
         .swiper-pagination {
             &-progress {

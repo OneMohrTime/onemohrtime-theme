@@ -74,8 +74,8 @@ add_action( 'widgets_init', 'onemohrtime_widgets_init' );
 function onemohrtime_scripts() {
 	
 	// load minified css instead
-	wp_enqueue_style('dev', get_stylesheet_uri());
-//	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
+//	wp_enqueue_style('dev', get_stylesheet_uri());
+	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
 	
 	// Loading jQuery 3.1.1 instead of default
 	wp_deregister_script('jquery');

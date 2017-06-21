@@ -2695,21 +2695,24 @@ button, [type='button'], [type='reset'], [type='submit'],
     letter-spacing: 2px; }
   .toggle__menu span.e {
     display: inline-block;
-    height: 12px;
+    height: 10px;
     width: 17px; }
-    .toggle__menu span.e.toggle__close span.bar:nth-child(1) {
-      top: 5px;
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-      transition: 300ms; }
-    .toggle__menu span.e.toggle__close span.bar:nth-child(2) {
-      opacity: 0;
-      transition: 300ms; }
-    .toggle__menu span.e.toggle__close span.bar:nth-child(3) {
-      bottom: 5px;
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-      transition: 300ms; }
+    .toggle__menu span.e.toggle__close {
+      height: 11px; }
+      .toggle__menu span.e.toggle__close span.bar:nth-child(1) {
+        top: 5px;
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        transition: 300ms; }
+      .toggle__menu span.e.toggle__close span.bar:nth-child(2) {
+        margin: 4px 0;
+        opacity: 0;
+        transition: 300ms; }
+      .toggle__menu span.e.toggle__close span.bar:nth-child(3) {
+        bottom: 5px;
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        transition: 300ms; }
     .toggle__menu span.e span.bar {
       position: relative;
       display: block;
@@ -2963,6 +2966,8 @@ object {
     border-bottom: 1px #c0c0bc solid; }
     .menu__mobile .menu-item:last-child {
       border-bottom: none; }
+    .menu__mobile .menu-item.current-menu-item, .menu__mobile .menu-item.current-page-parent {
+      border-left: 10px #ffc300 solid; }
     .menu__mobile .menu-item a {
       display: block;
       font-size: .875em;
@@ -3691,15 +3696,21 @@ Reverse FontAwesome animation
   .homepage__slideshow .slide {
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
+    -ms-flex-direction: column;
+        flex-direction: column;
     -ms-flex-align: center;
         align-items: center;
+    width: 100vw;
     background-color: #fffefa; }
+    @media (min-width: 768px) {
+      .homepage__slideshow .slide {
+        -ms-flex-direction: row;
+            flex-direction: row; } }
     .homepage__slideshow .slide__img {
       -ms-flex-order: 1;
-          order: 1; }
-      @media (min-width: 840px) {
+          order: 1;
+      width: 100%; }
+      @media (min-width: 768px) {
         .homepage__slideshow .slide__img {
           -ms-flex-order: 2;
               order: 2;
@@ -3708,7 +3719,9 @@ Reverse FontAwesome animation
       -ms-flex-order: 2;
           order: 2;
       position: relative;
-      padding: 20px; }
+      width: 100%;
+      margin: 36px 0;
+      padding: 0 36px; }
       .homepage__slideshow .slide__content::before {
         content: "";
         position: absolute;
@@ -3718,40 +3731,18 @@ Reverse FontAwesome animation
         height: calc(100% + 2em);
         background-color: #ffc300;
         z-index: -1; }
-      @media (min-width: 840px) {
+      @media (min-width: 768px) {
         .homepage__slideshow .slide__content {
           -ms-flex-order: 1;
               order: 1;
-          width: 50%;
-          padding: 1em 50px;
-          text-align: center; } }
+          width: 50%; } }
       @media (min-width: 1024px) {
         .homepage__slideshow .slide__content {
-          font-size: 1.3125em;
           padding: 0; } }
     .homepage__slideshow .slide__title {
-      font-size: 1.375em; }
-      @media (min-width: 1024px) {
-        .homepage__slideshow .slide__title {
-          font-size: 1.875em; } }
+      width: 100%; }
     .homepage__slideshow .slide__text {
       margin-bottom: 1em; }
-      @media (min-width: 1024px) {
-        .homepage__slideshow .slide__text p {
-          font-size: .75em; } }
-      @media (min-width: 840px) {
-        .homepage__slideshow .slide__text {
-          text-align: left; } }
-      @media (min-width: 1024px) {
-        .homepage__slideshow .slide__text {
-          width: 50%;
-          margin: 0 auto 1em; } }
-    @media (min-width: 840px) {
-      .homepage__slideshow .slide {
-        -ms-flex-direction: row;
-            flex-direction: row;
-        -ms-flex-align: center;
-            align-items: center; } }
   .homepage__slideshow .swiper-pagination-progress {
     background-color: #fef7e3;
     top: auto;

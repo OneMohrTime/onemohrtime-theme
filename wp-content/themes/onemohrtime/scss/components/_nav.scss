@@ -95,6 +95,10 @@
 		&:last-child {
 			border-bottom: none;
 		}
+		&.current-menu-item,
+		&.current-page-parent {
+			border-left: 10px $color__yellow solid;
+		}
 		a {
 			display: block;
 			font-size: .875em;
