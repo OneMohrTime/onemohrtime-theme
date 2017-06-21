@@ -100,7 +100,57 @@
 		<a href="<?php echo home_url('design','relative'); ?>" class="btn">See Featured Projects</a>
 	</aside>
 
-	
+	<?php if(have_rows('homepage_slideshow')): ?>
+	<section class="homepage__slideshow swiper-container">
+		<div class="swiper-wrapper">
+
+			<?php while(have_rows('homepage_slideshow')): the_row();
+				$slideImg = get_sub_field('slide_image');
+				$slideTitle = get_sub_field('slide_title');
+				$slideText = get_sub_field('slide_text');
+				$slideLink = get_sub_field('slide_link'); ?>
+
+			<figure class="slide swiper-slide">
+
+				<div class="slide__content">
+
+					<?php if(!empty($slideTitle)): ?>
+					<h4 class="slide__title"><?php echo $slideTitle ?></h4>
+					<?php endif; ?>
+
+					<?php if(!empty($slideText)): ?>
+					<figcaption class="slide__text wysiwyg">
+						<?php echo $slideText ?>
+					</figcaption>
+					<?php endif; ?>
+
+					<?php if(!empty($slideLink)): ?>
+					<a href="<?php echo $slideLink ?>" class="slide__link btn">Read More</a>
+					<?php endif; ?>
+
+				</div>
+
+				<?php if(!empty($slideImg)): ?>
+				<img src="<?php echo $slideImg['sizes']['thumbnail'] ?>"
+					 alt="<?php echo $slideImg['alt'] ?>"
+					 class="slide__img"
+					 srcset="<?php echo $slideImg['sizes']['medium'] ?> 1024w,
+							 <?php echo $slideImg['sizes']['large'] ?> 1440w,
+							 <?php echo $slideImg['url'] ?> 1920w" />
+				<?php endif; ?>
+
+			</figure>
+
+			<?php endwhile; ?>
+		</div>
+
+		<div class="swiper-pagination"></div>
+
+		<div class="swiper-button-prev"><span class="fa fa-angle-left"></span></div>
+		<div class="swiper-button-next"><span class="fa fa-angle-right"></span></div>
+
+	</section>
+	<?php endif; ?>
 
 	<section class="homepage__dribbble">
 		<h3 class="homepage__dribbble--title">Latest Shots <span>on dribbble</span></h3>

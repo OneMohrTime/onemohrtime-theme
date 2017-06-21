@@ -1,5 +1,5 @@
 /*
-* === 6.3 PROJECTS ===
+* === 4.5 PROJECTS ===
 */
 
 .project {
@@ -62,16 +62,12 @@
                 background-color: $color__white;
             }
         }
-        @include media('>=screen1440') {
-//            margin-top: 30px;
-//            margin-bottom: 30px;
-//            padding-bottom: 25px;
-        }
     }
     &__subtitle {
         // .project__subtitle
         color: $color__yellow;
         background-color: $color__white;
+		font-size: .75em;
         font-family: $font__main;
         font-style: italic;
         font-weight: 400;

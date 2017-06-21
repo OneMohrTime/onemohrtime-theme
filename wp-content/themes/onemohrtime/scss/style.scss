@@ -29,9 +29,8 @@
 6.0 Pages
 	6.1 Home
 	6.2 Gallery
-	6.3 Design
-	6.4 Blog
-	6.5 Errors
+	6.3 Blog
+	6.4 Errors
 
 --------------------------------------------------------------*/
 
@@ -54,7 +53,7 @@
 --------------------------------------------------------------*/
 
 @import
-//	"vendor/swiper",
+	"vendor/swiper",
 	"vendor/animations";
 
 /*--------------------------------------------------------------
@@ -74,7 +73,7 @@
 	"layout/footer",
 	"layout/sidebar",
 	"layout/forms",
-//	"layout/project",
+	"layout/project",
 	"layout/post",
 	"layout/half-page";
 
@@ -99,6 +98,5 @@
 @import
 	"pages/home",
 	"pages/gallery",
-	"pages/design",
 	"pages/blog",
 	"pages/errors";

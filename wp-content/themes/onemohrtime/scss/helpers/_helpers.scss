@@ -23,7 +23,6 @@
 			color: $color__yellow--dark;
 			&::before {
 				width: auto;
-				transition: left $speed, right $speed;
 				animation: dancemonkey 2s infinite;
 			}
 		}

@@ -3,6 +3,7 @@
 */
 
 .gallery {
+	// .gallery__grid
 	&__grid {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -110,7 +111,6 @@
             // .gallery__project--link
 			@extend .btn;
             @include media('>=screen960') {
-                z-index: 2;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -119,6 +119,7 @@
 				border: 0;
                 font-size: 0;
                 opacity: 0;
+                z-index: 2;
             }
         }
 	}
@@ -132,11 +133,10 @@
 	}
 	&__dribbble {
 		// .gallery__dribbble
+		margin: 0 $gutter $gutter;
 		&--title {
 			// .gallery__dribbble--title
 			@include underlined();
-			margin-left: $gutter;
-			margin-right: $gutter;
 		}
 	}
 }

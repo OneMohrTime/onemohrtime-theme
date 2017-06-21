@@ -1,15 +1,8 @@
 <?php
 /**
  * The template for displaying project posts.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package onemohrtime
  */
-
 get_header(); ?>
-
-<pre>single-design.php</pre>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
