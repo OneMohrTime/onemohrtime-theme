@@ -6,7 +6,7 @@
     &__banner {
 		// .homepage__banner
 		position: relative;
-		background: no-repeat center center, linear-gradient(to right top, $color__yellow, $color__yellow--light);
+		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
         height: 250px;
 		padding: $gutter;
 		overflow: hidden;

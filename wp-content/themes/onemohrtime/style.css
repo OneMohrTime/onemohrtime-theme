@@ -317,7 +317,7 @@ p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg 
   z-index: 1; }
   @media (min-width: 1170px) {
     .wysiwyg a:hover, .wysiwyg a:focus {
-      color: #cc9c00; }
+      color: sahde(#ffc300, 10%); }
       .wysiwyg a:hover::before, .wysiwyg a:focus::before {
         width: auto;
         animation: dancemonkey 2s infinite; } }
@@ -1939,7 +1939,7 @@ sub {
 
 mark {
   background-color: #fef7e3;
-  color: #cc9c00; }
+  color: sahde(#ffc300, 10%); }
 
 /*
 * — Lists —
@@ -1986,8 +1986,8 @@ pre, code {
   display: inline-block;
   font-family: "Inconsolata", Monaco, monospace;
   font-size: .875em;
-  background-color: #fff9e1;
-  border: 1px #fff4c7 solid;
+  background-color: #f2f1ee;
+  border: 1px #e6e5e1 solid;
   color: #ffc300;
   padding: 1em; }
 
@@ -2205,7 +2205,7 @@ label {
   font-size: .75em;
   font-weight: 700;
   line-height: 1.7em;
-  color: #3c3417;
+  color: #2e2c22;
   text-transform: uppercase;
   display: block; }
 
@@ -2456,7 +2456,7 @@ label {
           .project-specs ul li {
             -ms-flex: 1 0 50%;
                 flex: 1 0 50%;
-            border-bottom: 1px #c0c0bc solid; }
+            border-bottom: 1px #aaa9a5 solid; }
             .project-specs ul li:nth-last-child(-n+2) {
               border-bottom: 0; } }
     @media (min-width: 600px) {
@@ -2963,7 +2963,7 @@ object {
     border-top: 1px #9b9a95 solid; }
   .menu__mobile .menu-item {
     display: block;
-    border-bottom: 1px #c0c0bc solid; }
+    border-bottom: 1px #aaa9a5 solid; }
     .menu__mobile .menu-item:last-child {
       border-bottom: none; }
     .menu__mobile .menu-item.current-menu-item, .menu__mobile .menu-item.current-page-parent {
@@ -2973,11 +2973,11 @@ object {
       font-size: .875em;
       padding: 1em 36px; }
   .menu__mobile .sub-menu {
-    background-color: #c0c0bc; }
+    background-color: #f2f1ee; }
     .menu__mobile .sub-menu a {
       font-size: .75em; }
     .menu__mobile .sub-menu .sub-menu {
-      background-color: #9b9a95; }
+      background-color: #e6e5e1; }
 
 /*
 * === 5.4 FEATURED IMAGE ===
@@ -3511,7 +3511,7 @@ Reverse FontAwesome animation
 */
 .homepage__banner {
   position: relative;
-  background: no-repeat center center, linear-gradient(to right top, #ffc300, #fef7e3);
+  background: no-repeat center center, linear-gradient(to right top, #ffc300, #ffe180);
   height: 250px;
   padding: 36px;
   overflow: hidden; }
@@ -3604,14 +3604,14 @@ Reverse FontAwesome animation
             background-color: #fffefa;
             color: #171409; }
             .homepage__services .service:nth-child(1):hover .service__img .designer-stroke {
-              stroke: #cc9c00; }
+              stroke: sahde(#ffc300, 10%); }
             .homepage__services .service:nth-child(1):hover .service__btn.btn, .homepage__services .service:nth-child(1):hover .service__btn.gallery__project--link {
               border: 2px #171409 solid;
               color: #171409; }
               .homepage__services .service:nth-child(1):hover .service__btn.btn::after, .homepage__services .service:nth-child(1):hover .service__btn.gallery__project--link::after {
                 background-color: #ffc300; }
         .homepage__services .service:nth-child(2) {
-          background-color: #cc9c00;
+          background-color: sahde(#ffc300, 10%);
           color: #fef7e3; }
           .homepage__services .service:nth-child(2) .service__header::after {
             background-color: #fef7e3; }
@@ -3642,7 +3642,7 @@ Reverse FontAwesome animation
       width: 100px; }
       .homepage__services .service__img svg .designer-stroke {
         fill: none;
-        stroke: #cc9c00;
+        stroke: sahde(#ffc300, 10%);
         stroke-width: 5;
         stroke-linejoin: round;
         stroke-miterlimit: 10; }
@@ -3650,7 +3650,7 @@ Reverse FontAwesome animation
         fill: #ffc300; }
       .homepage__services .service__img svg .developer-stroke {
         fill: none;
-        stroke: #cc9c00;
+        stroke: sahde(#ffc300, 10%);
         stroke-width: 5;
         stroke-linejoin: round;
         stroke-miterlimit: 10; }
@@ -4193,7 +4193,7 @@ Reverse FontAwesome animation
   padding: .5em 1em;
   border: 1px #ffc300 solid;
   background-color: #fef7e3;
-  color: #cc9c00;
+  color: sahde(#ffc300, 10%);
   text-shadow: 1px 1px 0 #fef7e3, 2px 2px 0 #ffc300; }
 
 /*# sourceMappingURL=style.css.map */

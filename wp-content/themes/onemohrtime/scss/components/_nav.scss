@@ -106,10 +106,10 @@
 		}
 	}
 	.sub-menu {
-		background-color: $color__gray--light;
+		background-color: $color__white--dark;
 		a { font-size: .75em; }
 		.sub-menu {
-			background-color: $color__gray;
+			background-color: $color__white--darker;
 		}
 	}
 }
