@@ -7,16 +7,16 @@ if (!function_exists('onemohrtime_setup')):
 function onemohrtime_setup() {
 	// Make theme available for translation.
 	// Translations can be filed in the /languages/ directory.
-	load_theme_textdomain( 'onemohrtime', get_template_directory() . '/languages' );
+	load_theme_textdomain('onemohrtime', get_template_directory() . '/languages');
 	
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 	
 	// Let WordPress manage the document title.
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 	
 	//Enable support for Post Thumbnails on posts and pages.
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -34,7 +34,7 @@ function onemohrtime_setup() {
 	));
 	
 	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array(
+	add_theme_support('post-formats', array(
 		'aside',
 		'image',
 		'video',
@@ -43,34 +43,36 @@ function onemohrtime_setup() {
 	));
 }
 endif;
-add_action( 'after_setup_theme', 'onemohrtime_setup' );
+add_action('after_setup_theme', 'onemohrtime_setup');
 
 // Register widget area.
 function onemohrtime_widgets_init() {
-	register_sidebar ( array(
-		'name'          => esc_html__( 'Blog Listing','onemohrtime' ),
-		'id'            => 'sidebar-listing',
-		'description'   => 'Sidebar for blog listing',
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    register_sidebar ( array(
-        'name'          => esc_html__( 'Blog Post','onemohrtime' ),
-        'id'            => 'sidebar-post',
-        'description'   => 'Sidebar for blog posts',
-        'before_widget' => '<section id="%1$s" class="widget %2%s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
+	register_sidebar(array(
+		'name' => __('Sidebar', 'onemohrtime'),
+		'id' => 'sidebar'
+	));
+//	register_sidebar ( array(
+//		'name'          => esc_html__( 'Blog Listing','onemohrtime' ),
+//		'id'            => 'sidebar-listing',
+//		'description'   => 'Sidebar for blog listing',
+//		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//		'after_widget'  => '</section>',
+//		'before_title'  => '<h2 class="widget-title">',
+//		'after_title'   => '</h2>',
+//	) );
+//    register_sidebar ( array(
+//        'name'          => esc_html__( 'Blog Post','onemohrtime' ),
+//        'id'            => 'sidebar-post',
+//        'description'   => 'Sidebar for blog posts',
+//        'before_widget' => '<section id="%1$s" class="widget %2%s">',
+//        'after_widget'  => '</section>',
+//        'before_title'  => '<h3 class="widget-title">',
+//        'after_title'   => '</h3>',
+//    ) );
 }
-add_action( 'widgets_init', 'onemohrtime_widgets_init' );
+add_action('widgets_init', 'onemohrtime_widgets_init');
 
-/**
- * Enqueue scripts and styles.
- */
+// Enqueue scripts and styles.
 function onemohrtime_scripts() {
 	
 	// load minified css instead
@@ -104,9 +106,6 @@ function onemohrtime_scripts() {
     // Custom jQuery/JS
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.min.js', array('jquery'), null, true);
     
-//	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-//		wp_enqueue_script( 'comment-reply' );
-//	}
 }
 add_action( 'wp_enqueue_scripts', 'onemohrtime_scripts' );
 
@@ -143,44 +142,14 @@ add_action( 'wp_enqueue_scripts', 'onemohrtime_scripts' );
 //}
 //add_action( 'init', 'cptui_register_my_cpts_design' );
 
-/**
- * Custom MCE editor
- */
+// Custom MCE editor
 add_editor_style();
 
-/**
- * Custom Shortcodes
- */
+// Custom Shortcodes
 function pull_quote( $atts, $quote='' ) {
     return '<blockquote class="pull-quote">' . $quote . '</blockquote>';
 }
 add_shortcode( 'pullquote', 'pull_quote' );
-
-//function about_dropdown( $atts , $content = null ) {
-//	$atts = shortcode_atts(
-//		array(
-//			'title' => '',
-//            'id' => ''
-//		),
-//		$atts, 'about'
-//	);
-//    $return_string = '<section class="about-me scroll" id="education"><h3 class="toggle-show">' . $atts[title] . '<span class="fa fa-chevron-down pull-right"></span></h3>';
-//    $return_string .= '<div class="toggle-hidden">' . $content . '</div></section>';
-//    return $return_string;
-//}
-//add_shortcode( 'about', 'about_dropdown' );
-
-/**
- * Custom navigation menus
- */
-//function register_my_menus() {
-//    register_nav_menus(
-//        array(
-//            'desktop-menu' => __( 'Desktop' )
-//        )
-//    );
-//}
-//add_action( 'init', 'register_my_menus' );
 
 /**
  * Posts excerpts
@@ -194,17 +163,11 @@ function wpdocs_excerpt_more( $more ) {
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
-/**
- * Custom template tags for this theme.
- */
+// Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Customizer additions.
- */
+// Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';

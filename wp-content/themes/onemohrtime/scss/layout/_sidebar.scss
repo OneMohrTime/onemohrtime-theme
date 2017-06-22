@@ -3,49 +3,65 @@
 */
 
 .widget {
-	margin: 0 0 $gutter;
-    @include media('>=screen540') {
-		margin-left: 25%;
-		margin-right: 25%;
-	}
-    @include media('>=screen960') {
-		margin-left: 0;
-		margin-right: 0;
+	&__instagram {
+		// .widget__instagram
+		&--feed {
+			// .widget__instagram--feed
+			display: grid;
+			grid-template-rows: repeat(10, 1fr);
+			grid-gap: $gutter/2;
+		}
+		&--image {
+			// .widget__instagram--image
+			grid-column: span 5;
+			position: relative;
+			@include media('>=screen400') {
+				grid-column: span 5;
+			}
+		}
+		&--link {
+			// .widget__instagram--link
+			@extend %block-link;
+		}
 	}
 }
 
-// Smash Balloon Instagram
-#sb_instagram {
-    .sbi_photo {
-        padding: 0;
-        width: 100%;
-    }
-}
+//.widget {
+//	margin: 0 0 $gutter;
+//    @include media('>=screen540') {
+//		margin-left: 25%;
+//		margin-right: 25%;
+//	}
+//    @include media('>=screen960') {
+//		margin-left: 0;
+//		margin-right: 0;
+//	}
+//}
 
 // Recent Posts Widget Extended
-.rpwe {
-    &-img {
-        @include unstyled();
-        @include pseudo-border();
-        margin-bottom: 1em;
-        img { display: block; }
-    }
-    &-title {
-        position: relative;
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 10px;
-            width: 100px;
-            background-color: $color__yellow;
-        }
-        a {margin-bottom: 1em;}
-    }
-    &-time {
-        color: $color__gray;
-        font-size: .75em;
-        font-weight: 700;
-    }
-}
+//.rpwe {
+//    &-img {
+//        @include unstyled();
+//        @include pseudo-border();
+//        margin-bottom: 1em;
+//        img { display: block; }
+//    }
+//    &-title {
+//        position: relative;
+//        &::after {
+//            content: "";
+//            position: absolute;
+//            bottom: 0;
+//            left: 0;
+//            height: 10px;
+//            width: 100px;
+//            background-color: $color__yellow;
+//        }
+//        a {margin-bottom: 1em;}
+//    }
+//    &-time {
+//        color: $color__gray;
+//        font-size: .75em;
+//        font-weight: 700;
+//    }
+//}

@@ -10,7 +10,7 @@
 			 srcset="<?php echo $homeHero['sizes']['medium']; ?> 800w,
 					 <?php echo $homeHero['sizes']['large']; ?> 1600w,
 					 <?php echo $homeHero['url']; ?> 1920w" />
-		<h1 class="homepage__banner--title">Freelance <span class="rotate">designer,developer</span></h1>
+		<h1 class="homepage__banner--title">Front-end <span class="rotate">designer,developer,creative</span></h1>
 	</figure>
 	
 	<section class="homepage__services">

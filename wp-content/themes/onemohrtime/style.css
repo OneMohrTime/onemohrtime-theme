@@ -340,7 +340,7 @@ p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg 
   100% {
     left: 0;
     right: 25%; } }
-.dribbbles .shot__link, .posts .post__date a, .posts .post__link {
+.widget__instagram--link, .dribbbles .shot__link, .posts .post__date a, .posts .post__link {
   position: absolute;
   top: 0;
   left: 0;
@@ -2082,62 +2082,20 @@ blockquote {
 /*
 * === 4.4 SIDEBAR ===
 */
-.widget {
-  margin: 0 0 36px; }
-  @media (min-width: 540px) {
-    .widget {
-      margin-left: 25%;
-      margin-right: 25%; } }
-  @media (min-width: 960px) {
-    .widget {
-      margin-left: 0;
-      margin-right: 0; } }
-
-#sb_instagram .sbi_photo {
-  padding: 0;
-  width: 100%; }
-
-.rpwe-img {
-  color: inherit !important;
-  padding: 0 !important;
-  border: 0 !important;
-  background: none !important;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1em; }
-  .rpwe-img::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 3px #ffc300 solid;
-    opacity: 1;
-    z-index: -1;
-    transform: translate3d(-10px, 10px, 0);
-    transition: transform 300ms, opacity 300ms; }
-  .rpwe-img:hover::before {
-    opacity: 0;
-    transform: translate3d(0, 0, 0); }
-  .rpwe-img img {
-    display: block; }
-.rpwe-title {
+.widget__instagram--feed {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[10];
+      grid-template-rows: repeat(10, 1fr);
+  grid-gap: 18px; }
+.widget__instagram--image {
+  -ms-grid-column: span 5;
+      grid-column: span 5;
   position: relative; }
-  .rpwe-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 10px;
-    width: 100px;
-    background-color: #ffc300; }
-  .rpwe-title a {
-    margin-bottom: 1em; }
-.rpwe-time {
-  color: #9b9a95;
-  font-size: .75em;
-  font-weight: 700; }
+  @media (min-width: 400px) {
+    .widget__instagram--image {
+      -ms-grid-column: span 5;
+          grid-column: span 5; } }
 
 /*
 * === 4.5 FORMS ===
