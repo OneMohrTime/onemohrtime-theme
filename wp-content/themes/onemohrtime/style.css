@@ -3489,7 +3489,7 @@ Reverse FontAwesome animation
     .homepage__banner--image {
       object-fit: cover;
       filter: grayscale(100%);
-      mix-blend-mode: overlay;
+      mix-blend-mode: soft-light;
       height: 100%;
       min-width: 100vw; } }
   .homepage__banner--title {

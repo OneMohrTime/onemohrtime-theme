@@ -13,19 +13,15 @@
 		@supports (object-fit: cover) {
 			padding: 0;
 		}
-		@include media('>=screen768') {
-			height: 350px;
-		}
+		@include media('>=screen768') { height: 350px; }
 		@include media('>=screen1024') { height: 450px; }
-        @include media('>=screen1440') {
-            height: 550px;
-        }
+        @include media('>=screen1440') { height: 550px; }
 		&--image {
 			// .homepage__banner--image
 			@supports (object-fit: cover) {
 				object-fit: cover;
 				filter: grayscale(100%);
-				mix-blend-mode: overlay;
+				mix-blend-mode: soft-light;
 				height: 100%;
 				min-width: 100vw;
 			}
