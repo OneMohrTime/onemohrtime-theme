@@ -317,7 +317,7 @@ p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg 
   z-index: 1; }
   @media (min-width: 1170px) {
     .wysiwyg a:hover, .wysiwyg a:focus {
-      color: sahde(#ffc300, 10%); }
+      color: #e6b000; }
       .wysiwyg a:hover::before, .wysiwyg a:focus::before {
         width: auto;
         animation: dancemonkey 2s infinite; } }
@@ -1868,48 +1868,113 @@ body {
 /*
 * — Headers —
 */
-h1, h2, h3, h4, .blog .widget-area h2, .blog .widget-area h3, .gallery__project--header, h5, h6 {
+h1 {
   position: relative;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
+  font-size: 3.05176em;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 0 0 0.5em; }
-  h1 span:not(.typing), h2 span:not(.typing), h3 span:not(.typing), h4 span:not(.typing), .blog .widget-area h2 span:not(.typing), .blog .widget-area h3 span:not(.typing), .gallery__project--header span:not(.typing), h5 span:not(.typing), h6 span:not(.typing) {
+  margin: 0 0 .5em; }
+  .wysiwyg h1 a {
+    color: inherit; }
+    .wysiwyg h1 a::before {
+      display: none; }
+  h1 span:not(.typing) {
     font-family: "Bitter", "Georgia", serif;
     font-size: .75em;
     font-weight: 400;
     text-transform: none; }
 
-h1 {
-  font-size: 3.05176em; }
-  .wysiwyg h1 a {
-    color: inherit; }
-
 h2 {
-  font-size: 2.44141em; }
+  position: relative;
+  color: inherit;
+  font-family: "Montserrat", "Futura", sans-serif;
+  font-size: 2.44141em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 .5em; }
   .wysiwyg h2 a {
     color: inherit; }
+    .wysiwyg h2 a::before {
+      display: none; }
+  h2 span:not(.typing) {
+    font-family: "Bitter", "Georgia", serif;
+    font-size: .75em;
+    font-weight: 400;
+    text-transform: none; }
 
 h3 {
-  font-size: 1.95313em; }
+  position: relative;
+  color: inherit;
+  font-family: "Montserrat", "Futura", sans-serif;
+  font-size: 1.95313em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 .5em; }
   .wysiwyg h3 a {
     color: inherit; }
+    .wysiwyg h3 a::before {
+      display: none; }
+  h3 span:not(.typing) {
+    font-family: "Bitter", "Georgia", serif;
+    font-size: .75em;
+    font-weight: 400;
+    text-transform: none; }
 
 h4, .blog .widget-area h2, .blog .widget-area h3, .gallery__project--header {
-  font-size: 1.5625em; }
+  position: relative;
+  color: inherit;
+  font-family: "Montserrat", "Futura", sans-serif;
+  font-size: 1.5625em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 .5em; }
   .wysiwyg h4 a, .wysiwyg .blog .widget-area h2 a, .blog .widget-area .wysiwyg h2 a, .wysiwyg .blog .widget-area h3 a, .blog .widget-area .wysiwyg h3 a, .wysiwyg .gallery__project--header a {
     color: inherit; }
+    .wysiwyg h4 a::before, .wysiwyg .blog .widget-area h2 a::before, .blog .widget-area .wysiwyg h2 a::before, .wysiwyg .blog .widget-area h3 a::before, .blog .widget-area .wysiwyg h3 a::before, .wysiwyg .gallery__project--header a::before {
+      display: none; }
+  h4 span:not(.typing), .blog .widget-area h2 span:not(.typing), .blog .widget-area h3 span:not(.typing), .gallery__project--header span:not(.typing) {
+    font-family: "Bitter", "Georgia", serif;
+    font-size: .75em;
+    font-weight: 400;
+    text-transform: none; }
 
 h5 {
-  font-size: 1.25em; }
+  position: relative;
+  color: inherit;
+  font-family: "Montserrat", "Futura", sans-serif;
+  font-size: 1.25em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 .5em; }
   .wysiwyg h5 a {
     color: inherit; }
+    .wysiwyg h5 a::before {
+      display: none; }
+  h5 span:not(.typing) {
+    font-family: "Bitter", "Georgia", serif;
+    font-size: .75em;
+    font-weight: 400;
+    text-transform: none; }
 
 h6 {
-  font-size: 1em; }
+  position: relative;
+  color: inherit;
+  font-family: "Montserrat", "Futura", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 .5em; }
   .wysiwyg h6 a {
     color: inherit; }
+    .wysiwyg h6 a::before {
+      display: none; }
+  h6 span:not(.typing) {
+    font-family: "Bitter", "Georgia", serif;
+    font-size: .75em;
+    font-weight: 400;
+    text-transform: none; }
 
 /*
 * — Body Copy —
@@ -1939,7 +2004,7 @@ sub {
 
 mark {
   background-color: #fef7e3;
-  color: sahde(#ffc300, 10%); }
+  color: #e6b000; }
 
 /*
 * — Lists —
@@ -2083,19 +2148,21 @@ blockquote {
 * === 4.4 SIDEBAR ===
 */
 .widget__instagram--feed {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (1fr)[10];
-      grid-template-rows: repeat(10, 1fr);
-  grid-gap: 18px; }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center; }
 .widget__instagram--image {
-  -ms-grid-column: span 5;
-      grid-column: span 5;
-  position: relative; }
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto; }
   @media (min-width: 400px) {
     .widget__instagram--image {
-      -ms-grid-column: span 5;
-          grid-column: span 5; } }
+      -ms-flex: 0 1 calc(50% - 18px);
+          flex: 0 1 calc(50% - 18px); } }
 
 /*
 * === 4.5 FORMS ===
@@ -3562,14 +3629,14 @@ Reverse FontAwesome animation
             background-color: #fffefa;
             color: #171409; }
             .homepage__services .service:nth-child(1):hover .service__img .designer-stroke {
-              stroke: sahde(#ffc300, 10%); }
+              stroke: #e6b000; }
             .homepage__services .service:nth-child(1):hover .service__btn.btn, .homepage__services .service:nth-child(1):hover .service__btn.gallery__project--link {
               border: 2px #171409 solid;
               color: #171409; }
               .homepage__services .service:nth-child(1):hover .service__btn.btn::after, .homepage__services .service:nth-child(1):hover .service__btn.gallery__project--link::after {
                 background-color: #ffc300; }
         .homepage__services .service:nth-child(2) {
-          background-color: sahde(#ffc300, 10%);
+          background-color: #e6b000;
           color: #fef7e3; }
           .homepage__services .service:nth-child(2) .service__header::after {
             background-color: #fef7e3; }
@@ -3600,7 +3667,7 @@ Reverse FontAwesome animation
       width: 100px; }
       .homepage__services .service__img svg .designer-stroke {
         fill: none;
-        stroke: sahde(#ffc300, 10%);
+        stroke: #e6b000;
         stroke-width: 5;
         stroke-linejoin: round;
         stroke-miterlimit: 10; }
@@ -3608,7 +3675,7 @@ Reverse FontAwesome animation
         fill: #ffc300; }
       .homepage__services .service__img svg .developer-stroke {
         fill: none;
-        stroke: sahde(#ffc300, 10%);
+        stroke: #e6b000;
         stroke-width: 5;
         stroke-linejoin: round;
         stroke-miterlimit: 10; }
@@ -3694,9 +3761,6 @@ Reverse FontAwesome animation
           -ms-flex-order: 1;
               order: 1;
           width: 50%; } }
-      @media (min-width: 1024px) {
-        .homepage__slideshow .slide__content {
-          padding: 0; } }
     .homepage__slideshow .slide__title {
       width: 100%; }
     .homepage__slideshow .slide__text {
@@ -3987,17 +4051,16 @@ Reverse FontAwesome animation
         flex: 0 1 20%;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
     -ms-flex-pack: center;
         justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
     -ms-flex-align: center;
         align-items: center;
     background-color: #ffc300;
     color: #fef7e3;
-    text-align: center;
     border-bottom-left-radius: 3px;
-    padding: .5em; }
+    padding: 18px; }
     @media (min-width: 840px) {
       .posts .post__date {
         background-color: transparent !important;
@@ -4005,22 +4068,11 @@ Reverse FontAwesome animation
         border-radius: 0;
         padding: 0; } }
     .posts .post__date .month {
-      display: block;
-      line-height: 0; }
-      @media (min-width: 840px) {
-        .posts .post__date .month {
-          -ms-flex: 1 0 auto;
-              flex: 1 0 auto;
-          line-height: 1em; } }
+      line-height: 1em; }
     .posts .post__date .day {
-      display: block;
       font-weight: 700;
-      font-size: 2em; }
-      @media (min-width: 840px) {
-        .posts .post__date .day {
-          -ms-flex: 1 0 auto;
-              flex: 1 0 auto;
-          line-height: 1em; } }
+      font-size: 2em;
+      line-height: 1em; }
     .posts .post__date .updated {
       display: none; }
     @media (min-width: 840px) {
@@ -4151,7 +4203,7 @@ Reverse FontAwesome animation
   padding: .5em 1em;
   border: 1px #ffc300 solid;
   background-color: #fef7e3;
-  color: sahde(#ffc300, 10%);
+  color: #e6b000;
   text-shadow: 1px 1px 0 #fef7e3, 2px 2px 0 #ffc300; }
 
 /*# sourceMappingURL=style.css.map */

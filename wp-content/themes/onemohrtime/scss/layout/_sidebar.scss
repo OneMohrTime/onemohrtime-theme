@@ -7,16 +7,16 @@
 		// .widget__instagram
 		&--feed {
 			// .widget__instagram--feed
-			display: grid;
-			grid-template-rows: repeat(10, 1fr);
-			grid-gap: $gutter/2;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			align-items: center;
 		}
 		&--image {
 			// .widget__instagram--image
-			grid-column: span 5;
-			position: relative;
+			flex: 1 0 auto;
 			@include media('>=screen400') {
-				grid-column: span 5;
+				flex: 0 1 calc(50% - #{$gutter/2});
 			}
 		}
 		&--link {
