@@ -151,9 +151,7 @@ function pull_quote( $atts, $quote='' ) {
 }
 add_shortcode( 'pullquote', 'pull_quote' );
 
-/**
- * Posts excerpts
- */
+// Posts excerpts
 function wpdocs_custom_excerpt_length( $length ) {
     return 20;
 }
@@ -162,6 +160,29 @@ function wpdocs_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+// Disable WP Emojis
+function disable_wp_emojicons() {
+	// all actions related to emojis
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	// filter to remove TinyMCE emojis
+	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+function disable_emojicons_tinymce($plugins) {
+	if (is_array($plugins)) {
+		return array_diff($plugins, array('wpemoji'));
+	} else {
+		return array();
+	}
+}
+add_filter( 'emoji_svg_url', '__return_false' );
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
