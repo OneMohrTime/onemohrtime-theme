@@ -17,7 +17,14 @@ get_header(); ?>
                 $projBanner = get_sub_field('proj_banner');
                 $projSub = get_sub_field('proj_subheader'); ?>
                 
-                <figure class="project__banner animatedParent animateOnce" data-sequence="100" style="background-image: url(<?php echo $projBanner['url'] ?>);">
+                <figure class="project__banner">
+					
+					<img src="<?php echo $projBanner['sizes']['thumbnail']; ?>"
+						 alt="<?php echo $projBanner['alt']; ?>"
+						 class="project__banner--image"
+						 srcset="<?php echo $projBanner['sizes']['medium']; ?> 800w,
+								 <?php echo $projBanner['sizes']['large']; ?> 1600w,
+								 <?php echo $projBanner['url']; ?> 1920w" />
                     
                     <?php if($projSub): ?>
                         <h2 class="project__subtitle"><?php echo $projSub ?></h2>

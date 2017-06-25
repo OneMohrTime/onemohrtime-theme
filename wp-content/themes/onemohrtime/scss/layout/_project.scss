@@ -25,43 +25,43 @@
     }
     &__banner {
         // .project__banner
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: $color__yellow no-repeat center center scroll;
-        background-size: cover;
-        background-blend-mode: multiply;
-        color: $color__white;
-        padding: 50px 1em;
-        @include media('>=screen600') {padding: 100px 1em;}
-        @include media('>=screen960') {
-            align-items: flex-start;
-            justify-content: flex-end;
-            padding: 0 1em;
-            height: calc(100vh - 100px);
-        }
-    }
-    &__title {
-        // .project__title
-        margin: 0;
-        @include media('>=screen960') {
-            position: relative;
-            max-width: 75%;
-            line-height: 1em;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            &::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100px;
-                height: 10px;
-                background-color: $color__white;
-            }
-        }
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
+		color: $color__white;
+		height: 250px;
+		@include media('>=screen600') { height: 350px; }
+		@include media('>=screen960') {
+			align-items: flex-start;
+			justify-content: flex-end;
+			height: calc(100vh - 100px);
+		}
+		&--image {
+			// .project__banner--image
+			position: absolute;
+			@supports (object-fit: cover) {
+				object-fit: cover;
+				filter: grayscale(100%);
+				mix-blend-mode: soft-light;
+				height: 100%;
+				min-width: 100vw;
+			}
+		}
+	}
+	&__title {
+		// .project__title
+		margin: 0;
+		@include media('>=screen960') {
+			@include underlined();
+			margin: 20px $gutter 30px;
+			padding-bottom: 30px;
+			&::after {
+				background-color: $color__white;
+			}
+		}
     }
     &__subtitle {
         // .project__subtitle
@@ -72,14 +72,15 @@
         font-style: italic;
         font-weight: 400;
         text-transform: none;
-        margin: 0;
+        margin: 0 $gutter;
         padding: 5px 10px;
     }
     &__breadcrumb {
         // .project__breadcrumb
         display: flex;
         align-items: center;
-        margin: 0 0 1em;
+        margin: 0 $gutter;
+		@include media('>=screen960') { margin-bottom: 1em; }
         font-size: .75em;
         span {
             margin-left: 5px;
