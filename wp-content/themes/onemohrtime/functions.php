@@ -109,38 +109,11 @@ function onemohrtime_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'onemohrtime_scripts' );
 
-/**
- * Post Type: Projects.
- */
-//function cptui_register_my_cpts_design() {
-//	$labels = array(
-//		"name" => __( 'Projects', 'onemohrtime' ),
-//		"singular_name" => __( 'Project', 'onemohrtime' ),
-//	);
-//	$args = array(
-//		"label" => __( 'Projects', 'onemohrtime' ),
-//		"labels" => $labels,
-//		"description" => "",
-//		"public" => true,
-//		"publicly_queryable" => true,
-//		"show_ui" => true,
-//		"show_in_rest" => false,
-//		"rest_base" => "",
-//		"has_archive" => false,
-//		"show_in_menu" => true,
-//		"exclude_from_search" => false,
-//		"capability_type" => "page",
-//		"map_meta_cap" => true,
-//		"hierarchical" => true,
-//		"rewrite" => array( "slug" => "design", "with_front" => true ),
-//		"query_var" => true,
-//		"menu_position" => 0,
-//		"menu_icon" => "dashicons-align-left",
-//		"supports" => array( "title", "thumbnail", "excerpt" ),
-//	);
-//	register_post_type( "design", $args );
-//}
-//add_action( 'init', 'cptui_register_my_cpts_design' );
+// Custom Post Types UI
+include('inc/cptui.php');
+
+// Advanced Custom Fields
+include('inc/acf.php');
 
 // Custom MCE editor
 add_editor_style();
