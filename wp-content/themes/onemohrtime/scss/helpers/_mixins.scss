@@ -1,4 +1,4 @@
- @mixin unstyled() {
+@mixin unstyled() {
 	color: inherit !important;
 	padding: 0 !important;
 	border: 0 !important;
@@ -40,7 +40,6 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
-//		bottom: -1.2em;
 		height: 10px;
 		width: 100px;
 		background-color: $color__yellow;

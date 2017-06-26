@@ -2463,51 +2463,67 @@ label {
       @media (min-width: 1024px) {
         .project__gallery figure {
           width: 25%; } }
-  .project-specs {
-    padding: 0 1em 1.7em; }
-    .project-specs h4, .project-specs .blog .widget-area h2, .blog .widget-area .project-specs h2, .project-specs .blog .widget-area h3, .blog .widget-area .project-specs h3, .project-specs .gallery__project--header {
-      margin-bottom: 1em; }
-    .project-specs ul {
-      list-style: none;
-      margin: 0; }
-      .project-specs ul li {
-        display: block;
-        width: 100%; }
-        .project-specs ul li span::after {
-          content: ", "; }
-        .project-specs ul li span:last-child::after {
-          content: ""; }
-        .project-specs ul li:nth-of-type(odd) {
-          font-weight: 700; }
-        .project-specs ul li:nth-of-type(even) {
-          padding-bottom: .5em; }
-        @media (min-width: 480px) {
-          .project-specs ul li {
-            padding: .5em; } }
-      @media (min-width: 480px) {
-        .project-specs ul {
-          display: -ms-flexbox;
-          display: flex;
+  .project__specs {
+    margin: 0 36px 36px; }
+    .project__specs--title {
+      position: relative;
+      padding-bottom: calc(.5em + 10px);
+      margin-bottom: .5em; }
+      .project__specs--title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 10px;
+        width: 100px;
+        background-color: #ffc300; }
+    .project__specs ul {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+      @media (min-width: 540px) {
+        .project__specs ul {
           -ms-flex-flow: row wrap;
-              flex-flow: row wrap; }
-          .project-specs ul li {
-            -ms-flex: 1 0 50%;
-                flex: 1 0 50%;
-            border-bottom: 1px #aaa9a5 solid; }
-            .project-specs ul li:nth-last-child(-n+2) {
-              border-bottom: 0; } }
-    @media (min-width: 600px) {
-      .project-specs {
-        padding: 0 10% 1.7em; } }
-    @media (min-width: 840px) {
-      .project-specs {
-        padding: 0 15% 1.7em; } }
-    @media (min-width: 1024px) {
-      .project-specs {
-        padding: 0 20% 1.7em; } }
-    @media (min-width: 1600px) {
-      .project-specs {
-        padding: 0 25% 1.7em; } }
+              flex-flow: row wrap;
+          -ms-flex-align: end;
+              align-items: flex-end; } }
+      .project__specs ul li {
+        margin-bottom: .5em; }
+        @media (min-width: 540px) {
+          .project__specs ul li {
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+            margin-bottom: 1em; } }
+        .project__specs ul li:nth-of-type(odd) {
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto;
+          color: #aaa9a5;
+          font-family: "Montserrat", "Futura", sans-serif;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px; }
+          @media (min-width: 540px) {
+            .project__specs ul li:nth-of-type(odd) {
+              -ms-flex: 0 1 50%;
+                  flex: 0 1 50%;
+              font-size: .75em; } }
+          @media (min-width: 1440px) {
+            .project__specs ul li:nth-of-type(odd) {
+              font-size: .5em; } }
+        .project__specs ul li:nth-of-type(even) {
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto; }
+          @media (min-width: 540px) {
+            .project__specs ul li:nth-of-type(even) {
+              -ms-flex: 1 0 50%;
+                  flex: 1 0 50%; } }
+        .project__specs ul li span::after {
+          content: ", "; }
+        .project__specs ul li span:last-child::after {
+          content: ""; }
 
 /*
 * === 4.6 POSTS ===
@@ -3223,14 +3239,18 @@ object {
     z-index: 100000; }
 
 .alignleft {
-  display: inline;
+  display: inline-block;
   float: left;
   margin-right: 1.5em; }
 
 .alignright {
-  display: inline;
+  display: inline-block;
   float: right;
   margin-left: 1.5em; }
+
+.aligncenter {
+  display: block;
+  text-align: center; }
 
 /*--------------------------------------------------------------
     Animations
