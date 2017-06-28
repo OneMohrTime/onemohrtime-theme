@@ -2097,15 +2097,13 @@ blockquote {
   background-color: #fffefa;
   z-index: 20; }
   .site__header--logo {
-    -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-    height: 100%;
-    max-height: 100%;
-    padding-top: 18px;
-    padding-bottom: 18px; }
+    -ms-flex: 0 1 60px;
+        flex: 0 1 60px;
+    padding-top: 20px;
+    padding-bottom: 20px; }
     .site__header--logo img {
-      height: 100%;
-      max-height: 100%; }
+      height: 60px;
+      width: 60px; }
 
 /*
 * === 4.2 FOOTER ===
@@ -2939,7 +2937,7 @@ object {
   margin: 0 0 1.7em; }
 
 /*
-* === 3.2 TYPOGRAPHY ===
+* === 5.3 NAV ===
 */
 /*
 * — Mobile —
