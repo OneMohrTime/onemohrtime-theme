@@ -7,21 +7,22 @@
 		// .homepage__banner
 		position: relative;
 		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
-        height: 250px;
-		padding: $gutter;
-		overflow: hidden;
 		@supports (object-fit: cover) {
-			padding: 0;
+			height: 250px;
+			@include media('>=screen768') { height: 350px; }
+			@include media('>=screen1024') { height: 450px; }
+			@include media('>=screen1440') { height: 550px; }
 		}
-		@include media('>=screen768') { height: 350px; }
-		@include media('>=screen1024') { height: 450px; }
-        @include media('>=screen1440') { height: 550px; }
+		overflow: hidden;
 		&--image {
 			// .homepage__banner--image
+			position: relative;
+			width: 100vw;
 			@supports (object-fit: cover) {
 				object-fit: cover;
 				filter: grayscale(100%);
 				mix-blend-mode: soft-light;
+				width: auto;
 				height: 100%;
 				min-width: 100vw;
 			}
@@ -30,12 +31,12 @@
 			// .homepage__banner--title
             color: $color__white;
 			margin-bottom: 0;
-			@supports (object-fit: cover) {
+//			@supports (object-fit: cover) {
 				position: absolute;
 				bottom: 0;
 				left: 0;
 				padding: $gutter;
-			}
+//			}
             .rotate {
                 color: $color__yellow;
                 font-style: italic;

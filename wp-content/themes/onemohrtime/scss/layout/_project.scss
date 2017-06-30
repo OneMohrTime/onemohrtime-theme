@@ -104,18 +104,18 @@
             margin-right: 0;
             font-style: italic;
         }
-    }
-    &__text {
-        // .project__text
-        padding: 0 1em 1.7em;
-        @include media('>=screen600') { padding: 0 10% 1.7em; }
-        @include media('>=screen840') { padding: 0 15% 1.7em; }
-        @include media('>=screen1024') { padding: 0 20% 1.7em; }
-        @include media('>=screen1600') { padding: 0 25% 1.7em; }
-    }
-    &__text-image {
+	}
+	&__text {
+		// .project__text
+		padding: 0 $gutter 1.7em;
+		@include media('>=screen600') { padding: 0 10% 1.7em; }
+		@include media('>=screen840') { padding: 0 15% 1.7em; }
+		@include media('>=screen1024') { padding: 0 20% 1.7em; }
+		@include media('>=screen1600') { padding: 0 25% 1.7em; }
+	}
+	&__text-image {
         // .project__text-image
-        padding: 0 1em;
+        padding: 0 $gutter;
         margin-bottom: 1.7em;
         @include media('>=screen768') {
             align-items: center;
@@ -123,18 +123,18 @@
         }
         .content--half {
             order: 1;
-            margin: 0 0 1em;
+            margin: 0 0 1.7em;
             @include media('>=screen768') {
                 flex: 0 1 50%;
                 margin: 0;
-                padding: 1em;
+                padding: $gutter;
             }
-            @include media('>=screen1024') {
-                padding: 2em;
-            }
-            @include media('>=screen1024') {
-                padding: 3em;
-            }
+//            @include media('>=screen1024') {
+//                padding: 2em;
+//            }
+//            @include media('>=screen1024') {
+//                padding: 3em;
+//            }
         }
         .image--half {
             order: 2;
@@ -155,7 +155,7 @@
             }
             .image--half {
                 order: 1;
-                margin: 0 0 1em;
+                margin: 0 0 1.7em;
                 @include media('>=screen768') {
                     margin: 0;
                 }
@@ -168,7 +168,7 @@
         // .project__image
         &--default {
             // .project__image--default
-            padding: 1em;
+            padding: 0 $gutter;
             margin-bottom: 1.7em;
         }
         &--wide {
@@ -200,13 +200,14 @@
         figure {
             overflow: hidden;
             width: 100%;
-            @include media('>=screen600') {width: 50%;}
-            @include media('>=screen840') {width: 33.33333%;}
-            @include media('>=screen1024') {width: 25%;}
+            @include media('>=screen600') { width: 50%; }
+            @include media('>=screen840') { width: 33.33333%; }
+            @include media('>=screen1024') { width: 25%; }
         }
     }
     &__specs {
 		// .project__specs
+		@extend %type;
 		margin: 0 $gutter $gutter;
 		&--title {
 			// .project__specs--title
@@ -224,9 +225,9 @@
 				margin-bottom: .5em;
 				@include media('>=screen540') {
 					flex: 0 0 50%;
-					margin-bottom: 1em;
-//					border-bottom: 2px $color__white--dark solid;
-//					padding-bottom: .5em;
+					margin-bottom: $gutter/4;
+					padding-bottom: $gutter/4;
+					border-bottom: 2px $color__white--dark solid;
 				}
 				&:nth-of-type(odd) {
 					flex: 1 0 auto;
@@ -254,39 +255,5 @@
 				}
 			}
 		}
-//        padding: 0 1em 1.7em;
-//        h4 {margin-bottom: 1em;}
-//        ul {
-//            list-style: none;
-//            margin: 0;
-//            li {
-//                display: block;
-//                width: 100%;
-//                span {
-//                    &::after {
-//                        content: ", ";
-//                    }
-//                    &:last-child::after {
-//                        content: "";
-//                    }
-//                }
-//                &:nth-of-type(odd) {font-weight: 700;}
-//                &:nth-of-type(even) {padding-bottom: .5em;}
-//                @include media('>=screen480') {padding: .5em;}
-//            }
-//            @include media('>=screen480') {
-//                display: flex;
-//                flex-flow: row wrap;
-//                li {
-//                    flex: 1 0 50%;
-//                    border-bottom: 1px $color__gray--light solid;
-//                    &:nth-last-child(-n+2) {border-bottom: 0;}
-//                }
-//            }
-//        }
-//        @include media('>=screen600') {padding: 0 10% 1.7em;}
-//        @include media('>=screen840') {padding: 0 15% 1.7em;}
-//        @include media('>=screen1024') {padding: 0 20% 1.7em;}
-//        @include media('>=screen1600') {padding: 0 25% 1.7em;}
     }
 }

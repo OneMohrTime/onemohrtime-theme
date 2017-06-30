@@ -299,7 +299,7 @@ hr {
 /*
 * === HELPERS ===
 */
-p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg {
+p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg, .project__specs {
   font-size: inherit;
   font-family: inherit;
   font-weight: 400;
@@ -2362,7 +2362,7 @@ label {
       margin-right: 0;
       font-style: italic; }
   .project__text {
-    padding: 0 1em 1.7em; }
+    padding: 0 36px 1.7em; }
     @media (min-width: 600px) {
       .project__text {
         padding: 0 10% 1.7em; } }
@@ -2376,7 +2376,7 @@ label {
       .project__text {
         padding: 0 25% 1.7em; } }
   .project__text-image {
-    padding: 0 1em;
+    padding: 0 36px;
     margin-bottom: 1.7em; }
     @media (min-width: 768px) {
       .project__text-image {
@@ -2386,19 +2386,13 @@ label {
     .project__text-image .content--half {
       -ms-flex-order: 1;
           order: 1;
-      margin: 0 0 1em; }
+      margin: 0 0 1.7em; }
       @media (min-width: 768px) {
         .project__text-image .content--half {
           -ms-flex: 0 1 50%;
               flex: 0 1 50%;
           margin: 0;
-          padding: 1em; } }
-      @media (min-width: 1024px) {
-        .project__text-image .content--half {
-          padding: 2em; } }
-      @media (min-width: 1024px) {
-        .project__text-image .content--half {
-          padding: 3em; } }
+          padding: 36px; } }
     .project__text-image .image--half {
       -ms-flex-order: 2;
           order: 2;
@@ -2417,7 +2411,7 @@ label {
     .project__text-image--reversed .image--half {
       -ms-flex-order: 1;
           order: 1;
-      margin: 0 0 1em; }
+      margin: 0 0 1.7em; }
       @media (min-width: 768px) {
         .project__text-image--reversed .image--half {
           margin: 0; } }
@@ -2426,7 +2420,7 @@ label {
         align-items: center;
     margin-bottom: 1.7em; }
     .project__image--default {
-      padding: 1em;
+      padding: 0 36px;
       margin-bottom: 1.7em; }
     .project__image--wide {
       padding: 0; }
@@ -2494,7 +2488,9 @@ label {
           .project__specs ul li {
             -ms-flex: 0 0 50%;
                 flex: 0 0 50%;
-            margin-bottom: 1em; } }
+            margin-bottom: 9px;
+            padding-bottom: 9px;
+            border-bottom: 2px #f2f1ee solid; } }
         .project__specs ul li:nth-of-type(odd) {
           -ms-flex: 1 0 auto;
               flex: 1 0 auto;
@@ -3567,37 +3563,37 @@ Reverse FontAwesome animation
 .homepage__banner {
   position: relative;
   background: no-repeat center center, linear-gradient(to right top, #ffc300, #ffe180);
-  height: 250px;
-  padding: 36px;
   overflow: hidden; }
   @supports (object-fit: cover) {
     .homepage__banner {
-      padding: 0; } }
-  @media (min-width: 768px) {
-    .homepage__banner {
-      height: 350px; } }
-  @media (min-width: 1024px) {
-    .homepage__banner {
-      height: 450px; } }
-  @media (min-width: 1440px) {
-    .homepage__banner {
-      height: 550px; } }
-  @supports (object-fit: cover) {
-    .homepage__banner--image {
-      object-fit: cover;
-      filter: grayscale(100%);
-      mix-blend-mode: soft-light;
-      height: 100%;
-      min-width: 100vw; } }
+      height: 250px; }
+      @media (min-width: 768px) {
+        .homepage__banner {
+          height: 350px; } }
+      @media (min-width: 1024px) {
+        .homepage__banner {
+          height: 450px; } }
+      @media (min-width: 1440px) {
+        .homepage__banner {
+          height: 550px; } } }
+  .homepage__banner--image {
+    position: relative;
+    width: 100vw; }
+    @supports (object-fit: cover) {
+      .homepage__banner--image {
+        object-fit: cover;
+        filter: grayscale(100%);
+        mix-blend-mode: soft-light;
+        width: auto;
+        height: 100%;
+        min-width: 100vw; } }
   .homepage__banner--title {
     color: #fffefa;
-    margin-bottom: 0; }
-    @supports (object-fit: cover) {
-      .homepage__banner--title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 36px; } }
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 36px; }
     .homepage__banner--title .rotate {
       color: #ffc300;
       font-style: italic;
