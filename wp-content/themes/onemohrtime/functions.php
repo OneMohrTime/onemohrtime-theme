@@ -79,6 +79,9 @@ function onemohrtime_scripts() {
 //	wp_enqueue_style('dev', get_stylesheet_uri());
 	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
 	
+	// Google Webfonts: Montserrat, Bitter
+	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Bitter:400,400i,700', array('style'), null, 'all' );
+	
 	// Loading jQuery 3.1.1 instead of default
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '3.1.1', true);
@@ -86,22 +89,14 @@ function onemohrtime_scripts() {
 	wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.1.1.min.js"><\/script>\')');
 	
 	// vendor grunt concat
-	wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.min.js', array('jquery'), null, true);
-	
 	// CSS3 Animate It
-	// wp_enqueue_script('css3-animate-it', get_template_directory_uri() . '/js/css3-animate-it.js', array('jquery'), null, true);
+	// Typed.js
+    // Sticky-kit.js
+    // Dribbble plugin
+	wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.min.js', array('jquery'), null, true);
 	
 	// FortAwesome Fonticons
 	wp_enqueue_script('fonticons', '//use.fortawesome.com/936901b7.js', array(), null, true);
-	
-	// Typed.js
-	// wp_enqueue_script('typed', get_template_directory_uri() . '/js/typed.min.js', array('jquery'), null, true);
-    
-    // Sticky-kit.js
-    // wp_enqueue_script('stickykit', get_template_directory_uri() . '/js/jquery.sticky-kit.min.js', array('jquery'), null, true);
-    
-    // Dribbble plugin
-    //wp_enqueue_script('dribbble', get_template_directory_uri() . '/js/jribbble.min.js', array('jquery'), null, true);
     
     // Custom jQuery/JS
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.min.js', array('jquery'), null, true);
@@ -161,7 +156,7 @@ add_filter( 'emoji_svg_url', '__return_false' );
 require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 // Load Jetpack compatibility file.
-require get_template_directory() . '/inc/jetpack.php';
+// require get_template_directory() . '/inc/jetpack.php';

@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?>>
     
 <head>
+	
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -9,9 +10,8 @@
     
     <meta name="msvalidate.01" content="6C74BDEA0684C6599CD7829CA7630D48" />
     
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Bitter:400,400i,700" />
-    
     <?php wp_head(); ?>
+	
 </head>
 
 <body <?php body_class(); ?>>
