@@ -3117,20 +3117,12 @@ object {
       @media (min-width: 600px) {
         .dribbbles .shot {
           -ms-grid-column: span 2;
-              grid-column: span 2; } }
-      @media (min-width: 1920px) {
-        .dribbbles .shot {
-          -ms-grid-column: span 1;
-              grid-column: span 1; } } }
+              grid-column: span 2; } } }
   @media (min-width: 1024px) {
     .dribbbles .shot:hover .shot__image, .dribbbles .shot:focus .shot__image {
       opacity: 0.05; }
     .dribbbles .shot:hover .shot__hover, .dribbbles .shot:focus .shot__hover {
       opacity: 1; } }
-  @media (min-width: 1440px) {
-    .dribbbles .shot {
-      -ms-flex-preferred-size: calc(25% - 1em);
-          flex-basis: calc(25% - 1em); } }
   .dribbbles .shot__image {
     display: block;
     margin: 0 auto;

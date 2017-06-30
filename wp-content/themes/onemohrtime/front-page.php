@@ -154,7 +154,7 @@
 
 	<section class="homepage__dribbble">
 		<h3 class="homepage__dribbble--title">Latest Shots <span>on dribbble</span></h3>
-		<div id="dribbble_gallery" class="dribbbles"></div>
+		<div id="dribbbles" class="dribbbles"></div>
 	</section>
 
 	<section class="homepage__contact animatedParent animateOnce" data-sequence="100" data-appear-top-offset="-100">

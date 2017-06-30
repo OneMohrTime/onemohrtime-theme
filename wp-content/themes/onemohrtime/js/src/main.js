@@ -67,7 +67,7 @@ $(document).ready(function() {
     $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
     $.jribbble.users('onemohrtime').shots({
         per_page : 6,
-        sort : 'views'
+        sort : 'recent'
     }).then(function(shots) {
         var html = [];
         shots.forEach(function(shot) {
@@ -81,28 +81,28 @@ $(document).ready(function() {
             html.push('</figcaption>');
             html.push('</figure>');
         });
-        $('#dribbble_gallery').html(html.join(''));
-    });
-    
-    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-    $.jribbble.users('onemohrtime').shots({
-        per_page : 12,
-        sort : 'recent'
-    }).then(function(shots) {
-        var html = [];
-        shots.forEach(function(shot) {
-            html.push('<figure id="' + shot.id + '" class="shot">');
-            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-            html.push('<figcaption class="shot__hover">');
-            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
-            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
-            html.push('<span class="shot__icon fa fa-link"></span>');
-            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-            html.push('</figcaption>');
-            html.push('</figure>');
-        });
         $('#dribbbles').html(html.join(''));
     });
+    
+//    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+//    $.jribbble.users('onemohrtime').shots({
+//        per_page : 12,
+//        sort : 'recent'
+//    }).then(function(shots) {
+//        var html = [];
+//        shots.forEach(function(shot) {
+//            html.push('<figure id="' + shot.id + '" class="shot">');
+//            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+//            html.push('<figcaption class="shot__hover">');
+//            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
+//            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
+//            html.push('<span class="shot__icon fa fa-link"></span>');
+//            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+//            html.push('</figcaption>');
+//            html.push('</figure>');
+//        });
+//        $('#dribbbles').html(html.join(''));
+//    });
     
 });
 
