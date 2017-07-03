@@ -12,24 +12,31 @@
  */
 
 get_header(); ?>
-    
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-            
-			<?php while(have_posts()): the_post();
-                
-				get_template_part( 'template-parts/content', 'page' );
-                
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-                
-			endwhile; ?>
-            
-            <?php echo get_template_part('template-parts/contact') ?>
-            
-		</main><!-- #main -->
-	</div><!-- #primary -->
-    
+
+<?php $bgFull = get_field('page_bg'); ?>
+
+<div id="primary" class="content-area halfie">
+	
+	<figure class="halfie__img" style="background-image: url('<?php echo $bgFull['url']; ?>');"></figure>
+	
+	<article class="halfie__content">
+		
+		<header class="halfie__header">
+			<?php the_title('<h1 class="halfie__title">','</h1>'); ?>
+		</header><!-- /.halfie__header -->
+		
+		<div class="wysiwyg">
+			<?php the_content(); ?>
+		</div>
+		
+		<footer class="halfie__footer">
+			<?php if(function_exists('yoast_breadcrumb')): {
+				yoast_breadcrumb('<div id="breadcrumbs" class="halfie__breadcrumb wysiwyg">','</div>');
+			} endif; ?>
+		</footer><!-- /.halfie__footer -->
+		
+	</article><!-- /.halfie__content -->
+	
+</div><!-- /.halfie -->
+
 <?php get_footer();

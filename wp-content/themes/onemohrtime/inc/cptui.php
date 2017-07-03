@@ -8,7 +8,7 @@ function cptui_register_my_cpts() {
 	$labels = array(
 		"name" => __( 'Projects', '' ),
 		"singular_name" => __( 'Project', '' ),
-		"menu_name" => __( 'My Projects', '' ),
+		"menu_name" => __( 'Projects', '' ),
 		"all_items" => __( 'All Projects', '' ),
 		"add_new_item" => __( 'Add New Project', '' ),
 		"edit_item" => __( 'Edit Project', '' ),
@@ -33,7 +33,7 @@ function cptui_register_my_cpts() {
 		"show_ui" => true,
 		"show_in_rest" => false,
 		"rest_base" => "",
-		"has_archive" => "design",
+		"has_archive" => false,
 		"show_in_menu" => true,
 		"exclude_from_search" => false,
 		"capability_type" => "page",
@@ -41,8 +41,9 @@ function cptui_register_my_cpts() {
 		"hierarchical" => true,
 		"rewrite" => array( "slug" => "design", "with_front" => true ),
 		"query_var" => true,
-		"menu_icon" => "dashicons-align-left",
-		"supports" => array( "title", "thumbnail", "excerpt" ),
+		"menu_position" => 5,
+		"menu_icon" => "dashicons-text",
+		"supports" => array( "title", "thumbnail", "excerpt", "revisions" ),
 	);
 
 	register_post_type( "design", $args );
