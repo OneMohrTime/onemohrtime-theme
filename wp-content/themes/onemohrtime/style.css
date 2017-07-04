@@ -1803,13 +1803,13 @@ body {
 .content-area {
   -ms-grid-column: span 4;
       grid-column: span 4; }
-  .page-template-page_half .content-area {
+  .content-area.halfie {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr; }
     @media (min-width: 768px) {
-      .page-template-page_half .content-area {
+      .content-area.halfie {
         -ms-grid-columns: 1fr 1fr;
             grid-template-columns: 1fr 1fr;
         grid-column-gap: 36px; } }

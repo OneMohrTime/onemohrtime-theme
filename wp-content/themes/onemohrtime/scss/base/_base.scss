@@ -52,7 +52,7 @@ body {
 
 .content-area {
 	grid-column: span 4;
-	.page-template-page_half & {
+	&.halfie {
 		display: grid;
 		grid-template-columns: 1fr;
 		@include media('>=screen768') {
