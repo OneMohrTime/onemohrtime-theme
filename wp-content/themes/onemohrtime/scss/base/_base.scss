@@ -32,6 +32,7 @@ body {
 	grid-template-rows: 100px 1fr auto;
 	grid-row-gap: 0;
 	grid-column-gap: $gutter;
+	width: 100vw;
 	min-height: 100vh;
 	&__main {
 		// .site__main
@@ -39,9 +40,11 @@ body {
 		grid-column: span 4;
 		display: grid;
 		grid-template-columns: repeat(4, 25%);
+		width: 100vw;
 		.blog & {
 			display: grid;
 			grid-template-columns: 3fr 1fr;
+			width: calc(100vw - #{$gutter*2});
 			margin: 0 $gutter;
 			@include media('>=screen960') {
 				grid-column-gap: $gutter;

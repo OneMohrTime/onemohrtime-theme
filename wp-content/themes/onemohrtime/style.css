@@ -299,7 +299,8 @@ hr {
 /*
 * === HELPERS ===
 */
-p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg, .project__specs {
+p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .ninja-forms-req-symbol,
+.nf-error-msg, .project__specs {
   font-size: inherit;
   font-family: inherit;
   font-weight: 400;
@@ -1782,6 +1783,7 @@ body {
       grid-template-rows: 100px 1fr auto;
   grid-row-gap: 0;
   grid-column-gap: 36px;
+  width: 100vw;
   min-height: 100vh; }
   .site__main {
     -ms-grid-column: span 4;
@@ -1789,12 +1791,14 @@ body {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (25%)[4];
-        grid-template-columns: repeat(4, 25%); }
+        grid-template-columns: repeat(4, 25%);
+    width: 100vw; }
     .blog .site__main {
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 3fr 1fr;
           grid-template-columns: 3fr 1fr;
+      width: calc(100vw - 72px);
       margin: 0 36px; }
       @media (min-width: 960px) {
         .blog .site__main {
@@ -2097,6 +2101,7 @@ blockquote {
       align-items: center;
   -ms-flex-pack: justify;
       justify-content: space-between;
+  width: 100vw;
   box-shadow: 0 1px 1px 0 rgba(23, 20, 9, 0.15);
   padding-left: 36px;
   padding-right: 36px;
@@ -2121,6 +2126,7 @@ blockquote {
       grid-column: span 4;
   background-color: #171409;
   color: #fffefa;
+  width: 100vw;
   padding: 36px;
   text-align: center; }
   .site__footer--credits {
@@ -2242,12 +2248,9 @@ label {
   width: 100%; }
 
 .nf-before-form-content {
-  margin-bottom: 1em;
-  font-size: .75em; }
+  margin-bottom: 1.7em; }
 
-.nf-field-container {
-  margin-bottom: .5em; }
-
+.ninja-forms-req-symbol,
 .nf-error-msg {
   font-family: "Inconsolata", Monaco, monospace;
   color: #9c0000; }

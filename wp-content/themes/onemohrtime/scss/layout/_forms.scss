@@ -71,79 +71,11 @@ label {
 // Ninja Forms
 .nf-form-cont { width: 100%; }
 .nf-before-form-content {
-    margin-bottom: 1em;
-    font-size: .75em;
+    margin-bottom: 1.7em;
 }
-.nf-field-container {
-	margin-bottom: .5em;
-}
-//.ninja-forms-field {border-width: 2px !important;}
-//.label-above .nf-field-label {margin-bottom: 0 !important;}
-//.list-checkbox-wrap {
-//    li {
-//        label {
-//            font-size: 1em;
-//            font-weight: 400;
-//            line-height: 1em;
-//            text-transform: none;
-//        }
-//    }
-//}
-//.nf-input-limit,
-//.nf-error-msg {
-//    font-family: $font__code;
-//    font-size: .75em;
-//    line-height: 1.7em;
-//    margin: 0;
-//}
-//.ninja-forms-req-symbol,
+.ninja-forms-req-symbol,
 .nf-error-msg {
 	@extend %type;
 	font-family: $font__code;
     color: $color--error;
-//    .ninja-forms-field {
-//        border-color: $color--error !important;
-//    }
 }
-//
-//#nf-form-1-cont {}
-//.nf-form-cont {
-//    order: 1;
-//    position: relative;
-//    display: none;
-//    padding: 1em;
-//    background-color: $color__white;
-//    box-shadow: inset 0 1px 1px 0 fade($color__black,10%),
-//                inset 0 -1px 1px 0 fade($color__black,10%);
-//    h3 {
-//        font-size: 1.5em;
-//        @include media('>=screen1024') {
-//            font-size: 2em;
-//        }
-//    }
-//    nf-fields-wrap {
-//        display: flex;
-//        flex-flow: row wrap;
-//        justify-content: space-between;
-//        nf-field {
-//            flex: 0 1 auto;
-//            width: 100%;
-//            .textarea-container {margin-bottom: 1em !important;}
-//            .submit-container {margin-bottom: 0 !important;}
-//            @include media('>=screen600') {
-//                &:nth-child(1),
-//                &:nth-child(2) {
-//                    width: calc(50% - 1em);
-//                }
-//            }
-//        }
-//    }
-//    @include media('>=screen768') {
-//        order: 2;
-//        padding: 2em;
-//        width: 60%;
-//    }
-//    @include media('>=screen1024') {
-//        width: 66.66666%
-//    }
-//}

@@ -7,6 +7,7 @@
 	grid-column: span 4;
     background-color: $color__black;
     color: $color__white;
+	width: 100vw;
     padding: $gutter;
     text-align: center;
     &--credits {
