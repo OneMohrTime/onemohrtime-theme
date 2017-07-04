@@ -12,16 +12,36 @@
 			justify-content: space-between;
 			align-items: center;
 		}
+		&--title {
+			// .widget__instagram--title
+			font-size: 1em;
+		}
 		&--image {
 			// .widget__instagram--image
 			flex: 1 0 auto;
+			position: relative;
+			margin-bottom: $gutter/2;
 			@include media('>=screen400') {
 				flex: 0 1 calc(50% - #{$gutter/2});
 			}
+			@include media('>=screen768', '<screen960') {
+				flex-basis: calc(20% - #{$gutter/2});
+			}
+			img { margin: 0 auto; }
 		}
 		&--link {
 			// .widget__instagram--link
 			@extend %block-link;
+			top: 10px;
+			left: 10px;
+			right: 10px;
+			bottom: 10px;
+			border: 10px transparent solid;
+			transition: border $speed;
+			&:hover,
+			&:focus {
+				border-color: fade-out($color__yellow, 0.15);
+			}
 		}
 	}
 }

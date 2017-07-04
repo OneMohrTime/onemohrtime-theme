@@ -42,6 +42,7 @@
 		margin-bottom: $gutter;
         @include media('>=screen840') {
 			flex-direction: row;
+			align-items: center;
 			box-shadow: none;
 		}
         @include media('>=screen960') {
@@ -60,7 +61,9 @@
 			flex-direction: row;
 			@include media('>=screen840') {
 				order: 1;
-				padding: $gutter;
+				align-items: center;
+				position: absolute;
+				top: auto;
 				width: 100%;
 			}
 		}
@@ -68,7 +71,10 @@
 			// .post__title
 			text-transform: none;
 			@include underlined();
-			@include media('>=screen840') { margin-bottom: .2em; }
+			@include media('>=screen840') {
+				margin-bottom: .2em;
+				padding-bottom: calc(10px + .2em);
+			}
 			&--cats {
 				// .post__title--cats
 				margin-bottom: .5em;
@@ -91,9 +97,13 @@
 			border-bottom-left-radius: 3px;
 			padding: $gutter/2;
 			@include media('>=screen840') {
+				flex: 1 0 100px;
 				background-color: transparent !important;
 				color: $color__black;
-				border-radius: 0;
+				width: 100px;
+				height: 100px;
+				border: 10px $color__white--dark solid;
+				margin-right: $gutter;
 				padding: 0;
 			}
 			.month {
@@ -107,12 +117,6 @@
 			.updated { display: none; }
 			a {
 				@extend %block-link;
-				@include media('>=screen840') {
-					width: 100px;
-					height: 100px;
-					border: 2px $color__black solid;
-					margin-right: $gutter;
-				}
 			}
 		}
 		&__content {
@@ -136,9 +140,9 @@
 			border-top-right-radius: 3px;
 			@include media('>=screen840') {
 				order: 2;
-				position: absolute;
-				top: 0;
-				left: 0;
+//				position: absolute;
+//				top: 0;
+//				left: 0;
 				height: 300px;
 				width: 60%;
 				margin-left: 40%;

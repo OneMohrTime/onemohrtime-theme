@@ -6,7 +6,7 @@
 
 <aside id="secondary" class="widget-area" role="complementary">
 	<section class="widget widget__instagram">
-		<h3 class="widget__instagram--title">@onemohrtimedesign</h3>
+		<h3 class="widget__instagram--title"><span class="fa fa-instagram"></span>: @onemohrtimedesign</h3>
 		<div id="latest_instagram" class="widget__instagram--feed"></div>
 	</section>
 </aside>
