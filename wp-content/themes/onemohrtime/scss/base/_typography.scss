@@ -34,6 +34,7 @@
 @for $i from 1 through 6 {
 	h#{$i} {
 		position: relative;
+		display: block;
 		color: inherit;
 		font-family: $font__header;
         font-size: modular-scale((6 - $i), 1em, $major-third);
@@ -145,8 +146,10 @@ a {
 	@include media('>=screen1170') {
 		transition: all $speed;
 	}
-	.wysiwyg & {
-		@extend %inline;
+	&:not(.btn) {
+		.wysiwyg & {
+			@extend %inline;
+		}
 	}
 }
 

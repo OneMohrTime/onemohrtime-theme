@@ -200,88 +200,6 @@ acf_add_local_field_group(array (
 ));
 
 acf_add_local_field_group(array (
-	'key' => 'group_583243bba2ee5',
-	'title' => 'Page Elements',
-	'fields' => array (
-		array (
-			'key' => 'field_56d7ad1b2acc6',
-			'label' => 'Page Entry ID',
-			'name' => 'entry_id',
-			'type' => 'text',
-			'instructions' => 'Assign custom ID needed for this page.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array (
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => 'Unique ID',
-			'prepend' => '',
-			'append' => '',
-			'formatting' => 'none',
-			'maxlength' => '',
-		),
-		array (
-			'key' => 'field_56d79717ea843',
-			'label' => 'Background Image',
-			'name' => 'page_bg',
-			'type' => 'image',
-			'instructions' => 'Background image for current page.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array (
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'preview_size' => 'large',
-			'library' => 'all',
-			'return_format' => 'array',
-			'min_width' => 0,
-			'min_height' => 0,
-			'min_size' => 0,
-			'max_width' => 0,
-			'max_height' => 0,
-			'max_size' => 0,
-			'mime_types' => '',
-		),
-	),
-	'location' => array (
-		array (
-			array (
-				'param' => 'page_type',
-				'operator' => '==',
-				'value' => 'top_level',
-			),
-		),
-		array (
-			array (
-				'param' => 'page_type',
-				'operator' => '==',
-				'value' => 'child',
-			),
-		),
-		array (
-			array (
-				'param' => 'page_parent',
-				'operator' => '!=',
-				'value' => '65',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'seamless',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => 1,
-	'description' => '',
-));
-
-acf_add_local_field_group(array (
 	'key' => 'group_583243bbabd96',
 	'title' => 'Project Grid',
 	'fields' => array (
@@ -884,6 +802,88 @@ acf_add_local_field_group(array (
 	'hide_on_screen' => array (
 		0 => 'the_content',
 	),
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array (
+	'key' => 'group_583243bba2ee5',
+	'title' => 'Page Elements',
+	'fields' => array (
+		array (
+			'key' => 'field_56d7ad1b2acc6',
+			'label' => 'Page Entry ID',
+			'name' => 'entry_id',
+			'type' => 'text',
+			'instructions' => 'Assign custom ID needed for this page.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => 'Unique ID',
+			'prepend' => '',
+			'append' => '',
+			'formatting' => 'none',
+			'maxlength' => '',
+		),
+		array (
+			'key' => 'field_56d79717ea843',
+			'label' => 'Background Image',
+			'name' => 'page_bg',
+			'type' => 'image',
+			'instructions' => 'Background image for current page.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'preview_size' => 'large',
+			'library' => 'all',
+			'return_format' => 'array',
+			'min_width' => 0,
+			'min_height' => 0,
+			'min_size' => 0,
+			'max_width' => 0,
+			'max_height' => 0,
+			'max_size' => 0,
+			'mime_types' => '',
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'page_type',
+				'operator' => '==',
+				'value' => 'top_level',
+			),
+		),
+		array (
+			array (
+				'param' => 'page_type',
+				'operator' => '==',
+				'value' => 'child',
+			),
+		),
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '!=',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 9,
+	'position' => 'normal',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
 ));

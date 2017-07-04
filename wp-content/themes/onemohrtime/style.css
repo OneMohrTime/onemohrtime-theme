@@ -311,17 +311,17 @@ p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .nf-error-msg,
       -ms-hyphens: auto;
           hyphens: auto; }
 
-.wysiwyg a {
+.wysiwyg a:not(.btn):not(.gallery__project--link) {
   position: relative;
   color: inherit;
   z-index: 1; }
   @media (min-width: 1170px) {
-    .wysiwyg a:hover, .wysiwyg a:focus {
+    .wysiwyg a:hover:not(.btn):not(.gallery__project--link), .wysiwyg a:focus:not(.btn):not(.gallery__project--link) {
       color: #e6b000; }
-      .wysiwyg a:hover::before, .wysiwyg a:focus::before {
+      .wysiwyg a:not(.btn):not(.gallery__project--link):hover::before, .wysiwyg a:not(.btn):not(.gallery__project--link):focus::before {
         width: auto;
         animation: dancemonkey 2s infinite; } }
-  .wysiwyg a::before {
+  .wysiwyg a:not(.btn):not(.gallery__project--link)::before {
     content: "";
     bottom: 0;
     position: absolute;
@@ -1870,6 +1870,7 @@ body {
 */
 h1 {
   position: relative;
+  display: block;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
   font-size: 3.05176em;
@@ -1888,6 +1889,7 @@ h1 {
 
 h2 {
   position: relative;
+  display: block;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
   font-size: 2.44141em;
@@ -1906,6 +1908,7 @@ h2 {
 
 h3 {
   position: relative;
+  display: block;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
   font-size: 1.95313em;
@@ -1924,6 +1927,7 @@ h3 {
 
 h4, .blog .widget-area h2, .blog .widget-area h3, .gallery__project--header {
   position: relative;
+  display: block;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
   font-size: 1.5625em;
@@ -1942,6 +1946,7 @@ h4, .blog .widget-area h2, .blog .widget-area h3, .gallery__project--header {
 
 h5 {
   position: relative;
+  display: block;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
   font-size: 1.25em;
@@ -1960,6 +1965,7 @@ h5 {
 
 h6 {
   position: relative;
+  display: block;
   color: inherit;
   font-family: "Montserrat", "Futura", sans-serif;
   font-size: 1em;
@@ -3580,12 +3586,12 @@ Reverse FontAwesome animation
         height: 100%;
         min-width: 100vw; } }
   .homepage__banner--title {
-    color: #fffefa;
-    margin-bottom: 0;
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 36px; }
+    color: #fffefa;
+    padding: 36px;
+    margin-bottom: 0; }
     .homepage__banner--title .rotate {
       color: #ffc300;
       font-style: italic;
@@ -3729,10 +3735,24 @@ Reverse FontAwesome animation
   background-color: #fffefa;
   padding: 36px;
   text-align: center; }
+  @media (min-width: 600px) {
+    .homepage__work {
+      padding-left: 10%;
+      padding-right: 10%; } }
   @media (min-width: 840px) {
     .homepage__work {
-      padding-top: 72px;
-      padding-bottom: 72px; } }
+      padding-left: 15%;
+      padding-right: 15%; } }
+  @media (min-width: 1024px) {
+    .homepage__work {
+      padding-left: 20%;
+      padding-right: 20%; } }
+  @media (min-width: 1600px) {
+    .homepage__work {
+      padding-left: 25%;
+      padding-right: 25%; } }
+  .homepage__work p {
+    text-align: left; }
 .homepage__slideshow {
   width: 100vw;
   margin: 0 0 1.5em; }

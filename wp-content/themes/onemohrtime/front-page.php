@@ -96,7 +96,8 @@
 		</figure>
 	</section>
 	
-	<aside class="homepage__work">
+	<aside class="homepage__work content-block wysiwyg">
+		<?php the_content(); ?>
 		<a href="<?php echo home_url('design','relative'); ?>" class="btn">See Featured Projects</a>
 	</aside>
 
