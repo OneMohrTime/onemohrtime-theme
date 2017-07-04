@@ -5,7 +5,7 @@
     </figure>
     
     <?php if(function_exists('ninja_forms_display_form')) {
-        ninja_forms_display_form(1);
+        ninja_forms_display_form(3);
     } ?>
     
     <nav class="contact-section__social">
