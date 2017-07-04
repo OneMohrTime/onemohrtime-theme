@@ -160,6 +160,12 @@ function disable_emojicons_tinymce($plugins) {
 }
 add_filter( 'emoji_svg_url', '__return_false' );
 
+// Move Yoast to bottom
+function yoasttobottom() {
+	return 'low';
+}
+add_filter('wpseo_metabox_prio', 'yoasttobottom');
+
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
