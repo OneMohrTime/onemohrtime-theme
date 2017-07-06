@@ -410,7 +410,7 @@ acf_add_local_field_group(array (
 							'min_size' => '',
 							'max_width' => '',
 							'max_height' => '',
-							'max_size' => '.5',
+							'max_size' => 1,
 							'mime_types' => 'gif, png, jpg, jpeg, webp, svg',
 						),
 						array (
@@ -554,7 +554,7 @@ acf_add_local_field_group(array (
 							'min_size' => '',
 							'max_width' => '',
 							'max_height' => '',
-							'max_size' => '.75',
+							'max_size' => 1,
 							'mime_types' => 'gif, png, jpg, jpeg, webp, svg',
 						),
 					),

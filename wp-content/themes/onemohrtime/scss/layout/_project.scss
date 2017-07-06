@@ -129,6 +129,9 @@
                 margin: 0;
                 padding: $gutter;
             }
+            @include media('>=screen1024') {
+				font-size: .5em;
+			}
         }
         .image--half {
             order: 2;

@@ -4725,6 +4725,9 @@ label {
               flex: 0 1 50%;
           margin: 0;
           padding: 36px; } }
+      @media (min-width: 1024px) {
+        .project__text-image .content--half {
+          font-size: .5em; } }
     .project__text-image .image--half {
       -ms-flex-order: 2;
           order: 2;
