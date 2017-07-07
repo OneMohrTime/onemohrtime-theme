@@ -4727,7 +4727,7 @@ label {
           padding: 36px; } }
       @media (min-width: 1024px) {
         .project__text-image .content--half {
-          font-size: .5em; } }
+          font-size: .75em; } }
     .project__text-image .image--half {
       -ms-flex-order: 2;
           order: 2;
@@ -4792,6 +4792,24 @@ label {
           width: 25%; } }
   .project__specs {
     margin: 0 36px 36px; }
+    @media (min-width: 600px) {
+      .project__specs {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 10%;
+        padding-right: 10%; } }
+    @media (min-width: 840px) {
+      .project__specs {
+        padding-left: 15%;
+        padding-right: 15%; } }
+    @media (min-width: 1024px) {
+      .project__specs {
+        padding-left: 20%;
+        padding-right: 20%; } }
+    @media (min-width: 1600px) {
+      .project__specs {
+        padding-left: 25%;
+        padding-right: 25%; } }
     .project__specs--title {
       position: relative;
       padding-bottom: calc(.5em + 10px);

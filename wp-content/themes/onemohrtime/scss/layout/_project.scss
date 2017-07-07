@@ -130,7 +130,7 @@
                 padding: $gutter;
             }
             @include media('>=screen1024') {
-				font-size: .5em;
+				font-size: .75em;
 			}
         }
         .image--half {
@@ -206,6 +206,24 @@
 		// .project__specs
 		@extend %type;
 		margin: 0 $gutter $gutter;
+		@include media('>=screen600') {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 10%;
+			padding-right: 10%;
+		}
+		@include media('>=screen840') {
+			padding-left: 15%;
+			padding-right: 15%;
+		}
+		@include media('>=screen1024') {
+			padding-left: 20%;
+			padding-right: 20%;
+		}
+		@include media('>=screen1600') {
+			padding-left: 25%;
+			padding-right: 25%;
+		}
 		&--title {
 			// .project__specs--title
 			@include underlined();
