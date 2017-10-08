@@ -12,7 +12,6 @@ $(document).ready(function() {
 		e.preventDefault();
 		
 	});
-    
 	
 	// click to smoothscroll
     
@@ -59,51 +58,31 @@ $(document).ready(function() {
 	// Sticky-kit
 	
 	if(window.matchMedia('(min-width: 600px)').matches) {
-	$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
+		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
 	};
     
     // Dribbble galleries
     
-    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-    $.jribbble.users('onemohrtime').shots({
-        per_page : 6,
-        sort : 'recent'
+	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+	$.jribbble.users('onemohrtime').shots({
+		per_page : 6,
+		sort : 'recent'
     }).then(function(shots) {
-        var html = [];
-        shots.forEach(function(shot) {
-            html.push('<figure id="shot_' + shot.id + '" class="shot">');
-            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-            html.push('<figcaption class="shot__hover">');
-            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
-            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
-            html.push('<span class="shot__icon fa fa-link"></span>');
-            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-            html.push('</figcaption>');
-            html.push('</figure>');
-        });
-        $('#dribbbles').html(html.join(''));
+		var html = [];
+		shots.forEach(function(shot) {
+			html.push('<figure id="shot_' + shot.id + '" class="shot">');
+			html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+			html.push('<figcaption class="shot__hover">');
+			html.push('<h4 class="shot__title">' + shot.title + '</h4>');
+			html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
+			html.push('<span class="shot__icon fa fa-link"></span>');
+			html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+			html.push('</figcaption>');
+			html.push('</figure>');
+		});
+		$('#dribbbles').html(html.join(''));
     });
-    
-//    $.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-//    $.jribbble.users('onemohrtime').shots({
-//        per_page : 12,
-//        sort : 'recent'
-//    }).then(function(shots) {
-//        var html = [];
-//        shots.forEach(function(shot) {
-//            html.push('<figure id="' + shot.id + '" class="shot">');
-//            html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-//            html.push('<figcaption class="shot__hover">');
-//            html.push('<h4 class="shot__title">' + shot.title + '</h4>');
-//            html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
-//            html.push('<span class="shot__icon fa fa-link"></span>');
-//            html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-//            html.push('</figcaption>');
-//            html.push('</figure>');
-//        });
-//        $('#dribbbles').html(html.join(''));
-//    });
-    
+	
 });
 
 // Instagram API
@@ -196,35 +175,11 @@ function changeLetters(btn) {
 	}
 }
 
-// Swiper on home page
-
-var homeSwiper = new Swiper ('.homepage__slideshow', {
-    loop : true,
-    effect : 'coverflow',
-    coverflow : {
-        rotate : 50,
-        stretch : 0,
-        depth : 100,
-        modifier : 1,
-        slideShadows : true
-    },
-    autoplay : 6000,
-    pagination : '.swiper-pagination',
-    paginationType : 'progress',
-    nextButton : '.swiper-button-next',
-    prevButton : '.swiper-button-prev',
-    slidesPerView: 1,
-    keyboardControl : true,
-    grabCursor : true,
-    preloadImages : false,
-    lazyLoading : true
-});
-
 $(window).on('load', function() {
     
 	// loading screen won't fade until entire page has loaded
     
-	$('#loading').fadeOut('slow');
+//	$('#loading').fadeOut('slow');
     
     // typed.js
     

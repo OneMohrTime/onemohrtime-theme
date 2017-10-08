@@ -4,6 +4,7 @@
 
 html {
 	height: 100%;
+	background-color: $color__black;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -80,9 +81,6 @@ body {
 			margin-top: $gutter;
 			margin-bottom: $gutter;
 		}
-//		h2, h3 {
-//			@extend h4;
-//		}
 	}
 }
 
@@ -106,7 +104,7 @@ body {
 //}
 
 ::selection {
-	color: $color__yellow;
-	background-color: $color__black;
+	color: $color__black;
+	background-color: $color__yellow;
 	text-shadow: none;
 }
