@@ -43,9 +43,10 @@ function onemohrtime_setup() {
 	add_theme_support('post-formats', array(
 		'aside',
 		'image',
+		'gallery',
 		'video',
 		'quote',
-		'link',
+		'link'
 	));
 }
 endif;
@@ -83,16 +84,16 @@ function onemohrtime_scripts() {
 	
 	// load minified css instead
 //	wp_enqueue_style('dev', get_stylesheet_uri());
-	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), null, 'all');
+	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), '2.0.1', 'screen');
 	
 	// Google Webfonts: Montserrat, Bitter
 	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Bitter:400,400i,700', array('style'), null, 'all' );
 	
-	// Loading jQuery 3.1.1 instead of default
+	// Loading jQuery 3.2.1 instead of default
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '3.1.1', true);
+	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', true);
 	wp_enqueue_script('jquery');
-	wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.1.1.min.js"><\/script>\')');
+	wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.2.1.min.js"><\/script>\')');
 	
 	// vendor grunt concat
 	// CSS3 Animate It
