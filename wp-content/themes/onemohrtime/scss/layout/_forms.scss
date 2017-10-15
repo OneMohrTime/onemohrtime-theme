@@ -63,7 +63,7 @@ label {
 	font-size: .75em;
     font-weight: 700;
 	line-height: 1.7em;
-    color: $color__black--light;
+    color: $color__black--lighter;
     text-transform: uppercase;
 	display: block;
 }
@@ -75,7 +75,7 @@ label {
 }
 .ninja-forms-req-symbol,
 .nf-error-msg {
-	@extend %type;
+	@include type();
 	font-family: $font__code;
     color: $color--error;
 }

@@ -2,17 +2,6 @@
 * === HELPERS ===
 */
 
-%type {
-	font-size: inherit;
-	font-family: inherit;
-	font-weight: 400;
-	line-height: 1.7em;
-	color: inherit;
-	widows: 3;
-	orphans: 3;
-    hyphens: auto;
-}
-
 %block-link {
 	position: absolute;
 	top: 0;
@@ -30,4 +19,14 @@
 	margin: 0 auto 1.7em;
 	width: 100px;
 	height: 10px;
+}
+
+.clearfix {
+	@include clearfix();
+	@supports (display: flex) {
+		display: none;
+	}
+	@supports (display: grid) {
+		display: none;
+	}
 }

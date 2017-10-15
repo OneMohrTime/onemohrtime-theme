@@ -74,7 +74,8 @@ body {
 }
 
 .widget-area {
-	.blog & {
+	.blog &,
+	.single-post & {
 		grid-column: span 2;
 		@include media('>=screen960') {
 			grid-column: span 1;
@@ -83,25 +84,6 @@ body {
 		}
 	}
 }
-
-//.frame {
-//	position: fixed;
-//	top: 0;
-//	left: 0;
-//	width: 100%;
-//	height: 100%;
-//	border: 10px $color__yellow solid;
-//	z-index: 10;
-//	@include media('>=screen840') {
-//		top: $gutter/2;
-//		bottom: $gutter/2;
-//		left: $gutter/2;
-//		right: $gutter/2;
-//		width: auto;
-//		height: auto;
-//		mix-blend-mode: multiply;
-//	}
-//}
 
 ::selection {
 	color: $color__black;

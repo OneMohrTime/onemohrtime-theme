@@ -5,44 +5,88 @@
 .site__footer {
 	grid-row: span 2;
 	grid-column: span 4;
-    background-color: $color__black;
-    color: $color__white;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: $gutter;
+	align-items: start;
+	background-color: $color__black;
+	color: $color__white;
 	width: 100vw;
-    padding: $gutter;
-    text-align: center;
-    &--credits {
-		// .site__footer--credits
-		@extend %type;
-        font-family: $font__header;
-		margin-bottom: 1.7em;
-		a {
-			border-bottom: 1px $color__white solid;
-			@include media('>=screen960') {
-				&:hover,
-				&:focus {
-					color: $color__yellow;
-					border-bottom-color: $color__yellow;
+	padding: $gutter;
+	&--column {
+		grid-column: span 4;
+		@include media(">=screen600") {
+			grid-column: span 2;
+			float: left;
+		}
+		@include media(">=screen960") {
+			grid-column: span 1;
+			&.social-media {
+				grid-column: 4 / 5;
+			}
+		}
+		h3 {
+			border-bottom: 3px $color__black--light solid;
+			font-size: 1em;
+			padding-bottom: $small-spacing;
+		}
+		ul {
+			@include type();
+			color: $color__white--dark;
+			font-family: $font__header;
+			a {
+				@include inline();
+				&::before {
+					background-color: transparent;
+				}
+				&:hover {
+					&::before {
+						background-color: $color__black--lightest;
+					}
+				}
+			}
+			&.icons {
+				display: flex;
+				align-items: center;
+				li {
+					margin-right: .5em;
 				}
 			}
 		}
 	}
-	&--social {
-		// .site__footer--social
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 1.5em;
-		li {
-			margin: 0 10px;
-			a {
-				padding: 5px;
-				@include media('>=screen960') {
-					&:hover,
-					&:focus {
-						color: $color__yellow;
-					}
-				}
-			}
-		}
-    }
+//    &--credits {
+//		// .site__footer--credits
+//		@include type();
+//        font-family: $font__header;
+//		margin-bottom: 1.7em;
+//		a {
+//			border-bottom: 1px $color__white solid;
+//			@include media('>=screen960') {
+//				&:hover,
+//				&:focus {
+//					color: $color__yellow;
+//					border-bottom-color: $color__yellow;
+//				}
+//			}
+//		}
+//	}
+//	&--social {
+//		// .site__footer--social
+//		display: flex;
+//		justify-content: center;
+//		align-items: center;
+//		font-size: 1.5em;
+//		li {
+//			margin: 0 10px;
+//			a {
+//				padding: 5px;
+//				@include media('>=screen960') {
+//					&:hover,
+//					&:focus {
+//						color: $color__yellow;
+//					}
+//				}
+//			}
+//		}
+//    }
 }

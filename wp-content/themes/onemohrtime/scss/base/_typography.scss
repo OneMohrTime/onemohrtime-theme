@@ -46,7 +46,7 @@
 */
 
 p {
-	@extend %type;
+	@include type();
 	margin: 0 0 1.7em;
     &:last-child,
     &:only-child { margin-bottom: 0; }
@@ -79,7 +79,7 @@ ul, ol, dl {
 	margin: 0;
 	padding: 0;
 	.wysiwyg & {
-		@extend %type;
+		@include type();
 		margin: 0 0 1.7em;
 		padding-left: 1.7em;
 		& #{&} {

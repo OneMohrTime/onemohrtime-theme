@@ -286,31 +286,24 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-/*--------------------------------------------------------------
-	Colors
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-	Typography
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-	Structure
---------------------------------------------------------------*/
+/*
+* === VARIABLES ===
+*/
+/*
+* — Colors —
+*/
+/*
+* — Typography —
+*/
+/*
+* — Structure —
+*/
+/*
+* === MIXINS ===
+*/
 /*
 * === HELPERS ===
 */
-p, .wysiwyg ul, .wysiwyg ol, .wysiwyg dl, .site__footer--credits, .ninja-forms-req-symbol,
-.nf-error-msg, .project__specs {
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: 400;
-  line-height: 1.7em;
-  color: inherit;
-  widows: 3;
-  orphans: 3;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto; }
-
 .widget__instagram--link, .dribbbles .shot__link, .posts .post__date a, .posts .post__link {
   position: absolute;
   top: 0;
@@ -325,6 +318,17 @@ hr {
   margin: 0 auto 1.7em;
   width: 100px;
   height: 10px; }
+
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: block; }
+@supports (display: flex) {
+  .clearfix {
+    display: none; } }
+@supports ((display: -ms-grid) or (display: grid)) {
+  .clearfix {
+    display: none; } }
 
 /*
 * === ANIMATIONS ===
@@ -350,8 +354,8 @@ hr {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  src: url("fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 .fa {
@@ -4114,11 +4118,11 @@ body {
         -ms-grid-column: span 1;
             grid-column: span 1; } }
 
-.blog .widget-area {
+.blog .widget-area, .single-post .widget-area {
   -ms-grid-column: span 2;
       grid-column: span 2; }
   @media (min-width: 960px) {
-    .blog .widget-area {
+    .blog .widget-area, .single-post .widget-area {
       -ms-grid-column: span 1;
           grid-column: span 1;
       margin-top: 36px;
@@ -4279,6 +4283,16 @@ h6 {
 * — Body Copy —
 */
 p {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.7em;
+  color: inherit;
+  widows: 3;
+  orphans: 3;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   margin: 0 0 1.7em; }
   p:last-child, p:only-child {
     margin-bottom: 0; }
@@ -4313,6 +4327,16 @@ ul, ol, dl {
   margin: 0;
   padding: 0; }
   .wysiwyg ul, .wysiwyg ol, .wysiwyg dl {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.7em;
+    color: inherit;
+    widows: 3;
+    orphans: 3;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
     margin: 0 0 1.7em;
     padding-left: 1.7em; }
     .wysiwyg ul .wysiwyg ul, .wysiwyg ul .wysiwyg ol, .wysiwyg ul .wysiwyg dl, .wysiwyg ol .wysiwyg ul, .wysiwyg ol .wysiwyg ol, .wysiwyg ol .wysiwyg dl, .wysiwyg dl .wysiwyg ul, .wysiwyg dl .wysiwyg ol, .wysiwyg dl .wysiwyg dl {
@@ -4432,35 +4456,78 @@ blockquote {
       grid-row: span 2;
   -ms-grid-column: span 4;
       grid-column: span 4;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 36px;
+  -ms-flex-align: start;
+      align-items: start;
   background-color: #171409;
   color: #fffefa;
   width: 100vw;
-  padding: 36px;
-  text-align: center; }
-  .site__footer--credits {
-    font-family: "Montserrat", "Futura", sans-serif;
-    margin-bottom: 1.7em; }
-    .site__footer--credits a {
-      border-bottom: 1px #fffefa solid; }
-      @media (min-width: 960px) {
-        .site__footer--credits a:hover, .site__footer--credits a:focus {
-          color: #ffc300;
-          border-bottom-color: #ffc300; } }
-  .site__footer--social {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
-    font-size: 1.5em; }
-    .site__footer--social li {
-      margin: 0 10px; }
-      .site__footer--social li a {
-        padding: 5px; }
-        @media (min-width: 960px) {
-          .site__footer--social li a:hover, .site__footer--social li a:focus {
-            color: #ffc300; } }
+  padding: 36px; }
+  .site__footer--column {
+    -ms-grid-column: span 4;
+        grid-column: span 4; }
+    @media (min-width: 600px) {
+      .site__footer--column {
+        -ms-grid-column: span 2;
+            grid-column: span 2;
+        float: left; } }
+    @media (min-width: 960px) {
+      .site__footer--column {
+        -ms-grid-column: span 1;
+            grid-column: span 1; }
+        .site__footer--column.social-media {
+          grid-column: 4 / 5; } }
+    .site__footer--column h3 {
+      border-bottom: 3px #232015 solid;
+      font-size: 1em;
+      padding-bottom: 0.75em; }
+    .site__footer--column ul {
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: 400;
+      line-height: 1.7em;
+      color: inherit;
+      widows: 3;
+      orphans: 3;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
+      color: #f2f1ee;
+      font-family: "Montserrat", "Futura", sans-serif; }
+      .site__footer--column ul a {
+        position: relative;
+        color: inherit;
+        line-height: 1.5em;
+        z-index: 1; }
+        @media (min-width: 1170px) {
+          .site__footer--column ul a:hover, .site__footer--column ul a:focus {
+            color: inherit; }
+            .site__footer--column ul a:hover::before, .site__footer--column ul a:focus::before {
+              width: auto;
+              animation: dancemonkey 2s infinite; } }
+        .site__footer--column ul a::before {
+          content: "";
+          bottom: 4px;
+          position: absolute;
+          width: 100%;
+          height: 10px;
+          background-color: #ffc300;
+          z-index: -1; }
+        .site__footer--column ul a::before {
+          background-color: transparent; }
+        .site__footer--column ul a:hover::before {
+          background-color: #3a372e; }
+      .site__footer--column ul.icons {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center; }
+        .site__footer--column ul.icons li {
+          margin-right: .5em; }
 
 /*
 * === 4.4 SIDEBAR ===
@@ -4580,6 +4647,16 @@ label {
 
 .ninja-forms-req-symbol,
 .nf-error-msg {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.7em;
+  color: inherit;
+  widows: 3;
+  orphans: 3;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   font-family: "Inconsolata", Monaco, monospace;
   color: #9c0000; }
 
@@ -4800,6 +4877,16 @@ label {
         .project__gallery figure {
           width: 25%; } }
   .project__specs {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.7em;
+    color: inherit;
+    widows: 3;
+    orphans: 3;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
     margin: 0 36px 36px; }
     @media (min-width: 600px) {
       .project__specs {

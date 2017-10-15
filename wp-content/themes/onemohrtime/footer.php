@@ -4,25 +4,54 @@
     
     <footer class="site__footer">
         
-        <ul class="site__footer--credits">
-			<li>Powered by <a href="//advancedcustomfields.com/pro" target="_blank">ACF Pro</a> and <a href="//webdevstudios.com/plugins/custom-post-type-ui" target="_blank">CPT UI</a></li>
-			<li>Built with <a href="//wordpress.org" target="_blank">Wordpress</a>, <a href="//brackets.io" target="_blank">Brackets.io</a> and <a href="//underscores.me" target="_blank">_s</a></li>
-			<li>Hosted by <a href="//webfaction.com" target="_blank">WebFaction</a></li>
-		</ul>
+        <div class="site__footer--column plugins">
+			<h3>Built With</h3>
+			<ul>
+				<li><a href="//advancedcustomfields.com/pro" target="_blank">ACF Pro</a></li>
+				<li><a href="//bourbon.io" target="_blank">Bourbon</a> + <a href="//sass-lang.com" target="_blank">Sass</a></li>
+				<li><a href="//underscores.me" target="_blank">_s Theme</a></li>
+				<li><a href="//wordpress.org" target="_blank">Wordpress</a></li>
+			</ul>
+		</div>
+		
+        <div class="site__footer--column projects">
+			<h3>Projects</h3>
+			<ul>
+				
+				<?php $footer_projects = new WP_Query(array(
+					'post_type' => 'design',
+					'posts_per_page' => '3'
+				));
+				
+				if($footer_projects->have_posts()):
+				while($footer_projects->have_posts()): $footer_projects->the_post(); ?>
+				
+				<li>
+					<a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				</li>
+				
+				<?php endwhile;
+				endif;
+				wp_reset_postdata(); ?>
+				
+			</ul>
+		</div>
         
-        <hr />
-        
-        <ul class="site__footer--social">
-			<li><a target="_blank" href="//twitter.com/OneMohrTime"><i class="fa fa-twitter"></i></a></li>
-			<li><a target="_blank" href="//instagram.com/onemohrtimedesign"><i class="fa fa-instagram"></i></a></li>
-			<li><a target="_blank" href="//plus.google.com/+DerekMohr" rel="author"><i class="fa fa-google-plus"></i></a></li>
-			<li><a target="_blank" href="//dribbble.com/OneMohrTime"><i class="fa fa-dribbble"></i></a></li>
-			<li><a target="_blank" href="//onemohrtime.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
-        </ul>
+        <div class="site__footer--column social-media">
+			<h3>More Work</h3>
+			<p>Find me other places online, I swear it&rsquo;s not just food and beard pictures.</p>
+			<ul class="icons">
+				<li><a target="_blank" href="//twitter.com/OneMohrTime"><i class="fa fa-twitter"></i></a></li>
+				<li><a target="_blank" href="//instagram.com/onemohrtimedesign"><i class="fa fa-instagram"></i></a></li>
+				<li><a target="_blank" href="//plus.google.com/+DerekMohr" rel="author"><i class="fa fa-google-plus"></i></a></li>
+				<li><a target="_blank" href="//dribbble.com/OneMohrTime"><i class="fa fa-dribbble"></i></a></li>
+				<li><a target="_blank" href="//onemohrtime.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+			</ul>
+        </div>
+		
+		<div class="clearfix"></div>
         
     </footer>
-	
-	<div class="frame"></div>
 	
 </div><!-- /.site -->
 
@@ -31,9 +60,8 @@
     Site details:
     ________________________
     
-    modernizr 3.3.1 - https://modernizr.com/
     CSS3 Animate It - http://jackonthe.net/css3animateit/
-    FortAwesome Fonticons - https://fortawesome.com/
+    FontAwesome - https://fontawesome.io/
     Typed.js - https://github.com/mattboldt/typed.js/
     Sticky-kit.js - https://github.com/leafo/sticky-kit
     Dribbble plugin - https://github.com/tylergaw/jribbble

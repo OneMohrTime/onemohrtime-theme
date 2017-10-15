@@ -1,12 +1,10 @@
-<?php
-/**
- * The sidebar containing the main widget area.
- */
-?>
-
 <aside id="secondary" class="widget-area" role="complementary">
+	
+	<?php get_sidebar(); ?>
+	
 	<section class="widget widget__instagram">
-		<h3 class="widget__instagram--title"><span class="fa fa-instagram"></span> :: @onemohrtimedesign</h3>
+		<h3 class="widget__instagram--title"><i class="fa fa-lg fa-instagram"></i> onemohrtimedesign</h3>
 		<div id="latest_instagram" class="widget__instagram--feed"></div>
 	</section>
+	
 </aside>

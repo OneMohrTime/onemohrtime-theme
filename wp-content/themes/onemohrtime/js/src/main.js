@@ -104,7 +104,7 @@ $.ajax({
 	success : function(data) {
 		console.log(data);
 		for( x in data.data ) {
-			$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.low_resolution.url + '" alt="" /><a href="" target="_blank" class="widget__instagram--link"></a></figure>');
+			$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.low_resolution.url + '" alt="" /><a href="' + data.data[x].link +'" target="_blank" class="widget__instagram--link"></a></figure>');
 //			data.data[x].images.thumbnail.url - URL of image 150х150
 //			data.data[x].images.standard_resolution.url - URL of image 612х612
 //			data.data[x].link - Instagram post URL 

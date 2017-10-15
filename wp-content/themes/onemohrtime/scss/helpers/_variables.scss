@@ -1,9 +1,15 @@
-/*--------------------------------------------------------------
-	Colors
---------------------------------------------------------------*/
+/*
+* === VARIABLES ===
+*/
+
+/*
+* — Colors —
+*/
 
 $color__black: #171409;
-$color__black--light: tint($color__black, 10%);
+$color__black--light: tint($color__black, 5%);
+$color__black--lighter: tint($color__black, 10%);
+$color__black--lightest: tint($color__black, 15%);
 
 $color__white: #fffefa;
 $color__white--dark: shade($color__white, 5%);
@@ -25,22 +31,24 @@ $color__red: #9c0000;
 //$color--warning: #9c0000 !important;
 $color--error: $color__red;
 
-/*--------------------------------------------------------------
-	Typography
---------------------------------------------------------------*/
+/*
+* — Typography —
+*/
 
 $font__main   : "Bitter", "Georgia", serif;
 //$font__secondary: ;
 $font__header : "Montserrat", "Futura", sans-serif;
 $font__code   : "Inconsolata", Monaco, monospace;
 
-/*--------------------------------------------------------------
-	Structure
---------------------------------------------------------------*/
+/*
+* — Structure —
+*/
 
 $speed: 300ms;
 $speed--fast: $speed / 2;
 $speed--slow: $speed * 2;
+
+$base-duration: $speed;
 
 $gutter: 36px;
 
