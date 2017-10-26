@@ -70,12 +70,16 @@
 	
 	<section class="homepage__dribbble animatedParent animateOnce" data-sequence="100">
 		<h2 class="homepage__dribbble--title animated fadeInUpShort" data-id="1">Latest Shots <span>on dribbble</span></h2>
-		<div id="dribbbles" class="dribbbles animated fadeInUpShort" data-id="2"></div>
+		<p class="homepage__dribbble--content wysiwyg animated fadeInUpShort" data-id="2">
+			I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank">dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
+		</p>
+		<div id="dribbbles" class="dribbbles animated fadeInUpShort" data-id="3"></div>
 	</section>
 
 	<section class="homepage__contact animatedParent animateOnce" data-sequence="100">
-		<h2 class="animated fadeInUpShort" data-id="1">Like What You See?</h2>
-		<a href="#contact" class="btn animated fadeInUpShort" data-id="2">Get At Me</a>
+		<h2 class="animated fadeInUpShort" data-id="1">Have an idea?</h2>
+		<p class="wysiwyg animated fadeInUpShort" data-id="2">Building a website or needing some graphic design for your small business? Get in contact with me, I’ll see what I can do for you.</p>
+		<a href="#contact" class="btn animated fadeInUpShort" data-id="3">Contact</a>
 	</section>
 
 </article>
