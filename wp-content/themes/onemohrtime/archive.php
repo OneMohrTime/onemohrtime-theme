@@ -32,7 +32,5 @@ get_header(); ?>
 </article><!-- /.content-area -->
 
 <?php
-
-get_sidebar('blog-listing');
-
+get_sidebar();
 get_footer();

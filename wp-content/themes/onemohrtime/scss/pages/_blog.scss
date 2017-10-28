@@ -7,7 +7,7 @@
 		// .posts__categories
 		font-size: .75em;
 		margin: $gutter/2 0;
-		@include media('>=screen540') {
+		@include media(">=screen540") {
 			margin: $gutter 0;
 		}
 		ul {
@@ -40,12 +40,12 @@
 		border-radius: 3px;
 		box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
 		margin-bottom: $gutter;
-        @include media('>=screen840') {
+        @include media(">=screen840") {
 			flex-direction: row;
 			align-items: center;
 			box-shadow: none;
 		}
-        @include media('>=screen960') {
+        @include media(">=screen960") {
             .post__image {
                 transition: opacity 300ms;
             }
@@ -59,26 +59,27 @@
 			order: 2;
 			display: flex;
 			flex-direction: row;
-			@include media('>=screen840') {
+			@include media(">=screen840") {
 				order: 1;
 				align-items: center;
 				position: absolute;
 				top: auto;
 				width: 100%;
+				z-index: 1;
 			}
 		}
 		&__title {
 			// .post__title
 			text-transform: none;
 			@include underlined();
-			@include media('>=screen840') {
+			@include media(">=screen840") {
 				margin-bottom: .2em;
 				padding-bottom: calc(10px + .2em);
 			}
 			&--cats {
 				// .post__title--cats
 				margin-bottom: .5em;
-				@include media('>=screen840') {
+				@include media(">=screen840") {
 					display: block;
 					font-size: .75em;
 					margin: 1em 0 .5em;
@@ -96,7 +97,7 @@
 			color: $color__yellow--light;
 			border-bottom-left-radius: 3px;
 			padding: $gutter/2;
-			@include media('>=screen840') {
+			@include media(">=screen840") {
 				flex: 1 0 100px;
 				background-color: transparent !important;
 				color: $color__black;
@@ -124,7 +125,7 @@
 			flex: 1 0 80%;
 			padding: $gutter/2;
 			display: block;
-			@include media('>=screen840') {
+			@include media(">=screen840") {
 				flex: 0 1 auto;
 				padding: 0;
 			}
@@ -134,22 +135,16 @@
 			order: 1;
 			background: $color__white no-repeat center center scroll;
 			background-size: cover;
-			height: 150px;
-			width: 100%;
+			@include size(100%, 150px);
 			border-top-left-radius: 3px;
 			border-top-right-radius: 3px;
-			@include media('>=screen840') {
+			@include media(">=screen840") {
 				order: 2;
-//				position: absolute;
-//				top: 0;
-//				left: 0;
-				height: 300px;
-				width: 60%;
-				margin-left: 40%;
 				border-radius: 0;
-				z-index: -1;
+				@include size(60%, 300px);
+				margin-left: 40%;
 			}
-			@include media('>=screen960') {
+			@include media(">=screen960") {
 				width: 75%;
 				margin-left: 25%;
 			}

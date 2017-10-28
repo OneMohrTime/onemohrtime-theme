@@ -3,31 +3,33 @@
 */
 
 .widget {
+	margin-top: $small-spacing;
+	@include media(">=screen1170") { margin-top: $base-spacing; }
 	&__instagram {
 		// .widget__instagram
 		&--feed {
 			// .widget__instagram--feed
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: space-between;
-			align-items: center;
+			display: grid;
+			grid-template-columns: repeat(10, 1fr);
+			grid-gap: $small-spacing;
+			@include media(">=screen1170") { grid-gap: $base-spacing; }
 		}
 		&--title {
 			// .widget__instagram--title
 			font-size: 1em;
+			@include underlined();
+			margin-bottom: 1em;
 		}
 		&--image {
 			// .widget__instagram--image
-			flex: 1 0 auto;
 			position: relative;
-			margin-bottom: $gutter/2;
-			@include media('>=screen400') {
-				flex: 0 1 calc(50% - #{$gutter/2});
-			}
-			@include media('>=screen768', '<screen960') {
-				flex-basis: calc(20% - #{$gutter/2});
-			}
-			img { margin: 0 auto; }
+			grid-column: span 10;
+			display: flex;
+			align-items: center;
+			@include media(">=screen480") { grid-column: span 5; }
+			@include media(">=screen768") { grid-column: span 2; }
+			@include media(">=screen1170") { grid-column: span 5; }
+			img { width: 100%; }
 		}
 		&--link {
 			// .widget__instagram--link
