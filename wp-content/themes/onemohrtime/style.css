@@ -1,4 +1,16 @@
 @charset "UTF-8";
+/*!
+Theme Name: OneMohrTime
+Theme URI: http://onemohrti.me/
+Author: @OneMohrTime
+Author URI: http://onemohrti.me/
+Description: <i>coming soon</i>
+Version: 2.0.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, featured-images, microformats, post-formats
+Text Domain: onemohrtime
+*/
 /*--------------------------------------------------------------
 	TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -6450,7 +6462,7 @@ Reverse FontAwesome animation
       width: 50vw;
       margin: 0 auto 36px; } }
 .gallery__dribbble {
-  margin: 0 36px 36px; }
+  margin: 0 36px 72px; }
   .gallery__dribbble--title {
     position: relative;
     padding-bottom: calc(.5em + 10px);
@@ -6466,6 +6478,21 @@ Reverse FontAwesome animation
       @media (min-width: 600px) {
         .gallery__dribbble--title::after {
           width: 100px; } }
+  .gallery__dribbble--content {
+    margin-bottom: 0.75em;
+    padding-right: 36px; }
+    @media (min-width: 600px) {
+      .gallery__dribbble--content {
+        padding-right: 20%; } }
+    @media (min-width: 840px) {
+      .gallery__dribbble--content {
+        padding-right: 30%; } }
+    @media (min-width: 1024px) {
+      .gallery__dribbble--content {
+        padding-right: 40%; } }
+    @media (min-width: 1600px) {
+      .gallery__dribbble--content {
+        padding-right: 50%; } }
 
 /*
 * === 6.3 BLOG ===
@@ -6519,7 +6546,9 @@ Reverse FontAwesome animation
     .posts .post .post__image {
       transition: opacity 300ms; }
     .posts .post:hover .post__image, .posts .post:focus .post__image {
-      opacity: .05; } }
+      opacity: .05; }
+    .posts .post:hover .post__date, .posts .post:focus .post__date {
+      border-color: #ffc300; } }
   .posts .post__header {
     -ms-flex-order: 2;
         order: 2;
@@ -6585,16 +6614,17 @@ Reverse FontAwesome animation
             flex: 1 0 100px;
         background-color: transparent !important;
         color: #171409;
-        width: 100px;
-        height: 100px;
         border: 10px #f2f1ee solid;
+        height: 100px;
+        width: 100px;
         margin-right: 36px;
-        padding: 0; } }
+        padding: 0;
+        transition: border-color 300ms; } }
     .posts .post__date .month {
       line-height: 1em; }
     .posts .post__date .day {
-      font-weight: 700;
       font-size: 2em;
+      font-weight: 700;
       line-height: 1em; }
     .posts .post__date .updated {
       display: none; }

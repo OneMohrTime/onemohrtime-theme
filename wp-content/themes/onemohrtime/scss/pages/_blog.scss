@@ -52,6 +52,7 @@
             &:hover,
             &:focus {
                 .post__image { opacity: .05; }
+				.post__date { border-color: $color__yellow; }
             }
         }
 		&__header {
@@ -101,18 +102,18 @@
 				flex: 1 0 100px;
 				background-color: transparent !important;
 				color: $color__black;
-				width: 100px;
-				height: 100px;
 				border: 10px $color__white--dark solid;
+				@include size(100px);
 				margin-right: $gutter;
 				padding: 0;
+				transition: border-color $speed;
 			}
 			.month {
 				line-height: 1em;
 			}
 			.day {
-				font-weight: 700;
 				font-size: 2em;
+				font-weight: 700;
 				line-height: 1em;
 			}
 			.updated { display: none; }

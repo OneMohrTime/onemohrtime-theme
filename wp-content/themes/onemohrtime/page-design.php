@@ -38,8 +38,11 @@
 		<?php the_content(); ?>
 	</article><!-- /.gallery__content -->
 	
-	<section class="gallery__dribbble">
-		<h2 class="gallery__dribbble--title">Latest on <span><a href="//dribbble.com/OneMohrTime" target="_blank">Dribbble</a></span></h2>
+	<section class="gallery__dribbble animatedParent animateOnce" data-sequence="100">
+		<h2 class="gallery__dribbble--title animated fadeInUpShort" data-id="1">Latest Shots <span>on dribbble</span></h2>
+		<p class="gallery__dribbble--content wysiwyg animated fadeInUpShort" data-id="2">
+			I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank">dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
+		</p>
 		<div id="dribbbles" class="dribbbles"></div>
 	</section>
 	

@@ -84,7 +84,7 @@ function onemohrtime_scripts() {
 	
 	// load minified css instead
 //	wp_enqueue_style('dev', get_stylesheet_uri());
-	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), '2.0.2', 'screen');
+	wp_enqueue_style('style', get_template_directory_uri() . '/style.min.css', array(), '2.0.3', 'screen');
 	
 	// Google Webfonts: Montserrat, Bitter
 	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Bitter:400,400i,700', array('style'), null, 'all' );

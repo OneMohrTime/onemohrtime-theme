@@ -133,10 +133,19 @@
 	}
 	&__dribbble {
 		// .gallery__dribbble
-		margin: 0 $gutter $gutter;
+		margin: 0 $gutter #{$gutter * 2};
 		&--title {
 			// .gallery__dribbble--title
 			@include underlined();
+		}
+		&--content {
+			// .gallery__dribbble--content
+			margin-bottom: $small-spacing;
+			padding-right: $gutter;
+			@include media(">=screen600") { padding-right: 20%; }
+			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
 		}
 	}
 }
