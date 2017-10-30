@@ -30,6 +30,10 @@
 			@include media(">=screen768") { grid-column: span 2; }
 			@include media(">=screen1170") { grid-column: span 5; }
 			img { width: 100%; }
+			
+			.single-post & {
+				@include media(">=screen1170") { grid-column: span 2; }
+			}
 		}
 		&--link {
 			// .widget__instagram--link

@@ -4620,6 +4620,10 @@ blockquote {
             grid-column: span 5; } }
     .widget__instagram--image img {
       width: 100%; }
+    @media (min-width: 1170px) {
+      .single-post .widget__instagram--image {
+        -ms-grid-column: span 2;
+            grid-column: span 2; } }
   .widget__instagram--link {
     top: 10px;
     left: 10px;
