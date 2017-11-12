@@ -93,7 +93,7 @@ function onemohrtime_scripts() {
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', true);
 	wp_enqueue_script('jquery');
-	wp_add_inline_script ('jquery', 'window.jQuery || document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.2.1.min.js"><\/script>\')');
+//	wp_add_inline_script ('jquery', 'if (!window.jQuery) { document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.2.1.min.js"><\/script>\'); }');
 	
 	// vendor grunt concat
 	// CSS3 Animate It
