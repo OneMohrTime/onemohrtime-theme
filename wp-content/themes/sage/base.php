@@ -20,6 +20,8 @@ use Roots\Sage\Wrapper; ?>
 				$template_class = ' homepage';
 			} elseif(is_home()) {
 				$template_class = ' posts';
+			} elseif(is_singular('design')) {
+				$template_class = ' project';
 			} elseif(is_single()) {
 				$template_class = ' blog-post';
 			} elseif(is_page('design')) {

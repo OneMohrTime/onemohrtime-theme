@@ -1,7 +1,7 @@
 <?php //get_sidebar(); ?>
 
 <div class="widget widget__instagram">
-	<h3 class="widget__instagram--title"><i class="fa fa-lg fa-instagram"></i> onemohrtimedesign</h3>
+	<h3 class="widget__instagram--title">Instagram <span><a href="//instagram.com/onemohrtimedesign" target="_blank">@onemohrtimedesign</a></span></h3>
 	<div id="latest_instagram" class="widget__instagram--feed"></div>
 </div>
 

@@ -17,16 +17,23 @@
 		<?php
 		// Desktop Menu
 		wp_nav_menu(array(
-			'menu_id' => 'desktop_menu',
-			'container' => '',
-			'depth' => '1',
-			'theme_location' => 'desktop-menu'
+			'menu_id'        => 'desktop_menu',
+			'container'      => '',
+			'depth'          => '1',
+			'theme_location' => 'primary_navigation'
 		)); ?>
 		
 	</nav><!-- /.main-navigation -->
 	
 	<a href="<?php echo home_url(); ?>" class="site__header--logo">
-		<img src="<?php echo get_template_directory_uri() . '/img/logo-color-rotate.gif' ?>" alt="onemohrtime design logo" />
+		<?php
+		$custom_logo_id = get_theme_mod('custom_logo');
+		$logo = wp_get_attachment_image_src($custom_logo_id , 'full');
+		if(has_custom_logo()) {
+			echo '<img src="'. esc_url( $logo[0] ) .'">';
+		} else {
+			echo '<h1>'. get_bloginfo( 'name' ) .'</h1>';
+		} ?>
 	</a>
 	
 	<a href="<?php home_url('contact','relative') ?>" class="contact-toggle">
@@ -36,13 +43,13 @@
 	<?php
 	// Mobile Menu
 	wp_nav_menu(array(
-		'menu_class' => '',
-		'menu_id' => '',
-		'container' => '',
+		'menu_class'     => '',
+		'menu_id'        => '',
+		'container'      => '',
 		//'container_class' => 'mobile-menu',
 		//'container_id' => 'mobile_menu',
-		'theme_location' => 'primary',
-		'items_wrap' => '<ul id="mobile_menu" class="menu__mobile">%3$s</ul>'
+		'theme_location' => 'primary_navigation',
+		'items_wrap'     => '<ul id="mobile_menu" class="menu__mobile">%3$s</ul>'
 	)); ?>
 	
 </header><!-- /.site__header -->

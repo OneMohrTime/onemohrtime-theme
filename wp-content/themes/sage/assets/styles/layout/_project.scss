@@ -3,28 +3,14 @@
 */
 
 .project {
-    display: flex;
-    flex-direction: column;
-    &__story {
-        // .project__story
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    &__section {
-        // .project__section
-        flex: 1 0 auto;
-        position: relative;
-        display: flex;
-        flex-flow: row wrap;
-    }
-    &__header {
-        // .project__header
-        position: relative;
-        margin-bottom: 1.7em;
-    }
-    &__banner {
-        // .project__banner
+	&__header {
+		// .project__header
+		grid-column: span 4;
+		position: relative;
+	}
+	&__banner {
+		// .project__banner
+		grid-column: span 4;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -51,6 +37,18 @@
 			}
 		}
 	}
+	&__subtitle {
+        // .project__subtitle
+        color: $color__yellow;
+        background-color: $color__white;
+		font-size: .75em;
+        font-family: $font__main;
+        font-style: italic;
+        font-weight: 400;
+        text-transform: none;
+        margin: 0 $gutter;
+        padding: 5px 10px;
+    }
 	&__title {
 		// .project__title
 		margin: 0;
@@ -63,19 +61,7 @@
 			}
 		}
     }
-    &__subtitle {
-        // .project__subtitle
-        color: $color__yellow;
-        background-color: $color__white;
-		font-size: .75em;
-        font-family: $font__main;
-        font-style: italic;
-        font-weight: 400;
-        text-transform: none;
-        margin: 0 $gutter;
-        padding: 5px 10px;
-    }
-    &__breadcrumb {
+	&__breadcrumb {
         // .project__breadcrumb
         display: flex;
         align-items: center;
@@ -104,6 +90,20 @@
             margin-right: 0;
             font-style: italic;
         }
+	}
+	&__story {
+		// .project__story
+		grid-column: span 4;
+//        display: flex;
+//        flex-direction: column;
+//        align-items: center;
+	}
+	&__section {
+		// .project__section
+		flex: 1 0 auto;
+		position: relative;
+		display: flex;
+		flex-flow: row wrap;
 	}
 	&__text {
 		// .project__text
@@ -202,9 +202,9 @@
             @include media('>=screen1024') { width: 25%; }
         }
     }
-    &__specs {
+	&__specs {
 		// .project__specs
-		@include type();
+		grid-column: span 4;
 		margin: 0 $gutter $gutter;
 		@include media('>=screen600') {
 			margin-left: 0;
@@ -232,6 +232,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
+			@include type();
 			@include media('>=screen540') {
 				flex-flow: row wrap;
 				align-items: flex-end;
@@ -270,5 +271,5 @@
 				}
 			}
 		}
-    }
+	}
 }
