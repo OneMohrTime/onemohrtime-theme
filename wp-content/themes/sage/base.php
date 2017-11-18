@@ -14,14 +14,28 @@ use Roots\Sage\Wrapper; ?>
 			
 			<?php
 			do_action('get_header');
-			get_template_part('templates/header'); ?>
+			get_template_part('templates/header');
 			
-			<main id="main" class="site__main">
+			if(is_front_page()) {
+				$template_class = ' homepage';
+			} elseif(is_home()) {
+				$template_class = ' posts';
+			} elseif(is_single()) {
+				$template_class = ' blog-post';
+			} elseif(is_page('design')) {
+				$template_class = ' gallery';
+			} elseif(is_page()) {
+				$template_class = ' halfie';
+			} else {
+				$template_class = '';
+			}?>
+			
+			<main id="main" class="site__main content-area<?php echo $template_class ?>" role="main">
 				<?php include Wrapper\template_path(); ?>
 			</main><!-- /.site__main -->
 			
 			<?php if (Setup\display_sidebar()) : ?>
-			<aside class="sidebar">
+			<aside id="secondary" class="site__sidebar widget-area" role="complementary">
 				<?php include Wrapper\sidebar_path(); ?>
 			</aside><!-- /.site__sidebar -->
 			<?php endif; ?>

@@ -2,14 +2,20 @@
 * === 3.2 TYPOGRAPHY ===
 */
 
-.content-area {
-	font-size: .75em;
-    @include media('>=screen400') { font-size: .875em; }
-    @include media('>=screen600') { font-size: 1em; }
-    @include media('>=screen768') { font-size: 1.125em; }
-    @include media('>=screen960') { font-size: 1.25em; }
-    @include media('>=screen1280') { font-size: 1.3125em; }
-	@include media('>=screen2560') { font-size: 1.5em; }
+//.content-area {
+//	font-size: .75em;
+//    @include media('>=screen400') { font-size: .875em; }
+//    @include media('>=screen600') { font-size: 1em; }
+//    @include media('>=screen768') { font-size: 1.125em; }
+//    @include media('>=screen960') { font-size: 1.25em; }
+//    @include media('>=screen1280') { font-size: 1.3125em; }
+//	@include media('>=screen2560') { font-size: 1.5em; }
+//}
+
+::selection {
+	color: $color__black;
+	background-color: $color__yellow;
+	text-shadow: none;
 }
 
 /*
@@ -33,9 +39,9 @@
 			}
 		}
 		span:not(.typing) {
-			font-family: $font__main;
+			color: $color__yellow;
+			font-family: $font__secondary;
 			font-size: .75em;
-			font-weight: 400;
 			text-transform: none;
 		}
     }
@@ -47,7 +53,6 @@
 
 p {
 	@include type();
-	margin: 0 0 1.7em;
     &:last-child,
     &:only-child { margin-bottom: 0; }
 }

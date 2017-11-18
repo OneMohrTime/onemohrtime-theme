@@ -98,14 +98,45 @@ function assets() {
 	
 	wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, 'all');
 	
+	// Loading jQuery 3.2.1 instead of default
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', true);
+	wp_enqueue_script('jquery');
+//	wp_add_inline_script ('jquery', 'if (!window.jQuery) { document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.2.1.min.js"><\/script>\'); }');
+	
+	wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+	
 	if (is_single() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 	
-	wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
-	
 	// Google Webfonts: Montserrat, Bitter
-	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:700|Barlow:400,400i,700', array('sage/css'), null, 'all' );
+	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:700|Barlow:400,400i,700|Amiri:400i,700i', array('sage/css'), null, 'all' );
 	
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+/**
+ * Disable WP Emojis
+ */
+//function disable_wp_emojicons() {
+//	// all actions related to emojis
+//	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+//	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+//	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+//	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+//	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+//	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+//	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+//	// filter to remove TinyMCE emojis
+//	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+//}
+//add_action( 'init', 'disable_wp_emojicons' );
+//function disable_emojicons_tinymce($plugins) {
+//	if (is_array($plugins)) {
+//		return array_diff($plugins, array('wpemoji'));
+//	} else {
+//		return array();
+//	}
+//}
+//add_filter( 'emoji_svg_url', '__return_false' );

@@ -3,24 +3,27 @@
 */
 
 .gallery {
-	// .gallery__grid
-	&__grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-column-gap: $gutter;
-		justify-content: space-evenly;
-		@include media('>=screen600') {
-			grid-template-columns: 1fr 1fr;
-			grid-column-gap: $gutter;
-			margin: 0 $gutter;
-		}
-		@include media('>=screen1600') {
-			grid-template-columns: 1fr 1fr 1fr;
-		}
-	}
 	&__header {
 		// .gallery__header
-		margin: $gutter;
+		grid-column: span 4;
+		margin: 0 $gutter;
+	}
+	// .gallery__grid
+	&__grid {
+		grid-column: span 4;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: $gutter;
+		margin: 0 $gutter;
+//		justify-content: space-evenly;
+//		@include media(">=screen600") {
+//			grid-template-columns: 1fr 1fr;
+//			grid-column-gap: $gutter;
+//			margin: 0 $gutter;
+//		}
+//		@include media(">=screen1600") {
+//			grid-template-columns: 1fr 1fr 1fr;
+//		}
 	}
 	&__title {
 		// .gallery__title
@@ -31,10 +34,10 @@
         // .gallery__project
         position: relative;
         margin: 0 $gutter $gutter;
-		@include media('>=screen600') {
+		@include media(">=screen600") {
 			margin: 0 0 $gutter;
 		}
-		@include media('>=screen1024') {
+		@include media(">=screen1024") {
 			background: $color__white no-repeat center center;
 			&:hover {
 				.gallery__project--image { opacity: 0.05; }
@@ -52,7 +55,7 @@
             // .gallery__project--image
             display: block;
             margin-bottom: $gutter/2;
-            @include media('>=screen1024') {
+            @include media(">=screen1024") {
                 margin-bottom: 0;
                 opacity: 1;
                 transition: opacity $speed;
@@ -63,7 +66,7 @@
 			@extend h4;
 			@include underlined();
             padding-bottom: calc(.5em + 10px);
-            @include media('>=screen1024') {
+            @include media(">=screen1024") {
                 margin: 0;
                 padding: 0;
                 &::after { display: none; }
@@ -71,7 +74,7 @@
         }
 		&--content {
             // .gallery__project--content
-            @include media('>=screen1024') {
+            @include media(">=screen1024") {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -94,7 +97,7 @@
         &--excerpt {
             // .gallery__project--excerpt
             margin-bottom: 1em;
-            @include media('>=screen1024') {
+            @include media(">=screen1024") {
                 margin-bottom: 0;
                 position: absolute;
                 bottom: 2em;
@@ -110,7 +113,7 @@
 		&--link {
             // .gallery__project--link
 			@extend .btn;
-            @include media('>=screen960') {
+            @include media(">=screen960") {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -125,15 +128,18 @@
 	}
 	&__content {
 		// .gallery__content
-		margin: 0 $gutter $gutter;
-		@include media('>=screen960') {
-			width: 50vw;
-			margin: 0 auto $gutter;
+		grid-column: span 4;
+		margin: 0 $gutter $base-spacing;
+		@include media(">=screen960") {
+			grid-column: 2 / 4;
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 	&__dribbble {
 		// .gallery__dribbble
-		margin: 0 $gutter #{$gutter * 2};
+		grid-column: span 4;
+		margin: 0 $gutter $gutter;
 		&--title {
 			// .gallery__dribbble--title
 			@include underlined();

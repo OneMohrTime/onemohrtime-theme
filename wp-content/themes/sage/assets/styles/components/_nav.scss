@@ -24,52 +24,53 @@
 		display: block;
 	}
 	.menu {
-		display: flex;
-		align-items: center;
-		font-family: $font__header;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-		&-item {
-			// .menu-item
-			flex: 1 0 auto;
-			position: relative;
-			margin: 0 .5em;
-			&::before {
-				content: "";
-				position: absolute;
-				top: calc(100% + 5px);
-				left: 25%;
-				width: 70px;
-				height: 5px;
-				background-color: $color__yellow--light;
-				transform: rotate3d(0,0,1,-45deg) scale3d(0,1,1);
-				transform-origin: 0 50%;
-				transition: transform 300ms;
-			}
-			&.current-menu-item,
-			&.current-page-parent,
-			&.current-page-ancestor,
-			&.current_page_parent,
-			&.current_page_ancestor {
-				&::before { transform: rotate3d(0,0,1,-45deg) scale3d(1,1,1); }
-				a {
-					color: $color__yellow;
-					&::after {
-						opacity: 1;
-						transform: translateY(0);
+		ul {
+			display: flex;
+			align-items: center;
+			font-family: $font__header;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			.page_item {
+				flex: 1 0 auto;
+				position: relative;
+				margin: 0 .5em;
+				&::before {
+					content: "";
+					position: absolute;
+					top: calc(100% + 5px);
+					left: 25%;
+					@include size(70px, 5px);
+					background-color: $color__yellow--light;
+					transform: rotate3d(0, 0, 1, -45deg) scale3d(0, 1, 1);
+					transform-origin: 0 50%;
+					transition: transform 300ms;
+				}
+//				&.current-menu-item,
+//				&.current-page-parent,
+//				&.current-page-ancestor,
+				&.current_page_item,
+				&.current_page_parent,
+				&.current_page_ancestor {
+					&::before { transform: rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1); }
+					a {
+						color: $color__yellow;
+						&::after {
+							opacity: 1;
+							transform: translateY(0);
+						}
 					}
 				}
-			}
-			a {
-				display: block;
-				padding: .5em;
-				&:hover,
-				&:focus {
-					color: $color__yellow;
-					&::after {
-						opacity: 1;
-						transform: translateY(0);
+				a {
+					display: block;
+					padding: .5em;
+					&:hover,
+					&:focus {
+						color: $color__yellow;
+						&::after {
+							opacity: 1;
+							transform: translateY(0);
+						}
 					}
 				}
 			}

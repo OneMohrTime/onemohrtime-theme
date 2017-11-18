@@ -5,11 +5,13 @@
 .posts {
 	&__categories {
 		// .posts__categories
+		grid-column: span 4;
 		font-size: .75em;
-		margin: $gutter/2 0;
-		@include media(">=screen540") {
-			margin: $gutter 0;
-		}
+//		margin: $gutter/2 0;
+		margin: 0 $gutter $gutter / 2;
+//		@include media(">=screen540") {
+//			margin: $gutter 0;
+//		}
 		ul {
 			display: flex;
 			flex-flow: row wrap;
@@ -33,17 +35,21 @@
 		}
 	}
 	.post {
+		grid-column: span 4;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		border-radius: 3px;
 		box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-		margin-bottom: $gutter;
+		margin: 0 $gutter $gutter;
         @include media(">=screen840") {
+			grid-column: span 2;
 			flex-direction: row;
 			align-items: center;
 			box-shadow: none;
+			&:nth-of-type(odd) { margin-right: 0; }
+			&:nth-of-type(even) { margin-left: 0; }
 		}
         @include media(">=screen960") {
             .post__image {

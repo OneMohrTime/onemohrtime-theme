@@ -5,6 +5,7 @@
 .homepage {
     &__banner {
 		// .homepage__banner
+		grid-column: span 4;
 		position: relative;
 		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
 		margin-bottom: $gutter * 2;
@@ -16,16 +17,16 @@
 		}
         &--title {
 			// .homepage__banner--title
-			position: absolute;
-			bottom: 0;
-			left: 0;
+			@include position(absolute, null null 0 0);
             color: $color__white;
 			padding: $gutter;
 			margin-bottom: 0;
             .rotate {
-                color: $color__yellow;
-                font-style: italic;
                 background-color: fade-out($color__white, 0.1);
+                color: $color__yellow;
+				font-family: $font__secondary;
+				font-weight: 700;
+				line-height: 1em;
                 padding: 5px 10px;
             }
         }
@@ -49,6 +50,7 @@
     }
     &__work {
 		// .homepage__work
+		grid-column: span 4;
         background-color: $color__white;
         padding: $gutter;
 		margin-bottom: $gutter * 2;
@@ -59,6 +61,7 @@
     }
     &__portfolio {
         // .homepage__portfolio
+		grid-column: span 4;
 		position: relative;
 		margin: 0 $gutter #{$gutter * 2};
 		@include media(">=screen768") {
@@ -144,6 +147,7 @@
     }
 	&__dribbble {
 		// .homepage__dribbble
+		grid-column: span 4;
 		margin: 0 $gutter #{$gutter * 2};
 		&--title {
 			// .homepage__dribbble--title
@@ -161,6 +165,7 @@
 	}
 	&__contact {
 		// .homepage__contact
+		grid-column: span 4;
 		margin: 0 $gutter #{$gutter * 2};
 		h2 {
 			@include underlined();

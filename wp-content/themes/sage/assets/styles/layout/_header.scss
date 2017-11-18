@@ -5,9 +5,8 @@
 .site__header {
 	grid-column: span 4;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	width: 100vw;
+	align-items: center;
 	@include box-shadow();
 	padding-left: $gutter;
 	padding-right: $gutter;

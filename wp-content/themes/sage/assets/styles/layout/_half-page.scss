@@ -5,26 +5,30 @@
 .halfie {
     &__img {
         // .halfie__img
+		grid-column: span 4;
         background: $color__yellow no-repeat center center;
         background-size: cover;
-        height: 300px;
 		border: $gutter $color__white solid;
-        @include media('>=screen768') {
-            height: 100vh;
+        height: 300px;
+        @include media(">=screen768") {
+			grid-column: span 2;
 			border-right: 0;
+            height: 100vh;
         }
     }
     &__content {
         // .halfie__content
+		grid-column: span 4;
 		margin: 0 $gutter $gutter;
-		@include media('>=screen768') {
+		@include media(">=screen768") {
+			grid-column: span 2;
 			margin-left: 0;
 		}
     }
     &__header {
         // .halfie__header
 		margin-bottom: $gutter;
-		@include media('>=screen768') {
+		@include media(">=screen768") {
 			margin: $gutter 0;
 		}
     }

@@ -133,9 +133,9 @@ $(document).ready(function() {
 	
 	// Sticky-kit
 	
-	if(window.matchMedia('(min-width: 600px)').matches) {
-		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
-	};
+//	if(window.matchMedia('(min-width: 600px)').matches) {
+//		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
+//	};
     
     // Dribbble galleries
     
@@ -166,7 +166,7 @@ $(document).ready(function() {
 
 var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
 	userid = 3567722892,
-	num_photos = 10;
+	num_photos = 4;
 
 $.ajax({
 	url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
@@ -259,17 +259,17 @@ $(window).on('load', function() {
     
     // typed.js
     
-    $('#typed').typed({
-        stringsElement : $('#typed-strings'),
-        typeSpeed : 100,
-        startDelay: 300,
-        showCursor : true,
-        // cursorChar : "&nbsp;&#9608;",
-        cursorChar : " |",
-        contentType : 'text'
-    });
-    setTimeout(function() {
-        $('.typed-cursor').hide();
-    }, 8000);
+//    $('#typed').typed({
+//        stringsElement : $('#typed-strings'),
+//        typeSpeed : 100,
+//        startDelay: 300,
+//        showCursor : true,
+//        // cursorChar : "&nbsp;&#9608;",
+//        cursorChar : " |",
+//        contentType : 'text'
+//    });
+//    setTimeout(function() {
+//        $('.typed-cursor').hide();
+//    }, 8000);
     
 });

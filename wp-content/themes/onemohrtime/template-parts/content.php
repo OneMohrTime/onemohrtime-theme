@@ -4,7 +4,7 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="post_<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	<?php $stickyImg = get_field('page_bg');
 	/*
