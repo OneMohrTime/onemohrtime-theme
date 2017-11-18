@@ -1,45 +1,124 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# [Sage](https://roots.io/sage/)
+[![Build Status](https://travis-ci.org/roots/sage.svg)](https://travis-ci.org/roots/sage)
+[![devDependency Status](https://david-dm.org/roots/sage/dev-status.svg)](https://david-dm.org/roots/sage#info=devDependencies)
 
-_s
-===
+Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+* Source: [https://github.com/roots/sage](https://github.com/roots/sage)
+* Homepage: [https://roots.io/sage/](https://roots.io/sage/)
+* Documentation: [https://roots.io/sage/docs/](https://roots.io/sage/docs/)
+* Twitter: [@rootswp](https://twitter.com/rootswp)
+* Newsletter: [Subscribe](http://roots.io/subscribe/)
+* Forum: [https://discourse.roots.io/](https://discourse.roots.io/)
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+## Requirements
 
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A helpful 404 template.
-* A sample custom header implementation in `inc/custom-header.php` that can be activated by uncommenting one line in `functions.php` and adding the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+| Prerequisite    | How to check | How to install
+| --------------- | ------------ | ------------- |
+| PHP >= 5.4.x    | `php -v`     | [php.net](http://php.net/manual/en/install.php) |
+| Node.js >= 4.5  | `node -v`    | [nodejs.org](http://nodejs.org/) |
+| gulp >= 3.8.10  | `gulp -v`    | `npm install -g gulp` |
+| Bower >= 1.3.12 | `bower -v`   | `npm install -g bower` |
 
-Getting Started
----------------
+For more installation notes, refer to the [Install gulp and Bower](#install-gulp-and-bower) section in this document.
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+## Features
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium`), and then you'll need to do a five-step find and replace on the name in all the templates.
+* [gulp](http://gulpjs.com/) build script that compiles both Sass and Less, checks for JavaScript errors, optimizes images, and concatenates and minifies files
+* [BrowserSync](http://www.browsersync.io/) for keeping multiple browsers and devices synchronized while testing, along with injecting updated CSS and JS into your browser while you're developing
+* [Bower](http://bower.io/) for front-end package management
+* [asset-builder](https://github.com/austinpray/asset-builder) for the JSON file based asset pipeline
+* [Bootstrap](http://getbootstrap.com/)
+* [Theme wrapper](https://roots.io/sage/docs/theme-wrapper/)
+* ARIA roles and microformats
+* Posts use the [hNews](http://microformats.org/wiki/hnews) microformat
+* [Multilingual ready](https://roots.io/wpml/) and over 30 available [community translations](https://github.com/roots/sage-translations)
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
+Install the [Soil](https://github.com/roots/soil) plugin to enable additional features:
 
-OR
+* Cleaner output of `wp_head` and enqueued assets
+* Cleaner HTML output of navigation menus
+* Root relative URLs
+* Nice search (`/search/query/`)
+* Google CDN jQuery snippet from [HTML5 Boilerplate](http://html5boilerplate.com/)
+* Google Analytics snippet from [HTML5 Boilerplate](http://html5boilerplate.com/)
 
-* Search for: `'_s'` and replace with: `'megatherium'`
-* Search for: `_s_` and replace with: `megatherium_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium</code>
-* Search for: `_s-` and replace with: `megatherium-`
+See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
 
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
+## Theme installation
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+Install Sage by copying the project into a new folder within your WordPress themes directory.
 
-Good luck!
+Make sure [Composer](https://getcomposer.org/download/) has been installed before moving on.
+
+Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
+
+```shell
+# @ example.com/site/web/app/themes/
+$ composer create-project roots/sage your-theme-name 8.5.2
+```
+
+## Theme setup
+
+Edit `lib/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, post formats, and sidebars.
+
+## Theme development
+
+Sage uses [gulp](http://gulpjs.com/) as its build system and [Bower](http://bower.io/) to manage front-end packages.
+
+### Install gulp and Bower
+
+Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of npm: `npm install -g npm@latest`.
+
+From the command line:
+
+1. Install [gulp](http://gulpjs.com) and [Bower](http://bower.io/) globally with `npm install -g gulp bower`
+2. Navigate to the theme directory, then run `npm install`
+3. Run `bower install`
+
+You now have all the necessary dependencies to run the build process.
+
+### Available gulp commands
+
+* `gulp` — Compile and optimize the files in your assets directory
+* `gulp watch` — Compile assets when file changes are made
+* `gulp --production` — Compile assets for production (no source maps).
+
+### Using BrowserSync
+
+To use BrowserSync during `gulp watch` you need to update `devUrl` at the bottom of `assets/manifest.json` to reflect your local development hostname.
+
+For example, if your local development URL is `http://project-name.dev` you would update the file to read:
+```json
+...
+  "config": {
+    "devUrl": "http://project-name.dev"
+  }
+...
+```
+If your local development URL looks like `http://localhost:8888/project-name/` you would update the file to read:
+```json
+...
+  "config": {
+    "devUrl": "http://localhost:8888/project-name/"
+  }
+...
+```
+
+## Documentation
+
+Sage documentation is available at [https://roots.io/sage/docs/](https://roots.io/sage/docs/).
+
+## Contributing
+
+Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
+
+## Community
+
+Keep track of development and community news.
+
+* Participate on the [Roots Discourse](https://discourse.roots.io/)
+* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
+* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
+* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
+* Listen to the [Roots Radio podcast](https://roots.io/podcast/)

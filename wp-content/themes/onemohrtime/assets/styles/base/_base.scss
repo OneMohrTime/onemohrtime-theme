@@ -1,0 +1,48 @@
+/*
+* === 3.1 BASE ===
+*/
+
+html {
+	height: 100%;
+	background-color: $color__black;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+body {
+	position: relative;
+	background-color: $color__white;
+	color: $color__black;
+	font-family: $font__main;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	@include size(100vw, auto);
+	min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    &::before,
+    &::after { box-sizing: border-box; }
+}
+
+.site {
+	display: grid;
+	grid-template-rows: 100px auto;
+	grid-template-columns: repeat(4, 1fr);
+	width: 100vw;
+	min-height: 100vh;
+	
+	.sidebar-primary & {
+		// when sidebar template is activated on `body`
+	}
+	
+	&__main {
+		// .site__main
+		grid-column: span 4;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-column-gap: $gutter;
+	}
+}

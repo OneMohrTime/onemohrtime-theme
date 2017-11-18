@@ -1,0 +1,15 @@
+{
+  "name": "onemohrtime",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "description": "Package management for WP OneMohrTime theme",
+  "homepage": "http//onemohrti.me/",
+  "author": "Derek Mohr <derek@onemohrti.me>",
+  "keywords": [
+    "wordpress"
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0"
+  }
+}
