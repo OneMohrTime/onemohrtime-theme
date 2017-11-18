@@ -1,0 +1,81 @@
+/*
+* === 4.5 FORMS ===
+*/
+
+#{$all-text-inputs} {
+	position: relative;
+	display: block;
+	font-family: $font__main;
+	font-size: 100%; // Corrects font size not being inherited in all browsers
+	color: $color__gray;
+	line-height: 1.7em;
+	vertical-align: baseline; // Improves appearance and consistency in all browsers
+	appearance: none;
+	outline: none;
+	background-color: transparent;
+	border-width: 2px !important;
+	border-color: $color__gray;
+	border-style: solid;
+	border-radius: 3px;
+	box-shadow: none;
+	padding: .25em .5em;
+	transition: all 300ms;
+}
+#{$all-text-inputs-hover} {
+	border-color: $color__black;
+	color: $color__black;
+	background-color: fade-out($color__white, 0.75);
+}
+#{$all-text-inputs-focus} {
+	border-color: $color__black;
+	box-shadow: inset 0 0 0 2px $color__yellow;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: none;
+    &+ label {
+		font-family: $font__main;
+		font-size: 1em;
+		font-weight: 400;
+		text-transform: none;
+        cursor: pointer;
+        &::before {
+            font-family: "FontAwesome";
+            font-size: 1em;
+            display: inline-block;
+            position: relative;
+            width: 1em;
+            text-align: left;
+        }
+    }
+}
+input[type="checkbox"] + label::before {content: "\f096";}
+input[type="radio"] +label::before {content: "\f046";}
+input[type="checkbox"]:checked + label::before {content: "\f046";}
+
+//*::-webkit-input-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
+//	 *:-ms-input-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
+//		 *::-moz-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
+
+label {
+	font-family: $font__header;
+	font-size: .75em;
+    font-weight: 700;
+	line-height: 1.7em;
+    color: $color__black--lighter;
+    text-transform: uppercase;
+	display: block;
+}
+
+// Ninja Forms
+.nf-form-cont { width: 100%; }
+.nf-before-form-content {
+    margin-bottom: 1.7em;
+}
+.ninja-forms-req-symbol,
+.nf-error-msg {
+	@include type();
+	font-family: $font__code;
+    color: $color--error;
+}

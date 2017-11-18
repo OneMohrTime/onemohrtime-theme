@@ -1,0 +1,109 @@
+/*
+* === 5.1 BUTTONS ===
+*/
+
+#{$all-buttons},
+.sd-button,
+.btn {
+	position: relative;
+	display: inline-block;
+	appearance: none;
+	font-family: $font__header;
+	font-size: 100%; // Corrects font size not being inherited in all browsers
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+    margin: 0;
+	padding: 1em;
+	background-color: transparent;
+    @include btn-color();
+	border-radius: 3px;
+	vertical-align: baseline; // Improves appearance and consistency in all browsers
+	white-space: nowrap;
+	overflow: hidden;
+	&::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 10px;
+        width: 0;
+    }
+	&:disabled { background-color: transparent; }
+	@include media('>=screen960') {
+        &::after { transition: all 300ms; }
+	}
+}
+#{$all-buttons-hover},
+#{$all-buttons-focus},
+#{$all-buttons-active},
+.sd-button:hover,
+.sd-button:focus,
+.sd-button:active,
+.btn:hover,
+.btn:focus,
+.btn:active {
+	@include media('>=screen960') {
+        transition: all 300ms;
+		&::after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+.toggle {
+	&__menu {
+		// .toggle__menu
+		position: relative;
+		font-family: $font__header;
+		font-size: 14px;
+		cursor: pointer;
+		color: $color__black;
+		@include media('>=screen1024') {
+			display: none;
+		}
+		span.m,
+		span.n,
+		span.u {
+			font-size: 1em;
+			transition: $speed;
+			letter-spacing: 2px;
+		}
+		span.e {
+			display: inline-block;
+			height: 10px;
+			width: 17px;
+			&.toggle__close {
+				height: 11px;
+				span.bar:nth-child(1) {
+					top: 5px;
+					transform: rotate(45deg);
+					transition: $speed;
+				}
+				span.bar:nth-child(2) {
+					margin: 4px 0;
+					opacity: 0;
+					transition: $speed;
+				}
+				span.bar:nth-child(3) {
+					bottom: 5px;
+					transform: rotate(-45deg);
+					transition: $speed;
+				}
+			}
+			span.bar {
+				position: relative;
+				display: block;
+				background-color: $color__black;
+				transition: $speed;
+				width: 15px;
+				height: 1px;
+				&:nth-child(2) {
+					margin: 3px 0;
+				}
+			}
+		}
+	}
+}

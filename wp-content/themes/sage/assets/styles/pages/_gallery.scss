@@ -1,0 +1,151 @@
+/*
+* === 6.2 GALLERY ===
+*/
+
+.gallery {
+	// .gallery__grid
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-column-gap: $gutter;
+		justify-content: space-evenly;
+		@include media('>=screen600') {
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: $gutter;
+			margin: 0 $gutter;
+		}
+		@include media('>=screen1600') {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+	&__header {
+		// .gallery__header
+		margin: $gutter;
+	}
+	&__title {
+		// .gallery__title
+		@include underlined();
+		margin-top: .5em;
+	}
+	&__project {
+        // .gallery__project
+        position: relative;
+        margin: 0 $gutter $gutter;
+		@include media('>=screen600') {
+			margin: 0 0 $gutter;
+		}
+		@include media('>=screen1024') {
+			background: $color__white no-repeat center center;
+			&:hover {
+				.gallery__project--image { opacity: 0.05; }
+				.gallery__project--content::after {
+					border-color: $color__yellow;
+					transform: translate3d(0,0,0);
+				}
+				.gallery__project--excerpt {
+					opacity: 1;
+					transform: translate3d(0,0,0);
+				}
+			}
+		}
+		&--image {
+            // .gallery__project--image
+            display: block;
+            margin-bottom: $gutter/2;
+            @include media('>=screen1024') {
+                margin-bottom: 0;
+                opacity: 1;
+                transition: opacity $speed;
+            }
+        }
+		&--header {
+            // .gallery__project--header
+			@extend h4;
+			@include underlined();
+            padding-bottom: calc(.5em + 10px);
+            @include media('>=screen1024') {
+                margin: 0;
+                padding: 0;
+                &::after { display: none; }
+            }
+        }
+		&--content {
+            // .gallery__project--content
+            @include media('>=screen1024') {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 2em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 1em;
+                    left: 1em;
+                    right: 1em;
+                    height: calc(50% - 1em);
+                    border: 10px $color__black solid;
+                    transform: translate3d(0,-100%,0);
+                    transition: border-color 300ms, transform 300ms;
+                }
+            }
+        }
+        &--excerpt {
+            // .gallery__project--excerpt
+            margin-bottom: 1em;
+            @include media('>=screen1024') {
+                margin-bottom: 0;
+                position: absolute;
+                bottom: 2em;
+                left: calc(2em + 10px);
+                right: calc(2em + 10px);
+                font-size: .75em;
+                opacity: 0;
+                transform: translate3d(0,-100%,0);
+                transition: opacity 300ms, transform 300ms;
+            }
+            .sharedaddy { display: none; }
+        }
+		&--link {
+            // .gallery__project--link
+			@extend .btn;
+            @include media('>=screen960') {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+				border: 0;
+                font-size: 0;
+                opacity: 0;
+                z-index: 2;
+            }
+        }
+	}
+	&__content {
+		// .gallery__content
+		margin: 0 $gutter $gutter;
+		@include media('>=screen960') {
+			width: 50vw;
+			margin: 0 auto $gutter;
+		}
+	}
+	&__dribbble {
+		// .gallery__dribbble
+		margin: 0 $gutter #{$gutter * 2};
+		&--title {
+			// .gallery__dribbble--title
+			@include underlined();
+		}
+		&--content {
+			// .gallery__dribbble--content
+			margin-bottom: $small-spacing;
+			padding-right: $gutter;
+			@include media(">=screen600") { padding-right: 20%; }
+			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+	}
+}

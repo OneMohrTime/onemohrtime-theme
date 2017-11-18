@@ -1,0 +1,176 @@
+/*
+* === 6.1 HOME ===
+*/
+
+.homepage {
+    &__banner {
+		// .homepage__banner
+		position: relative;
+		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
+		margin-bottom: $gutter * 2;
+		overflow: hidden;
+		&--image {
+			// .homepage__banner--image
+			position: relative;
+			width: 100vw;
+		}
+        &--title {
+			// .homepage__banner--title
+			position: absolute;
+			bottom: 0;
+			left: 0;
+            color: $color__white;
+			padding: $gutter;
+			margin-bottom: 0;
+            .rotate {
+                color: $color__yellow;
+                font-style: italic;
+                background-color: fade-out($color__white, 0.1);
+                padding: 5px 10px;
+            }
+        }
+		@supports (object-fit: cover) {
+			height: 250px;
+			@include media(">=screen768") { height: 350px; }
+			@include media(">=screen1024") { height: 450px; }
+			@include media(">=screen1440") { height: 550px; }
+			&--image {
+				// .homepage__banner--image
+				object-fit: cover;
+				filter: grayscale(100%);
+				mix-blend-mode: soft-light;
+				width: 100%;
+				height: 250px;
+				@include media(">=screen768") { height: 350px; }
+				@include media(">=screen1024") { height: 450px; }
+				@include media(">=screen1440") { height: 550px; }
+			}
+		}
+    }
+    &__work {
+		// .homepage__work
+        background-color: $color__white;
+        padding: $gutter;
+		margin-bottom: $gutter * 2;
+		@include media(">=screen600") { padding-left: 10%; padding-right: 10%; }
+		@include media(">=screen840") { padding-left: 15%; padding-right: 15%; }
+		@include media(">=screen1024") { padding-left: 20%; padding-right: 20%; }
+		@include media(">=screen1600") { padding-left: 25%; padding-right: 25%; }
+    }
+    &__portfolio {
+        // .homepage__portfolio
+		position: relative;
+		margin: 0 $gutter #{$gutter * 2};
+		@include media(">=screen768") {
+			display: none;
+			@supports (display: grid) {
+				display: grid;
+			}
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: $gutter;
+			align-items: center;
+		}
+		&--title {
+			// .homepage__portfolio--title
+			@include underlined();
+			@include media(">=screen768") {
+				grid-column: span 2;
+			}
+		}
+		.laptop {
+			position: relative;
+			border: 2px $color__gray--light solid;
+			border-radius: 10px;
+			width: 100%;
+			overflow: hidden;
+			height: 250px;
+			@include media(">=screen540") { height: 300px; }
+			@include media(">=screen960") { height: 350px; }
+			@include media(">=screen1440") { height: 400px; }
+			&__bar {
+				// .laptop__bar
+				@include position(absolute, 0 null null 0);
+				background-color: $color__white--dark;
+				border-bottom: 2px $color__gray--light solid;
+				@include size(100%, 20px);
+				line-height: 14px;
+				z-index: 2;
+			}
+			&__dot {
+				// .laptop__dot
+				position: relative;
+				display: inline-block;
+				background-color: $color__white--darkest;
+				border-radius: 20px;
+				padding: 4px;
+				&:nth-child(1) {
+					margin-left: 7px;
+				}
+			}
+			&__screen {
+				// .laptop__screen
+				max-width: 100%;
+				pointer-events: none;
+				@supports (object-fit: cover) {
+					@include size(100%, 226px);
+					width: 100%;
+					margin-top: 20px;
+					object-fit: cover;
+					object-position: 50% 0;
+					@include media(">=screen540") { height: 276px; }
+					@include media(">=screen960") { height: 326px; }
+					@include media(">=screen1440") { height: 376px; }
+				}
+			}
+		}
+		.details {
+			position: relative;
+			z-index: 1;
+			&::before {
+				content: "";
+				@include position(absolute, 0  0 null null);
+				background-color: $color__white--dark;
+				@include size(75%, 100%);
+				margin-top: $gutter;
+				margin-right: -#{$gutter};
+				z-index: -1;
+			}
+			&__title {
+				// .details__title
+				@extend h5;
+				@include underlined();
+			}
+		}
+    }
+	&__dribbble {
+		// .homepage__dribbble
+		margin: 0 $gutter #{$gutter * 2};
+		&--title {
+			// .homepage__dribbble--title
+			@include underlined();
+		}
+		&--content {
+			// .homepage__dribbble--content
+			margin-bottom: $small-spacing;
+			padding-right: $gutter;
+			@include media(">=screen600") { padding-right: 20%; }
+			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+	}
+	&__contact {
+		// .homepage__contact
+		margin: 0 $gutter #{$gutter * 2};
+		h2 {
+			@include underlined();
+		}
+		p {
+			padding-right: $gutter;
+			@include media(">=screen600") { padding-right: 20%; }
+			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+	}
+}
