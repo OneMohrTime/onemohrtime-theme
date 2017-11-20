@@ -118,7 +118,7 @@ function assets() {
 	}
 	
 	// Google Webfonts: Montserrat, Bitter
-	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:700|Barlow:400,400i,700|Amiri:400i,700i', array('sage/css'), null, 'all' );
+	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:700|Barlow:400,400i,700|Amiri:400i,700i', array('onemohrtime-stylesheet'), null, 'all' );
 	
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
