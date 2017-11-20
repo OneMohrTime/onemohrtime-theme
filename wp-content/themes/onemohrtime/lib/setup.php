@@ -101,7 +101,7 @@ function display_sidebar() {
  */
 function assets() {
 	
-	wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, 'all');
+	wp_enqueue_style('onemohrtime-stylesheet', Assets\asset_path('styles/main.css'), false, 'all');
 	
 	// Loading jQuery 3.2.1 instead of default
 	wp_deregister_script('jquery');
@@ -109,7 +109,9 @@ function assets() {
 	wp_enqueue_script('jquery');
 //	wp_add_inline_script ('jquery', 'if (!window.jQuery) { document.write(\'<script src="' + get_template_directory_uri() + '/js/jquery-3.2.1.min.js"><\/script>\'); }');
 	
-	wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+	wp_enqueue_script('vendor', get_template_directory_uri() . '/assets/scripts/vendor.min.js', 'jquery', null, true);
+	
+	wp_enqueue_script('onemohrtime-scripts', Assets\asset_path('scripts/main.js'), ['jquery','vendor'], null, true);
 	
 	if (is_single() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');

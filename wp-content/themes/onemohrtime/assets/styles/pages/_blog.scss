@@ -120,7 +120,7 @@
 			}
 			.updated { display: none; }
 			a {
-				@extend %block-link;
+				@include block-link();
 			}
 		}
 		&__content {
@@ -158,7 +158,7 @@
 		}
 		&__link {
 			// .post__link
-			@extend %block-link;
+			@include block-link();
 			display: none;
 		}
 	}

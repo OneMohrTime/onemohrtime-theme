@@ -112,10 +112,10 @@ a {
 		color: inherit;
 	}
 	&:focus {
-		outline: 0;
+		outline: 2px fade-out($color__yellow, 0.15) solid;
 	}
 	@include media(">=screen1170") {
-		transition: all $speed;
+		transition-duration: $speed;
 	}
 	&:not(.btn) {
 		.wysiwyg & {

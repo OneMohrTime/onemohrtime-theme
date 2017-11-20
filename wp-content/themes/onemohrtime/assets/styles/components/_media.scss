@@ -20,7 +20,7 @@ img {
         @include text-shadow();
     }
     &.bordered {
-        @include pseudo-border();
+//        @include pseudo-border();
     }
 	a & {
 //		@include unstyled();

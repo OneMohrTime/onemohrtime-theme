@@ -127,10 +127,6 @@ $(document).ready(function() {
         }, 2000);
     });
 	
-	// Remove inline anchor styles from certain elements
-	
-	$('.sharedaddy a').addClass('btn');
-	
 	// Sticky-kit
 	
 //	if(window.matchMedia('(min-width: 600px)').matches) {
@@ -186,9 +182,9 @@ $.ajax({
 			// data.data[x].link - Instagram post URL 
 		}
 	},
-	error : function(data) {
-		console.log(data);
-	}
+//	error : function(data) {
+//		console.log(data);
+//	}
 });
 
 // menu visible when scrolling up
@@ -211,24 +207,6 @@ $(window).on('scroll', {previousTop : 0}, function() {
     }
     this.previousTop = currentTop;
 });
-
-// homepage parallax
-
-$(window).scroll(function() {
-    homepageParallax();
-});
-function homepageParallax() {
-    var logo = $('#homepage_logo')
-    // Get scroll position of window
-    windowScroll = $(this).scrollTop();
-    // Slow scroll of logo
-    logo.css({
-        'margin-top' : (windowScroll/1)+"px",
-    })
-    // Fade logo
-    var percent = $(document).scrollTop() / ($(document).height() - $(window).height());
-    logo.css('opacity', 1 - percent*7.5);
-}
 
 // Change MENU to EXIT
 
@@ -259,17 +237,17 @@ $(window).on('load', function() {
     
     // typed.js
     
-//    $('#typed').typed({
-//        stringsElement : $('#typed-strings'),
-//        typeSpeed : 100,
-//        startDelay: 300,
-//        showCursor : true,
-//        // cursorChar : "&nbsp;&#9608;",
-//        cursorChar : " |",
-//        contentType : 'text'
-//    });
-//    setTimeout(function() {
-//        $('.typed-cursor').hide();
-//    }, 8000);
+    $('#typed').typed({
+        stringsElement : $('#typed-strings'),
+        typeSpeed : 100,
+        startDelay: 300,
+        showCursor : true,
+        // cursorChar : "&nbsp;&#9608;",
+        cursorChar : " |",
+        contentType : 'text'
+    });
+    setTimeout(function() {
+        $('.typed-cursor').hide();
+    }, 8000);
     
 });

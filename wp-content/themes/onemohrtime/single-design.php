@@ -20,13 +20,13 @@
 		<?php endif; ?>
 
 		<h1 class="project__title">
-			<?php echo get_the_title(); ?>
-			<!--
+			<?php //echo get_the_title(); ?>
+			
 			<div id="typed-strings">
-				<?php //the_title('<p class="screen-reader-text">','</p>'); ?>
+				<?php the_title('<p class="screen-reader-text">','</p>'); ?>
 			</div>
 			<span id="typed" class="typing"></span>
-			-->
+			
 		</h1>
 
 		<?php if(function_exists('yoast_breadcrumb')): {

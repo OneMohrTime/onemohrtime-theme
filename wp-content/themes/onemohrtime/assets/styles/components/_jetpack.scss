@@ -82,7 +82,7 @@
                 font-family: $font__header;
             }
             @include media('>=screen960') {
-                @include pseudo-border();
+//                @include pseudo-border();
                 &:hover {
                     .jp-relatedposts-post-a {
                         img {

@@ -2,23 +2,11 @@
 * === HELPERS ===
 */
 
-%block-link {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	display: block;
-//	width: 100%;
-//	height: 100%;
-}
-
 %bar {
-	border: 0;
 	background-color: $color__yellow;
-	margin: 0 auto 1.7em;
-	width: 100px;
-	height: 10px;
+	border: 0;
+	margin: 0 auto $base-spacing;
+	@include size(100px, 10px);
 }
 
 .clearfix {

@@ -100,7 +100,7 @@
 		}
 		&__link {
 			// .shot__link
-			@extend %block-link;
+			@include block-link();
 			z-index: 2;
 		}
 	}
