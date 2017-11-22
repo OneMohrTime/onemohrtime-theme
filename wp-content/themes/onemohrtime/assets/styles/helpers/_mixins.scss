@@ -28,7 +28,7 @@
 	color: inherit;
 	line-height: 1.5em;
 	z-index: 1;
-	@include media('>=screen1170') {
+	@include media(">=screen1170") {
 		&:hover,
 		&:focus { 
 			color: inherit;
@@ -50,7 +50,7 @@
 }
 
 @mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
-    border: 2px $buttoncolor solid;
+    border: 3px $buttoncolor solid;
 	color: $buttoncolor;
     &::after {
         background-color: $hover;

@@ -7,7 +7,7 @@
 */
 
 .menu-toggle {
-	@include media('>=screen1024') {
+	@include media(">=screen1024") {
 		display: none;
 	}
 }
@@ -20,21 +20,23 @@
 
 .main-navigation {
 	display: none;
-	@include media('>=screen1024') {
+	@include media(">=screen1024") {
 		display: block;
 	}
 	.menu {
 		display: flex;
 		align-items: center;
 		font-family: $font__header;
+		font-size: 1.125em;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 1px;
+		letter-spacing: 2px;
+		margin-left: .25em;
 		&-item {
 			// .menu-item
 			flex: 1 0 auto;
 			position: relative;
-			margin: 0 .5em;
+			margin-left: $small-spacing;
 			&::before {
 				content: "";
 				position: absolute;
@@ -79,38 +81,37 @@
 }
 
 .menu__mobile {
-	position: absolute;
-	top: 100px;
-	left: 0;
+//	position: absolute;
+//	top: 100px;
+//	left: 0;
+	@include position(absolute, 0 0 null 0);
 	display: none;
-	background-color: $color__white;
-	@include box-shadow();
-	width: 100vw;
+	background-color: fade-out($color__black, 0.15);
+	color: $color__white;
+	height: auto;
+	min-height: 100vh;
 	&.is-visible {
+		position: fixed;
 		display: block;
-		border-top: 1px $color__gray solid;
+		padding-top: 100px;
 	}
 	.menu-item {
+		position: relative;
 		display: block;
-		border-bottom: 1px $color__gray--light solid;
-		&:last-child {
-			border-bottom: none;
-		}
+		padding: $small-spacing $gutter;
 		&.current-menu-item,
 		&.current-page-parent {
-			border-left: 10px $color__yellow solid;
+			border-left: 10px $color__white--dark solid;
 		}
 		a {
-			display: block;
-			font-size: .875em;
-			padding: 1em $gutter;
+			display: inline-block;
+			font-family: $font__header;
+			font-size: 2.44140625em;
+			text-transform: uppercase;
 		}
 	}
 	.sub-menu {
-		background-color: $color__white--dark;
+		@include position(absolute, 0 null null 20%);
 		a { font-size: .75em; }
-		.sub-menu {
-			background-color: $color__white--darker;
-		}
 	}
 }

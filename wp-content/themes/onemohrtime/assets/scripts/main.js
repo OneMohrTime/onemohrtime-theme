@@ -81,11 +81,13 @@ $(document).ready(function() {
     // bourbon refills nav
     
 	$('#menu_toggle').on('click touchstart', function(e) {
-		
+		// Open nav menu
 		$('#mobile_menu').toggleClass('is-visible');
+		// Switch menu toggle
 		$(this).toggleClass('open');
-		
 		changeLetters($(this));
+		// force body freeze
+		$('body').toggleClass('unscrollable');
 		
 		e.preventDefault();
 		

@@ -36,10 +36,6 @@
 		} ?>
 	</a>
 	
-	<a href="<?php home_url('contact','relative') ?>" class="contact-toggle">
-		<i class="fa fa-envelope-o"></i>
-	</a>
-	
 	<?php
 	// Mobile Menu
 	wp_nav_menu(array(

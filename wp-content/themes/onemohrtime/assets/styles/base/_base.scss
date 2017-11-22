@@ -18,7 +18,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	@include size(100vw, auto);
+	height: auto;
 	min-height: 100vh;
+	overflow-y: auto;
+	&.unscrollable {
+		height: 100vh;
+		overflow-y: hidden;
+	}
 }
 
 * {
