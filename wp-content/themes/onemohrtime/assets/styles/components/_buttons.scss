@@ -39,6 +39,8 @@
 .btn:hover,
 .btn:focus,
 .btn:active {
+	background-color: transparent;
+	color: inherit;
 	@include media(">=screen960") {
 		transition: all 300ms;
 		&::after {
