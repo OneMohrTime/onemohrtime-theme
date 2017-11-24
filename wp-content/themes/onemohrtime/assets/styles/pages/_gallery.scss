@@ -12,18 +12,9 @@
 	&__grid {
 		grid-column: span 4;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-column-gap: $gutter;
+		grid-template-columns: repeat(12, 1fr);
 		margin: 0 $gutter;
-//		justify-content: space-evenly;
-//		@include media(">=screen600") {
-//			grid-template-columns: 1fr 1fr;
-//			grid-column-gap: $gutter;
-//			margin: 0 $gutter;
-//		}
-//		@include media(">=screen1600") {
-//			grid-template-columns: 1fr 1fr 1fr;
-//		}
+		@include media(">=screen600") { grid-column-gap: $gutter; }
 	}
 	&__title {
 		// .gallery__title
@@ -31,12 +22,11 @@
 		margin-top: .5em;
 	}
 	&__project {
-        // .gallery__project
-        position: relative;
-        margin: 0 $gutter $gutter;
-		@include media(">=screen600") {
-			margin: 0 0 $gutter;
-		}
+		// .gallery__project
+		grid-column: span 12;
+		position: relative;
+		margin-bottom: $base-spacing;
+		@include media(">=screen600") { grid-column: span 6; }
 		@include media(">=screen1024") {
 			background: $color__white no-repeat center center;
 			&:hover {
@@ -51,79 +41,76 @@
 				}
 			}
 		}
+		@include media(">=screen1440") {
+			grid-column: span 4;
+		}
 		&--image {
-            // .gallery__project--image
-            display: block;
-            margin-bottom: $gutter/2;
-            @include media(">=screen1024") {
-                margin-bottom: 0;
-                opacity: 1;
-                transition: opacity $speed;
-            }
-        }
+			// .gallery__project--image
+			display: block;
+			margin-bottom: $small-spacing;
+			@include media(">=screen1024") {
+				margin-bottom: 0;
+				opacity: 1;
+				transition: opacity $speed;
+			}
+		}
 		&--header {
-            // .gallery__project--header
+			// .gallery__project--header
 			@extend h4;
 			@include underlined();
-            padding-bottom: calc(.5em + 10px);
-            @include media(">=screen1024") {
-                margin: 0;
-                padding: 0;
-                &::after { display: none; }
-            }
-        }
+			padding-bottom: calc(.5em + 10px);
+			@include media(">=screen1024") {
+				margin: 0;
+				padding: 0;
+				&::after { display: none; }
+			}
+		}
 		&--content {
-            // .gallery__project--content
-            @include media(">=screen1024") {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                padding: 2em;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    bottom: 1em;
-                    left: 1em;
-                    right: 1em;
-                    height: calc(50% - 1em);
-                    border: 10px $color__black solid;
-                    transform: translate3d(0,-100%,0);
-                    transition: border-color 300ms, transform 300ms;
-                }
-            }
-        }
-        &--excerpt {
-            // .gallery__project--excerpt
-            margin-bottom: 1em;
-            @include media(">=screen1024") {
-                margin-bottom: 0;
-                position: absolute;
-                bottom: 2em;
-                left: calc(2em + 10px);
-                right: calc(2em + 10px);
-                opacity: 0;
-                transform: translate3d(0,-100%,0);
-                transition: opacity 300ms, transform 300ms;
-            }
-            .sharedaddy { display: none; }
-        }
+			// .gallery__project--content
+			@include media(">=screen1024") {
+				@include position(absolute, 0 null null 0);
+				@include size(100%);
+				padding: 2em;
+				&::after {
+					content: "";
+					@include position(absolute, null 1em 1em 1em);
+					border: 10px $color__black solid;
+					height: calc(50% - 1em);
+					transform: translate3d(0,-100%,0);
+					transition: border-color 300ms, transform 300ms;
+				}
+			}
+		}
+		&--excerpt {
+			// .gallery__project--excerpt
+			margin-bottom: 1em;
+			@include media(">=screen1024") {
+				margin-bottom: 0;
+				position: absolute;
+				bottom: 2em;
+				left: calc(2em + 10px);
+				right: calc(2em + 10px);
+				opacity: 0;
+				transform: translate3d(0,-100%,0);
+				transition: opacity 300ms, transform 300ms;
+			}
+			.sharedaddy { display: none; }
+		}
 		&--link {
-            // .gallery__project--link
+			// .gallery__project--link
 			@extend .btn;
-            @include media(">=screen960") {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+			@include media(">=screen960") {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
 				border: 0;
-                font-size: 0;
-                opacity: 0;
-                z-index: 2;
-            }
-        }
+				font-size: 0;
+				opacity: 0;
+				z-index: 2;
+			}
+		}
 	}
 	&__content {
 		// .gallery__content
