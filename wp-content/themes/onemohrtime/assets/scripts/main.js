@@ -104,8 +104,9 @@ $(document).ready(function() {
     
     // add scrolling class to contact
     
-    $('#desktop_menu li:nth-child(4) > a, a[href^="#contact"], .contact-toggle').on('click', function() {
+    $('a[href^="#contact"]').on('click', function() {
         $('#contact').addClass('said-hi');
+		$('#mobile_menu').removeClass('is-visible');
     });
     
     // Text Rotator

@@ -48,12 +48,6 @@
 				transform-origin: 0 50%;
 				transition: transform 300ms;
 			}
-//			&.current-menu-item,
-//			&.current-page-parent,
-//			&.current-page-ancestor,
-//			&.current_page_item,
-//			&.current_page_parent,
-//			&.current_page_ancestor {
 			&.current_page_item {
 				&::before { transform: rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1); }
 				a {
@@ -81,12 +75,9 @@
 }
 
 .menu__mobile {
-//	position: absolute;
-//	top: 100px;
-//	left: 0;
 	@include position(absolute, 0 0 null 0);
 	display: none;
-	background-color: fade-out($color__black, 0.15);
+	background-color: fade-out($color__black, 0.05);
 	color: $color__white;
 	height: auto;
 	min-height: 100vh;
@@ -95,15 +86,11 @@
 		display: block;
 		padding-top: 100px;
 	}
-	.menu-item {
+	& > .menu-item {
 		position: relative;
 		display: block;
 		padding: $small-spacing $gutter;
-		&.current-menu-item,
-		&.current-page-parent {
-			border-left: 10px $color__white--dark solid;
-		}
-		a {
+		& > a {
 			display: inline-block;
 			font-family: $font__header;
 			font-size: 2.44140625em;
@@ -111,7 +98,34 @@
 		}
 	}
 	.sub-menu {
-		@include position(absolute, 0 null null 20%);
-		a { font-size: .75em; }
+		& > .menu-item {
+			margin-top: 10px;
+			& > a {
+				padding: 5px 0;
+			}
+		}
+	}
+	.current-menu-item,
+	.current-page-parent {
+		border-left: 10px $color__yellow solid;
+	}
+	@supports (display: flex) {
+		@include media(">=screen480") {
+			& > .menu-item {
+				display: flex;
+				align-items: flex-start;
+				& > a {
+					flex: 0 0 33%;
+					margin-right: $small-spacing;
+				}
+				& > .sub-menu {
+					flex: 0 0 67%;
+					& > .menu-item {
+						margin: 0 0 10px;
+						&.current-menu-item { padding-left: 10px; }
+					}
+				}
+			}
+		}
 	}
 }

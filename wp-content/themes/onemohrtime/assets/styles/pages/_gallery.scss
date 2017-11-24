@@ -8,8 +8,8 @@
 		grid-column: span 4;
 		margin: 0 $gutter;
 	}
-	// .gallery__grid
 	&__grid {
+		// .gallery__grid
 		grid-column: span 4;
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
@@ -100,11 +100,7 @@
 			// .gallery__project--link
 			@extend .btn;
 			@include media(">=screen960") {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+				@include block-link();
 				border: 0;
 				font-size: 0;
 				opacity: 0;
