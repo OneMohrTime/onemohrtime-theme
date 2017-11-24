@@ -107,6 +107,7 @@ $(document).ready(function() {
     $('a[href^="#contact"]').on('click', function() {
         $('#contact').addClass('said-hi');
 		$('#mobile_menu').removeClass('is-visible');
+		$('body').removeClass('unscrollable');
     });
     
     // Text Rotator
