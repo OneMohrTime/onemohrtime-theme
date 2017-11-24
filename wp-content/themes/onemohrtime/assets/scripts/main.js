@@ -131,9 +131,9 @@ $(document).ready(function() {
 	
 	// Sticky-kit
 	
-//	if(window.matchMedia('(min-width: 600px)').matches) {
-//		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
-//	};
+	if(window.matchMedia('(min-width: 600px)').matches) {
+		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
+	};
     
     // Dribbble galleries
     

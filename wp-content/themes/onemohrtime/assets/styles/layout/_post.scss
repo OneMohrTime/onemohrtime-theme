@@ -3,6 +3,7 @@
 */
 
 .blog-post {
+	display: block;
 	&__categories {
 		// .blog-post__categories
 		font-size: .75em;
@@ -46,28 +47,28 @@
 		}
 		&--frame {
 			// .entry__featured-image--frame (parent)
-			grid-column: span 4;
 			background: $color__white--dark no-repeat center center;
 			background-size: cover;
 			border: $gutter $color__white solid;
 			border-bottom: 0;
 			height: 300px;
 			@include media(">=screen768") {
-				grid-column: span 2;
-				height: 100vh;
 				border-right: 0;
 				border-bottom: $gutter $color__white solid;
+				@include size(50%, 100vh);
+				float: left;
 			}
 		}
 	}
     &__content {
 		// .entry__content
-		grid-column: span 4;
 		margin: 0 $gutter $gutter;
 		background-color: $color__white;
 		@include media(">=screen960") {
-			grid-column: span 2;
-			margin-left: 0;
+			width: 50%;
+			float: right;
+			margin: 0;
+			padding: 0 $gutter;
 		}
 	}
 	&__header {

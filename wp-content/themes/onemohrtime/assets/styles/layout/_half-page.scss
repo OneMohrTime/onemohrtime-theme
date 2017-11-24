@@ -3,31 +3,27 @@
 */
 
 .halfie {
+	display: block;
     &__img {
         // .halfie__img
-		grid-column: span 4;
         background: $color__white--dark no-repeat center center;
         background-size: cover;
 		border: $gutter $color__white solid;
         height: 300px;
         @include media(">=screen768") {
-			grid-column: span 2;
-			@supports (position: sticky) {
-				position: -webkit-sticky;
-				position: sticky;
-				top: 0;
-			}
 			border-right: 0;
-            height: 100vh;
+			@include size(50%, 100vh);
+			float: left;
         }
     }
     &__content {
         // .halfie__content
-		grid-column: span 4;
 		margin: 0 $gutter $gutter;
 		@include media(">=screen768") {
-			grid-column: span 2;
-			margin-left: 0;
+			float: right;
+			width: 50%;
+			padding: 0 $gutter;
+			margin: 0;
 		}
     }
     &__header {
