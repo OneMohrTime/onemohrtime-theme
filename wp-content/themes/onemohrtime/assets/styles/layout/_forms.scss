@@ -5,30 +5,31 @@
 #{$all-text-inputs} {
 	position: relative;
 	display: block;
-	font-family: $font__main;
-	font-size: 100%; // Corrects font size not being inherited in all browsers
 	color: $color__gray;
+	border: 0;
+	border-bottom: 3px $color__gray solid;
+	border-radius: 0;
+	box-shadow: none;
+	font-family: $font__main;
+//	font-size: 100%; // Corrects font size not being inherited in all browsers
+	font-size: 1.5em;
 	line-height: 1.7em;
 	vertical-align: baseline; // Improves appearance and consistency in all browsers
-	appearance: none;
+	padding: 0 0 10px;
 	outline: none;
-	background-color: transparent;
-	border-width: 2px !important;
-	border-color: $color__gray;
-	border-style: solid;
-	border-radius: 3px;
-	box-shadow: none;
-	padding: .25em .5em;
-	transition: all 300ms;
+	transition-duration: $speed;
+	appearance: none;
 }
+
 #{$all-text-inputs-hover} {
-	border-color: $color__black;
 	color: $color__black;
-	background-color: fade-out($color__white, 0.75);
-}
-#{$all-text-inputs-focus} {
 	border-color: $color__black;
-	box-shadow: inset 0 0 0 2px $color__yellow;
+}
+
+#{$all-text-inputs-focus} {
+	color: $color__black;
+	border-color: $color__yellow;
+	box-shadow: none;
 }
 
 input[type="checkbox"],
@@ -59,23 +60,11 @@ input[type="checkbox"]:checked + label::before {content: "\f046";}
 //		 *::-moz-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
 
 label {
+	display: block;
+    color: $color__black--lighter;
 	font-family: $font__header;
 	font-size: .75em;
     font-weight: 700;
 	line-height: 1.7em;
-    color: $color__black--lighter;
     text-transform: uppercase;
-	display: block;
-}
-
-// Ninja Forms
-.nf-form-cont { width: 100%; }
-.nf-before-form-content {
-    margin-bottom: 1.7em;
-}
-.ninja-forms-req-symbol,
-.nf-error-msg {
-	@include type();
-	font-family: $font__code;
-    color: $color--error;
 }

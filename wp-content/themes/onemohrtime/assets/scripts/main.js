@@ -112,7 +112,7 @@ $(document).ready(function() {
     
     // Text Rotator
     
-    $('.rotate').each(function () {
+    $('.rotate').each(function() {
         var el = $(this);
         var text = $(this).html().split(",");
         el.html(text[0]);

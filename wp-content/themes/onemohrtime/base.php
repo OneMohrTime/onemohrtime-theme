@@ -42,7 +42,7 @@ use Roots\Sage\Wrapper; ?>
 			</aside><!-- /.site__sidebar -->
 			<?php endif; ?>
 			
-			<?php get_template_part('templates/page','contact') ?>
+			<?php get_template_part('templates/page', 'contact') ?>
 			
 			<?php
 			do_action('get_footer');

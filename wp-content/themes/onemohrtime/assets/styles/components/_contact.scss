@@ -15,47 +15,55 @@
 	}
 }
 
-//.contact-section {
-//	position: absolute;
-//	bottom: 0;
-//	display: none;
-//	height: 0;
-////	width: calc(100vw - #{$gutter*2});
-//	width: 100vw;
-//	transition: height $speed;
-//	visibility: hidden;
-//	&.said-hi {
-//		position: relative;
-//		display: flex;
-//		height: auto;
-//		box-shadow: inset 0 2px 2px 0 fade-out($color__black, 0.85);
-//		visibility: visible;
-//		@include media('>=screen768') {
-//			.contact-section__profile { display: flex; }
-//		}
-//		.nf-form-cont { display: block; }
-//	}
-//	&__profile {
-//		display: none;
-//		@include media('>=screen768') {
-//			display: flex;
-//			justify-content: center;
-//			align-items: center;
-//			padding: $gutter;
-//			background-color: $color__yellow;
-//		}
-//	}
-//	&__social {
-//		display: none;
-//		@include media('>=screen960') {
-//			display: block;
-//			position: absolute;
-//			bottom: $gutter;
-//			right: $gutter;
-//		}
-//	}
-//	.nf-form-cont {
-//		padding: $gutter;
-//	}
-//	button { margin-bottom: 0; }
-//}
+/*
+* — Ninja Forms —
+*/
+#ninja_forms_required_items,
+.nf-field-container {
+	margin-bottom: $base-spacing;
+}
+
+.nf-before-form-content {
+    margin-bottom: 1.7em;
+}
+
+.label-above .nf-field-label {
+	margin-bottom: $small-spacing;
+}
+
+.ninja-forms-req-symbol,
+.nf-error-msg {
+	@include type();
+	font-family: $font__code;
+    color: $color--error !important;
+}
+
+.nf-error .ninja-forms-field {
+	border: 0 !important;
+	border-bottom: 3px $color--error solid !important;
+}
+
+@include media(">=screen600") {
+	.nf-form-content {
+		nf-fields-wrap {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: $gutter / 2;
+			nf-field {
+				grid-column: span 2;
+			}
+			nf-field:nth-of-type(1),
+			nf-field:nth-of-type(2) {
+				grid-column: span 1;
+			}
+			.nf-field-element {
+				ul {
+					display: grid;
+					grid-template-columns: repeat(3, auto);
+					grid-column-gap: $gutter / 2;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}
