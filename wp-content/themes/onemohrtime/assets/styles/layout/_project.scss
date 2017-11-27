@@ -3,6 +3,10 @@
 */
 
 .project {
+	&__section {
+		// .project__section
+		position: relative;
+	}
 	&__header {
 		// .project__header
 		grid-column: span 4;
@@ -94,13 +98,6 @@
 		// .project__story
 		grid-column: span 4;
 	}
-	&__section {
-		// .project__section
-		flex: 1 0 auto;
-		position: relative;
-		display: flex;
-		flex-flow: row wrap;
-	}
 	&__text {
 		// .project__text
 		padding: 0 $gutter $base-spacing;
@@ -111,15 +108,19 @@
 	}
 	&__text-image {
 		// .project__text-image
-		padding: 0 $gutter;
-		margin-bottom: $base-spacing;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin: 0 $gutter $base-spacing;
 		@include media(">=screen768") {
+			flex-direction: row;
 			align-items: center;
-			padding: 0;
+			margin-left: 0;
+			margin-right: 0;
 		}
 		.content--half {
 			order: 1;
-			margin: 0 0 $base-spacing;
+			margin: $base-spacing 0;
 			@include media(">=screen768") {
 				flex: 0 1 50%;
 				margin: 0;

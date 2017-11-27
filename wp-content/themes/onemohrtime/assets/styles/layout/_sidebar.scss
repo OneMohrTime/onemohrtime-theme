@@ -22,7 +22,7 @@
 			// .widget__instagram--feed
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			grid-column-gap: $gutter;
+			grid-gap: $gutter / 2;
 		}
 		&--image {
 			// .widget__instagram--image
