@@ -14,11 +14,11 @@
 			 srcset="<?php echo $projBanner['sizes']['medium']; ?> 800w,
 					 <?php echo $projBanner['sizes']['large']; ?> 1600w,
 					 <?php echo $projBanner['url']; ?> 1920w" />
-
+		
 		<?php if($projSub): ?>
 		<h2 class="project__subtitle"><?php echo $projSub ?></h2>
 		<?php endif; ?>
-
+		
 		<h1 class="project__title">
 			<?php //echo get_the_title(); ?>
 			
@@ -28,14 +28,14 @@
 			<span id="typed" class="typing"></span>
 			
 		</h1>
-
+		
 		<?php if(function_exists('yoast_breadcrumb')): {
 			yoast_breadcrumb('<div id="breadcrumbs" class="project__breadcrumb">','</div>');
 		} endif; ?>
 		<?php endwhile; ?>
-
+		
 	</figure>
-
+	
 </header>
 <?php endif; ?>
 
@@ -43,20 +43,20 @@
 <article class="project__story">
 
 	<?php while(have_rows('project_specs')): the_row();
-
+	
 	// TEXT
 	if(get_row_layout() == 'detail_text'): ?>
 	<div class="project__section project__text wysiwyg">
 		<?php the_sub_field('text'); ?>
 	</div>
-
+	
 	<?php
 	// TEXT/IMAGE
 	elseif(get_row_layout() == 'detail_text_image'):
 	$detailText = get_sub_field('text');
 	$detailImg = get_sub_field('image');
-	$detailReverse = get_sub_field('reverse');
-	?>
+	$detailReverse = get_sub_field('reverse'); ?>
+	
 	<div class="project__section project__text-image<?php if($detailReverse == '1'): ?> project__text-image--reversed<?php endif; ?>">
 		<div class="content--half wysiwyg">
 			<?php echo $detailText ?>
@@ -73,8 +73,7 @@
 	$standard = $display == 'standard';
 	$wide = $display == 'wide';
 	$fixed = $display == 'fixed';
-	$image = get_sub_field('image');
-	?>
+	$image = get_sub_field('image'); ?>
 
 	<?php if($standard): ?>
 	<div class="project__section project__image project__image--default">
@@ -84,7 +83,11 @@
 	<div class="project__section project__image project__image--fixed" style="background-image: url(<?php echo $image['url'] ?>);">
 	<?php endif; ?>
 		<?php if($standard or $wide): ?>
-		<img src="<?php echo $image['sizes']['thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php echo $image['sizes']['medium'] ?> 1024w, <?php echo $image['sizes']['large'] ?> 1440w, <?php echo $image['url'] ?> 1920w" />
+		<img src="<?php echo $image['sizes']['thumbnail'] ?>"
+			 alt="<?php echo $image['alt'] ?>"
+			 srcset="<?php echo $image['sizes']['medium'] ?> 800w,
+					 <?php echo $image['sizes']['large'] ?> 1600w,
+					 <?php echo $image['url'] ?> 1920w" />
 		<?php endif; ?>
 	</div>
 
@@ -93,8 +96,8 @@
 	elseif(get_row_layout() == 'detail_gallery'):
 	$images = get_sub_field('images');
 	$counter = 1;
-	if($images):
-	?>
+	if($images): ?>
+	
 	<div class="project__section project__gallery animatedParent animateOnce">
 		<?php foreach($images as $image): ?>
 			<figure class="animated fadeInUpShort" data-id="<?php echo $counter ?>">
@@ -140,7 +143,7 @@
 					<li><?php echo $start . ' &ndash; ' . $end ?></li>
 				<?php endif;
 			endif; ?>
-
+			
 			<?php if($roles): ?>
 			<li>Roles</li>
 			<li>
@@ -149,17 +152,17 @@
 				<?php endforeach; ?>
 			</li>
 			<?php endif; ?>
-
+			
 			<?php if($employer): ?>
 			<li>Employer</li>
 			<li><?php echo $employer ?></li>
 			<?php endif; ?>
-
+			
 			<?php if($client): ?>
 			<li>Client</li>
 			<li><?php echo $client ?></li>
 			<?php endif; ?>
-
+			
 			<?php if($codes): ?>
 			<li>Coding Languages</li>
 			<li>
@@ -168,29 +171,29 @@
 				<?php endforeach; ?>
 			</li>
 			<?php endif; ?>
-
+			
 			<?php if($cms): ?>
 			<li>Content Management System</li>
 			<li>
 				<?php echo $cms ?>
 			</li>
 			<?php endif; ?>
-
+			
 			<?php if($team): ?>
 			<li>Team</li>
 			<li><?php echo $team ?></li>
 			<?php endif; ?>
-
+			
 			<?php if($photog): ?>
 			<li>Photographer</li>
 			<li><?php echo $photog ?></li>
 			<?php endif; ?>
-
+			
 			<?php if($printer): ?>
 			<li>Printer</li>
 			<li><?php echo $printer ?></li>
 			<?php endif; ?>
-
+			
 			<?php endwhile; ?>
 		</ul>
 	</aside>

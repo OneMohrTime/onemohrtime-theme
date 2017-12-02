@@ -53,7 +53,7 @@
 	}
 	&__title {
 		// .project__title
-		margin: 0;
+		margin: 0 $gutter;
 		@include media(">=screen960") {
 			@include underlined();
 			margin: 0 $gutter 30px;
@@ -133,12 +133,13 @@
 		.image--half {
 			order: 2;
 			margin: 0;
+			width: 100%;
 			@include media(">=screen768") {
 				flex: 0 1 50%;
+				width: auto;
 			}
 			img {
-				display: block;
-				margin: 0 auto;
+				width: 100%;
 			}
 		}
 		&--reversed {
@@ -157,10 +158,13 @@
 		}
 	}
 	&__image {
+		// .project__image
 		align-items: center;
 		margin-bottom: $base-spacing;
 		@include media(">=screen1440") { margin-bottom: $base-spacing * 2; }
-		// .project__image
+		img {
+			width: 100%;
+		}
 		&--default {
 			// .project__image--default
 			padding: 0 $gutter;
