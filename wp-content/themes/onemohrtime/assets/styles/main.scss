@@ -40,9 +40,9 @@
 
 @import
 	"helpers/reset",
-	"vendor/bourbon",
-//	"vendor/neat",
-	"vendor/bitters/base",
+	"vendor/bourbon/bourbon",
+//	"vendor/neat/neat",
+	"vendor/base/base",
 	"helpers/include-media",
 	"helpers/variables",
 	"helpers/mixins",
@@ -54,9 +54,9 @@
 --------------------------------------------------------------*/
 
 @import
-	"vendor/font-awesome/font-awesome",
-	"vendor/swiper",
-	"vendor/animations";
+	"vendor/font-awesome/font-awesome";
+//	"vendor/swiper",
+//	"vendor/animations";
 
 /*--------------------------------------------------------------
 	3.0 Base

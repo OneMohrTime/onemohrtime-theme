@@ -41,7 +41,7 @@
 				}
 			}
 		}
-		@include media(">=screen1440") {
+		@include media(">=screen1920") {
 			grid-column: span 4;
 		}
 		&--image {
