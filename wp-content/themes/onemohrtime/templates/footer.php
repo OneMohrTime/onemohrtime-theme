@@ -5,7 +5,7 @@
 			<ul>
 				<li><a href="//advancedcustomfields.com/pro" target="_blank">ACF Pro</a></li>
 				<li><a href="//bourbon.io" target="_blank">Bourbon</a> + <a href="//sass-lang.com" target="_blank">Sass</a></li>
-				<li><a href="//underscores.me" target="_blank">_s Theme</a></li>
+				<li><a href="//roots.io/sage" target="_blank">Sage &ndash; Starter Theme</a></li>
 				<li><a href="//wordpress.org" target="_blank">Wordpress</a></li>
 			</ul>
 		</div>
