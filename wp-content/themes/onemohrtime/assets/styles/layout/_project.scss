@@ -126,9 +126,6 @@
 				margin: 0;
 				padding: $gutter;
 			}
-			@include media(">=screen1024") {
-				font-size: .75em;
-			}
 		}
 		.image--half {
 			order: 2;
@@ -140,6 +137,7 @@
 			}
 			img {
 				width: 100%;
+				pointer-events: none;
 			}
 		}
 		&--reversed {
@@ -164,6 +162,7 @@
 		@include media(">=screen1440") { margin-bottom: $base-spacing * 2; }
 		img {
 			width: 100%;
+			pointer-events: none;
 		}
 		&--default {
 			// .project__image--default
@@ -189,6 +188,24 @@
 			@include media(">=screen1280") { height: 500px; }
 			@include media(">=screen1920") { height: 550px; }
 			@include media(">=screen2560") { height: 600px; }
+//			@supports(object-fit: cover) {
+//				@include media(">=screen540") {
+//					background: none;
+//				}
+//				img {
+//					display: none;
+//					@include media(">=screen540") {
+//						display: block;
+//						@include size(100%, 300px);
+//						object-fit: cover;
+//					}
+//					@include media(">=screen768")  { height: 400px; }
+//					@include media(">=screen960")  { height: 450px; }
+//					@include media(">=screen1280") { height: 500px; }
+//					@include media(">=screen1920") { height: 550px; }
+//					@include media(">=screen2560") { height: 600px; }
+//				}
+//			}
 		}
 	}
 	&__gallery {
@@ -202,6 +219,7 @@
 		}
 		img {
 			display: block;
+			pointer-events: none;
 		}
 		figure {
 			overflow: hidden;

@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,400i,700|Barlow:400,400i,700");
+
 body {
-    font-family: "Bitter", "Georgia", serif;
+    font-family: "Barlow",-apple-system,BlinkMacSystemFont,Avenir Next,Avenir,Segoe UI,Lucida Grande,Helvetica Neue,Helvetica,Fira Sans,Roboto,Noto,Droid Sans,Cantarell,Oxygen,Ubuntu,Franklin Gothic Medium,Century Gothic,Liberation Sans,sans-serif;
     color: #171409
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Montserrat", "Futura", sans-serif;
+    font-family: "Barlow Semi Condensed",Helvetica Neue,Helvetica,Arial,sans-serif;
     font-weight: 700;
     line-height: 1.2em;
     text-transform: uppercase;
@@ -15,7 +17,7 @@ h3 { font-size: 1.875em; }
 p {
     font-size: 16px;
     line-height: 1.7em;
-    margin: 0 0 1.7em;
+    margin: 0 0 .75em;
 }
 a {
     text-decoration: none;
@@ -34,11 +36,10 @@ a[target="_blank"]::after {
     font-family: "FontAwesome";
 }
 .btn {
+    color: #171409;
     border: 2px #171409 solid;
     border-radius: 3px;
-    padding: 10px 20px;
-    font-family: "Montserrat", "Futura", sans-serif;
     font-weight: 700;
-    color: #171409;
     text-transform: uppercase;
+    padding: 10px 20px;
 }
