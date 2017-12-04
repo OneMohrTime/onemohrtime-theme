@@ -2,6 +2,18 @@
 * === TYPOGRAPHY ===
 */
 
+@font-face {
+    font-family: "Wildwest";
+    src: url('wildwest-webfont.eot');
+    src: url('wildwest-webfont.eot?#iefix') format('embedded-opentype'),
+         url('wildwest-webfont.woff2') format('woff2'),
+         url('wildwest-webfont.woff') format('woff'),
+         url('wildwest-webfont.ttf') format('truetype'),
+         url('wildwest-webfont.svg#wildwestregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .content-area {
 	font-size: .75em;
 	@include media(">=screen400")  { font-size: .875em; }

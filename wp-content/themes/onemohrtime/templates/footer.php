@@ -13,31 +13,15 @@
         <div class="site__footer--column projects">
 			<h3>Projects</h3>
 			<?php wp_nav_menu(array(
-				'menu' => 'Footer Projects',
-				'menu_id' => '',
-				'menu_class' => '',
-				'container' => '',
-				'theme_location' => 'footer_projects'
+				'menu'            => 'Footer Projects',
+				'menu_id'         => '',
+				'menu_class'      => '',
+				'container'       => '',
+				'container_id'    => '',
+				'container_class' => '',
+				'theme_location'  => 'footer_projects'
 			)); ?>
 			<ul>
-				
-				<?php /*$footer_projects = new WP_Query(array(
-					'post_type' => 'design',
-					'posts_per_page' => '3'
-				));
-				
-				if($footer_projects->have_posts()):
-				while($footer_projects->have_posts()): $footer_projects->the_post(); ?>
-				
-				<li>
-					<a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-				</li>
-				
-				<?php endwhile;
-				endif;
-				wp_reset_postdata(); */ ?>
-				
-			</ul>
 		</div>
         
         <div class="site__footer--column social-media">
