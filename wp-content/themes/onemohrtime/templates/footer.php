@@ -12,9 +12,16 @@
 		
         <div class="site__footer--column projects">
 			<h3>Projects</h3>
+			<?php wp_nav_menu(array(
+				'menu' => 'Footer Projects',
+				'menu_id' => '',
+				'menu_class' => '',
+				'container' => '',
+				'theme_location' => 'footer_projects'
+			)); ?>
 			<ul>
 				
-				<?php $footer_projects = new WP_Query(array(
+				<?php /*$footer_projects = new WP_Query(array(
 					'post_type' => 'design',
 					'posts_per_page' => '3'
 				));
@@ -28,7 +35,7 @@
 				
 				<?php endwhile;
 				endif;
-				wp_reset_postdata(); ?>
+				wp_reset_postdata(); */ ?>
 				
 			</ul>
 		</div>

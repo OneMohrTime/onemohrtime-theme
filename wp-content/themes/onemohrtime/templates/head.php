@@ -1,5 +1,15 @@
 <head>
 	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-26193808-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		
+		gtag('config', 'UA-26193808-1');
+	</script>
+	
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<!--<meta charset="utf-8">-->
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
