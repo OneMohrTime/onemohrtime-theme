@@ -149,11 +149,7 @@ $(document).ready(function() {
 			html.push('<figure id="shot_' + shot.id + '" class="shot">');
 			html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
 			html.push('<figcaption class="shot__hover">');
-			html.push('<h4 class="shot__title">' + shot.title + '</h4>');
-			html.push('<h5 class="shot__count"><span>' + shot.views_count + ' views</span><span>' + shot.likes_count + ' likes</span></h5>');
-			html.push('<span class="shot__icon fa fa-link"></span>');
 			html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-			html.push('</figcaption>');
 			html.push('</figure>');
 		});
 		$('#dribbbles').html(html.join(''));
