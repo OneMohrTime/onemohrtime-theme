@@ -53,8 +53,10 @@
 	}
 	&__title {
 		// .project__title
+		text-align: center;
 		margin: 0 $gutter;
 		@include media(">=screen960") {
+			text-align: left;
 			@include underlined();
 			margin: 0 $gutter 30px;
 			padding-bottom: 30px;
@@ -111,16 +113,14 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		margin: 0 $gutter $base-spacing;
+		margin: 0 0 $base-spacing;
 		@include media(">=screen768") {
 			flex-direction: row;
 			align-items: center;
-			margin-left: 0;
-			margin-right: 0;
 		}
 		.content--half {
 			order: 1;
-			margin: $base-spacing 0;
+			margin: $base-spacing $gutter;
 			@include media(">=screen768") {
 				flex: 0 1 50%;
 				margin: 0;

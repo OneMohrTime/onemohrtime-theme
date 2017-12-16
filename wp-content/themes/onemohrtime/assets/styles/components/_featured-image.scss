@@ -3,7 +3,8 @@
 */
 
 .typed-cursor {
-	color: $color__white;
+	color: $color__white !important;
+	font-family: $font__header !important;
     font-size: 1em !important;
     font-weight: 700;
     line-height: 1em;
