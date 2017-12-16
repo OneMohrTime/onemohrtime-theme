@@ -121,8 +121,8 @@ $(document).ready(function() {
                 textShadowBlur : 20,
                 opacity : 0
             }, 500, function () {
-                index = $.inArray(el.html(), text)
-                if ((index + 1) == text.length) index = -1
+                index = $.inArray(el.html(), text);
+                if ((index + 1) == text.length) index = -1;
                 el.text(text[index + 1]).animate({
                     textShadowBlur : 0,
                     opacity : 1
@@ -135,7 +135,7 @@ $(document).ready(function() {
 	
 	if(window.matchMedia('(min-width: 600px)').matches) {
 		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
-	};
+	}
     
     // Dribbble galleries
     
