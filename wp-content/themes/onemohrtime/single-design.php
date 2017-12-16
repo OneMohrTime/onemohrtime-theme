@@ -40,7 +40,7 @@
 <?php endif; ?>
 
 <?php if(have_rows('project_specs')): ?>
-<article class="project__story">
+<article class="project__story fade-content">
 
 	<?php while(have_rows('project_specs')): the_row();
 	

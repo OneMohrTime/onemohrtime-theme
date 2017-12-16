@@ -49,6 +49,13 @@
 	}
 }
 
+@mixin fade-two() {
+	& > * {
+		transition: opacity $speed, transform $speed;
+		& > *:nth-child(2n+2) { transition-delay: 100ms; }
+	}
+}
+
 @mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
     border: 3px $buttoncolor solid;
 	color: $buttoncolor;

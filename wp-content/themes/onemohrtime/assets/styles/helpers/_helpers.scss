@@ -5,8 +5,8 @@
 %bar {
 	background-color: $color__yellow;
 	border: 0;
-	margin: 0 auto $base-spacing;
 	@include size(100px, 10px);
+	margin: 0 auto $base-spacing;
 }
 
 .clearfix {
@@ -19,10 +19,23 @@
 	}
 }
 
-.fade-content > * {
-	transition: opacity $speed, transform $speed;
+.fade-content {
+	& > * {
+		transition: opacity $speed, transform $speed;
+	}
+	&.gallery__grid {
+		// Offsets timing for groups of two
+		& > *:nth-child(2n+2) { transition-delay: 100ms; }
+	}
+	&.dribbbles {
+		// Offsets timing for groups of three
+		& > *:nth-child(3n+2) { transition-delay: 100ms; }
+		& > *:nth-child(3n+3) { transition-delay: 200ms; }
+	}
+	&.widget__instagram--feed {
+		// Offsets timing for groups of four
+		& > *:nth-child(4n+2) { transition-delay: 100ms; }
+		& > *:nth-child(4n+3) { transition-delay: 200ms; }
+		& > *:nth-child(4n+4) { transition-delay: 300ms; }
+	}
 }
-
-// Offsets timing for groups of three. This must be adjusted if there are more or less than three element per row.
-//.fade-content > *:nth-child(3n+2) { transition-delay: 100ms; }
-//.fade-content > *:nth-child(3n+3) { transition-delay: 200ms; }

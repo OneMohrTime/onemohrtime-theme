@@ -40,7 +40,7 @@ if($projects): $i = 0; ?>
 	<p class="gallery__dribbble--content wysiwyg">
 		I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank">dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
 	</p>
-	<div id="dribbbles" class="dribbbles"></div>
+	<div id="dribbbles" class="dribbbles fade-content"></div>
 </section>
 
 <?php /*while(have_posts()): the_post(); ?>
