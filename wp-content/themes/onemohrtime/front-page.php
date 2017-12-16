@@ -14,6 +14,7 @@
 			<span class="rotate">designer,developer,creative</span>
 		</div>
 	</figcaption>
+	<a href="#contact" class="homepage__banner--contact"><span class="fa fa-long-arrow-down"></span></a>
 </figure>
 
 <article class="homepage__work content-block wysiwyg">

@@ -18,3 +18,11 @@
 		display: none;
 	}
 }
+
+.fade-content > * {
+	transition: opacity $speed, transform $speed;
+}
+
+// Offsets timing for groups of three. This must be adjusted if there are more or less than three element per row.
+//.fade-content > *:nth-child(3n+2) { transition-delay: 100ms; }
+//.fade-content > *:nth-child(3n+3) { transition-delay: 200ms; }

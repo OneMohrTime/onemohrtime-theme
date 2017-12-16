@@ -6,7 +6,7 @@
 
 if($projects): $i = 0; ?>
 
-<section class="gallery__grid">
+<section class="gallery__grid fade-content">
 
 	<?php foreach($projects as $post): setup_postdata($post); $i++; ?>
 

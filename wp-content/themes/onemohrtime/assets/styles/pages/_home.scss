@@ -23,6 +23,7 @@
 			align-items: center;
 			background-color: fade-out($color__white, 0.15);
 			color: $color__black;
+			@include box-shadow();
 			text-align: center;
 			padding: $base-spacing;
 			transform: translate3d(-50%, -50%, 0);
@@ -73,6 +74,7 @@
 					right: 0;
 					margin-left: 15px;
 				}
+				.rotate { overflow: visible; }
 			}
 			a {
 				font-size: 2em;
@@ -83,7 +85,7 @@
 			height: 250px;
 			@include media(">=screen768")  { height: 350px; }
 			@include media(">=screen1024") { height: 450px; }
-			@include media(">=screen1440") { height: 550px; }
+			@include media(">=screen1440") { height: calc(100vh - 100px); }
 			&--image {
 				// .homepage__banner--image
 				object-fit: cover;
@@ -93,7 +95,7 @@
 				height: 250px;
 				@include media(">=screen768")  { height: 350px; }
 				@include media(">=screen1024") { height: 450px; }
-				@include media(">=screen1440") { height: 550px; }
+				@include media(">=screen1440") { height: calc(100vh - 100px); }
 			}
 		}
 	}
