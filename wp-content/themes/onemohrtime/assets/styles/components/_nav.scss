@@ -58,6 +58,10 @@
 					}
 				}
 			}
+			&-home {
+				// .menu-item-home
+				display: none;
+			}
 			a {
 				display: block;
 				padding: .5em;
@@ -107,7 +111,7 @@
 	}
 	.current-menu-item,
 	.current-page-parent {
-		a {
+		& > a {
 			border-left: 10px $color__yellow solid;
 			padding-left: 10px;
 		}
