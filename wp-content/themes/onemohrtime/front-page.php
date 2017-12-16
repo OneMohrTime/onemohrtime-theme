@@ -7,7 +7,13 @@
 		 srcset="<?php echo $homeHero['sizes']['medium']; ?> 800w,
 				 <?php echo $homeHero['sizes']['large']; ?> 1600w,
 				 <?php echo $homeHero['url']; ?> 1920w" />
-	<h1 class="homepage__banner--title">Front-end <span class="rotate">designer,developer,creative</span></h1>
+	<figcaption class="homepage__banner--title">
+		<div class="current-city">Grand Rapids, MI</div>
+		<div class="current-title">Front-end</div>
+		<div class="current-title--rotating">
+			<span class="rotate">designer,developer,creative</span>
+		</div>
+	</figcaption>
 </figure>
 
 <article class="homepage__work content-block wysiwyg">
@@ -54,7 +60,8 @@
 
 		<h3 class="details__title"><?php echo $slideTitle ?></h3>
 		<div class="details__content wysiwyg">
-			<?php echo $slideText ?>
+			<?php //echo $slideText ?>
+			<?php the_excerpt(); ?>
 			<a href="<?php echo $slideLink ?>">View Project <span class="fa fa-long-arrow-right"></span></a>
 		</div>
 

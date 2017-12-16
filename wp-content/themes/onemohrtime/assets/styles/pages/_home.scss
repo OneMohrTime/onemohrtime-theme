@@ -3,7 +3,7 @@
 */
 
 .homepage {
-    &__banner {
+	&__banner {
 		// .homepage__banner
 		grid-column: span 4;
 		position: relative;
@@ -15,24 +15,73 @@
 			position: relative;
 			width: 100vw;
 		}
-        &--title {
+		&--title {
 			// .homepage__banner--title
-			@include position(absolute, null null 0 0);
-            color: $color__white;
-			padding: $gutter;
-			margin-bottom: 0;
-            .rotate {
-                background-color: fade-out($color__white, 0.1);
-                color: $color__yellow;
-				font-family: $font__header;
+			@include position(absolute, 50% null null 50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: fade-out($color__white, 0.15);
+			color: $color__black;
+			text-align: center;
+			padding: $base-spacing;
+			transform: translate3d(-50%, -50%, 0);
+			.current-city {
+				position: relative;
+				color: $color__black;
+				-webkit-text-fill-color: transparent;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: $color__black;
+				font-size: .75em;
 				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 14px;
 				line-height: 1em;
-                padding: 5px 10px;
-            }
-        }
+				@include underlined();
+				padding-bottom: calc(1em + 10px);
+				&::after {
+					width: 100%;
+				}
+			}
+			.current-title {
+				font-family: $font__header;
+				font-size: 3em;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 7px;
+			}
+			.current-title--rotating {
+				position: relative;
+				display: inline-block;
+				font-family: $font__secondary;
+				font-size: 2em;
+				line-height: 1em;
+				width: 100%;
+				&::before,
+				&::after {
+					content: "";
+					@include position(absolute, 50% null null null);
+					background-color: $color__yellow;
+					@include size(50px, 10px);
+					@include media(">=screen768") { width: 100px; }
+				}
+				&::before {
+					left: 0;
+					margin-right: 15px;
+				}
+				&::after {
+					right: 0;
+					margin-left: 15px;
+				}
+			}
+			a {
+				font-size: 2em;
+				margin-top: 2em;
+			}
+		}
 		@supports (object-fit: cover) {
 			height: 250px;
-			@include media(">=screen768") { height: 350px; }
+			@include media(">=screen768")  { height: 350px; }
 			@include media(">=screen1024") { height: 450px; }
 			@include media(">=screen1440") { height: 550px; }
 			&--image {
@@ -42,25 +91,25 @@
 				mix-blend-mode: soft-light;
 				width: 100%;
 				height: 250px;
-				@include media(">=screen768") { height: 350px; }
+				@include media(">=screen768")  { height: 350px; }
 				@include media(">=screen1024") { height: 450px; }
 				@include media(">=screen1440") { height: 550px; }
 			}
 		}
-    }
-    &__work {
+	}
+	&__work {
 		// .homepage__work
 		grid-column: span 4;
-        background-color: $color__white;
-        padding: $gutter;
+		background-color: $color__white;
+		padding: $gutter;
 		margin-bottom: $gutter * 2;
 		@include media(">=screen600") { padding-left: 10%; padding-right: 10%; }
 		@include media(">=screen840") { padding-left: 15%; padding-right: 15%; }
 		@include media(">=screen1024") { padding-left: 20%; padding-right: 20%; }
 		@include media(">=screen1600") { padding-left: 25%; padding-right: 25%; }
-    }
-    &__portfolio {
-        // .homepage__portfolio
+	}
+	&__portfolio {
+		// .homepage__portfolio
 		grid-column: span 4;
 		position: relative;
 		margin: 0 $gutter #{$gutter * 2};
@@ -144,7 +193,7 @@
 				@include underlined();
 			}
 		}
-    }
+	}
 	&__dribbble {
 		// .homepage__dribbble
 		grid-column: span 4;
