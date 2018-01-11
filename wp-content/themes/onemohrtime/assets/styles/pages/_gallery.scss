@@ -8,6 +8,7 @@
 		grid-column: span 4;
 		margin: 0 $gutter;
 	}
+	
 	&__grid {
 		// .gallery__grid
 		grid-column: span 4;
@@ -16,11 +17,13 @@
 		margin: 0 $gutter;
 		@include media(">=screen600") { grid-column-gap: $gutter; }
 	}
+	
 	&__title {
 		// .gallery__title
 		@include underlined();
 		margin-top: .5em;
 	}
+	
 	&__project {
 		// .gallery__project
 		grid-column: span 12;
@@ -44,6 +47,24 @@
 		@include media(">=screen1920") {
 			grid-column: span 4;
 		}
+		// fade-in cancel
+		&:nth-of-type(1) {
+			opacity: 1 !important;
+			transform: translate3d(0,0,0) !important;
+		}
+		@include media(">=screen600") {
+			&:nth-of-type(2) {
+				opacity: 1 !important;
+				transform: translate3d(0,0,0) !important;
+			}
+		}
+		@include media(">=screen1920") {
+			&:nth-of-type(3) {
+				opacity: 1 !important;
+				transform: translate3d(0,0,0) !important;
+			}
+		}
+		
 		&--image {
 			// .gallery__project--image
 			display: block;
@@ -54,6 +75,7 @@
 				transition: opacity $speed;
 			}
 		}
+		
 		&--header {
 			// .gallery__project--header
 			@extend h4;
@@ -65,6 +87,7 @@
 				&::after { display: none; }
 			}
 		}
+		
 		&--content {
 			// .gallery__project--content
 			@include media(">=screen1024") {
@@ -81,6 +104,7 @@
 				}
 			}
 		}
+		
 		&--excerpt {
 			// .gallery__project--excerpt
 			margin-bottom: 1em;
@@ -94,8 +118,8 @@
 				transform: translate3d(0,-100%,0);
 				transition: opacity 300ms, transform 300ms;
 			}
-			.sharedaddy { display: none; }
 		}
+		
 		&--link {
 			// .gallery__project--link
 			@extend .btn;
@@ -108,6 +132,7 @@
 			}
 		}
 	}
+	
 	&__content {
 		// .gallery__content
 		grid-column: span 4;
@@ -118,20 +143,23 @@
 			margin-right: 0;
 		}
 	}
+	
 	&__dribbble {
 		// .gallery__dribbble
 		grid-column: span 4;
 		margin: 0 $gutter $gutter;
+		
 		&--title {
 			// .gallery__dribbble--title
 			@include underlined();
 		}
+		
 		&--content {
 			// .gallery__dribbble--content
 			margin-bottom: $small-spacing;
 			padding-right: $gutter;
-			@include media(">=screen600") { padding-right: 20%; }
-			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen600")  { padding-right: 20%; }
+			@include media(">=screen840")  { padding-right: 30%; }
 			@include media(">=screen1024") { padding-right: 40%; }
 			@include media(">=screen1600") { padding-right: 50%; }
 		}

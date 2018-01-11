@@ -10,7 +10,7 @@ if($projects): $i = 0; ?>
 
 	<?php foreach($projects as $post): setup_postdata($post); $i++; ?>
 
-	<figure class="gallery__project" data-id="<?php echo $i; ?>">
+	<figure id="proj_id_<?php echo $i; ?>" class="gallery__project">
 		<img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery__project--image" />
 		<figcaption class="gallery__project--content">
 			<h2 class="gallery__project--header">
