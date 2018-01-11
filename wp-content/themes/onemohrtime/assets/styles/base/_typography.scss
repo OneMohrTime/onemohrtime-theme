@@ -56,6 +56,9 @@
 			font-size: .75em;
 			text-transform: none;
 			letter-spacing: -1px;
+			& > a {
+				transform: rotate(-4deg) translate(-2em, -4px);
+			}
 		}
     }
 }

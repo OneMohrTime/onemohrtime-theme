@@ -20,7 +20,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-//		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
 		color: $color__white;
 		height: 250px;
 		@include media(">=screen600") { height: 350px; }
@@ -34,8 +33,6 @@
 			position: absolute;
 			@supports (object-fit: cover) {
 				object-fit: cover;
-//				filter: grayscale(100%);
-//				mix-blend-mode: soft-light;
 				@include size(100vw, 100%);
 			}
 		}
@@ -50,6 +47,9 @@
 		text-transform: none;
 		margin: 0 $gutter;
 		padding: 10px 15px;
+		@include media(">=screen1024") {
+			transform: rotate(-3deg) translateY(8px);
+		}
 	}
 	&__title {
 		// .project__title

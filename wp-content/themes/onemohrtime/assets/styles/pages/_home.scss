@@ -30,9 +30,6 @@
 			.current-city {
 				position: relative;
 				color: $color__black;
-				-webkit-text-fill-color: transparent;
-				-webkit-text-stroke-width: 1px;
-				-webkit-text-stroke-color: $color__black;
 				font-size: .75em;
 				font-weight: 700;
 				text-transform: uppercase;
@@ -50,6 +47,9 @@
 				font-weight: 700;
 				text-transform: uppercase;
 				letter-spacing: 7px;
+				-webkit-text-fill-color: transparent;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: $color__black;
 			}
 			.current-title--rotating {
 				position: relative;
