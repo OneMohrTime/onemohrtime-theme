@@ -8,12 +8,7 @@
 		
 		<?php the_title('<h1 class="entry__title">', '</h1>');
 		
-		get_template_part('templates/entry-meta');
-		/*if('post' === get_post_type()): ?>
-		<div class="entry__meta">
-			<?php onemohrtime_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif;*/ ?>
+		get_template_part('templates/entry-meta'); ?>
 		
 	</header>
 	
@@ -31,10 +26,6 @@
 		'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'onemohrtime' ),
 		'after'  => '</div>',
 	)); ?>
-	
-	<footer class="entry__footer">
-		<?php //onemohrtime_entry_footer(); ?>
-	</footer>
 	
 </div><!-- .entry__content -->
 

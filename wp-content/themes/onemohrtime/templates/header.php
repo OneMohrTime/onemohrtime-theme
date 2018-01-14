@@ -65,33 +65,6 @@
 		return $sorted_menu_objects;
 	} ?>
 	
-	<?php /*
-	<ul id="mobile_menu" class="menu__mobile">
-		<?php
-		$navMenu = wp_get_nav_menu_items('Primary Navigation'); // Pass Nav Menu_id or Name
-		$previousMenuParent = $level = 0;
-		foreach($navMenu as $menu) {
-			if($menu->menu_item_parent == 0) {
-				$level = 0;
-				echo '<li class="menu-item"><a href="' . $menu->url . '">' . $menu->title . '</a>';
-			}
-			elseif($menu->menu_item_parent != '' && $menu->menu_item_parent != $previousMenuParent) {
-				$level++;
-				echo '<ul class="sub-menu">';
-				echo '<li class="menu-item"><a href="' . $menu->url . '">' . $menu->title . '</a>';
-				$previousMenuParent = $menu->menu_item_parent;
-			}
-			elseif($previousMenuParent == $menu->menu_item_parent) {
-				echo '</li></ul><ul><li class="menu-item"><a href="' . $menu->url . '">';
-				if($level == 3) {
-					echo get_the_post_thumbnail($menu->ID);
-				}
-				echo $menu->title . '</a></li>';
-			}
-		} ?>
-		</li>
-	</ul> */ ?>
-	
 	<?php
 	// Mobile Menu
 	wp_nav_menu(array(
