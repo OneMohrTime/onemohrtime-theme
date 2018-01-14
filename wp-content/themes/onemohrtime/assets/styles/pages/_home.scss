@@ -142,92 +142,27 @@
 		// .homepage__portfolio
 		grid-column: span 4;
 		position: relative;
-		margin: 0 $gutter #{$gutter * 2};
-		@include media(">=screen768") {
-			display: none;
-			@supports (display: grid) {
-				display: grid;
-			}
-			grid-template-columns: 1fr 1fr;
-			grid-column-gap: $gutter;
-			align-items: center;
-		}
+		margin-bottom: $gutter * 2;
 		
-		&--title {
-			// .homepage__portfolio--title
-			@include underlined();
-			@include media(">=screen768") {
-				grid-column: span 2;
-			}
-		}
-		
-		.laptop {
-			position: relative;
-			border: 2px $color__gray--light solid;
-			border-radius: 10px;
+		.feature {
+			display: block;
 			width: 100%;
-			overflow: hidden;
-			height: 250px;
-			@include media(">=screen540") { height: 300px; }
-			@include media(">=screen960") { height: 350px; }
-			@include media(">=screen1440") { height: 400px; }
-			
-			&__bar {
-				// .laptop__bar
+			width: 870px;
+			min-height: 420px;
+			&__content {
+				@include position(absolute, 23px 0 null null);
+				background: $color__white;
+				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+				@include size(50%, 90%);
+				min-height: 200px;
+				padding: $base-spacing;
+				overflow: hidden;
+				z-index: 3;
+			}
+			.wp-post-image {
 				@include position(absolute, 0 null null 0);
-				background-color: $color__white--dark;
-				border-bottom: 2px $color__gray--light solid;
-				@include size(100%, 20px);
-				line-height: 14px;
-				z-index: 2;
-			}
-			
-			&__dot {
-				// .laptop__dot
-				position: relative;
-				display: inline-block;
-				background-color: $color__white--darkest;
-				border-radius: 20px;
-				padding: 4px;
-				&:nth-child(1) {
-					margin-left: 7px;
-				}
-			}
-			
-			&__screen {
-				// .laptop__screen
-				max-width: 100%;
-				pointer-events: none;
-				@supports (object-fit: cover) {
-					@include size(100%, 226px);
-					width: 100%;
-					margin-top: 20px;
-					object-fit: cover;
-					object-position: 50% 0;
-					@include media(">=screen540") { height: 276px; }
-					@include media(">=screen960") { height: 326px; }
-					@include media(">=screen1440") { height: 376px; }
-				}
-			}
-		}
-		
-		.details {
-			position: relative;
-			z-index: 1;
-			&::before {
-				content: "";
-				@include position(absolute, 0  0 null null);
-				background-color: $color__white--dark;
-				@include size(75%, 100%);
-				margin-top: $gutter;
-				margin-right: -#{$gutter};
-				z-index: -1;
-			}
-			
-			&__title {
-				// .details__title
-				@extend h5;
-				@include underlined();
+				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+				@include size(60%, 100%);
 			}
 		}
 	}

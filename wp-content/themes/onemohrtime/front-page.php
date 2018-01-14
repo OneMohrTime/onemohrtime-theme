@@ -25,57 +25,29 @@
 	<?php the_content(); ?>
 	<a href="<?php echo home_url('design'); ?>">See All Projects <span class="fa fa-long-arrow-right"></span></a>
 </article>
-
-<?php if(have_rows('homepage_slideshow')): ?>
+	
 <section class="homepage__portfolio">
-
-	<h2 class="homepage__portfolio--title">Latest project</h2>
-
-	<?php while(have_rows('homepage_slideshow')): the_row();
-		$slideImg = get_sub_field('slide_image'); ?>
+	<?php
+	$post_object = get_field('homepage_feature');
 	
-	<figure class="laptop">
-		
-		<div class="laptop__bar">
-			<div class="laptop__dot"></div>
-			<div class="laptop__dot"></div>
-			<div class="laptop__dot"></div>
+	if( $post_object ): 
+	
+	// override $post
+	$post = $post_object;
+	setup_postdata( $post ); ?>
+	
+		<div class="feature fade-content">
+			<div class="feature__content">
+				<h2 class="feature__content--title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
+				<?php the_excerpt(); ?>
+				<a href="<?php the_permalink(); ?>">See Project <span class="fa fa-long-arrow-right"></span></a>
+			</div>
+			<?php the_post_thumbnail(); ?>
 		</div>
-		
-		<?php if($slideImg): ?>
-		<img src="<?php echo $slideImg['sizes']['thumbnail'] ?>"
-			 alt="<?php echo $slideImg['alt'] ?>"
-			 class="laptop__screen"
-			 srcset="<?php echo $slideImg['sizes']['medium'] ?> 1024w,
-					 <?php echo $slideImg['sizes']['large'] ?> 1440w,
-					 <?php echo $slideImg['url'] ?> 1920w" />
-		
-		<?php else: ?>
-		<img src="http://placehold.it/1000x720" alt="placeholder image" class="laptop__screen" />
-		
-		<?php endif; ?>
-		
-	</figure>
-	
-	<div class="details">
-		<?php
-		$slideTitle = get_sub_field('slide_title');
-		$slideText  = get_sub_field('slide_text');
-		$slideLink  = get_sub_field('slide_link'); ?>
-		
-		<h3 class="details__title"><?php echo $slideTitle ?></h3>
-		<div class="details__content wysiwyg">
-			<?php //echo $slideText ?>
-			<?php the_excerpt(); ?>
-			<a href="<?php echo $slideLink ?>">View Project <span class="fa fa-long-arrow-right"></span></a>
-		</div>
-		
-	</div>
-	
-	<?php endwhile; ?>
-	
+			
+		<?php wp_reset_postdata(); ?>
+	<?php endif; ?>
 </section>
-<?php endif; ?>
 
 <section class="homepage__dribbble">
 	

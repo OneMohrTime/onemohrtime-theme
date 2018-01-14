@@ -15,60 +15,60 @@
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
   var Sage = {
-    // All pages
-    'common': {
-      init: function() {
-        // JavaScript to be fired on all pages
-      },
-      finalize: function() {
-        // JavaScript to be fired on all pages, after page specific JS is fired
-      }
-    },
-    // Home page
-    'home': {
-      init: function() {
-        // JavaScript to be fired on the home page
-      },
-      finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
-      }
-    },
-    // About us page, note the change from about-us to about_us.
-    'about_us': {
-      init: function() {
-        // JavaScript to be fired on the about us page
-      }
-    }
+	// All pages
+	'common': {
+	  init: function() {
+		// JavaScript to be fired on all pages
+	  },
+	  finalize: function() {
+		// JavaScript to be fired on all pages, after page specific JS is fired
+	  }
+	},
+	// Home page
+	'home': {
+	  init: function() {
+		// JavaScript to be fired on the home page
+	  },
+	  finalize: function() {
+		// JavaScript to be fired on the home page, after the init JS
+	  }
+	},
+	// About us page, note the change from about-us to about_us.
+	'about_us': {
+	  init: function() {
+		// JavaScript to be fired on the about us page
+	  }
+	}
   };
 
   // The routing fires all common scripts, followed by the page specific scripts.
   // Add additional events for more control over timing e.g. a finalize event
   var UTIL = {
-    fire: function(func, funcname, args) {
-      var fire;
-      var namespace = Sage;
-      funcname = (funcname === undefined) ? 'init' : funcname;
-      fire = func !== '';
-      fire = fire && namespace[func];
-      fire = fire && typeof namespace[func][funcname] === 'function';
+	fire: function(func, funcname, args) {
+	  var fire;
+	  var namespace = Sage;
+	  funcname = (funcname === undefined) ? 'init' : funcname;
+	  fire = func !== '';
+	  fire = fire && namespace[func];
+	  fire = fire && typeof namespace[func][funcname] === 'function';
 
-      if (fire) {
-        namespace[func][funcname](args);
-      }
-    },
-    loadEvents: function() {
-      // Fire common init JS
-      UTIL.fire('common');
+	  if (fire) {
+		namespace[func][funcname](args);
+	  }
+	},
+	loadEvents: function() {
+	  // Fire common init JS
+	  UTIL.fire('common');
 
-      // Fire page-specific init JS, and then finalize JS
-      $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
-        UTIL.fire(classnm);
-        UTIL.fire(classnm, 'finalize');
-      });
+	  // Fire page-specific init JS, and then finalize JS
+	  $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
+		UTIL.fire(classnm);
+		UTIL.fire(classnm, 'finalize');
+	  });
 
-      // Fire common finalize JS
-      UTIL.fire('common', 'finalize');
-    }
+	  // Fire common finalize JS
+	  UTIL.fire('common', 'finalize');
+	}
   };
 
   // Load Events
@@ -77,23 +77,23 @@
 })(jQuery); // Fully reference jQuery after this point.
 
 $(document).ready(function() {
-    
-    // bourbon refills nav
-    
+
+	// bourbon refills nav
+
 	$('#menu_toggle').on('click touchstart', function(e) {
 		// Open nav menu
 		$('#mobile_menu').toggleClass('is-visible');
-		
+
 		// Switch menu toggle
 		$(this).toggleClass('open');
 		changeLetters($(this));
-		
+
 		// force body freeze
 		$('body').toggleClass('unscrollable');
-		
+
 		e.preventDefault();	
 	});
-	
+
 	// Hide the element. Doing this here will prevent the elements from disappering if JS is disabled.
 	$('.fade-content > *').css({'opacity':'0', 'transform': 'translateY(' + 2 + 'em)'});
 
@@ -109,25 +109,25 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	// click to smoothscroll
-    
+
 	$('a[href^="#"]').on('click',function(e) {
 		e.preventDefault();
 		$('html,body').animate({
-            scrollTop : $(this.hash).offset().top
-        }, 1500);
+			scrollTop : $(this.hash).offset().top
+		}, 1500);
 	});
-    
-    // add scrolling class to contact
-    
-    $('a[href^="#contact"]').on('click', function() {
-        $('#contact').addClass('said-hi');
+
+	// add scrolling class to contact
+
+	$('a[href^="#contact"]').on('click', function() {
+		$('#contact').addClass('said-hi');
 		$('#mobile_menu').removeClass('is-visible');
 		$('body').removeClass('unscrollable');
-    });
-    
-    // Text Rotator
+	});
+
+	// Text Rotator
 	if(window.matchMedia('(min-width: 840px)').matches) {
 		$('.rotate').each(function() {
 			var el = $(this);
@@ -148,20 +148,20 @@ $(document).ready(function() {
 			}, 2000);
 		});
 	}
-	
+
 	// Sticky-kit
-	
+
 	if(window.matchMedia('(min-width: 600px)').matches) {
 		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
 	}
-    
-    // Dribbble galleries
-    
+
+	// Dribbble galleries
+
 	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
 	$.jribbble.users('onemohrtime').shots({
 		per_page : 6,
 		sort : 'recent'
-    }).then(function(shots) {
+	}).then(function(shots) {
 		var html = [];
 		shots.forEach(function(shot) {
 			html.push('<figure id="shot_' + shot.id + '" class="shot">');
@@ -171,15 +171,15 @@ $(document).ready(function() {
 			html.push('</figure>');
 		});
 		$('#dribbbles').html(html.join(''));
-    });
-	
+	});
+
 	// Instagram API
 	// https://rudrastyh.com/javascript/get-photos-from-instagram.html
 
 	var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
 		userid = 3567722892,
 		num_photos = 4;
-	
+
 	$.ajax({
 		url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
 //		url : 'https://api.instagram.com/v1/users/self/media/recent',
@@ -203,28 +203,28 @@ $(document).ready(function() {
 //			console.log(data);
 //		}
 	});
-	
+
 });
 
 // menu visible when scrolling up
 
 var headerHeight = $('#desktop').height();
 $(window).on('scroll', {previousTop : 0}, function() {
-    var currentTop = $(window).scrollTop();
-    //check if user is scrolling up
-    if (currentTop < this.previousTop ) {
-        //if scrolling up...
-        if (currentTop > 0 && $('#desktop').hasClass('nav-fixed')) {
-            $('#desktop').addClass('nav-visible');
-        } else {
-            $('#desktop').removeClass('nav-visible nav-fixed');
-        }
-    } else {
-        //if scrolling down...
-        $('#desktop').removeClass('nav-visible');
-        if( currentTop > headerHeight && !$('#desktop').hasClass('nav-fixed')) $('#desktop').addClass('nav-fixed');
-    }
-    this.previousTop = currentTop;
+	var currentTop = $(window).scrollTop();
+	//check if user is scrolling up
+	if (currentTop < this.previousTop ) {
+		//if scrolling up...
+		if (currentTop > 0 && $('#desktop').hasClass('nav-fixed')) {
+			$('#desktop').addClass('nav-visible');
+		} else {
+			$('#desktop').removeClass('nav-visible nav-fixed');
+		}
+	} else {
+		//if scrolling down...
+		$('#desktop').removeClass('nav-visible');
+		if( currentTop > headerHeight && !$('#desktop').hasClass('nav-fixed')) $('#desktop').addClass('nav-fixed');
+	}
+	this.previousTop = currentTop;
 });
 
 // Change MENU to EXIT
@@ -234,9 +234,9 @@ function changeLetters(btn) {
 	var e = $('.toggle__menu span.e');
 	var n = $('.toggle__menu span.n');
 	var u = $('.toggle__menu span.u');
-	
+
 	e.toggleClass('toggle__close');
-	
+
 	if(btn.hasClass('open')) {
 		m.text('E');
 		n.text('I');
@@ -249,24 +249,24 @@ function changeLetters(btn) {
 }
 
 $(window).on('load', function() {
-    
+
 	// loading screen won't fade until entire page has loaded
-    
+
 	$('#loading').fadeOut('slow');
-    
-    // typed.js
-    
-    $('#typed').typed({
-        stringsElement : $('#typed-strings'),
-        typeSpeed : 100,
-        startDelay: 300,
-        showCursor : true,
-        // cursorChar : "&nbsp;&#9608;",
-        cursorChar : " |",
-        contentType : 'text'
-    });
-    setTimeout(function() {
-        $('.typed-cursor').hide();
-    }, 8000);
-    
+
+	// typed.js
+
+	$('#typed').typed({
+		stringsElement : $('#typed-strings'),
+		typeSpeed : 100,
+		startDelay: 300,
+		showCursor : true,
+		// cursorChar : "&nbsp;&#9608;",
+		cursorChar : " |",
+		contentType : 'text'
+	});
+	setTimeout(function() {
+		$('.typed-cursor').hide();
+	}, 8000);
+
 });
