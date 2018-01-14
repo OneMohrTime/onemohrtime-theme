@@ -1,12 +1,12 @@
 <?php if(have_rows('project_header')): ?>
 <header class="project__header">
 	
-	<?php while(have_rows('project_header')): the_row(); 
-	
-	$projBanner = get_sub_field('proj_banner');
-	$projSub    = get_sub_field('proj_subheader'); ?>
-	
 	<figure class="project__banner">
+		
+		<?php while(have_rows('project_header')): the_row(); 
+		
+		$projBanner = get_sub_field('proj_banner');
+		$projSub    = get_sub_field('proj_subheader'); ?>
 		
 		<img src="<?php echo $projBanner['sizes']['thumbnail']; ?>"
 			 alt="<?php echo $projBanner['alt']; ?>"
@@ -20,19 +20,19 @@
 		<?php endif; ?>
 		
 		<h1 class="project__title">
-			<?php //echo get_the_title(); ?>
-			
 			<div id="typed-strings">
 				<?php the_title('<p class="screen-reader-text">','</p>'); ?>
 			</div>
 			<span id="typed" class="typing"></span>
-			
 		</h1>
 		
 		<?php if(function_exists('yoast_breadcrumb')): {
 			yoast_breadcrumb('<div id="breadcrumbs" class="project__breadcrumb">','</div>');
 		} endif; ?>
+		
 		<?php endwhile; ?>
+		
+		<a href="#contact" class="homepage__banner--contact btn"><span class="fa fa-long-arrow-left"></span> Contact</a>
 		
 	</figure>
 	

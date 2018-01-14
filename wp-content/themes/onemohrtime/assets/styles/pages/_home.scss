@@ -3,6 +3,7 @@
 */
 
 .homepage {
+	
 	&__banner {
 		// .homepage__banner
 		grid-column: span 4;
@@ -10,11 +11,13 @@
 		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
 		margin-bottom: $gutter * 2;
 		overflow: hidden;
+		
 		&--image {
 			// .homepage__banner--image
 			position: relative;
 			width: 100vw;
 		}
+		
 		&--title {
 			// .homepage__banner--title
 			@include position(absolute, 50% null null 50%);
@@ -27,6 +30,7 @@
 			text-align: center;
 			padding: $base-spacing;
 			transform: translate3d(-50%, -50%, 0);
+			
 			.current-city {
 				position: relative;
 				color: $color__black;
@@ -41,6 +45,7 @@
 					width: 100%;
 				}
 			}
+			
 			.current-title {
 				font-family: $font__header;
 				font-size: 3em;
@@ -51,6 +56,7 @@
 				-webkit-text-stroke-width: 1px;
 				-webkit-text-stroke-color: $color__black;
 			}
+			
 			.current-title--rotating {
 				position: relative;
 				display: inline-block;
@@ -74,18 +80,23 @@
 					right: 0;
 					margin-left: 15px;
 				}
+				
 				.rotate { overflow: visible; }
+				
 			}
+			
 			a {
 				font-size: 2em;
 				margin-top: 2em;
 			}
 		}
+		
 		@supports (object-fit: cover) {
 			height: 250px;
 			@include media(">=screen768")  { height: 350px; }
 			@include media(">=screen1024") { height: 450px; }
 			@include media(">=screen1440") { height: calc(100vh - 100px); }
+			
 			&--image {
 				// .homepage__banner--image
 				object-fit: cover;
@@ -98,7 +109,15 @@
 				@include media(">=screen1440") { height: calc(100vh - 100px); }
 			}
 		}
+		
+		&--contact {
+			// .home__banner--contact
+			@include position(absolute, 50% $base-spacing null null);
+			transform: rotate(-90deg);
+			transform-origin: center top 0;
+		}
 	}
+	
 	&__work {
 		// .homepage__work
 		grid-column: span 4;
@@ -110,6 +129,7 @@
 		@include media(">=screen1024") { padding-left: 20%; padding-right: 20%; }
 		@include media(">=screen1600") { padding-left: 25%; padding-right: 25%; }
 	}
+	
 	&__portfolio {
 		// .homepage__portfolio
 		grid-column: span 4;
@@ -124,6 +144,7 @@
 			grid-column-gap: $gutter;
 			align-items: center;
 		}
+		
 		&--title {
 			// .homepage__portfolio--title
 			@include underlined();
@@ -131,6 +152,7 @@
 				grid-column: span 2;
 			}
 		}
+		
 		.laptop {
 			position: relative;
 			border: 2px $color__gray--light solid;
@@ -141,6 +163,7 @@
 			@include media(">=screen540") { height: 300px; }
 			@include media(">=screen960") { height: 350px; }
 			@include media(">=screen1440") { height: 400px; }
+			
 			&__bar {
 				// .laptop__bar
 				@include position(absolute, 0 null null 0);
@@ -150,6 +173,7 @@
 				line-height: 14px;
 				z-index: 2;
 			}
+			
 			&__dot {
 				// .laptop__dot
 				position: relative;
@@ -161,6 +185,7 @@
 					margin-left: 7px;
 				}
 			}
+			
 			&__screen {
 				// .laptop__screen
 				max-width: 100%;
@@ -177,6 +202,7 @@
 				}
 			}
 		}
+		
 		.details {
 			position: relative;
 			z-index: 1;
@@ -189,6 +215,7 @@
 				margin-right: -#{$gutter};
 				z-index: -1;
 			}
+			
 			&__title {
 				// .details__title
 				@extend h5;
@@ -196,14 +223,17 @@
 			}
 		}
 	}
+	
 	&__dribbble {
 		// .homepage__dribbble
 		grid-column: span 4;
 		margin: 0 $gutter #{$gutter * 2};
+		
 		&--title {
 			// .homepage__dribbble--title
 			@include underlined();
 		}
+		
 		&--content {
 			// .homepage__dribbble--content
 			margin-bottom: $small-spacing;
@@ -214,13 +244,16 @@
 			@include media(">=screen1600") { padding-right: 50%; }
 		}
 	}
+	
 	&__contact {
 		// .homepage__contact
 		grid-column: span 4;
 		margin: 0 $gutter #{$gutter * 2};
+		
 		h2 {
 			@include underlined();
 		}
+		
 		p {
 			padding-right: $gutter;
 			@include media(">=screen600") { padding-right: 20%; }

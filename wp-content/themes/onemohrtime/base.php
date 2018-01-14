@@ -10,6 +10,10 @@ use Roots\Sage\Wrapper; ?>
 	
 	<body <?php body_class(); ?>>
 		
+		<div id="loading" class="pageload">
+			
+		</div>
+		
 		<div id="page" class="site" role="document">
 			
 			<?php

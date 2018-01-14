@@ -32,6 +32,7 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		margin-left: .25em;
+		
 		&-item {
 			// .menu-item
 			flex: 1 0 auto;
@@ -48,6 +49,7 @@
 				transform-origin: 0 50%;
 				transition: transform 300ms;
 			}
+			
 			&.current_page_item {
 				&::before { transform: rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1); }
 				a {
@@ -58,10 +60,12 @@
 					}
 				}
 			}
+			
 			&-home {
 				// .menu-item-home
 				display: none;
 			}
+			
 			a {
 				display: block;
 				padding: .5em;
@@ -85,37 +89,79 @@
 	color: $color__white;
 	height: auto;
 	min-height: 100vh;
+	
 	&.is-visible {
 		position: fixed;
 		display: block;
 		padding-top: 100px;
 	}
+	
 	& > .menu-item {
+		// .menu__mobile > .menu-item
 		position: relative;
 		display: block;
 		padding: 0 $gutter $base-spacing;
+		
+		&.current-menu-item,
+		&.current-menu-parent {
+			// .menu__mobile > .menu-item.current-menu-item
+			// .menu__mobile > .menu-item.current-menu-parent
+			& > a {
+				// .menu__mobile > .menu-item.current-menu-item > a
+				// .menu__mobile > .menu-item.current-menu-parent > a
+				border-left-color: $color__yellow;
+			}
+			&::after {
+				content: "";
+				@include position(absolute, null null 0 1em);
+				background-color: fade-out($color__white, 0.85);
+				@include size(50vw, 100%);
+				z-index: -1;
+			}
+		}
+		
 		& > a {
+			// .menu__mobile > .menu-item > a
 			display: inline-block;
+			border-left: 10px transparent solid;
 			font-family: $font__header;
-			font-size: 2.44140625em;
+			font-size: 2.5em;
 			text-transform: uppercase;
+			padding-left: 10px;
+			&:focus {
+				outline: none;
+			}
+			@include media(">=screen1024") {
+				font-size: 4em;
+			}
+			@include media(">=screen1440") {
+				font-size: 5em;
+			}
 		}
 	}
+	
 	.sub-menu {
+		// .menu__mobile .sub-menu
+		@include media(">=screen1024") {
+			margin-top: $base-spacing;
+		}
 		& > .menu-item {
+			// .menu__mobile .sub-menu > .menu-item
 			margin-top: 10px;
+			&.current-menu-item {
+				& > a {
+					// .menu__mobile .sub-menu > .menu-item > a
+					border-left-color: $color__yellow;
+				}
+			}
 			& > a {
+				// .menu__mobile .sub-menu > .menu-item > a
+				border-left: 5px transparent solid;
 				padding: 5px;
 			}
 		}
 	}
-	.current-menu-item,
-	.current-page-parent {
-		& > a {
-			border-left: 10px $color__yellow solid;
-			padding-left: 10px;
-		}
-	}
+	
 	@supports (display: flex) {
 		@include media(">=screen480") {
 			& > .menu-item {
@@ -132,6 +178,9 @@
 					}
 				}
 			}
+		}
+		@include media(">=screen1024") {
+			& > .menu-item > a { flex-basis: 25vw; }
 		}
 	}
 }
