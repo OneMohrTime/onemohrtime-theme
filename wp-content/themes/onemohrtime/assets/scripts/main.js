@@ -252,7 +252,7 @@ $(window).on('load', function() {
     
 	// loading screen won't fade until entire page has loaded
     
-//	$('#loading').fadeOut('slow');
+	$('#loading').fadeOut('slow');
     
     // typed.js
     

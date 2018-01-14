@@ -22,6 +22,7 @@
 	- Media
 	- Nav
 	- Feature Image
+	- Gallery
 	- Contact Section
 	- Dribbble
 	- Modules
@@ -85,9 +86,11 @@
 
 @import
 	"components/wp-classes",
+	"components/loading",
 	"components/buttons",
 	"components/media",
 	"components/nav",
+	"components/gallery",
 	"components/featured-image",
 	"components/contact",
 	"components/dribbble";

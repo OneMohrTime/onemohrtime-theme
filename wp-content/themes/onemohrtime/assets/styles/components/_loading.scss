@@ -1,78 +1,47 @@
+/*
+* === LOADING ===
+*/
+
 #loading {
-    background-color: fade($color__white, 95%);
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    margin-top: 0;
-    top: 0;
-    z-index: 9999;
-    &-center {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        &-absolute {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            height: 150px;
-            width: 150px;
-            margin-top: -75px;
-            margin-left: -75px;
-            transform: rotate(45deg);
-        }
-    }
+	display: none;
 }
 
-.object {
-    width: 20px;
-    height: 20px;
-    background-color: $color__yellow;
-    position: absolute;
-    left: 65px;
-    top: 65px;
-    &:nth-child(2n+0) {margin-right: 0;}
+.site__loading {
+	display: none;
+	@supports (display: flex) {
+		@include position(fixed, 0 0 0 0);
+		display: block;
+	}
 }
 
-#object {
-    &_one {
-        animation: object_one 2s infinite;
-        animation-delay: 200ms;
-    }
-    &_two {
-        animation: object_two 2s infinite;
-        animation-delay: 300ms;
-    }
-    &_three {
-        animation: object_three 2s infinite;
-        animation-delay: 400ms;
-    }
-    &_four {
-        animation: object_four 2s infinite;
-        animation-delay: 500ms;
-    }
-    &_five {
-        animation: object_five 2s infinite;
-        animation-delay: 600ms;
-    }
-    &_six {
-        animation: object_six 2s infinite;
-        animation-delay: 700ms;
-    }
-    &_seven {
-        animation: object_seven 2s infinite;
-        animation-delay: 800ms;
-    }
-    &_eight {
-        animation: object_eight 2s infinite;
-        animation-delay: 900ms;
-    }
-    &_big {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        left: 50px;
-        top: 50px;
-        animation: object_big 2s infinite;
-        animation-delay: 0.5s;
-    }
+.spinner {
+	position: relative;
+	background-color: fade-out($color__white, 0.15);
+	@include size(40px);
+	
+	.cube1, .cube2 {
+		@include position(absolute, 0 null null 0);
+		background-color: $color__black;
+		@include size(15px);
+		animation: load-dance 1.8s infinite ease-in-out;
+	}
 }
+
+
+@keyframes load-dance {
+	25% {
+		transform: translateX(42px) rotate(-90deg) scale(0.5);
+	}
+	50% {
+		transform: translateX(42px) translateY(42px) rotate(-179deg);
+	}
+	50.1% {
+		transform: translateX(42px) translateY(42px) rotate(-180deg);
+	} 
+	75% {
+		transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+	} 
+	100% {
+		transform: rotate(-360deg);
+	}
+	}

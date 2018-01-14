@@ -1,14 +1,8 @@
-<?php $stickyImg = get_field('page_bg');
-/*
-if(!empty($stickyImg)): ?>
-<img src="<?php echo $stickyImg['url']; ?>" alt="<?php echo $stickyImg['alt']; ?>" class="entry__featured-image" />
-<?php else: ?>
-<img src="<?php the_post_thumbnail_url(); ?>" class="entry__featured-image" />
-<?php endif; */ ?>
+<?php $stickyImg = get_field('page_bg'); ?>
 
 <figure class="entry__featured-image--frame" style="background-image: url(<?php the_post_thumbnail_url(); ?>);"></figure>
 
-<div class="entry__content wysiwyg">
+<div class="entry__content fade-content wysiwyg">
 	
 	<header class="entry__header">
 		

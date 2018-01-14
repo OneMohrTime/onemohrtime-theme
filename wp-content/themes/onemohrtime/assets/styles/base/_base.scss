@@ -34,6 +34,7 @@ body {
 }
 
 .site {
+	position: relative;
 	display: grid;
 	grid-template-rows: 100px auto;
 	grid-template-columns: repeat(4, 1fr);
