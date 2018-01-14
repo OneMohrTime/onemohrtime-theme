@@ -94,7 +94,7 @@
 	
 	&__article {
 		grid-column: span 4;
-		margin: 0 $gutter #{$gutter * 2};
+		margin: $base-spacing $gutter #{$gutter * 2};
 		@include media(">=screen600")  { padding-right: 20%; }
 		@include media(">=screen840")  { padding-right: 30%; }
 		@include media(">=screen1024") { padding-right: 40%; }
@@ -233,6 +233,20 @@
 			// .post__link
 			@include block-link();
 			display: none;
+		}
+		
+		// Inverse odd/even layout
+		@include media(">=screen840") {
+			&:nth-child(even) {
+				.post__image {
+					left: auto;
+					right: 0;
+				}
+				.post__header {
+					left: 0;
+					right: auto;
+				}
+			}
 		}
 	}
 }
