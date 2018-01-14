@@ -32,7 +32,7 @@
 		
 		<?php endwhile; ?>
 		
-		<a href="#contact" class="homepage__banner--contact btn"><span class="fa fa-long-arrow-left"></span> Contact</a>
+		<a href="#contact" class="project__banner--contact btn"><span class="fa fa-long-arrow-left"></span> Contact</a>
 		
 	</figure>
 	

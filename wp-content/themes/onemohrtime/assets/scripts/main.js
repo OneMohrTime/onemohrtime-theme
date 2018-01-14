@@ -150,13 +150,11 @@ $(document).ready(function() {
 	}
 
 	// Sticky-kit
-
-	if(window.matchMedia('(min-width: 600px)').matches) {
+	if(window.matchMedia('(min-width: 768px)').matches) {
 		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
 	}
-
+	
 	// Dribbble galleries
-
 	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
 	$.jribbble.users('onemohrtime').shots({
 		per_page : 6,
@@ -252,7 +250,7 @@ $(window).on('load', function() {
 
 	// loading screen won't fade until entire page has loaded
 
-	$('#loading').fadeOut('slow');
+//	$('#loading').fadeOut('slow');
 
 	// typed.js
 

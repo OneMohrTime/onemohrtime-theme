@@ -40,12 +40,14 @@
 			}
 		}
 		
-		&--contact {
+		&--contact.btn {
 			// .project__banner--contact
 			@include position(absolute, 50% $base-spacing null null);
-			@include btn-color($color__white);
+			@include btn-color($color__white, $color__yellow);
 			transform: rotate(-90deg);
 			transform-origin: center top 0;
+			&:hover,
+			&:focus { color: $color__white; }
 		}
 	}
 	
