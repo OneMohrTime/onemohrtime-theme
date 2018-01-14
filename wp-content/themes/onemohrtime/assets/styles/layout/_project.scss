@@ -72,13 +72,20 @@
 		text-align: center;
 		margin: 0 $gutter .25em;
 		@include media(">=screen960") {
+			font-size: 4em;
 			text-align: left;
+			line-height: 1em;
+			max-width: 50vw;
 			@include underlined();
 			margin: 0 $gutter $gutter;
 			padding-bottom: $gutter;
 			&::after {
 				background-color: $color__white;
 			}
+		}
+		@include media(">=screen1280") {
+			font-size: 5em;
+			max-width: 75vw;
 		}
 	}
 	

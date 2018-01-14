@@ -21,7 +21,7 @@
 	
 </figure>
 
-<article class="homepage__work content-block wysiwyg">
+<article class="homepage__work content-block fade-content wysiwyg">
 	<?php the_content(); ?>
 	<a href="<?php echo home_url('design'); ?>">See All Projects <span class="fa fa-long-arrow-right"></span></a>
 </article>
@@ -36,8 +36,8 @@
 	$post = $post_object;
 	setup_postdata( $post ); ?>
 	
-		<div class="feature fade-content">
-			<div class="feature__content">
+		<div class="feature">
+			<div class="feature__content fade-content wysiwyg">
 				<h2 class="feature__content--title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 				<?php the_excerpt(); ?>
 				<a href="<?php the_permalink(); ?>">See Project <span class="fa fa-long-arrow-right"></span></a>
@@ -54,10 +54,10 @@
 	<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>
 	
 	<p class="homepage__dribbble--content wysiwyg">
-		I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank">dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
+		I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
 	</p>
 	
-	<div id="dribbbles" class="dribbbles"></div>
+	<div id="dribbbles" class="dribbbles fade-content"></div>
 	
 </section>
 

@@ -141,14 +141,26 @@
 	&__portfolio {
 		// .homepage__portfolio
 		grid-column: span 4;
-		position: relative;
 		margin-bottom: $gutter * 2;
 		
 		.feature {
+			position: relative;
 			display: block;
 			width: 100%;
-			width: 870px;
 			min-height: 420px;
+			margin: 0 $gutter;
+			@include media(">=screen960") {
+				width: 870px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			@include media(">=screen1170") {
+				width: 1024px;
+			}
+			@include media(">=screen1920") {
+				width: 1366px;
+			}
+			
 			&__content {
 				@include position(absolute, 23px 0 null null);
 				background: $color__white;
@@ -159,10 +171,12 @@
 				overflow: hidden;
 				z-index: 3;
 			}
+			
 			.wp-post-image {
 				@include position(absolute, 0 null null 0);
 				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
 				@include size(60%, 100%);
+				object-fit: cover;
 			}
 		}
 	}

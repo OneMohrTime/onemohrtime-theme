@@ -24,7 +24,7 @@ $featured_img_url   = get_the_post_thumbnail_url($post->ID, 'full'); ?>
 </figure>
 
 <article class="posts__article wysiwyg">
-	<?php the_content(); ?>
+	<?php //the_content(); ?>
 </article>
 
 <?php query_posts('cat=-1,-14'); ?>
