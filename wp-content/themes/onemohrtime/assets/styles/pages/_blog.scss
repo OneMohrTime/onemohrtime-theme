@@ -115,6 +115,7 @@
 			border-radius: 0;
 			box-shadow: none;
 			width: 100%;
+			margin-bottom: $gutter * 2;
 			min-height: 420px;
 		}
         @include media(">=screen960") {
@@ -232,7 +233,6 @@
 		&__link {
 			// .post__link
 			@include block-link();
-			display: none;
 		}
 		
 		// Inverse odd/even layout
