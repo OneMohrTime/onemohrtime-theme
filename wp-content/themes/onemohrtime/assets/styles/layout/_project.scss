@@ -14,7 +14,6 @@
 		grid-column: span 4;
 		position: relative;
 	}
-	
 	&__banner {
 		// .project__banner
 		grid-column: span 4;
@@ -23,7 +22,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		color: $color__white;
 		height: 250px;
 		@include media(">=screen600") { height: 350px; }
 		@include media(">=screen960") {
@@ -35,6 +33,7 @@
 		&--image {
 			// .project__banner--image
 			position: absolute;
+			pointer-events: none;
 			@supports (object-fit: cover) {
 				object-fit: cover;
 				@include size(100vw, 100%);
@@ -68,13 +67,14 @@
 	
 	&__title {
 		// .project__title
+		color: $color__white;
 		text-align: center;
-		margin: 0 $gutter;
+		margin: 0 $gutter .25em;
 		@include media(">=screen960") {
 			text-align: left;
 			@include underlined();
-			margin: 0 $gutter 30px;
-			padding-bottom: 30px;
+			margin: 0 $gutter $gutter;
+			padding-bottom: $gutter;
 			&::after {
 				background-color: $color__white;
 			}
