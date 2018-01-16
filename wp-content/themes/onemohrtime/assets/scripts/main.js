@@ -79,24 +79,24 @@
 $(document).ready(function() {
 
 	// bourbon refills nav
-
+	
 	$('#menu_toggle').on('click touchstart', function(e) {
 		// Open nav menu
 		$('#mobile_menu').toggleClass('is-visible');
-
+		
 		// Switch menu toggle
 		$(this).toggleClass('open');
 		changeLetters($(this));
-
+		
 		// force body freeze
 		$('body').toggleClass('unscrollable');
-
+		
 		e.preventDefault();	
 	});
-
-	// Hide the element. Doing this here will prevent the elements from disappering if JS is disabled.
+	
+	// Hide direct children of .fade-content element
 	$('.fade-content > *').css({'opacity':'0', 'transform': 'translateY(' + 2 + 'em)'});
-
+	
 	// Trigger fade in as window scrolls
 	$(window).on('scroll load', function(){
 		$('.fade-content > *').each( function(i) {
@@ -111,16 +111,14 @@ $(document).ready(function() {
 	});
 
 	// click to smoothscroll
-
 	$('a[href^="#"]').on('click',function(e) {
 		e.preventDefault();
 		$('html,body').animate({
 			scrollTop : $(this.hash).offset().top
 		}, 1500);
 	});
-
+	
 	// add scrolling class to contact
-
 	$('a[href^="#contact"]').on('click', function() {
 		$('#contact').addClass('said-hi');
 		$('#mobile_menu').removeClass('is-visible');
@@ -205,7 +203,6 @@ $(document).ready(function() {
 });
 
 // menu visible when scrolling up
-
 var headerHeight = $('#desktop').height();
 $(window).on('scroll', {previousTop : 0}, function() {
 	var currentTop = $(window).scrollTop();
@@ -226,7 +223,6 @@ $(window).on('scroll', {previousTop : 0}, function() {
 });
 
 // Change MENU to EXIT
-
 function changeLetters(btn) {
 	var m = $('.toggle__menu span.m');
 	var e = $('.toggle__menu span.e');
@@ -249,11 +245,9 @@ function changeLetters(btn) {
 $(window).on('load', function() {
 
 	// loading screen won't fade until entire page has loaded
-
 //	$('#loading').fadeOut('slow');
 
 	// typed.js
-
 	$('#typed').typed({
 		stringsElement : $('#typed-strings'),
 		typeSpeed : 100,

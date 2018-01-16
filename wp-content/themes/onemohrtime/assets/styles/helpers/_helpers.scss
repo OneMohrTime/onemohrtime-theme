@@ -21,7 +21,7 @@
 
 .fade-content {
 	& > * {
-		transition: opacity $speed, transform $speed;
+		transition: opacity 300ms, transform 300ms;
 	}
 	&.gallery__grid {
 		// Offsets timing for groups of two
