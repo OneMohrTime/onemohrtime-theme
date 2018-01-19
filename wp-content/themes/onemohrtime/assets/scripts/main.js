@@ -79,7 +79,6 @@
 $(document).ready(function() {
 
 	// bourbon refills nav
-	
 	$('#menu_toggle').on('click touchstart', function(e) {
 		// Open nav menu
 		$('#mobile_menu').toggleClass('is-visible');
@@ -95,7 +94,10 @@ $(document).ready(function() {
 	});
 	
 	// Hide direct children of .fade-content element
-	$('.fade-content > *').css({'opacity':'0', 'transform': 'translateY(' + 2 + 'em)'});
+	$('.fade-content > *').css({
+		'opacity':'0',
+		'transform': 'translateY(' + 2 + 'em)'
+	});
 	
 	// Trigger fade in as window scrolls
 	$(window).on('scroll load', function(){
@@ -103,9 +105,15 @@ $(document).ready(function() {
 			var bottom_of_object = $(this).offset().top + $(this).outerHeight() / 8;
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
 			if( bottom_of_window > bottom_of_object ) {
-				$(this).css({'opacity':'1', 'transform': 'translateY(' + 0 + 'em)'});
+				$(this).css({
+					'opacity' :'1',
+					'transform' : 'translateY(' + 0 + 'em)'
+				});
 			} else {
-				$(this).css({'opacity':'0', 'transform': 'translateY(' + 2 + 'em)'});
+				$(this).css({
+					'opacity' :'0',
+					'transform' : 'translateY(' + 2 + 'em)'
+				});
 			}
 		});
 	});
@@ -152,6 +160,21 @@ $(document).ready(function() {
 		$('.halfie__img, .entry__featured-image--frame').stick_in_parent();
 	}
 	
+	// Easy Parallax
+	function EasyParallax() {
+		scrollPos = $(this).scrollTop();
+		$('.entry__header time').css({
+			'bottom' : '-100% ' + (-scrollPos/4)+"px"
+		});
+//		$('#bannertext').css({
+//			'margin-top': (scrollPos/4)+"px",
+//			'opacity': 1-(scrollPos/250)
+//		});
+	}
+	$(window).on('scroll', function() {
+		EasyParallax();
+	});
+	
 	// Dribbble galleries
 	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
 	$.jribbble.users('onemohrtime').shots({
@@ -168,14 +191,13 @@ $(document).ready(function() {
 		});
 		$('#dribbbles').html(html.join(''));
 	});
-
+	
 	// Instagram API
 	// https://rudrastyh.com/javascript/get-photos-from-instagram.html
-
 	var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
 		userid = 3567722892,
 		num_photos = 4;
-
+	
 	$.ajax({
 		url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
 //		url : 'https://api.instagram.com/v1/users/self/media/recent',

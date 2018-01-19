@@ -11,13 +11,15 @@ use Roots\Sage\Wrapper; ?>
 	<body <?php body_class(); ?>>
 		
 		<div id="page" class="site" role="document">
-		
+			
+			<!--
 			<div class="site__loading">
 				<div id="loading" class="spinner">
 					<div class="cube1"></div>
 					<div class="cube2"></div>
 				</div>
 			</div>
+			-->
 			
 			<?php
 			do_action('get_header');
@@ -37,7 +39,7 @@ use Roots\Sage\Wrapper; ?>
 				$template_class = ' halfie';
 			} else {
 				$template_class = '';
-			}?>
+			} ?>
 			
 			<main id="main" class="site__main content-area<?php echo $template_class ?>" role="main">
 				<?php include Wrapper\template_path(); ?>

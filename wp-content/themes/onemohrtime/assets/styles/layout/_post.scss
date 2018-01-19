@@ -5,35 +5,8 @@
 .blog-post {
 	display: block;
 	
-	&__categories {
-		// .blog-post__categories
-		font-size: .75em;
-		margin: $gutter/2 0;
-		@include media(">=screen540") {
-			margin: $gutter 0;
-		}
-		
-		ul {
-			display: flex;
-			flex-flow: row wrap;
-			align-items: center;
-			.cat-item,
-			.cat-item-all {
-				flex: 0 1 auto;
-				background-color: $color__black;
-				color: $color__white;
-				margin-right: 10px;
-				&.current-cat {
-					& > a {
-						font-style: italic;
-					}
-				}
-				& > a {
-					display: block;
-					padding: 5px 10px;
-				}
-			}
-		}
+	.author {
+		display: none;
 	}
 	
 	.post {
@@ -46,7 +19,8 @@
 		display: block;
 		@include clearfix();
 		
-		.gallery-item {
+		&-item {
+			// .gallery-item
 			position: relative;
 			display: block;
 			width: 50%;
@@ -57,6 +31,16 @@
 				margin-left: auto;
 				margin-right: auto;
 				object-fit: cover;
+			}
+		}
+		
+		@supports (display: grid) {
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-gap: $small-spacing;
+			&-item {
+				// .gallery-item
+				width: auto;
 			}
 		}
 	}
@@ -88,9 +72,10 @@
 	
     &__content {
 		// .entry__content
-		margin: 0 $gutter $gutter;
+		position: relative;
 		background-color: $color__white;
-		@include media(">=screen960") {
+		margin: 0 $gutter $gutter;
+		@include media(">=screen768") {
 			width: 50%;
 			float: right;
 			margin: 0;
@@ -100,7 +85,21 @@
 	
 	&__header {
 		// .entry__header
-		margin: $gutter 0;
+		position: relative;
+		margin: $gutter 0 $gutter * 2;
+		
+		@include media(">=screen768") {
+			time {
+				@include position(absolute, null null -100% -1em);
+				color: $color__white;
+				font-size: 3em;
+				font-weight: 700;
+				letter-spacing: 2px;
+				-webkit-text-stroke: 2px $color__white;
+				-webkit-text-fill-color: transparent;
+				transform: translateX(-50%) rotate(-90deg);
+			}
+		}
 	}
 	
 	&__title {
