@@ -2,13 +2,13 @@
 	
 <figure class="halfie__img" style="background-image: url('<?php echo $bgFull['url']; ?>');"></figure><!-- /.halfie__img -->
 
-<article class="halfie__content">
+<article class="halfie__content fade-content">
 
 	<header class="halfie__header">
 		<?php the_title('<h1 class="halfie__title">','</h1>'); ?>
 	</header><!-- /.halfie__header -->
 
-	<div class="wysiwyg">
+	<div class="fade-content wysiwyg">
 		<?php the_content(); ?>
 	</div>
 
