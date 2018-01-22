@@ -149,7 +149,7 @@
 		
 		.content--half {
 			order: 1;
-			margin: $base-spacing $gutter;
+			margin: $gutter;
 			@include media(">=screen768") {
 				flex: 0 1 50%;
 				margin: 0;

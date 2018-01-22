@@ -27,7 +27,8 @@
 		// Offsets timing for groups of two
 		& > *:nth-child(2n+2) { transition-delay: 100ms; }
 	}
-	&.dribbbles {
+	&.dribbbles,
+	&.site__footer {
 		// Offsets timing for groups of three
 		& > *:nth-child(3n+2) { transition-delay: 100ms; }
 		& > *:nth-child(3n+3) { transition-delay: 200ms; }

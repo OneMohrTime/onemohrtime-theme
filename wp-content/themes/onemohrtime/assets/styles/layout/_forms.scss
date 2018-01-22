@@ -51,13 +51,9 @@ input[type="radio"] {
         }
     }
 }
-input[type="checkbox"] + label::before {content: "\f096";}
-input[type="radio"] +label::before {content: "\f046";}
-input[type="checkbox"]:checked + label::before {content: "\f046";}
-
-//*::-webkit-input-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
-//	 *:-ms-input-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
-//		 *::-moz-placeholder {color: $color__gray; color: fade($color__gray, 50%);}
+input[type="checkbox"] + label::before { content: "\f096"; }
+input[type="radio"] +label::before { content: "\f046"; }
+input[type="checkbox"]:checked + label::before { content: "\f046"; }
 
 label {
 	display: block;

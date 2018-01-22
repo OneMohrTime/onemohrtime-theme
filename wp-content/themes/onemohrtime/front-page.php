@@ -1,6 +1,6 @@
 <?php $homeHero = get_field('homepage_hero'); ?>
 
-<figure class="homepage__banner">
+<figure class="homepage__banner fade-content">
 	
 	<img src="<?php echo $homeHero['sizes']['thumbnail']; ?>"
 		 alt="<?php echo $homeHero['alt']; ?>"
@@ -49,7 +49,7 @@
 	<?php endif; ?>
 </section>
 
-<section class="homepage__dribbble">
+<section class="homepage__dribbble fade-content">
 	
 	<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>
 	
@@ -61,7 +61,7 @@
 	
 </section>
 
-<section class="homepage__contact">
+<section class="homepage__contact fade-content">
 	
 	<h2>Have an idea?</h2>
 	

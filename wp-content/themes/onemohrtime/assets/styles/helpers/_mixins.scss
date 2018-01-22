@@ -26,7 +26,7 @@
 @mixin inline() {
 	position: relative;
 	color: inherit;
-	line-height: 1.5em;
+	line-height: 1.7em;
 	z-index: 1;
 	@include media(">=screen1170") {
 		&:hover,
@@ -35,6 +35,9 @@
 			&::before {
 				width: auto;
 				animation: dancemonkey 2s infinite;
+			}
+			.fa {
+				transform: translateX($small-spacing);
 			}
 		}
 	}
@@ -47,6 +50,15 @@
 		background-color: $color__yellow;
 		z-index: -1;
 	}
+	
+	.fa {
+		position: relative;
+		transition: 500ms cubic-bezier(.455,.03,.515,.955);
+	}
+}
+
+@mixin texture() {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
 }
 
 @mixin fade-two() {

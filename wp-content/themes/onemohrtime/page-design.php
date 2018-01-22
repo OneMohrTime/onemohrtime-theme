@@ -7,11 +7,13 @@
 if($projects): $i = 0; ?>
 
 <section class="gallery__grid fade-content">
-
+	
 	<?php foreach($projects as $post): setup_postdata($post); $i++; ?>
-
+	
 	<figure id="proj_id_<?php echo $i; ?>" class="gallery__project">
+		
 		<img src="<?php the_post_thumbnail_url(); ?>" alt="" class="gallery__project--image" />
+		
 		<figcaption class="gallery__project--content">
 			<h2 class="gallery__project--header">
 				<a href="<?php the_permalink(); ?>">
@@ -23,15 +25,16 @@ if($projects): $i = 0; ?>
 			</div>
 			<a href="<?php the_permalink(); ?>" class="gallery__project--link">See Project</a>
 		</figcaption>
+		
 	</figure><!-- /.gallery__project -->
-
+	
 	<?php wp_reset_postdata();
 	endforeach; ?>
-
+	
 </section><!-- /.gallery__grid -->
 <?php endif; ?>
 
-<article class="gallery__content wysiwyg">
+<article class="gallery__content fade-content wysiwyg">
 	<?php the_content(); ?>
 </article><!-- /.gallery__content -->
 

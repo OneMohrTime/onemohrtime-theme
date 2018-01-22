@@ -32,7 +32,13 @@
 	@include media(">=screen960") {
 		&::after { transition: all 300ms; }
 	}
+	
+	.fa {
+		position: relative;
+		transition: 500ms cubic-bezier(.455,.03,.515,.955);
+	}
 }
+
 #{$all-buttons-hover},
 #{$all-buttons-focus},
 #{$all-buttons-active},
@@ -46,6 +52,18 @@
 		&::after {
 			left: 0;
 			width: 100%;
+		}
+	}
+	
+	.fa {
+		transform: translateX($small-spacing);
+	}
+	
+	&.homepage__banner--contact,
+	&.project__banner--contact,
+	&.posts__banner--contact {
+		.fa {
+			transform: translateX(-#{$small-spacing});
 		}
 	}
 }

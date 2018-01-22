@@ -20,9 +20,20 @@
 		}
 		&--feed {
 			// .widget__instagram--feed
+			position: relative;
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			grid-gap: $gutter / 2;
+			grid-gap: $base-spacing;
+			&::before {
+				content: "";
+				position: absolute;
+				top: -#{$gutter / 2};
+				left: -#{$gutter / 2};
+				right: -#{$gutter / 2};
+				bottom: 50%;
+				@include texture();
+//				@include size(100%);
+			}
 		}
 		&--image {
 			// .widget__instagram--image

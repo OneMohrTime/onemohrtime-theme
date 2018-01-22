@@ -13,10 +13,21 @@
 	&__grid {
 		// .gallery__grid
 		grid-column: span 4;
+		position: relative;
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		margin: 0 $gutter;
 		@include media(">=screen600") { grid-column-gap: $gutter; }
+		&::before {
+			content: "";
+			position: absolute;
+			top: 25%;
+			left: 33.3%;
+			right: $gutter;
+			bottom: 15%;
+			@include texture();
+//			@include size(100%);
+		}
 	}
 	
 	&__title {
@@ -29,8 +40,11 @@
 		// .gallery__project
 		grid-column: span 12;
 		position: relative;
-		margin-bottom: $base-spacing;
-		@include media(">=screen600") { grid-column: span 6; }
+		margin-bottom: $gutter;
+		@include media(">=screen600") {
+			grid-column: span 6;
+			margin-bottom: $base-spacing;
+		}
 		@include media(">=screen1024") {
 			background: $color__white no-repeat center center;
 			&:hover {
@@ -110,13 +124,13 @@
 			// .gallery__project--excerpt
 			margin-bottom: 1em;
 			@include media(">=screen1024") {
-				margin-bottom: 0;
 				position: absolute;
 				bottom: 2em;
 				left: calc(2em + 10px);
 				right: calc(2em + 10px);
+				margin-bottom: 0;
 				opacity: 0;
-				transform: translate3d(0,-100%,0);
+				transform: translate3d(0, -100%, 0);
 				transition: opacity 300ms, transform 300ms;
 			}
 		}
@@ -124,7 +138,7 @@
 		&--link {
 			// .gallery__project--link
 			@extend .btn;
-			@include media(">=screen960") {
+			@include media(">=screen1024") {
 				@include block-link();
 				border: 0;
 				font-size: 0;

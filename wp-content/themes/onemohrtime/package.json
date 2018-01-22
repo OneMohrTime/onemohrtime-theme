@@ -51,5 +51,8 @@
     "run-sequence": "^1.1.2",
     "traverse": "^0.6.6",
     "wiredep": "^4.0.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.7.2"
   }
 }
