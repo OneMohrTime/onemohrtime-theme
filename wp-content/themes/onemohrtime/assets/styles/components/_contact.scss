@@ -61,7 +61,11 @@
 					display: grid;
 					grid-template-columns: repeat(3, auto);
 					grid-column-gap: $gutter / 2;
-					justify-content: center;
+					justify-content: start;
+					label {
+						line-height: 1em;
+						margin-left: 0;
+					}
 				}
 			}
 		}

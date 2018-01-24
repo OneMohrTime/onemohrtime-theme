@@ -9,104 +9,76 @@
 		grid-column: span 4;
 		position: relative;
 		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
-		margin-bottom: $gutter * 2;
+		margin-bottom: $gutter;
 		
 		&--image {
 			// .homepage__banner--image
 			position: relative;
 			width: 100vw;
+			pointer-events: none;
 		}
 		
 		&--title {
 			// .homepage__banner--title
-			display: none;
-			@include media(">=screen840") {
-//				@include position(absolute, null null -#{$base-spacing} 50%);
-				position: absolute;
-				left: 50%;
-				bottom: -#{$gutter};
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				background-color: $color__white;
-				color: $color__black;
-				box-shadow: 0 -2px 1px fade-out($color__black, 0.85);
-				text-align: center;
-				padding: $base-spacing;
-				transform: translate3d(-50%, 0, 0) !important;
-				z-index: 1;
-			}
+			position: absolute;
+			top: $gutter;
+			left: $gutter;
+			right: $gutter;
+			overflow: visible;
 			
 			.current-city {
-				@include media(">=screen840") {
-					position: relative;
-					color: $color__black;
-					font-size: .75em;
-					font-weight: 700;
-					text-transform: uppercase;
-					letter-spacing: 14px;
-					line-height: 1em;
-					@include underlined();
-					padding-bottom: calc(1em + 10px);
-					&::after {
-						width: 100%;
-					}
-				}
+				display: none;
+//				@include media(">=screen840") {
+//				}
 			}
 			
 			.current-title {
-				@include media(">=screen840") {
-					font-family: $font__header;
-					font-size: 3em;
-					font-weight: 700;
-					text-transform: uppercase;
-					letter-spacing: 7px;
-					-webkit-text-fill-color: transparent;
-					-webkit-text-stroke-width: 1px;
-					-webkit-text-stroke-color: $color__black;
+				position: relative;
+				color: $color__black;
+				font-size: 5em;
+				width: 50%;
+				margin-bottom: 0;
+				-webkit-text-fill-color: transparent;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: $color__black;
+				&::after {
+					content: attr(data-title);
+					position: absolute;
+					top: 2px;
+					left: 3px;
+					background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:1" /></svg>') repeat;
+					-webkit-background-clip: text;
+							background-clip: text;
+					color: transparent;
+					-webkit-text-stroke-width: 0;
 				}
+				@include media(">=screen768")  { font-size: 6em; }
 			}
 			
 			.current-title--rotating {
-				@include media(">=screen840") {
-					position: relative;
-					display: inline-block;
-					font-family: $font__secondary;
-					font-size: 2em;
-					line-height: 1em;
-					width: 100%;
-					&::before,
-					&::after {
-						content: "";
-						@include position(absolute, 50% null null null);
-						background-color: $color__yellow;
-						@include size(50px, 10px);
-						@include media(">=screen768") { width: 100px; }
-					}
-					&::before {
-						left: 0;
-						margin-right: 15px;
-					}
-					&::after {
-						right: 0;
-						margin-left: 15px;
-					}
-					
-					.rotate { overflow: visible; }
-				}
-			}
-			
-			a {
-				font-size: 2em;
-				margin-top: 2em;
+				display: block;
+				position: absolute;
+				bottom: -.25em;
+				font-size: 1.5em;
+				-webkit-text-fill-color: $color__yellow;
+				-webkit-text-stroke-width: 0;
+				mix-blend-mode: multiply;
 			}
 		}
 		
 		@supports (object-fit: cover) {
-			height: 250px;
-			@include media(">=screen768")  { height: 350px; }
-			@include media(">=screen1024") { height: 450px; }
-			@include media(">=screen1440") { height: calc(100vh - 100px); }
+			height: 200px;
+			@include media(">=screen768")  { height: 250px; }
+			@include media(">=screen1024") { height: 300px; }
+			@include media(">=screen1440") { height: calc(100vh - 136px); }
+			
+			&--title {
+				// .homepage__banner--title
+				@include media(">=screen1440") {
+					top: auto;
+					bottom: 0;
+				}
+			}
 			
 			&--image {
 				// .homepage__banner--image
@@ -114,10 +86,10 @@
 				// filter: grayscale(100%);
 				mix-blend-mode: soft-light;
 				width: 100%;
-				height: 250px;
-				@include media(">=screen768")  { height: 350px; }
-				@include media(">=screen1024") { height: 450px; }
-				@include media(">=screen1440") { height: calc(100vh - 100px); }
+				height: 200px;
+				@include media(">=screen768")  { height: 250px; }
+				@include media(">=screen1024") { height: 300px; }
+				@include media(">=screen1440") { height: calc(100vh - 136px); }
 			}
 		}
 		

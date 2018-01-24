@@ -134,26 +134,24 @@ $(document).ready(function() {
 	});
 
 	// Text Rotator
-	if(window.matchMedia('(min-width: 840px)').matches) {
-		$('.rotate').each(function() {
-			var el = $(this);
-			var text = $(this).html().split(",");
-			el.html(text[0]);
-			setInterval(function () {
-				el.animate({
-					textShadowBlur : 20,
-					opacity : 0
-				}, 500, function () {
-					index = $.inArray(el.html(), text);
-					if ((index + 1) == text.length) index = -1;
-					el.text(text[index + 1]).animate({
-						textShadowBlur : 0,
-						opacity : 1
-					}, 500);
-				});
-			}, 2000);
-		});
-	}
+	$('.rotate').each(function() {
+		var el = $(this);
+		var text = $(this).html().split(",");
+		el.html(text[0]);
+		setInterval(function () {
+			el.animate({
+				textShadowBlur : 20,
+				opacity : 0
+			}, 500, function () {
+				index = $.inArray(el.html(), text);
+				if ((index + 1) == text.length) index = -1;
+				el.text(text[index + 1]).animate({
+					textShadowBlur : 0,
+					opacity : 1
+				}, 500);
+			});
+		}, 2000);
+	});
 
 	// Sticky-kit
 	if(window.matchMedia('(min-width: 768px)').matches) {
@@ -162,17 +160,24 @@ $(document).ready(function() {
 	
 	// Easy Parallax
 	function EasyParallax() {
-		scrollPos = $(this).scrollTop();
-		$('.entry__header time').css({
-			'bottom' : '-100% ' + (-scrollPos/4)+"px"
-		});
+//		scrollPos = $(this).scrollTop();
+//		$('.entry__header time').css({
+//			'bottom' : '-100% ' + (-scrollPos/4)+"px"
+//		});
+//		$('.homepage__banner--title').css({
+//			'bottom' : '0 ' + ( - scrollPos / 4 ) + "px"
+//		});
 //		$('#bannertext').css({
 //			'margin-top': (scrollPos/4)+"px",
 //			'opacity': 1-(scrollPos/250)
 //		});
 	}
 	$(window).on('scroll', function() {
-		EasyParallax();
+//		EasyParallax();
+		scrollPos = $(this).scrollTop();
+		$('.homepage__banner--title').css({
+			'bottom' : '0 ' + ( - scrollPos / 4 ) + "px"
+		});
 	});
 	
 	// Dribbble galleries
