@@ -159,25 +159,12 @@ $(document).ready(function() {
 	}
 	
 	// Easy Parallax
-	function EasyParallax() {
-//		scrollPos = $(this).scrollTop();
-//		$('.entry__header time').css({
-//			'bottom' : '-100% ' + (-scrollPos/4)+"px"
-//		});
-//		$('.homepage__banner--title').css({
-//			'bottom' : '0 ' + ( - scrollPos / 4 ) + "px"
-//		});
-//		$('#bannertext').css({
-//			'margin-top': (scrollPos/4)+"px",
-//			'opacity': 1-(scrollPos/250)
-//		});
-	}
 	$(window).on('scroll', function() {
-//		EasyParallax();
-		scrollPos = $(this).scrollTop();
-		$('.homepage__banner--title').css({
-			'bottom' : '0 ' + ( - scrollPos / 4 ) + "px"
-		});
+		if($(window).scrollTop() < 1000) {
+			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * .1) + '%');
+			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * .1) + '%');
+//			$('.hero h1').css('opacity', 1 - ($(window).scrollTop() * .003));
+		}
 	});
 	
 	// Dribbble galleries

@@ -11,8 +11,8 @@
 	
 	<figcaption class="homepage__banner--title">
 		<div class="current-city">Grand Rapids, MI</div>
-		<h1 class="current-title" data-title="Front-end">
-			Front-end
+		<h1 class="current-title" data-title="Front -end">
+			Front -end
 			<span class="current-title--rotating">
 				<span class="rotate">designer,developer,creative</span>
 			</span>
@@ -25,7 +25,7 @@
 
 <article class="homepage__work content-block fade-content wysiwyg">
 	<?php the_content(); ?>
-	<a href="<?php echo home_url('design'); ?>">See All Projects <span class="fa fa-long-arrow-right"></span></a>
+	<a href="<?php echo home_url('design'); ?>">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
 </article>
 	
 <section class="homepage__portfolio">
@@ -38,13 +38,13 @@
 	$post = $post_object;
 	setup_postdata( $post ); ?>
 	
-		<div class="feature">
+		<div class="feature fade-content">
+			<?php the_post_thumbnail(); ?>
 			<div class="feature__content fade-content wysiwyg">
 				<h2 class="feature__content--title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 				<?php the_excerpt(); ?>
 				<a href="<?php the_permalink(); ?>">See Project <span class="fa fa-long-arrow-right"></span></a>
 			</div>
-			<?php the_post_thumbnail(); ?>
 		</div>
 			
 		<?php wp_reset_postdata(); ?>

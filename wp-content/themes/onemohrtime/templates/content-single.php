@@ -2,7 +2,7 @@
 
 <figure class="entry__featured-image--frame" style="background-image: url(<?php the_post_thumbnail_url(); ?>);"></figure>
 
-<div class="entry__content fade-content wysiwyg">
+<div class="entry__content wysiwyg">
 	
 	<header class="entry__header">
 		
@@ -12,20 +12,22 @@
 		
 	</header>
 	
-	<?php the_content(sprintf(
-		/* translators: %s: Name of current post. */
-		wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'onemohrtime' ), array( 'span' => array( 'class' => array() ) ) ),
-		the_title( '<span class="screen-reader-text">"', '"</span>', false )
-	));
-	
-	if(function_exists('yoast_breadcrumb')) {
-		yoast_breadcrumb('<div id="breadcrumbs" class="entry__breadcrumb">','</div>');
-	}
-	
-	wp_link_pages( array(
-		'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'onemohrtime' ),
-		'after'  => '</div>',
-	)); ?>
+	<span class="fade-content">
+		<?php the_content(sprintf(
+			/* translators: %s: Name of current post. */
+			wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'onemohrtime' ), array( 'span' => array( 'class' => array() ) ) ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		));
+		
+		if(function_exists('yoast_breadcrumb')) {
+			yoast_breadcrumb('<div id="breadcrumbs" class="entry__breadcrumb">','</div>');
+		}
+		
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'onemohrtime' ),
+			'after'  => '</div>',
+		)); ?>
+	</span>
 	
 </div><!-- .entry__content -->
 

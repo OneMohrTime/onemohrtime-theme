@@ -86,7 +86,6 @@
 	&__header {
 		// .entry__header
 		position: relative;
-		display: none;
 		margin: $gutter 0 $gutter * 2;
 		
 		@include media(">=screen768") {
@@ -107,6 +106,19 @@
 	&__title {
 		// .entry__title
 		@include underlined();
+		@include media(">=screen768") {
+			width: calc(100% + #{$gutter * 2});
+			transform: translateX(-$gutter * 2);
+		}
+		@include media(">=screen1280") {
+			font-size: 6em;
+			line-height: .8em;
+			width: calc(100% + #{$gutter * 4});
+			transform: translateX(-$gutter * 4);
+			&::after {
+				left: $gutter * 2;
+			}
+		}
 	}
 	
 	&__breadcrumb {

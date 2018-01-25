@@ -47,6 +47,8 @@
 		a {
 			.wysiwyg & {
 				color: inherit;
+				line-height: 1em !important;
+				&:focus { outline: none; }
 				&::before { display: none; }
 			}
 		}
