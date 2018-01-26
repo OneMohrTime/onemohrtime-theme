@@ -165,7 +165,7 @@ $(document).ready(function() {
 			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * .15) + '%');
 		}
 		if(window.matchMedia('(min-width: 1024px)').matches) {
-			$('#background').css('top', 0 + ($(window).scrollTop() * .1) + 'vw');
+			$('#background').css('top', 0 - ($(window).scrollTop() * .015) + '%');
 			$('#background').css('opacity', 1 - ($(window).scrollTop() * .0005));
 		}
 	});
