@@ -115,7 +115,6 @@
 	&__work {
 		// .homepage__work
 		grid-column: span 4;
-		background-color: $color__white;
 		padding: $gutter;
 		margin-bottom: $gutter * 2;
 		@include media(">=screen600")  { padding-left: 10%; padding-right: 10%; }
