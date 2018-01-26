@@ -4,11 +4,11 @@
 
 .halfie {
 	display: block;
+	margin-bottom: $gutter;
     &__img {
         // .halfie__img
         background: $color__white--dark no-repeat center center;
         background-size: cover;
-		border: $gutter $color__white solid;
         height: 300px;
         @include media(">=screen768") {
 			border-right: 0;
@@ -25,6 +25,10 @@
 			padding: 0 $gutter;
 			margin: 0;
 		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
     }
     &__header {
         // .halfie__header
@@ -36,6 +40,19 @@
     &__title {
         // .halfie__title
         @include underlined();
+		@include media(">=screen768") {
+			width: calc(100% + #{$gutter * 2});
+			transform: translateX(-$gutter * 2);
+		}
+		@include media(">=screen1280") {
+			font-size: 6em;
+			line-height: .8em;
+			width: calc(100% + #{$gutter * 4});
+			transform: translateX(-$gutter * 4);
+			&::after {
+				left: $gutter * 2;
+			}
+		}
     }
     &__breadcrumb {
         display: block;

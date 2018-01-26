@@ -58,12 +58,9 @@
 			// .entry__featured-image--frame (parent)
 			background: $color__white--dark no-repeat center center;
 			background-size: cover;
-			border: $gutter $color__white solid;
 			border-bottom: 0;
 			height: 300px;
 			@include media(">=screen768") {
-				border-right: 0;
-				border-bottom: $gutter $color__white solid;
 				@include size(50%, 100vh);
 				float: left;
 			}
@@ -80,6 +77,10 @@
 			float: right;
 			margin: 0;
 			padding: 0 $gutter;
+		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
 		}
 	}
 	
@@ -100,6 +101,9 @@
 				-webkit-text-fill-color: transparent;
 				transform: translateX(-50%) rotate(-90deg);
 			}
+		}
+		@include media(">=screen768") {
+			left: -2em;
 		}
 	}
 	

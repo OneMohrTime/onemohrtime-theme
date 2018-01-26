@@ -57,8 +57,8 @@
 	$detailImg = get_sub_field('image');
 	$detailReverse = get_sub_field('reverse'); ?>
 	
-	<div class="project__section project__text-image<?php if($detailReverse == '1'): ?> project__text-image--reversed<?php endif; ?>">
-		<div class="content--half wysiwyg">
+	<div class="project__section project__text-image<?php if($detailReverse == '1'): ?> project__text-image--reversed<?php endif; ?> fade-content">
+		<div class="content--half fade-content wysiwyg">
 			<?php echo $detailText ?>
 		</div>
 		<figure class="image--half">
@@ -119,7 +119,7 @@
 <?php if(have_rows('project_deets')): ?>
 	<aside class="project__specs">
 		<h4 class="project__specs--title">Additional Project Details</h4>
-		<ul class="wysiwyg">
+		<ul class="fade-content wysiwyg">
 			<?php while(have_rows('project_deets')): the_row();
 			
 			$start    = get_sub_field('proj_start');

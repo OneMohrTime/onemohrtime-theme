@@ -96,7 +96,7 @@ $(document).ready(function() {
 	// Hide direct children of .fade-content element
 	$('.fade-content > *').css({
 		'opacity':'0',
-		'transform': 'translateY(' + 2 + 'em)'
+		'transform': 'translateY(' + 36 + 'px)'
 	});
 	
 	// Trigger fade in as window scrolls
@@ -107,12 +107,12 @@ $(document).ready(function() {
 			if( bottom_of_window > bottom_of_object ) {
 				$(this).css({
 					'opacity' :'1',
-					'transform' : 'translateY(' + 0 + 'em)'
+					'transform' : 'translateY(' + 0 + 'px)'
 				});
 			} else {
 				$(this).css({
 					'opacity' :'0',
-					'transform' : 'translateY(' + 2 + 'em)'
+					'transform' : 'translateY(' + 36 + 'px)'
 				});
 			}
 		});
@@ -161,9 +161,12 @@ $(document).ready(function() {
 	// Easy Parallax
 	$(window).on('scroll', function() {
 		if($(window).scrollTop() < 1000) {
-			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * .1) + '%');
-			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * .1) + '%');
-//			$('.hero h1').css('opacity', 1 - ($(window).scrollTop() * .003));
+			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * .05) + '%');
+			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * .15) + '%');
+		}
+		if(window.matchMedia('(min-width: 1024px)').matches) {
+			$('#background').css('top', 0 + ($(window).scrollTop() * .1) + 'vw');
+			$('#background').css('opacity', 1 - ($(window).scrollTop() * .0005));
 		}
 	});
 	

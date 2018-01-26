@@ -60,6 +60,8 @@ use Roots\Sage\Wrapper; ?>
 			
 		</div><!-- /.site -->
 		
+		<div id="background" class="background"></div>
+		
 	</body>
 	
 </html>

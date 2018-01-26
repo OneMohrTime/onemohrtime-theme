@@ -23,7 +23,8 @@
 	& > * {
 		transition: opacity 500ms, transform 500ms;
 	}
-	&.gallery__grid {
+	&.gallery__grid,
+	&.project__text-image {
 		// Offsets timing for groups of two
 		& > *:nth-child(2n+2) { transition-delay: 100ms; }
 	}

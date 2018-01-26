@@ -33,6 +33,18 @@ body {
     &::after { box-sizing: border-box; }
 }
 
+.background {
+	display: none;
+	@include media(">=screen1024") {
+		@include position(absolute, 0 0 null 0);
+		display: block;
+		background: $color__white url('../images/img-texture.png') repeat;
+		@include size(100vw, 200vh);
+		opacity: 1;
+		z-index: 0;
+	}
+}
+
 .site {
 	position: relative;
 	display: grid;
@@ -40,6 +52,7 @@ body {
 	grid-template-columns: repeat(4, 1fr);
 	width: 100vw;
 	min-height: 100vh;
+	z-index: 1;
 	
 	.sidebar-primary & {
 		// when sidebar template is activated on `body`
