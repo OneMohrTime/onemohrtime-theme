@@ -3,7 +3,12 @@
 */
 
 .site__sidebar {
-	grid-column: span 4;
+	position: relative;
+	width: 100%;
+	@supports (display: grid) {
+		grid-column: span 4;
+		width: auto;
+	}
 }
 
 .widget {
