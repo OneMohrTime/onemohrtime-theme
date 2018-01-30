@@ -6,9 +6,9 @@
 	
 	&__banner {
 		// .homepage__banner
-		grid-column: span 4;
 		position: relative;
 		background: no-repeat center center, linear-gradient(to right top, $color__yellow, tint($color__yellow, 50%));
+		width: 100%;
 		margin-bottom: $gutter;
 		
 		&--image {
@@ -77,7 +77,14 @@
 			}
 		}
 		
+		@supports (display: grid) {
+			// .homepage__banner
+			grid-column: span 4;
+			width: auto;
+		}
+		
 		@supports (object-fit: cover) {
+			// .homepage__banner
 			height: 200px;
 			@include media(">=screen768")  { height: 250px; }
 			@include media(">=screen1024") { height: 300px; }
@@ -114,19 +121,28 @@
 	
 	&__work {
 		// .homepage__work
-		grid-column: span 4;
+		width: 100%;
 		padding: $gutter;
 		margin-bottom: $gutter * 2;
 		@include media(">=screen600")  { padding-left: 10%; padding-right: 10%; }
 		@include media(">=screen840")  { padding-left: 15%; padding-right: 15%; }
 		@include media(">=screen1024") { padding-left: 20%; padding-right: 20%; }
 		@include media(">=screen1600") { padding-left: 25%; padding-right: 25%; }
+		
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
 	}
 	
 	&__portfolio {
 		// .homepage__portfolio
-		grid-column: span 4;
+		width: 100%;
 		margin-bottom: $gutter * 2;
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
 		
 		.feature {
 			position: relative;
@@ -178,8 +194,12 @@
 	
 	&__dribbble {
 		// .homepage__dribbble
-		grid-column: span 4;
+		width: 100%;
 		margin: 0 $gutter #{$gutter * 2};
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
 		
 		&--title {
 			// .homepage__dribbble--title
@@ -190,8 +210,8 @@
 			// .homepage__dribbble--content
 			margin-bottom: $small-spacing;
 			padding-right: $gutter;
-			@include media(">=screen600") { padding-right: 20%; }
-			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen600")  { padding-right: 20%; }
+			@include media(">=screen840")  { padding-right: 30%; }
 			@include media(">=screen1024") { padding-right: 40%; }
 			@include media(">=screen1600") { padding-right: 50%; }
 		}
@@ -199,8 +219,12 @@
 	
 	&__contact {
 		// .homepage__contact
-		grid-column: span 4;
+		width: 100%;
 		margin: 0 $gutter #{$gutter * 2};
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
 		
 		h2 {
 			@include underlined();
@@ -208,8 +232,8 @@
 		
 		p {
 			padding-right: $gutter;
-			@include media(">=screen600") { padding-right: 20%; }
-			@include media(">=screen840") { padding-right: 30%; }
+			@include media(">=screen600")  { padding-right: 20%; }
+			@include media(">=screen840")  { padding-right: 30%; }
 			@include media(">=screen1024") { padding-right: 40%; }
 			@include media(">=screen1600") { padding-right: 50%; }
 		}

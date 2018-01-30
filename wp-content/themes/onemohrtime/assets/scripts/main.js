@@ -161,12 +161,12 @@ $(document).ready(function() {
 	// Easy Parallax
 	$(window).on('scroll', function() {
 		if($(window).scrollTop() < 1000) {
-			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * .05) + '%');
-			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * .15) + '%');
+			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * 0.05) + '%');
+			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * 0.15) + '%');
 		}
 		if(window.matchMedia('(min-width: 1024px)').matches) {
-			$('#background').css('top', 0 - ($(window).scrollTop() * .015) + '%');
-			$('#background').css('opacity', 1 - ($(window).scrollTop() * .0005));
+			$('#background').css('top', 0 - ($(window).scrollTop() * 0.015) + '%');
+			$('#background').css('opacity', 1 - ($(window).scrollTop() * 0.0005));
 		}
 	});
 	

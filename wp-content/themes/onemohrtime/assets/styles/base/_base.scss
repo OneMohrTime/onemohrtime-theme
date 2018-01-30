@@ -47,22 +47,32 @@ body {
 
 .site {
 	position: relative;
-	display: grid;
-	grid-template-rows: 100px auto;
-	grid-template-columns: repeat(4, 1fr);
-	width: 100vw;
-	min-height: 100vh;
+	@include size(100%, auto);
 	z-index: 1;
 	
-	.sidebar-primary & {
-		// when sidebar template is activated on `body`
+//	.sidebar-primary & {
+//		// when sidebar template is activated on `body`
+//	}
+	
+	@supports (display: grid) {
+		display: grid;
+		grid-template-rows: 100px auto;
+		grid-template-columns: repeat(4, 1fr);
+		width: 100vw;
+		min-height: 100vh;
 	}
 	
 	&__main {
 		// .site__main
-		grid-column: span 4;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-column-gap: $gutter;
+		position: relative;
+		width: 100%;
+		
+		@supports (display: grid) {
+			grid-column: span 4;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-column-gap: $gutter;
+			width: auto;
+		}
 	}
 }
