@@ -3,20 +3,35 @@
 */
 
 .site__header {
-	grid-column: span 4;
-	display: flex;
-	align-items: center;
 	padding-left: $gutter;
 	padding-right: $gutter;
+	width: 100%;
 	z-index: 20;
+	
+	@supports(display: grid) {
+		// .site__header
+		grid-column: span 4;
+		width: auto;
+	}
+	
 	&--logo {
 		// .site__header--logo
-		flex: 0 1 60px;
 		padding-top: 20px;
 		padding-bottom: 20px;
 		margin-left: auto;
+		
 		img {
 			@include size(60px);
+		}
+	}
+	
+	@supports (display: flex) {
+		// .site__header
+		display: flex;
+		align-items: center;
+		&--logo {
+		// .site__header--logo
+			flex: 0 1 60px;
 		}
 	}
 }
