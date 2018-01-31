@@ -64,38 +64,46 @@
 		}
 	}
 	
-	&__categories {
-		// .posts__categories
-		grid-column: span 4;
-		font-size: .75em;
-		margin: $gutter / 2 $gutter;
-		ul {
-			display: flex;
-			flex-flow: row wrap;
-			align-items: center;
-			.cat-item,
-			.cat-item-all {
-				flex: 0 1 auto;
-				background-color: $color__black;
-				color: $color__white;
-				margin-right: 10px;
-				&.current-cat {
-					& > a {
-						font-style: italic;
-					}
-				}
-				& > a {
-					display: block;
-					padding: 5px 10px;
-				}
-			}
-		}
-	}
+//	&__categories {
+//		// .posts__categories
+//		grid-column: span 4;
+//		font-size: .75em;
+//		margin: $gutter / 2 $gutter;
+//		ul {
+//			display: flex;
+//			flex-flow: row wrap;
+//			align-items: center;
+//			.cat-item,
+//			.cat-item-all {
+//				flex: 0 1 auto;
+//				background-color: $color__black;
+//				color: $color__white;
+//				margin-right: 10px;
+//				&.current-cat {
+//					& > a {
+//						font-style: italic;
+//					}
+//				}
+//				& > a {
+//					display: block;
+//					padding: 5px 10px;
+//				}
+//			}
+//		}
+//	}
 	
 	&__article {
-		grid-column: span 4;
-		margin: $base-spacing $gutter #{$gutter * 2};
-		@include media(">=screen600")  { padding-right: 20%; }
+		width: 100%;
+		margin: $base-spacing 0 #{$gutter * 2};
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+		@include media(">=screen600")  {
+			padding-right: 20%;
+		}
 		@include media(">=screen840")  { padding-right: 30%; }
 		@include media(">=screen1024") { padding-right: 40%; }
 		@include media(">=screen1600") { padding-right: 50%; }

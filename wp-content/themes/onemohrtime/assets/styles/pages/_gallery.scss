@@ -3,11 +3,58 @@
 */
 
 .gallery {
+	position: relative;
 	
-	&__header {
-		// .gallery__header
-		grid-column: span 4;
-		margin: 0 $gutter;
+	&__banner {
+		// .gallery__banner
+		position: relative;
+		@include size(100%, 300px);
+		margin-bottom: $gutter * 4;
+		overflow: hidden;
+		@include media(">=screen960") {
+			// margin-bottom: $base-spacing * 2;
+			overflow: visible;
+		}
+		
+		@supports (display: grid) {
+			display: grid;
+			grid-column: span 4;
+			width: auto;
+		}
+		
+		&--image {
+			// .gallery__banner--image
+			transform: translateY(-25%);
+			
+			@supports (object-fit: cover) {
+				@include size(100%, 300px);
+				object-fit: cover;
+				transform: translate(0);
+			}
+		}
+		
+		&--title {
+			// .gallery__banner--title
+			@include position(absolute, null null 0 $base-spacing);
+			background-color: $color__white;
+			padding: $base-spacing;
+			h2 {
+				margin-bottom: 0;
+			}
+			
+			@include media(">=screen960") {
+				left: 50%;
+				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+				transform: translate(-50%, 50%);
+			}
+		}
+		
+		&--contact {
+			// .gallery__banner--contact
+			@include position(absolute, 50% $base-spacing null null);
+			transform: rotate(-90deg);
+			transform-origin: center top 0;
+		}
 	}
 	
 	&__grid {
@@ -28,12 +75,6 @@
 			@include texture();
 //			@include size(100%);
 		}
-	}
-	
-	&__title {
-		// .gallery__title
-		@include underlined();
-		margin-top: .5em;
 	}
 	
 	&__project {
@@ -161,8 +202,14 @@
 	
 	&__dribbble {
 		// .gallery__dribbble
-		grid-column: span 4;
-		margin: 0 $gutter $gutter;
+		width: 100%;
+		margin: 0 $gutter;
+		@supports(display: grid) {
+			grid-column: span 4;
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
 		
 		&--title {
 			// .gallery__dribbble--title
