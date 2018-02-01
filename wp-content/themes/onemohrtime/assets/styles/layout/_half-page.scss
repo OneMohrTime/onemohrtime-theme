@@ -9,6 +9,7 @@
 		// .halfie__img
 		background: $color__white--dark no-repeat center center;
 		background-size: cover;
+		@include image-overlay();
 		height: 300px;
 		@include media(">=screen768") {
 			border-right: 0;

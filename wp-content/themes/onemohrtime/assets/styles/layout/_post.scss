@@ -58,6 +58,7 @@
 			// .entry__featured-image--frame (parent)
 			background: $color__white--dark no-repeat center center;
 			background-size: cover;
+			@include image-overlay();
 			border-bottom: 0;
 			height: 300px;
 			@include media(">=screen768") {

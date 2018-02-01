@@ -21,6 +21,7 @@
 	&__banner {
 		// .project__banner
 		position: relative;
+		@include image-overlay();
 		@include size(100%, 250px);
 		@include media(">=screen600") {
 			height: 350px;
