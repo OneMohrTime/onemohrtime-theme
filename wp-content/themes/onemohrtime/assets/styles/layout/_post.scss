@@ -109,14 +109,12 @@
 	
 	&__title {
 		// .entry__title
-		@include underlined();
+		@include title();
 		@include media(">=screen768") {
 			width: calc(100% + #{$gutter * 2});
 			transform: translateX(-$gutter * 2);
 		}
 		@include media(">=screen1280") {
-			font-size: 6em;
-			line-height: .8em;
 			width: calc(100% + #{$gutter * 4});
 			transform: translateX(-$gutter * 4);
 			&::after {

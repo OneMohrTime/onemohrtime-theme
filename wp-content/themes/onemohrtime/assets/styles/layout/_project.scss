@@ -11,23 +11,37 @@
 	
 	&__header {
 		// .project__header
-		grid-column: span 4;
 		position: relative;
+		width: 100%;
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
 	}
 	&__banner {
 		// .project__banner
-		grid-column: span 4;
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 250px;
-		@include media(">=screen600") { height: 350px; }
+		@include size(100%, 250px);
+		@include media(">=screen600") {
+			height: 350px;
+		}
 		@include media(">=screen960") {
-			align-items: flex-start;
-			justify-content: flex-end;
-			height: calc(100vh - 100px);
+			height: 500px;
+		}
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
+		@supports (display: flex) {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			@include media(">=screen960") {
+				align-items: flex-start;
+				justify-content: flex-end;
+				height: calc(100vh - 100px);
+			}
 		}
 		
 		&--image {
@@ -70,15 +84,12 @@
 	
 	&__title {
 		// .project__title
-		color: $color__white;
+		@include title($color__white);
 		text-align: center;
 		margin: 0 $gutter .25em;
 		@include media(">=screen960") {
-			font-size: 4em;
 			text-align: left;
-			line-height: 1em;
 			max-width: 50vw;
-			@include underlined();
 			margin: 0 $gutter $gutter;
 			padding-bottom: $gutter;
 			&::after {
@@ -86,7 +97,6 @@
 			}
 		}
 		@include media(">=screen1280") {
-			font-size: 5em;
 			max-width: 75vw;
 		}
 	}

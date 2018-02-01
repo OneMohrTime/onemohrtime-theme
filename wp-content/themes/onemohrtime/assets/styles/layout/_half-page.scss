@@ -5,19 +5,19 @@
 .halfie {
 	display: block;
 	margin-bottom: $gutter;
-    &__img {
-        // .halfie__img
-        background: $color__white--dark no-repeat center center;
-        background-size: cover;
-        height: 300px;
-        @include media(">=screen768") {
+	&__img {
+		// .halfie__img
+		background: $color__white--dark no-repeat center center;
+		background-size: cover;
+		height: 300px;
+		@include media(">=screen768") {
 			border-right: 0;
 			@include size(50%, 100vh);
 			float: left;
-        }
-    }
-    &__content {
-        // .halfie__content
+		}
+	}
+	&__content {
+		// .halfie__content
 		margin: 0 $gutter $gutter;
 		@include media(">=screen768") {
 			float: right;
@@ -29,33 +29,31 @@
 			padding-left: $gutter * 2;
 			padding-right: $gutter * 2;
 		}
-    }
-    &__header {
-        // .halfie__header
+	}
+	&__header {
+		// .halfie__header
 		margin-bottom: $gutter;
 		@include media(">=screen768") {
 			margin: $gutter 0;
 		}
-    }
-    &__title {
-        // .halfie__title
-        @include underlined();
+	}
+	&__title {
+		// .halfie__title
+		@include title();
 		@include media(">=screen768") {
 			width: calc(100% + #{$gutter * 2});
 			transform: translateX(-$gutter * 2);
 		}
 		@include media(">=screen1280") {
-			font-size: 6em;
-			line-height: .8em;
 			width: calc(100% + #{$gutter * 4});
 			transform: translateX(-$gutter * 4);
 			&::after {
 				left: $gutter * 2;
 			}
 		}
-    }
-    &__breadcrumb {
-        display: block;
+	}
+	&__breadcrumb {
+		display: block;
 		margin-top: $gutter;
-    }
+	}
 }

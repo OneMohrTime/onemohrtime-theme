@@ -117,3 +117,20 @@
 		
 	}
 }
+
+/*
+* — Type Styles —
+*/
+
+@mixin title($color: $color__black) {
+	color: $color;
+	@include underlined();
+	@include media(">=screen960") {
+		font-size: 4em;
+		line-height: 1em;
+	}
+	@include media(">=screen1280") {
+		font-size: 6em;
+		line-height: .8em;
+	}
+}
