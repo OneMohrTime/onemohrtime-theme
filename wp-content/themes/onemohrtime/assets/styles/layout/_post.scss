@@ -4,6 +4,7 @@
 
 .blog-post {
 	display: block;
+	margin-bottom: $gutter;
 	
 	.author {
 		display: none;
@@ -71,7 +72,6 @@
     &__content {
 		// .entry__content
 		position: relative;
-		background-color: $color__white;
 		margin: 0 $gutter $gutter;
 		@include media(">=screen768") {
 			width: 50%;

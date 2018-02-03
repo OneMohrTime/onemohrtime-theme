@@ -18,6 +18,7 @@
 		position: relative;
 		@include size(100%, 300px);
 		overflow: hidden;
+		@include image-overlay();
 		@include media(">=screen960") {
 			margin-bottom: $base-spacing * 2;
 			overflow: visible;
@@ -32,6 +33,7 @@
 		&--image {
 			// .posts__banner--image
 			transform: translateY(-25%);
+			z-index: 0;
 			
 			@supports (object-fit: cover) {
 				@include size(100%, 300px);
@@ -45,6 +47,7 @@
 			@include position(absolute, null null 0 $base-spacing);
 			background-color: $color__white;
 			padding: $base-spacing;
+			z-index: 2;
 			h2 {
 				margin-bottom: 0;
 			}
@@ -58,9 +61,7 @@
 		
 		&--contact {
 			// .posts__banner--contact
-			@include position(absolute, 50% $base-spacing null null);
-			transform: rotate(-90deg);
-			transform-origin: center top 0;
+			@include btn-contact();
 		}
 	}
 	

@@ -2,12 +2,60 @@
 * === ERROR PAGES ===
 */
 
-.error--404 {
-	grid-column: span 4;
+.daft-punk {
+	position: relative;
+	background: transparent url("../images/daft-punk-404.gif") repeat center center fixed;
+	background-size: cover;
 	text-align: center;
-	padding: 0 $gutter;
+	@include size(100vw, 100vh);
+	padding-top: $gutter;
 	
-	.alert {
-		margin-bottom: $base-spacing;
+	@supports (display: grid) {
+		grid-column: span 4;
+		width: auto;
+		padding-top: 0;
+		&__content {
+			// .daft-punk__content
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	
+	&__content {
+		// .daft-punk__content
+		@include size(100vw, 100vh);
+		
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
+		
+		&--title {
+			// .daft-punk__content--title
+			font-family: $font__secondary;
+			font-size: 5em;
+			text-transform: lowercase;
+			mix-blend-mode: multiply;
+			@include media(">=screen768")  { font-size: 6em; }
+			@include media(">=screen960")  { font-size: 7em; }
+			@include media(">=screen1024") { font-size: 8em; }
+			@include media(">=screen1280") { font-size: 9em; }
+			@include media(">=screen1440") { font-size: 10em; }
+		}
+		
+		&--alert {
+			// .daft-punk__content--alert
+			margin-bottom: $small-spacing;
+		}
+	}
+}
+
+.error404 {
+	.site__header,
+	.site__footer,
+	.background {
+		display: none;
 	}
 }

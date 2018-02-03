@@ -17,6 +17,7 @@
 			position: relative;
 			width: 100vw;
 			pointer-events: none;
+			z-index: 0;
 		}
 		
 		&--title {
@@ -26,6 +27,7 @@
 			left: $gutter;
 			right: $gutter;
 			overflow: visible;
+			z-index: 2;
 			
 			.current-city {
 				display: none;
@@ -37,34 +39,14 @@
 				color: $color__black;
 				font-size: 5em;
 				line-height: 0.75em;
+				@include clipped-title();
 				width: 50%;
 				margin-bottom: 0;
-				-webkit-text-fill-color: transparent;
-				-webkit-text-stroke-width: 1px;
-				-webkit-text-stroke-color: $color__black;
-				&::after {
-					content: attr(data-title);
-					position: absolute;
-					top: 2px;
-					left: 3px;
-					background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:1" /></svg>') repeat;
-					-webkit-background-clip: text;
-							background-clip: text;
-					color: transparent;
-					-webkit-text-stroke-width: 0;
-				}
 				@include media(">=screen768")  { font-size: 6em; }
 				@include media(">=screen960")  { font-size: 7em; }
 				@include media(">=screen1024") { font-size: 8em; }
 				@include media(">=screen1280") { font-size: 9em; }
-				@include media(">=screen1440") {
-					font-size: 10em;
-					-webkit-text-stroke-width: 2px;
-					&::after {
-						top: 4px;
-						left: 6px;
-					}
-				}
+				@include media(">=screen1440") { font-size: 10em; }
 			}
 			
 			.current-title--rotating {
@@ -114,9 +96,7 @@
 		
 		&--contact {
 			// .home__banner--contact
-			@include position(absolute, 50% $base-spacing null null);
-			transform: rotate(-90deg) !important;
-			transform-origin: center top 0;
+			@include btn-contact();
 		}
 	}
 	

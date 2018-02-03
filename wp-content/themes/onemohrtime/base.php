@@ -37,6 +37,8 @@ use Roots\Sage\Wrapper; ?>
 				$template_class = ' gallery';
 			} elseif(is_page()) {
 				$template_class = ' halfie';
+			} elseif(is_404()) {
+				$template_class = ' daft-punk';
 			} else {
 				$template_class = '';
 			} ?>

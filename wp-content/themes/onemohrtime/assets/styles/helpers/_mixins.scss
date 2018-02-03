@@ -63,6 +63,7 @@
 
 @mixin image-overlay() {
 	@supports (background-blend-mode: multiply) {
+		z-index: 0;
 		&::before {
 			content: "";
 			@include position(absolute, 0 null null 0);
@@ -70,8 +71,17 @@
 			background: transparent url("../images/img-texture.png") repeat center center;
 			background-blend-mode: multiply;
 			@include size(100%);
+			overflow: hidden;
+			z-index: 1;
 		}
 	}
+}
+
+@mixin btn-contact() {
+	@include position(absolute, 50% $base-spacing null null);
+	transform: rotate(-90deg) !important;
+	transform-origin: center top 0;
+	z-index: 2;
 }
 
 @mixin fade-two() {
@@ -145,5 +155,31 @@
 	@include media(">=screen1280") {
 		font-size: 6em;
 		line-height: .8em;
+	}
+}
+
+@mixin clipped-title() {
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: $color__black;
+	@supports (background-clip: text) or (-webkit-background-clip: text) {
+		&::after {
+			content: attr(data-title);
+			position: absolute;
+			top: 2px;
+			left: 3px;
+			background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:1" /></svg>') repeat;
+			-webkit-background-clip: text;
+					background-clip: text;
+			color: transparent;
+			-webkit-text-stroke-width: 0;
+		}
+		@include media(">=screen1440") {
+			-webkit-text-stroke-width: 2px;
+			&::after {
+				top: 4px;
+				left: 6px;
+			}
+		}
 	}
 }

@@ -10,6 +10,7 @@
 		position: relative;
 		@include size(100%, 300px);
 		margin-bottom: $gutter * 4;
+		@include image-overlay();
 		overflow: hidden;
 		@include media(">=screen960") {
 			// margin-bottom: $base-spacing * 2;
@@ -25,6 +26,7 @@
 		&--image {
 			// .gallery__banner--image
 			transform: translateY(-25%);
+			z-index: 0;
 			
 			@supports (object-fit: cover) {
 				@include size(100%, 300px);
@@ -38,6 +40,7 @@
 			@include position(absolute, null null 0 $base-spacing);
 			background-color: $color__white;
 			padding: $base-spacing;
+			z-index: 2;
 			h2 {
 				margin-bottom: 0;
 			}
@@ -51,20 +54,15 @@
 		
 		&--contact {
 			// .gallery__banner--contact
-			@include position(absolute, 50% $base-spacing null null);
-			transform: rotate(-90deg);
-			transform-origin: center top 0;
+			@include btn-contact();
 		}
 	}
 	
 	&__grid {
 		// .gallery__grid
-		grid-column: span 4;
 		position: relative;
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
+		width: 100%;
 		margin: 0 $gutter;
-		@include media(">=screen600") { grid-column-gap: $gutter; }
 		&::before {
 			content: "";
 			position: absolute;
@@ -73,7 +71,13 @@
 			right: $gutter;
 			bottom: 15%;
 			@include texture();
-//			@include size(100%);
+		}
+		@supports (display: grid) {
+			grid-column: span 4;
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			width: auto;
+			@include media(">=screen600") { grid-column-gap: $gutter; }
 		}
 	}
 	

@@ -1,13 +1,12 @@
-<section class="error error--404">
+<section class="daft-punk__content">
 	
-	<?php //get_template_part('templates/page', 'header'); ?>
-	<h1>404</h1>
+	<h1 class="daft-punk__content--title">Sorry&hellip;</h1>
 	
-	<div class="alert alert-warning">
-		<?php _e('Sorry, but the page you were trying to view does not exist.', 'onemohrtime'); ?>
+	<div class="daft-punk__content--alert alert-warning">
+		<?php _e('Daft Punk broke a page on my website one more time.', 'onemohrtime'); ?>
 	</div>
 	
-	<a href="#contact" class="btn">Contact</a>
+	<a href="<?php echo home_url(); ?>" class="btn">Go Home</a>
 	
 	<?php //get_search_form(); ?>
 	
