@@ -8,6 +8,4 @@
 	
 	<a href="<?php echo home_url(); ?>" class="btn">Go Home</a>
 	
-	<?php //get_search_form(); ?>
-	
 </section>
