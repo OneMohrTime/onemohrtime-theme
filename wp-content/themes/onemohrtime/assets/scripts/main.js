@@ -106,12 +106,12 @@ $(document).ready(function() {
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
 			if( bottom_of_window > bottom_of_object ) {
 				$(this).css({
-					'opacity' :'1',
+					'opacity'   :'1',
 					'transform' : 'translateY(' + 0 + 'px)'
 				});
 			} else {
 				$(this).css({
-					'opacity' :'0',
+					'opacity'   :'0',
 					'transform' : 'translateY(' + 36 + 'px)'
 				});
 			}

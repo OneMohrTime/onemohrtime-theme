@@ -49,6 +49,7 @@
 			// .project__banner--image
 			position: absolute;
 			pointer-events: none;
+			z-index: 0;
 			@supports (object-fit: cover) {
 				object-fit: cover;
 				@include size(100vw, 100%);
@@ -57,12 +58,7 @@
 		
 		&--contact.btn {
 			// .project__banner--contact
-			@include position(absolute, 50% $base-spacing null null);
-			@include btn-color($color__white, $color__yellow);
-			transform: rotate(-90deg);
-			transform-origin: center top 0;
-			&:hover,
-			&:focus { color: $color__white; }
+			@include btn-contact();
 		}
 	}
 	
@@ -76,6 +72,7 @@
 		text-transform: none;
 		margin: 0 $gutter;
 		padding: 10px 15px;
+		z-index: 2;
 		@include media(">=screen1024") {
 			padding: 1em 2em;
 			margin: 0;
@@ -88,6 +85,7 @@
 		@include title($color__white);
 		text-align: center;
 		margin: 0 $gutter .25em;
+		z-index: 2;
 		@include media(">=screen960") {
 			text-align: left;
 			max-width: 50vw;
@@ -112,7 +110,7 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		margin: 0 $gutter;
-		z-index: 1;
+		z-index: 2;
 		@include media(">=screen960") {
 			margin-bottom: $small-spacing;
 			padding-bottom: $small-spacing;
