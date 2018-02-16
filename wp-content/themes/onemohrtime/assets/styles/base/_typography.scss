@@ -152,8 +152,8 @@ pre, code {
     font-size: .875em;
     background-color: $color__white--dark;
     border: 1px $color__white--darker solid;
-    color: $color__yellow;
-    padding: 1em;
+    color: inherit;
+    padding: $small-spacing;
 }
 
 abbr {

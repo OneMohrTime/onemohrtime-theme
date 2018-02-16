@@ -185,6 +185,7 @@ $(document).ready(function() {
 			html.push('</figure>');
 		});
 		$('#dribbbles').html(html.join(''));
+		$('#no_shots').hide();
 	});
 	
 	// Instagram API
