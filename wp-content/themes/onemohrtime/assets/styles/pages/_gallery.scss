@@ -55,7 +55,7 @@
 	&__grid {
 		// .gallery__grid
 		position: relative;
-		margin: 0 $gutter #{$gutter * 2};
+		margin: 0 $gutter $gutter;
 		&::before {
 			content: "";
 			position: absolute;
@@ -83,8 +83,14 @@
 		padding: $small-spacing;
 		margin-bottom: $gutter;
 		overflow: hidden;
-		@include media(">=screen960") {
+		@include media(">=screen840") {
 			padding: $base-spacing;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+		@include media(">=screen1280") {
+			margin-left: $gutter *2;
+			margin-right: $gutter *2;
 		}
 		@supports (display: flex) {
 			display: flex;
