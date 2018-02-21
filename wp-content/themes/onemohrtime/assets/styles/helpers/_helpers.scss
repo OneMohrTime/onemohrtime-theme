@@ -41,3 +41,33 @@
 		& > *:nth-child(4n+4) { transition-delay: 300ms; }
 	}
 }
+
+// http://refills.bourbon.io/components#parallax
+$parallax-window-height: 100%;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax {
+	&-window {
+		position: relative;
+		text-align: center;
+		width: 100%;
+		max-height: $parallax-window-height;
+		overflow: hidden;
+	}
+	&-static-content {
+		position: relative;
+		padding: 8em 0;
+		z-index: 9;
+	}
+	&-background {
+		position: absolute;
+		left: 0;
+		top: - $parallax-window-height / 3;
+		background-color: $color__white--dark;
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: cover;
+		width: 100%;
+		height: $parallax-background-height;
+	}
+}

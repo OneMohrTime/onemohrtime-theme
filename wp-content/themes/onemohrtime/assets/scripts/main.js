@@ -10,75 +10,75 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
-(function($) {
-
-  // Use this variable to set up the common and page specific functions. If you
-  // rename this variable, you will also need to rename the namespace below.
-  var Sage = {
-	// All pages
-	'common': {
-	  init: function() {
-		// JavaScript to be fired on all pages
-	  },
-	  finalize: function() {
-		// JavaScript to be fired on all pages, after page specific JS is fired
-	  }
-	},
-	// Home page
-	'home': {
-	  init: function() {
-		// JavaScript to be fired on the home page
-	  },
-	  finalize: function() {
-		// JavaScript to be fired on the home page, after the init JS
-	  }
-	},
-	// About us page, note the change from about-us to about_us.
-	'about_us': {
-	  init: function() {
-		// JavaScript to be fired on the about us page
-	  }
-	}
-  };
-
-  // The routing fires all common scripts, followed by the page specific scripts.
-  // Add additional events for more control over timing e.g. a finalize event
-  var UTIL = {
-	fire: function(func, funcname, args) {
-	  var fire;
-	  var namespace = Sage;
-	  funcname = (funcname === undefined) ? 'init' : funcname;
-	  fire = func !== '';
-	  fire = fire && namespace[func];
-	  fire = fire && typeof namespace[func][funcname] === 'function';
-
-	  if (fire) {
-		namespace[func][funcname](args);
-	  }
-	},
-	loadEvents: function() {
-	  // Fire common init JS
-	  UTIL.fire('common');
-
-	  // Fire page-specific init JS, and then finalize JS
-	  $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
-		UTIL.fire(classnm);
-		UTIL.fire(classnm, 'finalize');
-	  });
-
-	  // Fire common finalize JS
-	  UTIL.fire('common', 'finalize');
-	}
-  };
-
-  // Load Events
-  $(document).ready(UTIL.loadEvents);
-
+(function ($) {
+	
+	// Use this variable to set up the common and page specific functions. If you
+	// rename this variable, you will also need to rename the namespace below.
+	var Sage = {
+		// All pages
+		'common': {
+			init: function () {
+				// JavaScript to be fired on all pages
+			},
+			finalize: function () {
+				// JavaScript to be fired on all pages, after page specific JS is fired
+			}
+		},
+		// Home page
+		'home': {
+			init: function () {
+				// JavaScript to be fired on the home page
+			},
+			finalize: function () {
+				// JavaScript to be fired on the home page, after the init JS
+			}
+		},
+		// About us page, note the change from about-us to about_us.
+		'about_us': {
+			init: function () {
+				// JavaScript to be fired on the about us page
+			}
+		}
+	};
+	
+	// The routing fires all common scripts, followed by the page specific scripts.
+	// Add additional events for more control over timing e.g. a finalize event
+	var UTIL = {
+		fire: function (func, funcname, args) {
+			var fire;
+			var namespace = Sage;
+			funcname = (funcname === undefined) ? 'init' : funcname;
+			fire = func !== '';
+			fire = fire && namespace[func];
+			fire = fire && typeof namespace[func][funcname] === 'function';
+			
+			if (fire) {
+				namespace[func][funcname](args);
+			}
+		},
+		loadEvents: function () {
+			// Fire common init JS
+			UTIL.fire('common');
+			
+			// Fire page-specific init JS, and then finalize JS
+			$.each(document.body.className.replace(/-/g, '_').split(/\s+/), function (i, classnm) {
+				UTIL.fire(classnm);
+				UTIL.fire(classnm, 'finalize');
+			});
+			
+			// Fire common finalize JS
+			UTIL.fire('common', 'finalize');
+		}
+	};
+	
+	// Load Events
+	$(document).ready(UTIL.loadEvents);
+	
 })(jQuery); // Fully reference jQuery after this point.
 
 $(document).ready(function() {
 
-	// bourbon refills nav
+	// Bourbon refills nav
 	$('#menu_toggle').on('click touchstart', function(e) {
 		// Open nav menu
 		$('#mobile_menu').toggleClass('is-visible');
@@ -93,12 +93,12 @@ $(document).ready(function() {
 		e.preventDefault();	
 	});
 	
+	// Fade in content
 	// Hide direct children of .fade-content element
 	$('.fade-content > *').css({
 		'opacity':'0',
 		'transform': 'translateY(' + 36 + 'px)'
 	});
-	
 	// Trigger fade in as window scrolls
 	$(window).on('scroll load', function(){
 		$('.fade-content > *').each( function(i) {
@@ -114,6 +114,44 @@ $(document).ready(function() {
 					'opacity'   :'0',
 					'transform' : 'translateY(' + 36 + 'px)'
 				});
+			}
+		});
+	});
+	
+	$('.gallery__project--image').each(function () {
+		var img = $(this);
+		var imgParent = $(this).parent();
+		
+		function parallaxImg() {
+			var speed = img.data('speed');
+			var imgY = imgParent.offset().top;
+			var winY = $(this).scrollTop();
+			var winH = $(this).height();
+			var parentH = imgParent.innerHeight();
+			
+			// The next pixel to show on screen      
+			var winBottom = winY + winH;
+			
+			// If block is shown on screen
+			if (winBottom > imgY && winY < imgY + parentH) {
+				// Number of pixels shown after block appear
+				var imgBottom = ((winBottom - imgY) * speed);
+				// Max number of pixels until block disappear
+				var imgTop = winH + parentH;
+				// Porcentage between start showing until disappearing
+				var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+			}
+			img.css({
+				top: imgPercent + '%',
+				transform: 'translate(-50%, -' + imgPercent + '%)'
+			});
+		}
+		$(document).on({
+			scroll : function () {
+				parallaxImg();
+			},
+			ready  : function () {
+				parallaxImg();
 			}
 		});
 	});
@@ -136,18 +174,18 @@ $(document).ready(function() {
 	// Text Rotator
 	$('.rotate').each(function() {
 		var el = $(this);
-		var text = $(this).html().split(",");
+		var text = $(this).html().split(',');
 		el.html(text[0]);
 		setInterval(function () {
 			el.animate({
 				textShadowBlur : 20,
-				opacity : 0
+				opacity        : 0
 			}, 500, function () {
 				index = $.inArray(el.html(), text);
 				if ((index + 1) == text.length) index = -1;
 				el.text(text[index + 1]).animate({
 					textShadowBlur : 0,
-					opacity : 1
+					opacity        : 1
 				}, 500);
 			});
 		}, 2000);
@@ -217,6 +255,39 @@ $(document).ready(function() {
 //			console.log(data);
 //		}
 	});
+	
+	// Bourbon Refills parallax effect
+	// refills.bourbon.io/components#parallax
+	function parallax() {
+		if ($('#js-parallax-window').length > 0) {
+			var plxBackground = $('#js-parallax-background');
+			var plxWindow = $('#js-parallax-window');
+			
+			var plxWindowTopToPageTop = $(plxWindow).offset().top;
+			var windowTopToPageTop = $(window).scrollTop();
+			var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
+			
+			var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
+			var windowInnerHeight = window.innerHeight;
+			var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
+			var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
+			var plxSpeed = 0.35;
+			
+			plxBackground.css('top', -(plxWindowTopToWindowTop * plxSpeed) + 'px');
+		}
+	}
+
+	$(document).ready(function () {
+		if ($('#js-parallax-window').length) {
+			parallax();
+		}
+	});
+
+	$(window).scroll(function (e) {
+		if ($('#js-parallax-window').length) {
+			parallax();
+		}
+	});
 
 });
 
@@ -271,8 +342,8 @@ $(window).on('load', function() {
 		typeSpeed : 100,
 		startDelay: 300,
 		showCursor : true,
-		// cursorChar : "&nbsp;&#9608;",
-		cursorChar : " |",
+		// cursorChar : '&nbsp;&#9608;',
+		cursorChar : ' |',
 		contentType : 'text'
 	});
 	setTimeout(function() {
