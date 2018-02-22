@@ -52,7 +52,7 @@
 				&:hover,
 				&:focus {
 					img {
-						transform: translateY(- $gutter);
+						transform: translateY(-$gutter);
 					}
 					.widget__instagram--caption {
 						transform: translateY(0);

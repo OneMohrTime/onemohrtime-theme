@@ -17,6 +17,7 @@
 	text-transform: uppercase;
 	margin: 0;
 	padding: $small-spacing $base-spacing;
+	@include mask-texture();
 	vertical-align: baseline; // Improves appearance and consistency in all browsers
 	white-space: nowrap;
 	overflow: hidden;

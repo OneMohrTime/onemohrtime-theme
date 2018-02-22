@@ -53,6 +53,7 @@
 	<?php
 	// TEXT/IMAGE
 	elseif(get_row_layout() == 'detail_text_image'):
+	
 	$detailText = get_sub_field('text');
 	$detailImg = get_sub_field('image');
 	$detailReverse = get_sub_field('reverse'); ?>
@@ -62,39 +63,36 @@
 			<?php echo $detailText ?>
 		</div>
 		<figure class="image--half">
-			<img src="<?php echo $detailImg['sizes']['thumbnail'] ?>" alt="<?php echo $detailImg['alt'] ?>" srcset="<?php echo $detailImg['sizes']['medium'] ?> 1024w, <?php echo $detailImg['sizes']['large'] ?> 1440w, <?php echo $detailImg['url'] ?> 1920w" />
+			<img src="<?php echo $detailImg['sizes']['thumbnail'] ?>"
+				 alt="<?php echo $detailImg['alt'] ?>"
+				 srcset="<?php echo $detailImg['sizes']['medium'] ?> 1024w,
+						 <?php echo $detailImg['sizes']['large'] ?> 1440w,
+						 <?php echo $detailImg['url'] ?> 1920w" />
 		</figure>
 	</div>
 
 	<?php
 	// IMAGE
 	elseif(get_row_layout() == 'detail_image'):
-	$display = get_sub_field('display');
+	
+	$display  = get_sub_field('display');
 	$standard = $display == 'standard';
-	$wide = $display == 'wide';
-	$fixed = $display == 'fixed';
-	$image = get_sub_field('image'); ?>
-
-	<?php if($standard): ?>
-	<div class="project__section project__image project__image--default">
-	<?php elseif($wide): ?>
-	<div class="project__section project__image project__image--wide">
-	<?php elseif($fixed): ?>
-	<div class="project__section project__image project__image--fixed" style="background-image: url(<?php echo $image['url'] ?>);">
-	<?php endif; ?>
-		<?php if($standard or $wide): ?>
-		<img src="<?php echo $image['sizes']['thumbnail'] ?>"
+	$wide     = $display == 'wide';
+	$fixed    = $display == 'fixed';
+	$image    = get_sub_field('image'); ?>
+	
+	<div class="project__section project__image<?php if($standard): ?> project__image--default<?php elseif($wide): ?> project__image--wide<?php elseif($fixed): ?> project__image--fixed<?php endif; ?>"<?php if($fixed): ?> id="js-parallax-window"<?php endif; ?>>
+		<img src="<?php echo $image['sizes']['medium'] ?>"
 			 alt="<?php echo $image['alt'] ?>"
-			 srcset="<?php echo $image['sizes']['medium'] ?> 800w,
-					 <?php echo $image['sizes']['large'] ?> 1600w,
+			 <?php if($fixed): ?>id="js-parallax-background"<?php endif; ?> 
+			 srcset="<?php echo $image['sizes']['large'] ?> 1170w,
 					 <?php echo $image['url'] ?> 1920w" />
-		<?php endif; ?>
 	</div>
 
 	<?php
 	// GALLERY
 	elseif(get_row_layout() == 'detail_gallery'):
-	$images = get_sub_field('images');
+	$images  = get_sub_field('images');
 	$counter = 1;
 	if($images): ?>
 	

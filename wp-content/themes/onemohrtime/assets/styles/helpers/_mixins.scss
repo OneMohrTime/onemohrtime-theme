@@ -77,6 +77,11 @@
 	}
 }
 
+@mixin mask-texture() {
+	-webkit-mask-image: url("../images/rough-texture.png");
+			mask-image: url("../images/rough-texture.png");
+}
+
 @mixin btn-contact() {
 	@include position(absolute, 50% $base-spacing null null);
 	transform: rotate(-90deg) !important;

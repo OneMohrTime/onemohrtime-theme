@@ -3,12 +3,18 @@
 */
 
 .site__footer {
-	background-color: $color__black;
+	background: $color__black;
 	color: $color__white;
 	@include size(100%, auto);
 	padding: $gutter;
 	@include clearfix();
-
+	
+//	@supports (background-blend-mode: multiply) {
+//		background: $color__black url("../images/rough-texture.png") no-repeat center;
+//		background-size: cover;
+//		background-blend-mode: screen;
+//	}
+	
 	@supports (display: grid) {
 		grid-column: span 4;
 		display: grid;

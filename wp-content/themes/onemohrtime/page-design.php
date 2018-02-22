@@ -6,7 +6,7 @@ $featured_img_med   = get_the_post_thumbnail_url($post->ID, 'medium');
 $featured_img_large = get_the_post_thumbnail_url($post->ID, 'large'); 
 $featured_img_url   = get_the_post_thumbnail_url($post->ID, 'full'); ?>
 
-<figure class="gallery__banner parallax-window">
+<figure id="js-parallax-window" class="gallery__banner parallax-window">
 	
 	<img src="<?php echo $featured_img_thumb; ?>"
 		 alt="<?php echo $featured_img_alt; ?>"
@@ -36,17 +36,15 @@ if($projects): $i = 0; ?>
 		
 		<div class="gallery__project--content">
 			
+			<div class="gallery__project--excerpt">
+				<?php the_excerpt(); ?>
+			</div>
+			
 			<h2 class="gallery__project--header">
 				<a href="<?php the_permalink(); ?>">
 					<?php the_title(); ?>
 				</a>
 			</h2>
-			
-<!--
-			<div class="gallery__project--excerpt wysiwyg">
-				<?php the_excerpt(); ?>
-			</div>
--->
 			
 			<a href="<?php the_permalink(); ?>" class="gallery__project--link btn">See Project</a>
 		</div>

@@ -83,11 +83,11 @@
 	&__title {
 		// .project__title
 		@include title($color__white);
-		text-align: center;
-		margin: 0 $gutter .25em;
+		text-align: left;
+		margin: 0 $gutter 20px;
 		z-index: 2;
 		@include media(">=screen960") {
-			text-align: left;
+//			text-align: left;
 			max-width: 50vw;
 			margin: 0 $gutter $gutter;
 			padding-bottom: $gutter;
@@ -213,7 +213,9 @@
 		&--default {
 			// .project__image--default
 			padding: 0 $gutter;
-			@include media(">=screen1440") { padding: 0 $gutter * 2; }
+			@include media(">=screen1440") {
+				padding: 0 $gutter * 2;
+			}
 		}
 		
 		&--wide {
@@ -223,19 +225,14 @@
 		
 		&--fixed {
 			// .project__image--fixed
-			background: $color__white--dark no-repeat center center;
-			background-size: cover;
-			margin-bottom: $base-spacing;
 			@include size(100%, 100vh);
-			@include media(">=screen540") {
-				background-attachment: fixed;
-				height: 300px;
+			padding: 0;
+			opacity: 1 !important;
+			overflow: hidden;
+			img {
+				@include size(auto, 150vh);
+				max-width: none !important;
 			}
-			@include media(">=screen768")  { height: 400px; }
-			@include media(">=screen960")  { height: 450px; }
-			@include media(">=screen1280") { height: 500px; }
-			@include media(">=screen1920") { height: 550px; }
-			@include media(">=screen2560") { height: 600px; }
 		}
 	}
 	
