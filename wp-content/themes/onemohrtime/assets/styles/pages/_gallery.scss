@@ -37,7 +37,7 @@
 			z-index: 2;
 			h2 {
 				color: $color__white;
-				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+				text-shadow: 2px 2px 4px fade-out($color__black, .95);
 				margin-bottom: 0;
 			}
 			@supports (display: flex) {
