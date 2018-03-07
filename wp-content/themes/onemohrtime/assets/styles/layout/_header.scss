@@ -5,8 +5,8 @@
 .site__header {
 	background-color: $color__white;
 	padding-left: $gutter;
-	@include size(100%, 100px);
 	padding-right: $gutter;
+	width: 100%;
 	z-index: 20;
 	
 	@supports (position: sticky) or (position: -webkit-sticky) {
@@ -15,11 +15,11 @@
 		top: 0;
 	}
 	
-//	@supports (display: grid) {
-//		// .site__header
-//		grid-column: span 4;
-//		width: auto;
-//	}
+	@supports (display: grid) {
+		// .site__header
+		grid-column: span 4;
+		width: auto;
+	}
 	
 	&--logo {
 		// .site__header--logo
