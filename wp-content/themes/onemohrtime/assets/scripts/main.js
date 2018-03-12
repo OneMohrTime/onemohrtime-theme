@@ -76,6 +76,21 @@
 	
 })(jQuery); // Fully reference jQuery after this point.
 
+// Pure JS parallax
+// https://codepen.io/juanbrujo/pen/VLeEGv
+function backgroundParallax() {
+	window.onscroll = function () {
+		var elems = document.querySelectorAll("[data-scroll]");
+		if (elems.length) {
+			for (var i = 0; i < elems.length; i++) {
+				var speed = elems[i].getAttribute('data-scroll');
+				elems[i].style.backgroundPosition = (-window.pageXOffset / speed) + "px " + (-window.pageYOffset / speed) + "px";
+			}
+		}
+	}
+}
+backgroundParallax();
+
 $(document).ready(function() {
 
 	// Bourbon refills nav
@@ -91,6 +106,11 @@ $(document).ready(function() {
 		$('body').toggleClass('unscrollable');
 		
 		e.preventDefault();	
+	});
+	
+	// 
+	$('.menu-item').click(function() {
+		$(this).addClass('active').siblings().removeClass('active');
 	});
 	
 	// Fade in content
@@ -199,7 +219,7 @@ $(document).ready(function() {
 	// Easy Parallax
 	$(window).on('scroll', function() {
 		if($(window).scrollTop() < 1000) {
-			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * 0.05) + '%');
+//			$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * 0.05) + '%');
 			$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * 0.15) + '%');
 		}
 		if(window.matchMedia('(min-width: 1024px)').matches) {

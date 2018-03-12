@@ -167,6 +167,15 @@
 				width: 25vw;
 				margin: $gutter $gutter 0 0;
 				padding: 0;
+				transition: border $speed;
+				&:hover,
+				&:focus {
+					border-bottom-color: $color__yellow;
+					.sub-menu {
+						border-bottom-color: $color__yellow;
+					}
+				}
+				
 				& > a {
 					// .menu__mobile > .menu-item > a
 					border-left: 0;
@@ -182,9 +191,15 @@
 				width: 25vw;
 				padding-right: $gutter;
 				padding-bottom: $gutter / 2;
+				transition: border $speed;
 				& > .menu-item {
 					// .menu__mobile .sub-menu > .menu-item
+					&:hover,
+					&:focus {
+						border-color: $color__white;
+					}
 					&:last-child {
+						// cancel out non-flex style
 						a { padding-bottom: 0; }
 					}
 					& > a {

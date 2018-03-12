@@ -11,8 +11,8 @@
 	
 	<figcaption class="homepage__banner--title">
 		<div class="current-city">Grand Rapids, MI</div>
-		<h1 class="current-title" data-title="Front -end">
-			Front -end
+		<h1 class="current-title">
+			Front End
 			<span class="current-title--rotating">
 				<span class="rotate">designer,developer,creative</span>
 			</span>
