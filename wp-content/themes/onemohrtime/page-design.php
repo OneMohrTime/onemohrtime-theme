@@ -12,9 +12,9 @@ $featured_img_url   = get_the_post_thumbnail_url($post->ID, 'full'); ?>
 		 alt="<?php echo $featured_img_alt; ?>"
 		 id="js-parallax-background"
 		 class="gallery__banner--image parallax-background"
-		 srcset="<?php echo $featured_img_med; ?> 800w,
-				 <?php echo $featured_img_large; ?> 1600w,
-				 <?php echo $featured_img_url; ?> 1920w" />
+		 srcset="<?php echo $featured_img_med; ?> 768w,
+				 <?php echo $featured_img_large; ?> 1024w,
+				 <?php echo $featured_img_url; ?> 1440w" />
 	
 	<figcaption class="gallery__banner--title">
 		<?php the_title('<h2>', '</h2>'); ?>
