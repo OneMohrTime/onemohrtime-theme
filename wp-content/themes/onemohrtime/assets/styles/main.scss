@@ -1,18 +1,112 @@
-@import "common/variables";
+//@import "common/variables";
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 // endbower
 
-@import "common/global";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/grid";
-@import "components/wp-classes";
-@import "layouts/header";
-@import "layouts/sidebar";
-@import "layouts/footer";
-@import "layouts/pages";
-@import "layouts/posts";
-@import "layouts/tinymce";
+//@import "common/global";
+//@import "components/buttons";
+//@import "components/comments";
+//@import "components/forms";
+//@import "components/grid";
+//@import "components/wp-classes";
+//@import "layouts/header";
+//@import "layouts/sidebar";
+//@import "layouts/footer";
+//@import "layouts/pages";
+//@import "layouts/posts";
+//@import "layouts/tinymce";
+
+@charset "utf-8";
+
+/*--------------------------------------------------------------
+	TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+1.0 Base
+	- Normalize
+	- Vendor
+	- Base
+	- Typography
+2.0 Layout
+	- Header
+	- Footer
+	- Sidebar
+	- Forms
+	- Project
+	- Post
+	- Half Page
+3.0 Components
+	- Buttons
+	- Media
+	- Nav
+	- Feature Image
+	- Contact Section
+	- Dribbble
+	- Modules
+	- Jetpack
+4.0 Pages
+	- Home
+	- Gallery
+	- Blog
+	- Errors
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+	1.0 Base
+--------------------------------------------------------------*/
+
+@import
+	"../../node_modules/normalize-scss/sass/normalize",
+	"../../node_modules/bourbon/core/bourbon",
+	"vendor/base/base",
+	"../../node_modules/include-media/dist/include-media",
+	"../../node_modules/font-awesome/scss/font-awesome",
+	"../../node_modules/swiper/dist/css/swiper";
+
+@import
+	"helpers/variables",
+	"helpers/mixins",
+	"helpers/helpers";
+
+@import
+	"base/base",
+	"base/typography";
+
+/*--------------------------------------------------------------
+	4.0 Layout
+--------------------------------------------------------------*/
+
+@import
+	"layout/header",
+	"layout/footer",
+	"layout/sidebar",
+	"layout/forms",
+	"layout/project",
+	"layout/post",
+	"layout/half-page";
+
+/*--------------------------------------------------------------
+	3.0 Components
+--------------------------------------------------------------*/
+
+@import
+	"components/wp-classes",
+	"components/loading",
+	"components/buttons",
+	"components/media",
+	"components/nav",
+	"components/featured-image",
+	"components/contact",
+	"components/dribbble";
+
+/*--------------------------------------------------------------
+	4.0 Pages
+--------------------------------------------------------------*/
+
+@import
+	"pages/home",
+	"pages/gallery",
+	"pages/blog",
+	"pages/errors";

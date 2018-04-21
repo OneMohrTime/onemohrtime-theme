@@ -1,19 +1,28 @@
 <!doctype html>
 <html {{ function('language_attributes') }}>
+	
     {% include 'blocks/head.twig' %}
+	
     <body {{ function('body_class') }}>
-        {% include 'blocks/header.twig' %}
-        <div class="wrap container" role="document">
-            <div class="content row">
-                <main class="main">
-                    {% block content %}{% endblock %}
-                </main>
-                {% include 'blocks/sidebar.twig' %}
-            </div>
-        </div>
-        {% block footer %}
-            {% include 'blocks/footer.twig' %}
-            {{ function('wp_footer') }}
-        {% endblock %}
+		<div id="page" class="site" role="document">
+			
+			{% include 'blocks/header.twig' %}
+			
+			<main id="main" class="site__main content-area" role="main">
+				<div class="content row">
+					<main class="main">
+						{% block content %}{% endblock %}
+					</main>
+					{% include 'blocks/sidebar.twig' %}
+				</div>
+			</main>
+			
+			{% block footer %}
+				{% include 'blocks/footer.twig' %}
+				{{ function('wp_footer') }}
+			{% endblock %}
+			
+		</div>
     </body>
+	
 </html>

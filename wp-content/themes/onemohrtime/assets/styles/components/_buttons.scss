@@ -1,0 +1,135 @@
+/*
+* === BUTTONS ===
+*/
+
+#{$all-buttons},
+.btn {
+	position: relative;
+	display: inline-block;
+	background-color: transparent;
+	@include btn-color();
+	border-radius: 3px;
+	font-family: $font__header;
+	font-size: 100%; // Corrects font size not being inherited in all browsers
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0;
+	padding: $small-spacing $base-spacing;
+	@include mask-texture();
+	vertical-align: baseline; // Improves appearance and consistency in all browsers
+	white-space: nowrap;
+	overflow: hidden;
+	appearance: none;
+	&::after {
+		content: "";
+		@include position(absolute, null 0 0 null);
+		@include size(0, 10px);
+	}
+	&:disabled {
+		background-color: transparent;
+	}
+	@include media(">=screen960") {
+		&::after { transition: all 300ms; }
+	}
+	
+	.fa {
+		position: relative;
+		transition: 500ms cubic-bezier(.455,.03,.515,.955);
+	}
+}
+
+#{$all-buttons-hover},
+#{$all-buttons-focus},
+#{$all-buttons-active},
+.btn:hover,
+.btn:focus,
+.btn:active {
+	background-color: transparent;
+	color: inherit;
+	@include media(">=screen960") {
+		transition: all 300ms;
+		&::after {
+			left: 0;
+			width: 100%;
+		}
+	}
+	
+	.fa {
+		transform: translateX($small-spacing);
+	}
+	
+	&.homepage__banner--contact,
+	&.gallery__banner--contact,
+	&.project__banner--contact,
+	&.posts__banner--contact {
+		.fa {
+			transform: translateX(-#{$small-spacing});
+		}
+	}
+}
+
+.toggle {
+	&__menu {
+		// .toggle__menu
+		position: relative;
+		color: $color__black;
+		font-family: $font__header;
+		font-size: 1.125em;
+//		letter-spacing: 2px;
+		cursor: pointer;
+		z-index: 30;
+		&:hover,
+		&:focus {
+			color: $color__yellow;
+			span.e span.bar { background-color: $color__yellow; }
+		}
+		&.open {
+			color: $color__white;
+		}
+		span.m,
+		span.n,
+		span.u {
+			display: inline-block;
+			transition: $speed;
+		}
+		span.e {
+			display: inline-block;
+			@include size(12px, 13px);
+			&.toggle__close {
+				@include size(14px, 13px);
+				span.bar {
+					width: 15px;
+					background-color: $color__white;
+				}
+				span.bar:nth-child(1) {
+					top: 5px;
+					transform: rotate(45deg);
+					transition: $speed;
+				}
+				span.bar:nth-child(2) {
+					margin: 2px 0;
+					opacity: 0;
+					transition: $speed;
+				}
+				span.bar:nth-child(3) {
+					bottom: 5px;
+					transform: rotate(-45deg);
+					transition: $speed;
+				}
+			}
+			span.bar {
+				position: relative;
+				display: block;
+				background-color: $color__black;
+				transition: $speed;
+				width: 11px;
+				height: 3px;
+				&:nth-child(2) {
+					margin: 2px 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+/*
+* === HALF PAGE ===
+*/
+
+.halfie {
+	display: block;
+	margin-bottom: $gutter;
+	&__img {
+		// .halfie__img
+		position: relative;
+//		background: $color__white--dark no-repeat center center;
+//		background-size: cover;
+//		@include image-overlay();
+		height: 300px;
+		@include media(">=screen768") {
+			@include size(50%, auto);
+			min-height: 100vh;
+			float: left;
+		}
+		@supports (position: sticky) or (position: -webkit-sticky) {
+			&--image {
+				// .halfie__img--image
+				position: -webkit-sticky;
+				position: sticky;
+				top: 0;
+			}
+		}
+	}
+	&__content {
+		// .halfie__content
+		margin: 0 $gutter $gutter;
+		@include media(">=screen768") {
+			float: right;
+			width: 50%;
+			padding: 0 $gutter;
+			margin: 0;
+		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
+	}
+	&__header {
+		// .halfie__header
+		margin-bottom: $gutter;
+		@include media(">=screen768") {
+			margin: $gutter 0;
+		}
+	}
+	&__title {
+		// .halfie__title
+		@include title();
+		@include media(">=screen768") {
+			width: calc(100% + #{$gutter * 2});
+			transform: translateX(-$gutter * 2);
+		}
+		@include media(">=screen1280") {
+			width: calc(100% + #{$gutter * 4});
+			transform: translateX(-$gutter * 4);
+			&::after {
+				left: $gutter * 2;
+			}
+		}
+	}
+	&__breadcrumb {
+		display: block;
+		margin-top: $gutter;
+	}
+}

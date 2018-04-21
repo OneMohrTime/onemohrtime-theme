@@ -1,0 +1,66 @@
+/*
+* === FORMS ===
+*/
+
+#{$all-text-inputs} {
+	position: relative;
+	display: block;
+	color: $color__gray;
+	border: 0;
+	border-bottom: 3px $color__gray solid;
+	border-radius: 0;
+	box-shadow: none;
+	font-family: $font__main;
+//	font-size: 100%; // Corrects font size not being inherited in all browsers
+	font-size: 1.5em;
+	line-height: 1.7em;
+	vertical-align: baseline; // Improves appearance and consistency in all browsers
+	padding: 0 0 10px;
+	outline: none;
+	transition-duration: $speed;
+	appearance: none;
+}
+
+#{$all-text-inputs-hover} {
+	color: $color__black;
+	border-color: $color__black;
+}
+
+#{$all-text-inputs-focus} {
+	color: $color__black;
+	border-color: $color__yellow;
+	box-shadow: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: none;
+    &+ label {
+		font-family: $font__main;
+		font-size: 1.5em;
+		font-weight: 400;
+		text-transform: none;
+        cursor: pointer;
+        &::before {
+            font-family: "FontAwesome";
+            font-size: 1em;
+            display: inline-block;
+            position: relative;
+            width: 1em;
+            text-align: left;
+        }
+    }
+}
+input[type="checkbox"] + label::before { content: "\f096"; }
+input[type="radio"] +label::before { content: "\f046"; }
+input[type="checkbox"]:checked + label::before { content: "\f046"; }
+
+label {
+	display: block;
+    color: $color__black--lighter;
+	font-family: $font__header;
+	font-size: .75em;
+    font-weight: 700;
+	line-height: 1.7em;
+    text-transform: uppercase;
+}

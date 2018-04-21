@@ -1,0 +1,44 @@
+/*
+* === HEADER ===
+*/
+
+.site__header {
+	background-color: $color__white;
+	padding-left: $gutter;
+	padding-right: $gutter;
+	width: 100%;
+	z-index: 20;
+	
+	@supports (position: sticky) or (position: -webkit-sticky) {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+	}
+	
+	@supports (display: grid) {
+		// .site__header
+		grid-column: span 4;
+		width: auto;
+	}
+	
+	&--logo {
+		// .site__header--logo
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-left: auto;
+		
+		img {
+			@include size(60px);
+		}
+	}
+	
+	@supports (display: flex) {
+		// .site__header
+		display: flex;
+		align-items: center;
+		&--logo {
+		// .site__header--logo
+			flex: 0 1 60px;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+/*
+* === DRIBBBLE ===
+*/
+
+.dribbbles {
+	position: relative;
+	width: 100%;
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-column-gap: $gutter;
+		grid-row-gap: $gutter;
+		width: auto;
+	}
+	.shot {
+		width: 98%;
+		float: left;
+		margin: 0 1% 1%;
+		@include media(">=screen400") { width: 48%; }
+		@include media(">=screen600") { width: 31%; }
+		@supports (display: grid) {
+			grid-column: span 6;
+			width: auto !important;
+			margin: 0;
+			@include media(">=screen400") { grid-column: span 3; }
+			@include media(">=screen600") { grid-column: span 2; }
+		}
+		position: relative;
+		overflow: hidden;
+		&__image {
+			// .shot__image
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			transition: opacity 300ms;
+		}
+		&__link {
+			// .shot__link
+			@include block-link(has-border);
+		}
+	}
+}

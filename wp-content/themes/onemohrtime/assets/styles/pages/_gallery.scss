@@ -1,0 +1,216 @@
+/*
+* === GALLERY ===
+*/
+
+.gallery {
+	position: relative;
+	
+	&__banner {
+		// .gallery__banner
+		position: relative;
+		@include size(100%, 300px);
+		@include image-overlay();
+		margin-bottom: $gutter * 2;
+		@include media(">=screen768")  { height: 50vh; }
+		@include media(">=screen1170") { height: 66vh; }
+		@include media(">=screen1920") { height: 75vh; }
+		
+		@supports (display: grid) {
+			display: grid;
+			grid-column: span 4;
+			width: auto;
+		}
+		
+		&--image {
+			// .gallery__banner--image
+			transform: translateY(-25%);
+			z-index: 0;
+			
+			@supports (object-fit: cover) {
+				object-fit: cover;
+				transform: translate(0);
+			}
+		}
+		
+		&--title {
+			// .gallery__banner--title
+			z-index: 2;
+			h2 {
+				color: $color__white;
+				text-shadow: 2px 2px 4px fade-out($color__black, .95);
+				margin-bottom: 0;
+			}
+			@supports (display: flex) {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0 $gutter * 3;
+			}
+		}
+		
+		&--contact {
+			// .gallery__banner--contact
+			@include btn-contact();
+		}
+	}
+	
+	&__grid {
+		// .gallery__grid
+		position: relative;
+		margin: 0 $gutter $gutter;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 25%;
+			left: 33.3%;
+			right: $gutter;
+			bottom: 15%;
+			@include texture();
+		}
+		@supports (display: flex) {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		@supports (display: grid) {
+			grid-column: span 4;
+		}
+	}
+	
+	&__project {
+		// .gallery__project
+		position: relative;
+		background-color: $color__white--dark;
+		@include size(100%, auto);
+		min-height: 375px;
+		padding: $small-spacing;
+		margin-bottom: $gutter;
+		overflow: hidden;
+		@include media(">=screen840") {
+			padding: $base-spacing;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+		@include media(">=screen1170") {
+			height: 100vh;
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+			margin-bottom: 0;
+		}
+		@include media(">=screen1440") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+		@include media(">=screen1920") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+		@supports (display: flex) {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: flex-end;
+			align-items: flex-start;
+		}
+		
+		&--image {
+			// .gallery__project--image
+			@include position(absolute, 0 null null 50%);
+			pointer-events: none;
+			transform: translate(-50%, 0);
+			z-index: -1;
+			@supports (object-fit: cover) {
+				@include size(100%, 200%);
+				object-fit: cover;
+			}
+		}
+		
+		&--content {
+			// .gallery__project--content
+			@supports (display: flex) {
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: flex-end;
+				align-items: flex-start;
+			}
+		}
+		
+		&--header {
+			// .gallery__project--header
+			display: inline-block;
+			background-color: $color__white;
+			line-height: 1em;
+			padding: $small-spacing $base-spacing;
+			margin: 0;
+			a {
+				&:hover,
+				&:focus {
+					color: $color__yellow;
+				}
+			}
+		}
+		
+		&--excerpt {
+			// .gallery__project--excerpt
+			background-color: fade-out($color__black, 0.15);
+			color: $color__white;
+			font-size: .75em;
+			min-width: 150px;
+			max-width: 300px;
+			padding: $small-spacing;
+			letter-spacing: 1px;
+			
+			p {
+				@include ellipsis();
+			}
+		}
+		
+		&--link {
+			// .gallery__project--link
+			@include btn-color($color__white, $color__yellow);
+			border-top: 0;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			&:hover,
+			&:focus {
+				color: $color__white;
+			}
+		}
+	}
+	
+	&__content {
+		// .gallery__content
+		grid-column: span 4;
+		margin: 0 $gutter #{$gutter * 2};
+		@include media(">=screen960") {
+			grid-column: 2 / 4;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	
+	&__dribbble {
+		// .gallery__dribbble
+		width: 100%;
+		margin: 0 $gutter #{$gutter * 2};
+		@supports(display: grid) {
+			grid-column: span 4;
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+		
+		&--title {
+			// .gallery__dribbble--title
+			@include underlined();
+		}
+		
+		&--content {
+			// .gallery__dribbble--content
+			margin-bottom: $small-spacing;
+			padding-right: $gutter;
+			@include media(">=screen600")  { padding-right: 20%; }
+			@include media(">=screen840")  { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+	}
+}
