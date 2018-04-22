@@ -8,21 +8,35 @@
 			
 			{% include 'blocks/header.twig' %}
 			
-			<main id="main" class="site__main content-area" role="main">
-				<div class="content row">
-					<main class="main">
-						{% block content %}{% endblock %}
-					</main>
-					{% include 'blocks/sidebar.twig' %}
-				</div>
-			</main>
+			<main id="main" class="site__main content-area
+								   {% if fn('is_front_page') %} homepage
+								   {% elseif fn('is_home') %} posts
+								   {% elseif fn('is_singular("design")') %} project
+								   {% elseif fn('is_single') %} blog-post
+								   {% elseif fn('is_page("design")') %} gallery
+								   {% elseif fn('is_page') %} halfie
+								   {% elseif fn('is_404') %} daft-punk
+								   {% else %}
+								   {% endif %}"
+				  role="main">
+				
+				{% block content %}
+				{% endblock %}
+				
+			</main><!-- /.site__main -->
+			
+			{% include 'blocks/sidebar.twig' %}
+			
+			{% include 'blocks/contact.twig' %}
 			
 			{% block footer %}
 				{% include 'blocks/footer.twig' %}
 				{{ function('wp_footer') }}
 			{% endblock %}
 			
-		</div>
+		</div><!-- /.site -->
+		
+		<div id="background" class="background"></div>
     </body>
 	
 </html>
