@@ -10,10 +10,14 @@
 		position: relative;
 		@include size(100%, 300px);
 		@include image-overlay();
-		margin-bottom: $gutter * 2;
-		@include media(">=screen768")  { height: 50vh; }
-		@include media(">=screen1170") { height: 66vh; }
-		@include media(">=screen1920") { height: 75vh; }
+		margin-bottom: $gutter;
+		@include media(">=screen768") {
+			height: 50vh;
+			margin-bottom: 0;
+		}
+		@include media(">=screen1170") {
+			height: calc(100vh - 100px);
+		}
 		
 		@supports (display: grid) {
 			display: grid;
@@ -66,6 +70,12 @@
 			right: $gutter;
 			bottom: 15%;
 			@include texture();
+		}
+		@include media(">=screen768") {
+			margin-top: -#{$gutter};
+		}
+		@include media(">=screen1170") {
+			margin-top: -#{$gutter * 2};
 		}
 		@supports (display: flex) {
 			display: flex;
