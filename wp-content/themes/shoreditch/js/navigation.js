@@ -36,6 +36,33 @@
 			// jscs:enable
 			screenReaderSpan.text( screenReaderSpan.text() === shoreditchScreenReaderText.expand ? shoreditchScreenReaderText.collapse : shoreditchScreenReaderText.expand );
 		} );
+
+		//Ensure submenus do not fall outside the left side of the window, rendering them unusable.
+		var submenus = container.find( '.children, .sub-menu' );
+
+		//Return early if no submenus exist
+		if ( ! submenus.length ) {
+			return;
+		} else {
+			submenus.each( function() {
+				var parent = $( this ).parent( 'li' );
+
+				parent.hover(
+					function() {
+						var submenu = $( this ).find( '> .sub-menu, > .children' );
+
+						if ( $( submenu ) ) {
+							if ( $( submenu ).offset().left < 0 ) {
+								$( submenu ).addClass( 'offscreen' );
+							}
+						}
+					},
+					function() {
+						$( this ).find( '> .sub-menu, > .children' ).removeClass( 'offscreen' );
+					}
+				);
+			} );
+		}
 	}
 	initMainNavigation( $( '.main-navigation' ) );
 

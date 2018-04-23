@@ -2,7 +2,7 @@
 Theme Name: Shoreditch
 Theme URI: https://wordpress.com/themes/shoreditch/
 Description: Shoreditch is a functional and responsive theme perfect for your business’s online presence. Although its main purpose is business, Shoreditch looks great as a personal blog theme too.
-Version: 1.2.0
+Version: 1.2.2
 Author: Automattic
 Author URI: https://wordpress.com/themes/
 License: GNU General Public License v2 or later
@@ -1054,6 +1054,12 @@ a:hover {
 .site-info a:hover,
 .taxonomy-description a {
 	box-shadow: 0 1px 0 0;
+}
+
+.comment-content a.no-shadow,
+.entry-content a.no-shadow,
+.entry-summary a.no-shadow {
+	box-shadow: none;
 }
 
 .comment-content a:focus,
@@ -4815,6 +4821,25 @@ input.button.alt[type="submit"] {
 	.main-navigation ul ul li.focus > ul {
 		left: auto;
 		right: 100%;
+	}
+
+	/* Move dropdowns falling offscreen to the right */
+	.main-navigation ul li:hover > ul.offscreen,
+	.main-navigation ul li.focus > ul.offscreen {
+		left: 0;
+	}
+
+	.main-navigation ul ul li:hover > ul.offscreen,
+	.main-navigation ul ul li.focus > ul.offscreen,
+	.main-navigation ul ul ul.offscreen li:hover > ul,
+	.main-navigation ul ul ul.offscreen li.focus > ul {
+		left: 100%;
+		right: auto;
+	}
+
+	.main-navigation ul ul.offscreen .menu-item-has-children > a:after {
+		transform: rotate(90deg);
+		top: 40%;
 	}
 
 	.comment-navigation,
