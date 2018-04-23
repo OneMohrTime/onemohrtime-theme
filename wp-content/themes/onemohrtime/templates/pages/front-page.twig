@@ -2,15 +2,13 @@
 
 {% block content %}
 	
-	<article class="homepage__work content-block fade-content wysiwyg">
-	</article>
+	<figure class="homepage__banner">
+		
+	</figure>
 	
-    {% for post in posts %}
-		
-        {% include 'blocks/page-header.twig' %}
-		
-        {{ post.content }}
-		
-    {% endfor %}
+	<article class="homepage__work content-block fade-content wysiwyg">
+		{{ post.title }}
+		{{ post.content }}
+	</article>
 	
 {% endblock %}
