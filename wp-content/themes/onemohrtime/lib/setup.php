@@ -123,3 +123,8 @@ function assets() {
 	
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+/**
+ * Keep JPG compression at 100% (handle with plugins)
+ */
+add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
