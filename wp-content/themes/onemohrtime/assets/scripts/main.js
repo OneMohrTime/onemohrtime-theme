@@ -126,12 +126,12 @@ $(document).ready(function() {
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
 			if( bottom_of_window > bottom_of_object ) {
 				$(this).css({
-					'opacity'   :'1',
+					'opacity'   : '1',
 					'transform' : 'translateY(' + 0 + 'px)'
 				});
 			} else {
 				$(this).css({
-					'opacity'   :'0',
+					'opacity'   : '0',
 					'transform' : 'translateY(' + 36 + 'px)'
 				});
 			}
@@ -229,21 +229,24 @@ $(document).ready(function() {
 	});
 	
 	// Dribbble galleries
-	$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-	$.jribbble.users('onemohrtime').shots({
-		per_page : 6,
-		sort : 'recent'
-	}).then(function(shots) {
-		var html = [];
-		shots.forEach(function(shot) {
-			html.push('<figure id="shot_' + shot.id + '" class="shot">');
-			html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-			html.push('<figcaption class="shot__hover">');
-			html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-			html.push('</figure>');
-		});
-		$('#dribbbles').html(html.join(''));
-		$('#no_shots').hide();
+	// Set the Access Token
+	var accessToken = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
+	// Call Dribble v2 API
+	$.ajax({
+		url      : 'https://api.dribbble.com/v2/user/shots?access_token=' + accessToken,
+		dataType : 'json',
+		type     : 'GET',
+		success  : function (data) {
+			if (data.length > 0) {
+				$.each(data.reverse(), function (i, val) {
+					$('#dribbbles').prepend(
+						'<a class="shot" target="_blank" href="' + val.html_url + '" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="' + val.images.hidpi + '"/></a>'
+					)
+				})
+			} else {
+				$('#dribbbles').append('<p>No shots yet!</p>');
+			}
+		}
 	});
 	
 	// Instagram API
