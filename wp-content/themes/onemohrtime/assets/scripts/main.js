@@ -240,11 +240,11 @@ $(document).ready(function() {
 			if (data.length > 0) {
 				$.each(data.reverse(), function (i, val) {
 					$('#dribbbles').prepend(
-						'<a class="shot" target="_blank" href="' + val.html_url + '" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="' + val.images.hidpi + '"/></a>'
+						'<figure id="shot_' + val.id + '" class="shot"><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot__hover"><span class="shot__description">' + val.description + '</span><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a></figcaption></figure>'
 					)
 				})
 			} else {
-				$('#dribbbles').append('<p>No shots yet!</p>');
+				$('#dribbbles').append('<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>');
 			}
 		}
 	});

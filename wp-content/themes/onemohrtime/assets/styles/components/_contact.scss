@@ -10,7 +10,7 @@
 		@include type();
 		font-family: $font__code;
 		text-align: center;
-		margin: 0 36px 72px;
+		margin: $gutter * 2 $gutter;
 	}
 	&.said-hi {
 		.nf-form-cont {

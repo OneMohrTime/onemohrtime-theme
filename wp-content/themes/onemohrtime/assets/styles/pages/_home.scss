@@ -171,16 +171,19 @@
 			}
 			
 			&__content {
-				position: absolute;
-				left: $gutter;
-				right: $gutter;
-				bottom: -#{$gutter};
-				background: $color__white;
-				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-				min-height: 200px;
-				padding: $base-spacing;
-				overflow: hidden;
-				z-index: 3;
+				// .feature__content
+				@include media(">=screen768") {
+					position: absolute;
+					left: $gutter;
+					right: $gutter;
+					bottom: -#{$gutter};
+					background: $color__white;
+					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+					min-height: 200px;
+					padding: $base-spacing;
+					overflow: hidden;
+					z-index: 3;
+				}
 				@include media(">=screen960") {
 					top: 23px;
 					left: auto;

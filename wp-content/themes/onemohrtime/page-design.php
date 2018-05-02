@@ -73,10 +73,6 @@ if($projects): $i = 0; ?>
 	
 	<div id="dribbbles" class="dribbbles fade-content"></div>
 	
-	<div id="no_shots">
-		<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>
-	</div>
-	
 </section>
 
 <?php /*while(have_posts()): the_post(); ?>
