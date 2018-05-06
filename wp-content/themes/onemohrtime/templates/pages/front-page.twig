@@ -4,11 +4,32 @@
 	
 	<figure class="homepage__banner">
 		
+		<img src="{{ post.thumbnail.src('thumbnail') }}"
+		 alt="{{ post.thumbnail.alt }}"
+		 class="homepage__banner--image"
+		 srcset="<?php echo $homeHero['sizes']['medium']; ?> 800w,
+				 <?php echo $homeHero['sizes']['large']; ?> 1600w,
+				 <?php echo $homeHero['url']; ?> 1920w" />
+		
+		<figcaption class="homepage__banner--title">
+			<h1 class="current-title">
+				Front End
+				<span class="current-title--rotating">
+					<span class="rotate">designer,developer,creative</span>
+				</span>
+			</h1>
+		</figcaption>
+		
+		<a href="#contact" class="homepage__banner--contact btn">
+			<span class="fa fa-long-arrow-left"></span> Contact
+		</a>
+		
 	</figure>
 	
 	<article class="homepage__work content-block fade-content wysiwyg">
 		{{ post.title }}
 		{{ post.content }}
+		<a href="{{ site.url }}">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
 	</article>
 	
 {% endblock %}

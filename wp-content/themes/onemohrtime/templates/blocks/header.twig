@@ -1,4 +1,26 @@
 <header id="masthead" class="site__header" role="banner">
+	
+	<div id="menu_toggle" class="toggle__menu">
+		<!-- https://codepen.io/RobinBertilsson/pen/EPaLmo -->
+		<span class="m">M</span>
+		<span class="e">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</span>
+		<span class="n">N</span>
+		<span class="u">U</span>
+	</div><!-- /.toggle-menu -->
+	
+	<nav id="desktop" class="main-navigation" role="navigation">
+	</nav>
+	
+	<a href="{{ site.url }}" class="site__header--logo" target="{{ site.name }}">
+	</a>
+	
+	<ul id="mobile_menu" class="menu__mobile">
+	</ul>
+	
     <div class="container">
         {% block header %}
             <a class="brand" href="{{ site.url }}">{{ site.name }}</a>

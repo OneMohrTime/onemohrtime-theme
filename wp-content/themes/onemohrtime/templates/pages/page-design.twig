@@ -4,10 +4,58 @@
 	
     {% for post in posts %}
 		
-        {% include 'blocks/page-header.twig' %}
+		<figure id="js-parallax-window" class="gallery__banner parallax-window">
+			
+			<img src="{{ post.thumbnail.src('thumbnail') }}"
+				 alt="{{ post.thumbnail.alt }}"
+				 id="js-parallax-background"
+				 class="gallery__banner--image parallax-background"
+				 srcset="{{ post.thumbnail.src('medium') }} 800w,
+						 {{ post.thumbnail.src('large') }} 1600w,
+						 {{ post.thumbnail.src('full') }} 1920w" />
+			
+			<figcaption class="gallery__banner--title">
+				<h2>{{ post.title }}</h2>
+			</figcaption>
+			
+		</figure>
 		
-        {{ post.content }}
+		<article class="gallery__content fade-content wysiwyg">
+			{{ post.content }}
+		</article>
 		
     {% endfor %}
+	
+	<section class="gallery__grid fade-content">
+	{% for design in gallery %}
+		
+		<div id="proj_id_{{ design.id }}" class="gallery__project">
+			
+			<div class="gallery__project--content">
+				
+				<div class="gallery__project--excerpt">
+					<a href="{{ design.link }}">
+						{{ design.content }}
+					</a>
+				</div>
+				
+				<h2 class="gallery__project--header">
+					<a href="{{ design.link }}">{{ design.title }}</a>
+				</h2>
+				
+				<a href="{{ design.link }}" class="gallery__project--link btn">See Project</a>
+				
+			</div>
+			
+			<img src="{{ design.thumbnail.src }}" alt="{{ design.thumbnail.alt }}" class="gallery__project--image" data-speed="-0.25" />
+			
+		</div>
+		
+	{% endfor %}
+	</section>
+	
+	<section class="gallery__dribbble">
+		<div id="dribbbles" class="dribbbles fade-content"></div>
+	</section>
 	
 {% endblock %}

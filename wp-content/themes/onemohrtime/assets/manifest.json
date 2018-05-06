@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://example.test"
+    "devUrl": "http://localhost:8888/onemohrtime"
   }
 }
