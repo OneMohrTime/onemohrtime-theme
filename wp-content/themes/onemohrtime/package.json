@@ -26,6 +26,7 @@
     "node": ">= 4.5"
   },
   "devDependencies": {
+    "@fancyapps/fancybox": "^3.3.5",
     "asset-builder": "^1.1.0",
     "bourbon": "^5.0.0",
     "browser-sync": "^2.8.2",
@@ -62,5 +63,7 @@
     "traverse": "^0.6.6",
     "wiredep": "^4.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
 }

@@ -17,6 +17,11 @@
         "scripts/customizer.js"
       ]
     },
+    "mixitup.js": {
+      "files": [
+        "scripts/mixitup.js"
+      ]
+    },
     "jquery.js": {
       "bower": ["jquery"]
     }

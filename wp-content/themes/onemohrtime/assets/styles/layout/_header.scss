@@ -3,7 +3,7 @@
 */
 
 .site__header {
-	background-color: $color__white;
+	background-color: transparent;
 	padding-left: $gutter;
 	padding-right: $gutter;
 	width: 100%;
@@ -37,7 +37,7 @@
 		display: flex;
 		align-items: center;
 		&--logo {
-		// .site__header--logo
+			// .site__header--logo
 			flex: 0 1 60px;
 		}
 	}
