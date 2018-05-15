@@ -73,7 +73,8 @@
 
 @import
 	"base/base",
-	"base/typography";
+	"base/typography",
+	"base/media";
 
 /*--------------------------------------------------------------
 	4.0 Layout
@@ -96,7 +97,6 @@
 	"components/wp-classes",
 	"components/loading",
 	"components/buttons",
-	"components/media",
 	"components/nav",
 	"components/featured-image",
 	"components/contact",

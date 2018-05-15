@@ -4,6 +4,7 @@ dist
 bower_components/*
 node_modules
 vendor
+!/assets/*/vendor
 yarn.lock
 .idea
 !.gitkeep
