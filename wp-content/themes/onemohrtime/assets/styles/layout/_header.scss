@@ -3,22 +3,25 @@
 */
 
 .site__header {
+	position: fixed;
 	background-color: transparent;
+	color: $color__white;
 	padding-left: $gutter;
 	padding-right: $gutter;
 	width: 100%;
 	z-index: 20;
 	
-	@supports (position: sticky) or (position: -webkit-sticky) {
-		position: -webkit-sticky;
-		position: sticky;
-		top: 0;
-	}
-	
-	@supports (display: grid) {
+	@include media("<screen1024") {
 		// .site__header
-		grid-column: span 4;
-		width: auto;
+		@supports (position: sticky) or (position: -webkit-sticky) {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+		}
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
 	}
 	
 	&--logo {

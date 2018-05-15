@@ -74,9 +74,10 @@
 	&__menu {
 		// .toggle__menu
 		position: relative;
-		color: $color__black;
+		color: inherit;
 		font-family: $font__header;
 		font-size: 1.125em;
+		font-weight: 700;
 //		letter-spacing: 2px;
 		cursor: pointer;
 		z-index: 30;
@@ -122,7 +123,7 @@
 			span.bar {
 				position: relative;
 				display: block;
-				background-color: $color__black;
+				background-color: $color__white;
 				transition: $speed;
 				width: 11px;
 				height: 3px;

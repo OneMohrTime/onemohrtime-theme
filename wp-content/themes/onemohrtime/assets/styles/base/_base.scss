@@ -52,10 +52,6 @@ body {
 	@include size(100%, auto);
 	z-index: 1;
 	
-//	.sidebar-primary & {
-//		// when sidebar template is activated on `body`
-//	}
-	
 	@supports (display: grid) {
 		display: grid;
 		grid-template-rows: 100px auto;
