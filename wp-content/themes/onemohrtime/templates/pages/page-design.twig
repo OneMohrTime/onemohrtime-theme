@@ -27,31 +27,31 @@
     {% endfor %}
 	
 	<section class="gallery__grid fade-content">
-	{% for design in gallery %}
+		<div class="gallery__grid--filter">
+		</div>
+		{% for item in gallery %}
 		
-		<div id="proj_id_{{ design.id }}" class="gallery__project">
+		<div id="proj_id_{{ item.id }}" class="gallery__project mix type-{{ item.post_type }}">
 			
 			<div class="gallery__project--content">
 				
+				{% if item.get_field('project_header') %}
 				<div class="gallery__project--excerpt">
-					<a href="{{ design.link }}">
-						{{ design.content }}
-					</a>
+					{{ item.get_field('project_header').subtitle }}
 				</div>
+				{% endif %}
 				
 				<h2 class="gallery__project--header">
-					<a href="{{ design.link }}">{{ design.title }}</a>
+					<a href="{{ item.link }}">{{ item.title }}</a>
 				</h2>
-				
-				<a href="{{ design.link }}" class="gallery__project--link btn">See Project</a>
-				
+				<a href="{{ item.link }}" class="gallery__project--link">See Project</a>
 			</div>
 			
-			<img src="{{ design.thumbnail.src }}" alt="{{ design.thumbnail.alt }}" class="gallery__project--image" data-speed="-0.25" />
+			<img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}" class="gallery__project--image" data-speed="-0.25" />
 			
 		</div>
 		
-	{% endfor %}
+		{% endfor %}
 	</section>
 	
 	<section class="gallery__dribbble">

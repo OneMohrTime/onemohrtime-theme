@@ -9,7 +9,7 @@
 
 $context = Timber::get_context();
 $args = array(
-	// Get post type project
+//	 Get post type project
 	'post_type' => 'design',
 	// Get all posts
 	'posts_per_page' => -1,

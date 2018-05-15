@@ -59,6 +59,7 @@
     "normalize": "^0.3.1",
     "normalize-scss": "^7.0.1",
     "run-sequence": "^1.1.2",
+    "svgo": "^1.0.5",
     "swiper": "^4.2.2",
     "traverse": "^0.6.6",
     "wiredep": "^4.0.0"

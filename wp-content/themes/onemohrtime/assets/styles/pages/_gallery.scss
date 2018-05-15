@@ -11,9 +11,9 @@
 		@include size(100%, 300px);
 		@include image-overlay();
 		margin-bottom: $gutter * 2;
-		@include media(">=screen768")  { height: 50vh; }
-		@include media(">=screen1170") { height: 66vh; }
-		@include media(">=screen1920") { height: 75vh; }
+		@include media(">=screen768") {
+			height: calc(100vh - 100px);
+		}
 		
 		@supports (display: grid) {
 			display: grid;
@@ -37,6 +37,7 @@
 			z-index: 2;
 			h2 {
 				color: $color__white;
+				font-size: 5em;
 				text-shadow: 2px 2px 4px fade-out($color__black, .95);
 				margin-bottom: 0;
 			}
@@ -107,8 +108,9 @@
 		@supports (display: flex) {
 			display: flex;
 			flex-flow: column nowrap;
-			justify-content: flex-end;
-			align-items: flex-start;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
 		}
 		
 		&--image {
@@ -116,7 +118,7 @@
 			@include position(absolute, 0 null null 50%);
 			pointer-events: none;
 			transform: translate(-50%, 0);
-			z-index: -1;
+			z-index: 1;
 			@supports (object-fit: cover) {
 				@include size(100%, 200%);
 				object-fit: cover;
@@ -125,53 +127,31 @@
 		
 		&--content {
 			// .gallery__project--content
-			@supports (display: flex) {
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: flex-end;
-				align-items: flex-start;
-			}
+			z-index: 2;
 		}
 		
 		&--header {
 			// .gallery__project--header
-			display: inline-block;
-			background-color: $color__white;
-			line-height: 1em;
-			padding: $small-spacing $base-spacing;
-			margin: 0;
+			margin-bottom: $base-spacing;
+			// @include ellipsis();
 			a {
 				&:hover,
-				&:focus {
-					color: $color__yellow;
-				}
+				&:focus {}
 			}
 		}
 		
 		&--excerpt {
 			// .gallery__project--excerpt
-			background-color: fade-out($color__black, 0.15);
-			color: $color__white;
-			font-size: .75em;
-			min-width: 150px;
-			max-width: 300px;
-			padding: $small-spacing;
+			font-weight: 700;
 			letter-spacing: 1px;
-			
-			p {
-				@include ellipsis();
-			}
+			margin-bottom: $small-spacing;
 		}
 		
 		&--link {
 			// .gallery__project--link
-			@include btn-color($color__white, $color__yellow);
-			border-top: 0;
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
+			@include underline-link();
 			&:hover,
 			&:focus {
-				color: $color__white;
 			}
 		}
 	}
