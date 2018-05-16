@@ -1,0 +1,44 @@
+/*
+* === SWIPER ===
+*/
+
+.swiper-container {
+	background-color: $color__white--dark;
+	@include size(100%, 100vh);
+	
+	@supports (display: grid) {
+		grid-column: span 4;
+	}
+}
+
+.swiper-slide {
+	color: $color__white;
+	padding: $gutter;
+	
+	@supports (display: flex) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	&__title {
+		// .swiper-slide__title
+		flex: 0 1 50%;
+		margin-left: 50%;
+	}
+	
+	&__text {
+		// .swiper-slide__text
+		flex: 0 1 50%;
+		margin-left: 50%;
+	}
+}
+
+.parallax-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-size: cover;
+	background-position: center center;
+	@include size(130%, 100%);
+}

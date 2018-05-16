@@ -12,6 +12,12 @@
       ],
       "main": true
     },
+	"swiper.css": {
+      "files": [
+        "styles/vendor/_swiper.scss"
+      ],
+      "main": true
+    },
     "customizer.js": {
       "files": [
         "scripts/customizer.js"
@@ -22,6 +28,11 @@
         "scripts/mixitup.js"
       ]
     },
+	"swiper.js": {
+	  "files": [
+		"scripts/swiper.js"
+	  ]
+	},
     "jquery.js": {
       "bower": ["jquery"]
     }

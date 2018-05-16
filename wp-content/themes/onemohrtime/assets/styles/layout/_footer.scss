@@ -3,6 +3,7 @@
 */
 
 .site__footer {
+	position: relative;
 	background: $color__black;
 	color: $color__white;
 	@include size(100%, auto);
