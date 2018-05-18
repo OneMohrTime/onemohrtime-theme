@@ -15,13 +15,13 @@ msgstr ""
 msgid "Edit"
 msgstr "Leiðrétta"
 
-#: inc/wpcom-colors.php:239
-msgid "Text"
-msgstr "Texti"
-
 #: inc/wpcom-colors.php:190
 msgid "Background"
 msgstr "Bakgrunnur"
+
+#: inc/wpcom-colors.php:239
+msgid "Text"
+msgstr "Texti"
 
 #. translators: %s: Name of current post.
 #: inc/extras.php:86
@@ -32,109 +32,109 @@ msgstr "Halda áfram að lesa: %s"
 msgid "Published by %s"
 msgstr "Birt af %s"
 
-#. Template Name of the plugin/theme
-#: wp-content/themes/pub/shoreditch/panel-page.php
-msgid "Panel Page Template"
-msgstr "Sniðmát spjaldsíðu"
-
-#. Template Name of the plugin/theme
-#: wp-content/themes/pub/shoreditch/full-width-page.php
-msgid "Full Width Page Template"
-msgstr "Sniðmát síðu í fullri breidd"
+#. Author of the plugin/theme
+#: wp-content/themes/pub/shoreditch/style.css
+msgid "Automattic"
+msgstr "Automattic"
 
 #. Author URI of the plugin/theme
 #: wp-content/themes/pub/shoreditch/style.css
 msgid "https://wordpress.com/themes/"
 msgstr "https://wordpress.com/themes/"
 
-#. Author of the plugin/theme
-#: wp-content/themes/pub/shoreditch/style.css
-msgid "Automattic"
-msgstr "Automattic"
+#. Template Name of the plugin/theme
+#: wp-content/themes/pub/shoreditch/full-width-page.php
+msgid "Full Width Page Template"
+msgstr "Sniðmát síðu í fullri breidd"
 
-#. Theme URI of the plugin/theme
-#: wp-content/themes/pub/shoreditch/style.css
-msgid "https://wordpress.com/themes/shoreditch/"
-msgstr "https://wordpress.com/themes/shoreditch/"
+#. Template Name of the plugin/theme
+#: wp-content/themes/pub/shoreditch/panel-page.php
+msgid "Panel Page Template"
+msgstr "Sniðmát spjaldsíðu"
 
 #. Theme Name of the plugin/theme
 #: wp-content/themes/pub/shoreditch/style.css
 msgid "Shoreditch"
 msgstr "Shoreditch"
 
-#. translators: %s: Name of current post.
-#: template-parts/content.php:34
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Lesa áfram %s <span class=\"meta-nav\">&rarr;</span>"
+#. Theme URI of the plugin/theme
+#: wp-content/themes/pub/shoreditch/style.css
+msgid "https://wordpress.com/themes/shoreditch/"
+msgstr "https://wordpress.com/themes/shoreditch/"
 
 #: template-parts/content-page.php:31 template-parts/content-panel-page.php:33
 #: template-parts/content.php:43
 msgid "Page"
 msgstr "Síða"
 
-#: template-parts/content-page.php:27 template-parts/content-panel-page.php:29
-#: template-parts/content.php:39
-msgid "Pages:"
-msgstr "Síður:"
+#. translators: %s: Name of current post.
+#: template-parts/content.php:34
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Lesa áfram %s <span class=\"meta-nav\">&rarr;</span>"
 
 #: template-parts/content-none.php:29
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr "Við finnum ekki það sem þú leita að.  Kannski gæti leitin hjálpað."
 
-#: template-parts/content-none.php:24
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "Því miður, ekkert fannst sem passaði við leitarskilyrðin. Vinsamlega reyndu aftur með öðrum leitarorðum."
+#: template-parts/content-page.php:27 template-parts/content-panel-page.php:29
+#: template-parts/content.php:39
+msgid "Pages:"
+msgstr "Síður:"
 
 #: template-parts/content-none.php:20
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "Tilbúinn að gefa út þína fyrstu færslu? <a href=\"%1$s\">Byrjaðu hérna</a>."
 
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr "Ekkert fannst"
+#: template-parts/content-none.php:24
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Því miður, ekkert fannst sem passaði við leitarskilyrðin. Vinsamlega reyndu aftur með öðrum leitarorðum."
 
 #: template-parts/content-author.php:34
 msgid "View all posts by %s"
 msgstr "Skoða allar færslur eftir %s"
 
-#: attachment.php:29
-msgid "Published in"
-msgstr "Birt í"
-
-#: single.php:37
-msgid "Previous post:"
-msgstr "Síðasta grein:"
-
-#: single.php:37
-msgid "Previous"
-msgstr "Til baka"
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Ekkert fannst"
 
 #: single.php:36
 msgid "Next post:"
 msgstr "Næsta grein:"
 
-#: single.php:36
-msgid "Next"
-msgstr "Næst"
+#: single.php:37
+msgid "Previous"
+msgstr "Til baka"
 
-#: searchform.php:14
-msgctxt "submit button"
-msgid "Search"
-msgstr "Leita"
+#: single.php:37
+msgid "Previous post:"
+msgstr "Síðasta grein:"
+
+#: attachment.php:29
+msgid "Published in"
+msgstr "Birt í"
 
 #: searchform.php:12
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Leita &hellip;"
 
-#: searchform.php:11 searchform.php:12
-msgctxt "label"
-msgid "Search for:"
-msgstr "Leita að:"
+#: searchform.php:14
+msgctxt "submit button"
+msgid "Search"
+msgstr "Leita"
+
+#: single.php:36
+msgid "Next"
+msgstr "Næst"
 
 #: search.php:21
 msgid "Search Results for: %s"
 msgstr "Leitarniðurstöður fyrir: %s"
+
+#: searchform.php:11 searchform.php:12
+msgctxt "label"
+msgid "Search for:"
+msgstr "Leita að:"
 
 #. translators: %s: Name of current post
 #: inc/template-tags.php:67 template-parts/content-attachment.php:38
@@ -150,58 +150,58 @@ msgstr "% athugasemdir"
 msgid "1 Comment"
 msgstr "1 athugasemd"
 
-#: inc/template-tags.php:60
-msgid "Leave a comment"
-msgstr "Skildu eftir athugasemd"
-
 #: inc/template-tags.php:46
 msgid "Featured Post"
 msgstr "Helst í fréttum"
+
+#: inc/template-tags.php:60
+msgid "Leave a comment"
+msgstr "Skildu eftir athugasemd"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:17 inc/template-tags.php:52
 msgid ", "
 msgstr ", "
 
-#: inc/jetpack.php:116
+#: inc/jetpack.php:128
 msgid "Testimonials"
 msgstr "Reynslusögur"
-
-#: inc/jetpack.php:34
-msgid "The featured content section displays on the index page bellow the header."
-msgstr "Þetta svæði fyrir valið efni birtist á forsíðunni fyrir neðan hausinn."
-
-#: inc/customizer.php:56
-msgid "Bottom Footer Area Layout"
-msgstr "Útlit neðra svæðis í fæti"
-
-#: inc/customizer.php:46 inc/customizer.php:62
-msgid "3 Columns"
-msgstr "3 dálkar"
-
-#: inc/customizer.php:45 inc/customizer.php:61
-msgid "2 Columns"
-msgstr "2 dálkar"
 
 #: inc/customizer.php:44 inc/customizer.php:60
 msgid "1 Column"
 msgstr "1 dálkur"
 
-#: inc/customizer.php:40
-msgid "Top Footer Area Layout"
-msgstr "Útlit efra svæðis í fæti"
+#: inc/customizer.php:45 inc/customizer.php:61
+msgid "2 Columns"
+msgstr "2 dálkar"
+
+#: inc/customizer.php:46 inc/customizer.php:62
+msgid "3 Columns"
+msgstr "3 dálkar"
+
+#: inc/customizer.php:56
+msgid "Bottom Footer Area Layout"
+msgstr "Útlit neðra svæðis í fæti"
 
 #: inc/customizer.php:29
 msgid "Fixed header when scrolling down."
 msgstr "Fastur haus þegar skrunað er niður."
 
-#: inc/customizer.php:19
-msgid "Theme Options"
-msgstr "Býður valkosti"
+#: inc/jetpack.php:34
+msgid "The featured content section displays on the index page bellow the header."
+msgstr "Þetta svæði fyrir valið efni birtist á forsíðunni fyrir neðan hausinn."
+
+#: inc/customizer.php:40
+msgid "Top Footer Area Layout"
+msgstr "Útlit efra svæðis í fæti"
 
 #: header.php:43
 msgid "Primary Menu"
 msgstr "Aðalvalmynd"
+
+#: inc/customizer.php:19
+msgid "Theme Options"
+msgstr "Býður valkosti"
 
 #: header.php:41
 msgid "Menu"
@@ -211,17 +211,12 @@ msgstr "Valmynd"
 msgid "Skip to content"
 msgstr "Hoppa yfir í efni"
 
-#: functions.php:204
-msgid "collapse child menu"
-msgstr "loka undirvalmynd"
-
-#: functions.php:203
-msgid "expand child menu"
-msgstr "opna undirvalmynd"
-
-#: functions.php:199
-msgid "Back to top"
-msgstr "Aftur efst"
+#. translators: If there are characters in your language that are not supported
+#. by Lato, translate this to 'off'. Do not translate into your own language.
+#: functions.php:154
+msgctxt "Lato font: on or off"
+msgid "on"
+msgstr "virkt"
 
 #. translators: If there are characters in your language that are not supported
 #. by Inconsolata, translate this to 'off'. Do not translate into your own
@@ -231,20 +226,17 @@ msgctxt "Inconsolata font: on or off"
 msgid "on"
 msgstr "virkt"
 
-#. translators: If there are characters in your language that are not supported
-#. by Lato, translate this to 'off'. Do not translate into your own language.
-#: functions.php:154
-msgctxt "Lato font: on or off"
-msgid "on"
-msgstr "virkt"
+#: functions.php:203
+msgid "expand child menu"
+msgstr "opna undirvalmynd"
 
-#. translators: If there are characters in your language that are not supported
-#. by Poppins, translate this to 'off'. Do not translate into your own
-#. language.
-#: functions.php:149
-msgctxt "Poppins font: on or off"
-msgid "on"
-msgstr "virkt"
+#: functions.php:204
+msgid "collapse child menu"
+msgstr "loka undirvalmynd"
+
+#: functions.php:199
+msgid "Back to top"
+msgstr "Aftur efst"
 
 #: functions.php:124
 msgid "Bottom Footer"
@@ -254,13 +246,21 @@ msgstr "Neðri fótur"
 msgid "Top Footer"
 msgstr "Efri fótur"
 
-#: functions.php:104
-msgid "Sidebar"
-msgstr "Hliðarslá"
+#. translators: If there are characters in your language that are not supported
+#. by Poppins, translate this to 'off'. Do not translate into your own
+#. language.
+#: functions.php:149
+msgctxt "Poppins font: on or off"
+msgid "on"
+msgstr "virkt"
 
 #: functions.php:55
 msgid "Primary"
 msgstr "Aðal"
+
+#: functions.php:104
+msgid "Sidebar"
+msgstr "Hliðarslá"
 
 #: footer.php:23
 msgid "Theme: %1$s by %2$s."
@@ -274,21 +274,17 @@ msgstr "Knúið af %s með stolti"
 msgid "https://wordpress.org/"
 msgstr "https://wordpress.org/"
 
-#: comments.php:69
-msgid "Comments are closed."
-msgstr "Lokað er fyrir athugasemdir."
+#: comments.php:55
+msgid "Older Comments"
+msgstr "Eldri athugasemdir"
 
 #: comments.php:56
 msgid "Newer Comments"
 msgstr "Nýrri athugasemdir"
 
-#: comments.php:55
-msgid "Older Comments"
-msgstr "Eldri athugasemdir"
-
-#: comments.php:52
-msgid "Comment navigation"
-msgstr "Leiðarkerfi athugasemda"
+#: comments.php:69
+msgid "Comments are closed."
+msgstr "Lokað er fyrir athugasemdir."
 
 #: comments.php:32
 msgctxt "comments title"
@@ -297,9 +293,9 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Ein athugasemd á &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s athugasemdir á &ldquo;%2$s&rdquo;"
 
-#: archive-jetpack-testimonial.php:49
-msgid "Testimonials navigation"
-msgstr "Leiðarkerfi vitnisburða"
+#: comments.php:52
+msgid "Comment navigation"
+msgstr "Leiðarkerfi athugasemda"
 
 #: archive-jetpack-testimonial.php:48
 msgid "Newer testimonials"
@@ -309,14 +305,18 @@ msgstr "Nýrri vitnisburðir"
 msgid "Older testimonials"
 msgstr "Eldri vitnisburðir"
 
-#. translators: %1$s: smiley
-#: 404.php:53
-msgid "Try looking in the monthly archives. %1$s"
-msgstr "Þú gætir prófað að leita í mánaðarskiptu greinasafni. %1$s"
+#: archive-jetpack-testimonial.php:49
+msgid "Testimonials navigation"
+msgstr "Leiðarkerfi vitnisburða"
 
 #: 404.php:35
 msgid "Most Used Categories"
 msgstr "Mest notaðir flokkar"
+
+#. translators: %1$s: smiley
+#: 404.php:53
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Þú gætir prófað að leita í mánaðarskiptu greinasafni. %1$s"
 
 #: 404.php:23
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"

@@ -64,6 +64,19 @@ When you first activate Shoreditch, you’ll see your posts in a traditional blo
 
 == Changelog ==
 
+= 3 March 2018 =
+* Use wp_kses_post rather than wp_filter_post_kses.
+
+= 22 February 2018 =
+* Add class for when too-long menus against the left edge of the screen, so dropdowns can be styled to still sit on screen.
+
+= 15 January 2018 =
+* Simplify Headstart annotations for all themes in signup.
+
+= 18 December 2017 =
+* Add .no-shadow class to make it possible to remove the box-shadow from linked images.
+* Fix Instagram widget
+
 = 5 October 2017 =
 * Adds full WooCommerce integration.
 
