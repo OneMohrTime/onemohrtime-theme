@@ -40,21 +40,40 @@
 	
 	{% if post.get_field('homepage_feature') %}
 	<section class="homepage__portfolio">
-		{% for feature in post.get_field('homepage_feature') %}
+		{% for post in post.get_field('homepage_feature') %}
 			
 			<div class="feature fade-content">
-				<img src="{{ feature.thumbnail.src }}" />
+				
+				<img src="{{ post.thumbnail.src('thumbnail') }}"
+					 width="{{ post.thumbnail.width }}"
+					 height="{{ post.thumbnail.height }}"
+					 alt="slide image for {{ post.post_title }}"
+					 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+					 srcset="{{ post.thumbnail.src('medium') }} 500w,
+							 {{ post.thumbnail.src('large') }} 1000w,
+							 {{ post.thumbnail.src }} 1500w"
+					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+				
 				<div class="feature__content fade-content wysiwyg">
 					<h2 class="feature__content--title">
-						<a href="{{ feature.link }}">{{ feature.title }}</a>
+						<a href="{{ post.link }}">{{ post.title }}</a>
 					</h2>
-					{{ feature.excerpt }}
-					<a href="{{ feature.link }}">See Project <span class="fa fa-long-arrow-right"></span></a>
+					<p>{{ post.post_excerpt }}</p>
+					<a href="{{ post.link }}">See Project <span class="fa fa-long-arrow-right"></span></a>
 				</div>
+				
 			</div>
 			
 		{% endfor %}
 	</section>
 	{% endif %}
+	
+	<section class="homepage__dribbble fade-content">
+		<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>
+		<p class="homepage__dribbble--content wysiwyg">
+			I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank" rel="noreferrer">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
+		</p>
+		<div id="dribbbles" class="dribbbles fade-content"></div>
+	</section>
 
 {% endblock %}
