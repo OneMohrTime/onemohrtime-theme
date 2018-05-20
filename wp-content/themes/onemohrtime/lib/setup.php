@@ -86,7 +86,7 @@ function display_sidebar() {
 		is_404(),
 		is_front_page(),
 		is_singular('design'),
-		is_page('design')
+		is_page()
 	]);
 	
 	return apply_filters('sage/display_sidebar', $display);

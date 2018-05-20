@@ -8,5 +8,6 @@
  */
 
 $context = Timber::get_context();
+$post = new TimberPost();
 
 Timber::render('pages/page.twig', $context);

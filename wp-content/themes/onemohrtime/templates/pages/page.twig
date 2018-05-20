@@ -1,13 +1,29 @@
 {% extends 'templates/base.twig' %}
 
 {% block content %}
+{% for post in posts %}
+
+<figure class="halfie__img">
+	<img src="{{ post.thumbnail.src('thumbnail') }}"
+		 alt="Photo of myself"
+		 class="halfie__img--image"
+		 srcset="{{ post.thumbnail.src('medium') }} 500w,
+				 {{ post.thumbnail.src('large') }} 1000w,
+				 {{ post.thumbnail.src('full') }} 1500w" />
+</figure>
+
+<article class="halfie__content fade-content">
 	
-    {% for post in posts %}
-		
-        {% include 'blocks/page-header.twig' %}
-		
-        {{ post.content }}
-		
-    {% endfor %}
+	{% include 'blocks/page-header.twig' %}
 	
+	<div class="fade-content wysiwyg">
+		{{ post.content }}
+	</div>
+	
+	<footer class="halfie__footer">
+	</footer>
+	
+</article>
+
+{% endfor %}
 {% endblock %}

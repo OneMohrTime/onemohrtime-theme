@@ -1,26 +1,122 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% block content %}
 {% for post in posts %}
 
+{# Banner Area #}
 <header class="project__header">
 	<figure class="project__banner">
-		<img src="{{ TimberImage(post.get_field('hero_image')).src }}"
-			 alt=""
-			 class="project__banner--image" />
+		
+		{% if banner %}
+		<img src="{{ TimberImage(banner.image).src }}"
+			 width="{{ banner.image.width }}" height="{{ banner.image.height }}"
+			 alt="{{ banner.image.alt }}"
+			 class="project__banner--image"
+			 srcset="{{ TimberImage(banner.image).src('medium') }} 500w,
+					 {{ TimberImage(banner.image).src('large') }} 1000w,
+					 {{ TimberImage(banner.image).src('full') }} 1500w" />
+		<h2 class="project__subtitle">{{ banner.subtitle }}</h2>
+		{% endif %}
+		
+		<h1 class="project__title">{{ post.title }}</h1>
+		
+		<a href="#contact" class="project__banner--contact btn"><span class="fa fa-long-arrow-left"></span> Contact</a>
+		
 	</figure>
-	<h1 class="entry-title">{{ post.title }}</h1>
+	{# include "blocks/entry-meta.twig" #}
 </header>
-	
-<aside class="">
-</aside>
 
+{# Project Details #}
+{% if post.get_field('project_specs') %}
 <article class="project__story fade-content">
+	
 </article>
-<div class="entry-content">
-	{{ post.content }}
-</div>
+{% endif %}
 
+{# Section Builder #}
+{% if sections %}
+<aside class="project__specs">
+	
+	{% for section in sections %}
+	
+	{% if section.acf_fc_layout == 'detail_text' %}
+	
+	{# Text #}
+	<div class="project__section project__text wysiwyg fade-content">
+		{{ section.text }}
+	</div>
+	
+	{% elseif section.acf_fc_layout == 'detail_text_image' %}
+	
+	{# Text + Image #}
+	<div class="project__section project__text-image
+				{% if section.reverse %} project__text-image--reversed{% endif %}
+				fade-content">
+		<div class="content--half fade-content wysiwyg">
+			{{ section.text }}
+		</div>
+		<figure class="image--half">
+			<img src="{{ TimberImage(section.image).src('thumbnail') }}"
+				 width="{{ section.image.width }}" height="{{ section.image.height }}"
+				 alt="{{ section.image.alt }}"
+				 class=""
+				 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
+						 {{ TimberImage(section.image).src('large') }} 1000w,
+						 {{ TimberImage(section.image).src('full') }} 1500w" />
+		</figure>
+	</div>
+	
+	{% elseif section.acf_fc_layout == 'detail_image' %}
+	
+	{# Image #}
+	<div class="project__section project__image
+				{% if section.display == 'standard' %} project__image--default
+				{% elseif section.display == 'wide' %} project__image--wide
+				{% elseif section.display == 'fixed' %} project__image--fixed{% endif %}"
+		{% if section.display == 'fixed' %} id="js-parallax-window"{% endif %}>
+		
+		<img src="{{ TimberImage(section.image).src }}"
+			 width="{{ section.image.width }}" height="{{ section.image.height }}"
+			 alt="{{ section.image.alt }}"
+			 {% if section.display == 'fixed' %} id="js-parallax-background"{% endif %}
+			 class=""
+			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
+					 {{ TimberImage(section.image).src('large') }} 1000w,
+					 {{ TimberImage(section.image).src('full') }} 1500w" />
+	</div>
+	
+	{% elseif section.acf_fc_layout == 'detail_blockquote' %}
+	
+	{# Blockquote #}
+	<div class="project__section project__blockquote wysiwyg fade-content">
+		{{ section.text }}
+	</div>
+	
+	{% elseif section.acf_fc_layout == 'detail_gallery' %}
+	
+	{# Gallery #}
+	<div class="project__section project__gallery fade-content">
+	{% for image in section.images %}
+		<figure class="image">
+			<img src="{{ TimberImage(image) }}"
+				 alt=""
+				 class="image__image"
+				 srcset="{{ TimberImage(image).src('medium') }} 500w,
+						 {{ TimberImage(image).src('large') }} 1000w,
+						 {{ TimberImage(image).src('full') }} 1500w" />
+			<a href="#0" class="image__link">Click to zoom</a>
+		</figure>
+	{% endfor %}
+	</div>
+	
+	{% endif %}
+	
+	{% endfor %}
+	
+</aside>
+{% endif %}
+
+{# Navigate between projects #}
 <footer>
 	{{ wp_link_pages }}
 </footer>
