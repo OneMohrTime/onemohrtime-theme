@@ -10,15 +10,19 @@
 			 class="project__banner--image" />
 	</figure>
 	<h1 class="entry-title">{{ post.title }}</h1>
-	{% include "blocks/entry-meta.twig" %}
 </header>
+	
+<aside class="">
+</aside>
+
+<article class="project__story fade-content">
+</article>
 <div class="entry-content">
 	{{ post.content }}
 </div>
+
 <footer>
 	{{ wp_link_pages }}
-	{% include "blocks/comment.twig" %}
-	{% include "blocks/comment-form.twig" %}
 </footer>
 
 {% endfor %}

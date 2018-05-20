@@ -4,7 +4,7 @@
 
     <section class="comment-box">
         {% if post.comments %}
-            <h4>{{ __('replies', 'sage') }}</h4>
+            <h4>{{ __('replies', 'onemohrtime') }}</h4>
             <div class="comments">
                 {% for comment in comment.children %}
                     {% include "blocks/comment.twig" with {comment:comment} %}

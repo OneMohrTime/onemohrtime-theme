@@ -1,7 +1,8 @@
 <header id="masthead" class="site__header" role="banner">
+	{% block header %}
 	
+	{# https://codepen.io/RobinBertilsson/pen/EPaLmo #}
 	<div id="menu_toggle" class="toggle__menu">
-		<!-- https://codepen.io/RobinBertilsson/pen/EPaLmo -->
 		<span class="m">M</span>
 		<span class="e">
 			<span class="bar"></span>
@@ -10,21 +11,13 @@
 		</span>
 		<span class="n">N</span>
 		<span class="u">U</span>
-	</div><!-- /.toggle-menu -->
+	</div>
 	
-	<nav id="desktop" class="main-navigation" role="navigation">
-	</nav>
+	{% include 'blocks/nav-primary.twig' with { menu : menu.get_items } %}
 	
-	<a href="{{ site.url }}" class="site__header--logo" target="{{ site.name }}">
+	<a href="{{ site.url }}" class="site__header--logo">
+		<img src="http://placehold.it/60?text=logo" alt="Logo for {{ site.name }}" class="logo" />
 	</a>
 	
-	<ul id="mobile_menu" class="menu__mobile">
-	</ul>
-	
-    <div class="container">
-        {% block header %}
-            <a class="brand" href="{{ site.url }}">{{ site.name }}</a>
-            {% include 'blocks/nav-primary.twig' with {menu: menu.get_items} %}
-        {% endblock %}
-    </div>
+	{% endblock %}
 </header>

@@ -10,19 +10,19 @@
  * @link https://github.com/roots/sage/pull/1042
  */
 $sage_includes = [
-  'lib/timber.php',    // Timber setup
-  'lib/assets.php',    // Scripts and stylesheets
-  'lib/extras.php',    // Custom functions
-  'lib/setup.php',     // Theme setup
-  'lib/titles.php',    // Page titles
-  'lib/customizer.php' // Theme customizer
+	'lib/timber.php',    // Timber setup
+	'lib/assets.php',    // Scripts and stylesheets
+	'lib/extras.php',    // Custom functions
+	'lib/setup.php',     // Theme setup
+	'lib/titles.php',    // Page titles
+	'lib/customizer.php' // Theme customizer
 ];
 
 foreach ($sage_includes as $file) {
-  if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
-  }
+	if (!$filepath = locate_template($file)) {
+		trigger_error(sprintf(__('Error locating %s for inclusion', 'onemohrtime'), $file), E_USER_ERROR);
+	}
 
-  require_once $filepath;
+	require_once $filepath;
 }
 unset($file, $filepath);

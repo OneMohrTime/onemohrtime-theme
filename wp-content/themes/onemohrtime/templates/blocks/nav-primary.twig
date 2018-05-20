@@ -1,12 +1,17 @@
 {% if menu %}
-<nav class="nav-primary">
-    <ul>
+
+<nav id="desktop" class="main-navigation" role="navigation">
+    <ul id="desktop_menu" class="menu">
         {% for item in menu %}
-            <li class="{{ item.classes | join(' ') }}">
-                <a href="{{ item.get_link }}">{{ item.title }}</a>
-                {% include "blocks/nav-primary.twig" with {'menu': item.get_children} %}
-            </li>
+		<li class="{{ item.classes | join(' ') }}">
+			<a href="{{ item.get_link }}">
+				{{ item.title }}
+			</a>
+			<!--<img src="{# item.master_object.thumbnail #}" />-->
+			{% include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } %}
+		</li>
         {% endfor %}
     </ul>
 </nav>
+
 {% endif %}
