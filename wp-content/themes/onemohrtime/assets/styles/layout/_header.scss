@@ -11,19 +11,6 @@
 	width: 100%;
 	z-index: 20;
 	
-	@include media("<screen1024") {
-		// .site__header
-		@supports (position: sticky) or (position: -webkit-sticky) {
-			position: -webkit-sticky;
-			position: sticky;
-			top: 0;
-		}
-		@supports (display: grid) {
-			grid-column: span 4;
-			width: auto;
-		}
-	}
-	
 	&--logo {
 		// .site__header--logo
 		padding-top: 20px;

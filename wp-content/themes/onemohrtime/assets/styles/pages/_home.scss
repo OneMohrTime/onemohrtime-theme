@@ -156,10 +156,10 @@
 		.feature {
 			position: relative;
 			display: block;
-			min-height: 420px;
 			margin: 0 $gutter;
 			@include media(">=screen960") {
 				width: 870px;
+				min-height: 420px;
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -171,26 +171,21 @@
 			}
 			
 			&__content {
-				position: absolute;
-				left: $gutter;
-				right: $gutter;
-				bottom: -#{$gutter};
+				// .feature__content
 				background: $color__white;
 				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-				min-height: 200px;
 				padding: $base-spacing;
 				overflow: hidden;
 				z-index: 3;
 				@include media(">=screen960") {
-					top: 23px;
-					left: auto;
-					right: 0;
-					bottom: auto;
+					@include position(absolute, 23px 0 auto auto);
 					@include size(50%, 90%);
+					min-height: 200px;
 				}
 			}
 			
-			.wp-post-image {
+			&__image {
+				// .feature__image
 				@include media(">=screen960") {
 					@include position(absolute, 0 null null 0);
 					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);

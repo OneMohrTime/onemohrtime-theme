@@ -12,32 +12,29 @@
 }
 
 .swiper-slide {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	color: $color__white;
-	padding: $gutter;
-	
-	@supports (display: flex) {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	
-	&__title {
-		// .swiper-slide__title
-		flex: 0 1 50%;
-		margin-left: 50%;
-	}
-	
-	&__text {
-		// .swiper-slide__text
-		flex: 0 1 50%;
-		margin-left: 50%;
+	padding: $gutter $gutter * 2;
+	@include media(">=screen1024") {
+		align-items: flex-start;
+		&__title {
+			// .swiper-slide__title
+			flex: 0 1 auto;
+			margin-left: 50%;
+		}
+		&__text {
+			// .swiper-slide__text
+			flex: 0 1 auto;
+			margin-left: 50%;
+		}
 	}
 }
 
 .parallax-bg {
-	position: absolute;
-	left: 0;
-	top: 0;
+	@include position(absolute, 0 null null 0);
 	background-size: cover;
 	background-position: center center;
 	@include size(130%, 100%);

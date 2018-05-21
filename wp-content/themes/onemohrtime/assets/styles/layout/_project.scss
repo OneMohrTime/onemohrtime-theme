@@ -238,25 +238,32 @@
 	
 	&__gallery {
 		// .project__gallery
-		display: flex;
-		flex-flow: row wrap;
-		align-items: center;
+		column-count: 1;
+		column-gap: 0;
+		counter-reset: item-counter;
 		margin-bottom: $base-spacing;
 		
+		@include media(">=screen400")  { column-count: 2; }
+		@include media(">=screen960")  { column-count: 3; }
+		@include media(">=screen1440") { column-count: 4; }
+		@include media(">=screen1920") { column-count: 5; }
+		
 		a {
-			float: left;
+			
 		}
 		
 		img {
-			pointer-events: none;
+			width: 100%;
 		}
 		
 		figure {
-			overflow: hidden;
-			width: 100%;
-			@include media(">=screen600") { width: 50%; }
-			@include media(">=screen840") { width: 33.33333%; }
-			@include media(">=screen1024") { width: 25%; }
+			break-inside: avoid;
+			counter-increment: item-counter;
+//			overflow: hidden;
+//			width: 100%;
+//			@include media(">=screen600") { width: 50%; }
+//			@include media(">=screen840") { width: 33.33333%; }
+//			@include media(">=screen1024") { width: 25%; }
 		}
 	}
 	

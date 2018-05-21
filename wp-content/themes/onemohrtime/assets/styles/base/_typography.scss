@@ -15,8 +15,7 @@
 }
 
 .content-area {
-	font-size: .75em;
-	@include media(">=screen400")  { font-size: .875em; }
+	font-size: .875em;
 	@include media(">=screen600")  { font-size: 1em; }
 	@include media(">=screen768")  { font-size: 1.125em; }
 	@include media(">=screen960")  { font-size: 1.25em; }

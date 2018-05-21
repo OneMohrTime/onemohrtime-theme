@@ -35,17 +35,23 @@
 		&--title {
 			// .gallery__banner--title
 			z-index: 2;
+			
 			h2 {
 				color: $color__white;
-				font-size: 5em;
+				font-size: 3em;
 				text-shadow: 2px 2px 4px fade-out($color__black, .95);
 				margin-bottom: 0;
 			}
+			
+			@include media(">=screen1170") {
+				font-size: 5em;
+			}
+			
 			@supports (display: flex) {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: 0 $gutter * 3;
+				padding: 0 $gutter;
 			}
 		}
 		

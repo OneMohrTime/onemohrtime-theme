@@ -18,7 +18,221 @@
 		'common': {
 			init: function () {
 				// JavaScript to be fired on all pages
-				var swiper = new Swiper('.swiper-container', {
+				
+				// Bourbon refills nav
+				$('#menu_toggle').on('click touchstart', function(e) {
+					// Open nav menu
+					$('#mobile_menu').toggleClass('is-visible');
+					
+					// Switch menu toggle
+					$(this).toggleClass('open');
+					changeLetters($(this));
+					
+					// force body freeze
+					$('body').toggleClass('unscrollable');
+					
+					e.preventDefault();	
+				});
+				
+				// Fade in content
+				// Hide direct children of .fade-content element
+				$('.fade-content > *').css({
+					'opacity':'0',
+					'transform': 'translateY(' + 36 + 'px)'
+				});
+				// Trigger fade in as window scrolls
+				$(window).on('scroll load', function(){
+					$('.fade-content > *').each( function(i) {
+						var bottom_of_object = $(this).offset().top + $(this).outerHeight() / 8;
+						var bottom_of_window = $(window).scrollTop() + $(window).height();
+						if( bottom_of_window > bottom_of_object ) {
+							$(this).css({
+								'opacity'   :'1',
+								'transform' : 'translateY(' + 0 + 'px)'
+							});
+						} else {
+							$(this).css({
+								'opacity'   :'0',
+								'transform' : 'translateY(' + 36 + 'px)'
+							});
+						}
+					});
+				});
+				
+				// Parallax for projects
+				$('.gallery__project--image').each(function () {
+					var img = $(this);
+					var imgParent = $(this).parent();
+					
+					function parallaxImg() {
+						var speed = img.data('speed');
+						var imgY = imgParent.offset().top;
+						var winY = $(this).scrollTop();
+						var winH = $(this).height();
+						var parentH = imgParent.innerHeight();
+						
+						// The next pixel to show on screen      
+						var winBottom = winY + winH;
+						
+						// If block is shown on screen
+						if (winBottom > imgY && winY < imgY + parentH) {
+							// Number of pixels shown after block appear
+							var imgBottom = ((winBottom - imgY) * speed);
+							// Max number of pixels until block disappear
+							var imgTop = winH + parentH;
+							// Porcentage between start showing until disappearing
+							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+						}
+						img.css({
+							top: imgPercent + '%',
+							transform: 'translate(-50%, -' + imgPercent + '%)'
+						});
+					}
+					$(document).on({
+						scroll : function () {
+							parallaxImg();
+						},
+						ready  : function () {
+							parallaxImg();
+						}
+					});
+				});
+				
+				// click to smoothscroll
+				$('a[href^="#"]').on('click', function(e) {
+					e.preventDefault();
+					$('html,body').animate({
+						scrollTop : $(this.hash).offset().top
+					}, 1500);
+				});
+				// add scrolling class to contact
+				$('a[href^="#contact"]').on('click', function() {
+					$('#contact').addClass('said-hi');
+					$('#mobile_menu').removeClass('is-visible');
+					$('body').removeClass('unscrollable');
+				});
+				
+				// Easy Parallax
+				$(window).on('scroll', function() {
+					if($(window).scrollTop() < 1000) {
+//						$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * 0.05) + '%');
+						$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * 0.15) + '%');
+					}
+					if(window.matchMedia('(min-width: 1024px)').matches) {
+						$('#background').css('top', 0 - ($(window).scrollTop() * 0.015) + '%');
+						$('#background').css('opacity', 1 - ($(window).scrollTop() * 0.0005));
+					}
+				});
+				
+				// Change MENU to EXIT
+				function changeLetters(btn) {
+					var m = $('.toggle__menu span.m');
+					var e = $('.toggle__menu span.e');
+					var n = $('.toggle__menu span.n');
+					var u = $('.toggle__menu span.u');
+					
+					e.toggleClass('toggle__close');
+					
+					if(btn.hasClass('open')) {
+						m.text('E');
+						n.text('I');
+						u.text('T');
+					} else {
+						m.text('M');
+						n.text('N');
+						u.text('U');
+					}
+				}
+				
+				// Instagram API
+				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
+				var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
+					userid = 3567722892,
+					num_photos = 4;
+					
+				$.ajax({
+					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
+//					url : 'https://api.instagram.com/v1/users/self/media/recent',
+					dataType : 'jsonp',
+					type : 'GET',
+					data : {
+						access_token : token,
+						count : num_photos
+					},
+					success : function(data) {
+//						console.log(data);
+						for( x in data.data ) {
+							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><a href="' + data.data[x].link + '" class="btn" target="_blank"><span class="fa fa-instagram"></span> View on Instagram</a></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"></a></figure>');
+//							 data.data[x].images.thumbnail.url - URL of image 150х150
+//							 data.data[x].images.low_resolution.url - URL of image 306x306
+//							 data.data[x].images.standard_resolution.url - URL of image 612х612
+//							 data.data[x].link - Instagram post URL 
+						}
+					},
+//					error : function(data) {
+//						console.log(data);
+//					}
+				});
+
+				// Bourbon Refills parallax effect
+				// refills.bourbon.io/components#parallax
+				function parallax() {
+					if ($('#js-parallax-window').length > 0) {
+						var plxBackground = $('#js-parallax-background');
+						var plxWindow = $('#js-parallax-window');
+						
+						var plxWindowTopToPageTop = $(plxWindow).offset().top;
+						var windowTopToPageTop = $(window).scrollTop();
+						var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
+						
+						var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
+						var windowInnerHeight = window.innerHeight;
+						var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
+						var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
+						var plxSpeed = 0.35;
+						
+						plxBackground.css('top', -(plxWindowTopToWindowTop * plxSpeed) + 'px');
+					}
+				}
+				
+				$(document).ready(function () {
+					if ($('#js-parallax-window').length) {
+						parallax();
+					}
+				});
+				
+				$(window).scroll(function (e) {
+					if ($('#js-parallax-window').length) {
+						parallax();
+					}
+				});
+				
+			},
+			finalize: function () {
+				// JavaScript to be fired on all pages, after page specific JS is fired
+				
+				// typed.js
+				$('#typed').typed({
+					stringsElement : $('#typed-strings'),
+					typeSpeed      : 100,
+					startDelay     : 300,
+					showCursor     : true,
+					cursorChar     : ' |',
+					contentType    : 'text'
+				});
+				setTimeout(function() {
+					$('.typed-cursor').fadeOut();
+				}, 8000);
+				
+			}
+		},
+		// Home page
+		'home': {
+			init: function () {
+				// JavaScript to be fired on the home page
+				
+				// Swiper.js
+				var swiper = new Swiper('#home_banner', {
 					initialSlide  : 1,
 					watchOverflow : true,
 					speed         : 600,
@@ -37,18 +251,28 @@
 					},
 					parallax : true
 				});
-			},
-			finalize: function () {
-				// JavaScript to be fired on all pages, after page specific JS is fired
-			}
-		},
-		// Home page
-		'home': {
-			init: function () {
-				// JavaScript to be fired on the home page
+				
 			},
 			finalize: function () {
 				// JavaScript to be fired on the home page, after the init JS
+				
+				// Dribbble galleries
+				$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+				$.jribbble.users('onemohrtime').shots({
+					per_page : 6,
+					sort : 'recent'
+				}).then(function(shots) {
+					var html = [];
+					shots.forEach(function(shot) {
+						html.push('<figure id="shot_' + shot.id + '" class="shot">');
+						html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+						html.push('<figcaption class="shot__hover">');
+						html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+						html.push('</figure>');
+					});
+					$('#dribbbles').html(html.join(''));
+					$('#no_shots').hide();
+				});
 			}
 		},
 		// About us page, note the change from about-us to about_us.
