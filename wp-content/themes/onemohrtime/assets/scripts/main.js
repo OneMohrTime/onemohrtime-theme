@@ -59,45 +59,6 @@
 					});
 				});
 				
-				// Parallax for projects
-				$('.gallery__project--image').each(function () {
-					var img = $(this);
-					var imgParent = $(this).parent();
-					
-					function parallaxImg() {
-						var speed = img.data('speed');
-						var imgY = imgParent.offset().top;
-						var winY = $(this).scrollTop();
-						var winH = $(this).height();
-						var parentH = imgParent.innerHeight();
-						
-						// The next pixel to show on screen      
-						var winBottom = winY + winH;
-						
-						// If block is shown on screen
-						if (winBottom > imgY && winY < imgY + parentH) {
-							// Number of pixels shown after block appear
-							var imgBottom = ((winBottom - imgY) * speed);
-							// Max number of pixels until block disappear
-							var imgTop = winH + parentH;
-							// Porcentage between start showing until disappearing
-							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-						}
-						img.css({
-							top: imgPercent + '%',
-							transform: 'translate(-50%, -' + imgPercent + '%)'
-						});
-					}
-					$(document).on({
-						scroll : function () {
-							parallaxImg();
-						},
-						ready  : function () {
-							parallaxImg();
-						}
-					});
-				});
-				
 				// click to smoothscroll
 				$('a[href^="#"]').on('click', function(e) {
 					e.preventDefault();
@@ -126,10 +87,10 @@
 				
 				// Change MENU to EXIT
 				function changeLetters(btn) {
-					var m = $('.toggle__menu span.m');
-					var e = $('.toggle__menu span.e');
-					var n = $('.toggle__menu span.n');
-					var u = $('.toggle__menu span.u');
+					var m = $('.toggle__menu span.m'),
+						e = $('.toggle__menu span.e'),
+						n = $('.toggle__menu span.n'),
+						u = $('.toggle__menu span.u');
 					
 					e.toggleClass('toggle__close');
 					
@@ -157,7 +118,7 @@
 					type : 'GET',
 					data : {
 						access_token : token,
-						count : num_photos
+						count        : num_photos
 					},
 					success : function(data) {
 //						console.log(data);
@@ -232,11 +193,10 @@
 				// JavaScript to be fired on the home page
 				
 				// Swiper.js
-				var swiper = new Swiper('#home_banner', {
+				var homeBanner = new Swiper('#home_banner', {
 					initialSlide  : 1,
 					watchOverflow : true,
 					speed         : 600,
-					grabCursor    : true,
 					keyboard      : {
 						enabled : true,
 					},
@@ -250,6 +210,32 @@
 						prevEl : '.swiper-button-prev',
 					},
 					parallax : true
+				});
+				var homeFrame1 = new Swiper('#home_frame_1', {
+					effect          : 'coverflow',
+					grabCursor      : true,
+					centeredSlides  : true,
+					slidesPerView   : 'auto',
+					coverflowEffect : {
+						rotate       : 50,
+						stretch      : 0,
+						depth        : 100,
+						modifier     : 1,
+						slideShadows : true,
+					},
+//					keyboard      : {
+//						enabled : true,
+//					},
+//					pagination : {
+//						el             : '.swiper-pagination',
+//						clickable      : true,
+//						dynamicBullets : true,
+//					},
+//					navigation : {
+//						nextEl : '.swiper-button-next',
+//						prevEl : '.swiper-button-prev',
+//					},
+//					parallax : true
 				});
 				
 			},
@@ -276,9 +262,55 @@
 			}
 		},
 		// About us page, note the change from about-us to about_us.
-		'about_us': {
-			init: function () {
+		'about_us' : {
+			init : function () {
 				// JavaScript to be fired on the about us page
+			}
+		},
+		// Featured Projects
+		'design' : {
+			init : function () {
+				// JavaScript to be fired on the featured projects page
+				
+				// Parallax for projects
+				$('.gallery__project--image').each(function () {
+					var img = $(this);
+					var imgParent = $(this).parent();
+					
+					function parallaxImg() {
+						var speed = img.data('speed');
+						var imgY = imgParent.offset().top;
+						var winY = $(this).scrollTop();
+						var winH = $(this).height();
+						var parentH = imgParent.innerHeight();
+						
+						// The next pixel to show on screen      
+						var winBottom = winY + winH;
+						
+						// If block is shown on screen
+						if (winBottom > imgY && winY < imgY + parentH) {
+							// Number of pixels shown after block appear
+							var imgBottom = ((winBottom - imgY) * speed);
+							// Max number of pixels until block disappear
+							var imgTop = winH + parentH;
+							// Porcentage between start showing until disappearing
+							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+						}
+						img.css({
+							top: imgPercent + '%',
+							transform: 'translate(-50%, -' + imgPercent + '%)'
+						});
+					}
+					$(document).on({
+						scroll : function () {
+							parallaxImg();
+						},
+						ready  : function () {
+							parallaxImg();
+						}
+					});
+				});
+				
 			}
 		}
 	};
@@ -315,3 +347,164 @@
 	$(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
+
+//;
+//(function () {
+//	function lazyLoadImages() {
+//		var st = $(window).scrollTop();
+//		$('img.lazy').each(function () {
+//			var img = $(this);
+//			if (img.attr('src')) return;
+//			if (img.offset().top < $(window).height() + st) {
+//				img.attr('src', img.data('src'));
+//			}
+//		});
+//	}
+//	if ($('img.lazy').length > 0) {
+//		$(window).scroll(function () {
+//			lazyLoadImages();
+//		});
+//	}
+//	if (window.hljs) {
+//		hljs.configure({
+//			tabReplace: '    '
+//		});
+//		hljs.initHighlightingOnLoad();
+//	}
+//	if ($('.header-swiper-front').length) {
+//		var swiperBack2 = new Swiper('.header-swiper-back-2', {
+//			slidesPerView: 'auto',
+//			centeredSlides: true,
+//			spaceBetween: 100,
+//			onlyExternal: true,
+//			effect: 'coverflow',
+//			direction: 'vertical',
+//			speed: 600,
+//			coverflowEffect: {
+//				slideShadows: false
+//			}
+//		});
+//		var swiperBack1 = new Swiper('.header-swiper-back-1', {
+//			slidesPerView: 'auto',
+//			centeredSlides: true,
+//			spaceBetween: 300,
+//			effect: 'coverflow',
+//			speed: 600,
+//			coverflowEffect: {
+//				slideShadows: false
+//			}
+//		});
+//		var swiperFront = new Swiper('.header-swiper-front', {
+//			slidesPerView: 'auto',
+//			centeredSlides: true,
+//			spaceBetween: 100,
+//			effect: 'coverflow',
+//			speed: 600,
+//			coverflowEffect: {
+//				slideShadows: false
+//			},
+//			pagination: {
+//				el: '.header-swiper-front .swiper-pagination',
+//				clickable: true,
+//			},
+//			navigation: {
+//				nextEl: '.header-swiper-front .swiper-button-next',
+//				prevEl: '.header-swiper-front .swiper-button-prev',
+//			},
+//			controller: {
+//				control: [swiperBack1, swiperBack2],
+//				by: 'container',
+//			},
+//			keyboard: true,
+//			a11y: true,
+//			on: {
+//				slideChange: function () {
+//					var s = this;
+//					if (s.activeIndex === $('.swiper-slide-gallery').index()) {
+//						$(s.el).find('.swiper-pagination').hide();
+//					} else {
+//						$(s.el).find('.swiper-pagination').show();
+//					}
+//				}
+//			}
+//		});
+//		var galleryTopSwiper = new Swiper('.swiper-gallery-top', {
+//			slidesPerView: 1,
+//			spaceBetween: 10,
+//			nested: true,
+//			resistanceRatio: 0,
+//			preloadImages: false,
+//			lazy: true,
+//		});
+//		var galleryThumbsSwiper = new Swiper('.swiper-gallery-thumbs', {
+//			slidesPerView: 5,
+//			spaceBetween: 10,
+//			centeredSlides: true,
+//			touchRatio: 0.2,
+//			slideToClickedSlide: true,
+//			nested: true,
+//			resistanceRatio: 0,
+//		});
+//		galleryTopSwiper.controller.control = galleryThumbsSwiper;
+//		galleryThumbsSwiper.controller.control = galleryTopSwiper;
+//	}
+//	$('body').prepend('<div id="fb-root"></div>');
+//	(function (d, s, id) {
+//		var js, fjs = d.getElementsByTagName(s)[0];
+//		if (d.getElementById(id)) return;
+//		js = d.createElement(s);
+//		js.id = id;
+//		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=129338113911206";
+//		fjs.parentNode.insertBefore(js, fjs);
+//	}(document, 'script', 'facebook-jssdk'));
+//	(function (d, s, id) {
+//		var js, fjs = d.getElementsByTagName(s)[0],
+//			p = /^http:/.test(d.location) ? 'http' : 'https';
+//		if (!d.getElementById(id)) {
+//			js = d.createElement(s);
+//			js.id = id;
+//			js.src = p + '://platform.twitter.com/widgets.js';
+//			fjs.parentNode.insertBefore(js, fjs);
+//		}
+//	})(document, 'script', 'twitter-wjs');
+//	(function () {
+//		var po = document.createElement('script');
+//		po.type = 'text/javascript';
+//		po.async = true;
+//		po.src = 'https://apis.google.com/js/platform.js';
+//		var s = document.getElementsByTagName('script')[0];
+//		s.parentNode.insertBefore(po, s);
+//	})();
+//	var iframeTimeout;
+//
+//	function lazyLoadDemos() {
+//		$('.demo').each(function () {
+//			var frameHolder = $(this).find('.demo-iframe');
+//			if (frameHolder.hasClass('loaded')) return;
+//			var frame = frameHolder.find('iframe');
+//			var src = frame.attr('data-src');
+//			if (frameHolder.offset().top + frameHolder.height() < $(window).scrollTop()) {
+//				return;
+//			}
+//			if (frameHolder.offset().top < ($(window).scrollTop() + $(window).height() + 50)) {
+//				frameHolder.addClass('loaded');
+//				frame.attr('src', src);
+//			}
+//		});
+//	}
+//	if ($('.demo').length > 0) {
+//		$('.demo').each(function () {
+//			var t = $(this);
+//			var demoFile = t.find('iframe').attr('data-src');
+//			t.find('.demo-link-new-window').attr('href', demoFile);
+//			t.find('.demo-link-source').attr('href', 'https://github.com/nolimits4web/Swiper/blob/master/demos/' + demoFile);
+//		});
+//		$(window).on('scroll resize', function () {
+//			clearTimeout(iframeTimeout);
+//			iframeTimeout = setTimeout(function () {
+//				lazyLoadDemos();
+//			}, 500);
+//		});
+//		lazyLoadDemos();
+//	}
+//})();
