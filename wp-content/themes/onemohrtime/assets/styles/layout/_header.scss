@@ -5,6 +5,8 @@
 .site__header {
 	position: fixed;
 	background-color: transparent;
+	background-color: fade-out($color__black--light, 0.05);
+	background-blend-mode: multiply;
 	color: $color__white;
 	padding-left: $gutter;
 	padding-right: $gutter;

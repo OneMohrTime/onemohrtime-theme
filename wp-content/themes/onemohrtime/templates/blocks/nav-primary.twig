@@ -7,8 +7,8 @@
 			<a href="{{ item.get_link }}">
 				{{ item.title }}
 			</a>
-			<!--<img src="{# item.master_object.thumbnail #}" />-->
-			{% include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } %}
+			{# <img src="{{ item.master_object.thumbnail }} /> #}
+			{# include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } #}
 		</li>
         {% endfor %}
     </ul>

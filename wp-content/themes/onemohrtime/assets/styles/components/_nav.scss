@@ -23,10 +23,10 @@
 	}
 	.menu {
 		font-family: $font__header;
-		font-size: 1.125em;
+//		font-size: 1.125em;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 2px;
+		letter-spacing: 4px;
 		margin-left: $small-spacing;
 		
 		&-item {
@@ -34,193 +34,79 @@
 			position: relative;
 			display: inline-block;
 			margin-left: $small-spacing;
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
-				background-color: $color__yellow;
-				@include size(67%, 10px);
-				opacity: 0;
-				transition: all 0.35s ease;
-			}
-			&::before {
-				top: 1em;
-				left: 0;
-			}
-			&::after {
-				bottom: 1em;
-				right: 0;
-			}
-			&:hover,
-			&:focus {
-				&::before,
-				&::after {
-					opacity: 1;
-				}
-				&::before {
-					left: 33%
-				}
-				&::after {
-					right: 33%;
-				}
-			}
 			
-			&-home {
-				// .menu-item-home
-				display: none;
+			a {
+				padding: $small-spacing / 2 $small-spacing;
+				transition: background-color $speed, color $speed;
+				&:hover {
+					background-color: fade-out($color__white, 0.9);
+				}
 			}
 		}
 	}
 }
 
-.menu__mobile {
-	@include position(absolute, 0 0 null 0);
-	display: none;
-	background-color: fade-out($color__black, 0.05);
-	color: $color__white;
-	height: auto;
-	min-height: 100vh;
-	
-	&.is-visible {
-		position: fixed;
-		display: block;
-		height: 100%;
-		padding-top: 100px;
-		overflow-y: auto;
-	}
-	
-	& > .menu-item {
-		// .menu__mobile > .menu-item
-		position: relative;
-		display: inline-block;
-		float: left;
-		padding: 0 $gutter;
-		@include media(">=screen768") {
-			margin-bottom: $gutter;
+.toggle {
+	&__menu {
+		// .toggle__menu
+		@include position(absolute, 100% null null null);
+		color: inherit;
+		font-family: $font__header;
+		font-size: 1.125em;
+		font-weight: 700;
+//		letter-spacing: 2px;
+		cursor: pointer;
+		z-index: 30;
+		&:hover,
+		&:focus {
+			color: $color__yellow;
+			span.e span.bar { background-color: $color__yellow; }
 		}
-		
-		&.current-menu-item,
-		&.current-menu-parent {
-			// .menu__mobile > .menu-item.current-menu-item
-			// .menu__mobile > .menu-item.current-menu-parent
-			& > a {
-				// .menu__mobile > .menu-item.current-menu-item > a
-				// .menu__mobile > .menu-item.current-menu-parent > a
-				border-left-color: $color__yellow;
-			}
+		&.open {
+			color: $color__white;
 		}
-		
-		& > a {
-			// .menu__mobile > .menu-item > a
+		span.m,
+		span.n,
+		span.u {
 			display: inline-block;
-			border-left: 5px $color__white solid;
-			font-family: $font__header;
-			font-size: 2.5em;
-			text-transform: uppercase;
-			padding: 0 0 $gutter 10px;
-			&:focus {
-				outline: none;
-			}
-			@include media(">=screen1024") {
-				font-size: 4em;
-			}
-			@include media(">=screen1440") {
-				font-size: 5em;
-			}
+			transition: $speed;
 		}
-	}
-	
-	.sub-menu {
-		// .menu__mobile .sub-menu
-		& > .menu-item {
-			// .menu__mobile .sub-menu > .menu-item
-			&:last-child {
-				a { padding-bottom: $gutter; }
-			}
-			&.current-menu-item {
-				& > a {
-					// .menu__mobile .sub-menu > .menu-item > a
-					border-left-color: $color__yellow;
+		span.e {
+			display: inline-block;
+			@include size(12px, 13px);
+			&.toggle__close {
+				@include size(14px, 13px);
+				span.bar {
+					width: 15px;
+					background-color: $color__white;
+				}
+				span.bar:nth-child(1) {
+					top: 5px;
+					transform: rotate(45deg);
+					transition: $speed;
+				}
+				span.bar:nth-child(2) {
+					margin: 2px 0;
+					opacity: 0;
+					transition: $speed;
+				}
+				span.bar:nth-child(3) {
+					bottom: 5px;
+					transform: rotate(-45deg);
+					transition: $speed;
 				}
 			}
-			& > a {
-				// .menu__mobile .sub-menu > .menu-item > a
-				border-left: 5px $color__white solid;
-				padding: 15px 5px 5px;
-			}
-		}
-	}
-	
-	@supports (display: flex) {
-		@include media(">=screen1170") {
-			&.is-visible {
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: flex-end;
-				align-items: flex-end;
-				padding-bottom: $gutter;
-			}
-			& > .menu-item {
-				border-bottom: 5px $color__white solid;
-				width: 25vw;
-				margin: $gutter $gutter 0 0;
-				padding: 0;
-				transition: border $speed;
-				&:hover,
-				&:focus {
-					border-bottom-color: $color__yellow;
-					.sub-menu {
-						border-bottom-color: $color__yellow;
-					}
-				}
-				
-				& > a {
-					// .menu__mobile > .menu-item > a
-					border-left: 0;
-					padding: 0 0 #{$gutter / 2} 0;
+			span.bar {
+				position: relative;
+				display: block;
+				background-color: $color__white;
+				transition: $speed;
+				width: 11px;
+				height: 3px;
+				&:nth-child(2) {
+					margin: 2px 0;
 				}
 			}
-			.sub-menu {
-				// .menu__mobile .sub-menu
-				position: absolute;
-				bottom: -5px;
-				right: 100%;
-				border-bottom: 5px $color__white solid;
-				width: 25vw;
-				padding-right: $gutter;
-				padding-bottom: $gutter / 2;
-				transition: border $speed;
-				& > .menu-item {
-					// .menu__mobile .sub-menu > .menu-item
-					&:hover,
-					&:focus {
-						border-color: $color__white;
-					}
-					&:last-child {
-						// cancel out non-flex style
-						a { padding-bottom: 0; }
-					}
-					& > a {
-						// .menu__mobile .sub-menu > .menu-item > a
-						border-left: 0;
-						padding: $small-spacing 0;
-					}
-				}
-			}
-//			& > .menu-item {
-//				display: flex;
-//				align-items: flex-start;
-//				& > a {
-//					flex: 0 1 160px;
-//					margin-right: $small-spacing;
-//				}
-//				& > .sub-menu {
-//					flex: 1 0 auto;
-//					& > .menu-item {
-//						margin: 0 0 10px;
-//					}
-//				}
-//			}
 		}
 	}
 }

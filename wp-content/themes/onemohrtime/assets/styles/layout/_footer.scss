@@ -4,17 +4,11 @@
 
 .site__footer {
 	position: relative;
-	background: $color__black;
+	background-color: $color__black--light;
 	color: $color__white;
 	@include size(100%, auto);
 	padding: $gutter;
 	@include clearfix();
-	
-//	@supports (background-blend-mode: multiply) {
-//		background: $color__black url("../images/rough-texture.png") no-repeat center;
-//		background-size: cover;
-//		background-blend-mode: screen;
-//	}
 	
 	@supports (display: grid) {
 		grid-column: span 4;
@@ -56,7 +50,7 @@
 		}
 		
 		h3 {
-			border-bottom: 3px $color__black--light solid;
+			border-bottom: 3px $color__black--lighter solid;
 			font-size: 1em;
 			padding-bottom: $small-spacing;
 		}

@@ -21,24 +21,21 @@
 				
 				// Bourbon refills nav
 				$('#menu_toggle').on('click touchstart', function(e) {
+					e.preventDefault();	
 					// Open nav menu
 					$('#mobile_menu').toggleClass('is-visible');
-					
 					// Switch menu toggle
 					$(this).toggleClass('open');
 					changeLetters($(this));
-					
 					// force body freeze
 					$('body').toggleClass('unscrollable');
-					
-					e.preventDefault();	
 				});
 				
 				// Fade in content
 				// Hide direct children of .fade-content element
 				$('.fade-content > *').css({
-					'opacity':'0',
-					'transform': 'translateY(' + 36 + 'px)'
+					'opacity'   : '0',
+					'transform' : 'translateY(' + 36 + 'px)'
 				});
 				// Trigger fade in as window scrolls
 				$(window).on('scroll load', function(){
@@ -105,36 +102,52 @@
 					}
 				}
 				
+				function lazyLoadImages() {
+					var st = $(window).scrollTop();
+					$('img.lazy').each(function () {
+						var img = $(this);
+						if (img.attr('src')) return;
+						if (img.offset().top < $(window).height() + st) {
+							img.attr('src', img.data('src'));
+						}
+					});
+				}
+				if ($('img.lazy').length > 0) {
+					$(window).scroll(function () {
+						lazyLoadImages();
+					});
+				}
+				
 				// Instagram API
 				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
-				var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
-					userid = 3567722892,
-					num_photos = 4;
-					
-				$.ajax({
-					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
-//					url : 'https://api.instagram.com/v1/users/self/media/recent',
-					dataType : 'jsonp',
-					type : 'GET',
-					data : {
-						access_token : token,
-						count        : num_photos
-					},
-					success : function(data) {
-//						console.log(data);
-						for( x in data.data ) {
-							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><a href="' + data.data[x].link + '" class="btn" target="_blank"><span class="fa fa-instagram"></span> View on Instagram</a></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"></a></figure>');
-//							 data.data[x].images.thumbnail.url - URL of image 150х150
-//							 data.data[x].images.low_resolution.url - URL of image 306x306
-//							 data.data[x].images.standard_resolution.url - URL of image 612х612
-//							 data.data[x].link - Instagram post URL 
-						}
-					},
-//					error : function(data) {
-//						console.log(data);
-//					}
-				});
-
+//				var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
+//					userid = 3567722892,
+//					num_photos = 4;
+//					
+//				$.ajax({
+//					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
+////					url : 'https://api.instagram.com/v1/users/self/media/recent',
+//					dataType : 'jsonp',
+//					type : 'GET',
+//					data : {
+//						access_token : token,
+//						count        : num_photos
+//					},
+//					success : function(data) {
+////						console.log(data);
+//						for( x in data.data ) {
+//							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><a href="' + data.data[x].link + '" class="btn" target="_blank"><span class="fa fa-instagram"></span> View on Instagram</a></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"></a></figure>');
+////							 data.data[x].images.thumbnail.url - URL of image 150х150
+////							 data.data[x].images.low_resolution.url - URL of image 306x306
+////							 data.data[x].images.standard_resolution.url - URL of image 612х612
+////							 data.data[x].link - Instagram post URL 
+//						}
+//					},
+////					error : function(data) {
+////						console.log(data);
+////					}
+//				});
+				
 				// Bourbon Refills parallax effect
 				// refills.bourbon.io/components#parallax
 				function parallax() {
@@ -173,17 +186,17 @@
 				// JavaScript to be fired on all pages, after page specific JS is fired
 				
 				// typed.js
-				$('#typed').typed({
-					stringsElement : $('#typed-strings'),
-					typeSpeed      : 100,
-					startDelay     : 300,
-					showCursor     : true,
-					cursorChar     : ' |',
-					contentType    : 'text'
-				});
-				setTimeout(function() {
-					$('.typed-cursor').fadeOut();
-				}, 8000);
+//				$('#typed').typed({
+//					stringsElement : $('#typed-strings'),
+//					typeSpeed      : 100,
+//					startDelay     : 300,
+//					showCursor     : true,
+//					cursorChar     : ' |',
+//					contentType    : 'text'
+//				});
+//				setTimeout(function() {
+//					$('.typed-cursor').fadeOut();
+//				}, 8000);
 				
 			}
 		},
@@ -193,72 +206,75 @@
 				// JavaScript to be fired on the home page
 				
 				// Swiper.js
-				var homeBanner = new Swiper('#home_banner', {
-					initialSlide  : 1,
-					watchOverflow : true,
-					speed         : 600,
-					keyboard      : {
-						enabled : true,
-					},
-					pagination : {
-						el             : '.swiper-pagination',
-						clickable      : true,
-						dynamicBullets : true,
-					},
-					navigation : {
-						nextEl : '.swiper-button-next',
-						prevEl : '.swiper-button-prev',
-					},
-					parallax : true
-				});
-				var homeFrame1 = new Swiper('#home_frame_1', {
-					effect          : 'coverflow',
-					grabCursor      : true,
-					centeredSlides  : true,
-					slidesPerView   : 'auto',
-					coverflowEffect : {
-						rotate       : 50,
-						stretch      : 0,
-						depth        : 100,
-						modifier     : 1,
-						slideShadows : true,
-					},
-//					keyboard      : {
-//						enabled : true,
-//					},
-//					pagination : {
-//						el             : '.swiper-pagination',
-//						clickable      : true,
-//						dynamicBullets : true,
-//					},
-//					navigation : {
-//						nextEl : '.swiper-button-next',
-//						prevEl : '.swiper-button-prev',
-//					},
-//					parallax : true
-				});
+				if ($('.header-swiper-front').length) {
+//					var homeFrame2 = new Swiper('#home_frame_2', {
+//						slidesPerView: 'auto',
+//						centeredSlides: true,
+//						spaceBetween: 100,
+//						onlyExternal: true,
+//						effect: 'coverflow',
+//						direction: 'vertical',
+//						speed: 600,
+//						coverflowEffect: {
+//							slideShadows: false
+//						}
+//					});
+//					var homeFrame1 = new Swiper('#home_frame_1', {
+//						slidesPerView   : 'auto',
+//						centeredSlides  : true,
+//						spaceBetween    : 300,
+//						effect          : 'coverflow',
+//						speed           : 600,
+//						coverflowEffect : {
+//							slideShadows : false
+//						}
+//					});
+					var homeBanner = new Swiper('#home_banner', {
+						initialSlide  : 1,
+						watchOverflow : true,
+						speed         : 600,
+						keyboard      : {
+							enabled : true,
+						},
+						pagination : {
+							el             : '#home_banner .swiper-pagination',
+							clickable      : true,
+							dynamicBullets : true
+						},
+						navigation : {
+							nextEl : '#home_banner .swiper-button-next',
+							prevEl : '#home_banner .swiper-button-prev',
+						},
+//						controller : {
+//							control : [homeFrame1, homeFrame2],
+//							by      : 'container',
+//						},
+						parallax : true,
+						a11y     : true,
+					});
+				}
 				
 			},
 			finalize: function () {
 				// JavaScript to be fired on the home page, after the init JS
 				
 				// Dribbble galleries
-				$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-				$.jribbble.users('onemohrtime').shots({
-					per_page : 6,
-					sort : 'recent'
-				}).then(function(shots) {
-					var html = [];
-					shots.forEach(function(shot) {
-						html.push('<figure id="shot_' + shot.id + '" class="shot">');
-						html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-						html.push('<figcaption class="shot__hover">');
-						html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-						html.push('</figure>');
-					});
-					$('#dribbbles').html(html.join(''));
-					$('#no_shots').hide();
-				});
+//				$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
+//				$.jribbble.users('onemohrtime').shots({
+//					per_page : 6,
+//					sort : 'recent'
+//				}).then(function(shots) {
+//					var html = [];
+//					shots.forEach(function(shot) {
+//						html.push('<figure id="shot_' + shot.id + '" class="shot">');
+//						html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
+//						html.push('<figcaption class="shot__hover">');
+//						html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
+//						html.push('</figure>');
+//					});
+//					$('#dribbbles').html(html.join(''));
+//					$('#no_shots').hide();
+//				});
 			}
 		},
 		// About us page, note the change from about-us to about_us.

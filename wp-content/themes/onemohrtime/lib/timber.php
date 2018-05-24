@@ -27,7 +27,8 @@ class SageTimberTheme extends TimberSite {
     function add_to_context( $context ) {
 
         /* Menu */
-        $context['menu'] = new TimberMenu();
+        $context['menu'] = new TimberMenu('Primary Navigation');
+        $context['footer'] = new TimberMenu('Footer Projects');
 
         /* Site info */
         $context['site'] = $this;

@@ -1,55 +1,64 @@
 {% extends 'templates/base.twig' %}
 
 {% block content %}
-
+	
 	{% if swiper %}
-	<div id="home_banner" class="swiper-container">
+	<section class="homepage__swipers">
 		
-		<figure class="parallax-bg" style="background-image:url('{{ post.thumbnail.src }}')" data-swiper-parallax="-23%"></figure>
-		
-		<div class="swiper-wrapper">
-			
-			{% for slide in swiper %}
-			<div class="swiper-slide">
-				
-				<div class="swiper-slide__title" data-swiper-parallax="-400" data-swiper-parallax-duration="500">
-					<h2>{{ slide.title }}</h2>
+		<div id="home_frame_2" class="swiper-container">
+			<div class="swiper-wrapper">
+				{% for slide in swiper %}
+				<div class="swiper-slide swiper-frame-2">
+					<div class="swiper-slide__frame"></div>
 				</div>
-				<div class="swiper-slide__text" data-swiper-parallax="-200">
-					{{ slide.content }}
+				{% endfor %}
+			</div>
+		</div>
+		<div id="home_frame_1" class="swiper-container">
+			<div class="swiper-wrapper">
+				{% for slide in swiper %}
+				<div class="swiper-slide swiper-frame-1">
+					<div class="swiper-slide__frame"></div>
 				</div>
-				
+				{% endfor %}
 			</div>
-			{% endfor %}
-			
 		</div>
 		
-		<div class="swiper-pagination swiper-pagination-white"></div>
-		
-		<div class="swiper-button-prev swiper-button-white"></div>
-		<div class="swiper-button-next swiper-button-white"></div>
-		
-	</div>
-	<div id="home_frame_1" class="swiper-container">
-		<div class="swiper-wrapper">
+		<div id="home_banner" class="swiper-container">
 			
-			{% for slide in swiper %}
-			<div class="swiper-slide swiper-frame-1">
+			<div class="swiper-button-prev swiper-button-white"></div>
+			<div class="swiper-button-next swiper-button-white"></div>
+			
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			
+			<div class="parallax-bg" data-swiper-parallax="-23%">
+				<img src="{{ post.thumbnail.src('thumbnail') }}"
+					 alt=""
+					 class="swiper__image"
+					 srcset="{{ post.thumbnail.src('medium') }} 500w,
+							 {{ post.thumbnail.src('large') }} 1000w,
+							 {{ post.thumbnail.src('full') }} 1500w"
+					 sizes="" />
 			</div>
-			{% endfor %}
+			
+			<div class="swiper-wrapper">
+				{% for slide in swiper %}
+				<div class="swiper-slide">
+					
+					<div class="swiper-slide__title" data-swiper-parallax="-400" data-swiper-parallax-duration="500">
+						<h2>{{ slide.title }}</h2>
+					</div>
+					<div class="swiper-slide__text" data-swiper-parallax="-200">
+						{{ slide.content }}
+					</div>
+					
+				</div>
+				{% endfor %}
+			</div>
+			
 			
 		</div>
-	</div>
-	<div id="home_frame_2" class="swiper-container">
-		<div class="swiper-wrapper">
-			
-			{% for slide in swiper %}
-			<div class="swiper-slide swiper-frame-2">
-			</div>
-			{% endfor %}
-			
-		</div>
-	</div>
+	</section>
 	{% endif %}
 	
 	<article class="homepage__work content-block fade-content wysiwyg">
