@@ -4,33 +4,34 @@
 
 .site__header {
 	position: fixed;
-	background-color: transparent;
-	background-color: fade-out($color__black--light, 0.05);
-	background-blend-mode: multiply;
-	color: $color__white;
-	padding-left: $gutter;
-	padding-right: $gutter;
-	width: 100%;
+	@include size(100%, 100px);
 	z-index: 20;
 	
-	&--logo {
-		// .site__header--logo
-		padding-top: 20px;
-		padding-bottom: 20px;
-		margin-left: auto;
+	//@supports (display: grid) {
+	//	grid-column: span 4;
+	//}
+}
+
+.site__logo {
+	@include position(absolute, 30px 36px null null);
+	
+	.logo {
+		display: block;
+		@include size(auto, 40px);
 		
-		img {
-			@include size(60px);
+		#design {
+			path {
+				fill: #171409;
+				transition: $speed linear;
+			}
 		}
 	}
 	
-	@supports (display: flex) {
-		// .site__header
-		display: flex;
-		align-items: center;
-		&--logo {
-			// .site__header--logo
-			flex: 0 1 60px;
+	&.inverted {
+		#design {
+			path {
+				fill: #fffefa;
+			}
 		}
 	}
 }

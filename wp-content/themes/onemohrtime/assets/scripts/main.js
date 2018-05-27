@@ -23,12 +23,12 @@
 				$('#menu_toggle').on('click touchstart', function(e) {
 					e.preventDefault();	
 					// Open nav menu
-					$('#mobile_menu').toggleClass('is-visible');
+					$('#desktop').toggleClass('is-visible');
 					// Switch menu toggle
 					$(this).toggleClass('open');
 					changeLetters($(this));
-					// force body freeze
-					$('body').toggleClass('unscrollable');
+					// Invert logo color
+					$('#logo').toggleClass('inverted');
 				});
 				
 				// Fade in content

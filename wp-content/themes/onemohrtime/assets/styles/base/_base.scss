@@ -21,10 +21,6 @@ body {
 	height: auto;
 	min-height: 100vh;
 	overflow-y: auto;
-	&.unscrollable {
-		height: 100vh;
-		overflow-y: hidden;
-	}
 }
 
 * {

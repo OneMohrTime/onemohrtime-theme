@@ -3,37 +3,45 @@
 */
 
 /*
-* — Mobile —
-*/
-
-.menu-toggle {
-	@include media(">=screen1024") {
-		display: none;
-	}
-}
-
-/*
-* — Desktop —
+* — Menu —
 */
 
 .main-navigation {
-	display: none;
-	@include media(">=screen1024") {
-		display: block;
+//	display: none;
+//	@include media(">=screen1024") {
+//		display: block;
+//	}
+	background-color: fade-out($color__black--light, 0.05);
+	color: $color__white;
+	@include size(100vw, 100px);
+	transform: translateY(-100px);
+	transition: $speed linear;
+	
+	@supports (display: flex) {
+		// .site__header
+		display: flex;
+		align-items: center;
 	}
+	
+	&.is-visible {
+		transform: translateY(0);
+		.site__header--logo {
+			top: 20px;
+		}
+	}
+	
 	.menu {
 		font-family: $font__header;
-//		font-size: 1.125em;
 		font-weight: 700;
 		text-transform: uppercase;
+		margin-left: $base-spacing;
 		letter-spacing: 4px;
-		margin-left: $small-spacing;
 		
 		&-item {
 			// .menu-item
 			position: relative;
 			display: inline-block;
-			margin-left: $small-spacing;
+//			margin-right: $small-spacing;
 			
 			a {
 				padding: $small-spacing / 2 $small-spacing;
@@ -46,16 +54,21 @@
 	}
 }
 
+/*
+* — Toggle —
+*/
+
 .toggle {
 	&__menu {
 		// .toggle__menu
-		@include position(absolute, 100% null null null);
-		color: inherit;
+		@include position(absolute, 0 null null 0);
+		color: $color__black--light;
 		font-family: $font__header;
-		font-size: 1.125em;
+		font-size: 1.25em;
 		font-weight: 700;
-//		letter-spacing: 2px;
+		margin: $gutter;
 		cursor: pointer;
+		transition: $speed linear;
 		z-index: 30;
 		&:hover,
 		&:focus {
@@ -63,7 +76,8 @@
 			span.e span.bar { background-color: $color__yellow; }
 		}
 		&.open {
-			color: $color__white;
+			top: 100px;
+//			color: $color__black--light;
 		}
 		span.m,
 		span.n,
@@ -78,7 +92,7 @@
 				@include size(14px, 13px);
 				span.bar {
 					width: 15px;
-					background-color: $color__white;
+					background-color: $color__black;
 				}
 				span.bar:nth-child(1) {
 					top: 5px;
@@ -99,7 +113,7 @@
 			span.bar {
 				position: relative;
 				display: block;
-				background-color: $color__white;
+				background-color: $color__black--light;
 				transition: $speed;
 				width: 11px;
 				height: 3px;

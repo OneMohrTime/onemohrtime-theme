@@ -1,7 +1,20 @@
 {% if menu %}
 
+{# https://codepen.io/RobinBertilsson/pen/EPaLmo #}
+<div id="menu_toggle" class="toggle__menu">
+	<span class="m">M</span>
+	<span class="e">
+		<span class="bar"></span>
+		<span class="bar"></span>
+		<span class="bar"></span>
+	</span>
+	<span class="n">N</span>
+	<span class="u">U</span>
+</div>
+
 <nav id="desktop" class="main-navigation" role="navigation">
     <ul id="desktop_menu" class="menu">
+		
         {% for item in menu %}
 		<li class="{{ item.classes | join(' ') }}">
 			<a href="{{ item.get_link }}">
@@ -11,6 +24,7 @@
 			{# include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } #}
 		</li>
         {% endfor %}
+		
     </ul>
 </nav>
 
