@@ -29,6 +29,8 @@
 					changeLetters($(this));
 					// Invert logo color
 					$('#logo').toggleClass('inverted');
+					// Add padding to navbar area
+					$('#page').toggleClass('padded');
 				});
 				
 				// Fade in content
