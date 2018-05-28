@@ -13,7 +13,8 @@
 	@supports (display: grid) {
 		grid-column: span 4;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(12, auto);
+		grid-template-rows: auto, auto;
 		grid-column-gap: $gutter;
 		align-items: start;
 		width: auto;
@@ -36,17 +37,25 @@
 		
 		@supports (display: grid) {
 			// .site__footer--column
-			grid-column: span 4;
+			grid-column: span 12;
+			grid-row: 1 / 2;
 			width: auto !important;
 			@include media(">=screen600") {
-				grid-column: span 2;
+				grid-column: span 6;
 			}
 			@include media(">=screen960") {
-				grid-column: span 1;
+				grid-column: span 2;
 				&.social-media {
-					grid-column: 4 / 5;
+					grid-column: span 4;
+					margin-left: 50%;
 				}
 			}
+//			@include media(">=screen1280") {
+//				grid-column: minmax(auto, 2fr);
+//				&.social-media {
+//					grid-column: span 1;
+//				}
+//			}
 		}
 		
 		h3 {
@@ -80,6 +89,13 @@
 					&:focus { transform: translateX(0); }
 				}
 			}
+		}
+	}
+	
+	.copyright {
+		@supports (display: grid) {
+			grid-column: span 12;
+			grid-row: 2 / 3;
 		}
 	}
 }

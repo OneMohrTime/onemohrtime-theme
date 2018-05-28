@@ -3,10 +3,10 @@
 {% block content %}
 {% for post in posts %}
 
-<figure class="halfie__img">
+<figure class="halfie__image">
 	<img src="{{ post.thumbnail.src('thumbnail') }}"
 		 alt="Photo of myself"
-		 class="halfie__img--image"
+		 class="halfie__image--image"
 		 srcset="{{ post.thumbnail.src('medium') }} 500w,
 				 {{ post.thumbnail.src('large') }} 1000w,
 				 {{ post.thumbnail.src('full') }} 1500w" />
