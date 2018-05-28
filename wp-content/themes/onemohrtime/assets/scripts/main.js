@@ -338,6 +338,13 @@
 						'effects'    : "fade"
 					}
 				});
+				$(window).scroll(function(){
+					if ( $(window).scrollTop() + $(window).height() >= $(document).height() - 500 ) {
+					   $('.gallery__filter').fadeOut(300);
+					} else {
+						$('.gallery__filter').fadeIn(300);
+					}
+				});
 				
 			}
 		}
