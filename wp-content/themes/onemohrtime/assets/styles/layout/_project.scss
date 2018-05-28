@@ -7,6 +7,12 @@
 	&__section {
 		// .project__section
 		position: relative;
+		margin-left: $gutter;
+		margin-right: $gutter;
+		@include media(">=screen840") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
 	}
 	
 	&__header {
@@ -84,10 +90,10 @@
 		// .project__title
 		@include title($color__white);
 		text-align: left;
+		@include text-shadow();
 		margin: 0 $gutter 20px;
 		z-index: 2;
 		@include media(">=screen960") {
-//			text-align: left;
 			max-width: 50vw;
 			margin: 0 $gutter $gutter;
 			padding-bottom: $gutter;
@@ -138,11 +144,12 @@
 	
 	&__text {
 		// .project__text
-		padding: 0 $gutter $base-spacing;
-		@include media(">=screen600")  { padding: 0 10% $base-spacing; }
-		@include media(">=screen840")  { padding: 0 15% $base-spacing; }
-		@include media(">=screen1024") { padding: 0 20% $base-spacing; }
-		@include media(">=screen1600") { padding: 0 25% $base-spacing; }
+//		padding: 0 $gutter $base-spacing;
+//		@include media(">=screen600")  { padding: 0 10% $base-spacing; }
+//		@include media(">=screen840")  { padding: 0 15% $base-spacing; }
+//		@include media(">=screen1024") { padding: 0 20% $base-spacing; }
+//		@include media(">=screen1600") { padding: 0 25% $base-spacing; }
+		margin-bottom: $base-spacing;
 	}
 	
 	&__text-image {
@@ -241,9 +248,15 @@
 		column-count: 1;
 		column-gap: 0;
 		counter-reset: item-counter;
+		margin-left: $gutter / 2;
+		margin-right: $gutter / 2;
 		margin-bottom: $base-spacing;
 		
 		@include media(">=screen400")  { column-count: 2; }
+		@include media(">=screen840")  {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
 		@include media(">=screen960")  { column-count: 3; }
 		@include media(">=screen1440") { column-count: 4; }
 		@include media(">=screen1920") { column-count: 5; }
@@ -256,39 +269,46 @@
 			width: 100%;
 		}
 		
-		figure {
+		.image {
+			position: relative;
 			break-inside: avoid;
 			counter-increment: item-counter;
-//			overflow: hidden;
-//			width: 100%;
-//			@include media(">=screen600") { width: 50%; }
-//			@include media(">=screen840") { width: 33.33333%; }
-//			@include media(">=screen1024") { width: 25%; }
+			margin-left: $gutter / 2;
+			margin-right: $gutter / 2;
+			margin-bottom: $gutter;
+			
+			&__caption {
+				@include position(absolute, 0 0 0 0);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: fade-out($color__black--light, 0.4);
+				color: $color__white;
+				padding: $small-spacing;
+				@include media(">=screen840") {
+					padding: $base-spacing;
+				}
+			}
+			
+			&__link {
+				// .image_link
+				@include block-link();
+			}
 		}
 	}
 	
 	&__specs {
 		// .project__specs
 		grid-column: span 4;
-		margin: 0 $gutter $gutter;
-		@include media(">=screen600") {
-			margin-left: 0;
-			margin-right: 0;
-			padding-left: 10%;
-			padding-right: 10%;
-		}
-		@include media(">=screen840") {
-			padding-left: 15%;
-			padding-right: 15%;
-		}
-		@include media(">=screen1024") {
-			padding-left: 20%;
-			padding-right: 20%;
-		}
-		@include media(">=screen1600") {
-			padding-left: 25%;
-			padding-right: 25%;
-		}
+//		margin: 0 $gutter $gutter;
+		margin-bottom: $gutter;
+//		@include media(">=screen600") {}
+//		@include media(">=screen840") {
+//			margin-left: $gutter * 2;
+//			margin-right: $gutter * 2;
+//		}
+//		@include media(">=screen1024") {}
+//		@include media(">=screen1600") {}
 		
 		&--title {
 			// .project__specs--title

@@ -45,9 +45,9 @@
 				{% for slide in swiper %}
 				<div class="swiper-slide">
 					
-					<div class="swiper-slide__title" data-swiper-parallax="-400" data-swiper-parallax-duration="500">
-						<h2>{{ slide.title }}</h2>
-					</div>
+					<h2 class="swiper-slide__title" data-swiper-parallax="-400" data-swiper-parallax-duration="500">
+						{{ slide.title }}
+					</h2>
 					<div class="swiper-slide__text" data-swiper-parallax="-200">
 						{{ slide.content }}
 					</div>

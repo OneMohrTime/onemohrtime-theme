@@ -97,6 +97,7 @@
 	{# Gallery #}
 	<div class="project__section project__gallery fade-content">
 	{% for image in section.images %}
+		
 		<figure class="image">
 			<img src="{{ TimberImage(image) }}"
 				 alt=""
@@ -104,8 +105,17 @@
 				 srcset="{{ TimberImage(image).src('medium') }} 500w,
 						 {{ TimberImage(image).src('large') }} 1000w,
 						 {{ TimberImage(image).src('full') }} 1500w" />
-			<a href="#0" class="image__link">Click to zoom</a>
+			{% if image.caption %}
+				<figcaption class="image__caption">{{ image.caption }}</figcaption class="image__caption">
+			{% else %}
+				<figcaption class="image__caption"><i class="fa fa-search"></i></figcaption class="image__caption">
+			{% endif %}
+			
+			<a href="#0" class="image__link">
+				<span class="screen-reader-text">Click to zoom</span>
+			</a>
 		</figure>
+		
 	{% endfor %}
 	</div>
 	

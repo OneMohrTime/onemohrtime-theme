@@ -1,0 +1,47 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	
+	<figure class="posts__banner">
+		<figcaption class="posts__banner--title">
+			{{ post.title }}
+		</figcaption>
+		
+		<a href="#contact" class="posts__banner--contact btn"><span class="fa fa-long-arrow-left"></span> Contact</a>
+		
+	</figure>
+	
+    {% for post in posts %}
+	
+	<article {{ function('post_class') }}>
+		
+		<figure class="post__image">
+			<img src="{{ post.thumbnail.src }}" />
+		</figure>
+		
+		<header class="post__header">
+			<time class="post__date">
+				{{ post.post_date_gmt | time_ago }}
+			</time>
+			<div class="post__content wysiwyg">
+				<h2 class="post__title">
+					<a href="{{ post.link }}">{{ post.title }}</a>
+				</h2>
+				<p>{{ post.post_content | excerpt(20) }} <a href="{{ post.link }}">[&hellip;]</a></p>
+			</div>
+		</header>
+		
+		<a href="{{ post.link }}" class="post__link"></a>
+		
+	</article>
+	
+	{# include 'blocks/posts.twig' with { post : post } #}
+    {% endfor %}
+	
+{% endblock %}
+
+{% block sidebar %}
+	
+    {% include 'blocks/sidebar.twig' %}
+	
+{% endblock %}

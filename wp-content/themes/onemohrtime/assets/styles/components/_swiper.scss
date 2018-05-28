@@ -39,6 +39,12 @@
 	align-items: center;
 	color: $color__white;
 	padding: $gutter $gutter * 2;
+	
+	&__title,
+	&__text {
+		@include text-shadow();
+	}
+	
 	@include media(">=screen1024") {
 		align-items: flex-start;
 		&__title {

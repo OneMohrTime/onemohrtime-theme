@@ -114,7 +114,7 @@
 }
 
 @mixin text-shadow() {
-	text-shadow: 1px 1px 1px fade-out($color__black, 0.85);
+	text-shadow: 2px 2px 4px fade-out($color__black, .95);
 }
 
 @mixin box-shadow() {
