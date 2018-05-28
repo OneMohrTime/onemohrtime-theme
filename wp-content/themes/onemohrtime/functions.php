@@ -10,12 +10,13 @@
  * @link https://github.com/roots/sage/pull/1042
  */
 $sage_includes = [
-	'lib/timber.php',    // Timber setup
-	'lib/assets.php',    // Scripts and stylesheets
-	'lib/extras.php',    // Custom functions
-	'lib/setup.php',     // Theme setup
-	'lib/titles.php',    // Page titles
-	'lib/customizer.php' // Theme customizer
+	'lib/timber.php',     // Timber setup
+	'lib/assets.php',     // Scripts and stylesheets
+	'lib/extras.php',     // Custom functions
+	'lib/setup.php',      // Theme setup
+	'lib/titles.php',     // Page titles
+	'lib/customizer.php', // Theme customizer
+	'lib/emojis.php'      // Remove emojis
 ];
 
 foreach ($sage_includes as $file) {

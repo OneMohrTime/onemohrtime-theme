@@ -12,7 +12,8 @@
 		@include image-overlay();
 		margin-bottom: $gutter * 2;
 		@include media(">=screen768") {
-			height: calc(100vh - 100px);
+			height: 100vh;
+			margin-bottom: 0;
 		}
 		
 		@supports (display: grid) {
@@ -38,13 +39,14 @@
 			
 			h2 {
 				color: $color__white;
-//				font-size: 3em;
+				font-size: 3em;
 				text-shadow: 2px 2px 4px fade-out($color__black, .95);
 				margin-bottom: 0;
 			}
 			
 			@include media(">=screen1170") {
 				font-size: 5em;
+				h2 { font-size: inherit; }
 			}
 			
 			@supports (display: flex) {
@@ -61,10 +63,52 @@
 		}
 	}
 	
+	&__filter {
+		// .gallery__filter
+		@include position(fixed, null 0 0 0);
+		display: flex;
+		@include size(100%, 72px);
+		z-index: 1;
+		
+		.label,
+		.filter {
+			flex: 1 0 0;
+			background-color: fade-out($color__white, 0.05);
+			color: $color__black;
+			border-top: 10px $color__white--dark solid;
+			font-family: $font__header;
+			font-weight: 700;
+			text-transform: uppercase;
+			max-width: 100%;
+		}
+		
+		.label {
+			background-color: fade-out($color__white--dark, 0.05);
+			color: $color__gray;
+			text-align: center;
+			line-height: 62px;
+		}
+		
+		.filter {
+			&.mixitup-control-active {
+				background-color: fade-out($color__black--light, 0.05);
+				color: $color__white;
+				border-top-color: $color__yellow;
+			}
+		}
+		
+		@include media(">=screen600") {
+			width: auto;
+			left: $gutter * 3;
+			right: $gutter * 3;
+		}
+	}
+	
 	&__grid {
 		// .gallery__grid
 		position: relative;
 		margin: 0 $gutter $gutter;
+		transform: translateY(-#{$gutter * 2});
 		&::before {
 			content: "";
 			position: absolute;

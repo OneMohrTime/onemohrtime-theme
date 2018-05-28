@@ -20,12 +20,18 @@
 	</figure>
     {% endfor %}
 	
-	<section class="gallery__grid fade-content">
-		<div class="gallery__grid--filter">
-		</div>
+	<div class="gallery__filter">
+		<span class="label">Roles:</span>
+		<button type="button" class="filter" data-filter="all">All</button>
+		<button type="button" class="filter" data-toggle=".design">Designer</button>
+		<button type="button" class="filter" data-toggle=".development">Developer</button>
+	</div>
+	
+	<section id="gallery" class="gallery__grid fade-content">
+		
 		{% for item in gallery %}
 		
-		<div id="proj_id_{{ item.id }}" class="gallery__project mix type-{{ item.post_type }}">
+		<div id="proj_id_{{ item.id }}" class="gallery__project mix type-{{ item.post_type }} {{ item.terms('category') | join(' ') | lower }}">
 			
 			<div class="gallery__project--content">
 				

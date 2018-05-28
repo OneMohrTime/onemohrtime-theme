@@ -2,26 +2,38 @@
 * === BUTTONS ===
 */
 
-#{$all-buttons},
-.btn {
+#{$all-buttons} {
 	position: relative;
 	display: inline-block;
 	background-color: transparent;
-	@include btn-color();
-	border-radius: 3px;
-	font-family: $font__header;
+	background-image: none;
+	border-radius: 0;
+	color: inherit;
 	font-size: 100%; // Corrects font size not being inherited in all browsers
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-align: center;
-	text-transform: uppercase;
 	margin: 0;
-	padding: $small-spacing $base-spacing;
-//	@include mask-texture();
 	vertical-align: baseline; // Improves appearance and consistency in all browsers
 	white-space: nowrap;
 	overflow: hidden;
 	appearance: none;
+}
+
+#{$all-buttons-focus} {
+	outline-color: fade-out($color__yellow, 0.4);
+//	.fa {
+//		transform: translateX($small-spacing);
+//	}
+}
+
+.btn {
+	@include btn-color();
+	border-radius: 3px;
+	font-family: $font__header;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: $small-spacing $base-spacing;
+	//	@include mask-texture();
 	&::after {
 		content: "";
 		@include position(absolute, null 0 0 null);
@@ -34,38 +46,31 @@
 		&::after { transition: all 300ms; }
 	}
 	
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: transparent;
+		color: inherit;
+		&.homepage__banner--contact,
+		&.gallery__banner--contact,
+		&.project__banner--contact,
+		&.posts__banner--contact {
+			.fa {
+				transform: translateX(-#{$small-spacing});
+			}
+		}
+		
+		@include media(">=screen960") {
+			transition: all 300ms;
+			&::after {
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+	
 	.fa {
 		position: relative;
 		transition: 500ms cubic-bezier(.455,.03,.515,.955);
-	}
-}
-
-#{$all-buttons-hover},
-#{$all-buttons-focus},
-#{$all-buttons-active},
-.btn:hover,
-.btn:focus,
-.btn:active {
-	background-color: transparent;
-	color: inherit;
-	@include media(">=screen960") {
-		transition: all 300ms;
-		&::after {
-			left: 0;
-			width: 100%;
-		}
-	}
-	
-	.fa {
-		transform: translateX($small-spacing);
-	}
-	
-	&.homepage__banner--contact,
-	&.gallery__banner--contact,
-	&.project__banner--contact,
-	&.posts__banner--contact {
-		.fa {
-			transform: translateX(-#{$small-spacing});
-		}
 	}
 }

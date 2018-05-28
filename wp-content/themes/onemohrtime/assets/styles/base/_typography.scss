@@ -129,7 +129,8 @@ a {
 		color: inherit;
 	}
 	&:focus {
-		outline: 2px fade-out($color__yellow, 0.15) solid;
+//		outline: 2px fade-out($color__yellow, 0.15) solid;
+		outline-color: fade-out($color__yellow, 0.4);
 	}
 	@include media(">=screen1170") {
 		transition-duration: $speed;

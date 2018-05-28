@@ -329,6 +329,16 @@
 					});
 				});
 				
+				// MixItUp
+				var mixer = mixitup('#gallery', {
+					'animation' : {
+						'duration'   : 300,
+						'nudge'      : false,
+						'reverseOut' : true,
+						'effects'    : "fade"
+					}
+				});
+				
 			}
 		}
 	};
