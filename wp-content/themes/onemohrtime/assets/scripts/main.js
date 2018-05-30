@@ -208,36 +208,43 @@
 				// JavaScript to be fired on the home page
 				
 				// Swiper.js
-				if ($('.header-swiper-front').length) {
-//					var homeFrame2 = new Swiper('#home_frame_2', {
-//						slidesPerView: 'auto',
-//						centeredSlides: true,
-//						spaceBetween: 100,
-//						onlyExternal: true,
-//						effect: 'coverflow',
-//						direction: 'vertical',
-//						speed: 600,
-//						coverflowEffect: {
-//							slideShadows: false
-//						}
-//					});
-//					var homeFrame1 = new Swiper('#home_frame_1', {
-//						slidesPerView   : 'auto',
-//						centeredSlides  : true,
+				if ($('#home_banner').length) {
+					var homeFrame2 = new Swiper('#home_frame_2', {
+						slidesPerView   : 'auto',
+						centeredSlides  : true,
+//						spaceBetween    : 100,
+						onlyExternal    : true,
+						effect          : 'coverflow',
+						direction       : 'vertical',
+						speed           : 600,
+						coverflowEffect : {
+							slideShadows : false
+						}
+					});
+					var homeFrame1 = new Swiper('#home_frame_1', {
+						slidesPerView   : 'auto',
+						centeredSlides  : true,
 //						spaceBetween    : 300,
-//						effect          : 'coverflow',
-//						speed           : 600,
-//						coverflowEffect : {
-//							slideShadows : false
-//						}
-//					});
+						effect          : 'coverflow',
+						speed           : 600,
+						coverflowEffect : {
+							slideShadows : false
+						}
+					});
 					var homeBanner = new Swiper('#home_banner', {
+						slidesPerView: 'auto',
+			centeredSlides: true,
+			spaceBetween: 100,
+			effect: 'coverflow',
+			speed: 600,
+			coverflowEffect: {
+				slideShadows: false,
 						initialSlide  : 1,
-						watchOverflow : true,
-						speed         : 600,
-						keyboard      : {
-							enabled : true,
-						},
+//						watchOverflow : true,
+//						speed         : 600,
+//						keyboard      : {
+//							enabled : true,
+//						},
 						pagination : {
 							el             : '#home_banner .swiper-pagination',
 							clickable      : true,
@@ -247,10 +254,10 @@
 							nextEl : '#home_banner .swiper-button-next',
 							prevEl : '#home_banner .swiper-button-prev',
 						},
-//						controller : {
-//							control : [homeFrame1, homeFrame2],
-//							by      : 'container',
-//						},
+						controller : {
+							control : [homeFrame1, homeFrame2],
+							by      : 'container',
+						},
 						parallax : true,
 						a11y     : true,
 					});

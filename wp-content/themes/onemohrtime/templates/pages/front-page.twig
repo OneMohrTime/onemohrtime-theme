@@ -31,16 +31,6 @@
 			
 			<div class="swiper-pagination swiper-pagination-white"></div>
 			
-			<div class="parallax-bg" data-swiper-parallax="-23%">
-				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 alt=""
-					 class="swiper__image"
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src('full') }} 1500w"
-					 sizes="" />
-			</div>
-			
 			<div class="swiper-wrapper">
 				{% for slide in swiper %}
 				<div class="swiper-slide">
@@ -56,6 +46,15 @@
 				{% endfor %}
 			</div>
 			
+			<div class="parallax-bg" data-swiper-parallax="-23%">
+				<img src="{{ post.thumbnail.src('thumbnail') }}"
+					 alt=""
+					 class="swiper__image"
+					 srcset="{{ post.thumbnail.src('medium') }} 500w,
+							 {{ post.thumbnail.src('large') }} 1000w,
+							 {{ post.thumbnail.src('full') }} 1500w"
+					 sizes="" />
+			</div>
 			
 		</div>
 	</section>

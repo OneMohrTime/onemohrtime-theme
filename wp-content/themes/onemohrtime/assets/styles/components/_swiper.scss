@@ -3,13 +3,13 @@
 */
 
 .homepage__swipers {
-	position: relative;
-	@include size(100%, 100vh);
+	position: absolute;
+	@include size(100vw, 100vh);
 	
-	@supports (display: grid) {
-		grid-column: span 4;
-		width: auto;
-	}
+//	@supports (display: grid) {
+//		grid-column: span 4;
+//		width: auto;
+//	}
 }
 
 .swiper {
@@ -26,6 +26,7 @@
 	@include position(absolute, 0 null null 0);
 	background-color: $color__white--dark;
 	@include size(100%, 100vh);
+	z-index: 1;
 	
 	@supports (display: grid) {
 		grid-column: span 4;
@@ -60,22 +61,27 @@
 	}
 	
 	&.swiper-frame-1 {
-		padding-top: $gutter * 2;
-		padding-bottom: $gutter * 2;
+		padding: 0;
+//		padding-top: $gutter * 2;
+//		padding-bottom: $gutter * 2;
 		.swiper-slide__frame {
 			border: 1px fade-out($color__white, 0.5) solid;
 			@include size(100%);
+			z-index: -1;
 		}
 	}
 	
 	&.swiper-frame-2 {
+		padding: $gutter;
 		.swiper-slide__frame {
 			background-color: fade-out($color__black, 0.95);
 			border: 2px fade-out($color__white, 0.8) solid;
-			width: calc(100% - #{$gutter * 2});
-			height: calc(100% - #{$gutter * 4});
-			margin-left: auto;
-			margin-right: auto;
+//			width: calc(100% - #{$gutter * 2});
+//			height: calc(100% - #{$gutter * 4});
+			@include size(100%);
+//			margin-left: auto;
+//			margin-right: auto;
+			z-index: -2;
 		}
 	}
 	
@@ -83,8 +89,11 @@
 
 #home_frame_1,
 #home_frame_2 {
-	@include position(absolute, 0 null null 0);
+	@include position(absolute, $gutter * 2);
 	background-color: transparent;
+	width: calc(100% - #{$gutter * 4});
+	height: calc(100% - #{$gutter * 4});
+//	@include size(100%);
 }
 //#home_frame_1 { z-index: 2; }
 //#home_frame_2 { z-index: 3; }

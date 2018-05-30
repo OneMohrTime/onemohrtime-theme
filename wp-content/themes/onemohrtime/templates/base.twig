@@ -9,13 +9,13 @@
 			{% include 'blocks/header.twig' %}
 			
 			<main id="main" class="site__main content-area
-								   {% if view.is_front_page %} homepage
-								   {% elseif view.is_home %} posts
-								   {% elseif view.is_singular('design') %} project
-								   {% elseif view.is_single %} blog-post
-								   {% elseif view.is_page('design') %} gallery
-								   {% elseif view.is_page %} halfie
-								   {% elseif view.is_404 %} daft-punk
+								   {% if fn('is_front_page') %} homepage
+								   {% elseif fn('is_home') %} posts
+								   {# elseif fn('is_singular("design")') #} project
+								   {% elseif fn('is_single') %} blog-post
+								   {% elseif view.is_page.design %} gallery
+								   {% elseif fn('is_page') %} halfie
+								   {% elseif fn('is_404') %} daft-punk
 								   {% else %}
 								   {% endif %}"
 				  role="main">

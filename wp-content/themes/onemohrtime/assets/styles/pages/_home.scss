@@ -10,6 +10,7 @@
 		// .homepage__work
 		width: 100%;
 		padding: $gutter;
+		padding-top: calc(#{$gutter} + 100vh);
 		margin-bottom: $gutter * 2;
 		@include media(">=screen600")  { padding-left: 10%; padding-right: 10%; }
 		@include media(">=screen840")  { padding-left: 15%; padding-right: 15%; }

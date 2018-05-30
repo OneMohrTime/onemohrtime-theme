@@ -4,12 +4,14 @@
 {% for post in posts %}
 
 <figure class="halfie__image">
-	<img src="{{ post.thumbnail.src('thumbnail') }}"
-		 alt="Photo of myself"
-		 class="halfie__image--image"
-		 srcset="{{ post.thumbnail.src('medium') }} 500w,
-				 {{ post.thumbnail.src('large') }} 1000w,
-				 {{ post.thumbnail.src('full') }} 1500w" />
+	<div class="halfie__image--sticky">
+		<img src="{{ post.thumbnail.src('thumbnail') }}"
+			 alt="Photo of myself"
+			 class=""
+			 srcset="{{ post.thumbnail.src('medium') }} 500w,
+					 {{ post.thumbnail.src('large') }} 1000w,
+					 {{ post.thumbnail.src('full') }} 1500w" />
+	</div>
 </figure>
 
 <article class="halfie__content fade-content">
