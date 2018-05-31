@@ -32,6 +32,32 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+
+/**
+ * Add <main> classes
+ */
+//function main_class($template_class) {
+//	if(is_front_page()) {
+//		$template_class = ' homepage';
+//	} elseif(is_home()) {
+//		$template_class = ' posts';
+//	} elseif(is_singular('design')) {
+//		$template_class = ' project';
+//	} elseif(is_single()) {
+//		$template_class = ' blog-post';
+//	} elseif(is_page('design')) {
+//		$template_class = ' gallery';
+//	} elseif(is_page()) {
+//		$template_class = ' halfie';
+//	} elseif(is_404()) {
+//		$template_class = ' daft-punk';
+//	} else {
+//		$template_class = '';
+//	}
+//	echo $template_class;
+//}
+//add_action('main_class', 'main_class');
+
 /**
  * Add 'defer' to certain scripts
  */

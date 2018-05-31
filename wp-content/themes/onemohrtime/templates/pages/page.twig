@@ -2,30 +2,32 @@
 
 {% block content %}
 {% for post in posts %}
-
-<figure class="halfie__image">
-	<div class="halfie__image--sticky">
-		<img src="{{ post.thumbnail.src('thumbnail') }}"
-			 alt="Photo of myself"
-			 class=""
-			 srcset="{{ post.thumbnail.src('medium') }} 500w,
-					 {{ post.thumbnail.src('large') }} 1000w,
-					 {{ post.thumbnail.src('full') }} 1500w" />
-	</div>
-</figure>
-
-<article class="halfie__content fade-content">
-	
-	{% include 'blocks/page-header.twig' %}
-	
-	<div class="fade-content wysiwyg">
-		{{ post.content }}
-	</div>
-	
-	<footer class="halfie__footer">
-	</footer>
-	
-</article>
-
+	<article {{ function('post_class') }}>
+		
+		<!--
+		<figure class="halfie__image">
+			<div class="halfie__image--sticky">
+				<img src="{{ post.thumbnail.src('thumbnail') }}"
+					 alt="Photo of myself"
+					 class=""
+					 srcset="{{ post.thumbnail.src('medium') }} 500w,
+							 {{ post.thumbnail.src('large') }} 1000w,
+							 {{ post.thumbnail.src('full') }} 1500w" />
+			</div>
+		</figure>
+		-->
+		
+		<header class="page__header fade-content">
+			{% include 'blocks/page-header.twig' %}
+		</header>
+		
+		<div class="page__content fade-content wysiwyg">
+			{{ post.content }}
+		</div>
+		
+		<footer class="page__footer">
+		</footer>
+		
+	</article>
 {% endfor %}
 {% endblock %}
