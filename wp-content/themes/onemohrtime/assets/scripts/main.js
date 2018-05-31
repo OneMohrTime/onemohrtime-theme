@@ -19,6 +19,42 @@
 			init: function () {
 				// JavaScript to be fired on all pages
 				
+				// Change MENU to EXIT
+				function changeLetters(btn) {
+					var m = $('.toggle__menu span.m'),
+						e = $('.toggle__menu span.e'),
+						n = $('.toggle__menu span.n'),
+						u = $('.toggle__menu span.u');
+					
+					e.toggleClass('toggle__close');
+					
+					if(btn.hasClass('open')) {
+						m.text('E');
+						n.text('I');
+						u.text('T');
+					} else {
+						m.text('M');
+						n.text('N');
+						u.text('U');
+					}
+				}
+				
+				function lazyLoadImages() {
+					var st = $(window).scrollTop();
+					$('img.lazy').each(function () {
+						var img = $(this);
+						if (img.attr('src')) return;
+						if (img.offset().top < $(window).height() + st) {
+							img.attr('src', img.data('src'));
+						}
+					});
+				}
+				if ($('img.lazy').length > 0) {
+					$(window).scroll(function () {
+						lazyLoadImages();
+					});
+				}
+				
 				// Bourbon refills nav
 				$('#menu_toggle').on('click touchstart', function(e) {
 					e.preventDefault();	
@@ -83,42 +119,6 @@
 						$('#background').css('opacity', 1 - ($(window).scrollTop() * 0.0005));
 					}
 				});
-				
-				// Change MENU to EXIT
-				function changeLetters(btn) {
-					var m = $('.toggle__menu span.m'),
-						e = $('.toggle__menu span.e'),
-						n = $('.toggle__menu span.n'),
-						u = $('.toggle__menu span.u');
-					
-					e.toggleClass('toggle__close');
-					
-					if(btn.hasClass('open')) {
-						m.text('E');
-						n.text('I');
-						u.text('T');
-					} else {
-						m.text('M');
-						n.text('N');
-						u.text('U');
-					}
-				}
-				
-				function lazyLoadImages() {
-					var st = $(window).scrollTop();
-					$('img.lazy').each(function () {
-						var img = $(this);
-						if (img.attr('src')) return;
-						if (img.offset().top < $(window).height() + st) {
-							img.attr('src', img.data('src'));
-						}
-					});
-				}
-				if ($('img.lazy').length > 0) {
-					$(window).scroll(function () {
-						lazyLoadImages();
-					});
-				}
 				
 				// Instagram API
 				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
