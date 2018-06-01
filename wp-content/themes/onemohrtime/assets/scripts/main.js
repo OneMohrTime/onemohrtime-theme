@@ -19,6 +19,10 @@
 			init: function () {
 				// JavaScript to be fired on all pages
 				
+				//
+				$('body.no-js').removeClass('no-js');
+				//
+				
 				// Change MENU to EXIT
 				function changeLetters(btn) {
 					var m = $('.toggle__menu span.m'),
