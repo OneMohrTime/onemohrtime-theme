@@ -232,19 +232,18 @@
 						}
 					});
 					var homeBanner = new Swiper('#home_banner', {
-						slidesPerView: 'auto',
-			centeredSlides: true,
-			spaceBetween: 100,
-			effect: 'coverflow',
-			speed: 600,
-			coverflowEffect: {
-				slideShadows: false,
-						initialSlide  : 1,
-//						watchOverflow : true,
-//						speed         : 600,
-//						keyboard      : {
-//							enabled : true,
-//						},
+						initialSlide    : 1, // start in the middle (should be 0 - 2)
+						slidesPerView   : 'auto',
+						centeredSlides  : true,
+						spaceBetween    : 100,
+						effect          : 'coverflow',
+						speed           : 600,
+						coverflowEffect : {
+						slideShadows    : false,
+//						watchOverflow   : true,
+						keyboard        : {
+							enabled : true,
+						},
 						pagination : {
 							el             : '#home_banner .swiper-pagination',
 							clickable      : true,
