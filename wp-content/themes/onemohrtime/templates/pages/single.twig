@@ -3,18 +3,22 @@
 {% block content %}
 {% for post in posts %}
 	<article {{ function('post_class') }}>
+		
 		<header class="entry__header fade-content">
 			{% include "blocks/entry-meta.twig" %}
 			{% include "blocks/page-header.twig" %}
 		</header>
+		
 		<div class="entry__content fade-content">
 			{{ post.content }}
 		</div>
+		
 		<footer class="entry__foooter fade-content">
 			{{ wp_link_pages }}
-			{% include "blocks/comment.twig" %}
-			{% include "blocks/comment-form.twig" %}
+			{# include "blocks/comment.twig" #}
+			{# include "blocks/comment-form.twig" #}
 		</footer>
+		
 	</article>
 {% endfor %}
 {% endblock %}
