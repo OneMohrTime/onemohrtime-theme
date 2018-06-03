@@ -66,7 +66,7 @@
 	padding-bottom: .25em;
 }
 
-@mixin texture() {
+@mixin texture-grid() {
 	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
 }
 

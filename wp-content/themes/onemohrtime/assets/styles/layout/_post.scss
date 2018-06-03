@@ -31,6 +31,17 @@
 				font-size: 6.5rem;
 			}
 		}
+		
+		.meta {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			
+			& > * {
+				margin: 0 1em;
+			}
+		}
 	}
 	
 	&__content {

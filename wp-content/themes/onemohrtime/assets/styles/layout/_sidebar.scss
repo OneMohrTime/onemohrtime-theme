@@ -36,7 +36,7 @@
 				left: -#{$gutter / 2};
 				right: -#{$gutter / 2};
 				bottom: 50%;
-				@include texture();
+				@include texture-grid();
 			}
 		}
 		

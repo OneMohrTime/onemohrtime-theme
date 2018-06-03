@@ -45,6 +45,7 @@
 	"vendor/base/base",
 	"../../node_modules/include-media/dist/include-media",
 	"../../node_modules/font-awesome/scss/font-awesome",
+	"vendor/texture-mixin",
 	"../../node_modules/swiper/dist/css/swiper";
 
 @import
@@ -58,7 +59,7 @@
 	"base/media";
 
 /*--------------------------------------------------------------
-	4.0 Layout
+	2.0 Layout
 --------------------------------------------------------------*/
 
 @import

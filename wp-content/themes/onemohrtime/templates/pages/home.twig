@@ -2,7 +2,17 @@
 
 {% block content %}
 	
-	<figure class="posts__banner">
+	<figure id="js-parallax-window" class="posts__banner parallax-window">
+		
+		<img src="{{ post.thumbnail.src('thumbnail') }}"
+			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+			 alt="{{ post.thumbnail.alt }}"
+			 id="js-parallax-background"
+			 class="gallery__banner--image parallax-background"
+			 srcset="{{ post.thumbnail.src('medium') }} 500w,
+					 {{ post.thumbnail.src('large') }} 1000w,
+					 {{ post.thumbnail.src('full') }} 1500w" />
+		
 		<figcaption class="posts__banner--title">
 			<h2>{{ post.title }}</h2>
 		</figcaption>
@@ -11,32 +21,38 @@
 		
 	</figure>
 	
-    {% for post in posts %}
-	
-	<article {{ function('post_class') }}>
-		
-		<figure class="post__image">
-			<img src="{{ post.thumbnail.src }}" />
-		</figure>
-		
-		<header class="post__header">
-			<time class="post__date">
-				{{ post.post_date_gmt | time_ago }}
-			</time>
-			<div class="post__content wysiwyg">
-				<h2 class="post__title">
-					<a href="{{ post.link }}">{{ post.title }}</a>
-				</h2>
-				<p>{{ post.post_content | excerpt(20) }} <a href="{{ post.link }}">[&hellip;]</a></p>
-			</div>
-		</header>
-		
-		<a href="{{ post.link }}" class="post__link"></a>
-		
-	</article>
-	
-	{# include 'blocks/posts.twig' with { post : post } #}
-    {% endfor %}
+	<section class="posts fade-content">
+		{% for post in posts %}
+		<article {{ function('post_class') }}>
+			
+			<figure class="post__image">
+				<img src="{{ post.thumbnail.src('thumbnail') }}"
+					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+					 alt="{{ post.thumbnail.alt }}"
+					 class="post__image--parallax"
+					 data-speed="-0.25"
+					 srcset="{{ post.thumbnail.src('medium') }} 500w,
+							 {{ post.thumbnail.src('large') }} 1000w,
+							 {{ post.thumbnail.src('full') }} 1500w" />
+			</figure>
+			
+			<header class="post__header">
+				<time class="post__date">
+					{{ post.post_date_gmt | time_ago }}
+				</time>
+				<div class="post__content wysiwyg">
+					<h2 class="post__title">
+						<a href="{{ post.link }}">{{ post.title }}</a>
+					</h2>
+					<p>{{ post.post_content | excerpt(20) }} <a href="{{ post.link }}">[&hellip;]</a></p>
+				</div>
+			</header>
+			
+			<a href="{{ post.link }}" class="post__link"></a>
+			
+		</article>
+		{% endfor %}
+	</section>
 	
 {% endblock %}
 

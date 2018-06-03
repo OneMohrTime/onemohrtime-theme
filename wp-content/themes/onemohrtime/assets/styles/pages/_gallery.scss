@@ -8,6 +8,7 @@
 	&__banner {
 		// .gallery__banner
 		position: relative;
+		background-color: $color__white--dark;
 		@include size(100%, 300px);
 		@include image-overlay();
 		margin-bottom: $gutter * 2;
@@ -116,7 +117,7 @@
 			left: 33.3%;
 			right: $gutter;
 			bottom: 15%;
-			@include texture();
+			@include texture-grid();
 		}
 		@supports (display: flex) {
 			display: flex;
