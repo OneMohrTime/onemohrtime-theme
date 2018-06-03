@@ -105,6 +105,7 @@ function assets() {
 	
 	wp_enqueue_script('mixitup', Assets\asset_path('scripts/mixitup.js'), '', null, true);
 	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
+	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), '', null, true);
 	wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

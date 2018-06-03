@@ -33,6 +33,11 @@
 		"scripts/swiper.js"
 	  ]
 	},
+	"swiper.js": {
+	  "files": [
+		"scripts/fancybox.js"
+	  ]
+	},
     "jquery.js": {
       "bower": ["jquery"]
     }

@@ -28,14 +28,14 @@
 
 {# Project Details #}
 {% if post.get_field('project_specs') %}
-<article class="project__story fade-content">
+<aside class="project__specs fade-content">
 	
-</article>
+</aside>
 {% endif %}
 
 {# Section Builder #}
 {% if sections %}
-<aside class="project__specs">
+<article class="project__story">
 	
 	{% for section in sections %}
 	
@@ -89,7 +89,13 @@
 	
 	{# Blockquote #}
 	<div class="project__section project__blockquote wysiwyg fade-content">
-		{{ section.text }}
+		<blockquote class="blockquote">
+			{{ section.text }}
+			<footer class="blockquote__footer">
+				<cite title="Cite">Cite</cite>
+			</footer>
+		</blockquote>
+		<img src="http://placehold.it/1920x1080" />
 	</div>
 	
 	{% elseif section.acf_fc_layout == 'detail_gallery' %}
@@ -106,12 +112,12 @@
 						 {{ TimberImage(image).src('large') }} 1000w,
 						 {{ TimberImage(image).src('full') }} 1500w" />
 			{% if image.caption %}
-				<figcaption class="image__caption">{{ image.caption }}</figcaption class="image__caption">
+				<figcaption class="image__caption">{{ image.caption }}</figcaption>
 			{% else %}
-				<figcaption class="image__caption"><i class="fa fa-search"></i></figcaption class="image__caption">
+				<figcaption class="image__caption"><i class="fa fa-search"></i></figcaption>
 			{% endif %}
 			
-			<a href="#0" class="image__link">
+			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox{% if image.caption %} data-caption="{{ image.caption }}"{% endif %}>
 				<span class="screen-reader-text">Click to zoom</span>
 			</a>
 		</figure>
@@ -123,7 +129,7 @@
 	
 	{% endfor %}
 	
-</aside>
+</article>
 {% endif %}
 
 {# Navigate between projects #}

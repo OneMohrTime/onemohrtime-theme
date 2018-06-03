@@ -1,5 +1,5 @@
 <p class="meta wysiwyg">
-	<time class="updated" datetime="{{ post.post_date | date(c) }}">{{ post.post_date | date }}</time> |
+	<time class="updated" datetime="{{ post.post_date | date(c) }}">{{ post.post_date_gmt | time_ago }}</time> |
 	<i class="fa fa-newspaper-o"></i> {{ post.format | capitalize }} |
 	<span class="byline author vcard">{{  __('', 'onemohrtime') }} <a href="{{ post.author.path }}" rel="author" class="fn">{{ post.author.name }}</a></span>
 </p>

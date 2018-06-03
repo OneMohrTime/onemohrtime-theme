@@ -7,10 +7,6 @@
 */
 
 .main-navigation {
-//	display: none;
-//	@include media(">=screen1024") {
-//		display: block;
-//	}
 	background-color: fade-out($color__black--light, 0.05);
 	color: $color__white;
 	@include size(100vw, 100px);
@@ -41,7 +37,6 @@
 			// .menu-item
 			position: relative;
 			display: inline-block;
-//			margin-right: $small-spacing;
 			
 			a {
 				padding: $small-spacing / 2 $small-spacing;
@@ -70,10 +65,14 @@
 		cursor: pointer;
 		transition: $speed linear;
 		z-index: 30;
-		&:hover,
+//		&:hover,
+//		&:focus {
+//			color: $color__yellow;
+//			span.e span.bar { background-color: $color__yellow; }
+//		}
 		&:focus {
-			color: $color__yellow;
-			span.e span.bar { background-color: $color__yellow; }
+			outline: 3px fade-out($color__yellow, 0.4) solid;
+			outline-offset: 2px;
 		}
 		&.open {
 			top: 100px;

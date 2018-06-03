@@ -126,113 +126,106 @@ body.blog {
 			width: 1366px;
 		}
 		
-		.post__header {
-			order: 2;
-			display: flex;
-			flex-direction: row;
-			@include media(">=screen840") {
-				@include position(absolute, 23px 0 null null);
-				background: $color__white;
-				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-				@include size(50%, 90%);
-				min-height: 200px;
-				padding: $base-spacing;
-				overflow: hidden;
-				z-index: 3;
-			}
-		}
-		
-	.post__title {
-			text-transform: none;
-			@include underlined();
-			@include media(">=screen840") {
-				margin-bottom: .2em;
-				padding-bottom: calc(10px + .2em);
+		.post {
+			&__header {
+				// .post__header
+				order: 2;
+				display: flex;
+				flex-direction: row;
+				@include media(">=screen840") {
+					@include position(absolute, 23px 0 null null);
+					background: $color__white;
+					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+					@include size(50%, 90%);
+					min-height: 200px;
+					padding: $base-spacing;
+					overflow: hidden;
+					z-index: 3;
+				}
 			}
 			
-			&--cats {
-				// .post__title--cats
-				margin-bottom: .5em;
+			&__title {
+				// .post__title
+				text-transform: none;
+				@include underlined();
 				@include media(">=screen840") {
-					display: block;
-					font-size: .75em;
-					margin: 1em 0 .5em;
+					margin-bottom: .2em;
+					padding-bottom: calc(10px + .2em);
 				}
 			}
-		}
-		
-.post__date {
-			flex: 0 1 20%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			background-color: $color__yellow;
-			color: $color__yellow--light;
-			border-bottom-left-radius: 3px;
-			padding: $gutter/2;
-			@include media(">=screen840") {
-				flex: 1 0 100px;
-				background-color: transparent !important;
-				color: $color__black;
-				border: 10px $color__white--dark solid;
-				@include size(100px);
-				margin-right: $gutter;
-				padding: 0;
-				transition: border-color $speed;
-				display: none;
+			
+			&__date {
+				// .post__date
+				flex: 0 1 20%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background-color: $color__yellow;
+				color: $color__yellow--light;
+				border-bottom-left-radius: 3px;
+				padding: $gutter/2;
+				@include media(">=screen840") {
+					flex: 1 0 100px;
+					background-color: transparent !important;
+					color: $color__black;
+					border: 10px $color__white--dark solid;
+					@include size(100px);
+					margin-right: $gutter;
+					padding: 0;
+					transition: border-color $speed;
+					display: none;
+				}
+				.month {
+					line-height: 1em;
+				}
+				.day {
+					font-size: 2em;
+					font-weight: 700;
+					line-height: 1em;
+				}
+				.updated { display: none; }
+				a {
+					@include block-link();
+					@include media(">=screen840") { display: none; }
+				}
 			}
-			.month {
-				line-height: 1em;
+			
+			&__content {
+				// .post__content
+				flex: 1 0 80%;
+				display: block;
+				padding: $gutter / 2;
 			}
-			.day {
-				font-size: 2em;
-				font-weight: 700;
-				line-height: 1em;
+			
+			&__image {
+				// .post__image
+				order: 1;
+				background: $color__white--dark;
+				@include size(100%, 150px);
+				@include media(">=screen840") {
+					@include position(absolute, 0 null null 50%);
+					pointer-events: none;
+					transform: translate(-50%, 0);
+					z-index: 1;
+				}
+				&--parallax {
+					border-top-left-radius: 3px;
+					border-top-right-radius: 3px;
+					width: 100%;
+					@supports (object-fit: cover) {
+						@include size(100%, 200%);
+						object-fit: cover;
+					}
+				}
 			}
-			.updated { display: none; }
-			a {
+			
+			&__link {
+				// .post__link
 				@include block-link();
-				@include media(">=screen840") { display: none; }
 			}
+			
 		}
-		
-.post__content {
-			flex: 1 0 80%;
-			display: block;
-			padding: $gutter / 2;
-		}
-		
-.post__image {
-			order: 1;
-			background: $color__white no-repeat center center scroll;
-			background-size: cover;
-			@include size(100%, 150px);
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			@include media(">=screen840") {
-				@include position(absolute, 0 null null 50%);
-				pointer-events: none;
-				transform: translate(-50%, 0);
-				z-index: 1;
-				@supports (object-fit: cover) {
-					@include size(100%, 200%);
-					object-fit: cover;
-				}
-//				@include position(absolute, 0 null null 0);
-//				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-//				@include size(60%, 100%);
-//				overflow: hidden;
-			}
-	&--parallax {
-		
-	}
-		}
-		
-.post__link {
-			@include block-link();
-		}
-		
 		// Inverse odd/even layout
 		@include media(">=screen840") {
 			&:nth-child(even) {

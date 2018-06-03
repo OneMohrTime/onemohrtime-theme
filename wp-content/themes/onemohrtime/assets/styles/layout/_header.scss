@@ -6,10 +6,6 @@
 	position: fixed;
 	@include size(100%, 100px);
 	z-index: 20;
-	
-	//@supports (display: grid) {
-	//	grid-column: span 4;
-	//}
 }
 
 .site__logo {

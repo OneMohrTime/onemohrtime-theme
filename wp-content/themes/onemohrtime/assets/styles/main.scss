@@ -9,6 +9,7 @@
 	- Vendor
 	- Base
 	- Typography
+	- Media
 2.0 Layout
 	- Header
 	- Footer
@@ -19,7 +20,6 @@
 	- Page Specific
 3.0 Components
 	- Buttons
-	- Media
 	- Nav
 	- Feature Image
 	- Contact Section
@@ -45,6 +45,7 @@
 	"vendor/base/base",
 	"../../node_modules/include-media/dist/include-media",
 	"../../node_modules/font-awesome/scss/font-awesome",
+	"../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox",
 	"vendor/texture-mixin",
 	"../../node_modules/swiper/dist/css/swiper";
 
