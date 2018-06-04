@@ -23,6 +23,29 @@
     hyphens: auto;
 }
 
+@mixin responsive-type() {
+	// Scale text responsively
+	$large-screen: 1200px !default;
+	$small-screen: 600px !default;
+	$range : $large-screen - $small-screen !default;
+	$intervals: 20 !default;
+	$interval-size: $range / $intervals !default;
+
+	.responsive-type {
+		$i: 0;
+		@while $i <= $intervals {
+			@media only screen and (min-width: 360 + ($i * $interval-size)) {
+				font-size: 1.2rem * (1 + (.02 * $i));
+			}
+			$i: $i + 1;
+		}
+		// Handle below 360px screen
+		@media only screen and (max-width: 360px) {
+			font-size: 1.2rem;
+		}
+	}
+}
+
 @mixin inline() {
 	position: relative;
 	color: inherit;
