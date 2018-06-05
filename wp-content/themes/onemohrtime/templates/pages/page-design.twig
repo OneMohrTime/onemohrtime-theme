@@ -22,10 +22,20 @@
     {% endfor %}
 	
 	<div class="gallery__filter">
-		<span class="label">Roles:</span>
-		<button type="button" class="filter" data-filter="all">All</button>
-		<button type="button" class="filter" data-toggle=".design">Designer</button>
-		<button type="button" class="filter" data-toggle=".development">Developer</button>
+		<div class="arrays">
+			<ul class="array array__roles">
+				<li><button type="button" class="filter" data-filter="all">All</button></li>
+				<li><button type="button" class="filter" data-toggle=".design">Designer</button></li>
+				<li><button type="button" class="filter" data-toggle=".development">Developer</button></li>
+			</ul>
+			<ul class="array array__category">
+				<li><button type="button" class="filter" data-filter="all">All</button></li>
+				<li><button type="button" class="filter" data-toggle=".freelance">Freelance</button></li>
+				<li><button type="button" class="filter" data-toggle=".agency">Agency</button></li>
+				<li><button type="button" class="filter" data-toggle=".inhouse">In-house</button></li>
+				<li><button type="button" class="filter" data-toggle=".personal">Personal</button></li>
+			</ul>
+		</div>
 	</div>
 	
 	<section id="gallery" class="gallery__grid fade-content">

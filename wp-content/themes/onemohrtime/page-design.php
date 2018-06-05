@@ -11,9 +11,8 @@ $context = Timber::get_context();
 $args = array(
 	'post_type'      => 'design',
 	'posts_per_page' => -1,
-	'orderby'        => array(
-		'date' => 'DESC'
-	)
+	'orderby'        => 'menu_order',
+	'order'          => 'DESC'
 );
 $context['gallery'] = Timber::get_posts( $args );
 
