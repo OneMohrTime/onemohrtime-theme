@@ -1,9 +1,14 @@
 {% if display_sidebar %}
-<aside class="sidebar">
+<aside class="site__sidebar">
 	
-	{% block sidebar %}
-		{{ sidebar_primary }}
-	{% endblock %}
+	<div class="widget widget__instagram">
+		<h3 class="widget__instagram--title">Instagram <span><a href="//instagram.com/onemohrtimedesign" target="_blank">@onemohrtimedesign</a></span></h3>
+		<div id="latest_instagram" class="widget__instagram--feed fade-content"></div>
+	</div>
+	
+	{# block sidebar #}
+		{# sidebar_primary #}
+	{# endblock #}
 	
 </aside>
 {% endif %}

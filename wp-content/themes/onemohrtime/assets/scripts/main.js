@@ -135,33 +135,33 @@
 				
 				// Instagram API
 				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
-//				var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
-//					userid = 3567722892,
-//					num_photos = 4;
-//					
-//				$.ajax({
-//					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
-////					url : 'https://api.instagram.com/v1/users/self/media/recent',
-//					dataType : 'jsonp',
-//					type : 'GET',
-//					data : {
-//						access_token : token,
-//						count        : num_photos
-//					},
-//					success : function(data) {
-////						console.log(data);
-//						for( x in data.data ) {
-//							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><a href="' + data.data[x].link + '" class="btn" target="_blank"><span class="fa fa-instagram"></span> View on Instagram</a></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"></a></figure>');
-////							 data.data[x].images.thumbnail.url - URL of image 150х150
-////							 data.data[x].images.low_resolution.url - URL of image 306x306
-////							 data.data[x].images.standard_resolution.url - URL of image 612х612
-////							 data.data[x].link - Instagram post URL 
-//						}
-//					},
-////					error : function(data) {
-////						console.log(data);
-////					}
-//				});
+				var token = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
+					userid = 3567722892,
+					num_photos = 4;
+					
+				$.ajax({
+					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
+//					url : 'https://api.instagram.com/v1/users/self/media/recent',
+					dataType : 'jsonp',
+					type : 'GET',
+					data : {
+						access_token : token,
+						count        : num_photos
+					},
+					success : function(data) {
+						console.log(data);
+						for( x in data.data ) {
+							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><a href="' + data.data[x].link + '" class="btn" target="_blank"><span class="fa fa-instagram"></span> View on Instagram</a></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"></a></figure>');
+//							 data.data[x].images.thumbnail.url - URL of image 150х150
+//							 data.data[x].images.low_resolution.url - URL of image 306x306
+//							 data.data[x].images.standard_resolution.url - URL of image 612х612
+//							 data.data[x].link - Instagram post URL 
+						}
+					},
+					error : function(data) {
+						console.log(data);
+					}
+				});
 				
 				// Bourbon Refills parallax effect
 				// refills.bourbon.io/components#parallax
