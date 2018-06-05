@@ -82,7 +82,7 @@
 		background-color: $color__white;
 		font-size: .75em;
 		font-family: $font__secondary;
-		font-style: italic;
+//		font-style: italic;
 		text-transform: none;
 		margin: 0 $gutter;
 		padding: 10px 15px;
@@ -297,9 +297,7 @@
 			border: 0;
 			margin: 0;
 			padding: 0;
-				@include media(">=screen540")  { font-size: 1.25em; }
-				@include media(">=screen840")  { font-size: 1.5em; }
-				@include media(">=screen1170") { font-size: 1.75em; }
+//			@include responsive-type();
 			&::before {
 				content: "\f10d";
 				display: block;
@@ -312,6 +310,7 @@
 				color: shade($color__yellow, 67%);
 				display: inline;
 				background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
+				@include responsive-type();
 			}
 		}
 	}

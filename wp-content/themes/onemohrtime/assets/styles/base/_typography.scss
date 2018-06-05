@@ -15,12 +15,13 @@
 }
 
 .content-area {
-	font-size: .875em;
-	@include media(">=screen600")  { font-size: 1em; }
-	@include media(">=screen768")  { font-size: 1.125em; }
-	@include media(">=screen960")  { font-size: 1.25em; }
-	@include media(">=screen1280") { font-size: 1.3125em; }
-	@include media(">=screen2560") { font-size: 1.5em; }
+	@include responsive-type();
+//	font-size: .875em;
+//	@include media(">=screen600")  { font-size: 1em; }
+//	@include media(">=screen768")  { font-size: 1.125em; }
+//	@include media(">=screen960")  { font-size: 1.25em; }
+//	@include media(">=screen1280") { font-size: 1.3125em; }
+//	@include media(">=screen2560") { font-size: 1.5em; }
 }
 
 ::selection {
@@ -61,6 +62,12 @@
 				transform: rotate(-4deg) translate(-2em, .1em);
 			}
 		}
+	}
+}
+
+@for $i from 1 through 4 {
+	h#{$i} {
+		font-size: modular-scale((4 - $i), 1em, $major-third);
 	}
 }
 
