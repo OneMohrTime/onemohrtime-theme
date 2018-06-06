@@ -39,17 +39,21 @@
 --------------------------------------------------------------*/
 
 @import
+	// full vendor mixins + variables
 	"../../node_modules/normalize-scss/sass/normalize",
 	"../../node_modules/bourbon/core/bourbon",
 	"vendor/neat/neat",
 	"vendor/base/base",
-	"../../node_modules/include-media/dist/include-media",
 	"../../node_modules/font-awesome/scss/font-awesome",
 	"../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox",
-	"vendor/texture-mixin",
-	"../../node_modules/swiper/dist/css/swiper";
+	"../../node_modules/swiper/dist/css/swiper",
+	// needs variables
+	"../../node_modules/include-media/dist/include-media",
+	"vendor/modularscale",
+	"vendor/texture-mixin";
 
 @import
+	// site mixins + variables
 	"helpers/variables",
 	"helpers/mixins",
 	"helpers/helpers";
@@ -57,6 +61,7 @@
 @import
 	"base/base",
 	"base/typography",
+	"base/links",
 	"base/media";
 
 /*--------------------------------------------------------------
@@ -91,6 +96,6 @@
 
 @import
 	"pages/home",
-	"pages/gallery",
+	"pages/projects",
 	"pages/blog",
 	"pages/errors";

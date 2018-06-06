@@ -18,25 +18,103 @@
 			<h2>{{ post.title }}</h2>
 		</figcaption>
 		
+		<a href="#contact" class="gallery__banner--contact btn"><span class="fa fa-long-arrow-left"></span> Contact</a>
+		
 	</figure>
     {% endfor %}
 	
 	<div class="gallery__filter">
-		<div class="arrays">
-			<ul class="array array__roles">
-				<li><button type="button" class="filter" data-filter="all">All</button></li>
-				<li><button type="button" class="filter" data-toggle=".design">Designer</button></li>
-				<li><button type="button" class="filter" data-toggle=".development">Developer</button></li>
-			</ul>
-			<ul class="array array__category">
-				<li><button type="button" class="filter" data-filter="all">All</button></li>
+		<form class="arrays" id="featured_project_filter">
+			<fieldset class="array array__roles">
+				<h3 class="array__title">Roles</h3>
+				<div class="checkbox">
+					<input type="checkbox" class="filter" value=".design"/>
+					<label>Designer</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" class="filter" value=".development"/>
+					<label>Developer</label>
+				</div>
+			</fieldset>
+			<fieldset class="array array__category">
+				<h3 class="array__title">Job Type</h3>
+				<div class="checkbox">
+					<input type="checkbox" class="filter" value=".freelance"/>
+					<label>Freelance</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" class="filter" value=".agency"/>
+					<label>Agency</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" class="filter" value=".inhouse"/>
+					<label>In-house</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" class="filter" value=".personal"/>
+					<label>Personal</label>
+				</div>
+			</fieldset>
+<!--
+			<fieldset class="array array__category">
 				<li><button type="button" class="filter" data-toggle=".freelance">Freelance</button></li>
 				<li><button type="button" class="filter" data-toggle=".agency">Agency</button></li>
 				<li><button type="button" class="filter" data-toggle=".inhouse">In-house</button></li>
 				<li><button type="button" class="filter" data-toggle=".personal">Personal</button></li>
-			</ul>
-		</div>
+			</fieldset>
+-->
+			<button role="button" id="reset" class="btn">Clear Filters</button>
+		</form>
 	</div>
+<!--
+<form class="controls" id="Filters">
+	<fieldset>
+		<h4>Shapes</h4>
+		<div class="checkbox">
+			<input type="checkbox" value=".square" />
+			<label>Square</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" value=".circle" />
+			<label>Circle</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" value=".triangle" />
+			<label>Triangle</label>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<h4>Colours</h4>
+		<div class="checkbox">
+			<input type="checkbox" value=".white" />
+			<label>White</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" value=".green" />
+			<label>Green</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" value=".blue" />
+			<label>Blue</label>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<h4>Sizes</h4>
+		<div class="checkbox">
+			<input type="checkbox" value=".sm" />
+			<label>Small</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" value=".lrg" />
+			<label>Large</label>
+		</div>
+	</fieldset>
+
+	<button id="Reset">Clear Filters</button>
+</form>
+-->
 	
 	<section id="gallery" class="gallery__grid fade-content">
 		

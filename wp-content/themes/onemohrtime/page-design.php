@@ -12,7 +12,7 @@ $args = array(
 	'post_type'      => 'design',
 	'posts_per_page' => -1,
 	'orderby'        => 'menu_order',
-	'order'          => 'DESC'
+	'order'          => 'ASC'
 );
 $context['gallery'] = Timber::get_posts( $args );
 

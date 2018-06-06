@@ -35,25 +35,25 @@ $color--error: $color__red;
 * — Typography —
 */
 
-$font__main   : "Barlow", $font-stack-system;
-$font__secondary: "Wildwest", $font-stack-georgia;
-$font__header : "Barlow Semi Condensed", $font-stack-helvetica;
-//$font__header : $font__main;
-$font__code   : "Inconsolata", $font-stack-monaco;
+$font__main      : "Barlow", $font-stack-system;
+$font__secondary : "Wildwest", $font-stack-georgia;
+$font__header    : "Barlow Semi Condensed", $font-stack-helvetica;
+$font__code      : "Inconsolata", $font-stack-monaco;
 
 /*
 * — Structure —
 */
 
-$speed: 200ms;
-$speed--fast: $speed / 2;
-$speed--slow: $speed * 2;
+$speed       : 200ms;
+$speed--fast : $speed / 2;
+$speed--slow : $speed * 2;
 
-$base-duration: $speed;
+$base-duration : $speed;
 
-$gutter: 36px;
+$gutter : 36px;
 
-$breakpoints: (
+$breakpoints : (
+	'screen320'  : 320px,
 	'screen400'  : 400px,
 	'screen480'  : 480px,
 	'screen540'  : 540px,
@@ -68,4 +68,9 @@ $breakpoints: (
 	'screen1600' : 1600px,
 	'screen1920' : 1920px,
 	'screen2560' : 2560px
+);
+
+$modularscale : (
+	base  : 1em,
+	ratio : 1.618
 );

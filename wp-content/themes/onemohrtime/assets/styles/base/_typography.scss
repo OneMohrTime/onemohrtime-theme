@@ -16,12 +16,6 @@
 
 .content-area {
 	@include responsive-type();
-//	font-size: .875em;
-//	@include media(">=screen600")  { font-size: 1em; }
-//	@include media(">=screen768")  { font-size: 1.125em; }
-//	@include media(">=screen960")  { font-size: 1.25em; }
-//	@include media(">=screen1280") { font-size: 1.3125em; }
-//	@include media(">=screen2560") { font-size: 1.5em; }
 }
 
 ::selection {
@@ -65,11 +59,12 @@
 	}
 }
 
-@for $i from 1 through 4 {
-	h#{$i} {
-		font-size: modular-scale((4 - $i), 1em, $major-third);
-	}
-}
+h1 { font-size: ms(3); }
+h2 { font-size: ms(2); }
+h3 { font-size: ms(1); }
+h4 { font-size: ms(0); }
+h5 { font-size: ms(-1); }
+h6 { font-size: ms(-2); }
 
 /*
 * — Body Copy —
@@ -94,11 +89,6 @@ sub, sup {
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-mark {
-	background-color: $color__yellow--light;
-	color: $color__yellow--dark;
-}
-
 /*
 * — Lists —
 */
@@ -119,49 +109,6 @@ ul, ol, dl {
 
 .wysiwyg ul { list-style: disc; }
 .wysiwyg ol { list-style: decimal; }
-
-/*
-* — Links —
-*/
-
-a {
-	position: relative;
-	display: inline-block;
-	text-decoration: none;
-	outline: none;
-	cursor: pointer;
-	color: inherit;
-	vertical-align: baseline;
-	&:hover {
-		color: inherit;
-	}
-	&:focus {
-		outline-color: fade-out($color__yellow, 0.4);
-	}
-	@include media(">=screen1170") {
-		transition-duration: $speed;
-	}
-	&:not(.btn) {
-		.wysiwyg & {
-			@include inline();
-		}
-	}
-}
-
-@keyframes dancemonkey {
-	0% {
-		left: 0;
-		right: 25%;
-	}
-	50% {
-		left: 25%;
-		right: 0;
-	}
-	100% {
-		left: 0;
-		right: 25%;
-	}
-}
 
 /*
 * — Code —
@@ -190,6 +137,11 @@ abbr {
 	cursor: help;
 	padding: 2px 4px;
 	border-bottom: 1px $color__black dotted;
+}
+
+mark {
+	background-color: $color__yellow--light;
+	color: $color__yellow--dark;
 }
 
 blockquote {

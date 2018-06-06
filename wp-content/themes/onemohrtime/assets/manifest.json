@@ -12,12 +12,6 @@
       ],
       "main": true
     },
-	"swiper.css": {
-      "files": [
-        "styles/vendor/_swiper.scss"
-      ],
-      "main": true
-    },
     "customizer.js": {
       "files": [
         "scripts/customizer.js"
@@ -33,7 +27,7 @@
 		"scripts/swiper.js"
 	  ]
 	},
-	"swiper.js": {
+	"fancybox.js": {
 	  "files": [
 		"scripts/fancybox.js"
 	  ]

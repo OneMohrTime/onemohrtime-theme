@@ -45,18 +45,21 @@
 	&__text {
 		@include text-shadow();
 	}
+	&__text {
+		@include base-font-size();
+	}
 	
 	@include media(">=screen1024") {
 		align-items: flex-start;
 		&__title {
 			// .swiper-slide__title
 			flex: 0 1 auto;
-			margin-left: 50%;
+			margin-left: 33%;
 		}
 		&__text {
 			// .swiper-slide__text
 			flex: 0 1 auto;
-			margin-left: 50%;
+			margin-left: 33%;
 		}
 	}
 	

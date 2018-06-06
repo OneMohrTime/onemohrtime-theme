@@ -1,5 +1,5 @@
 /*
-* === GALLERY ===
+* === PROJECTS ===
 */
 
 .gallery {
@@ -40,14 +40,9 @@
 			
 			h2 {
 				color: $color__white;
-				font-size: 3em;
+				@include title();
 				@include text-shadow();
 				margin-bottom: 0;
-			}
-			
-			@include media(">=screen1170") {
-				font-size: 5em;
-				h2 { font-size: inherit; }
 			}
 			
 			@supports (display: flex) {
@@ -66,43 +61,98 @@
 	
 	&__filter {
 		// .gallery__filter
-		@include position(fixed, null 0 0 0);
+		position: sticky;
+		top: 0;
 		display: flex;
 		@include size(100%, 72px);
 		z-index: 1;
 		
-		.label,
-		.filter {
-			flex: 1 0 0;
-			background-color: fade-out($color__white, 0.05);
-			color: $color__black;
-			border-top: 10px $color__white--dark solid;
-			font-family: $font__header;
-			font-weight: 700;
-			text-transform: uppercase;
-			max-width: 100%;
+		@supports (display: grid) {
+			grid-column: span 4;
 		}
 		
-		.label {
-			background-color: fade-out($color__white--dark, 0.05);
-			color: $color__gray;
-			text-align: center;
-			line-height: 62px;
-		}
-		
-		.filter {
-			&.mixitup-control-active {
-				background-color: fade-out($color__black--light, 0.05);
-				color: $color__white;
-				border-top-color: $color__yellow;
+		.arrays {
+			display: flex;
+			flex-direction: column;
+			@include size(100%, 72px);
+			margin-left: $gutter;
+			margin-right: $gutter;
+			@include media(">=screen840") {
+				padding-left: $gutter;
+				padding-right: $gutter;
+			}
+			@include media(">=screen1170") {
+				padding-left: $gutter * 2;
+				padding-right: $gutter * 2;
+			}
+			@include media(">=screen1440") {
+				padding-left: $gutter * 3;
+				padding-right: $gutter * 3;
+			}
+			@include media(">=screen1920") {
+				padding-left: $gutter * 4;
+				padding-right: $gutter * 4;
+			}
+			@include media(">=screen1170") {
+				flex-direction: row;
+			}
+			
+			.array {
+				&__title {
+					// .array__title
+					@include label();
+				}
+				
+				.checkbox {
+					display: block;
+					cursor: pointer;
+					input[type="checkbox"] {
+						position: absolute;
+						display: block;
+						top: 0;
+						left: 0;
+						@include size(100%);
+						cursor: pointer;
+						margin: 0;
+						opacity: 0;
+						z-index: 1;
+					}
+				}
 			}
 		}
 		
-		@include media(">=screen600") {
-			width: auto;
-			left: $gutter * 3;
-			right: $gutter * 3;
-		}
+//		.label,
+//		.filter {
+//			flex: 1 0 0;
+//			background-color: fade-out($color__white, 0.05);
+//			color: $color__black;
+//			border-top: 10px $color__white--dark solid;
+//			font-family: $font__header;
+//			font-weight: 700;
+//			text-transform: uppercase;
+//			max-width: 100%;
+//		}
+//		
+//		.label {
+//			background-color: fade-out($color__white--dark, 0.05);
+//			color: $color__gray;
+//			text-align: center;
+//			line-height: 62px;
+//		}
+//		
+//		.filter {
+//			&.mixitup-control-active {
+//				background-color: fade-out($color__black--light, 0.05);
+//				color: $color__white;
+//				border-top-color: $color__yellow;
+//			}
+//		}
+//		
+//		@include media(">=screen600") {
+//			width: auto;
+//			left: $gutter * 3;
+//			right: $gutter * 3;
+//		}
 	}
 	
 	&__grid {

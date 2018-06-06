@@ -1,0 +1,42 @@
+/*
+* === LINKS ===
+*/
+
+a {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	color: inherit;
+	vertical-align: baseline;
+	&:hover {
+		color: inherit;
+	}
+	&:focus {
+		outline-color: fade-out($color__yellow, 0.4);
+	}
+//	@include media(">=screen1170") {
+//		transition-duration: $speed;
+//	}
+	&:not(.btn) {
+		.wysiwyg & {
+			@include inline();
+		}
+	}
+}
+
+@keyframes dancemonkey {
+	0% {
+		left: 0;
+		right: 25%;
+	}
+	50% {
+		left: 25%;
+		right: 0;
+	}
+	100% {
+		left: 0;
+		right: 25%;
+	}
+}

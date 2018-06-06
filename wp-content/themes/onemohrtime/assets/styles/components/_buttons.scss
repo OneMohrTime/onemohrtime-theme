@@ -27,6 +27,7 @@
 .btn {
 	@include btn-color();
 	border-radius: 3px;
+	@include base-font-size();
 	font-family: $font__header;
 	font-weight: 700;
 	letter-spacing: 1px;
