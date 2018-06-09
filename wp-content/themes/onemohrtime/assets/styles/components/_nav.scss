@@ -21,6 +21,7 @@
 	
 	&.is-visible {
 		transform: translateY(0);
+		z-index: 40;
 		.site__header--logo {
 			top: 20px;
 		}
@@ -64,12 +65,7 @@
 		margin: $gutter;
 		cursor: pointer;
 		transition: $speed linear;
-		z-index: 30;
-//		&:hover,
-//		&:focus {
-//			color: $color__yellow;
-//			span.e span.bar { background-color: $color__yellow; }
-//		}
+		z-index: 35;
 		&:focus {
 			outline: 3px fade-out($color__yellow, 0.4) solid;
 			outline-offset: 2px;

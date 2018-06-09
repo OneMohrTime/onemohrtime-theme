@@ -63,49 +63,70 @@
 		// .gallery__filter
 		position: sticky;
 		top: 0;
-		display: flex;
 		@include size(100%, 72px);
-		z-index: 1;
+		margin-left: $gutter;
+		margin-right: $gutter;
+		z-index: 30;
+		
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
 		
 		@supports (display: grid) {
 			grid-column: span 4;
+			width: auto;
 		}
 		
 		.arrays {
 			display: flex;
 			flex-direction: column;
-			@include size(100%, 72px);
-			margin-left: $gutter;
-			margin-right: $gutter;
-			@include media(">=screen840") {
-				padding-left: $gutter;
-				padding-right: $gutter;
-			}
-			@include media(">=screen1170") {
-				padding-left: $gutter * 2;
-				padding-right: $gutter * 2;
-			}
-			@include media(">=screen1440") {
-				padding-left: $gutter * 3;
-				padding-right: $gutter * 3;
-			}
-			@include media(">=screen1920") {
-				padding-left: $gutter * 4;
-				padding-right: $gutter * 4;
-			}
+			background-color: fade-out($color__white, 0.02);
+//			@include box-shadow();
+			@include size(100%);
+			padding-left: $small-spacing;
+			padding-right: $small-spacing;
 			@include media(">=screen1170") {
 				flex-direction: row;
+				justify-content: space-between;
 			}
 			
 			.array {
+				font-size: .5rem;
+				padding-left: $small-spacing;
+				padding-right: $small-spacing;
+				
+				@supports (display: flex) {
+					display: flex;
+					align-items: center;
+				}
+				
 				&__title {
 					// .array__title
 					@include label();
+					color: $color__gray;
+					font-family: $font__main;
+					font-size: .75rem !important;
+					padding-left: $small-spacing;
+					padding-right: $small-spacing;
 				}
 				
-				.checkbox {
+				&__checkbox {
+					position: relative;
 					display: block;
+					@include label();
+					padding-left: $small-spacing;
+					padding-right: $small-spacing;
 					cursor: pointer;
+					
 					input[type="checkbox"] {
 						position: absolute;
 						display: block;
@@ -117,42 +138,27 @@
 						opacity: 0;
 						z-index: 1;
 					}
+					
+					label {
+						@include label();
+						font-size: .75rem !important;
+					}
 				}
+				
+				&__btn {
+					// .array__btn
+					@include label();
+					border-radius: 0;
+					font-size: .75rem !important;
+					padding: 0;
+					border: 0;
+					@supports (display: flex) {
+						margin-left: auto;
+					}
+				}
+			
 			}
 		}
-		
-//		.label,
-//		.filter {
-//			flex: 1 0 0;
-//			background-color: fade-out($color__white, 0.05);
-//			color: $color__black;
-//			border-top: 10px $color__white--dark solid;
-//			font-family: $font__header;
-//			font-weight: 700;
-//			text-transform: uppercase;
-//			max-width: 100%;
-//		}
-//		
-//		.label {
-//			background-color: fade-out($color__white--dark, 0.05);
-//			color: $color__gray;
-//			text-align: center;
-//			line-height: 62px;
-//		}
-//		
-//		.filter {
-//			&.mixitup-control-active {
-//				background-color: fade-out($color__black--light, 0.05);
-//				color: $color__white;
-//				border-top-color: $color__yellow;
-//			}
-//		}
-//		
-//		@include media(">=screen600") {
-//			width: auto;
-//			left: $gutter * 3;
-//			right: $gutter * 3;
-//		}
 	}
 	
 	&__grid {

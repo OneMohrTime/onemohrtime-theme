@@ -210,6 +210,8 @@
 
 @mixin label() {
 	@include base-font-size();
+	font-weight: 700;
+	line-height: 1em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin: 0;

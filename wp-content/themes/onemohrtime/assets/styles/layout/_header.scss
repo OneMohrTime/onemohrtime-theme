@@ -10,6 +10,7 @@
 
 .site__logo {
 	@include position(absolute, 30px 36px null null);
+	z-index: 35;
 	
 	.logo {
 		display: block;

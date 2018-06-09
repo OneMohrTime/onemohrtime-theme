@@ -15,5 +15,6 @@ $args = array(
 	'order'          => 'ASC'
 );
 $context['gallery'] = Timber::get_posts( $args );
+$context['roles']    = new TimberTerm('role');
 
 Timber::render('pages/page-design.twig', $context);
