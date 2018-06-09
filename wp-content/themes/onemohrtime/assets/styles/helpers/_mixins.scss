@@ -210,6 +210,7 @@
 
 @mixin label() {
 	@include base-font-size();
+	font-family: $font__header;
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;

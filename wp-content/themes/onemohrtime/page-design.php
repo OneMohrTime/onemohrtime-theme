@@ -7,7 +7,8 @@
  * @since  SageTimber 0.1
  */
 
-$context = Timber::get_context();
+$context           = Timber::get_context();
+$context['post']   = new Timber\Post();
 $args = array(
 	'post_type'      => 'design',
 	'posts_per_page' => -1,
@@ -15,6 +16,6 @@ $args = array(
 	'order'          => 'ASC'
 );
 $context['gallery'] = Timber::get_posts( $args );
-$context['roles']    = new TimberTerm('role');
+$context['roles']   = new TimberTerm('design');
 
 Timber::render('pages/page-design.twig', $context);

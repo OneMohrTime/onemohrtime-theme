@@ -25,36 +25,34 @@
 	
 	<div class="gallery__filter">
 		<form class="arrays" id="featured_project_filter">
-			<div class="array array__roles" role="group" aria-labelledby="array_1">
-				<h3 id="array_1" class="array__title">Roles</h3>
-				<div class="array__checkbox">
-					<input type="checkbox" id="checkbox-a" class="filter" name="checkbox" value=".design" />
-					<label for="checkbox-a">Designer</label>
-				</div>
-				<div class="array__checkbox">
-					<input type="checkbox" id="checkbox-b" class="filter" name="checkbox" value=".development" />
-					<label for="checkbox-b">Developer</label>
-				</div>
-			</div>
-			<div class="array array__category" role="group" aria-labelledby="array_2">
-				<h3 id="array_2" class="array__title">Job Type</h3>
-				<div class="array__checkbox">
-					<input type="checkbox" id="checkbox-c" class="filter" name="checkbox" value=".freelance" />
-					<label for="checkbox-c">Freelance</label>
-				</div>
-				<div class="array__checkbox">
-					<input type="checkbox" id="checkbox-d" class="filter" name="checkbox" value=".agency" />
-					<label for="checkbox-d">Agency</label>
-				</div>
-				<div class="array__checkbox">
-					<input type="checkbox" id="checkbox-e" class="filter" name="checkbox" value=".inhouse" />
-					<label for="checkbox-e">In-house</label>
-				</div>
-				<div class="array__checkbox">
-					<input type="checkbox" id="checkbox-f" class="filter" name="checkbox" value=".personal" />
-					<label for="checkbox-f">Personal</label>
-				</div>
-			</div>
+			<ul class="array array__roles" role="group" aria-labelledby="array_1">
+				<li class="array__item">
+					<h3 id="array_1" class="array__title">Roles</h3>
+				</li>
+				<li class="array__item">
+					<button type="button" class="array__filter" role="button" data-toggle=".role-designer">Designer</button>
+				</li>
+				<li class="array__item">
+					<button type="button" class="array__filter" role="button" data-toggle=".role-developer">Developer</button>
+				</li>
+			</ul>
+			<ul class="array array__category" role="group" aria-labelledby="array_2">
+				<li class="array__item">
+					<h3 id="array_2" class="array__title">Job Type</h3>
+				</li>
+				<li class="array__item">
+					<button type="button" class="array__filter" role="button" data-toggle=".freelance">Freelance</button>
+				</li>
+				<li class="array__item">
+					<button type="button" class="array__filter" role="button" data-toggle=".agency">Agency</button>
+				</li>
+				<li class="array__item">
+					<button type="button" class="array__filter" role="button" data-toggle=".inhouse">In-house</button>
+				</li>
+				<li class="array__item">
+					<button type="button" class="array__filter" role="button" data-toggle=".personal">Personal</button>
+				</li>
+			</ul>
 			<button type="reset" role="button" id="reset" class="array__btn btn">Clear Filters</button>
 		</form>
 	</div>
@@ -63,10 +61,10 @@
 		
 		{% for item in gallery %}
 		
-		<div id="proj_id_{{ item.id }}" class="gallery__project mix type-{{ item.post_type }} {% for role in roles %}{{ roles }}{% endfor %} {{ item.terms('category') | join(' ') | lower }}">
+<!--		<div id="proj_id_{{ item.id }}" class="gallery__project mix type-{{ item.post_type }} {{ item.terms | join(' ') | lower }}">-->
+		<div id="proj_id_{{ item.id }}" class="gallery__project mix {{ item.post_class }}">
 			
 			<div class="gallery__project--content">
-				{{ dump(roles.role) }}
 				
 				{% if item.get_field('project_header') %}
 				<div class="gallery__project--excerpt">
