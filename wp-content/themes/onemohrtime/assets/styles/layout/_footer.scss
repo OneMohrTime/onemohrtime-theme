@@ -38,7 +38,7 @@
 		@supports (display: grid) {
 			// .site__footer--column
 			grid-column: span 12;
-			grid-row: 1 / 2;
+			grid-row: span 1;
 			width: auto !important;
 			@include media(">=screen600") {
 				grid-column: span 6;
@@ -95,7 +95,7 @@
 	.copyright {
 		@supports (display: grid) {
 			grid-column: span 12;
-			grid-row: 2 / 3;
+			grid-row: span 1;
 		}
 	}
 }

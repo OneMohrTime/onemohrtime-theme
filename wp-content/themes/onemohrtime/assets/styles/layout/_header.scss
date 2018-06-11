@@ -4,8 +4,17 @@
 
 .site__header {
 	position: fixed;
-	@include size(100%, 100px);
+	bottom: 0;
+	background-color: $color__white;
+	@include size(100%, auto);
 	z-index: 20;
+	
+	@include media(">=screen600") {
+		top: 0;
+		bottom: auto;
+		background-color: transparent;
+		height: 100px;
+	}
 }
 
 .site__logo {
@@ -17,8 +26,9 @@
 		@include size(auto, 40px);
 		
 		#design {
+			// ID inside inline-svg
 			path {
-				fill: #171409;
+				fill: $color__black;
 				transition: $speed linear;
 			}
 		}
@@ -27,7 +37,7 @@
 	&.inverted {
 		#design {
 			path {
-				fill: #fffefa;
+				fill: $color__white;
 			}
 		}
 	}

@@ -9,9 +9,13 @@
 .main-navigation {
 	background-color: fade-out($color__black--light, 0.05);
 	color: $color__white;
-	@include size(100vw, 100px);
-	transform: translateY(-100px);
+	@include size(100vw, auto);
+	transform: translateY(100%);
 	transition: $speed linear;
+	@include media(">=screen600") {
+		height: 100px;
+		transform: translateY(-100px);
+	}
 	
 	@supports (display: flex) {
 		// .site__header
@@ -54,67 +58,68 @@
 * — Toggle —
 */
 
-.toggle {
-	&__menu {
-		// .toggle__menu
-		@include position(absolute, 0 null null 0);
-		color: $color__black--light;
-		font-family: $font__header;
-		font-size: 1.25em;
-		font-weight: 700;
-		margin: $gutter;
-		cursor: pointer;
-		transition: $speed linear;
-		z-index: 35;
-		&:focus {
-			outline: 3px fade-out($color__yellow, 0.4) solid;
-			outline-offset: 2px;
-		}
-		&.open {
+.toggle__menu {
+	// .toggle__menu
+	@include position(absolute, 0 null null 0);
+	color: $color__black--light;
+	font-family: $font__header;
+	font-size: 1.25em !important;
+	font-weight: 700;
+	margin: $gutter / 2 $gutter;
+	padding: $small-spacing / 2 0;
+	cursor: pointer;
+	transition: $speed linear;
+	z-index: 35;
+	&.open {
+		@include media(">=screen600") {
 			top: 100px;
-//			color: $color__black--light;
 		}
-		span.m,
-		span.n,
-		span.u {
-			display: inline-block;
-			transition: $speed;
-		}
-		span.e {
-			display: inline-block;
-			@include size(12px, 13px);
-			&.toggle__close {
-				@include size(14px, 13px);
-				span.bar {
-					width: 15px;
-					background-color: $color__black;
-				}
-				span.bar:nth-child(1) {
-					top: 5px;
-					transform: rotate(45deg);
-					transition: $speed;
-				}
-				span.bar:nth-child(2) {
-					margin: 2px 0;
-					opacity: 0;
-					transition: $speed;
-				}
-				span.bar:nth-child(3) {
-					bottom: 5px;
-					transform: rotate(-45deg);
-					transition: $speed;
-				}
-			}
+	}
+	&:hover {
+		background-color: transparent;
+		color: inherit;
+	}
+	
+	span.m,
+	span.n,
+	span.u {
+		display: inline-block;
+		transition: $speed;
+	}
+	span.e {
+		display: inline-block;
+		@include size(12px, 13px);
+		&.toggle__close {
+			@include size(14px, 13px);
 			span.bar {
-				position: relative;
-				display: block;
-				background-color: $color__black--light;
+				width: 15px;
+				background-color: $color__black;
+			}
+			span.bar:nth-child(1) {
+				top: 5px;
+				transform: rotate(45deg);
 				transition: $speed;
-				width: 11px;
-				height: 3px;
-				&:nth-child(2) {
-					margin: 2px 0;
-				}
+			}
+			span.bar:nth-child(2) {
+				margin: 2px 0;
+				opacity: 0;
+				transition: $speed;
+			}
+			span.bar:nth-child(3) {
+				bottom: 5px;
+				transform: rotate(-45deg);
+				transition: $speed;
+			}
+		}
+		span.bar {
+			position: relative;
+			display: block;
+			background-color: $color__black--light;
+			transition: $speed;
+			width: 11px;
+			height: 3px;
+			&:nth-child(2) {
+				margin: 2px 0;
 			}
 		}
 	}

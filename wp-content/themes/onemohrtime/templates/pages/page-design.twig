@@ -27,7 +27,9 @@
 		<form class="arrays" id="featured_project_filter">
 			<ul class="array array__roles" role="group" aria-labelledby="array_1">
 				<li class="array__item">
-					<h3 id="array_1" class="array__title">Roles</h3>
+					<button type="button" id="array_1" class="array__filter array__title" role="button" data-filter="all">
+						<span class="array__title--before">All</span> Role<span class="array__title--before">s</span><span class="array__title--after">:</span>
+					</button>
 				</li>
 				<li class="array__item">
 					<button type="button" class="array__filter" role="button" data-toggle=".role-designer">Designer</button>
@@ -38,30 +40,30 @@
 			</ul>
 			<ul class="array array__category" role="group" aria-labelledby="array_2">
 				<li class="array__item">
-					<h3 id="array_2" class="array__title">Job Type</h3>
+					<button type="button" id="array_2" class="array__filter array__title" role="button" data-filter="all">
+						<span class="array__title--before">All</span> Type<span class="array__title--before">s</span><span class="array__title--after">:</span>
+					</button>
 				</li>
 				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-toggle=".freelance">Freelance</button>
+					<button type="button" class="array__filter" role="button" data-toggle=".job_type-freelance">Freelance</button>
 				</li>
 				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-toggle=".agency">Agency</button>
+					<button type="button" class="array__filter" role="button" data-toggle=".job_type-agency">Agency</button>
 				</li>
 				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-toggle=".inhouse">In-house</button>
+					<button type="button" class="array__filter" role="button" data-toggle=".job_type-inhouse">In-house</button>
 				</li>
 				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-toggle=".personal">Personal</button>
+					<button type="button" class="array__filter" role="button" data-toggle=".job_type-personal">Personal</button>
 				</li>
 			</ul>
-			<button type="reset" role="button" id="reset" class="array__btn btn">Clear Filters</button>
 		</form>
 	</div>
 	
-	<section id="gallery" class="gallery__grid fade-content">
+	<section id="gallery" class="gallery__grid">
 		
 		{% for item in gallery %}
 		
-<!--		<div id="proj_id_{{ item.id }}" class="gallery__project mix type-{{ item.post_type }} {{ item.terms | join(' ') | lower }}">-->
 		<div id="proj_id_{{ item.id }}" class="gallery__project mix {{ item.post_class }}">
 			
 			<div class="gallery__project--content">

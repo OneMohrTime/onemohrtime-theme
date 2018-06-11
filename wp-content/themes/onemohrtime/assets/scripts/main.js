@@ -71,6 +71,10 @@
 					$('#logo').toggleClass('inverted');
 					// Add padding to navbar area
 					$('#page').toggleClass('padded');
+					// Move filters down on Featured Work page
+					if (typeof mixitup == 'function') {
+						$('.gallery__filter').toggleClass('with-sticky')
+					}
 				});
 				
 				// Fade in content
@@ -109,20 +113,14 @@
 				$('a[href^="#contact"]').on('click', function() {
 					$('#contact').addClass('said-hi');
 					$('#mobile_menu').removeClass('is-visible');
-					$('body').removeClass('unscrollable');
 				});
 				
 				// Easy Parallax
-				$(window).on('scroll', function() {
-					if($(window).scrollTop() < 1000) {
-//						$('.homepage__banner--title').css('bottom', 0 + ($(window).scrollTop() * 0.05) + '%');
-						$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * 0.15) + '%');
-					}
-					if(window.matchMedia('(min-width: 1024px)').matches) {
-						$('#background').css('top', 0 - ($(window).scrollTop() * 0.015) + '%');
-						$('#background').css('opacity', 1 - ($(window).scrollTop() * 0.0005));
-					}
-				});
+//				$(window).on('scroll', function() {
+//					if($(window).scrollTop() < 1000) {
+//						$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * 0.15) + '%');
+//					}
+//				});
 				
 				// Fancybox 3
 				// http://fancyapps.com/fancybox/3/
@@ -168,17 +166,17 @@
 				function parallax() {
 					if ($('#js-parallax-window').length > 0) {
 						var plxBackground = $('#js-parallax-background');
-						var plxWindow = $('#js-parallax-window');
+						var plxWindow     = $('#js-parallax-window');
 						
-						var plxWindowTopToPageTop = $(plxWindow).offset().top;
-						var windowTopToPageTop = $(window).scrollTop();
+						var plxWindowTopToPageTop   = $(plxWindow).offset().top;
+						var windowTopToPageTop      = $(window).scrollTop();
 						var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
 						
-						var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
-						var windowInnerHeight = window.innerHeight;
-						var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
+						var plxBackgroundTopToPageTop      = $(plxBackground).offset().top;
+						var windowInnerHeight              = window.innerHeight;
+						var plxBackgroundTopToWindowTop    = plxBackgroundTopToPageTop - windowTopToPageTop;
 						var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
-						var plxSpeed = 0.35;
+						var plxSpeed                       = 0.35;
 						
 						plxBackground.css('top', -(plxWindowTopToWindowTop * plxSpeed) + 'px');
 					}
@@ -292,70 +290,18 @@
 			init : function () {
 				// JavaScript to be fired on the featured projects page
 				
-				// Checkboxes + mixitup.js init
-				// In this example, we must bind a 'change' event handler to
-				// our checkboxes, then interact with the mixer via
-				// its .filter() API methods.
-				var containerEl   = document.querySelector('#gallery');
-				var checkboxGroup = document.querySelector('.array__category');
-				var checkboxes    = checkboxGroup.querySelectorAll('input[type="checkbox"]');
-				
-				var mixer = mixitup(containerEl);
-				
-				checkboxGroup.addEventListener('change', function() {
-					var selectors = [];
-					// Iterate through all checkboxes, pushing the
-					// values of those that are checked into an array
-					for (var i = 0; i < checkboxes.length; i++) {
-						var checkbox = checkboxes[i];
-						if (checkbox.checked) selectors.push(checkbox.value);
+				// Mixitup.js
+				// https://github.com/patrickkunka/mixitup/tree/v2
+				var containerEl = document.querySelector('#gallery');
+				var mixer       = mixitup(containerEl, {
+					animation : {
+						effectsIn  : 'fade',
+						effectsOut : 'fade',
+						easing     : 'linear'
+					},
+					controls : {
+						toggleLogic : 'and'
 					}
-					// If there are values in the array, join it into a string
-					// using your desired logic, and send to the mixer's .filter()
-					// method, otherwise filter by 'all'
-					var selectorString = selectors.length > 0 ?
-						selectors.join(',') : // or '.' for AND logic
-						'all';
-					mixer.filter(selectorString);
-				});
-				
-				// Parallax for projects
-				$('.gallery__project--image').each(function () {
-					var img = $(this);
-					var imgParent = $(this).parent();
-					
-					function parallaxImg() {
-						var speed = img.data('speed');
-						var imgY = imgParent.offset().top;
-						var winY = $(this).scrollTop();
-						var winH = $(this).height();
-						var parentH = imgParent.innerHeight();
-						
-						// The next pixel to show on screen      
-						var winBottom = winY + winH;
-						
-						// If block is shown on screen
-						if (winBottom > imgY && winY < imgY + parentH) {
-							// Number of pixels shown after block appear
-							var imgBottom  = ((winBottom - imgY) * speed);
-							// Max number of pixels until block disappear
-							var imgTop     = winH + parentH;
-							// Porcentage between start showing until disappearing
-							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-						}
-						img.css({
-							top: imgPercent + '%',
-							transform: 'translate(-50%, -' + imgPercent + '%)'
-						});
-					}
-					$(document).on({
-						scroll : function () {
-							parallaxImg();
-						},
-						ready  : function () {
-							parallaxImg();
-						}
-					});
 				});
 				
 			}

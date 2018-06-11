@@ -66,7 +66,11 @@
 		@include size(100%, 72px);
 		margin-left: $gutter;
 		margin-right: $gutter;
+		transition: top $speed linear;
 		z-index: 30;
+		&.with-sticky {
+			top: 100px;
+		}
 		
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
@@ -119,10 +123,37 @@
 				
 				&__title {
 					// .array__title
-					@include label();
+					position: relative;
 					color: $color__gray;
-					font-size: .75rem !important;
-					line-height: 72px;
+					&--before,
+					&--after {
+						// .array__title--before
+						// .array__title--after
+						transition: opacity $speed, position $speed;
+					}
+					&--before {
+						// .array__title--before
+						position: absolute;
+						opacity: 0;
+					}
+					&--after {
+						// .array__title--after
+						position: relative;
+						opacity: 1;
+					}
+					&.mixitup-control-active {
+						.array__title--before
+						.array__title--after {}
+						
+						.array__title--before {
+							position: relative;
+							opacity: 1;
+						}
+						.array__title--after {
+							position: absolute;
+							opacity: 0;
+						}
+					}
 				}
 				
 				&__filter {
@@ -132,6 +163,7 @@
 					font-size: .75rem !important;
 					height: 100%;
 					padding: 0 $small-spacing;
+					cursor: pointer;
 					&::before {
 						// .array__filter::before
 						content: "";
@@ -145,7 +177,7 @@
 					}
 					&:hover {
 						background-color: transparent;
-						color: $color__yellow;
+						color: inherit;
 					}
 					&:focus {
 						outline: none;
