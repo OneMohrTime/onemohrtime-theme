@@ -72,8 +72,10 @@
 					// Add padding to navbar area
 					$('#page').toggleClass('padded');
 					// Move filters down on Featured Work page
-					if (typeof mixitup == 'function') {
-						$('.gallery__filter').toggleClass('with-sticky')
+					if (window.matchMedia("(min-width: 600px)").matches) {
+						if (typeof mixitup == 'function') {
+							$('.gallery__filter').toggleClass('with-sticky')
+						}
 					}
 				});
 				

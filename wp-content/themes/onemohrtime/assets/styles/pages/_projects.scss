@@ -85,6 +85,10 @@
 			margin-right: $gutter * 4;
 		}
 		
+		@include media("<=screen600") {
+			display: none;
+		}
+		
 		@supports (display: grid) {
 			grid-column: span 4;
 			width: auto;
@@ -94,7 +98,6 @@
 			display: flex;
 			flex-direction: column;
 			background-color: fade-out($color__white, 0.02);
-//			@include box-shadow();
 			@include size(100%);
 			padding-left: $small-spacing;
 			padding-right: $small-spacing;

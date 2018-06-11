@@ -21,7 +21,7 @@
 				{{ item.title }}
 			</a>
 			{# <img src="{{ item.master_object.thumbnail }} /> #}
-			{# include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } #}
+			{% include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } %}
 		</li>
         {% endfor %}
 		
