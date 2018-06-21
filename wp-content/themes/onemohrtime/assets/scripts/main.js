@@ -63,7 +63,9 @@
 				$('#menu_toggle').on('click touchstart', function(e) {
 					e.preventDefault();	
 					// Open nav menu
-					$('#desktop').toggleClass('is-visible');
+					$('#primary_nav').toggleClass('is-visible');
+					// Add header hook
+					$('#masthead').toggleClass('nav-is-open');
 					// Switch menu toggle
 					$(this).toggleClass('open');
 					changeLetters($(this));

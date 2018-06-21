@@ -10,8 +10,9 @@
 	background-color: fade-out($color__black--light, 0.05);
 	color: $color__white;
 	@include size(100vw, auto);
+	margin-bottom: $gutter * 2;
 	transform: translateY(100%);
-	transition: $speed linear;
+	transition: transform 750ms, height 750ms;
 	@include media(">=screen600") {
 		height: 100px;
 		transform: translateY(-100px);
@@ -24,8 +25,11 @@
 	}
 	
 	&.is-visible {
+		max-height: calc(100vh - 72px);
+		overflow: auto;
 		transform: translateY(0);
 		z-index: 40;
+		
 		.site__header--logo {
 			top: 20px;
 		}
@@ -37,17 +41,38 @@
 		text-transform: uppercase;
 		margin-left: $base-spacing;
 		letter-spacing: 4px;
+		max-height: calc(100vh - 72px);
 		
 		&-item {
 			// .menu-item
 			position: relative;
 //			display: inline-block;
+			&-home {
+				// .menu-item-home
+			}
+			@include media("<screen600") {
+				display: block;
+				&.menu-item-home {
+					@include paragraph();
+					text-align: right;
+					line-height: 72px;
+					height: 72px;
+					margin-right: 100px;
+					a {
+						line-height: 1em;
+						padding: 0;
+					}
+				}
+			}
 			
 			a {
-				padding: $small-spacing / 2 $small-spacing;
-				transition: background-color $speed, color $speed;
-				&:hover {
-					background-color: fade-out($color__white, 0.9);
+				padding: $small-spacing;
+				@include media(">=screen600") {
+					padding: $small-spacing / 2 $small-spacing;
+					transition: background-color $speed, color $speed;
+					&:hover {
+						background-color: fade-out($color__white, 0.9);
+					}
 				}
 			}
 		}
@@ -60,7 +85,7 @@
 
 .toggle__menu {
 	// .toggle__menu
-	@include position(absolute, 0 null null 0);
+	@include position(absolute, null null 0 0);
 	color: $color__black--light;
 	font-family: $font__header;
 	font-size: 1.25em !important;
@@ -70,14 +95,15 @@
 	cursor: pointer;
 	transition: $speed linear;
 	z-index: 35;
-	&.open {
-		@include media(">=screen600") {
-			top: 100px;
-		}
-	}
 	&:hover {
 		background-color: transparent;
 		color: inherit;
+	}
+	@include media(">=screen600") {
+		top: 0;
+		&.open {
+			top: 100px;
+		}
 	}
 	
 	span.m,

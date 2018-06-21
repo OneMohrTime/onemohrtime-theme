@@ -5,9 +5,16 @@
 .site__header {
 	position: fixed;
 	bottom: 0;
-	background-color: $color__white;
+	background: $color__white;
 	@include size(100%, auto);
+	max-height: 72px;
+	transition: background 500ms, max-height 750ms;
 	z-index: 20;
+	
+	&.nav-is-open {
+		background: transparent linear-gradient(to top, $color__white 72px, transparent);
+		max-height: 100vh;
+	}
 	
 	@include media(">=screen600") {
 		top: 0;
@@ -18,8 +25,11 @@
 }
 
 .site__logo {
-	@include position(absolute, 30px 36px null null);
+	@include position(absolute, 15px 36px null null);
 	z-index: 35;
+	@include media(">=screen600") {
+		top: 30px;
+	}
 	
 	.logo {
 		display: block;
