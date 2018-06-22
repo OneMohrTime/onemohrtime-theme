@@ -38,29 +38,33 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	color: $color__white;
 	padding: $gutter $gutter * 2;
 	
 	&__title,
 	&__text {
 		@include text-shadow();
+		padding-left: $gutter / 2;
+		padding-right: $gutter / 2;
 	}
 	&__text {
 		@include base-font-size();
+		max-width: 700px;
 	}
 	
 	@include media(">=screen1024") {
-		align-items: flex-start;
 		&__title {
 			// .swiper-slide__title
 			flex: 0 1 auto;
 			margin-left: 33%;
+			padding: 0;
 		}
 		&__text {
 			// .swiper-slide__text
 			flex: 0 1 auto;
 			margin-left: 33%;
+			padding: 0;
 		}
 	}
 	

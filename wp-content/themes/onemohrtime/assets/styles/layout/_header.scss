@@ -8,7 +8,7 @@
 	background: $color__white;
 	@include size(100%, auto);
 	max-height: 72px;
-	transition: background 500ms, max-height 750ms;
+	transition: $speed linear;
 	z-index: 20;
 	
 	&.nav-is-open {
@@ -21,6 +21,7 @@
 		bottom: auto;
 		background-color: transparent;
 		height: 100px;
+		max-height: none;
 	}
 }
 

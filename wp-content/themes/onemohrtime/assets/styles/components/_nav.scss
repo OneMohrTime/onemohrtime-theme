@@ -12,9 +12,10 @@
 	@include size(100vw, auto);
 	margin-bottom: $gutter * 2;
 	transform: translateY(100%);
-	transition: transform 750ms, height 750ms;
+	transition: $speed linear;
 	@include media(">=screen600") {
 		height: 100px;
+		margin-bottom: 0;
 		transform: translateY(-100px);
 	}
 	
@@ -36,22 +37,30 @@
 	}
 	
 	.menu {
+		display: flex;
+		flex-direction: column;
 		font-family: $font__header;
 		font-weight: 700;
 		text-transform: uppercase;
 		margin-left: $base-spacing;
 		letter-spacing: 4px;
+		width: 100%;
 		max-height: calc(100vh - 72px);
+		@include media(">=screen600") {
+			flex-direction: row;
+			align-items: center;
+		}
 		
 		&-item {
 			// .menu-item
 			position: relative;
-//			display: inline-block;
 			&-home {
 				// .menu-item-home
 			}
+			// mobile only
 			@include media("<screen600") {
 				display: block;
+				
 				&.menu-item-home {
 					@include paragraph();
 					text-align: right;
@@ -101,6 +110,7 @@
 	}
 	@include media(">=screen600") {
 		top: 0;
+		bottom: auto;
 		&.open {
 			top: 100px;
 		}
