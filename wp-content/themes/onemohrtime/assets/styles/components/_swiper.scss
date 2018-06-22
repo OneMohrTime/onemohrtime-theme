@@ -24,7 +24,7 @@
 
 .swiper-container {
 	@include position(absolute, 0 null null 0);
-	background-color: $color__white--dark;
+//	background-color: $color__white--dark;
 	@include size(100%, 100vh);
 	z-index: 1;
 	
@@ -34,6 +34,7 @@
 }
 
 .swiper-slide {
+	background-color: transparent;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -65,10 +66,8 @@
 	
 	&.swiper-frame-1 {
 		padding: 0;
-//		padding-top: $gutter * 2;
-//		padding-bottom: $gutter * 2;
 		.swiper-slide__frame {
-			border: 1px fade-out($color__white, 0.5) solid;
+			border: 2px fade-out($color__white, 0.5) solid;
 			@include size(100%);
 			z-index: -1;
 		}
@@ -78,33 +77,48 @@
 		padding: $gutter;
 		.swiper-slide__frame {
 			background-color: fade-out($color__black, 0.95);
-			border: 2px fade-out($color__white, 0.8) solid;
-//			width: calc(100% - #{$gutter * 2});
-//			height: calc(100% - #{$gutter * 4});
+			border: 1px fade-out($color__black, 0.95) solid;
 			@include size(100%);
-//			margin-left: auto;
-//			margin-right: auto;
 			z-index: -2;
 		}
 	}
 	
 }
 
+#home_parallax {
+	@include position(absolute, 0);
+	@include size(100%);
+}
 #home_frame_1,
-#home_frame_2 {
-	@include position(absolute, $gutter * 2);
+#home_frame_2, {
+	@include position(absolute, 0 $gutter * 2);
 	background-color: transparent;
 	width: calc(100% - #{$gutter * 4});
-	height: calc(100% - #{$gutter * 4});
-//	@include size(100%);
+	height: 100%;
+	padding: $gutter * 2 0;
 }
-//#home_frame_1 { z-index: 2; }
-//#home_frame_2 { z-index: 3; }
-//#home_banner { z-index: 1; }
 
 .parallax-bg {
 	@include position(absolute, 0 null null 0);
 	background-size: cover;
 	background-position: center center;
 	@include size(130%, 100%);
+}
+
+// cusomtize pagination
+.swiper-pagination {
+	&.swiper-button-white {
+		
+	}
+	&.swiper-pagination-white {
+		.swiper-pagination-bullet {
+			background: $color__black;
+			border-radius: 0;
+			@include size(16px);
+		}
+		.swiper-pagination-bullet-active {
+			background: $color__yellow;
+			box-shadow: inset 0 0 0 4px $color__white;
+		}
+	}
 }

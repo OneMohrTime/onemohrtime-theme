@@ -3,6 +3,18 @@
 	
 	<h1 class="screen-reader-text">{{ site.name }}</h1>
 	
+	{# https://codepen.io/RobinBertilsson/pen/EPaLmo #}
+	<button type="button" role="button" id="menu_toggle" class="toggle__menu">
+		<span class="m">M</span>
+		<span class="e">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</span>
+		<span class="n">N</span>
+		<span class="u">U</span>
+	</button>
+	
 	{% include 'blocks/nav-primary.twig' with { menu : menu.get_items } %}
 	
 	<a href="{{ site.link }}" id="logo" class="site__logo">

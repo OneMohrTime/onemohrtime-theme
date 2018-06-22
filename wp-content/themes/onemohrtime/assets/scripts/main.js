@@ -211,13 +211,16 @@
 				
 				// Swiper.js
 				if ($('#home_banner').length) {
+					var homeParallax = new Swiper('#home_parallax', {
+						slidesPerView : 'auto',
+						parallax      : true,
+					});
 					var homeFrame2 = new Swiper('#home_frame_2', {
 						slidesPerView   : 'auto',
 						centeredSlides  : true,
 						onlyExternal    : true,
 						effect          : 'coverflow',
 						direction       : 'vertical',
-						speed           : 600,
 						coverflowEffect : {
 							slideShadows : false
 						}
@@ -225,20 +228,21 @@
 					var homeFrame1 = new Swiper('#home_frame_1', {
 						slidesPerView   : 'auto',
 						centeredSlides  : true,
+						spaceBetween    : 500,
 						effect          : 'coverflow',
-						speed           : 600,
 						coverflowEffect : {
-							slideShadows : false
+							slideShadows : false,
 						}
 					});
 					var homeBanner = new Swiper('#home_banner', {
 						initialSlide    : 1, // start in the middle (should be 0 - 2)
 						slidesPerView   : 'auto',
 						centeredSlides  : true,
-						spaceBetween    : 100,
 						effect          : 'coverflow',
-						speed           : 600,
-						slideShadows    : false,
+						speed           : 750,
+						coverflowEffect : {
+							slideShadows : false,
+						},
 						keyboard        : {
 							enabled : true,
 						},
@@ -252,7 +256,7 @@
 							prevEl : '#home_banner .swiper-button-prev',
 						},
 						controller : {
-							control : [homeFrame1, homeFrame2],
+							control : [homeParallax, homeFrame1, homeFrame2],
 							by      : 'container',
 						},
 						parallax : true,
