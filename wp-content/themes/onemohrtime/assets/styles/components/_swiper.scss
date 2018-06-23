@@ -4,12 +4,11 @@
 
 .homepage__swipers {
 	position: absolute;
-	@include size(100vw, 100vh);
-	
-//	@supports (display: grid) {
-//		grid-column: span 4;
-//		width: auto;
-//	}
+	height: calc(100vh - 72px);
+	width: 100vw;
+	@include media(">=screen600") {
+		height: 100vh;
+	}
 }
 
 .swiper {
@@ -24,9 +23,12 @@
 
 .swiper-container {
 	@include position(absolute, 0 null null 0);
-//	background-color: $color__white--dark;
-	@include size(100%, 100vh);
+	width: 100%;
+	height: calc(100vh - 72px);
 	z-index: 1;
+	@include media(">=screen600") {
+		height: 100vh;
+	}
 	
 	@supports (display: grid) {
 		grid-column: span 4;

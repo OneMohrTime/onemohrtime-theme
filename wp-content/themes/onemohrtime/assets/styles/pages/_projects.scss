@@ -11,10 +11,8 @@
 		background-color: $color__white--dark;
 		@include size(100%, 300px);
 		@include image-overlay();
-		margin-bottom: $gutter * 2;
 		@include media(">=screen768") {
 			height: calc(100vh - 72px);
-			margin-bottom: 0;
 		}
 		
 		@supports (display: grid) {
@@ -118,10 +116,14 @@
 				
 				&__item {
 					// .array__item
-					line-height: 72px;
-					height: 72px;
+					line-height: 36px;
+					height: 36px;
 					margin-left: $small-spacing;
 					margin-right: $small-spacing;
+					@include media(">=screen768") {
+						line-height: 72px;
+						height: 72px;
+					}
 				}
 				
 				&__title {
@@ -170,13 +172,17 @@
 					&::before {
 						// .array__filter::before
 						content: "";
-						@include position(absolute, 75% 0 0 50%);
+						@include position(absolute, auto 0 0 0);
 						display: block;
 						background-color: $color__white--dark;
-						border-radius: 8px;
-						@include size(8px);
-						transform: translate(-50%, -50%);
+						@include size(100%, 4px);
 						transition: background-color $speed linear;
+						@include media(">=screen768") {
+							top: 75%;
+							left: 50%;
+							@include size(8px);
+							transform: translate(-50%, -50%);
+						}
 					}
 					&:hover {
 						background-color: transparent;
@@ -217,7 +223,7 @@
 	&__grid {
 		// .gallery__grid
 		position: relative;
-		margin: 0 $gutter $gutter;
+		margin: $gutter * 2 $gutter $gutter;
 		transform: translateY(-#{$gutter * 2});
 		&::before {
 			content: "";
@@ -227,6 +233,9 @@
 			right: $gutter;
 			bottom: 15%;
 			@include texture-grid();
+		}
+		@include media(">=screen768") {
+			margin-top: 0;
 		}
 		@supports (display: flex) {
 			display: flex;

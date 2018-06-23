@@ -312,6 +312,21 @@
 					}
 				});
 				
+				// Pure JS parallax
+				// https://codepen.io/juanbrujo/pen/VLeEGv
+				function backgroundParallax() {
+					window.onscroll = function () {
+						var elems = document.querySelectorAll("[data-scroll]");
+						if (elems.length) {
+							for (var i = 0; i < elems.length; i++) {
+								var speed = elems[i].getAttribute('data-scroll');
+								elems[i].style.backgroundPosition = (-window.pageXOffset / speed) + "px " + (-window.pageYOffset / speed) + "px";
+							}
+						}
+					}
+				}
+				backgroundParallax();
+				
 			}
 		}
 	};
