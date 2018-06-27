@@ -8,14 +8,10 @@
 	
 	&__work {
 		// .homepage__work
+		@include texture($color__white, 19, 0);
+		color: $color__black;
 		width: 100%;
-		padding: $gutter;
-		padding-top: calc(#{$gutter} + 100vh);
-		margin-bottom: $gutter * 2;
-		@include media(">=screen600")  { padding-left: 10%; padding-right: 10%; }
-		@include media(">=screen840")  { padding-left: 15%; padding-right: 15%; }
-		@include media(">=screen1024") { padding-left: 20%; padding-right: 20%; }
-		@include media(">=screen1600") { padding-left: 25%; padding-right: 25%; }
+		padding: $gutter $gutter $gutter * 2;
 		
 		@supports (display: grid) {
 			grid-column: span 4;

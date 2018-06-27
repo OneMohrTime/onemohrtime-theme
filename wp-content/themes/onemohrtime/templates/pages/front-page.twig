@@ -13,7 +13,7 @@
 					 srcset="{{ post.thumbnail.src('medium') }} 500w,
 							 {{ post.thumbnail.src('large') }} 1000w,
 							 {{ post.thumbnail.src('full') }} 1500w"
-					 sizes="" />
+					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 			</div>
 			<div class="swiper-wrapper">
 				{% for slide in swiper %}
@@ -51,10 +51,10 @@
 				{% for slide in swiper %}
 				<div class="swiper-slide">
 					
-					<h2 class="swiper-slide__title" data-swiper-parallax="-500" data-swiper-parallax-duration="750">
+					<h2 class="swiper-slide__title" data-swiper-parallax="-1000" data-swiper-parallax-duration="500">
 						{{ slide.title }}
 					</h2>
-					<div class="swiper-slide__text" data-swiper-parallax="-250">
+					<div class="swiper-slide__text screen-reader-text" data-swiper-parallax="-500">
 						{{ slide.content }}
 					</div>
 					
@@ -66,10 +66,9 @@
 	</section>
 	{% endif %}
 	
-	<article class="homepage__work content-block fade-content wysiwyg">
-		{{ post.content }}
-		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
-	</article>
+	<section class="homepage__intro">
+		<h2>{{ post.the_excerpt }}</h2>
+	</section>
 	
 	{% if post.get_field('homepage_feature') %}
 	<section class="homepage__portfolio">
@@ -100,6 +99,11 @@
 		{% endfor %}
 	</section>
 	{% endif %}
+	
+	<article class="homepage__work content-block fade-content wysiwyg">
+		{{ post.content }}
+		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
+	</article>
 	
 	<section class="homepage__dribbble fade-content">
 		<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>

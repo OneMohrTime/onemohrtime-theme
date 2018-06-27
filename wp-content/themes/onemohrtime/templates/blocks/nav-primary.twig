@@ -1,17 +1,28 @@
 {% if menu %}
 
+{# https://codepen.io/juanbrujo/pen/repMZj #}
 <nav id="primary_nav" class="main-navigation" role="navigation">
     <ul id="desktop_menu" class="menu">
 		
         {% for item in menu %}
 		<li class="{{ item.classes | join(' ') }}">
-			<a href="{{ item.get_link }}">
+			<a href="{{ item.get_link }}" class="multilevel-link">
 				{{ item.title }}
 			</a>
 			{# <img src="{{ item.master_object.thumbnail }} /> #}
-			{# include 'blocks/nav-primary.twig' with { 'menu' : item.get_children } #}
+			{% if item.children %}
+			<ul id="primary__sub-{{ item.id }}" class="submenu">
+				{% for submenu in item.children %}
+				<li class="submenu-item{{ submenu.classes | join(' ') }}">
+					<a href="submenu.get_link" class="multilevel-link">
+						{{ submenu.title }}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		   {% endif %}
 		</li>
-        {% endfor %}
+		{% endfor %}
 		
     </ul>
 </nav>

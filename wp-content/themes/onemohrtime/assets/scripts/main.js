@@ -314,18 +314,56 @@
 				
 				// Pure JS parallax
 				// https://codepen.io/juanbrujo/pen/VLeEGv
-				function backgroundParallax() {
-					window.onscroll = function () {
-						var elems = document.querySelectorAll("[data-scroll]");
-						if (elems.length) {
-							for (var i = 0; i < elems.length; i++) {
-								var speed = elems[i].getAttribute('data-scroll');
-								elems[i].style.backgroundPosition = (-window.pageXOffset / speed) + "px " + (-window.pageYOffset / speed) + "px";
-							}
+//				function backgroundParallax() {
+//					window.onscroll = function () {
+//						var elems = document.querySelectorAll("[data-scroll]");
+//						if (elems.length) {
+//							for (var i = 0; i < elems.length; i++) {
+//								var speed = elems[i].getAttribute('data-scroll');
+//								elems[i].style.backgroundPosition = (-window.pageXOffset / speed) + "px " + (-window.pageYOffset / speed) + "px";
+//							}
+//						}
+//					}
+//				}
+//				backgroundParallax();
+				
+				$('.gallery__project--image').each(function () {
+					var img       = $(this);
+					var imgParent = $(this).parent();
+					
+					function parallaxImg() {
+						var speed   = img.data('speed');
+						var imgY    = imgParent.offset().top;
+						var winY    = $(this).scrollTop();
+						var winH    = $(this).height();
+						var parentH = imgParent.innerHeight();
+						
+						// The next pixel to show on screen      
+						var winBottom = winY + winH;
+						
+						// If block is shown on screen
+						if (winBottom > imgY && winY < imgY + parentH) {
+							// Number of pixels shown after block appear
+							var imgBottom = ((winBottom - imgY) * speed);
+							// Max number of pixels until block disappear
+							var imgTop = winH + parentH;
+							// Porcentage between start showing until disappearing
+							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
 						}
+						img.css({
+							top: imgPercent + '%',
+							transform: 'translate(-50%, -' + imgPercent + '%)'
+						});
 					}
-				}
-				backgroundParallax();
+					$(document).on({
+						scroll : function () {
+							parallaxImg();
+						},
+						ready  : function () {
+							parallaxImg();
+						}
+					});
+				});
 				
 			}
 		}

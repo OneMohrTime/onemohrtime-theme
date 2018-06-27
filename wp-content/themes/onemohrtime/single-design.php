@@ -8,7 +8,7 @@
  */
 
 $context = Timber::get_context();
-$post = new TimberPost();
+$post    = new TimberPost();
 
 $context['banner']   = get_field('project_header');
 $context['details']  = get_field('project_deets');

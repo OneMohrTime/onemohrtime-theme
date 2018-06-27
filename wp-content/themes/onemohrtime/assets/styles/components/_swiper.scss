@@ -3,7 +3,7 @@
 */
 
 .homepage__swipers {
-	position: absolute;
+	position: relative;
 	height: calc(100vh - 72px);
 	width: 100vw;
 	@include media(">=screen600") {
@@ -91,17 +91,10 @@
 	
 }
 
-#home_parallax {
-	@include position(absolute, 0);
-	@include size(100%);
-}
 #home_frame_1,
 #home_frame_2, {
-	@include position(absolute, 0 $gutter * 2);
 	background-color: transparent;
-	width: calc(100% - #{$gutter * 4});
-	height: 100%;
-	padding: $gutter * 2 0;
+	padding: $gutter * 2;
 }
 
 .parallax-bg {

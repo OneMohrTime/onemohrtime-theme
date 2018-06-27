@@ -96,10 +96,11 @@
 	
 	&__title {
 		// .project__title
-		@include title($color__white);
+		color: $color__white;
+		@include title();
 		text-align: left;
 		@include text-shadow();
-		margin: 0 $gutter 20px;
+		margin: 0 $gutter;
 		z-index: 2;
 		@include media(">=screen960") {
 			max-width: 50vw;
@@ -171,7 +172,6 @@
 		// .project__text-image
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: $base-spacing;
@@ -182,9 +182,11 @@
 		
 		.content--half {
 			order: 1;
+			flex: 0 0 100%;
+			max-width: 100%;
 			padding: $gutter;
 			@include media(">=screen768") {
-				flex: 0 0 50%;
+				flex-basis: 50%;
 				max-width: 50%;
 				padding-top: $base-spacing;
 				padding-left: $gutter * 2;
@@ -200,9 +202,11 @@
 		
 		.image--half {
 			order: 2;
+			flex: 0 0 100%;
+			max-width: 100%;
 			margin: 0;
 			@include media(">=screen768") {
-				flex: 0 0 50%;
+				flex-basis: 50%;
 				max-width: 50%;
 			}
 			
@@ -277,8 +281,8 @@
 	
 	&__blockquote {
 		// .project__blockquote
-		margin-top: $gutter;
-		margin-bottom: $gutter;
+		margin: 0 0 $gutter;
+		overflow: hidden;
 		@include media(">=screen768") {
 			margin-top: $gutter * 2;
 			margin-bottom: $gutter * 2;
@@ -297,20 +301,70 @@
 			border: 0;
 			margin: 0;
 			padding: 0;
-//			@include responsive-type();
-			&::before {
-				content: "\f10d";
-				display: block;
-				color: $color__yellow;
-				font-family: FontAwesome;
-				font-size: 1.5em;
+			
+			&__defualt {
+				// .blockquote__default
+				padding: $gutter;
+				@include media(">=screen768")  { padding: $gutter * 2; }
+				@include media(">=screen1024") { padding: $gutter * 3; }
+				@include media(">=screen1440") { padding: $gutter * 4; }
+				&::before {
+					content: "\f10d";
+					display: block;
+					color: $color__yellow;
+					font-family: FontAwesome;
+					font-size: 1.5em;
+				}
+				
+				& > p {
+					color: shade($color__yellow, 67%);
+					display: inline;
+					background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
+					@include responsive-type();
+				}
 			}
 			
-			& > p {
-				color: shade($color__yellow, 67%);
-				display: inline;
-				background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
-				@include responsive-type();
+			&__image {
+				// .blockquote__image
+				position: relative;
+				background-color: fade-out($color__white, 0.15);
+				padding: $gutter;
+				margin: $gutter;
+				@include media(">=screen768") {
+					padding: $gutter * 2;
+					margin: $gutter * 2;
+				}
+				@include media(">=screen1024") {
+					padding: $gutter * 3;
+					margin: $gutter * 3;
+				}
+				@include media(">=screen1440") {
+					padding: $gutter * 4;
+					margin: $gutter * 4;
+				}
+				
+				& > *:first-child {
+					position: relative;
+					padding-top: 1.5em;
+					&::before {
+						content: "\f10d";
+						@include position(absolute, 0 null null 0);
+						display: block;
+						color: $color__yellow;
+						font-family: FontAwesome;
+						font-size: 1.5em;
+					}
+				}
+				
+				& > p {
+					@include responsive-type();
+				}
+				
+				&__image {
+					// .blockquote__image__image
+					@include position(absolute, 0);
+					z-index: -1;
+				}
 			}
 		}
 	}
@@ -363,6 +417,7 @@
 				align-items: center;
 				background-color: fade-out($color__black--light, 0.4);
 				color: $color__white;
+				@include base-font-size();
 				padding: $small-spacing;
 				opacity: 0;
 				transition: opacity $speed;
@@ -390,16 +445,8 @@
 	&__specs {
 		// .project__specs
 		grid-column: span 4;
-		background-color: $color__white--dark;
-		margin-bottom: $gutter;
-//		margin: 0 $gutter $gutter;
-//		@include media(">=screen600") {}
-//		@include media(">=screen840") {
-//			margin-left: $gutter * 2;
-//			margin-right: $gutter * 2;
-//		}
-//		@include media(">=screen1024") {}
-//		@include media(">=screen1600") {}
+		@include texture($color__white--dark, 25, 0);
+		padding: $gutter;
 		
 		&--title {
 			// .project__specs--title

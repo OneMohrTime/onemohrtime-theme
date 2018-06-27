@@ -11,7 +11,8 @@
 			 class="gallery__banner--image parallax-background"
 			 srcset="{{ post.thumbnail.src('medium') }} 500w,
 					 {{ post.thumbnail.src('large') }} 1000w,
-					 {{ post.thumbnail.src('full') }} 1500w" />
+					 {{ post.thumbnail.src('full') }} 1500w"
+			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 		
 		<figcaption class="posts__banner--title">
 			<h2>{{ post.title }}</h2>
@@ -33,7 +34,8 @@
 					 data-speed="-0.25"
 					 srcset="{{ post.thumbnail.src('medium') }} 500w,
 							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src('full') }} 1500w" />
+							 {{ post.thumbnail.src('full') }} 1500w"
+					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 			</figure>
 			
 			<header class="post__header">

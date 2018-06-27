@@ -3,7 +3,6 @@
 */
 
 html {
-//	height: 100%;
 	background-color: $color__black;
 }
 
@@ -18,8 +17,13 @@ body {
 	@include size(100vw, auto);
 	height: auto;
 	min-height: 100vh;
-	// overflow-x: hidden;
+	overflow-x: hidden;
 	overflow-y: auto;
+	
+	&.home {
+		background-color: $color__yellow;
+		color: $color__white;
+	}
 }
 
 * {
@@ -30,7 +34,6 @@ body {
 
 .site {
 	position: relative;
-	@include texture($color__white, 19, 0);
 	padding-top: 0px;
 	transition: $speed linear;
 	z-index: 1;
@@ -60,6 +63,10 @@ body {
 			grid-template-columns: repeat(4, 1fr);
 			grid-column-gap: $gutter;
 			width: auto;
+			
+			body.home & {
+				display: block;
+			}
 		}
 	}
 }

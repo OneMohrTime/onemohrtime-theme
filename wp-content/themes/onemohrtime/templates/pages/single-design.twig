@@ -14,7 +14,8 @@
 			 class="project__banner--image"
 			 srcset="{{ TimberImage(banner.image).src('medium') }} 500w,
 					 {{ TimberImage(banner.image).src('large') }} 1000w,
-					 {{ TimberImage(banner.image).src('full') }} 1500w" />
+					 {{ TimberImage(banner.image).src('full') }} 1500w"
+			 sizes="(max-width: {{ banner.image.width }}px) 100vw, {{ banner.image.width }}px" />
 		<h2 class="project__subtitle">{{ banner.subtitle }}</h2>
 		{% endif %}
 		
@@ -62,7 +63,8 @@
 				 class=""
 				 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 						 {{ TimberImage(section.image).src('large') }} 1000w,
-						 {{ TimberImage(section.image).src('full') }} 1500w" />
+						 {{ TimberImage(section.image).src('full') }} 1500w"
+				 sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
 		</figure>
 	</div>
 	
@@ -72,30 +74,48 @@
 	<div class="project__section project__image
 				{% if section.display == 'standard' %} project__image--default
 				{% elseif section.display == 'wide' %} project__image--wide
-				{% elseif section.display == 'fixed' %} project__image--fixed{% endif %}"
-		{% if section.display == 'fixed' %} id="js-parallax-window"{% endif %}>
+				{% elseif section.display == 'fixed' %} project__image--fixed{% endif %}">
 		
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
-			 {% if section.display == 'fixed' %} id="js-parallax-background"{% endif %}
-			 class=""
+			 class="project__image__image"
 			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 					 {{ TimberImage(section.image).src('large') }} 1000w,
-					 {{ TimberImage(section.image).src('full') }} 1500w" />
+					 {{ TimberImage(section.image).src('full') }} 1500w"
+			 sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
 	</div>
 	
 	{% elseif section.acf_fc_layout == 'detail_blockquote' %}
 	
 	{# Blockquote #}
 	<div class="project__section project__blockquote wysiwyg fade-content">
-		<blockquote class="blockquote">
+		
+		{% if section.image %}
+		<blockquote class="blockquote blockquote__image">
 			{{ section.text }}
 			<footer class="blockquote__footer">
-				<cite title="Cite">Cite</cite>
+				<cite title="{{ section.cite }}">{{ section.cite }}</cite>
 			</footer>
 		</blockquote>
-		<img src="http://placehold.it/1920x1080" />
+		<img src="{{ TimberImage(section.image).src }}"
+			 width="{{ section.image.width }}" height="{{ section.image.height }}"
+			 alt="{{ section.image.alt }}"
+			 class="blockquote__image__image"
+			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
+					 {{ TimberImage(section.image).src('large') }} 1000w,
+					 {{ TimberImage(section.image).src('full') }} 1500w"
+			 sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
+		
+		{% else %}
+		<blockquote class="blockquote blockquote__default">
+			{{ section.text }}
+			<footer class="blockquote__footer">
+				<cite title="{{ section.cite }}">{{ section.cite }}</cite>
+			</footer>
+		</blockquote>
+		
+		{% endif %}
 	</div>
 	
 	{% elseif section.acf_fc_layout == 'detail_gallery' %}
@@ -106,15 +126,17 @@
 		
 		<figure class="image">
 			<img src="{{ TimberImage(image) }}"
-				 alt=""
+				 width="{{ image.width }}" height="{{ image.height }}"
+				 alt="{{ section.image.alt }}"
 				 class="image__image"
 				 srcset="{{ TimberImage(image).src('medium') }} 500w,
 						 {{ TimberImage(image).src('large') }} 1000w,
-						 {{ TimberImage(image).src('full') }} 1500w" />
+						 {{ TimberImage(image).src('full') }} 1500w"
+				 sizes="(max-width: {{ image.width }}px) 100vw, {{ image.width }}px"/>
 			{% if image.caption %}
 				<figcaption class="image__caption">{{ image.caption }}</figcaption>
 			{% else %}
-				<figcaption class="image__caption"><i class="fa fa-search"></i></figcaption>
+				<figcaption class="image__caption"><i class="fa fa-search-plus"></i></figcaption>
 			{% endif %}
 			
 			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox{% if image.caption %} data-caption="{{ image.caption }}"{% endif %}>

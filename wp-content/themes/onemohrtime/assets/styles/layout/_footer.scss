@@ -4,7 +4,7 @@
 
 .site__footer {
 	position: relative;
-	background-color: $color__black--light;
+	@include texture($color__black, 55, 1);
 	color: $color__white;
 	@include size(100%, auto);
 	padding: $gutter;
@@ -14,10 +14,15 @@
 		grid-column: span 4;
 		display: grid;
 		grid-template-columns: repeat(12, auto);
-		grid-template-rows: auto, auto;
-		grid-column-gap: $gutter;
+//		grid-template-rows: auto, auto;
 		align-items: start;
 		width: auto;
+		@include media(">=screen600") {
+			grid-column-gap: $small-spacing;
+		}
+		@include media(">=screen960") {
+			grid-column-gap: $gutter;
+		}
 	}
 	
 	&--column {
@@ -59,7 +64,7 @@
 		}
 		
 		h3 {
-			border-bottom: 3px $color__black--lighter solid;
+			border-bottom: 1px $color__white--darker solid;
 			font-size: 1em;
 			padding-bottom: $small-spacing;
 		}
