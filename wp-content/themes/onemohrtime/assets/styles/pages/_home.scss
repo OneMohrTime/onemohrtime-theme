@@ -4,11 +4,21 @@
 
 .homepage {
 	
-	// &__swipers moved to /components/_swiper.scss
+	// .homepage__swipers moved to /components/_swiper.scss
+	
+	&__intro {
+		// .homepage__intro
+		@include paragraph();
+		text-align: center;
+		font-weight: 700;
+		@include padding($gutter);
+		@include media(">=screen768")  { @include padding($gutter * 2 $gutter * 4); }
+		@include media(">=screen1024") { @include padding($gutter * 3 $gutter * 6); }
+		@include media(">=screen1440") { @include padding($gutter * 4 $gutter * 8); }
+	}
 	
 	&__work {
 		// .homepage__work
-//		@include texture($color__white, 19, 0);
 		background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 		color: $color__black;
 		width: 100%;
@@ -18,17 +28,6 @@
 			grid-column: span 4;
 			width: auto;
 		}
-	}
-	
-	&__intro {
-		// .homepage__intro
-		@include paragraph();
-		text-align: center;
-		font-weight: 700;
-		padding: $gutter;
-		@include media(">=screen768")  { padding: $gutter * 2; }
-		@include media(">=screen1024") { padding: $gutter * 3; }
-		@include media(">=screen1440") { padding: $gutter * 4; }
 	}
 	
 	&__portfolio {

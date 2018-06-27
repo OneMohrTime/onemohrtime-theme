@@ -271,10 +271,11 @@
 				
 				// Dribbble galleries
 				// Set the Access Token
-				var accessToken = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
+				var accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6',
+					numberOfShots = '6';
 				// Call Dribble v2 API
 				$.ajax({
-					url      : 'https://api.dribbble.com/v2/user/shots?access_token=' + accessToken,
+					url      : 'https://api.dribbble.com/v2/user/shots?per_page=' + numberOfShots + '&access_token=' + accessToken,
 					dataType : 'json',
 					type     : 'GET',
 					success  : function (data) {
