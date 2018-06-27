@@ -6,21 +6,35 @@
 		
         {% for item in menu %}
 		<li class="{{ item.classes | join(' ') }}">
-			<a href="{{ item.get_link }}" class="multilevel-link">
+			
+			{% if item.children %}
+			<a href="#" class="nav-link multilevel-link">
+				{{ item.title }}
+				<i class="fa fa-plus"></i>
+			</a>
+			
+			{% else %}
+			<a href="{{ item.get_link }}" class="nav-link">
 				{{ item.title }}
 			</a>
+			
+			{% endif %}
 			{# <img src="{{ item.master_object.thumbnail }} /> #}
+			
 			{% if item.children %}
 			<ul id="primary__sub-{{ item.id }}" class="submenu">
+				
 				{% for submenu in item.children %}
 				<li class="submenu-item{{ submenu.classes | join(' ') }}">
-					<a href="submenu.get_link" class="multilevel-link">
+					<a href="{{ submenu.get_link }}" class="nav-link">
 						{{ submenu.title }}
 					</a>
 				</li>
 				{% endfor %}
+				
 			</ul>
 		   {% endif %}
+			
 		</li>
 		{% endfor %}
 		

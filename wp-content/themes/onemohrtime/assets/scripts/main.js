@@ -43,22 +43,6 @@
 					}
 				}
 				
-				function lazyLoadImages() {
-					var st = $(window).scrollTop();
-					$('img.lazy').each(function () {
-						var img = $(this);
-						if (img.attr('src')) return;
-						if (img.offset().top < $(window).height() + st) {
-							img.attr('src', img.data('src'));
-						}
-					});
-				}
-				if ($('img.lazy').length > 0) {
-					$(window).scroll(function () {
-						lazyLoadImages();
-					});
-				}
-				
 				// Bourbon refills nav
 				$('#menu_toggle').on('click touchstart', function(e) {
 					e.preventDefault();	
@@ -80,6 +64,41 @@
 						}
 					}
 				});
+				
+				// Mobile Multi Step Accordion Menu
+				// https://codepen.io/juanbrujo/pen/repMZj
+				var subNavTrigger = $('.multilevel-link');
+				subNavTrigger.on('click', function(e){
+					e.preventDefault();
+					// if already active
+					if( $(this).hasClass('active') ) {
+						$(this).removeClass('active').next('ul').slideUp();
+						$(this).parent('li').siblings('li').slideDown();
+					} else {
+						// if inactive
+						if( $(this).siblings('ul').length ) {
+							$(this).addClass('active').next('ul').slideDown();
+							$(this).parent('li').siblings('li').slideUp();
+						}
+					}
+				});
+				
+				// custom lazyload TODO
+				function lazyLoadImages() {
+					var st = $(window).scrollTop();
+					$('img.lazy').each(function () {
+						var img = $(this);
+						if (img.attr('src')) return;
+						if (img.offset().top < $(window).height() + st) {
+							img.attr('src', img.data('src'));
+						}
+					});
+				}
+				if ($('img.lazy').length > 0) {
+					$(window).scroll(function () {
+						lazyLoadImages();
+					});
+				}
 				
 				// Fade in content
 				// Hide direct children of .fade-content element
@@ -118,22 +137,6 @@
 					$('#contact').addClass('said-hi');
 					$('#mobile_menu').removeClass('is-visible');
 				});
-				
-				// Easy Parallax
-//				$(window).on('scroll', function() {
-//					if($(window).scrollTop() < 1000) {
-//						$('.entry__header time').css('bottom', -100 + ($(window).scrollTop() * 0.15) + '%');
-//					}
-//				});
-				
-				// Fancybox 3
-				// http://fancyapps.com/fancybox/3/
-//				$('[data-fancybox]').fancybox({
-//					youtube : {
-//						controls : 0,
-//						showinfo : 0
-//					},
-//				});
 				
 				// Instagram API
 				// https://rudrastyh.com/javascript/get-photos-from-instagram.html

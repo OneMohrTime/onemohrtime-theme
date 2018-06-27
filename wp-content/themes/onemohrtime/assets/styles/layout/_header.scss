@@ -5,21 +5,23 @@
 .site__header {
 	position: fixed;
 	bottom: 0;
-	background: $color__white;
+	background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+	box-shadow: 0 -1px 3px fade-out($color__black, 0.94), 0 -1px 2px fade-out($color__black, 0.88);
 	@include size(100%, auto);
 	max-height: 72px;
 	transition: $speed linear;
 	z-index: 20;
 	
 	&.nav-is-open {
-//		background: transparent linear-gradient(to top, $color__white 72px, transparent);
+		box-shadow: none;
 		max-height: 100vh;
 	}
 	
 	@include media(">=screen600") {
 		top: 0;
 		bottom: auto;
-		background-color: transparent;
+		background: transparent;
+		box-shadow: none;
 		height: 100px;
 		max-height: none;
 	}

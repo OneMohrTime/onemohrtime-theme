@@ -14,7 +14,6 @@
 		grid-column: span 4;
 		display: grid;
 		grid-template-columns: repeat(12, auto);
-//		grid-template-rows: auto, auto;
 		align-items: start;
 		width: auto;
 		@include media(">=screen600") {
@@ -55,16 +54,16 @@
 					margin-left: 50%;
 				}
 			}
-//			@include media(">=screen1280") {
-//				grid-column: minmax(auto, 2fr);
-//				&.social-media {
-//					grid-column: span 1;
-//				}
-//			}
+			@include media(">=screen1280") {
+				grid-column: minmax(1fr, 2fr);
+				&.social-media {
+					grid-column: span 1;
+				}
+			}
 		}
 		
 		h3 {
-			border-bottom: 1px $color__white--darker solid;
+			border-bottom: 1px $color__yellow solid;
 			font-size: 1em;
 			padding-bottom: $small-spacing;
 		}
