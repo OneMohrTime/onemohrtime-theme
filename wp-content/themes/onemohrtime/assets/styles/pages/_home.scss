@@ -20,6 +20,17 @@
 		}
 	}
 	
+	&__intro {
+		// .homepage__intro
+		@include paragraph();
+		text-align: center;
+		font-weight: 700;
+		padding: $gutter;
+		@include media(">=screen768")  { padding: $gutter * 2; }
+		@include media(">=screen1024") { padding: $gutter * 3; }
+		@include media(">=screen1440") { padding: $gutter * 4; }
+	}
+	
 	&__portfolio {
 		// .homepage__portfolio
 		width: 100%;

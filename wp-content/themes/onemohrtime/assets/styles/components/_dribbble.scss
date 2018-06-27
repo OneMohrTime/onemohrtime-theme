@@ -34,6 +34,10 @@
 			margin: 0 auto;
 			transition: opacity 300ms;
 		}
+		&__description {
+			// .shot__description
+			@include sr-only();
+		}
 		&__link {
 			// .shot__link
 			@include block-link(has-border);

@@ -67,7 +67,17 @@
 	{% endif %}
 	
 	<section class="homepage__intro">
-		<h2>{{ post.the_excerpt }}</h2>
+		{{ post.get_field('homepage_intro') }}
+	</section>
+	
+	<section class="homepage__dribbble fade-content">
+		{#
+		<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>
+		<p class="homepage__dribbble--content wysiwyg">
+			I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank" rel="noreferrer">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
+		</p>
+		#}
+		<div id="dribbbles" class="dribbbles fade-content"></div>
 	</section>
 	
 	{% if post.get_field('homepage_feature') %}
@@ -105,12 +115,4 @@
 		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
 	</article>
 	
-	<section class="homepage__dribbble fade-content">
-		<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>
-		<p class="homepage__dribbble--content wysiwyg">
-			I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank" rel="noreferrer">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
-		</p>
-		<div id="dribbbles" class="dribbbles fade-content"></div>
-	</section>
-
 {% endblock %}

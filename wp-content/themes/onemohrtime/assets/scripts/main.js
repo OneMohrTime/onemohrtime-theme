@@ -246,13 +246,15 @@
 						coverflowEffect : {
 							slideShadows : false,
 						},
-						keyboard        : {
+						keyboard : {
 							enabled : true,
 						},
 						pagination : {
-							el             : '#home_banner .swiper-pagination',
-							clickable      : true,
-							dynamicBullets : true
+							el           : '#home_banner .swiper-pagination',
+							clickable    : true,
+							renderBullet : function (index, className) {
+								return '<span class="' + className + ' swiper-pagination-bullet--long"><span class="screen-reader-text">' + (index + 1) + '</span></span>';
+							}
 						},
 						navigation : {
 							nextEl : '#home_banner .swiper-button-next',
@@ -267,27 +269,31 @@
 					});
 				}
 				
+				// Dribbble galleries
+				// Set the Access Token
+				var accessToken = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
+				// Call Dribble v2 API
+				$.ajax({
+					url      : 'https://api.dribbble.com/v2/user/shots?access_token=' + accessToken,
+					dataType : 'json',
+					type     : 'GET',
+					success  : function (data) {
+						if (data.length > 0) {
+							$.each(data.reverse(), function (i, val) {
+								$('#dribbbles').prepend(
+									'<figure id="shot_' + val.id + '" class="shot"><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot__hover"><span class="shot__description">' + val.description + '</span><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a></figcaption></figure>'
+								)
+							})
+						} else {
+							$('#dribbbles').append('<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>');
+						}
+					}
+				});
+				
 			},
 			finalize: function () {
 				// JavaScript to be fired on the home page, after the init JS
 				
-				// Dribbble galleries
-//				$.jribbble.setToken('8511e98bc154687719eb09e014c965b169369470f618d3bb478221accfa5b078');
-//				$.jribbble.users('onemohrtime').shots({
-//					per_page : 6,
-//					sort : 'recent'
-//				}).then(function(shots) {
-//					var html = [];
-//					shots.forEach(function(shot) {
-//						html.push('<figure id="shot_' + shot.id + '" class="shot">');
-//						html.push('<img src="' + shot.images.teaser + '" alt="' + shot.title + '" srcset="' + shot.images.normal + ' 400w, ' + shot.images.hidpi + ' 800w" class="shot__image" />');
-//						html.push('<figcaption class="shot__hover">');
-//						html.push('<a class="shot__link" href="' + shot.html_url + '" target="_blank" title="' + shot.title + '"></a>');
-//						html.push('</figure>');
-//					});
-//					$('#dribbbles').html(html.join(''));
-//					$('#no_shots').hide();
-//				});
 			}
 		},
 		// About us page, note the change from about-us to about_us.

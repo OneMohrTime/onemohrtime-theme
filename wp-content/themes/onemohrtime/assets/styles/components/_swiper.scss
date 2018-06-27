@@ -44,29 +44,17 @@
 	color: $color__white;
 	padding: $gutter $gutter * 2;
 	
-	&__title,
-	&__text {
+	&__title {
 		@include text-shadow();
-		padding-left: $gutter / 2;
-		padding-right: $gutter / 2;
-	}
-	&__text {
-		@include base-font-size();
-		max-width: 700px;
+		margin: 0 $gutter / 2;
 	}
 	
-	@include media(">=screen1024") {
+	@include media(">=screen960") {
 		&__title {
 			// .swiper-slide__title
-			flex: 0 1 auto;
-			margin-left: 33%;
-			padding: 0;
-		}
-		&__text {
-			// .swiper-slide__text
-			flex: 0 1 auto;
-			margin-left: 33%;
-			padding: 0;
+			@include subtitle();
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 4;
 		}
 	}
 	
@@ -106,18 +94,36 @@
 
 // cusomtize pagination
 .swiper-pagination {
-	&.swiper-button-white {
-		
-	}
 	&.swiper-pagination-white {
 		.swiper-pagination-bullet {
 			background: $color__black;
-			border-radius: 0;
-			@include size(16px);
 		}
 		.swiper-pagination-bullet-active {
-			background: $color__yellow;
-			box-shadow: inset 0 0 0 4px $color__white;
+			background: $color__white;
+		}
+	}
+}
+.swiper-container-horizontal > .swiper-pagination-bullets {
+	@include media(">=screen960") {
+		top: $gutter;
+		bottom: $gutter;
+		left: auto;
+		right: $gutter * 4;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: auto;
+	}
+	.swiper-pagination-bullet {
+		border-radius: 0;
+		@include media(">=screen960") {
+			margin: 4px 0;
+		}
+		&--long {
+			@include size(50px, 5px);
+			@include media(">=screen960") {
+				@include size(36px, 3px);
+			}
 		}
 	}
 }
