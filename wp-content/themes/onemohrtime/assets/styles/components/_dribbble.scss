@@ -5,6 +5,7 @@
 .dribbbles {
 	position: relative;
 	width: 100%;
+	
 	@supports (display: grid) {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
@@ -12,21 +13,57 @@
 		grid-row-gap: $gutter;
 		width: auto;
 	}
+	
 	.shot {
 		width: 98%;
 		float: left;
 		margin: 0 1% 1%;
 		@include media(">=screen400") { width: 48%; }
-		@include media(">=screen600") { width: 31%; }
+		@include media(">=screen768") { width: 31%; }
 		@supports (display: grid) {
 			grid-column: span 6;
 			width: auto !important;
 			margin: 0;
 			@include media(">=screen400") { grid-column: span 3; }
-			@include media(">=screen600") { grid-column: span 2; }
+			@include media(">=screen768") { grid-column: span 2; }
 		}
 		position: relative;
+		box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
 		overflow: hidden;
+		transition: box-shadow $speed;
+		
+		&:hover,
+		&:focus {
+			// .shot::hover
+			// .shot::focus
+			.shot {
+				box-shadow: 0;
+			}
+			.shot--hover {
+				opacity: 0;
+			}
+		}
+		
+		&--hover {
+			// .shot--hover
+			@include position(absolute, 0);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: fade-out($color__yellow, 0.15);
+			@include label();
+			@include text-shadow();
+			text-align: center;
+			padding: $gutter;
+			opacity: 1;
+			transition: opacity $speed;
+			
+			@include media("<screen1024") {
+				// hide only on small screens
+				@include sr-only;
+			}
+		}
+		
 		&__image {
 			// .shot__image
 			display: block;
@@ -34,13 +71,15 @@
 			margin: 0 auto;
 			transition: opacity 300ms;
 		}
+		
 		&__description {
 			// .shot__description
 			@include sr-only();
 		}
+		
 		&__link {
 			// .shot__link
-			@include block-link(has-border);
+			@include block-link();
 		}
 	}
 }

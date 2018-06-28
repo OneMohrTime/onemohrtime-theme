@@ -43,41 +43,82 @@
 			position: relative;
 			display: block;
 			margin: 0 $gutter;
+//			@include media(">=screen960") {
+//				width: 870px;
+//				min-height: 420px;
+//				margin-left: auto;
+//				margin-right: auto;
+//			}
+//			@include media(">=screen1170") {
+//				width: 1024px;
+//			}
+//			@include media(">=screen1920") {
+//				width: 1366px;
+//			}
+//			
+//			&__content {
+//				// .feature__content
+//				background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+//				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+//				padding: $base-spacing;
+//				overflow: hidden;
+//				z-index: 3;
+//				@include media(">=screen960") {
+//					@include position(absolute, 23px 0 auto auto);
+//					@include size(50%, 90%);
+//					min-height: 200px;
+//				}
+//			}
+//			
+//			&__image {
+//				// .feature__image
+//				@include media(">=screen960") {
+//					@include position(absolute, 0 null null 0);
+//					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+//					@include size(60%, 100%);
+//					object-fit: cover;
+//				}
+//			}
+		}
+	}
+	
+	&__about {
+		// .homepage__about
+		background: linear-gradient(to top left, $color__black 85%, $color__black--light);
+		color: $color__white;
+		@include base-font-size();
+		@include media(">=screen960") {
+			display: flex;
+			align-items: center;
+
+		}
+		
+		&--image {
+			// .homepage__about--image
 			@include media(">=screen960") {
-				width: 870px;
-				min-height: 420px;
-				margin-left: auto;
-				margin-right: auto;
+				flex: 0 0 33.33%;
+				max-width: 33.33%;
 			}
-			@include media(">=screen1170") {
-				width: 1024px;
+			@include media(">=screen1280") {
+				flex-basis: 50%;
+				max-width: 50%;
 			}
-			@include media(">=screen1920") {
-				width: 1366px;
+		}
+		
+		&--content {
+			// .homepage__about--content
+			padding: $gutter;
+			@include media(">=screen960") {
+				flex: 0 0 66.67%;
+				max-width: 66.67%;
+				padding-left: $gutter * 2;
+				padding-right: $gutter * 2;
 			}
-			
-			&__content {
-				// .feature__content
-				background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
-				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-				padding: $base-spacing;
-				overflow: hidden;
-				z-index: 3;
-				@include media(">=screen960") {
-					@include position(absolute, 23px 0 auto auto);
-					@include size(50%, 90%);
-					min-height: 200px;
-				}
-			}
-			
-			&__image {
-				// .feature__image
-				@include media(">=screen960") {
-					@include position(absolute, 0 null null 0);
-					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-					@include size(60%, 100%);
-					object-fit: cover;
-				}
+			@include media(">=screen1280") {
+				flex-basis: 50%;
+				max-width: 50%;
+				padding-left: $gutter * 3;
+				padding-right: $gutter * 3;
 			}
 		}
 	}
@@ -91,20 +132,20 @@
 			width: auto;
 		}
 		
-		&--title {
-			// .homepage__dribbble--title
-			@include underlined();
-		}
-		
-		&--content {
-			// .homepage__dribbble--content
-			margin-bottom: $small-spacing;
-			padding-right: $gutter;
-			@include media(">=screen600")  { padding-right: 20%; }
-			@include media(">=screen840")  { padding-right: 30%; }
-			@include media(">=screen1024") { padding-right: 40%; }
-			@include media(">=screen1600") { padding-right: 50%; }
-		}
+//		&--title {
+//			// .homepage__dribbble--title
+//			@include underlined();
+//		}
+//		
+//		&--content {
+//			// .homepage__dribbble--content
+//			margin-bottom: $small-spacing;
+//			padding-right: $gutter;
+//			@include media(">=screen600")  { padding-right: 20%; }
+//			@include media(">=screen840")  { padding-right: 30%; }
+//			@include media(">=screen1024") { padding-right: 40%; }
+//			@include media(">=screen1600") { padding-right: 50%; }
+//		}
 	}
 	
 	&__contact {

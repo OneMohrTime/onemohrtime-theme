@@ -8,7 +8,8 @@
 		<div id="home_parallax" class="swiper-container">
 			<div class="parallax-bg" data-swiper-parallax="-23%">
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 alt=""
+					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+					 alt="banner for derek mohr's portfolio"
 					 class="swiper__image"
 					 srcset="{{ post.thumbnail.src('medium') }} 500w,
 							 {{ post.thumbnail.src('large') }} 1000w,
@@ -66,22 +67,38 @@
 	</section>
 	{% endif %}
 	
-	<section class="homepage__intro">
+	{% if post.get_field('homepage_intro') %}
+	<section class="homepage__intro fade-content">
 		{{ post.get_field('homepage_intro') }}
 	</section>
+	{% endif %}
 	
 	<section class="homepage__dribbble fade-content">
-		{#
-		<h2 class="homepage__dribbble--title">Latest Shots <span><a href="//dribbble.com/onemohrtime" target="_blank">on dribbble</a></span></h2>
-		<p class="homepage__dribbble--content wysiwyg">
-			I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank" rel="noreferrer">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.
-		</p>
-		#}
+		<span class="screen-reader-text">I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank" rel="noreferrer">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.</span>
 		<div id="dribbbles" class="dribbbles fade-content"></div>
 	</section>
 	
+	{% if about %}
+	<figure class="homepage__about fade-content">
+		
+		<img src="{{ TimberImage(about.image).src }}"
+			 width="{{ about.image.width }}" height="{{ about.image.height }}"
+			 alt="{{ about.image.alt }}"
+			 class="homepage__about--image"
+			 srcset="{{ TimberImage(about.image).src('medium') }} 500w,
+					 {{ TimberImage(about.image).src('large') }} 1000w,
+					 {{ TimberImage(about.image).src('full') }} 1500w"
+			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
+		
+		<figcaption class="homepage__about--content fade-content">
+			{{ about.text }}
+		</figcaption>
+		
+	</figure>
+	{% endif %}
+	
 	{% if post.get_field('homepage_feature') %}
-	<section class="homepage__portfolio">
+	<section class="homepage__portfolio fade-content">
 		{% for post in post.get_field('homepage_feature') %}
 			
 			<div class="feature fade-content">
@@ -110,7 +127,7 @@
 	</section>
 	{% endif %}
 	
-	<article class="homepage__work content-block fade-content wysiwyg">
+	<article class="homepage__work fade-content wysiwyg">
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
 	</article>
