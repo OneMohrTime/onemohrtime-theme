@@ -55,9 +55,6 @@
 					<h2 class="swiper-slide__title" data-swiper-parallax="-1000" data-swiper-parallax-duration="500">
 						{{ slide.title }}
 					</h2>
-					<div class="swiper-slide__text screen-reader-text" data-swiper-parallax="-500">
-						{{ slide.content }}
-					</div>
 					
 				</div>
 				{% endfor %}
@@ -74,7 +71,6 @@
 	{% endif %}
 	
 	<section class="homepage__dribbble fade-content">
-		<span class="screen-reader-text">I generally post a lot more on <a href="//dribbble.com/onemohrtime" target="_blank" rel="noreferrer">Dribbble</a> than I do here. They aren&rsquo;t full-blown projects as often, so it will be more up to date. Plus, it&rsquo;s just a cool site to hang around on.</span>
 		<div id="dribbbles" class="dribbbles fade-content"></div>
 	</section>
 	
@@ -118,9 +114,9 @@
 						<a href="{{ post.link }}">{{ post.title }}</a>
 					</h2>
 					<p>{{ post.post_excerpt }}</p>
-					<a href="{{ post.link }}">See Project <span class="fa fa-long-arrow-right"></span></a>
 				</div>
 				
+				<a href="{{ post.link }}" class="feature__link"></a>
 			</div>
 			
 		{% endfor %}

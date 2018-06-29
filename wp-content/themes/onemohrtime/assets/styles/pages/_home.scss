@@ -11,10 +11,17 @@
 		@include paragraph();
 		text-align: center;
 		font-weight: 700;
+		min-height: 75vh;
 		@include padding($gutter);
 		@include media(">=screen768")  { @include padding($gutter * 2 $gutter * 4); }
 		@include media(">=screen1024") { @include padding($gutter * 3 $gutter * 6); }
 		@include media(">=screen1440") { @include padding($gutter * 4 $gutter * 8); }
+		
+		@supports (display: flex) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 	
 	&__work {
@@ -22,7 +29,19 @@
 		background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 		color: $color__black;
 		width: 100%;
-		padding: $gutter $gutter $gutter * 2;
+		padding: $gutter * 2 $gutter;
+		@include media(">=screen768") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
+		@include media(">=screen1024") {
+			padding-left: $gutter * 3;
+			padding-right: $gutter * 3;
+		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 4;
+			padding-right: $gutter * 4;
+		}
 		
 		@supports (display: grid) {
 			grid-column: span 4;
@@ -33,64 +52,111 @@
 	&__portfolio {
 		// .homepage__portfolio
 		width: 100%;
-		margin-bottom: $gutter * 2;
+		padding-top: $gutter;
 		@supports (display: grid) {
 			grid-column: span 4;
 			width: auto;
+		}
+		@include media(">=screen400") {
+			display: flex;
+			flex-wrap: wrap;
+			padding-left: $gutter / 2;
+			padding-right: $gutter / 2;
+		}
+		@include media(">=screen768") {
+			padding: $gutter * 2 $gutter;
+		}
+		@include media(">=screen960") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 3;
+			padding-right: $gutter * 3;
 		}
 		
 		.feature {
 			position: relative;
 			display: block;
-			margin: 0 $gutter;
-//			@include media(">=screen960") {
-//				width: 870px;
-//				min-height: 420px;
-//				margin-left: auto;
-//				margin-right: auto;
-//			}
-//			@include media(">=screen1170") {
-//				width: 1024px;
-//			}
-//			@include media(">=screen1920") {
-//				width: 1366px;
-//			}
-//			
-//			&__content {
-//				// .feature__content
-//				background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
-//				box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-//				padding: $base-spacing;
-//				overflow: hidden;
-//				z-index: 3;
-//				@include media(">=screen960") {
-//					@include position(absolute, 23px 0 auto auto);
-//					@include size(50%, 90%);
-//					min-height: 200px;
-//				}
-//			}
-//			
-//			&__image {
-//				// .feature__image
-//				@include media(">=screen960") {
-//					@include position(absolute, 0 null null 0);
-//					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-//					@include size(60%, 100%);
-//					object-fit: cover;
-//				}
-//			}
+			background: linear-gradient(to bottom right, fade-out($color__yellow, 0.85) 85%, fade-out($color__yellow--light, 0.85));
+			border: 1px $color__white solid;
+			@include box-shadow();
+			@include base-font-size();
+			margin: 0 $gutter $gutter;
+			@include media(">=screen400") {
+				flex: 0 0 calc(50% - #{$gutter});
+				max-width: calc(50% - #{$gutter});
+				margin-left: $gutter / 2;
+				margin-right: $gutter / 2;
+			}
+			@include media(">=screen768") {
+				flex-basis: calc(33.33% - #{$gutter});
+				max-width: calc(33.33% - #{$gutter});
+			}
+			@include media(">=screen1024") {
+			}
+			@include media(">=screen1170") {
+				padding: $gutter / 2;
+			}
+			@include media(">=screen1440") {
+				padding: $gutter;
+				margin-left: $gutter;
+				margin-right: $gutter;
+			}
+			
+			&:hover,
+			&:focus {
+				// .feature:hover
+				// .feature:focus
+				background: $color__white;
+				color: $color__black;
+			}
+			
+			&__content {
+				// .feature__content
+				padding: $small-spacing $base-spacing;
+				@include media(">=screen1170") {
+					padding: 0;
+				}
+				
+				&--title {
+					// .feature__content--title
+					@include paragraph();
+				}
+			}
+			
+			&__image {
+				// .feature__image
+				@include media(">=screen1170") {
+					background-color: $color__yellow;
+					border: 1px $color__white solid;
+					padding: $gutter / 2;
+					margin-bottom: $gutter / 2;
+				}
+				@supports (object-fit: cover) {
+					height: 325px;
+					width: 100%;
+					object-fit: cover;
+				}
+				@include media(">=screen960") {}
+			}
+			
+			&__link {
+				// .feature__link
+				@include block-link();
+			}
 		}
 	}
 	
 	&__about {
 		// .homepage__about
 		background: linear-gradient(to top left, $color__black 85%, $color__black--light);
+		@include texture($color__black, 6, 1);
 		color: $color__white;
 		@include base-font-size();
 		@include media(">=screen960") {
 			display: flex;
 			align-items: center;
-
 		}
 		
 		&--image {
@@ -120,6 +186,10 @@
 				padding-left: $gutter * 3;
 				padding-right: $gutter * 3;
 			}
+			@include media(">=screen1920") {
+				padding-left: $gutter * 4;
+				padding-right: $gutter * 4;
+			}
 		}
 	}
 	
@@ -127,25 +197,23 @@
 		// .homepage__dribbble
 		width: 100%;
 		margin: 0 $gutter #{$gutter * 2};
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+		
 		@supports (display: grid) {
 			grid-column: span 4;
 			width: auto;
 		}
-		
-//		&--title {
-//			// .homepage__dribbble--title
-//			@include underlined();
-//		}
-//		
-//		&--content {
-//			// .homepage__dribbble--content
-//			margin-bottom: $small-spacing;
-//			padding-right: $gutter;
-//			@include media(">=screen600")  { padding-right: 20%; }
-//			@include media(">=screen840")  { padding-right: 30%; }
-//			@include media(">=screen1024") { padding-right: 40%; }
-//			@include media(">=screen1600") { padding-right: 50%; }
-//		}
 	}
 	
 	&__contact {

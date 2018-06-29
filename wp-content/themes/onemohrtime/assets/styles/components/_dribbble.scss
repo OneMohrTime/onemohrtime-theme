@@ -28,7 +28,7 @@
 			@include media(">=screen768") { grid-column: span 2; }
 		}
 		position: relative;
-		box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
+		@include box-shadow();
 		overflow: hidden;
 		transition: box-shadow $speed;
 		
