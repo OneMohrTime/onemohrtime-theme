@@ -67,21 +67,23 @@
 				
 				// Mobile Multi Step Accordion Menu
 				// https://codepen.io/juanbrujo/pen/repMZj
-				var subNavTrigger = $('.multilevel-link');
-				subNavTrigger.on('click', function(e){
-					e.preventDefault();
-					// if already active
-					if( $(this).hasClass('active') ) {
-						$(this).removeClass('active').next('ul').slideUp();
-						$(this).parent('li').siblings('li').slideDown();
-					} else {
-						// if inactive
-						if( $(this).siblings('ul').length ) {
-							$(this).addClass('active').next('ul').slideDown();
-							$(this).parent('li').siblings('li').slideUp();
+//				if (window.matchmedia('(max-width: 600px)').matches) {
+					var subNavTrigger = $('.multilevel-link');
+					subNavTrigger.on('click', function(e){
+						e.preventDefault();
+						// if already active
+						if( $(this).hasClass('active') ) {
+							$(this).removeClass('active').next('ul'); // .slideUp()
+							$(this).parent('li').siblings('li'); 	  // .slideDown()
+						} else {
+							// if inactive
+							if( $(this).siblings('ul').length ) {
+								$(this).addClass('active').next('ul'); // .slideDown()
+								$(this).parent('li').siblings('li');   // .slideUp()
+							}
 						}
-					}
-				});
+					});
+//				}
 				
 				// custom lazyload TODO
 				function lazyLoadImages() {
