@@ -2,6 +2,39 @@
 * === MIXINS ===
 */
 
+@mixin visually-hidden($focus: null) {
+	position: absolute !important;
+	border: 0;
+	@include size(1px);
+	margin: -1px;
+	padding: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	overflow: hidden;
+	word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
+	
+	$focus: null !default;
+	@if $focus == null {
+		// nothing, continue on
+	} @else {
+		&:focus {
+			top: 5px;
+			left: 5px;
+			display: block;
+			background-color: $color__yellow--light;
+			color: #444;
+			font-size: 1em;
+			text-decoration: none;
+			line-height: normal;
+			@include size(auto);
+			padding: $gutter / 2 $gutter;
+			clip: auto !important;
+			clip-path: none;
+			z-index: 100000; // Above WP toolbar.
+		}
+	}
+}
+
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 	&::before {
@@ -12,137 +45,13 @@
 	}
 }
 
-@mixin inline() {
-	position: relative;
-	color: inherit;
-	line-height: 1.7em;
-	z-index: 1;
-	@include media(">=screen1170") {
-		&:hover,
-		&:focus { 
-			color: inherit;
-			&::before {
-				width: auto;
-				animation: dancemonkey 2s infinite;
-			}
-			.fa {
-				transform: translateX($small-spacing);
-			}
-		}
-	}
-	&::before {
-		content: "";
-		bottom: 4px;
-		position: absolute;
-		width: 100%;
-		height: 10px;
-		background-color: $color__yellow;
-		z-index: -1;
-	}
-	
-	.fa {
-		position: relative;
-		transition: 500ms cubic-bezier(.455,.03,.515,.955);
-	}
-}
-
-@mixin underline-link() {
-	border-bottom: 3px $color__black solid;
-	font-weight: 700;
-	letter-spacing: 1px;
-	padding-left: $small-spacing;
-	padding-right: $small-spacing;
-	padding-bottom: .25em;
-}
-
-@mixin texture-grid() {
-	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
-}
-
-@mixin image-overlay() {
-	@supports (background-blend-mode: multiply) {
-		z-index: 0;
-		&::before {
-			content: "";
-			@include position(absolute, 0 null null 0);
-			display: block;
-			background: transparent url("../images/img-texture.png") repeat center center;
-			background-blend-mode: multiply;
-			@include size(100%);
-			overflow: hidden;
-			z-index: 1;
-		}
-	}
-}
-
-@mixin mask-texture() {
-	-webkit-mask-image: url("../images/rough-texture.png");
-			mask-image: url("../images/rough-texture.png");
-}
-
-@mixin btn-contact() {
-	@include position(absolute, 50% $base-spacing null null);
-	transform: rotate(-90deg) !important;
-	transform-origin: center top 0;
-	z-index: 2;
-}
-
-@mixin fade-two() {
-	& > * {
-		transition: opacity $speed, transform $speed;
-		& > *:nth-child(2n+2) { transition-delay: 100ms; }
-	}
-}
-
-@mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
-    border: 3px $buttoncolor solid;
-	color: $buttoncolor;
-    &::after {
-        background-color: $hover;
-    }
-}
-
 @mixin text-shadow() {
-	text-shadow: 2px 2px 4px fade-out($color__black, .95);
+	text-shadow: 2px 2px 4px fade-out($color__black, 0.95);
 }
 
 @mixin box-shadow() {
 //	box-shadow: 0 1px 3px fade-out($color__black, 0.88), 0 1px 2px fade-out($color__black, 0.76);
 	box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
-}
-
-@mixin underlined() {
-	position: relative;
-	padding-bottom: calc(.5em + 10px);
-	margin-bottom: .5em;
-	&::after {
-		content: "";
-		@include position(absolute, null null 0 0);
-		height: 10px;
-		width: 50px;
-		@include media(">=screen600") { width: 100px; }
-		background-color: $color__yellow;
-	}
-}
-
-@mixin block-link($border: null) {
-	@include position(absolute, 0 0 0 0);
-	display: block;
-	background: none;
-	@if $border == "has-border" {
-		top: 10px;
-		left: 10px;
-		right: 10px;
-		bottom: 10px;
-		border: 10px transparent solid;
-		transition: border $speed;
-		&:hover,
-		&:focus {
-			border-color: fade-out($color__yellow, 0.15);
-		}
-	} @else {
-		
-	}
 }
 
 /*
@@ -229,4 +138,129 @@
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin: 0;
+}
+
+@mixin underlined() {
+	position: relative;
+	padding-bottom: calc(.5em + 10px);
+	margin-bottom: .5em;
+	&::after {
+		content: "";
+		@include position(absolute, null null 0 0);
+		height: 10px;
+		width: 50px;
+		@include media(">=screen600") { width: 100px; }
+		background-color: $color__yellow;
+	}
+}
+
+/*
+* — Texture effects —
+*/
+
+@mixin texture-grid() {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
+}
+
+@mixin image-overlay() {
+	@supports (background-blend-mode: multiply) {
+		z-index: 0;
+		&::before {
+			content: "";
+			@include position(absolute, 0 null null 0);
+			display: block;
+			background: transparent url("../images/img-texture.png") repeat center center;
+			background-blend-mode: multiply;
+			@include size(100%);
+			overflow: hidden;
+			z-index: 1;
+		}
+	}
+}
+
+@mixin mask-texture() {
+	-webkit-mask-image: url("../images/rough-texture.png");
+			mask-image: url("../images/rough-texture.png");
+}
+
+/*
+* — Buttons and links —
+*/
+
+@mixin inline() {
+	position: relative;
+	color: inherit;
+	line-height: 1.7em;
+	z-index: 1;
+	@include media(">=screen1170") {
+		&:hover,
+		&:focus { 
+			color: inherit;
+			&::before {
+				width: auto;
+				animation: dancemonkey 2s infinite;
+			}
+			.fa {
+				transform: translateX($small-spacing);
+			}
+		}
+	}
+	&::before {
+		content: "";
+		bottom: 4px;
+		position: absolute;
+		width: 100%;
+		height: 10px;
+		background-color: $color__yellow;
+		z-index: -1;
+	}
+	
+	.fa {
+		position: relative;
+		transition: $speed--slow cubic-bezier(.455,.03,.515,.955);
+	}
+}
+
+@mixin block-link($border: null) {
+	@include position(absolute, 0 0 0 0);
+	display: block;
+	background: none;
+	@if $border == "has-border" {
+		top: 10px;
+		left: 10px;
+		right: 10px;
+		bottom: 10px;
+		border: 10px transparent solid;
+		transition: border $speed;
+		&:hover,
+		&:focus {
+			border-color: fade-out($color__yellow, 0.15);
+		}
+	} @else {
+		// nothing, continue on
+	}
+}
+
+@mixin underline-link() {
+	border-bottom: 3px $color__black solid;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding-left: $small-spacing;
+	padding-right: $small-spacing;
+	padding-bottom: .25em;
+}
+
+@mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
+    border: 3px $buttoncolor solid;
+	color: $buttoncolor;
+    &::after {
+        background-color: $hover;
+    }
+}
+
+@mixin btn-contact() {
+	@include position(absolute, 50% $base-spacing null null);
+	transform: rotate(-90deg) !important;
+	transform-origin: center top 0;
+	z-index: 2;
 }

@@ -1,0 +1,69 @@
+/*
+* === ANIMATIONS ===
+*/
+
+// .wysiwyg hyperlinks
+@keyframes dancemonkey {
+	0% {
+		left: 0;
+		right: 25%;
+	}
+	50% {
+		left: 25%;
+		right: 0;
+	}
+	100% {
+		left: 0;
+		right: 25%;
+	}
+}
+
+// reverse font-awesome animation
+.fa-spin.fa-spin-reverse {
+	animation-direction: reverse;
+}
+
+/*
+* — "jQuery" animation —
+*/
+
+.toggle-content {
+	display: none;
+	height: 0;
+	overflow: hidden;
+	transition: height 350ms ease-in-out;
+	
+	&.is-visible {
+		// .toggle-content.is-visible
+		display: block;
+		height: auto;
+	}
+}
+
+//@keyframes jquery {
+//	0% {
+//		display: none;
+//	}
+//	1% {
+//		display: block;
+//	}
+//	100% {
+//		display: block;
+//	}
+//}
+
+
+/*
+* — WordPress specific —
+*/
+
+// Globally hidden elements when Infinite Scroll is supported and in use.
+.infinite-scroll .paging-navigation, // Older / Newer Posts Navigation (always hidden)
+.infinite-scroll.neverending .site-footer { // Theme Footer (when set to scrolling)
+	display: none;
+}
+
+// When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before
+.infinity-end.neverending .site-footer {
+	display: block;
+}

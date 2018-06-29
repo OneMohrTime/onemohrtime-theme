@@ -36,19 +36,21 @@ $color--error: $color__red;
 */
 
 $font__main      : "Barlow", $font-stack-system;
-$font__secondary : "Wildwest", $font-stack-georgia;
+$font__secondary : "Wildwest", $font-stack-garamond;
 $font__header    : "Barlow Semi Condensed", $font-stack-helvetica;
 $font__code      : "Inconsolata", $font-stack-monaco;
 
 /*
-* — Structure —
+* — Everything else —
 */
 
-$speed       : 200ms;
-$speed--fast : $speed / 2;
-$speed--slow : $speed * 2;
-
+$speed         : 200ms;
+$speed--fast   : $speed / 2;
+$speed--slow   : $speed * 2;
 $base-duration : $speed;
+
+//$cubic-bezier : cubic-bezier(.455, .03, .515, .955);
+$cubic-bezier : cubic-bezier(0.17, 0.04, 0.03, 0.94);
 
 $gutter : 36px;
 
@@ -72,5 +74,5 @@ $breakpoints : (
 
 $modularscale : (
 	base  : 1em,
-	ratio : 1.618
+	ratio : $golden
 );

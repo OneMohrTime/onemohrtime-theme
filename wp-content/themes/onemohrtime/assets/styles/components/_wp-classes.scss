@@ -1,331 +1,82 @@
-// WordPress Generated Classes
-// http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+/*
+* === WORDPRESS CORE ===
+*/
 
-// Media alignment
 .alignnone {
-	margin-left: 0;
-	margin-right: 0;
-	max-width: 100%;
-	height: auto;
+	margin: 5px 20px 20px 0;
 }
 
-.aligncenter {
+.aligncenter,
+div.aligncenter {
 	display: block;
-	margin: $small-spacing auto;
-	height: auto;
+	margin: 5px auto 5px auto;
 }
 
-.alignleft,
 .alignright {
-	margin-bottom: $small-spacing;
-	height: auto;
+	float:right;
+	margin: 5px 0 20px 20px;
 }
-
-@include media(">=screen840") {
-	// Only float if not on an extra small device
-	.alignleft {
-		float: left;
-		margin-right: $small-spacing;
-	}
-	.alignright {
-		float: right;
-		margin-left: $small-spacing;
-	}
-}
-
-// Captions
-.wp-caption {
-	display: block;
-//	@extend .figure;
-}
-
-.wp-caption > img {
-//	@extend .figure-img;
-//	@extend .img-fluid;
-}
-
-.wp-caption-text {
-	font-family: $font__header;
-//	@extend .figure-caption;
-}
-
-// Text meant only for screen readers
-.screen-reader-text {
-//	@extend .sr-only;
-//	@extend .sr-only-focusable;
-}
-
-// Text meant only for screen readers
-.screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	&:hover,
-	&:active,
-	&:focus {
-		background-color: $color__white;
-		border-radius: 3px;
-		box-shadow: 0 0 2px 2px fade($color__black,60%);
-		clip: auto !important;
-		color: $color__black;
-		display: block;
-        font-size: 1.4em;
-		font-weight: bold;
-		height: auto;
-		left: 5px;
-		line-height: normal;
-		padding: 15px 23px 14px;
-		text-decoration: none;
-		top: 5px;
-		width: auto;
-		z-index: 100000; // Above WP toolbar
-	}
-}
-
-
 
 .alignleft {
-	display: inline-block;
 	float: left;
-	margin-right: 1.5em;
+	margin: 5px 20px 20px 0;
 }
 
-.alignright {
-	display: inline-block;
-	float: right;
-	margin-left: 1.5em;
+a {
+	img {
+		&.alignright {
+			float: right;
+			margin: 5px 0 20px 20px;
+		}
+		&.alignnone {
+			margin: 5px 20px 20px 0;
+		}
+		&.alignleft {
+			float: left;
+			margin: 5px 20px 20px 0;
+		}
+		&.aligncenter {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
 
-.aligncenter {
-	display: block;
+.wp-caption {
+	background: $color__white;
+	border: 1px $color__white--darker solid;
 	text-align: center;
+	max-width: 96%; // Image does not overflow the content area
+	padding: 5px 3px 10px;
+	
+	&.alignnone {
+		margin: 5px 20px 20px 0;
+	}
+	&.alignleft {
+		margin: 5px 20px 20px 0;
+	}
+	&.alignright {
+		margin: 5px 0 20px 20px;
+	}
+	
+	img {
+		border: 0 none;
+		@include size(auto);
+		max-width: 98.5%;
+		margin: 0;
+		padding: 0;
+	}
+	
+	p.wp-caption-text {
+		font-size: 11px;
+		line-height: 17px;
+		margin: 0;
+		padding: 0 4px 5px;
+	}
 }
 
-/*--------------------------------------------------------------
-    Animations
---------------------------------------------------------------*/
-
-/**********
-CSS3 Animate It
-**********/
-
-.animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
-.fadeInRight, .fadeInLeft, .fadeInUp, .fadeInDown{
-    opacity:0;
-    transform: translateX(400px);
-}
-
-// Fade In
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {
-        opacity: 1;
-        display:block;
-    }
-}
-.fadeIn {opacity:0;}
-.fadeIn.go {animation-name: fadeIn;}
-
-// Fade In Left
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-400px);
-    }
-    50% {opacity: 0.3;}
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-.fadeInLeft {
-    opacity: 0;
-    transform: translateX(-400px);
-}
-.fadeInLeft.go {animation-name: fadeInLeft;}
-
-// Fade In Right
-@keyframes fadeInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(400px);
-    }
-    50% {opacity: 0.3;}
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-.fadeInRight {
-    opacity: 0;
-    transform: translateX(400px);
-}
-.fadeInRight.go {animation-name: fadeInRight;}
-
-// Fade In Up
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(400px);
-    }
-    50% {opacity: 0.3;}
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.fadeInUp {
-    opacity: 0;
-    transform: translateY(400px);
-}
-.fadeInUp.go {animation-name: fadeInUp;}
-
-// Fade In Down
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-400px);
-    }
-    50% {opacity: 0.3;}
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.fadeInDown{
-    opacity: 0;
-    transform: translateY(-400px);
-}
-.fadeInDown.go {animation-name: fadeInDown;}
-
-// Fade In Up Short
-@keyframes fadeInUpShort {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.fadeInUpShort{
-    opacity: 0;
-    transform: translateY(20px);
-}
-.fadeInUpShort.go {animation-name: fadeInUpShort;}
-
-// Fade In Down Short
-@keyframes fadeInDownShort {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.fadeInDownShort{
-    opacity: 0;
-    transform: translateY(-20px);
-}
-.fadeInDownShort.go {animation-name: fadeInDownShort;}
-
-// Fade In Right Short
-@keyframes fadeInRightShort {
-    0% {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-.fadeInRightShort {
-    opacity: 0;
-    transform: translateX(20px);
-}
-.fadeInRightShort.go {animation-name: fadeInRightShort;}
-
-// Fade In Left Short
-@keyframes fadeInLeftShort {
-    0% {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-.fadeInLeftShort {
-    opacity: 0;
-    transform: translateX(-20px);
-}
-.fadeInLeftShort.go {animation-name: fadeInLeftShort;}
-
-/**********
-Blinking Homepage Cursor
-**********/
-
-@keyframes blink{
-    to {opacity: .0;}
-}
-
-/**********
-Faux Loading Screen
-**********/
-
-@keyframes object_big {
-    50% {transform: scale(0.5);}
-}
-@keyframes object_one {
-    50% {transform: translate(-65px, -65px);}
-}
-@keyframes object_two {
-    50% {transform: translate(0, -65px);}
-}
-@keyframes object_three {
-    50% {transform: translate(65px, -65px);}
-}
-@keyframes object_four {
-    50% {transform: translate(65px, 0);}
-}
-@keyframes object_five {
-    50% {transform: translate(65px, 65px);}
-}
-@keyframes object_six {
-    50% {transform: translate(0, 65px);}
-}
-@keyframes object_seven {
-    50% {transform: translate(-65px, 65px);}
-}
-@keyframes object_eight {
-    50% {transform: translate(-65px, 0);}
-}
-
-/**********
-Reverse FontAwesome animation
-**********/
-
-.fa-spin.fa-spin-reverse {animation-direction: reverse;}
-
-
-
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
-	display: block;
+// Text meant only for screen readers.
+.screen-reader-text {
+	@include visually-hidden();
 }

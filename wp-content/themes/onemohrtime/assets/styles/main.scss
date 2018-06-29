@@ -61,7 +61,8 @@
 	"base/base",
 	"base/typography",
 	"base/links",
-	"base/media";
+	"base/media",
+	"base/animations";
 
 /*--------------------------------------------------------------
 	2.0 Layout
@@ -81,11 +82,11 @@
 
 @import
 	"components/wp-classes",
-	"components/loading",
 	"components/buttons",
 	"components/nav",
 	"components/swiper",
 	"components/contact",
+	"components/comments",
 	"components/dribbble";
 
 /*--------------------------------------------------------------

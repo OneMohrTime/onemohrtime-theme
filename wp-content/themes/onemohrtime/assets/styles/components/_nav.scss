@@ -62,19 +62,36 @@
 			@include media("<screen600") {
 				display: block;
 			}
-			
-			a {
-				padding: $small-spacing;
-				@include media(">=screen600") {
-					padding: $small-spacing / 2 $small-spacing;
-					transition: background-color $speed, color $speed;
-					&:hover {
-						background-color: fade-out($color__white, 0.9);
-					}
-				}
+		}
+		
+	}
+	
+	.nav-link {
+		display: block;
+		padding: $small-spacing;
+		@include media(">=screen600") {
+			border-radius: 2px;
+			padding: $small-spacing / 2 $small-spacing;
+			transition: background-color $speed, color $speed;
+			&:hover {
+				background-color: fade-out($color__white, 0.9);
 			}
 		}
 	}
+	
+//	.multilevel-link {
+//		position: relative;
+//		&::after {
+//			content: "\f067";
+//			transition: transform $speed--slow;
+//		}
+//		
+//		&.active {
+//			& ~ .submenu {
+//				display: block;
+//			}
+//		}
+//	}
 	
 	.submenu {
 		display: none;
