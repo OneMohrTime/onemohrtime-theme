@@ -83,6 +83,7 @@
 			@include box-shadow();
 			@include base-font-size();
 			margin: 0 $gutter $gutter;
+			transition: background $speed, color $speed;
 			@include media(">=screen400") {
 				flex: 0 0 calc(50% - #{$gutter});
 				max-width: calc(50% - #{$gutter});
@@ -110,6 +111,9 @@
 				// .feature:focus
 				background: $color__white;
 				color: $color__black;
+				.feature__read-more {
+					border-color: $color__black;
+				}
 			}
 			
 			&__content {
@@ -134,11 +138,22 @@
 					margin-bottom: $gutter / 2;
 				}
 				@supports (object-fit: cover) {
-					height: 325px;
+					height: 200px;
 					width: 100%;
 					object-fit: cover;
+					@include media(">=screen1170") {
+						height: 250px;
+					}
 				}
-				@include media(">=screen960") {}
+			}
+			
+			&__read-more {
+				// feature__read-more
+				border-top: 1px $color__white solid;
+				@include label();
+				width: 100%;
+				margin-top: $small-spacing;
+				padding-top: $small-spacing;
 			}
 			
 			&__link {

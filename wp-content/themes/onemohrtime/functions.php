@@ -16,6 +16,7 @@ $sage_includes = [
 	'lib/setup.php',      // Theme setup
 	'lib/titles.php',     // Page titles
 	'lib/customizer.php', // Theme customizer
+	'lib/acf.php',        // ACF options
 	'lib/emojis.php'      // Remove emojis
 ];
 

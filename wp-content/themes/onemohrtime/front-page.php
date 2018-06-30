@@ -10,9 +10,9 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 
-$context['post']   = $post;
-$context['swiper'] = get_field('homepage_hero');
-$context['about']  = get_field('homepage_about');
-//$context['featured'] = get_field('homepage_feature');
+$context['post']     = $post;
+$context['swiper']   = get_field('homepage_hero');
+$context['about']    = get_field('homepage_about');
+//$context['features'] = get_field('homepage_feature');
 
 Timber::render('pages/front-page.twig', $context);
