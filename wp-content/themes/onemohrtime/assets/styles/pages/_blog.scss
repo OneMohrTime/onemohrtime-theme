@@ -4,14 +4,9 @@
 
 body.blog {
 	position: relative;
-	@include media(">=screen840") {
-		background-color: $color__white--dark;
-		margin-bottom: 2em;
-		&::after {
-			content: "";
-			height: 2em;
-		}
-	}
+//	background-color: $color__white--dark;
+	@include texture($color__white--dark, 54, 0);
+	margin-bottom: 2em;
 	
 	.posts {
 		@supports (display: grid) {
@@ -45,7 +40,6 @@ body.blog {
 				z-index: 0;
 				
 				@supports (object-fit: cover) {
-//					@include size(100%, 300px);
 					object-fit: cover;
 					transform: translate(0);
 				}
@@ -53,24 +47,14 @@ body.blog {
 			
 			&--title {
 				// .posts__banner--title
-				z-index: 2;
 				h2 {
-					color: $color__white;
-					font-size: 3em;
-					@include text-shadow();
-					margin-bottom: 0;
-				}
-				
-				@include media(">=screen1170") {
-					font-size: 5em;
-					h2 { font-size: inherit; }
+					@include title();
 				}
 				
 				@supports (display: flex) {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					padding: 0 $gutter;
 				}
 			}
 			
@@ -94,30 +78,22 @@ body.blog {
 	}
 	
 	.type-post {
-		grid-column: span 4;
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+		display: block;
 		border-radius: 3px;
-		box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
-		margin: 0 $gutter $gutter;
+		@include box-shadow();
+		@include size(100%, auto);
+		min-height: 420px;
+		margin-bottom: $base-spacing;
         @include media(">=screen840") {
-			display: block;
 			border-radius: 0;
 			box-shadow: none;
-			width: 100%;
 			margin-bottom: $gutter * 2;
-			min-height: 420px;
 		}
         @include media(">=screen960") {
 			width: 870px;
 			margin-left: auto;
 			margin-right: auto;
-            &:hover,
-            &:focus {
-				.post__date { border-color: $color__yellow; }
-            }
         }
 		@include media(">=screen1170") {
 			width: 1024px;
@@ -127,94 +103,66 @@ body.blog {
 		}
 		
 		.post {
-			&__header {
-				// .post__header
-				order: 2;
-				display: flex;
-				flex-direction: row;
+			
+			&__content {
+				// .post__content
+				background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+				@include body-copy();
+				min-height: 200px;
+				padding: $base-spacing;
 				@include media(">=screen840") {
 					@include position(absolute, 23px 0 null null);
-					background: $color__white;
-					box-shadow: 2px 2px 4px 0 fade-out($color__black, .95);
+					border-radius: $base-border-radius;
+					@include box-shadow();
+					@include base-font-size();
 					@include size(50%, 90%);
-					min-height: 200px;
-					padding: $base-spacing;
 					overflow: hidden;
-					z-index: 3;
+					
+					@supports (display: flex) {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+					}
+				}
+				
+				.meta {
+					color: $color__gray;
+					@include media(">=screen840") {
+						color: $color__gray--light;
+					}
 				}
 			}
 			
 			&__title {
 				// .post__title
-				text-transform: none;
+				@include paragraph();
 				@include underlined();
 				@include media(">=screen840") {
-					margin-bottom: .2em;
-					padding-bottom: calc(10px + .2em);
+					@include subtitle(underlined);
+					@include ellipsis();
 				}
-			}
-			
-			&__date {
-				// .post__date
-				flex: 0 1 20%;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				background-color: $color__yellow;
-				color: $color__yellow--light;
-				border-bottom-left-radius: 3px;
-				padding: $gutter/2;
-				@include media(">=screen840") {
-					flex: 1 0 100px;
-					background-color: transparent !important;
-					color: $color__black;
-					border: 10px $color__white--dark solid;
-					@include size(100px);
-					margin-right: $gutter;
-					padding: 0;
-					transition: border-color $speed;
-					display: none;
-				}
-				.month {
-					line-height: 1em;
-				}
-				.day {
-					font-size: 2em;
-					font-weight: 700;
-					line-height: 1em;
-				}
-				.updated { display: none; }
-				a {
-					@include block-link();
-					@include media(">=screen840") { display: none; }
-				}
-			}
-			
-			&__content {
-				// .post__content
-				flex: 1 0 80%;
-				display: block;
-				padding: $gutter / 2;
 			}
 			
 			&__image {
 				// .post__image
-				order: 1;
-				background: $color__white--dark;
-				@include size(100%, 150px);
+				background: $color__white--darker;
 				@include media(">=screen840") {
-					@include position(absolute, 0 null null 50%);
+					@include position(absolute, 0 null null 0);
+					@include box-shadow();
+					@include size(60%, 100%);
+					overflow: hidden;
 					pointer-events: none;
-					transform: translate(-50%, 0);
-					z-index: 1;
 				}
 				&--parallax {
-					border-top-left-radius: 3px;
-					border-top-right-radius: 3px;
+					border-top-left-radius: $base-border-radius;
+					border-top-right-radius: $base-border-radius;
 					width: 100%;
+					@include media(">=screen840") {
+						border-radius: $base-border-radius;
+					}
 					@supports (object-fit: cover) {
-						@include size(100%, 200%);
+//						@include size(100%, 200%);
+						min-height: 100%;
 						object-fit: cover;
 					}
 				}
@@ -222,7 +170,10 @@ body.blog {
 			
 			&__link {
 				// .post__link
-				@include block-link();
+				display: none;
+				@include media(">=screen840") {
+					@include block-link();
+				}
 			}
 			
 		}
@@ -233,7 +184,7 @@ body.blog {
 					left: auto;
 					right: 0;
 				}
-				.post__header {
+				.post__content {
 					left: 0;
 					right: auto;
 				}

@@ -113,6 +113,10 @@
 	}
 }
 
+@mixin body-copy() {
+	font-size: ms(0);
+}
+
 @mixin base-font-size() {
 	font-size: 1rem;
 	@include media(">=screen1170") {

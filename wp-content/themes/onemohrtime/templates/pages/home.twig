@@ -38,17 +38,19 @@
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 			</figure>
 			
-			<header class="post__header">
-				<time class="post__date">
-					{{ post.post_date_gmt | time_ago }}
-				</time>
-				<div class="post__content wysiwyg">
-					<h2 class="post__title">
-						<a href="{{ post.link }}">{{ post.title }}</a>
-					</h2>
-					<p>{{ post.post_content | excerpt(20) }} <a href="{{ post.link }}">[&hellip;]</a></p>
-				</div>
-			</header>
+			<div class="post__content fade-content wysiwyg">
+				
+				{% include "blocks/entry-meta.twig" %}
+				
+				<h2 class="post__title">
+					<a href="{{ post.link }}">{{ post.title }}</a>
+				</h2>
+				
+				<p>
+					{{ post.post_content | excerpt(20) }} <a href="{{ post.link }}">[&hellip;]</a>
+				</p>
+				
+			</div>
 			
 			<a href="{{ post.link }}" class="post__link"></a>
 			
