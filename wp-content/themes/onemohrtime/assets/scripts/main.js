@@ -190,6 +190,15 @@
 					});
 				});
 				
+				// Add or remove scrolling navbar classes
+				$(window).scroll(function() {
+					if ($(document).scrollTop() > 50) {
+						$('nav').addClass('transparent');
+					} else {
+						$('nav').removeClass('transparent');
+					}
+				});
+				
 				// click to smoothscroll
 				$('a[href^="#"]').on('click', function(e) {
 					e.preventDefault();
