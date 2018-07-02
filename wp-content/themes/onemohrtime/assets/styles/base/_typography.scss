@@ -37,25 +37,16 @@
 		font-size: modular-scale((6 - $i), 1em, $major-third);
 		font-weight: 700;
 		text-transform: uppercase;
+		line-height: $heading-line-height;
 		margin: 0 0 .5em;
 		a {
 			color: inherit;
-			line-height: 1em !important;
+			line-height: inherit;
 			.wysiwyg & {
 				&:focus { outline: none; }
 				&::before { display: none; }
 			}
 		}
-//		span:not(.typing) {
-//			color: $color__yellow;
-//			font-family: $font__secondary;
-//			font-size: .75em;
-//			text-transform: none;
-//			letter-spacing: -1px;
-//			& > a {
-//				transform: rotate(-4deg) translate(-2em, .1em);
-//			}
-//		}
 	}
 }
 

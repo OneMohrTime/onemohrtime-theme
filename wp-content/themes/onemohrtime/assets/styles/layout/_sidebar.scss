@@ -5,6 +5,7 @@
 .site__sidebar {
 	position: relative;
 	width: 100%;
+	
 	@supports (display: grid) {
 		grid-column: span 4;
 		width: auto;
@@ -13,6 +14,7 @@
 
 .widget {
 	margin-bottom: $gutter;
+	
 	&__instagram {
 		// .widget__instagram
 		margin-left: $gutter;
@@ -21,8 +23,15 @@
 		&--title {
 			// .widget__instagram--title
 			width: 100%;
-			@include underlined();
-			margin-bottom: 1em;
+			@include label();
+			line-height: $base-line-height;
+			margin-bottom: $gutter;
+			@include media(">=screen768") {
+				margin-bottom: $gutter * 2;
+			}
+			@include media(">=screen1440") {
+				margin-bottom: $gutter * 3;
+			}
 		}
 		
 		&--feed {
@@ -52,7 +61,7 @@
 				&:hover,
 				&:focus {
 					img {
-						transform: translateY(-$gutter);
+						transform: translateY(-25%);
 					}
 					.widget__instagram--caption {
 						transform: translateY(0);
@@ -78,16 +87,25 @@
 			padding: $small-spacing;
 			transform: translateY(100%);
 			transition: transform $speed;
+			@include media(">=screen1170") {
+				padding: $base-spacing;
+			}
 			
 			p {
 				@include ellipsis();
+				margin-bottom: 0;
 			}
+		}
+		
+		&--btn {
+			// .widget__instagram--btn
+			font-weight: 700;
+			border-bottom: 2px $color__black solid;
 		}
 		
 		&--link {
 			// .widget__instagram--link
 			@include block-link();
-			@include media(">=screen1170") { display: none; }
 		}
 		
 		@supports (display: grid) {

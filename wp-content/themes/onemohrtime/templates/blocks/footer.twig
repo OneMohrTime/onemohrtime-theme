@@ -1,33 +1,5 @@
 <footer class="site__footer fade-content">
 	
-	<div class="site__footer--column plugins">
-		<h3>Built With</h3>
-		<ul>
-			<li><a href="//roots.io/sage" target="_blank">Sage.io</a></li>
-			<li><a href="//sass-lang.com" target="_blank">Sass</a> + <a href="//bourbon.io" target="_blank">Bourbon</a></li>
-			<li><a href="//twig.symfony.com" target="_blank">Twig PHP</a></li>
-			<li><a href="//gulpjs.com/" target="_blank">Gulp JS</a></li>
-		</ul>
-	</div>
-	
-	<div class="site__footer--column">
-		<h3>Plugins</h3>
-		<ul>
-			<li><a href="//advancedcustomfields.com/pro" target="_blank">ACF Pro</a></li>
-			<li><a href="//upstatement.com/timber/" target="_blank">Timber</a></li>
-			<li><a href="//github.com/WebDevStudios/custom-post-type-ui" target="_blank">CPT UI</a></li>
-		</ul>
-	</div>
-	
-	<div class="site__footer--column">
-		<h3>Components</h3>
-		<ul>
-			<li><a href="//idangero.us/swiper/" target="_blank">Swiper.js</a></li>
-			<li><a href="//fancyapps.com/fancybox/3/" target="_blank">Fancybox 3</a></li>
-			<li><a href="//kunkalabs.com/mixitup/" target="_blank">MixItUp</a></li>
-		</ul>
-	</div>
-	
 	<div class="site__footer--column projects">
 		<h3>Featured Projects</h3>
 		<ul>
@@ -46,6 +18,13 @@
 			</li>
 			{% endfor %}
 		</ul>
+	</div>
+	
+	<div class="site__footer--column about-site">
+		<h3>Site Info</h3>
+		<div class="wysiwyg">
+			{{ options.site_about }}
+		</div>
 	</div>
 	
 	<div class="site__footer--column social-media">

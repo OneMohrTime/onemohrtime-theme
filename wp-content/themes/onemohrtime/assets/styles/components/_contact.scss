@@ -5,15 +5,13 @@
 .site__contact {
 	grid-column: span 4;
 	padding: 0 $gutter;
-	.nf-form-cont {
+	.wysiwyg {
 		display: none;
-		@include type();
 		font-family: $font__code;
 		text-align: center;
-		margin: 0 36px 72px;
 	}
 	&.said-hi {
-		.nf-form-cont {
+		.wysiwyg {
 			display: block;
 		}
 	}
