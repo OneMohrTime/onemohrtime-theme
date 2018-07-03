@@ -138,8 +138,14 @@ body.blog {
 				@include paragraph();
 				@include underlined();
 				@include media(">=screen840") {
-					@include subtitle(underlined);
+					color: $color__white--dark;
+					@include title();
+					@include position(absolute, 0 null null 0);
+					line-height: 1em;
+					padding-bottom: 0;
+					margin-bottom: 0;
 					@include ellipsis();
+					&::after { display: none; }
 				}
 			}
 			

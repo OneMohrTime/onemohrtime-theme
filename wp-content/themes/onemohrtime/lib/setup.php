@@ -96,8 +96,10 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-//	wp_enqueue_style('swiper', Assets\asset_path('styles/swiper.css'), false, null);
 	wp_enqueue_style('style', Assets\asset_path('styles/main.css'), false, null);
+	
+	// Google Webfonts
+	wp_enqueue_style('webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('style'), false, null);
 	
 	if (is_single() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');

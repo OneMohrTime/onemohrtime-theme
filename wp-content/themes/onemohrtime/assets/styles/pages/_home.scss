@@ -89,11 +89,12 @@
 		.feature {
 			position: relative;
 			display: block;
-			background: linear-gradient(to bottom right, fade-out($color__yellow, 0.85) 85%, fade-out($color__yellow--light, 0.85));
-			border: 1px $color__white solid;
+			background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+			color: $color__black;
 			@include box-shadow();
-			@include base-font-size();
+			@include small-font-size();
 			margin: 0 $gutter $gutter;
+			padding: $gutter;
 			transition: background $speed, color $speed;
 			@include media(">=screen400") {
 				flex: 0 0 calc(50% - #{$gutter});
@@ -106,7 +107,7 @@
 				max-width: calc(33.33% - #{$gutter});
 			}
 			@include media(">=screen1170") {
-				padding: $gutter / 2;
+//				padding: $gutter / 2;
 			}
 			@include media(">=screen1440") {
 				padding: $gutter;
@@ -118,10 +119,16 @@
 			&:focus {
 				// .feature:hover
 				// .feature:focus
-				background: $color__white;
-				color: $color__black;
+				background: transparent;
+				color: $color__white;
+				.feature__image {
+					opacity: 1 !important;
+				}
+				.feature__content--title::after {
+					background-color: $color__white;
+				}
 				.feature__read-more {
-					border-color: $color__black;
+					border-color: $color__white;
 				}
 			}
 			
@@ -135,8 +142,8 @@
 				&--title {
 					// .feature__content--title
 					@include paragraph();
+					@include underlined();
 					@include media(">=screen768") {
-						@include base-font-size();
 						letter-spacing: 2px;
 					}
 				}
@@ -144,15 +151,12 @@
 			
 			&__image {
 				// .feature__image
-				@include media(">=screen1170") {
-					background-color: $color__yellow;
-					border: 1px $color__white solid;
-					padding: $gutter / 2;
-					margin-bottom: $gutter / 2;
-				}
+				@include position(absolute, 0);
+				opacity: 0 !important;
+				transition: opacity $speed;
 				@supports (object-fit: cover) {
-					height: 200px;
-					width: 100%;
+					@include size(100%);
+					min-height: 100%;
 					object-fit: cover;
 					@include media(">=screen1170") {
 						height: 250px;
@@ -162,10 +166,9 @@
 			
 			&__read-more {
 				// feature__read-more
-				border-top: 1px $color__yellow--light solid;
-				@include label();
+				border-top: 2px $color__yellow solid;
 				font-weight: 400;
-				width: 100%;
+				text-align: right;
 				margin-top: $small-spacing;
 				padding-top: $small-spacing;
 				transition: border-color $speed;

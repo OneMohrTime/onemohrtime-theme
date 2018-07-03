@@ -65,7 +65,7 @@
 	line-height: $base-line-height;
 	widows: 3;
 	orphans: 3;
-    hyphens: auto;
+    // hyphens: auto;
 }
 
 @mixin responsive-type() {
@@ -153,10 +153,27 @@
 	&::after {
 		content: "";
 		@include position(absolute, null null 0 0);
-		height: 10px;
-		width: 50px;
-		@include media(">=screen600") { width: 100px; }
 		background-color: $color__yellow;
+		@include size(50px, 10px);
+		transition: background-color $speed, width $speed;
+		@include media(">=screen600") {
+			width: 100px;
+		}
+	}
+}
+
+@mixin drop-cap() {
+	@supports (initial-letter: 1) or (-webkit-initial-letter: 1) {
+		// support too low
+		// https://caniuse.com/#feat=css-initial-letter
+	}
+	& > *:first-child:first-letter {
+		color: $color__yellow;
+		font-family: $font__secondary;
+		font-size: 3.25em;
+		line-height: 1em;
+		float: left;
+		padding-right: .25em;
 	}
 }
 

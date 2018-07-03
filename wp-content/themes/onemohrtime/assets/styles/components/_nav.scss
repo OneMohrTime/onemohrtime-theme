@@ -39,8 +39,8 @@
 	.menu {
 		display: flex;
 		flex-direction: column;
-		font-family: $font__header;
-		font-weight: 700;
+//		font-family: $font__header;
+//		font-weight: 700;
 		text-transform: uppercase;
 		margin: 0;
 		padding: $base-spacing $gutter * 2 $small-spacing $base-spacing;
@@ -68,6 +68,7 @@
 	
 	.nav-link {
 		display: block;
+		@include label();
 		padding: $small-spacing;
 		@include media(">=screen600") {
 			border-radius: 2px;
