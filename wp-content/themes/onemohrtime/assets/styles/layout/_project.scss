@@ -273,6 +273,7 @@
 			@supports (object-fit: cover) {
 				img {
 					@include size(auto, 150vh);
+					min-width: 100vw;
 					object-fit: cover;
 				}
 			}

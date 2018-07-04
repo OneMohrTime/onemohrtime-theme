@@ -96,10 +96,10 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-	wp_enqueue_style('style', Assets\asset_path('styles/main.css'), false, null);
+	wp_enqueue_style('style', Assets\asset_path('styles/main.css'), array(), false, null);
 	
 	// Google Webfonts
-	wp_enqueue_style('webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('style'), false, null);
+//	wp_enqueue_style('webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('style'), false, null);
 	
 	if (is_single() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -107,7 +107,8 @@ function assets() {
 	
 	wp_enqueue_script('mixitup', Assets\asset_path('scripts/mixitup.js'), '', null, true);
 	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
-	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), '', null, true);
+	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), ['jquery'], null, true);
+	wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', null, true);
 	wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

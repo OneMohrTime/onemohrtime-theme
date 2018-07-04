@@ -32,17 +32,11 @@
 		
 		.title {
 			@include title();
-//			font-size: 4rem;
-//			line-height: 1.05em;
-//			margin: 0;
-//			@include media(">=screen768") {
-//				font-size: 6.5rem;
-//			}
 		}
 		
 		.meta {
-			display: flex;
-			align-items: center;
+//			display: flex;
+//			align-items: center;
 			@include body-copy();
 			width: 100%;
 			
@@ -93,6 +87,7 @@
 			&-item {
 				// .gallery-item
 				position: relative;
+				@include box-shadow(inset);
 				break-inside: avoid;
 				counter-increment: item-counter;
 				margin-bottom: $gutter;

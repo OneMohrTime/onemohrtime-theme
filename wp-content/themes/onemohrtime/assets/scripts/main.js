@@ -65,6 +65,11 @@
 					}
 				});
 				
+				// find wordpress galleries
+				var wpGallery = document.querySelector('.entry__content .gallery');
+				// add .fade-content class
+				$(wpGallery).addClass('fade-content');
+				
 				// Show an element
 				var show = function (elem) {
 					// Get the natural height of the element
@@ -212,6 +217,63 @@
 					$('#mobile_menu').removeClass('is-visible');
 				});
 				
+				// Image parallax effect
+				// TODO: check for missing data-speed
+				$('.image--parallax').each(function () {
+					var img       = $(this);
+					var imgParent = $(this).parent();
+					
+					function parallaxImg() {
+						var speed   = img.data('speed');
+						var imgY    = imgParent.offset().top;
+						var winY    = $(this).scrollTop();
+						var winH    = $(this).height();
+						var parentH = imgParent.innerHeight();
+						
+						// The next pixel to show on screen      
+						var winBottom = winY + winH;
+						
+						// If block is shown on screen
+						if (winBottom > imgY && winY < imgY + parentH) {
+							// Number of pixels shown after block appear
+							var imgBottom = ((winBottom - imgY) * speed);
+							// Max number of pixels until block disappear
+							var imgTop = winH + parentH;
+							// Porcentage between start showing until disappearing
+							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+						}
+						img.css({
+							top: imgPercent + '%',
+							transform: 'translateY(-' + imgPercent + '%)'
+						});
+					}
+//					if ( !img.hasAttribute('data-speed') ) {
+//						console.log(img + 'has no data-attr');
+//					}
+					$(document).on({
+						scroll : function () {
+							parallaxImg();
+						},
+						ready  : function () {
+							parallaxImg();
+						}
+					});
+				});
+				
+				// load google fonts with webfont loader
+				WebFontConfig = {
+					google : {
+						families : ['Barlow Semi Condensed:400,700','Barlow:400,700','Abril Fatface']
+					}
+				};
+				
+				(function(d) {
+					var wf = d.createElement('script'), s = d.scripts[0];
+					wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+					wf.async = true;
+					s.parentNode.insertBefore(wf, s);
+				})(document);
+				
 				// Instagram API
 				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
 				var token      = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
@@ -228,7 +290,7 @@
 						count        : num_photos
 					},
 					success : function(data) {
-						console.log(data);
+//						console.log(data);
 						for( x in data.data ) {
 							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><p class="widget__instagram--btn" target="_blank">View <i class="fa fa-external-link"></i></p></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"><span class="screen-reader-text">View on Instagram</span></a></figure>');
 //							 data.data[x].images.thumbnail.url - URL of image 150х150
@@ -238,7 +300,7 @@
 						}
 					},
 					error : function(data) {
-						console.log(data);
+//						console.log(data);
 					}
 				});
 				
@@ -372,11 +434,11 @@
 			}
 		},
 		// About us page, note the change from about-us to about_us.
-		'about_us' : {
-			init : function () {
+		// 'about_us' : {
+			// init : function () {
 				// JavaScript to be fired on the about us page
-			}
-		},
+			// }
+		// },
 		// Featured Projects
 		'design' : {
 			init : function () {
@@ -394,59 +456,6 @@
 					controls : {
 						toggleLogic : 'and'
 					}
-				});
-				
-				// Pure JS parallax
-				// https://codepen.io/juanbrujo/pen/VLeEGv
-//				function backgroundParallax() {
-//					window.onscroll = function () {
-//						var elems = document.querySelectorAll("[data-scroll]");
-//						if (elems.length) {
-//							for (var i = 0; i < elems.length; i++) {
-//								var speed = elems[i].getAttribute('data-scroll');
-//								elems[i].style.backgroundPosition = (-window.pageXOffset / speed) + "px " + (-window.pageYOffset / speed) + "px";
-//							}
-//						}
-//					}
-//				}
-//				backgroundParallax();
-				
-				$('.gallery__project--image').each(function () {
-					var img       = $(this);
-					var imgParent = $(this).parent();
-					
-					function parallaxImg() {
-						var speed   = img.data('speed');
-						var imgY    = imgParent.offset().top;
-						var winY    = $(this).scrollTop();
-						var winH    = $(this).height();
-						var parentH = imgParent.innerHeight();
-						
-						// The next pixel to show on screen      
-						var winBottom = winY + winH;
-						
-						// If block is shown on screen
-						if (winBottom > imgY && winY < imgY + parentH) {
-							// Number of pixels shown after block appear
-							var imgBottom = ((winBottom - imgY) * speed);
-							// Max number of pixels until block disappear
-							var imgTop = winH + parentH;
-							// Porcentage between start showing until disappearing
-							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-						}
-						img.css({
-							top: imgPercent + '%',
-							transform: 'translate(-50%, -' + imgPercent + '%)'
-						});
-					}
-					$(document).on({
-						scroll : function () {
-							parallaxImg();
-						},
-						ready  : function () {
-							parallaxImg();
-						}
-					});
 				});
 				
 			}

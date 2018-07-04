@@ -49,9 +49,12 @@
 	text-shadow: 2px 2px 4px fade-out($color__black, 0.95);
 }
 
-@mixin box-shadow() {
-//	box-shadow: 0 1px 3px fade-out($color__black, 0.88), 0 1px 2px fade-out($color__black, 0.76);
-	box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
+@mixin box-shadow($inset: null) {
+	@if $inset == 'inset' {
+		box-shadow: inset 1px 2px 10px fade-out($color__black, 0.95);
+	} @else {
+		box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
+	}
 }
 
 /*
@@ -174,6 +177,7 @@
 		line-height: 1em;
 		float: left;
 		padding-right: .25em;
+		vertical-align: baseline;
 	}
 }
 

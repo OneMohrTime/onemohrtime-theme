@@ -11,7 +11,8 @@
 		<img src="{{ TimberImage(banner.image).src }}"
 			 width="{{ banner.image.width }}" height="{{ banner.image.height }}"
 			 alt="{{ banner.image.alt }}"
-			 class="project__banner--image"
+			 class="project__banner--image image--parallax"
+			 data-speed="-0.25"
 			 srcset="{{ TimberImage(banner.image).src('medium') }} 500w,
 					 {{ TimberImage(banner.image).src('large') }} 1000w,
 					 {{ TimberImage(banner.image).src('full') }} 1500w"
@@ -60,7 +61,7 @@
 			<img src="{{ TimberImage(section.image).src('thumbnail') }}"
 				 width="{{ section.image.width }}" height="{{ section.image.height }}"
 				 alt="{{ section.image.alt }}"
-				 class=""
+				 class="image--half__image"
 				 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 						 {{ TimberImage(section.image).src('large') }} 1000w,
 						 {{ TimberImage(section.image).src('full') }} 1500w"
@@ -79,7 +80,8 @@
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
-			 class="project__image__image"
+			 class="project__image__image{% if section.display == 'fixed' %} image--parallax{% endif %}"
+			 {% if section.display == 'fixed' %}data-speed="-0.25"{% endif %}
 			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 					 {{ TimberImage(section.image).src('large') }} 1000w,
 					 {{ TimberImage(section.image).src('full') }} 1500w"
@@ -101,7 +103,8 @@
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
-			 class="blockquote__image__image"
+			 class="blockquote__image__image image--parallax"
+			 data-speed="-0.25"
 			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 					 {{ TimberImage(section.image).src('large') }} 1000w,
 					 {{ TimberImage(section.image).src('full') }} 1500w"
