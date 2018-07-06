@@ -1,5 +1,11 @@
 <?php
 
+// Move Yoast to bottom
+function yoasttobottom() {
+	return 'low';
+}
+add_filter('wpseo_metabox_prio', 'yoasttobottom');
+
 // Add webp to mime type
 function webp_upload_mimes( $existing_mimes ) {
 	// add webp to the list of mime types
