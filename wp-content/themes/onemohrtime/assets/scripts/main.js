@@ -135,23 +135,48 @@
 					toggle(content);
 				}, false);
 				
-//				// Mobile Multi Step Accordion Menu
-//				// https://codepen.io/juanbrujo/pen/repMZj
-//				var subNavTrigger = $('.multilevel-link');
-//				subNavTrigger.on('click', function(e){
-//					e.preventDefault();
-//					// if already active
-//					if( $(this).hasClass('active') ) {
-//						$(this).removeClass('active').next('ul'); // .slideUp()
-//						$(this).parent('li').siblings('li'); 	  // .slideDown()
-//					} else {
-//						// if inactive
-//						if( $(this).siblings('ul').length ) {
-//							$(this).addClass('active').next('ul'); // .slideDown()
-//							$(this).parent('li').siblings('li');   // .slideUp()
-//						}
-//					}
-//				});
+				// Slide nav menu up and down
+				// Initial scroll position
+				var scrollState = 0;
+				// Store navbar classes
+				var navClasses = document.getElementById('masthead').classList;
+				// returns current scroll position
+				var scrollTop = function() {
+					return window.scrollY;
+				};
+				
+				// Primary scroll event function
+				var scrollDetect = function(home, down, up) {
+					// Current scroll position
+					var currentScroll = scrollTop();
+					if (scrollTop() === 0) {
+						home();
+					} else if (currentScroll > scrollState) {
+						down();
+					} else {
+						up();
+					}
+					// Set previous scroll position
+					scrollState = scrollTop();
+				};
+				
+				function homeAction() {
+					console.log('home');
+				}
+				
+				function downAction() {
+					navClasses.remove('slide--down');
+					navClasses.add('slide--up');
+				}
+				
+				function upAction() {
+					navClasses.remove('slide--up');
+					navClasses.add('slide--down');
+				}
+				
+				window.addEventListener('scroll', function() {
+					scrollDetect(homeAction, downAction, upAction);
+				});
 				
 //				// custom lazyload TODO
 //				function lazyLoadImages() {

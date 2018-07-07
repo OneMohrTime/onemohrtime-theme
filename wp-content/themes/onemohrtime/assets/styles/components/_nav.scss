@@ -107,7 +107,7 @@
 .toggle__menu {
 	// .toggle__menu
 	@include position(absolute, null null 0 0);
-	color: $color__black--light;
+	color: $color__black;
 	font-family: $font__header;
 	font-size: 1.25em !important;
 	font-weight: 700;
@@ -118,7 +118,8 @@
 	z-index: 35;
 	&:hover {
 		background-color: transparent;
-		color: inherit;
+		// color: inherit;
+		color: $color__black;
 	}
 	@include media(">=screen600") {
 		top: 0;

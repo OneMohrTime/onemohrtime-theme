@@ -56,6 +56,8 @@
 						{{ slide.title }}
 					</h2>
 					
+					<a href="#" class="btn">Find out more</a>
+					
 				</div>
 				{% endfor %}
 			</div>
@@ -65,7 +67,7 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_intro') %}
-	<section class="homepage__intro fade-content" tabindex="-1">
+	<section class="homepage__intro fade-content">
 		{{ post.get_field('homepage_intro') }}
 	</section>
 	{% endif %}

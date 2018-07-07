@@ -9,7 +9,7 @@
 	&__intro {
 		// .homepage__intro
 		background: $color__yellow;
-		background-image: linear-gradient(to top, $color__yellow, transparent), url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/noisy.png");
+		background-image: linear-gradient(to top, $color__yellow, transparent), url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/chruch.png");
 		@include paragraph();
 		text-align: center;
 		font-weight: 700;
@@ -143,6 +143,10 @@
 					// .feature__content--title
 					@include paragraph();
 					@include underlined();
+					&::after {
+						width: 100%;
+					}
+					
 					@include media(">=screen768") {
 						letter-spacing: 2px;
 					}

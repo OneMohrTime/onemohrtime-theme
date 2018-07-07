@@ -25,6 +25,13 @@
 		box-shadow: none;
 		height: 100px;
 		max-height: none;
+		
+		&.slide--up {
+			animation: navSlideUp $speed--slow ease forwards;
+		}
+		&.slide--down {
+			animation: navSlideDown $speed--slow ease forwards;
+		}
 	}
 }
 
