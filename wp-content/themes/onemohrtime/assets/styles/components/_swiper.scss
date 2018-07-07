@@ -42,10 +42,24 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	text-align: center;
 	color: $color__white;
 	padding: $gutter $gutter * 2;
 	
+	&__link {
+		// .swiper-slide__link
+		display: inline-block;
+		border-bottom: 1px $color__white solid;
+		@include small-font-size();
+		@include text-shadow();
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		margin: 0 auto;
+	}
+	
 	&__title {
+		// .swiper-slide__title
+		text-align: left;
 		@include text-shadow();
 		margin: 0 $gutter / 2;
 	}
