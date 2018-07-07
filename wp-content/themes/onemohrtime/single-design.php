@@ -13,5 +13,6 @@ $post    = new TimberPost();
 $context['banner']   = get_field('project_header');
 $context['details']  = get_field('project_deets');
 $context['sections'] = get_field('project_specs');
+$context['roles']    = new TimberTerm('role');
 
 Timber::render('pages/single-design.twig', $context);

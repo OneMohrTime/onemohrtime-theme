@@ -5,7 +5,7 @@
 
 {# Banner Area #}
 <header class="project__header">
-	<figure class="project__banner">
+	<figure class="project__banner fade-content">
 		
 		{% if banner %}
 		<img src="{{ TimberImage(banner.image).src }}"
@@ -29,9 +29,14 @@
 </header>
 
 {# Project Details #}
-{% if post.get_field('project_specs') %}
+{% if details %}
 <aside class="project__specs fade-content">
-	
+	<div>
+		{{ dump(roles) }}
+		{% for role in roles %}
+			{{ role }}
+		{% endfor %}
+	</div>
 </aside>
 {% endif %}
 
@@ -103,8 +108,7 @@
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
-			 class="blockquote__image__image image--parallax"
-			 data-speed="-0.25"
+			 class="blockquote__image__image"
 			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 					 {{ TimberImage(section.image).src('large') }} 1000w,
 					 {{ TimberImage(section.image).src('full') }} 1500w"

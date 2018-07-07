@@ -32,16 +32,15 @@
 			width: auto;
 		}
 	}
+	
 	&__banner {
 		// .project__banner
 		position: relative;
 		@include image-overlay();
-		@include size(100%, 250px);
+		width: 100%;
+		height: calc(100vh - 72px);
 		@include media(">=screen600") {
-			height: 350px;
-		}
-		@include media(">=screen960") {
-			height: 500px;
+			height: 100vh;
 		}
 		@supports (display: grid) {
 			grid-column: span 4;
@@ -55,13 +54,13 @@
 			@include media(">=screen960") {
 				align-items: flex-start;
 				justify-content: flex-end;
-				height: calc(100vh - 100px);
 			}
 		}
 		
 		&--image {
 			// .project__banner--image
 			position: absolute;
+			top: 0 !important; // .fade-content
 			pointer-events: none;
 			z-index: 0;
 			@supports (object-fit: cover) {
@@ -80,17 +79,25 @@
 		// .project__subtitle
 		color: $color__black;
 		background-color: $color__white;
-		font-size: .75em;
+		@include box-shadow();
+		@include small-font-size();
 		font-family: $font__secondary;
-//		font-style: italic;
-		text-transform: none;
+		text-transform: lowercase;
+		letter-spacing: .075em;
 		margin: 0 $gutter;
-		padding: 10px 15px;
+		padding: $small-spacing $base-spacing;
 		z-index: 2;
+		@include media(">=screen768") {
+			transform: rotate(-4deg) translate($gutter * 2, 1em) !important; // .fade-content
+		}
 		@include media(">=screen1024") {
 			padding: 1em 2em;
+			margin-left: $gutter * 3;
 			margin: 0;
-			transform: rotate(-4deg) translate(1em, 1em);
+			transform: rotate(-4deg) translate($gutter * 3, 1em) !important; // .fade-content
+		}
+		@include media(">=screen1440") {
+			transform: rotate(-4deg) translate($gutter * 4, 1em) !important; // .fade-content
 		}
 	}
 	
@@ -102,16 +109,25 @@
 		@include text-shadow();
 		margin: 0 $gutter;
 		z-index: 2;
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+		}
 		@include media(">=screen960") {
 			max-width: 50vw;
-			margin: 0 $gutter $gutter;
+			margin: 0 $gutter 0 $gutter * 2;
 			padding-bottom: $gutter;
 			&::after {
 				background-color: $color__white;
 			}
 		}
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+		}
 		@include media(">=screen1280") {
 			max-width: 75vw;
+		}
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
 		}
 	}
 	
@@ -153,6 +169,7 @@
 	
 	&__text {
 		// .project__text
+		@include drop-cap();
 		margin-bottom: $base-spacing;
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
@@ -418,7 +435,8 @@
 				align-items: center;
 				background-color: fade-out($color__black--light, 0.4);
 				color: $color__white;
-				@include base-font-size();
+				@include label();
+				@include small-font-size();
 				padding: $small-spacing;
 				opacity: 0;
 				transition: opacity $speed;

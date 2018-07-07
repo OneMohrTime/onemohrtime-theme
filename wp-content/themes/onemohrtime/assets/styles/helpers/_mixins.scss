@@ -170,14 +170,17 @@
 		// support too low
 		// https://caniuse.com/#feat=css-initial-letter
 	}
-	& > *:first-child:first-letter {
-		color: $color__yellow;
-		font-family: $font__secondary;
-		font-size: 3.25em;
-		line-height: 1em;
-		float: left;
-		padding-right: .25em;
-		vertical-align: baseline;
+	@supports (-webkit-user-select: none) {
+		// target only webkit browsers until line=height looks good on ff
+		& > *:first-child:first-letter {
+			color: $color__yellow;
+			font-family: $font__secondary;
+			font-size: 3.25em;
+			line-height: 1em;
+			float: left;
+			padding-right: .25em;
+			vertical-align: baseline;
+		}
 	}
 }
 

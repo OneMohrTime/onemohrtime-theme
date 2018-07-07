@@ -68,7 +68,8 @@
 	
 	.nav-link {
 		display: block;
-		@include label();
+		@include body-copy();
+		font-weight: 700;
 		padding: $small-spacing;
 		@include media(">=screen600") {
 			border-radius: 2px;

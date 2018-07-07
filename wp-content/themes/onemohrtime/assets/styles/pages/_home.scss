@@ -8,6 +8,8 @@
 	
 	&__intro {
 		// .homepage__intro
+		background: $color__yellow;
+		background-image: linear-gradient(to top, $color__yellow, transparent), url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/noisy.png");
 		@include paragraph();
 		text-align: center;
 		font-weight: 700;
@@ -19,6 +21,7 @@
 		
 		@supports (display: flex) {
 			display: flex;
+			flex-flow: column wrap;
 			justify-content: center;
 			align-items: center;
 		}
@@ -27,7 +30,6 @@
 	&__work {
 		// .homepage__work
 		background: linear-gradient(to bottom, $color__yellow, $color__yellow--light 66%, $color__white);
-//		background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 		color: $color__black;
 		width: 100%;
 		padding: $gutter * 2 $gutter;
@@ -95,7 +97,7 @@
 			@include small-font-size();
 			margin: 0 $gutter $gutter;
 			padding: $gutter;
-			transition: background $speed, color $speed;
+			transition: background $speed, color $speed, box-shadow $speed;
 			@include media(">=screen400") {
 				flex: 0 0 calc(50% - #{$gutter});
 				max-width: calc(50% - #{$gutter});
@@ -105,9 +107,6 @@
 			@include media(">=screen768") {
 				flex-basis: calc(33.33% - #{$gutter});
 				max-width: calc(33.33% - #{$gutter});
-			}
-			@include media(">=screen1170") {
-//				padding: $gutter / 2;
 			}
 			@include media(">=screen1440") {
 				padding: $gutter;
@@ -121,6 +120,7 @@
 				// .feature:focus
 				background: transparent;
 				color: $color__white;
+				box-shadow: none;
 				.feature__image {
 					opacity: 1 !important;
 				}

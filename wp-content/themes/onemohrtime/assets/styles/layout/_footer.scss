@@ -4,7 +4,8 @@
 
 .site__footer {
 	position: relative;
-	@include texture($color__black, 55, 1);
+	background: linear-gradient(to top left, $color__black 85%, $color__black--light);
+	@include texture($color__black, 54, 1);
 	color: $color__white;
 	@include size(100%, auto);
 	padding: $gutter;

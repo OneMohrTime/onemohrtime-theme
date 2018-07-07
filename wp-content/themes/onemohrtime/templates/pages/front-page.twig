@@ -6,7 +6,7 @@
 	<section class="homepage__swipers">
 		
 		<div id="home_parallax" class="swiper-container">
-			<div class="parallax-bg" data-swiper-parallax="-23%">
+			<div class="parallax-bg" data-swiper-parallax="-33%">
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 					 alt="banner for derek mohr's portfolio"
@@ -65,7 +65,7 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_intro') %}
-	<section class="homepage__intro fade-content">
+	<section class="homepage__intro fade-content" tabindex="-1">
 		{{ post.get_field('homepage_intro') }}
 	</section>
 	{% endif %}
