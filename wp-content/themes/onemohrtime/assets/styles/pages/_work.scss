@@ -9,10 +9,25 @@
 		// .gallery__banner
 		position: relative;
 		background-color: $color__white--dark;
-		@include size(100%, 300px);
+		text-align: left;
 		@include image-overlay();
+		@include size(100%, 300px);
+		margin-bottom: $gutter;
+		padding-left: $gutter;
+		padding-right: $gutter;
 		@include media(">=screen768") {
 			height: calc(100vh - 72px);
+			margin-bottom: 0;
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
+		@include media(">=screen1024") {
+			padding-left: $gutter * 3;
+			padding-right: $gutter * 3;
+		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 4;
+			padding-right: $gutter * 4;
 		}
 		
 		@supports (display: grid) {
@@ -37,10 +52,13 @@
 			z-index: 2;
 			
 			h2 {
+				@include subtitle();
 				color: $color__white;
-				@include title();
 				@include text-shadow();
 				margin-bottom: 0;
+				@include media(">=screen600") {
+					@include title();
+				}
 			}
 			
 			@supports (display: flex) {
@@ -223,8 +241,7 @@
 	&__grid {
 		// .gallery__grid
 		position: relative;
-		margin: $gutter * 2 $gutter $gutter;
-		transform: translateY(-#{$gutter * 2});
+		margin: 0 $gutter $gutter;
 		&::before {
 			content: "";
 			position: absolute;
@@ -236,6 +253,7 @@
 		}
 		@include media(">=screen768") {
 			margin-top: 0;
+			transform: translateY(-72px);
 		}
 		@supports (display: flex) {
 			display: flex;
@@ -284,7 +302,7 @@
 		
 		&--image {
 			// .gallery__project--image
-			@include position(absolute, 0 null null 50%);
+			@include position(absolute, 0 null null 0);
 			pointer-events: none;
 			transform: translate(-50%, 0);
 			z-index: 1;
@@ -312,7 +330,8 @@
 		&--excerpt {
 			// .gallery__project--excerpt
 			font-weight: 700;
-			letter-spacing: 1px;
+			text-transform: lowercase;
+			letter-spacing: 2px;
 			margin-bottom: $small-spacing;
 		}
 		
@@ -328,6 +347,7 @@
 	&__content {
 		// .gallery__content
 		grid-column: span 4;
+		@include drop-cap();
 		margin: 0 $gutter #{$gutter * 2};
 		@include media(">=screen840") {
 			max-width: 700px;

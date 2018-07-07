@@ -4,7 +4,6 @@
 
 body.blog {
 	position: relative;
-//	background-color: $color__white--dark;
 	@include texture($color__white--dark, 54, 0);
 	margin-bottom: 2em;
 	
@@ -20,17 +19,32 @@ body.blog {
 			// .posts__banner
 			position: relative;
 			background-color: $color__white--dark;
+			color: $color__white;
+			text-align: left;
 			@include size(100%, 300px);
 			@include image-overlay();
 			margin-bottom: $gutter;
+			padding-left: $gutter;
+			padding-right: $gutter;
 			@include media(">=screen768") {
 				height: 100vh;
 				margin-bottom: $gutter * 2;
+				padding-left: $gutter * 2;
+				padding-right: $gutter * 2;
+			}
+			@include media(">=screen1024") {
+				padding-left: $gutter * 3;
+				padding-right: $gutter * 3;
+			}
+			@include media(">=screen1440") {
+				padding-left: $gutter * 4;
+				padding-right: $gutter * 4;
 			}
 			
 			@supports (display: grid) {
-				display: grid;
 				grid-column: span 4;
+				display: grid;
+				align-items: center;
 				width: auto;
 			}
 			
@@ -47,14 +61,10 @@ body.blog {
 			
 			&--title {
 				// .posts__banner--title
+				@include text-shadow();
 				h2 {
 					@include title();
-				}
-				
-				@supports (display: flex) {
-					display: flex;
-					justify-content: center;
-					align-items: center;
+					margin-bottom: 0;
 				}
 			}
 			

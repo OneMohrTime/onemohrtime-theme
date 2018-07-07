@@ -7,9 +7,10 @@
 		<li class="{{ item.classes | join(' ') }}">
 			
 			{% if item.children %}
-			<a href="#" class="nav-link multilevel-link">
+			{#<a href="#" class="nav-link multilevel-link">#}
+			<a href="{{ item.get_link }}" class="nav-link">
 				{{ item.title }}
-				<i class="fa fa-plus"></i>
+				{#<i class="fa fa-plus"></i>#}
 			</a>
 			
 			{% else %}

@@ -1,39 +1,6 @@
 @charset "utf-8";
 
 /*--------------------------------------------------------------
-	TABLE OF CONTENTS:
-----------------------------------------------------------------
-
-1.0 Base
-	- Normalize
-	- Vendor
-	- Base
-	- Typography
-	- Media
-2.0 Layout
-	- Header
-	- Footer
-	- Sidebar
-	- Forms
-	- Project
-	- Post
-	- Page Specific
-3.0 Components
-	- Buttons
-	- Nav
-	- Contact Section
-	- Dribbble
-	- Modules
-	- Jetpack
-4.0 Pages
-	- Home
-	- Gallery
-	- Blog
-	- Errors
-
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
 	1.0 Base
 --------------------------------------------------------------*/
 
@@ -95,6 +62,6 @@
 
 @import
 	"pages/home",
-	"pages/projects",
+	"pages/work",
 	"pages/blog",
 	"pages/errors";

@@ -2,13 +2,6 @@
 * === HELPERS ===
 */
 
-%bar {
-	background-color: $color__yellow;
-	border: 0;
-	@include size(100px, 10px);
-	margin: 0 auto $base-spacing;
-}
-
 .clearfix {
 	@include clearfix();
 	@supports (display: flex) {
@@ -21,7 +14,7 @@
 
 .fade-content {
 	& > * {
-		transition: opacity 500ms, transform 500ms;
+		transition: opacity $speed--slow, transform $speed--slow;
 	}
 	&.gallery__grid,
 	&.project__text-image {

@@ -156,5 +156,8 @@ blockquote {
 }
 
 hr {
-	@extend %bar;
+	background-color: $color__yellow;
+	border: 0;
+	@include size(100px, 10px);
+	margin: 0 auto $base-spacing;
 }

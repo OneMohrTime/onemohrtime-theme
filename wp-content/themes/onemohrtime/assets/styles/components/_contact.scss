@@ -4,72 +4,36 @@
 
 .site__contact {
 	grid-column: span 4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding: 0 $gutter;
+	transition: min-height $speed--slow, height $speed--slow;
+	@include media(">=screen768") {
+		padding-left: $gutter * 2;
+		padding-right: $gutter * 2;
+	}
+	@include media(">=screen1024") {
+		padding-left: $gutter * 3;
+		padding-right: $gutter * 3;
+	}
+	@include media(">=screen1440") {
+		padding-left: $gutter * 4;
+		padding-right: $gutter * 4;
+	}
+	
 	.wysiwyg {
 		display: none;
+		@include paragraph();
 		font-family: $font__code;
 		text-align: center;
 	}
+	
 	&.said-hi {
+		// triggered
+		min-height: 50vh;
 		.wysiwyg {
 			display: block;
-		}
-	}
-}
-
-/*
-* — Ninja Forms —
-*/
-#ninja_forms_required_items,
-.nf-field-container {
-	margin-bottom: $base-spacing;
-}
-
-.nf-before-form-content {
-    margin-bottom: 1.7em;
-}
-
-.label-above .nf-field-label {
-	margin-bottom: $small-spacing;
-}
-
-.ninja-forms-req-symbol,
-.nf-error-msg {
-	@include type();
-	font-family: $font__code;
-    color: $color--error !important;
-}
-
-.nf-error .ninja-forms-field {
-	border: 0 !important;
-	border-bottom: 3px $color--error solid !important;
-}
-
-@include media(">=screen600") {
-	.nf-form-content {
-		nf-fields-wrap {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-column-gap: $gutter / 2;
-			nf-field {
-				grid-column: span 2;
-			}
-			nf-field:nth-of-type(1),
-			nf-field:nth-of-type(2) {
-				grid-column: span 1;
-			}
-			.nf-field-element {
-				ul {
-					display: grid;
-					grid-template-columns: repeat(3, auto);
-					grid-column-gap: $gutter / 2;
-					justify-content: start;
-					label {
-						line-height: 1em;
-						margin-left: 0;
-					}
-				}
-			}
 		}
 	}
 }

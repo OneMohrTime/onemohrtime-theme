@@ -364,6 +364,7 @@
 				& > *:first-child {
 					position: relative;
 					padding-top: 1.5em;
+					margin-bottom: $small-spacing;
 					&::before {
 						content: "\f10d";
 						@include position(absolute, 0 null null 0);
@@ -435,7 +436,6 @@
 				align-items: center;
 				background-color: fade-out($color__black--light, 0.4);
 				color: $color__white;
-				@include label();
 				@include small-font-size();
 				padding: $small-spacing;
 				opacity: 0;
@@ -509,7 +509,6 @@
 					flex: 1 0 auto;
 					@include media(">=screen540") { flex: 1 0 50%;}
 				}
-//				&:nth-last-child(-n+2) { margin-bottom: 1.5em; }
 				
 				span {
 					&::after { content: ", "; }
