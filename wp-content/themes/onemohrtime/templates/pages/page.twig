@@ -4,20 +4,10 @@
 {% for post in posts %}
 	<article {{ function('post_class') }}>
 		
-		<!--
-		<figure class="halfie__image">
-			<div class="halfie__image--sticky">
-				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 alt="Photo of myself"
-					 class=""
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src('full') }} 1500w" />
-			</div>
-		</figure>
-		-->
-		
 		<header class="page__header fade-content">
+			{% if post.post_excerpt %}
+				<p class="meta">{{ post.post_excerpt }}</p>
+			{% endif %}
 			{% include 'blocks/page-header.twig' %}
 		</header>
 		

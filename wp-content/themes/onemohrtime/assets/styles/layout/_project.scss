@@ -131,36 +131,6 @@
 		}
 	}
 	
-	&__breadcrumb {
-		// .project__breadcrumb
-		display: flex;
-		align-items: center;
-		font-family: $font__header;
-		font-size: .75em;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		margin: 0 $gutter;
-		z-index: 2;
-		@include media(">=screen960") {
-			margin-bottom: $small-spacing;
-			padding-bottom: $small-spacing;
-		}
-		@include media(">=screen1170") { margin-bottom: $base-spacing; }
-		
-		a,
-		.breadcrumb_last {
-			background-color: $color__white;
-			color: $color__black;
-			padding: .5em;
-		}
-		
-		a {
-			display: inline;
-			&:hover,
-			&:focus { color: $color__yellow; }
-		}
-	}
 	
 	&__story {
 		// .project__story
@@ -174,6 +144,9 @@
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
+		}
+		@include media(">=screen840") {
+			max-width: 700px;
 		}
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;

@@ -15,3 +15,6 @@ function webp_upload_mimes( $existing_mimes ) {
 	return $existing_mimes;
 }
 add_filter( 'mime_types', 'webp_upload_mimes' );
+
+// add page excerpts
+add_post_type_support( 'page', 'excerpt' );

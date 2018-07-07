@@ -285,19 +285,6 @@ body.home {
 //			background: linear-gradient(to bottom, $color__yellow--light 10%, $color__white);
 			background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 			color: $color__black;
-			padding: $gutter;
-			@include media(">=screen960") {
-				padding-left: $gutter;
-				padding-right: $gutter;
-			}
-			@include media(">=screen1280") {
-				padding-left: $gutter * 2;
-				padding-right: $gutter * 2;
-			}
-			@include media(">=screen1920") {
-				padding-left: $gutter * 3;
-				padding-right: $gutter * 3;
-			}
 		}
 	}
 }

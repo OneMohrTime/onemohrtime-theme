@@ -5,6 +5,19 @@
 .site__sidebar {
 	position: relative;
 	width: 100%;
+	padding: $gutter;
+	@include media(">=screen960") {
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+	@include media(">=screen1280") {
+		padding-left: $gutter * 2;
+		padding-right: $gutter * 2;
+	}
+	@include media(">=screen1920") {
+		padding-left: $gutter * 3;
+		padding-right: $gutter * 3;
+	}
 	
 	@supports (display: grid) {
 		grid-column: span 4;

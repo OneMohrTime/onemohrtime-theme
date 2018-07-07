@@ -56,7 +56,11 @@
 			
 			// & > *:not(.fa) {}
 			& > .fa {
+				@include position(absolute, null);
 				color: $color__yellow;
+				font-size: 2em;
+				transform: translateX(-10px);
+				z-index: -1;
 			}
 		}
 	}
