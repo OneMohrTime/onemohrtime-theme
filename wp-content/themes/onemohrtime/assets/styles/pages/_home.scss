@@ -64,6 +64,7 @@
 	
 	&__portfolio {
 		// .homepage__portfolio
+		background-color: $color__yellow;
 		width: 100%;
 		padding-top: $gutter;
 		@supports (display: grid) {
@@ -278,6 +279,7 @@
 
 body.home {
 	background-color: $color__yellow;
+	background-image: none;
 	color: $color__white;
 	
 	&.sidebar-primary {
