@@ -32,10 +32,16 @@
 {% if details %}
 <aside class="project__specs fade-content">
 	<div>
-		{{ dump(roles) }}
-		{% for role in roles %}
-			{{ role }}
+		<ul>
+		{% for role in post.terms('role') %}
+			<li><a href="#">{{ role }}</a></li>
 		{% endfor %}
+		</ul>
+		<ul>
+		{% for category in post.terms('category') %}
+			<li><a href="#">{{ category }}</a></li>
+		{% endfor %}
+		</ul>
 	</div>
 </aside>
 {% endif %}

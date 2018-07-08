@@ -146,7 +146,7 @@
 			margin-right: $gutter * 2;
 		}
 		@include media(">=screen840") {
-			max-width: 700px;
+			max-width: 840px;
 		}
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
@@ -437,6 +437,8 @@
 	&__specs {
 		// .project__specs
 		grid-column: span 4;
+		display: flex;
+		align-items: flex-start;
 		@include texture($color__white--dark, 25, 0);
 		padding: $gutter;
 		
@@ -445,49 +447,5 @@
 			@include underlined();
 		}
 		
-		ul {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			@include type();
-			@include media(">=screen540") {
-				flex-flow: row wrap;
-				align-items: flex-end;
-			}
-			
-			li {
-				margin-bottom: .5em;
-				@include media(">=screen540") {
-					flex: 0 0 50%;
-					margin-bottom: $gutter / 4;
-					padding-bottom: $gutter / 4;
-					border-bottom: 2px $color__white--dark solid;
-				}
-				&:nth-of-type(odd) {
-					flex: 1 0 auto;
-					color: $color__gray--light;
-					font-family: $font__header;
-					font-weight: 700;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-					@include media(">=screen540") {
-						flex: 0 1 50%;
-						font-size: .75em;
-					}
-					@include media(">=screen1440") {
-						font-size: .5em;
-					}
-				}
-				&:nth-of-type(even) {
-					flex: 1 0 auto;
-					@include media(">=screen540") { flex: 1 0 50%;}
-				}
-				
-				span {
-					&::after { content: ", "; }
-					&:last-child::after { content: ""; }
-				}
-			}
-		}
 	}
 }

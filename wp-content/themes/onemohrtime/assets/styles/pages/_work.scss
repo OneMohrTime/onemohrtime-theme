@@ -348,20 +348,24 @@
 		// .gallery__content
 		grid-column: span 4;
 		@include drop-cap();
-		margin: 0 $gutter #{$gutter * 2};
+		margin: 0 $gutter $base-spacing;
 		@include media(">=screen840") {
-			max-width: 700px;
+			max-width: 840px;
+			margin-bottom: $gutter * 2;
 			margin-left: $gutter * 2;
 			margin-right: auto;
 		}
 		@include media(">=screen1170") {
 			margin-left: $gutter * 3;
+			margin-bottom: $gutter * 3;
 		}
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
+			margin-bottom: $gutter * 4;
 		}
 		@include media(">=screen1920") {
 			margin-left: $gutter * 5;
+			margin-bottom: $gutter * 5;
 		}
 	}
 	
