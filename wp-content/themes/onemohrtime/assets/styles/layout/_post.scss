@@ -36,6 +36,7 @@
 		
 		.title {
 			@include title();
+			// @include deep-shadow();
 			margin-bottom: 0;
 		}
 		

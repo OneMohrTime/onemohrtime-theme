@@ -57,6 +57,34 @@
 	}
 }
 
+@mixin deep-shadow() {
+	text-shadow: 1px -1px 0 shade($color__white, 50%), 
+				-1px 2px 1px shade($color__white, 48%),
+				-2px 4px 1px shade($color__white, 46%),
+				-3px 6px 1px shade($color__white, 44%),
+				-4px 8px 1px shade($color__white, 42%),
+				-5px 10px 1px shade($color__white, 40%),
+				-6px 12px 1px shade($color__white, 38%),
+				-7px 14px 1px shade($color__white, 36%),
+				-8px 16px 1px shade($color__white, 34%),
+				-9px 18px 1px shade($color__white, 32%),
+				-10px 20px 1px shade($color__white, 30%),
+				-11px 22px 1px shade($color__white, 28%),
+				-12px 24px 1px shade($color__white, 26%),
+				-13px 26px 1px shade($color__white, 24%),
+				-14px 28px 1px shade($color__white, 22%),
+				-15px 30px 1px shade($color__white, 20%),
+				-16px 32px 1px shade($color__white, 18%),
+				-17px 34px 1px shade($color__white, 16%),
+				-18px 36px 1px shade($color__white, 14%),
+				-19px 38px 1px shade($color__white, 12%),
+				-20px 40px 1px shade($color__white, 10%),
+				-21px 42px 1px shade($color__white, 8%),
+				-22px 44px 1px shade($color__white, 6%),
+				-23px 46px 1px shade($color__white, 4%),
+				-24px 48px 1px shade($color__white, 2%);
+}
+
 /*
 * — Type Styles —
 */
