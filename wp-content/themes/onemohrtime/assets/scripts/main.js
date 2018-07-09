@@ -362,6 +362,62 @@
 					}
 				});
 				
+				// Fancybox
+				$('[data-fancybox]').fancybox({
+					// Enable infinite gallery navigation
+//					loop : true,
+					// What buttons should appear in the top right corner.
+					// Buttons will be created using templates from `btnTpl` option
+					// and they will be placed into toolbar (class="fancybox-toolbar"` element)
+					buttons : [
+						'zoom',
+						'share',
+						//'slideShow',
+						'fullScreen',
+						//'download',
+						'thumbs',
+						'close'
+					],
+					// Open/close animation type
+					// Possible values:
+					//   false            - disable
+					//   "zoom"           - zoom images from/to thumbnail
+					//   "fade"
+					//   "zoom-in-out"
+					animationEffect   : 'zoom',
+					// Duration in ms for open/close animation
+					animationDuration : 200,
+					// Transition effect between slides
+					//
+					// Possible values:
+					//   false            - disable
+					//   'fade'
+					//   'slide'
+					//   'circular'
+					//   'tube'
+					//   'zoom-in-out'
+					//   'rotate'
+					//
+					transitionEffect   : 'slide',
+					// Duration in ms for transition animation
+					transitionDuration : 400,
+					// Customize or add new media types
+					// Example:
+					/*
+						media : {
+							youtube : {
+								params : {
+									autoplay : 0
+								}
+							}
+						}
+					*/
+					media  : {},
+					thumbs : {
+						autoStart : true, // Display thumbnails on opening
+					},
+				});
+				
 			},
 			finalize: function () {
 				// JavaScript to be fired on all pages, after page specific JS is fired

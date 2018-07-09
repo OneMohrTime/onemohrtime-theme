@@ -98,7 +98,7 @@
 			@include small-font-size();
 			margin: 0 $gutter $gutter;
 			padding: $gutter;
-			transition: background $speed, color $speed, box-shadow $speed;
+			transition: $speed;
 			@include media(">=screen400") {
 				flex: 0 0 calc(50% - #{$gutter});
 				max-width: calc(50% - #{$gutter});

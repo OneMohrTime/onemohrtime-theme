@@ -31,18 +31,36 @@
 {# Project Details #}
 {% if details %}
 <aside class="project__specs fade-content">
-	<div>
-		<ul>
+	
+	<h2 class="project__specs--title">More details</h2>
+	
+	{% if post.terms('role') %}
+	<ul class="spec spec--list">
+		<li class="spec__header"><h3>My Role(s)</h3></li>
 		{% for role in post.terms('role') %}
-			<li><a href="#">{{ role }}</a></li>
+			<li class="spec__role spec--list__item">{{ role }}</li>
 		{% endfor %}
-		</ul>
-		<ul>
+	</ul>
+	{% endif %}
+	
+	{% if post.terms('category') %}
+	<ul class="spec spec--list">
+		<li class="spec__header"><h3>Project Type</h3></li>
 		{% for category in post.terms('category') %}
-			<li><a href="#">{{ category }}</a></li>
+			<li class="spec__category spec--list__item">{{ category }}</li>
 		{% endfor %}
-		</ul>
-	</div>
+	</ul>
+	{% endif %}
+	
+	{% if post.terms('coding') %}
+	<ul class="spec spec--list">
+		<li class="spec__header"><h3>Coding Components</h3></li>
+		{% for code in post.terms('coding') %}
+			<li class="spec__role spec--list__item">{{ code }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	
 </aside>
 {% endif %}
 
@@ -138,7 +156,7 @@
 	{% for image in section.images %}
 		
 		<figure class="image">
-			<img src="{{ TimberImage(image) }}"
+			<img src="{{ TimberImage(image).src('thumbnail') }}"
 				 width="{{ image.width }}" height="{{ image.height }}"
 				 alt="{{ section.image.alt }}"
 				 class="image__image"
@@ -147,12 +165,12 @@
 						 {{ TimberImage(image).src('full') }} 1500w"
 				 sizes="(max-width: {{ image.width }}px) 100vw, {{ image.width }}px"/>
 			{% if image.caption %}
-				<figcaption class="image__caption">{{ image.caption }}</figcaption>
+				<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
 			{% else %}
-				<figcaption class="image__caption"><i class="fa fa-search-plus"></i></figcaption>
+				<figcaption class="image__caption caption--zoom"><i class="fa fa-search-plus"></i></figcaption>
 			{% endif %}
 			
-			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox{% if image.caption %} data-caption="{{ image.caption }}"{% endif %}>
+			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
 				<span class="screen-reader-text">Click to zoom</span>
 			</a>
 		</figure>

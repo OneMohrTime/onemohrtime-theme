@@ -54,7 +54,7 @@
 		@include text-shadow();
 		text-transform: uppercase;
 		letter-spacing: 2px;
-		margin: 0 auto;
+		margin: $base-spacing auto 0;
 	}
 	
 	&__title {

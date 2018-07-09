@@ -403,19 +403,36 @@
 			
 			&__caption {
 				// .image__caption
-				@include position(absolute, 0 0 0 0);
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				background-color: fade-out($color__black--light, 0.4);
-				color: $color__white;
+				color: $color__gray;
 				@include small-font-size();
-				padding: $small-spacing;
-				opacity: 0;
-				transition: opacity $speed;
-				z-index: 1;
+				transition: $speed;
 				@include media(">=screen840") {
+					@include position(absolute, 0 0 0 0);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: fade-out($color__black--light, 0.4);
+					@include text-shadow();
 					padding: $base-spacing;
+					opacity: 0;
+					z-index: 1;
+				}
+				
+				&.caption--text {
+					@include media(">=screen840") {
+						color: $color__white;
+					}
+				}
+				
+				&.caption--zoom {
+					display: none;
+					@include media(">=screen840") {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: fade-out($color__white, 0.6);
+						@include paragraph();
+					}
 				}
 			}
 			
@@ -437,14 +454,97 @@
 	&__specs {
 		// .project__specs
 		grid-column: span 4;
-		display: flex;
-		align-items: flex-start;
 		@include texture($color__white--dark, 25, 0);
-		padding: $gutter;
+		color: $color__gray--light;
+		@include body-copy();
+		padding: $gutter $gutter $small-spacing;
+		@include media(">=screen600") {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: flex-start;
+			padding: $gutter;
+		}
+		@include media(">=screen768") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
+		@include media(">=screen1024") {
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			@include small-font-size();
+			padding-left: $gutter * 3;
+			padding-right: $gutter * 3;
+		}
+		@include media(">=screen1440") {
+			padding-left: $gutter * 4;
+			padding-right: $gutter * 4;
+		}
 		
 		&--title {
 			// .project__specs--title
-			@include underlined();
+			@include label();
+			color: $color__white--darkest;
+			margin-bottom: $gutter;
+			@include media(">=screen600") {
+				margin-right: $gutter;
+			}
+			@include media(">=screen1024") {
+				@include body-copy();
+				margin-right: auto;
+				margin-bottom: 0;
+			}
+		}
+		
+		.spec {
+			margin-bottom: $small-spacing;
+			@include media(">=screen600") {
+				margin-bottom: 0;
+				color: $color__gray--dark;
+				@include body-copy();
+			}
+			&:not(:last-child) {
+				border-bottom: 1px $color__white--darkest solid;
+				margin-right: $small-spacing;
+				padding-bottom: $small-spacing;
+				@include media(">=screen600") {
+					border-bottom: none;
+					padding-right: $small-spacing;
+					padding-bottom: 0;
+					&::before {
+						content: "";
+						@include position(absolute, 0 0 null null);
+						background-color: $color__white--darkest;
+						@include size(2px, 100%);
+					}
+					&::after {
+						content: "\f00d";
+						@include position(absolute, 50% 0 null null);
+						font-family: "FontAwesome";
+						transform: translate(7px, -50%);
+					}
+				}
+				@include media(">=screen1024") {
+					margin-right: $base-spacing;
+					padding-right: $base-spacing;
+				}
+			}
+			
+			&__header {
+				// .spec__header
+				margin-bottom: $small-spacing;
+				h3 {
+					@include label();
+					margin-bottom: 0;
+					@include media(">=screen1024") {
+						@include body-copy();
+					}
+				}
+			}
+			
+			&--list {
+				// .spec--list
+				@include media(">=screen600") {}
+			}
 		}
 		
 	}

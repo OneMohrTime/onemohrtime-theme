@@ -5,22 +5,20 @@
 .site__sidebar {
 	position: relative;
 	width: 100%;
-//	padding: $gutter;
+	padding-bottom: $base-spacing;
 	padding-left: $gutter;
 	padding-right: $gutter;
-	@include media(">=screen840") {
+	@include media(">=screen768") {
 		padding-left: $gutter * 2;
 		padding-right: $gutter * 2;
 	}
-	@include media(">=screen1170") {
-		padding: 0;
-		margin-left: $gutter * 3;
-		margin-right: $gutter * 3;
-		margin-bottom: $base-spacing;
+	@include media(">=screen1024") {
+		padding-left: $gutter * 3;
+		padding-right: $gutter * 3;
 	}
-	@include media(">=screen1280") {
-	}
-	@include media(">=screen1920") {
+	@include media(">=screen1440") {
+		padding-left: $gutter * 4;
+		padding-right: $gutter * 4;
 	}
 	
 	@supports (display: grid) {
