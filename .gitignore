@@ -45,6 +45,7 @@ wp-config.php
 ehthumbs.db
 Thumbs.db
 .DS_Store
+/theme
 
 # ignore log files and databases
 *.log

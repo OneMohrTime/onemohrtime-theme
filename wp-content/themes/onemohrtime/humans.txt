@@ -1,0 +1,12 @@
+## Derek Mohr
+
+https://onemohrti.me
+@onemohrtime
+@onemohrtimedesign
+
+
+## Site
+
+Built with:
+- [Timber](http://upstatement.com/timber) by Upstatement
+- [Sage](http://roots.io/sage/) by Roots
