@@ -133,10 +133,6 @@
 		1px -1px 0 $color__black,
 		-1px 1px 0 $color__black,
 		1px 1px 0 $color__black,
-//		-2px -2px 0 $color__black,
-//		2px -2px 0 $color__black,
-//		-2px 2px 0 $color__black,
-//		2px 2px 0 $color__black,
 		
 		1px 0px 0px $color__yellow,
 		0px 1px 0px $color__yellow,
@@ -163,6 +159,8 @@
 		10px 10px 4px $color__white--darkest;
 	font-weight: 700;
 	letter-spacing: 5px;
+	-webkit-text-stroke: 1px $color__black; 
+			text-stroke: 1px $color__black;
 }
 
 /*
