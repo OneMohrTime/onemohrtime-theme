@@ -2,13 +2,13 @@
 
 {% block content %}
 	
-	<figure id="js-parallax-window" class="posts__banner parallax-window">
+	<figure class="posts__banner">
 		
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="{{ post.thumbnail.alt }}"
-			 id="js-parallax-background"
-			 class="gallery__banner--image parallax-background"
+			 class="gallery__banner--image image--parallax"
+			 data-speed="-0.25"
 			 srcset="{{ post.thumbnail.src('medium') }} 500w,
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
