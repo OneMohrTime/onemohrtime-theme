@@ -56,7 +56,7 @@
 						{{ slide.title }}
 					</h2>
 					
-					<a href="#" class="swiper-slide__link" data-swiper-parallax-opacity="0.5">Find out more</a>
+					<a href="{{ site.url }}{{ slide.link }}" class="swiper-slide__link" data-swiper-parallax-opacity="0.5">Find out more</a>
 					
 				</div>
 				{% endfor %}
@@ -67,17 +67,17 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_intro') %}
-	<section class="homepage__intro fade-content">
+	<section id="home_intro" class="homepage__intro fade-content">
 		{{ post.get_field('homepage_intro') }}
 	</section>
 	{% endif %}
 	
-	<section class="homepage__dribbble fade-content">
+	<section id="home_dribbble" class="homepage__dribbble fade-content">
 		<div id="dribbbles" class="dribbbles fade-content"></div>
 	</section>
 	
 	{% if about %}
-	<figure class="homepage__about fade-content">
+	<figure id="home_about" class="homepage__about fade-content">
 		
 		<img src="{{ TimberImage(about.image).src }}"
 			 width="{{ about.image.width }}" height="{{ about.image.height }}"
@@ -96,7 +96,7 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_feature') %}
-	<section class="homepage__portfolio fade-content">
+	<section id="home_features" class="homepage__portfolio fade-content">
 		{% for post in post.get_field('homepage_feature') %}
 			
 			<div class="feature fade-content">
@@ -126,7 +126,7 @@
 	</section>
 	{% endif %}
 	
-	<article class="homepage__work fade-content wysiwyg">
+	<article id="home_content" class="homepage__work fade-content wysiwyg">
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fa fa-long-arrow-right"></span></a>
 	</article>

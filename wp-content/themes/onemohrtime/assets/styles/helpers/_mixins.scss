@@ -57,6 +57,11 @@
 	}
 }
 
+@mixin white-shadow() {
+	color: shade($color__white, 0.05);
+	text-shadow: 0 13.36px 8.896px $color__white--darkest, 0 -2px 1px $color__white;
+}
+
 @mixin deep-shadow() {
 	text-shadow: 1px -1px 0 shade($color__white, 50%), 
 				-1px 2px 1px shade($color__white, 48%),
@@ -83,6 +88,81 @@
 				-22px 44px 1px shade($color__white, 6%),
 				-23px 46px 1px shade($color__white, 4%),
 				-24px 48px 1px shade($color__white, 2%);
+}
+
+@mixin deep-white-shadow() {
+	color: shade($color__white, 0.05);
+	text-shadow: 1px -1px 0 $color__white,
+				-1px 2px 1px shade($color__white, 24%),
+				-2px 4px 1px shade($color__white, 23%),
+				-3px 6px 1px shade($color__white, 22%),
+				-4px 8px 1px shade($color__white, 21%),
+				-5px 10px 1px shade($color__white, 20%),
+				-6px 12px 1px shade($color__white, 19%),
+				-7px 14px 1px shade($color__white, 18%),
+				-8px 16px 1px shade($color__white, 17%),
+				-9px 18px 1px shade($color__white, 16%),
+				-10px 20px 1px shade($color__white, 15%),
+				-11px 22px 1px shade($color__white, 14%),
+				-12px 24px 1px shade($color__white, 13%),
+				-13px 26px 1px shade($color__white, 12%),
+				-14px 28px 1px shade($color__white, 11%),
+				-15px 30px 1px shade($color__white, 10%),
+				-16px 32px 1px shade($color__white, 9%),
+				-17px 34px 1px shade($color__white, 8%),
+				-18px 36px 1px shade($color__white, 7%),
+				-19px 38px 1px shade($color__white, 6%),
+				-20px 40px 1px shade($color__white, 5%),
+				-21px 42px 1px shade($color__white, 4%),
+				-22px 44px 1px shade($color__white, 3%),
+				-23px 46px 1px shade($color__white, 2%),
+				-24px 48px 1px shade($color__white, 1%);
+}
+
+@mixin condensed-shadow() {
+	text-shadow: -15px 5px 20px $color__white--darkest;
+    color: $color__white;
+    letter-spacing: -0.05em;
+}
+
+@mixin retro-text() {
+	position: relative;
+	color: $color__white;
+	text-shadow: 
+		-1px -1px 0 $color__black,
+		1px -1px 0 $color__black,
+		-1px 1px 0 $color__black,
+		1px 1px 0 $color__black,
+//		-2px -2px 0 $color__black,
+//		2px -2px 0 $color__black,
+//		-2px 2px 0 $color__black,
+//		2px 2px 0 $color__black,
+		
+		1px 0px 0px $color__yellow,
+		0px 1px 0px $color__yellow,
+		2px 1px 0px $color__yellow,
+		1px 2px 0px $color__yellow,
+		3px 2px 0px $color__yellow,
+		2px 3px 0px $color__yellow,
+		4px 3px 0px $color__yellow,
+		3px 4px 0px $color__yellow,
+		5px 4px 0px $color__yellow,
+		
+		3px 5px 0px $color__black,
+		6px 5px 0px $color__black, 
+		-1px 2px 0 $color__black,
+		0 3px 0 $color__black,
+		1px 4px 0 $color__black,
+		2px 5px 0px $color__black,
+		2px -1px 0 $color__black,
+		3px 0 0 $color__black,
+		4px 1px 0 $color__black,
+		5px 2px 0px $color__black,
+		6px 3px 0 $color__black,
+		7px 4px 0 $color__black,
+		10px 10px 4px $color__white--darkest;
+	font-weight: 700;
+	letter-spacing: 5px;
 }
 
 /*
@@ -174,6 +254,16 @@
 	line-height: 1em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	margin: 0;
+}
+
+@mixin caption() {
+	@include small-font-size();
+	font-family: $font__header;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 	margin: 0;
 }
 

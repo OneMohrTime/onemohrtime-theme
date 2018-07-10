@@ -51,7 +51,7 @@
 			justify-content: center;
 			align-items: center;
 			background-color: fade-out($color__yellow, 0.15);
-			@include label();
+			@include caption();
 			@include text-shadow();
 			text-align: center;
 			padding: $gutter;

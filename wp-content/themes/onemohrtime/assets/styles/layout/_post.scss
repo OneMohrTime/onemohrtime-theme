@@ -37,6 +37,10 @@
 		.title {
 			@include title();
 			// @include deep-shadow();
+			// @include deep-white-shadow();
+			// @include white-shadow();
+			@include retro-text();
+			// @include condensed-shadow();
 			margin-bottom: 0;
 		}
 		
