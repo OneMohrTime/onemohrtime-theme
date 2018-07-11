@@ -84,9 +84,8 @@ function display_sidebar() {
 		// The sidebar will NOT be displayed if ANY of the following return true.
 		// @link https://codex.wordpress.org/Conditional_Tags
 		is_404(),
-//		is_front_page(),
+		// is_front_page(),
 		is_singular('design'),
-//		is_page()
 	]);
 	
 	return apply_filters('sage/display_sidebar', $display);
@@ -109,6 +108,10 @@ function assets() {
 	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
 	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), ['jquery'], null, true);
 	wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', null, true);
+	wp_enqueue_script('cssplugin', Assets\asset_path('scripts/CSSPlugin.min.js'), ['jquery'], null, true);
+	wp_enqueue_script('easepack', Assets\asset_path('scripts/EasePack.min.js'), ['jquery'], null, true);
+	wp_enqueue_script('tweenlite', Assets\asset_path('scripts/TweenLite.min.js'), ['jquery'], null, true);
+	wp_enqueue_script('jquery-gsap', Assets\asset_path('scripts/jquery.gsap.min.js'), ['jquery'], null, true);
 	wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
