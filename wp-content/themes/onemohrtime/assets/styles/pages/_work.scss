@@ -15,6 +15,7 @@
 		margin-bottom: $gutter;
 		padding-left: $gutter;
 		padding-right: $gutter;
+		overflow: hidden;
 		@include media(">=screen768") {
 			height: calc(100vh - 72px);
 			margin-bottom: 0;
@@ -38,12 +39,15 @@
 		
 		&--image {
 			// .gallery__banner--image
-			transform: translateY(-25%);
+			@include position(absolute, 0 null null 0);
+//			transform: translateY(-25%);
 			z-index: 0;
 			
 			@supports (object-fit: cover) {
+				width: 100%;
+				min-height: 100%;
 				object-fit: cover;
-				transform: translate(0);
+//				transform: translate(0);
 			}
 		}
 		
@@ -198,6 +202,7 @@
 						@include media(">=screen768") {
 							top: 75%;
 							left: 50%;
+							border-radius: 2px;
 							@include size(8px);
 							transform: translate(-50%, -50%);
 						}
