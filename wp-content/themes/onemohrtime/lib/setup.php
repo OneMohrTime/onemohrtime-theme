@@ -107,11 +107,12 @@ function assets() {
 	wp_enqueue_script('mixitup', Assets\asset_path('scripts/mixitup.js'), '', null, true);
 	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
 	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), ['jquery'], null, true);
-	wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', null, true);
+	wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
 	wp_enqueue_script('cssplugin', Assets\asset_path('scripts/CSSPlugin.min.js'), ['jquery'], null, true);
 	wp_enqueue_script('easepack', Assets\asset_path('scripts/EasePack.min.js'), ['jquery'], null, true);
 	wp_enqueue_script('tweenlite', Assets\asset_path('scripts/TweenLite.min.js'), ['jquery'], null, true);
 	wp_enqueue_script('jquery-gsap', Assets\asset_path('scripts/jquery.gsap.min.js'), ['jquery'], null, true);
+	wp_enqueue_script('jquery-gsap', Assets\asset_path('scripts/jquery.lettering.min.js'), ['jquery'], '0.6.1', true);
 	wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

@@ -242,6 +242,9 @@
 					$('#mobile_menu').removeClass('is-visible');
 				});
 				
+				// Animated page header titles
+				$('.entry__header .title, .page__header .title').lettering();
+				
 				// Image parallax effect
 				// TODO: check for missing data-speed
 				$('.image--parallax').each(function () {
