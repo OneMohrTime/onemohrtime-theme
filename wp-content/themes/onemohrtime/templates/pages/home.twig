@@ -30,8 +30,8 @@
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 					 alt="{{ post.thumbnail.alt }}"
-					 class="post__image--parallax"
-					 data-speed="-0.25"
+					 class="post__image--parallax image--parallax"
+					 data-speed="-0.5"
 					 srcset="{{ post.thumbnail.src('medium') }} 500w,
 							 {{ post.thumbnail.src('large') }} 1000w,
 							 {{ post.thumbnail.src('full') }} 1500w"
@@ -47,7 +47,7 @@
 				</h2>
 				
 				<p>
-					{{ post.post_content | excerpt(20) }} <a href="{{ post.link }}">[&hellip;]</a>
+					{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a>
 				</p>
 				
 			</div>

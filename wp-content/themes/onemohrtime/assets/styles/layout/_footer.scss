@@ -10,6 +10,17 @@
 	@include size(100%, auto);
 	padding: $gutter;
 	@include clearfix();
+	@include media(">=screen768") {
+		padding-left: $gutter * 2;
+		padding-right: $gutter * 2;
+	}
+	@include media(">=screen1024") {
+		padding: $gutter * 2 $gutter * 3;
+	}
+	@include media(">=screen1440") {
+		padding-left: $gutter * 4;
+		padding-right: $gutter * 4;
+	}
 	
 	@supports (display: grid) {
 		grid-column: span 4;
@@ -98,6 +109,7 @@
 				display: flex;
 				align-items: center;
 				li {
+					@include paragraph();
 					margin-right: .5em;
 				}
 				a {

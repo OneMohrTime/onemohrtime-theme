@@ -335,7 +335,7 @@
 				// Fancybox
 				$('[data-fancybox]').fancybox({
 					// Enable infinite gallery navigation
-//					loop : true,
+					loop : true,
 					// What buttons should appear in the top right corner.
 					// Buttons will be created using templates from `btnTpl` option
 					// and they will be placed into toolbar (class="fancybox-toolbar"` element)

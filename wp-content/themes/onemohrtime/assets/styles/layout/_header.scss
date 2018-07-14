@@ -35,6 +35,13 @@
 	}
 }
 
+@supports (pointer-events: all) {
+	.site__header { pointer-events: none; }
+	.toggle__menu,
+	.site__logo,
+	.main-navigation { pointer-events: all; }
+}
+
 .site__logo {
 	@include position(absolute, 15px 36px null null);
 	z-index: 35;

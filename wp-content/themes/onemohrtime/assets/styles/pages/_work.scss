@@ -40,14 +40,12 @@
 		&--image {
 			// .gallery__banner--image
 			@include position(absolute, 0 null null 0);
-//			transform: translateY(-25%);
 			z-index: 0;
 			
 			@supports (object-fit: cover) {
 				width: 100%;
 				min-height: 100%;
 				object-fit: cover;
-//				transform: translate(0);
 			}
 		}
 		

@@ -111,17 +111,44 @@
 			&-item {
 				// .gallery-item
 				position: relative;
-				@include box-shadow(inset);
+				@include box-shadow();
 				break-inside: avoid;
 				counter-increment: item-counter;
 				margin-bottom: $gutter;
+				&:hover,
+				&:focus {
+					.gallery-caption {
+						opacity: 1;
+					}
+				}
 				
 				a {
 					display: block;
+					pointer-events: all;
 				}
 				
 				img {
 					width: 100%;
+				}
+			}
+			
+			&-caption {
+				// .gallery-caption
+				color: $color__gray;
+				@include small-font-size();
+				transition: $speed;
+				@include media(">=screen840") {
+					@include position(absolute, 0 0 0 0);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: fade-out($color__black--light, 0.4);
+					color: $color__white;
+					@include text-shadow();
+					padding: $base-spacing;
+					opacity: 0;
+					pointer-events: none;
+					z-index: 1;
 				}
 			}
 		}

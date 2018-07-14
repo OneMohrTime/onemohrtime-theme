@@ -397,6 +397,7 @@
 		
 		.image {
 			position: relative;
+			@include box-shadow();
 			break-inside: avoid;
 			counter-increment: item-counter;
 			margin-bottom: $gutter;
