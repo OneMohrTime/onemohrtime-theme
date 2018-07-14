@@ -12,11 +12,6 @@
       ],
       "main": true
     },
-    "customizer.js": {
-      "files": [
-        "scripts/customizer.js"
-      ]
-    },
     "mixitup.js": {
       "files": [
         "scripts/mixitup.js"
@@ -31,6 +26,31 @@
 	  "files": [
 		"scripts/fancybox.js"
 	  ]
+	},
+	"cssplugin.min.js" : {
+		"files": [
+			"scripts/CSSPlugin.min.js"
+		]
+	},
+	"easepack.min.js" : {
+		"files": [
+			"scripts/EasePack.min.js"
+		]
+	},
+	"tweenlite.min.js" : {
+		"files": [
+			"scripts/TweenLite.min.js"
+		]
+	},
+	"jquery-gsap.min.js" : {
+		"files": [
+			"scripts/jquery-gsap.min.js"
+		]
+	},
+	"jquery.lettering.min.js" : {
+		"files": [
+			"scripts/jquery.lettering.min.js"
+		]
 	},
     "jquery.js": {
       "bower": ["jquery"]
