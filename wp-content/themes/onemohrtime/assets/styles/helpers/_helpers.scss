@@ -34,3 +34,7 @@
 		& > *:nth-child(4n+4) { transition-delay: 300ms; }
 	}
 }
+
+.title--animated {
+	@include animateTitle();
+}

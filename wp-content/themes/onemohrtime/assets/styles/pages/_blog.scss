@@ -124,7 +124,7 @@ body.blog {
 				margin-top: $base-spacing;
 				@include media(">=screen840") {
 					flex: 0 0 calc(40% - #{$gutter});
-					max-width: 40%;
+					max-width: calc(40% - #{$gutter});
 					@include small-font-size();
 					margin-top: 0;
 					
@@ -164,6 +164,9 @@ body.blog {
 				@include media(">=screen840") {
 					@include ellipsis();
 					margin-bottom: $base-spacing;
+				}
+				@include media(">=screen1280") {
+					@include subtitle();
 				}
 			}
 			

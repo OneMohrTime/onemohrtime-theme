@@ -300,6 +300,15 @@
 	}
 }
 
+@mixin animateTitle() {
+	& > span {
+		display: inline-block;
+		min-width: 30px; // for non breaking spaces
+		opacity: 0;
+		animation: fadeInTitle $speed--slow 1 forwards;
+	}
+}
+
 /*
 * — Texture effects —
 */
@@ -406,6 +415,7 @@
 
 @mixin btn-contact() {
 	@include position(absolute, 50% $base-spacing null null);
+	@include btn-color($color__white);
 	transform: rotate(-90deg) !important;
 	transform-origin: center top 0;
 	z-index: 2;

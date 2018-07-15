@@ -4,7 +4,7 @@
 {% for post in posts %}
 	<article {{ function('post_class') }}>
 		
-		<header class="page__header fade-content">
+		<header class="page__header">
 			{% if post.post_excerpt %}
 				<p class="meta">{{ post.post_excerpt }}</p>
 			{% endif %}

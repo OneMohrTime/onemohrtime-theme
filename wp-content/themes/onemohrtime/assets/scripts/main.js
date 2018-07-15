@@ -65,10 +65,32 @@
 					}
 				});
 				
+				// Multilevel links
+//				$('.multilevel-link').on('click touchstart', function() {
+//					$(this).next('ul').animate({
+//						width : 'toggle'
+//					}, 200);
+//				});
+				
 				// find wordpress galleries
 				var wpGallery = document.querySelector('.entry__content .gallery');
 				// add .fade-content class
 				$(wpGallery).addClass('fade-content');
+				
+				// fade in page titles
+				function fadeInTitle() {
+					var animDelay = 0.1;
+					$('.title--animated').lettering();
+					for(
+						var x = 0;
+						x < $('.title--animated').children().length; x++
+					) {
+						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
+					}
+				}
+				if ($('.title--animated').length) {
+					fadeInTitle();
+				}
 				
 				// Show an element
 				var show = function (elem) {
@@ -243,7 +265,7 @@
 				});
 				
 				// Animated page header titles
-				$('.entry__header .title, .page__header .title').lettering();
+//				$('.entry__header .title, .page__header .title').lettering();
 				
 				// Image parallax effect
 				// TODO: check for missing data-speed

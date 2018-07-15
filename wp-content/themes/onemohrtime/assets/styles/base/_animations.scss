@@ -23,6 +23,18 @@
 	animation-direction: reverse;
 }
 
+// fade in page titles
+@keyframes fadeInTitle {
+	0% {
+		transform: translateY(#{$gutter});
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
 // Slide menu up and down
 @keyframes navSlideUp {
 	from {
