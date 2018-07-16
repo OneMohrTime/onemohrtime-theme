@@ -17,32 +17,87 @@
                     "id": ""
                 },
                 "collapsed": "",
-                "min": 0,
-                "max": 0,
-                "layout": "block",
-                "button_label": "Add Slide",
+                "min": 3,
+                "max": 3,
+                "layout": "row",
+                "button_label": "Add Headline",
                 "sub_fields": [
                     {
                         "key": "field_5af3c131ec845",
                         "label": "Headline",
                         "name": "title",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "I&rsquo;m a<br>",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 2,
+                        "new_lines": "br"
+                    },
+                    {
+                        "key": "field_5b43edc2087af",
+                        "label": "Link",
+                        "name": "link",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "100",
+                            "width": "50",
                             "class": "",
                             "id": ""
                         },
-                        "default_value": "",
+                        "default_value": "\/",
                         "placeholder": "",
-                        "prepend": "",
+                        "prepend": "onemohrti.me",
                         "append": "",
                         "maxlength": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "key": "field_5b3304b9c6678",
+                "label": "Intro",
+                "name": "homepage_intro",
+                "type": "wysiwyg",
+                "instructions": "FYI: <code>&lt;div&gt;<\/code> is wrapped with <code>@paragraph()<\/code> and center aligned.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5b3447b4ce6d5",
+                "label": "About Me",
+                "name": "homepage_about",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
                     {
-                        "key": "field_5af3c0beec844",
+                        "key": "field_5b344836ce6d6",
                         "label": "Image",
                         "name": "image",
                         "type": "image",
@@ -63,12 +118,12 @@
                         "max_width": "",
                         "max_height": "",
                         "max_size": "",
-                        "mime_types": "gif, png, jpg, jpeg, webp, mp4, ogg, webm"
+                        "mime_types": "gif, png, jpg, jpeg, webp, svg"
                     },
                     {
-                        "key": "field_5af3c152ec846",
+                        "key": "field_5b344885ce6d7",
                         "label": "Content",
-                        "name": "content",
+                        "name": "text",
                         "type": "wysiwyg",
                         "instructions": "",
                         "required": 0,
@@ -88,10 +143,10 @@
             },
             {
                 "key": "field_58a0fe0035633",
-                "label": "Feature",
+                "label": "Features",
                 "name": "homepage_feature",
                 "type": "relationship",
-                "instructions": "Project to be featured on the home page.",
+                "instructions": "Projects, pages, or posts to be featured on the home page.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -665,6 +720,49 @@
                                 "toolbar": "full",
                                 "media_upload": 1,
                                 "delay": 0
+                            },
+                            {
+                                "key": "field_5b3061bdd0c32",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
+                                "instructions": "Upload image to change blockquote layout, leave empty to use default.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "gif, png, jpg, jpeg, webp, svg"
+                            },
+                            {
+                                "key": "field_5b306354aa2c3",
+                                "label": "Cite",
+                                "name": "cite",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "<cite>",
+                                "append": "<\/cite>",
+                                "maxlength": ""
                             }
                         ],
                         "min": "",
@@ -812,6 +910,48 @@
         "hide_on_screen": [
             "the_content"
         ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5b3799d77260c",
+        "title": "Site Options",
+        "fields": [
+            {
+                "key": "field_5b379a4c81e95",
+                "label": "About This Site",
+                "name": "site_about",
+                "type": "wysiwyg",
+                "instructions": "For footer; describe the plugins and components that the site was built with.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
         "active": 1,
         "description": ""
     }

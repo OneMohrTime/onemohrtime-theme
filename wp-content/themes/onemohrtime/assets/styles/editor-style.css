@@ -1,5 +1,17 @@
 body {
 	background: #fffefa;
 	color: #171409;
+	font-family: "Barlow", -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Segoe UI, Lucida Grande, Helvetica Neue, Helvetica, Fira Sans, Roboto, Noto, Droid Sans, Cantarell, Oxygen, Ubuntu, Franklin Gothic Medium, Century Gothic, Liberation Sans, sans-serif;
 	padding: .75em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Barlow Semi Condensed", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+p a,
+li a {
+	border-bottom: 4px #ffc300 solid;
 }

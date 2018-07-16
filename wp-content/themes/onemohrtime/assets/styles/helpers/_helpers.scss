@@ -16,22 +16,23 @@
 	& > * {
 		transition: opacity $speed--slow, transform $speed--slow;
 	}
-	&.gallery__grid,
-	&.project__text-image {
-		// Offsets timing for groups of two
-		& > *:nth-child(2n+2) { transition-delay: 100ms; }
-	}
+//	&.gallery__grid,
+//	&.project__text-image {
+//		// Offsets timing for groups of two
+//		& > *:nth-child(2n+2) { transition-delay: 150ms; }
+//	}
+	&.homepage__portfolio,
 	&.dribbbles,
 	&.site__footer {
 		// Offsets timing for groups of three
-		& > *:nth-child(3n+2) { transition-delay: 100ms; }
-		& > *:nth-child(3n+3) { transition-delay: 200ms; }
+		& > *:nth-child(3n+2) { transition-delay: 150ms; }
+		& > *:nth-child(3n+3) { transition-delay: 300ms; }
 	}
 	&.widget__instagram--feed {
 		// Offsets timing for groups of four
-		& > *:nth-child(4n+2) { transition-delay: 100ms; }
-		& > *:nth-child(4n+3) { transition-delay: 200ms; }
-		& > *:nth-child(4n+4) { transition-delay: 300ms; }
+		& > *:nth-child(4n+2) { transition-delay: 150ms; }
+		& > *:nth-child(4n+3) { transition-delay: 300ms; }
+		& > *:nth-child(4n+4) { transition-delay: 450ms; }
 	}
 }
 

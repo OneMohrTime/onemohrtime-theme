@@ -503,6 +503,9 @@
 				color: $color__gray--dark;
 				@include body-copy();
 			}
+			@include media(">=screen1170") {
+				max-width: 33.33%;
+			}
 			&:not(:last-child) {
 				border-bottom: 1px $color__white--darkest solid;
 				margin-right: $small-spacing;
@@ -518,10 +521,10 @@
 						@include size(2px, 100%);
 					}
 					&::after {
-						content: "\f00d";
-						@include position(absolute, 50% 0 null null);
-						font-family: "FontAwesome";
-						transform: translate(7px, -50%);
+//						content: "\f00d";
+//						@include position(absolute, 50% 0 null null);
+//						font-family: "FontAwesome";
+//						transform: translate(7px, -50%);
 					}
 				}
 				@include media(">=screen1024") {
@@ -532,6 +535,8 @@
 			
 			&__header {
 				// .spec__header
+				flex: 0 0 100%;
+				max-width: 100%;
 				margin-bottom: $small-spacing;
 				h3 {
 					@include label();
@@ -544,7 +549,33 @@
 			
 			&--list {
 				// .spec--list
-				@include media(">=screen600") {}
+				@include media(">=screen600") {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+			
+			&--group {
+				// .spec--group
+				@include media(">=screen600") {
+					display: flex;
+					flex-flow: row wrap;
+					align-items: baseline;
+					
+					&__item {
+						// spec--group__item
+						background-color: $color__white--darkest;
+						color: $color__white;
+						border-radius: $base-border-radius;
+						@include caption();
+						padding: .5em;
+						margin-right: $small-spacing;
+						transition: background-color $speed;
+						&:hover {
+							background-color: $color__gray--dark;
+						}
+					}
+				}
 			}
 		}
 		

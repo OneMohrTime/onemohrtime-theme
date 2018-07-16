@@ -40,5 +40,47 @@
 			"items_list_navigation": ""
 		},
 		"object_types": ["design"]
+	},
+	"coding": {
+		"name": "coding",
+		"label": "Coding Languages",
+		"singular_label": "Coding Language",
+		"description": "Coding languages used on project",
+		"public": "true",
+		"hierarchical": "false",
+		"show_ui": "true",
+		"show_in_menu": "true",
+		"show_in_nav_menus": "true",
+		"query_var": "true",
+		"query_var_slug": "",
+		"rewrite": "true",
+		"rewrite_slug": "",
+		"rewrite_withfront": "1",
+		"rewrite_hierarchical": "0",
+		"show_admin_column": "false",
+		"show_in_rest": "false",
+		"show_in_quick_edit": "",
+		"rest_base": "",
+		"labels": {
+			"menu_name": "Coding Languages",
+			"all_items": "All Coding Languages",
+			"edit_item": "Edit Coding Language",
+			"view_item": "View Coding Language",
+			"update_item": "Update Coding Language's Name",
+			"add_new_item": "Add New Coding Language",
+			"new_item_name": "New Coding Language Name",
+			"search_items": "Search Coding Languages",
+			"popular_items": "Popular Coding Languages",
+			"not_found": "No Coding Languages found",
+			"no_terms": "No Coding Languages",
+			"parent_item": "",
+			"parent_item_colon": "",
+			"separate_items_with_commas": "",
+			"add_or_remove_items": "",
+			"choose_from_most_used": "",
+			"items_list_navigation": "",
+			"items_list": ""
+		},
+		"object_types": ["design"]
 	}
 }

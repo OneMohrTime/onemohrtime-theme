@@ -53,10 +53,10 @@
 	{% endif %}
 	
 	{% if post.terms('coding') %}
-	<ul class="spec spec--list">
+	<ul class="spec spec--group">
 		<li class="spec__header"><h3>Coding Components</h3></li>
 		{% for code in post.terms('coding') %}
-			<li class="spec__role spec--list__item">{{ code }}</li>
+			<li class="spec__role spec--group__item">{{ code }}</li>
 		{% endfor %}
 	</ul>
 	{% endif %}

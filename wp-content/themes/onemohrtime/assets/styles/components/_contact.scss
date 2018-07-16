@@ -22,6 +22,12 @@
 		padding-right: $gutter * 4;
 	}
 	
+	body.home & {
+		// add bg color on home page, not yellow
+		@include texture($color__white, 54, 0);
+		color: $color__black;
+	}
+	
 	.wysiwyg {
 		display: none;
 		@include paragraph();

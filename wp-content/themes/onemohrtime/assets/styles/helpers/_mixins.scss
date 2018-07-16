@@ -416,7 +416,12 @@
 @mixin btn-contact() {
 	@include position(absolute, 50% $base-spacing null null);
 	@include btn-color($color__white);
+	@include caption();
 	transform: rotate(-90deg) !important;
 	transform-origin: center top 0;
 	z-index: 2;
+	&:hover,
+	&:focus {
+		@include btn-color($color__white);
+	}
 }
