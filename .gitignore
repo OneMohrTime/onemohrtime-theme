@@ -63,5 +63,6 @@ wp-content/plugins/hello.php
 wp-content/themes/twenty*/
 
 # ignore node/grunt dependency directories
+# bower not ignored until it stops causing fucking errors
 node_modules/
-bower_components/
+# bower_components/
