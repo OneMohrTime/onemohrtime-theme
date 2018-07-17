@@ -51,9 +51,6 @@
 		"files": [
 			"scripts/jquery.lettering.min.js"
 		]
-	},
-    "jquery.js": {
-      "bower": ["jquery"]
     }
   },
   "config": {
