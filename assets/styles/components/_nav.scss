@@ -107,7 +107,7 @@
 .toggle__menu {
 	// .toggle__menu
 	@include position(absolute, null null 0 0);
-	color: $color__black;
+	color: $color__white;
 	font-family: $font__header;
 	font-size: 1.25em !important;
 	font-weight: 700;
@@ -118,17 +118,21 @@
 	z-index: 35;
 	&:hover {
 		background-color: transparent;
-		// color: inherit;
-		color: $color__black;
 	}
 	@include media(">=screen600") {
 		top: 0;
 		bottom: auto;
+		color: $color__black;
 		margin-top: 32px;
 		margin-bottom: 32px;
 		
 		&.open {
 			top: 100px;
+		}
+	}
+	@include media(">=screen1170") {
+		&:hover {
+			color: $color__black;
 		}
 	}
 	
@@ -145,7 +149,10 @@
 			@include size(14px, 13px);
 			span.bar {
 				width: 15px;
-				background-color: $color__black;
+				background-color: $color__white;
+				@include media(">screen600") {
+					background-color: $color__black;
+				}
 			}
 			span.bar:nth-child(1) {
 				top: 5px;
@@ -166,12 +173,15 @@
 		span.bar {
 			position: relative;
 			display: block;
-			background-color: $color__black--light;
+			background-color: $color__white;
 			transition: $speed;
 			width: 11px;
 			height: 3px;
 			&:nth-child(2) {
 				margin: 2px 0;
+			}
+			@include media(">screen600") {
+				background-color: $color__black;
 			}
 		}
 	}

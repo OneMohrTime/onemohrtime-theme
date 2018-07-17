@@ -80,10 +80,10 @@
 				// fade in page titles
 				function fadeInTitle() {
 					var animDelay = 0.1;
-					$('.title--animated').lettering();
+					$('.title--animated').lettering('words').children('span').lettering();
 					for(
 						var x = 0;
-						x < $('.title--animated').children().length; x++
+						x < $('[class^="char"]').length; x++
 					) {
 						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
 					}
@@ -263,9 +263,6 @@
 					$('#contact').addClass('said-hi');
 					$('#mobile_menu').removeClass('is-visible');
 				});
-				
-				// Animated page header titles
-//				$('.entry__header .title, .page__header .title').lettering();
 				
 				// Image parallax effect
 				// TODO: check for missing data-speed

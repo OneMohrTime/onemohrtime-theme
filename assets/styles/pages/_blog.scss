@@ -160,6 +160,7 @@ body.blog {
 			
 			&__title {
 				// .post__title
+				position: relative;
 				@include paragraph();
 				@include media(">=screen840") {
 					@include ellipsis();
@@ -172,19 +173,22 @@ body.blog {
 			
 			&__image {
 				// .post__image
+				position: relative;
 				background: $color__white--darker;
 				overflow: hidden;
 				@include media(">=screen840") {
 					flex: 0 0 60%;
 					max-width: 60%;
+					min-height: 100%;
 					@include box-shadow();
 				}
 				&--parallax {
-					width: 60%;
-					@include position(absolute, 0 null null 0);
+					width: 100%;
+//					top: 0 !important;
+//					@include position(absolute, 0 null null 0);
 					z-index: 0;
 					@supports (object-fit: cover) {
-						width: 60%;
+//						width: 60%;
 						min-height: 100%;
 						object-fit: cover;
 					}
