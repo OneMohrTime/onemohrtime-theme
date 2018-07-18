@@ -40,7 +40,7 @@
 	background-color: transparent;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: flex-start;
 	text-align: center;
 	color: $color__white;
@@ -54,7 +54,7 @@
 		@include text-shadow();
 		text-transform: uppercase;
 		letter-spacing: 2px;
-		margin: $base-spacing auto 0;
+		margin: $base-spacing auto $gutter * 3;
 	}
 	
 	&__title {
@@ -67,7 +67,7 @@
 	@include media(">=screen960") {
 		&__title {
 			// .swiper-slide__title
-			@include title();
+			@include subtitle();
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 4;
 		}

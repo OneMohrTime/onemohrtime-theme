@@ -53,7 +53,8 @@
 		&.gallery__banner--contact,
 		&.project__banner--contact,
 		&.posts__banner--contact {
-			.fa {
+			.fa,
+			.svg-inline--fa {
 				transform: translateX(-#{$small-spacing});
 			}
 		}
@@ -67,7 +68,8 @@
 		}
 	}
 	
-	.fa {
+	.fa,
+	.svg-inline--fa {
 		position: relative;
 		transition: 500ms cubic-bezier(.455,.03,.515,.955);
 	}

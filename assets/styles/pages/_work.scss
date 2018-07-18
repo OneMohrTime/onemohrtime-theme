@@ -271,6 +271,7 @@
 		// .gallery__project
 		position: relative;
 		background-color: $color__white--dark;
+		color: $color__white;
 		@include size(100%, auto);
 		min-height: 375px;
 		padding: $small-spacing;
@@ -322,8 +323,8 @@
 		
 		&--header {
 			// .gallery__project--header
+			@include text-shadow();
 			margin-bottom: $base-spacing;
-			// @include ellipsis();
 			a {
 				&:hover,
 				&:focus {}
@@ -341,9 +342,9 @@
 		&--link {
 			// .gallery__project--link
 			@include underline-link();
+			border-color: $color__white;
 			&:hover,
-			&:focus {
-			}
+			&:focus {}
 		}
 	}
 	

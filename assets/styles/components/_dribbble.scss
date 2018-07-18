@@ -60,7 +60,7 @@
 			
 			@include media("<screen1024") {
 				// hide only on small screens
-				@include sr-only;
+				@include visually-hidden();
 			}
 		}
 		
@@ -74,7 +74,7 @@
 		
 		&__description {
 			// .shot__description
-			@include sr-only();
+			@include visually-hidden();
 		}
 		
 		&__link {

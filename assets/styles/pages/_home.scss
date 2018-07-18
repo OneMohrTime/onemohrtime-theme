@@ -98,13 +98,13 @@
 			margin: 0 $gutter $gutter;
 			padding: $gutter;
 			transition: $speed;
-			@include media(">=screen400") {
+			@include media(">=screen540") {
 				flex: 0 0 calc(50% - #{$gutter});
 				max-width: calc(50% - #{$gutter});
 				margin-left: $gutter / 2;
 				margin-right: $gutter / 2;
 			}
-			@include media(">=screen768") {
+			@include media(">=screen840") {
 				flex-basis: calc(33.33% - #{$gutter});
 				max-width: calc(33.33% - #{$gutter});
 			}
