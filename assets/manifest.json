@@ -12,42 +12,42 @@
       ],
       "main": true
     },
-    "mixitup.js": {
+    "mixitup": {
       "files": [
         "scripts/mixitup.js"
       ]
     },
-	"swiper.js": {
+	"swiper": {
 	  "files": [
 		"scripts/swiper.js"
 	  ]
 	},
-	"fancybox.js": {
+	"fancybox": {
 	  "files": [
 		"scripts/fancybox.js"
 	  ]
 	},
-	"cssplugin.min.js" : {
+	"cssplugin.min" : {
 		"files": [
 			"scripts/CSSPlugin.min.js"
 		]
 	},
-	"easepack.min.js" : {
+	"easepack.min" : {
 		"files": [
 			"scripts/EasePack.min.js"
 		]
 	},
-	"tweenlite.min.js" : {
+	"tweenlite.min" : {
 		"files": [
 			"scripts/TweenLite.min.js"
 		]
 	},
-	"jquery-gsap.min.js" : {
+	"jquery-gsap.min" : {
 		"files": [
 			"scripts/jquery-gsap.min.js"
 		]
 	},
-	"jquery.lettering.min.js" : {
+	"jquery.lettering.min" : {
 		"files": [
 			"scripts/jquery.lettering.min.js"
 		]
