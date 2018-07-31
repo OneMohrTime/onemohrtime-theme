@@ -60,7 +60,8 @@
 			}
 			
 			// & > *:not(.fa) {}
-			& > .fa {
+			& > .fa,
+			& > .svg-inline--fa {
 				@include position(absolute, null);
 				color: $color__yellow;
 				font-size: 2em;
