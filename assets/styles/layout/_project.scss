@@ -370,7 +370,7 @@
 		margin-right: $gutter;
 		margin-bottom: $base-spacing;
 		
-		@include media(">=screen400")  { column-count: 2; }
+		@include media(">=screen400") { column-count: 2; }
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;

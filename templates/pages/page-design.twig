@@ -61,6 +61,7 @@
 		</form>
 	</div>
 	
+	{% if gallery %}
 	<section id="gallery" class="gallery__grid fade-content">
 		
 		{% for item in gallery %}
@@ -95,6 +96,7 @@
 		
 		{% endfor %}
 	</section>
+	{% endif %}
 	
 	{% for post in posts %}
 	<article class="gallery__content fade-content wysiwyg">

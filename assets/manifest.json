@@ -27,27 +27,32 @@
 		"scripts/fancybox.js"
 	  ]
 	},
-	"cssplugin.min" : {
+	"cssplugin" : {
 		"files": [
 			"scripts/CSSPlugin.min.js"
 		]
 	},
-	"easepack.min" : {
+	"easepack" : {
 		"files": [
 			"scripts/EasePack.min.js"
 		]
 	},
-	"tweenlite.min" : {
+	"tweenlite" : {
 		"files": [
 			"scripts/TweenLite.min.js"
 		]
 	},
-	"jquery-gsap.min" : {
+	"scrollmagic" : {
 		"files": [
-			"scripts/jquery-gsap.min.js"
+			"scripts/ScrollMagic.js"
 		]
 	},
-	"jquery.lettering.min" : {
+	"jquery-gsap" : {
+		"files": [
+			"scripts/jquery-gsap.js"
+		]
+	},
+	"jquery-lettering" : {
 		"files": [
 			"scripts/jquery.lettering.min.js"
 		]

@@ -1,0 +1,52 @@
+{% extends 'templates/base.twig' %}
+
+{% block content %}
+{% for post in posts %}
+	<article {{ function('post_class') }}>
+		
+		<header class="page__header">
+			{% if post.post_excerpt %}
+				<p class="meta">{{ post.post_excerpt }}</p>
+			{% endif %}
+			{% include 'blocks/page-header.twig' %}
+		</header>
+		
+		{% if image_grid %}
+		<section id="images" class="page__gallery fade-content">
+
+			{% for image in image_grid %}
+				
+				<figure id="image_{{ image.id }}" class="image mix {{ image.post_class }}">
+					<img src="{{ TimberImage(image).src('thumbnail') }}"
+						 width="{{ image.width }}" height="{{ image.height }}"
+						 alt="{{ section.image.alt }}"
+						 class="image__image"
+						 srcset="{{ TimberImage(image).src('medium') }} 500w,
+								 {{ TimberImage(image).src('large') }} 1000w,
+								 {{ TimberImage(image).src('full') }} 1500w"
+						 sizes="(max-width: {{ image.width }}px) 100vw, {{ image.width }}px"/>
+					{% if image.caption %}
+						<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
+					{% else %}
+						<figcaption class="image__caption caption--zoom"><i class="fa fa-search-plus"></i></figcaption>
+					{% endif %}
+					
+					<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
+						<span class="screen-reader-text">Click to zoom</span>
+					</a>
+				</figure>
+				
+			{% endfor %}
+		</section>
+		{% endif %}
+		
+		<div class="page__content fade-content wysiwyg">
+			{{ post.content }}
+		</div>
+		
+		<footer class="page__footer">
+		</footer>
+		
+	</article>
+{% endfor %}
+{% endblock %}
