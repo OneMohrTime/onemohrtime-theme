@@ -108,11 +108,11 @@
 				flex-basis: calc(33.33% - #{$gutter});
 				max-width: calc(33.33% - #{$gutter});
 			}
-			@include media(">=screen1440") {
-				padding: $gutter;
-				margin-left: $gutter;
-				margin-right: $gutter;
-			}
+//			@include media(">=screen1440") {
+//				padding: $gutter;
+//				margin-left: $gutter;
+//				margin-right: $gutter;
+//			}
 			
 			&:hover,
 			&:focus {

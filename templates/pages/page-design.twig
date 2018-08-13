@@ -61,36 +61,37 @@
 		</form>
 	</div>
 	
-	{% if gallery %}
+	{#{% if gallery %}#}
+	{% if projects %}
 	<section id="gallery" class="gallery__grid fade-content">
 		
-		{% for item in gallery %}
+		{% for project in projects %}
 		
-		<div id="proj_id_{{ item.id }}" class="gallery__project mix {{ item.post_class }}">
+		<div id="proj_id_{{ project.id }}" class="gallery__project mix {{ project.post_class }}">
 			
 			<div class="gallery__project--content fade-content">
 				
-				{% if item.get_field('project_header') %}
+				{% if project.get_field('project_header') %}
 				<div class="gallery__project--excerpt">
-					{{ item.get_field('project_header').subtitle }}
+					{{ project.get_field('project_header').subtitle }}
 				</div>
 				{% endif %}
 				
 				<h2 class="gallery__project--header">
-					<a href="{{ item.link }}">{{ item.title }}</a>
+					<a href="{{ project.link }}">{{ project.title }}</a>
 				</h2>
-				<a href="{{ item.link }}" class="gallery__project--link">See Project</a>
+				<a href="{{ project.link }}" class="gallery__project--link">See Project</a>
 			</div>
 			
-			<img src="{{ item.thumbnail.src }}"
-				 width="{{ item.thumbnail.width }}" height="{{ item.thumbnail.height }}"
-				 alt="{{ item.thumbnail.alt }}"
+			<img src="{{ project.thumbnail.src }}"
+				 width="{{ project.thumbnail.width }}" height="{{ project.thumbnail.height }}"
+				 alt="{{ project.thumbnail.alt }}"
 				 class="gallery__project--image image--parallax"
 				 data-speed="-0.25"
-				 srcset="{{ item.thumbnail.src('medium') }} 500w,
-						 {{ item.thumbnail.src('large') }} 1000w,
-						 {{ item.thumbnail.src('full') }} 1500w"
-				 sizes="(max-width: {{ item.thumbnail.width }}px) 100vw, {{ item.thumbnail.width }}px" />
+				 srcset="{{ project.thumbnail.src('medium') }} 500w,
+						 {{ project.thumbnail.src('large') }} 1000w,
+						 {{ project.thumbnail.src('full') }} 1500w"
+				 sizes="(max-width: {{ project.thumbnail.width }}px) 100vw, {{ project.thumbnail.width }}px" />
 			
 		</div>
 		
