@@ -352,7 +352,7 @@
 				});
 				
 				// Fancybox
-				$('[data-fancybox]').fancybox({
+				$('[data-fancybox], .fancybox, .gallery-item a').fancybox({
 					// Enable infinite gallery navigation
 					loop : true,
 					// What buttons should appear in the top right corner.
