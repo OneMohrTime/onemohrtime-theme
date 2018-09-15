@@ -11,6 +11,7 @@
 		grid-template-columns: repeat(6, 1fr);
 		grid-column-gap: $gutter;
 		grid-row-gap: $gutter;
+		justify-items: center;
 		width: auto;
 	}
 	
@@ -80,6 +81,26 @@
 		&__link {
 			// .shot__link
 			@include block-link();
+		}
+	}
+	
+	& > code {
+		grid-column: span 6;
+		background-color: fade-out($color__white, 0.85);
+		border: 0;
+		color: fade-out($color__black, 0.05);
+		@include body-copy();
+		text-align: center;
+		padding: $small-spacing $base-spacing;
+		transition: background-color $speed;
+		
+		&:hover,
+		&:focus {
+			background-color: fade-out($color__white, 0.15);
+		}
+		
+		& > a {
+			@include inline();
 		}
 	}
 }

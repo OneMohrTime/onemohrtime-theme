@@ -2,6 +2,27 @@
 * === HELPERS ===
 */
 
+.parallax {
+	// parent element
+	position: relative;
+	
+	&__element {
+		// direct child
+	}
+	
+	&__image {
+		// added if .parallax__element is image
+		@include position(absolute, null);
+		@include size(100%);
+		opacity: 0.5;
+		@supports (object-fit: cover) {
+			object-fit: cover;
+		}
+		pointer-events: none;
+		z-index: 1;
+	}
+}
+
 .clearfix {
 	@include clearfix();
 	@supports (display: flex) {

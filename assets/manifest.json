@@ -49,7 +49,7 @@
 	},
 	"jquery-gsap" : {
 		"files": [
-			"scripts/jquery-gsap.js"
+			"scripts/jquery-gsap.min.js"
 		]
 	},
 	"jquery-lettering" : {

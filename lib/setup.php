@@ -108,15 +108,16 @@ function assets() {
 	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
 	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), ['jquery'], null, true);
 	wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
-	wp_enqueue_script('cssplugin', Assets\asset_path('scripts/CSSPlugin.min.js'), ['tweenlite'], null, true);
-	wp_enqueue_script('easepack', Assets\asset_path('scripts/EasePack.min.js'), ['tweenlite'], null, true);
-	wp_enqueue_script('tweenlite', Assets\asset_path('scripts/TweenLite.min.js'), '', null, true);
-	wp_enqueue_script('jquery-gsap', Assets\asset_path('scripts/jquery-gsap.min.js'), ['jquery','tweenlite'], null, true);
+//	wp_enqueue_script('cssplugin', Assets\asset_path('scripts/CSSPlugin.min.js'), ['tweenlite'], null, true);
+//	wp_enqueue_script('easepack', Assets\asset_path('scripts/EasePack.min.js'), ['tweenlite'], null, true);
+	wp_enqueue_script('gsap', '//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js', '[jquery]', null, true);
+//	wp_enqueue_script('tweenlite', Assets\asset_path('scripts/TweenLite.min.js'), '', null, true);
+	wp_enqueue_script('jquery-gsap', Assets\asset_path('scripts/jquery-gsap.min.js'), ['jquery','gsap'], null, true);
 	wp_enqueue_script('lettering', Assets\asset_path('scripts/jquery.lettering.min.js'), ['jquery'], null, true);
-	wp_enqueue_script('scrollmagic', Assets\asset_path('scripts/ScrollMagic.js'), ['tweenlite'], null, true);
+	wp_enqueue_script('scrollmagic', Assets\asset_path('scripts/ScrollMagic.js'), ['gsap'], null, true);
 	wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
-	wp_enqueue_script('scrollmagic-jquery', Assets\asset_path('scripts/jquery.lettering.min.js'), ['scrollmagic','jquery'], null, true);
-	wp_enqueue_script('scrollmagic-gsap', Assets\asset_path('scripts/jquery.lettering.min.js'), ['scrollmagic','tweenlite'], null, true);
-	wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery','tweenlite','scrollmagic','fancybox','mixitup'], null, true);
+	wp_enqueue_script('scrollmagic-jquery', Assets\asset_path('scripts/jquery.ScrollMagic.js'), ['scrollmagic','jquery'], null, true);
+	wp_enqueue_script('scrollmagic-gsap', Assets\asset_path('scripts/animation.gsap.js'), ['scrollmagic','gsap'], null, true);
+	wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery','gsap','scrollmagic','fancybox','mixitup'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

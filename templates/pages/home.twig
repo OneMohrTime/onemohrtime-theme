@@ -2,13 +2,12 @@
 
 {% block content %}
 	
-	<figure class="posts__banner">
+	<figure class="posts__banner parallax">
 		
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="{{ post.thumbnail.alt }}"
-			 class="gallery__banner--image image--parallax"
-			 data-speed="-0.25"
+			 class="gallery__banner--image parallax__image"
 			 srcset="{{ post.thumbnail.src('medium') }} 500w,
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
@@ -22,23 +21,22 @@
 		
 	</figure>
 	
-	<section class="posts fade-content">
+	<section class="posts">
 		{% for post in posts %}
 		<article {{ function('post_class') }}>
 			
-			<figure class="post__image">
+			<figure class="post__image parallax">
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 					 alt="{{ post.thumbnail.alt }}"
-					 class="post__image--parallax image--parallax"
-					 data-speed="-0.5"
+					 class="post__image__image parallax__image"
 					 srcset="{{ post.thumbnail.src('medium') }} 500w,
 							 {{ post.thumbnail.src('large') }} 1000w,
 							 {{ post.thumbnail.src('full') }} 1500w"
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 			</figure>
 			
-			<div class="post__content fade-content wysiwyg">
+			<div class="post__content wysiwyg">
 				
 				{% include "blocks/entry-meta.twig" %}
 				

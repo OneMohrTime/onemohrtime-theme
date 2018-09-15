@@ -51,12 +51,15 @@ body.blog {
 			
 			&--image {
 				// .posts__banner--image
-				transform: translateY(-25%);
+//				transform: translateY(-25%);
+				position: relative;
+				top: -100px;
+				height: 200%;
 				z-index: 0;
 				
 				@supports (object-fit: cover) {
 					object-fit: cover;
-					transform: translate(0);
+//					transform: translate(0);
 				}
 			}
 			
@@ -185,7 +188,7 @@ body.blog {
 				color: $color__white;
 				@include size(100%, auto);
 				min-height: 375px;
-				padding: $small-spacing;
+//				padding: $small-spacing;
 				margin-bottom: $base-spacing;
 				overflow: hidden;
 				@include media(">=screen840") {
@@ -196,14 +199,7 @@ body.blog {
 					margin-bottom: 0;
 				}
 				&--parallax {
-					@include position(absolute, 0 null null 0);
-					pointer-events: none;
-					transform: translate(-50%, 0);
-					z-index: 1;
-					@supports (object-fit: cover) {
-						@include size(100%, 200%);
-						object-fit: cover;
-					}
+					
 				}
 			}
 			

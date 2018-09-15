@@ -20,8 +20,18 @@
 				// JavaScript to be fired on all pages
 				
 				//
+				// Remove .no-js from the DOM, css classes can follow no animation layouts
 				$('html.no-js').removeClass('no-js');
 				//
+				
+				///////////////
+				// FUNCTIONS //
+				///////////////
+				
+				// Check if mobile
+				function isMobile() {
+					return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+				}
 				
 				// Change MENU to EXIT
 				function changeLetters(btn) {
@@ -42,6 +52,27 @@
 						u.text('U');
 					}
 				}
+				
+				// Fade in page titles
+				function fadeInTitle() {
+					var animDelay = 0.1;
+					$('.title--animated').lettering('words').children('span').lettering();
+					for(
+						var x = 0;
+						x < $('[class^="char"]').length; x++
+					) {
+						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
+					}
+				}
+				if ($('.title--animated').length) {
+					fadeInTitle();
+				}
+				
+				// END FUNCTIONS
+				
+				//////////////////
+				// START JQUERY //
+				//////////////////
 				
 				// Bourbon refills nav
 				$('#menu_toggle').on('click touchstart', function(e) {
@@ -76,21 +107,6 @@
 				var wpGallery = document.querySelector('.entry__content .gallery');
 				// add .fade-content class
 				$(wpGallery).addClass('fade-content');
-				
-				// fade in page titles
-				function fadeInTitle() {
-					var animDelay = 0.1;
-					$('.title--animated').lettering('words').children('span').lettering();
-					for(
-						var x = 0;
-						x < $('[class^="char"]').length; x++
-					) {
-						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
-					}
-				}
-				if ($('.title--animated').length) {
-					fadeInTitle();
-				}
 				
 				// Show an element
 				var show = function (elem) {
@@ -307,50 +323,6 @@
 					});
 				});
 				
-				// load google fonts with webfont loader
-				WebFontConfig = {
-					google : {
-						families : ['Barlow Semi Condensed:400,700','Barlow:400,700','Abril Fatface']
-					}
-				};
-				
-				(function(d) {
-					var wf = d.createElement('script'), s = d.scripts[0];
-					wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-					wf.async = true;
-					s.parentNode.insertBefore(wf, s);
-				})(document);
-				
-				// Instagram API
-				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
-				var token      = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
-					userid     = 3567722892,
-					num_photos = 4;
-					
-				$.ajax({
-					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
-//					url : 'https://api.instagram.com/v1/users/self/media/recent',
-					dataType : 'jsonp',
-					type : 'GET',
-					data : {
-						access_token : token,
-						count        : num_photos
-					},
-					success : function(data) {
-//						console.log(data);
-						for( x in data.data ) {
-							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><p class="widget__instagram--btn" target="_blank">View <i class="fas fa-link-alt"></i></p></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"><span class="screen-reader-text">View on Instagram</span></a></figure>');
-//							 data.data[x].images.thumbnail.url - URL of image 150х150
-//							 data.data[x].images.low_resolution.url - URL of image 306x306
-//							 data.data[x].images.standard_resolution.url - URL of image 612х612
-//							 data.data[x].link - Instagram post URL 
-						}
-					},
-					error : function(data) {
-//						console.log(data);
-					}
-				});
-				
 				// Fancybox
 				$('[data-fancybox], .fancybox, .gallery-item a').fancybox({
 					// Enable infinite gallery navigation
@@ -407,6 +379,72 @@
 					},
 				});
 				
+				// END JQUERY
+
+				/////////////////////
+				// BEGIN GREENSOCK //
+				/////////////////////
+				
+				// Init ScrollMagic
+				var controller = new ScrollMagic.Controller({
+					addIndicators : true
+				});
+				
+//				console.log(controller);
+				
+				
+				// END GREENSOCK
+				
+				////////////////
+				// BEGIN APIS //
+				////////////////
+				
+				// load google fonts with webfont loader
+				WebFontConfig = {
+					google : {
+						families : ['Barlow Semi Condensed:400,700','Barlow:400,700','Abril Fatface']
+					}
+				};
+				
+				(function(d) {
+					var wf = d.createElement('script'), s = d.scripts[0];
+					wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+					wf.async = true;
+					s.parentNode.insertBefore(wf, s);
+				})(document);
+				
+				// Instagram API
+				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
+				var token      = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
+					userid     = 3567722892,
+					num_photos = 4;
+					
+				$.ajax({
+					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
+//					url : 'https://api.instagram.com/v1/users/self/media/recent',
+					dataType : 'jsonp',
+					type : 'GET',
+					data : {
+						access_token : token,
+						count        : num_photos
+					},
+					success : function(data) {
+						console.log(data);
+						for( x in data.data ) {
+							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><p class="widget__instagram--btn" target="_blank">View <i class="fas fa-link-alt"></i></p></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"><span class="screen-reader-text">View on Instagram</span></a></figure>');
+//							 data.data[x].images.thumbnail.url - URL of image 150х150
+//							 data.data[x].images.low_resolution.url - URL of image 306x306
+//							 data.data[x].images.standard_resolution.url - URL of image 612х612
+//							 data.data[x].link - Instagram post URL 
+						}
+					},
+					error : function(data) {
+						console.log(data);
+					}
+				});
+				
+				// END APIS
+				
 			},
 			finalize: function () {
 				// JavaScript to be fired on all pages, after page specific JS is fired
@@ -423,12 +461,14 @@
 					var homeParallax = new Swiper('#home_parallax', {
 						slidesPerView : 'auto',
 						parallax      : true,
+						speed         : 750,
 					});
 					var homeFrame2 = new Swiper('#home_frame_2', {
 						slidesPerView  : 'auto',
 						centeredSlides : true,
 						grabCursor     : true,
 						effect         : 'flip',
+						speed          : 750,
 						direction      : 'vertical',
 						flipEffect     : {
 							slideShadows : false
@@ -439,6 +479,7 @@
 						centeredSlides  : true,
 						spaceBetween    : 500,
 						effect          : 'coverflow',
+						speed           : 750,
 						coverflowEffect : {
 							slideShadows : false,
 						}

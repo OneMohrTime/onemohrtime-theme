@@ -355,8 +355,7 @@
 		&:focus { 
 			color: inherit;
 			&::before {
-				width: auto;
-				animation: dancemonkey 2s infinite;
+				height: 16px;
 			}
 			.fa {
 				transform: translateX($small-spacing);
@@ -366,10 +365,11 @@
 	&::before {
 		content: "";
 		position: absolute;
-		bottom: 4px;
+		bottom: 8px;
 		background-color: $color__yellow;
-		@include size(100%, 8px);
+		@include size(auto, 8px);
 		transition: $speed;
+		animation: dancemonkey 2s infinite;
 		z-index: -1;
 	}
 	
