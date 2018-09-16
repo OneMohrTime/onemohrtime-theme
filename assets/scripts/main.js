@@ -380,8 +380,8 @@
 				
 				// Instagram API
 				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
-				var token      = '3567722892.23a17ec.5d06e45c020048ccb85cc81744ee03b0',
-					userid     = 3567722892,
+				var token      = 'EAAEe4N5iubABAK8JpZClBvvzcpyF7c19XRa39KaguRdQaSQwXrO7d4LZAxg9J3TcHICRX6RVx8iz45WBHT4TNVnzqIEVxX9MOiCCggIvFRTwARZAvfOGRZBfs6mwSY3oMCbRZAyzZADYmy9snZCDLtap1MprpSod7fDNewzh8j9Q7yYIgd0ZAMDfFjvL3TpR2ZAIwlZACCzXZCyZBr1XTqFeWNOP',
+					userid     = 10156228988569143,
 					num_photos = 4;
 					
 				$.ajax({
