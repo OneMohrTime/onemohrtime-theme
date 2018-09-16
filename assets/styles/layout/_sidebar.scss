@@ -32,8 +32,6 @@
 	
 	&__instagram {
 		// .widget__instagram
-//		margin-left: $gutter;
-//		margin-right: $gutter;
 		
 		&--title {
 			// .widget__instagram--title
@@ -49,98 +47,33 @@
 			}
 		}
 		
-		&--feed {
-			// .widget__instagram--feed
-			position: relative;
-			&::before {
-				// halftone background
-				content: "";
-				position: absolute;
-				top: -#{$gutter / 2};
-				left: -#{$gutter / 2};
-				right: -#{$gutter / 2};
-				bottom: 50%;
-				@include texture-grid();
-			}
-		}
-		
-		&--image {
-			// .widget__instagram--image
-			position: relative;
-			width: 100%;
-			float: left;
-			overflow: hidden;
-			@include media(">=screen400") { width: 50%; }
-			@include media(">=screen768") { width: 25%; }
-			@include media(">=screen1170") {
-				&:hover,
-				&:focus {
-					img {
-						transform: translateY(-25%);
-					}
-					.widget__instagram--caption {
-						transform: translateY(0);
-					}
-				}
-			}
-			
-			img {
-				transform: translateY(0);
-				transition: transform $speed;
-				@supports (object-fit: cover) {
-					@include size(100%);
-					object-fit: cover;
-				}
-			}
-		}
-		
-		&--caption {
-			// .widget__instagram--caption
-			@include position(absolute, null 0 0 0);
-			background-color: $color__white;
-			text-align: center;
-			padding: $small-spacing;
-			transform: translateY(100%);
-			transition: transform $speed;
-			@include media(">=screen1170") {
-				padding: $base-spacing;
-			}
-			
-			p {
-				@include ellipsis();
-				margin-bottom: 0;
-			}
-		}
-		
-		&--btn {
-			// .widget__instagram--btn
-			font-weight: 700;
-			border-bottom: 2px $color__black solid;
-		}
-		
-		&--link {
-			// .widget__instagram--link
-			@include block-link();
-		}
-		
 		@supports (display: grid) {
 			&--title {
 				// .widget__instagram--title
 				grid-column: span 4;
 				width: auto;
 			}
-			&--feed {
-				// .widget__instagram--feed
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-gap: $base-spacing;
-			}
-			&--image {
-				// .widget__instagram--image
-				grid-column: span 4;
-				width: auto !important;
-				@include media(">=screen400") { grid-column: span 2; }
-				@include media(">=screen768") { grid-column: span 1; }
+		}
+	}
+}
+
+@supports (display: flex) {
+	#sb_instagram {
+		#sbi_images {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+		}
+		// 4 column layout on smash balloon
+		&.sbi_col_4 {
+			#sbi_images {
+				.sbi_item {
+					width: calc(25% - #{$gutter / 2});
+					margin-bottom: $gutter / 2 !important;
+					@media (max-width: 640px) {
+						width: calc(50% - #{$gutter / 4});
+					}
+				}
 			}
 		}
 	}
