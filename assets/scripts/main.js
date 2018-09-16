@@ -370,43 +370,12 @@
 						families : ['Barlow Semi Condensed:400,700','Barlow:400,700','Abril Fatface']
 					}
 				};
-				
 				(function(d) {
 					var wf = d.createElement('script'), s = d.scripts[0];
 					wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
 					wf.async = true;
 					s.parentNode.insertBefore(wf, s);
 				})(document);
-				
-				// Instagram API
-				// https://rudrastyh.com/javascript/get-photos-from-instagram.html
-				var token      = 'EAAEe4N5iubABAK8JpZClBvvzcpyF7c19XRa39KaguRdQaSQwXrO7d4LZAxg9J3TcHICRX6RVx8iz45WBHT4TNVnzqIEVxX9MOiCCggIvFRTwARZAvfOGRZBfs6mwSY3oMCbRZAyzZADYmy9snZCDLtap1MprpSod7fDNewzh8j9Q7yYIgd0ZAMDfFjvL3TpR2ZAIwlZACCzXZCyZBr1XTqFeWNOP',
-					userid     = 10156228988569143,
-					num_photos = 4;
-					
-				$.ajax({
-					url : 'https://api.instagram.com/v1/users/' + userid + '/media/recent',
-//					url : 'https://api.instagram.com/v1/users/self/media/recent',
-					dataType : 'jsonp',
-					type : 'GET',
-					data : {
-						access_token : token,
-						count        : num_photos
-					},
-					success : function(data) {
-						console.log(data);
-						for( x in data.data ) {
-							$('#latest_instagram').append('<figure class="widget__instagram--image"><img src="' + data.data[x].images.thumbnail.url + '" alt="' + data.data[x].caption.text + '" srcset="' + data.data[x].images.low_resolution.url + ' 306w, ' + data.data[x].images.standard_resolution.url + '" /><figcaption class="widget__instagram--caption"><p>' + data.data[x].caption.text + '</p><p class="widget__instagram--btn" target="_blank">View <i class="fas fa-link-alt"></i></p></figcaption><a href="' + data.data[x].link +'" title="View on Instagram" target="_blank" class="widget__instagram--link"><span class="screen-reader-text">View on Instagram</span></a></figure>');
-//							 data.data[x].images.thumbnail.url - URL of image 150х150
-//							 data.data[x].images.low_resolution.url - URL of image 306x306
-//							 data.data[x].images.standard_resolution.url - URL of image 612х612
-//							 data.data[x].link - Instagram post URL 
-						}
-					},
-					error : function(data) {
-						console.log(data);
-					}
-				});
 				
 				// END APIS
 				
