@@ -5,7 +5,7 @@
 
 {# Banner Area #}
 <header class="project__header">
-	<figure class="project__banner fade-content">
+	<figure class="project__banner get-faded">
 		
 		{% if banner %}
 		<img src="{{ TimberImage(banner.image).src }}"
@@ -30,7 +30,7 @@
 
 {# Project Details #}
 {% if details %}
-<aside class="project__specs fade-content">
+<aside class="project__specs get-faded">
 	
 	<h2 class="project__specs--title">More details</h2>
 	
@@ -73,7 +73,7 @@
 	{% if section.acf_fc_layout == 'detail_text' %}
 	
 	{# Text #}
-	<div class="project__section project__text wysiwyg fade-content">
+	<div class="project__section project__text wysiwyg get-faded">
 		{{ section.text }}
 	</div>
 	
@@ -82,8 +82,8 @@
 	{# Text + Image #}
 	<div class="project__section project__text-image
 				{% if section.reverse %} project__text-image--reversed{% endif %}
-				fade-content">
-		<div class="content--half fade-content wysiwyg">
+				get-faded">
+		<div class="content--half get-faded wysiwyg">
 			{{ section.text }}
 		</div>
 		<figure class="image--half">
@@ -104,13 +104,12 @@
 	<div class="project__section project__image
 				{% if section.display == 'standard' %} project__image--default
 				{% elseif section.display == 'wide' %} project__image--wide
-				{% elseif section.display == 'fixed' %} project__image--fixed{% endif %}">
+				{% elseif section.display == 'fixed' %} project__image--fixed parallax{% endif %}">
 		
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
-			 class="project__image__image{% if section.display == 'fixed' %} image--parallax{% endif %}"
-			 {% if section.display == 'fixed' %}data-speed="-0.25"{% endif %}
+			 class="project__image__image{% if section.display == 'fixed' %} parallax__image{% endif %}"
 			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 					 {{ TimberImage(section.image).src('large') }} 1000w,
 					 {{ TimberImage(section.image).src('full') }} 1500w"
@@ -120,7 +119,7 @@
 	{% elseif section.acf_fc_layout == 'detail_blockquote' %}
 	
 	{# Blockquote #}
-	<div class="project__section project__blockquote wysiwyg fade-content">
+	<div class="project__section project__blockquote wysiwyg get-faded{% if section.image %} parallax{% endif %}">
 		
 		{% if section.image %}
 		<blockquote class="blockquote blockquote__image">
@@ -132,7 +131,7 @@
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
-			 class="blockquote__image__image"
+			 class="blockquote__image__image parallax__image"
 			 srcset="{{ TimberImage(section.image).src('medium') }} 500w,
 					 {{ TimberImage(section.image).src('large') }} 1000w,
 					 {{ TimberImage(section.image).src('full') }} 1500w"
@@ -152,7 +151,7 @@
 	{% elseif section.acf_fc_layout == 'detail_gallery' %}
 	
 	{# Gallery #}
-	<div class="project__section project__gallery fade-content">
+	<div class="project__section project__gallery get-faded">
 	{% for image in section.images %}
 		
 		<figure class="image">

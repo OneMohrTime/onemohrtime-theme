@@ -105,8 +105,8 @@
 				
 				// find wordpress galleries
 				var wpGallery = document.querySelector('.entry__content .gallery');
-				// add .fade-content class
-				$(wpGallery).addClass('fade-content');
+				// add .get-faded class
+				$(wpGallery).addClass('get-faded');
 				
 				// Show an element
 				var show = function (elem) {
@@ -216,48 +216,6 @@
 					scrollDetect(homeAction, downAction, upAction);
 				});
 				
-//				// custom lazyload TODO
-//				function lazyLoadImages() {
-//					var st = $(window).scrollTop();
-//					$('img.lazy').each(function () {
-//						var img = $(this);
-//						if (img.attr('src')) return;
-//						if (img.offset().top < $(window).height() + st) {
-//							img.attr('src', img.data('src'));
-//						}
-//					});
-//				}
-//				if ($('img.lazy').length > 0) {
-//					$(window).scroll(function () {
-//						lazyLoadImages();
-//					});
-//				}
-				
-				// Fade in content
-				// Hide direct children of .fade-content element
-				$('.fade-content > *').css({
-					'opacity'   : '0',
-					'transform' : 'translateY(' + 36 + 'px)'
-				});
-				// Trigger fade in as window scrolls
-				$(window).on('scroll load', function(){
-					$('.fade-content > *').each( function(i) {
-						var bottom_of_object = $(this).offset().top + $(this).outerHeight() / 8;
-						var bottom_of_window = $(window).scrollTop() + $(window).height();
-						if( bottom_of_window > bottom_of_object ) {
-							$(this).css({
-								'opacity'   :'1',
-								'transform' : 'translateY(' + 0 + 'px)'
-							});
-						} else {
-							$(this).css({
-								'opacity'   :'0',
-								'transform' : 'translateY(' + 36 + 'px)'
-							});
-						}
-					});
-				});
-				
 				// Add or remove scrolling navbar classes
 				$(window).scroll(function() {
 					if ($(document).scrollTop() > 50) {
@@ -278,49 +236,6 @@
 				$('a[href^="#contact"]').on('click', function() {
 					$('#contact').addClass('said-hi');
 					$('#mobile_menu').removeClass('is-visible');
-				});
-				
-				// Image parallax effect
-				// TODO: check for missing data-speed
-				$('.image--parallax').each(function () {
-					var img       = $(this);
-					var imgParent = $(this).parent();
-					
-					function parallaxImg() {
-						var speed   = img.data('speed');
-						var imgY    = imgParent.offset().top;
-						var winY    = $(this).scrollTop();
-						var winH    = $(this).height();
-						var parentH = imgParent.innerHeight();
-						
-						// The next pixel to show on screen      
-						var winBottom = winY + winH;
-						
-						// If block is shown on screen
-						if (winBottom > imgY && winY < imgY + parentH) {
-							// Number of pixels shown after block appear
-							var imgBottom = ((winBottom - imgY) * speed);
-							// Max number of pixels until block disappear
-							var imgTop = winH + parentH;
-							// Porcentage between start showing until disappearing
-							var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-						}
-						img.css({
-							top: imgPercent + '%',
-							transform: 'translateY(-' + imgPercent + '%)'
-						});
-					}
-//					if ( !img.hasAttribute('data-speed') ) {
-//						console.log(img + 'has no data-attr');
-//					}
-					$(document).on({
-						scroll : function () {
-							parallaxImg();
-						},
-						ready  : function () {
-							parallaxImg();
-						}
-					});
 				});
 				
 				// Fancybox
@@ -387,11 +302,61 @@
 				
 				// Init ScrollMagic
 				var controller = new ScrollMagic.Controller({
+					globalSceneOptions : {
+						triggerHook : 0.8
+					},
 					addIndicators : true
 				});
 				
-//				console.log(controller);
+				var viewportWidth  = window.innerWidth,
+					viewportHeight = window.innerHeight;
+				console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
 				
+				// Parallax images
+				$('.parallax').each(function() {
+					var parallaxParent = this,
+						parallaxChild  = $(this).children('.parallax__image');
+					
+					if (viewportWidth >= 840) {
+						
+						var tweenParallax = new TimelineMax()
+							.to(parallaxChild, 1, {
+								y    : '80%',
+								ease : Linear.easeNone,
+							})
+						
+						var parallaxScene = new ScrollMagic.Scene({
+							triggerElement : parallaxParent,
+							duration       : '200%'
+						})
+							.setTween(tweenParallax)
+							.setClassToggle(this, 'parallax--scrolling')
+							.addTo(controller);
+					}
+				});
+				
+				// Fade in content blocks
+				$('.get-faded').each(function() {
+					var fadeParent   = this,
+						fadeChild    = $(this).children(),
+						fadeDuration = 0.3,
+						fadeBetween  = 0.3;
+					
+					var tweenFade = new TimelineMax()
+						.staggerTo(fadeChild, fadeDuration, {
+							y         : 0,
+							autoAlpha : 1
+						}, fadeBetween)
+					
+					var fadeScene  = new ScrollMagic.Scene({
+						triggerElement : fadeParent,
+						triggerHook    : 1,
+						reverse        : false
+					})
+						.setTween(tweenFade)
+						.setClassToggle(fadeChild, 'got-faded')
+						.addTo(controller);
+				});
 				
 				// END GREENSOCK
 				

@@ -25,7 +25,7 @@
     {% endfor %}
 	
 	<div class="gallery__filter">
-		<form class="arrays fade-content" id="featured_project_filter">
+		<form class="arrays get-faded" id="featured_project_filter">
 			<ul class="array array__roles" role="group" aria-labelledby="array_1">
 				<li class="array__item">
 					<button type="button" id="array_1" class="array__filter array__title" role="button" data-filter="all">
@@ -63,13 +63,13 @@
 	
 	{#{% if gallery %}#}
 	{% if projects %}
-	<section id="gallery" class="gallery__grid fade-content">
+	<section id="gallery" class="gallery__grid get-faded">
 		
 		{% for project in projects %}
 		
 		<div id="proj_id_{{ project.id }}" class="gallery__project mix {{ project.post_class }}">
 			
-			<div class="gallery__project--content fade-content">
+			<div class="gallery__project--content get-faded">
 				
 				{% if project.get_field('project_header') %}
 				<div class="gallery__project--excerpt">
@@ -100,15 +100,9 @@
 	{% endif %}
 	
 	{% for post in posts %}
-	<article class="gallery__content fade-content wysiwyg">
+	<article class="gallery__content get-faded wysiwyg">
 		{{ post.content }}
 	</article>
 	{% endfor %}
-	
-	{#
-	<section class="gallery__dribbble">
-		<div id="dribbbles" class="dribbbles fade-content"></div>
-	</section>
-	#}
 	
 {% endblock %}

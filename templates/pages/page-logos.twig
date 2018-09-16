@@ -12,7 +12,7 @@
 		</header>
 		
 		{% if image_grid %}
-		<section id="images" class="page__gallery fade-content">
+		<section id="images" class="page__gallery get-faded">
 
 			{% for image in image_grid %}
 				
@@ -40,7 +40,7 @@
 		</section>
 		{% endif %}
 		
-		<div class="page__content fade-content wysiwyg">
+		<div class="page__content get-faded wysiwyg">
 			{{ post.content }}
 		</div>
 		

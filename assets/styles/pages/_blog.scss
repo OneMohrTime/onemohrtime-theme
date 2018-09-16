@@ -22,10 +22,7 @@ body.blog {
 			color: $color__white;
 			text-align: left;
 			@include size(100%, 300px);
-			@include image-overlay();
 			margin-bottom: $gutter;
-			padding-left: $gutter;
-			padding-right: $gutter;
 			overflow: hidden;
 			@include media(">=screen768") {
 				height: 100vh;
@@ -51,15 +48,11 @@ body.blog {
 			
 			&--image {
 				// .posts__banner--image
-//				transform: translateY(-25%);
-				position: relative;
-				top: -100px;
-				height: 200%;
-				z-index: 0;
-				
+				@include position(absolute, 50% null null 50%);
+				transform: translate3d(-50%, -50%, 0);
+				@include size(100%);
 				@supports (object-fit: cover) {
 					object-fit: cover;
-//					transform: translate(0);
 				}
 			}
 			
@@ -96,6 +89,7 @@ body.blog {
 		@include body-copy();
 		@include size(100%, auto);
 		min-height: 420px;
+		max-height: 100vh;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
         @include media(">=screen768") {
@@ -187,8 +181,6 @@ body.blog {
 				background-color: $color__white--dark;
 				color: $color__white;
 				@include size(100%, auto);
-				min-height: 375px;
-//				padding: $small-spacing;
 				margin-bottom: $base-spacing;
 				overflow: hidden;
 				@include media(">=screen840") {
@@ -198,8 +190,8 @@ body.blog {
 					min-height: 100%;
 					margin-bottom: 0;
 				}
-				&--parallax {
-					
+				&__image {
+					// .post__image__image
 				}
 			}
 			

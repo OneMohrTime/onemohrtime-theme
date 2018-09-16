@@ -60,7 +60,7 @@
 		&--image {
 			// .project__banner--image
 			position: absolute;
-			top: 0 !important; // .fade-content
+//			top: 0 !important; // .fade-content
 			pointer-events: none;
 			z-index: 0;
 			@supports (object-fit: cover) {
@@ -88,16 +88,16 @@
 		padding: $small-spacing $base-spacing;
 		z-index: 2;
 		@include media(">=screen768") {
-			transform: rotate(-4deg) translate($gutter * 2, 1em) !important; // .fade-content
+			transform: rotate(-4deg) translate($gutter * 2, 1em) !important;
 		}
 		@include media(">=screen1024") {
 			padding: 1em 2em;
 			margin-left: $gutter * 3;
 			margin: 0;
-			transform: rotate(-4deg) translate($gutter * 3, 1em) !important; // .fade-content
+			transform: rotate(-4deg) translate($gutter * 3, 1em) !important;
 		}
 		@include media(">=screen1440") {
-			transform: rotate(-4deg) translate($gutter * 4, 1em) !important; // .fade-content
+			transform: rotate(-4deg) translate($gutter * 4, 1em) !important;
 		}
 	}
 	
@@ -272,6 +272,7 @@
 	
 	&__blockquote {
 		// .project__blockquote
+		position: relative;
 		margin: 0 0 $gutter;
 		overflow: hidden;
 		@include media(">=screen768") {
@@ -292,6 +293,7 @@
 			border: 0;
 			margin: 0;
 			padding: 0;
+			z-index: 1;
 			
 			&__defualt {
 				// .blockquote__default
@@ -354,8 +356,8 @@
 				
 				&__image {
 					// .blockquote__image__image
-					@include position(absolute, 0);
-					z-index: -1;
+					@include position(absolute, -100% null null null);
+//					z-index: 0;
 				}
 			}
 		}

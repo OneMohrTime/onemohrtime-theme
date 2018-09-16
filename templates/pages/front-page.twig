@@ -67,17 +67,17 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_intro') %}
-	<section id="home_intro" class="homepage__intro fade-content">
+	<section id="home_intro" class="homepage__intro get-faded">
 		{{ post.get_field('homepage_intro') }}
 	</section>
 	{% endif %}
 	
 	<section id="home_dribbble" class="homepage__dribbble">
-		<div id="dribbbles" class="dribbbles fade-content"></div>
+		<div id="dribbbles" class="dribbbles get-faded"></div>
 	</section>
 	
 	{% if about %}
-	<figure id="home_about" class="homepage__about fade-content">
+	<figure id="home_about" class="homepage__about get-faded">
 		
 		<img src="{{ TimberImage(about.image).src }}"
 			 width="{{ about.image.width }}" height="{{ about.image.height }}"
@@ -88,7 +88,7 @@
 					 {{ TimberImage(about.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
 		
-		<figcaption class="homepage__about--content fade-content">
+		<figcaption class="homepage__about--content get-faded">
 			{{ about.text }}
 		</figcaption>
 		
@@ -96,10 +96,10 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_feature') %}
-	<section id="home_features" class="homepage__portfolio fade-content">
+	<section id="home_features" class="homepage__portfolio get-faded">
 		{% for post in post.get_field('homepage_feature') %}
 			
-			<div class="feature fade-content">
+			<div class="feature get-faded">
 				
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}"
@@ -126,7 +126,7 @@
 	</section>
 	{% endif %}
 	
-	<article id="home_content" class="homepage__work fade-content wysiwyg">
+	<article id="home_content" class="homepage__work get-faded wysiwyg">
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fas fa-long-arrow-alt-right"></span></a>
 	</article>

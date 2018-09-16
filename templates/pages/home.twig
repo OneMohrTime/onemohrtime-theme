@@ -2,12 +2,12 @@
 
 {% block content %}
 	
-	<figure class="posts__banner parallax">
+	<figure class="posts__banner">
 		
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="{{ post.thumbnail.alt }}"
-			 class="gallery__banner--image parallax__image"
+			 class="posts__banner--image"
 			 srcset="{{ post.thumbnail.src('medium') }} 500w,
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
@@ -36,7 +36,7 @@
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 			</figure>
 			
-			<div class="post__content wysiwyg">
+			<div class="post__content wysiwyg get-faded">
 				
 				{% include "blocks/entry-meta.twig" %}
 				
