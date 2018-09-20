@@ -50,7 +50,7 @@
 			
 			<div class="swiper-wrapper">
 				{% for slide in swiper %}
-				<div class="swiper-slide">
+				<div class="swiper-slide" data-title="{{ slide.title | raw }}">
 					
 					<h2 class="swiper-slide__title" data-swiper-parallax="-1000" data-swiper-parallax-duration="500">
 						{{ slide.title }}
@@ -73,7 +73,7 @@
 	{% endif %}
 	
 	<section id="home_dribbble" class="homepage__dribbble">
-		<div id="dribbbles" class="dribbbles get-faded"></div>
+		<div id="dribbbles" class="dribbbles"></div>
 	</section>
 	
 	{% if about %}
@@ -99,7 +99,7 @@
 	<section id="home_features" class="homepage__portfolio get-faded">
 		{% for post in post.get_field('homepage_feature') %}
 			
-			<div class="feature get-faded">
+			<div class="feature">
 				
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}"
@@ -111,7 +111,7 @@
 							 {{ post.thumbnail.src }} 1500w"
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 				
-				<div class="feature__content">
+				<div class="feature__content get-faded">
 					<h2 class="feature__content--title">{{ post.title }}</h2>
 					<div class="wysiwyg">
 						<p>{{ post.post_excerpt }}</p>

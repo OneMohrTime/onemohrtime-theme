@@ -8,8 +8,7 @@
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="{{ post.thumbnail.alt }}"
-			 class="gallery__banner--image image--parallax"
-			 data-speed="-0.5"
+			 class="gallery__banner--image"
 			 srcset="{{ post.thumbnail.src('medium') }} 500w,
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
@@ -67,7 +66,7 @@
 		
 		{% for project in projects %}
 		
-		<div id="proj_id_{{ project.id }}" class="gallery__project mix {{ project.post_class }}">
+		<div id="proj_id_{{ project.id }}" class="gallery__project parallax mix {{ project.post_class }}">
 			
 			<div class="gallery__project--content get-faded">
 				
@@ -86,8 +85,7 @@
 			<img src="{{ project.thumbnail.src }}"
 				 width="{{ project.thumbnail.width }}" height="{{ project.thumbnail.height }}"
 				 alt="{{ project.thumbnail.alt }}"
-				 class="gallery__project--image image--parallax"
-				 data-speed="-0.25"
+				 class="gallery__project--image parallax__image"
 				 srcset="{{ project.thumbnail.src('medium') }} 500w,
 						 {{ project.thumbnail.src('large') }} 1000w,
 						 {{ project.thumbnail.src('full') }} 1500w"

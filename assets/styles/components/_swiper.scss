@@ -112,9 +112,15 @@
 	&.swiper-pagination-white {
 		.swiper-pagination-bullet {
 			background: $color__black;
+			opacity: 0.5;
 		}
 		.swiper-pagination-bullet-active {
 			background: $color__white;
+			opacity: 1;
+			.swiper-pagination-bullet__title {
+				opacity: 0;
+				transform: translate3d($gutter, 0, 0);
+			}
 		}
 	}
 }
@@ -135,8 +141,23 @@
 		@include media(">=screen960") {
 			margin: 4px 0;
 		}
+		
+		&__title {
+			// .swiper-pagination-bullet__title
+			@include position(absolute, 0 $gutter * 2 null null);
+			@include caption();
+			text-align: right;
+			opacity: 1;
+			transform: translate3d(#{$gutter / 2}, 0, 0);
+			transition: opacity $speed, transform $speed;
+			white-space: nowrap;
+			
+			br { display: none; } // hack due to CMS content
+		}
+		
 		&--long {
 			// .swiper-pagination-bullet--long
+			position: relative;
 			@include size(50px, 5px);
 			@include media(">=screen960") {
 				@include size(36px, 3px);

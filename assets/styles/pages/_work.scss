@@ -39,12 +39,10 @@
 		
 		&--image {
 			// .gallery__banner--image
-			@include position(absolute, 0 null null 0);
-			z-index: 0;
-			
+			@include position(absolute, 50% null null 50%);
+			transform: translate3d(-50%, -50%, 0);
+			@include size(100%);
 			@supports (object-fit: cover) {
-				width: 100%;
-				min-height: 100%;
 				object-fit: cover;
 			}
 		}
@@ -274,11 +272,9 @@
 		color: $color__white;
 		@include size(100%, auto);
 		min-height: 375px;
-		padding: $small-spacing;
 		margin-bottom: $gutter;
 		overflow: hidden;
 		@include media(">=screen840") {
-			padding: $base-spacing;
 			margin-left: $gutter;
 			margin-right: $gutter;
 		}
@@ -296,29 +292,24 @@
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		@supports (display: flex) {
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-		}
 		
 		&--image {
 			// .gallery__project--image
-			@include position(absolute, 0 null null 0);
-			pointer-events: none;
-			transform: translate(-50%, 0);
-			z-index: 1;
-			@supports (object-fit: cover) {
-				@include size(100%, 200%);
-				object-fit: cover;
-			}
 		}
 		
 		&--content {
 			// .gallery__project--content
-			z-index: 2;
+			@include position(absolute, 50% null null 50%);
+			@supports (display: flex) {
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+			@include size(100%);
+			transform: translate3d(-50%, -50%, 0);
+			z-index: 1;
 		}
 		
 		&--header {

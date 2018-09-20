@@ -357,7 +357,6 @@
 				&__image {
 					// .blockquote__image__image
 					@include position(absolute, -100% null null null);
-//					z-index: 0;
 				}
 			}
 		}
