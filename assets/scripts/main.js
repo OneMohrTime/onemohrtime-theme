@@ -240,7 +240,7 @@
 					globalSceneOptions : {
 						triggerHook : 0.8
 					},
-					addIndicators : true
+//					addIndicators : true
 				});
 				
 				var viewportWidth  = window.innerWidth,
