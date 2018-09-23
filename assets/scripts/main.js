@@ -432,11 +432,11 @@
 				// https://github.com/patrickkunka/mixitup/tree/v2
 				var containerEl = document.querySelector('#gallery');
 				var mixer       = mixitup(containerEl, {
-					animation : {
-						effectsIn  : 'fade',
-						effectsOut : 'fade',
-						easing     : 'linear'
-					},
+//					animation : {
+//						effectsIn  : 'fade',
+//						effectsOut : 'fade',
+//						easing     : 'linear'
+//					},
 					controls : {
 						toggleLogic : 'and'
 					}
