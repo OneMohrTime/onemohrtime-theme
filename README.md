@@ -1,4 +1,9 @@
-# SageTimber Starter Theme for Wordpress
+# SageTimber Starter Theme for OneMohrTi.me
+
+<a href="https://twitter.com/intent/tweet?text=%40OneMohrTime&url=https%3A%2F%2Fgithub.com%2Fjpillora%2Fgithub-badge-maker&hashtags=github&original_referer=http%3A%2F%2Fgithub.com%2F&tw_p=tweetbutton" target="_blank">
+  <img src="http://jpillora.com/github-twitter-button/img/tweet.png"
+       alt="tweet button" title="@OneMohrTime"></img>
+</a>
 
 SageTimber is [Sage theme](https://github.com/roots/sage) ported to work with [Timber](https://www.upstatement.com/timber/).
 
