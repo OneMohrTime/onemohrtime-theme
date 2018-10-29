@@ -54,19 +54,20 @@
 				}
 				
 				// Fade in page titles
-				function fadeInTitle() {
-					var animDelay = 0.1;
-					$('.title--animated').lettering('words').children('span').lettering();
-					for(
-						var x = 0;
-						x < $('[class^="char"]').length; x++
-					) {
-						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
-					}
-				}
-				if ($('.title--animated').length) {
-					fadeInTitle();
-				}
+//				function fadeInTitle() {
+//					var animDelay = 0.1;
+//					$('.title--animated').lettering('words').children('span').lettering();
+//					for(
+//						var x = 0;
+//						x < $('[class^="char"]').length;
+//						x++;
+//					) {
+//						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
+//					}
+//				}
+//				if ($('.title--animated').length) {
+//					fadeInTitle();
+//				}
 				
 				// END FUNCTIONS
 				
