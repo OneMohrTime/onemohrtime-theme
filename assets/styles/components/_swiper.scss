@@ -148,7 +148,7 @@
 			@include caption();
 			text-align: right;
 			opacity: 1;
-			transform: translate3d(#{$gutter / 2}, 0, 0);
+			transform: translate3d(#{$gutter / 2}, -7px, 0);
 			transition: opacity $speed, transform $speed;
 			white-space: nowrap;
 			

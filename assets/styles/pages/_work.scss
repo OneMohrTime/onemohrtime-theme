@@ -295,6 +295,8 @@
 		
 		&--image {
 			// .gallery__project--image
+//			position: absolute;
+//			top: -30%;
 		}
 		
 		&--content {
@@ -308,6 +310,7 @@
 				text-align: center;
 			}
 			@include size(100%);
+			padding: $gutter;
 			transform: translate3d(-50%, -50%, 0);
 			z-index: 1;
 		}
