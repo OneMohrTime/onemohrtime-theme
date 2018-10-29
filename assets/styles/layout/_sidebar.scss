@@ -68,7 +68,7 @@
 		&.sbi_col_4 {
 			#sbi_images {
 				.sbi_item {
-					width: calc(25% - #{$gutter / 2});
+					width: calc(25% - #{$gutter / 2}) !important;
 					margin-bottom: $gutter / 2 !important;
 					@media (max-width: 640px) {
 						width: calc(50% - #{$gutter / 4});
