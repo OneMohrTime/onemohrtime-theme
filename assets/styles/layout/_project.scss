@@ -571,6 +571,7 @@
 						@include caption();
 						padding: .5em;
 						margin-right: $small-spacing;
+						margin-bottom: $small-spacing;
 						transition: background-color $speed;
 						&:hover {
 							background-color: $color__gray--dark;

@@ -67,7 +67,7 @@
 	{% endif %}
 	
 	{% if post.get_field('homepage_intro') %}
-	<section id="home_intro" class="homepage__intro get-faded">
+	<section id="home_intro" class="homepage__intro wysiwyg get-faded">
 		{{ post.get_field('homepage_intro') }}
 	</section>
 	{% endif %}
@@ -88,7 +88,7 @@
 					 {{ TimberImage(about.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
 		
-		<figcaption class="homepage__about--content get-faded">
+		<figcaption class="homepage__about--content wysiwyg get-faded">
 			{{ about.text }}
 		</figcaption>
 		
