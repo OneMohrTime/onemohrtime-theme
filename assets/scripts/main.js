@@ -326,69 +326,44 @@
 			init: function () {
 				// JavaScript to be fired on the home page
 				
-				// Swiper.js
-				if ($('#home_banner').length) {
-					var homeParallax = new Swiper('#home_parallax', {
-						slidesPerView : 'auto',
-						parallax      : true,
-						speed         : 750,
-					});
-					var homeFrame2 = new Swiper('#home_frame_2', {
-						slidesPerView  : 'auto',
-						centeredSlides : true,
-						grabCursor     : true,
-						effect         : 'flip',
-						speed          : 750,
-						direction      : 'vertical',
-						flipEffect     : {
-							slideShadows : false
-						}
-					});
-					var homeFrame1 = new Swiper('#home_frame_1', {
-						slidesPerView   : 'auto',
-						centeredSlides  : true,
-						spaceBetween    : 500,
-						effect          : 'coverflow',
-						speed           : 750,
-						coverflowEffect : {
-							slideShadows : false,
-						}
-					});
-					var titles = [];
-					$('#home_banner .swiper-slide').each(function(i) {
-						titles.push($(this).attr('data-title'))
-					});
-					var homeBanner = new Swiper('#home_banner', {
-						initialSlide    : 1, // start in the middle (should be 0 - 2)
-						slidesPerView   : 'auto',
-						centeredSlides  : true,
-						effect          : 'coverflow',
-						speed           : 750,
-						coverflowEffect : {
-							slideShadows : false,
+				var title = $('#home_title'),
+					line  = title.children();
+				
+//				line.lettering('words')
+				
+//				var char  = line.children();
+				
+				line.each( function() {
+					var $this = $(this),
+						chars = $this.lettering('words'),
+						words = chars.children('span');
+					
+					var titleTimeline = new TimelineMax(),
+						titleChar     = words,
+						titleDuration = 1;
+					
+					console.log(words);
+					
+					titleTimeline.staggerFromTo(
+						titleChar,
+						titleDuration,
+						{
+							opacity : 0,
+							y  : 80
 						},
-						keyboard : {
-							enabled : true,
+						{
+							opacity : 1,
+							y : 0
 						},
-						pagination : {
-							el           : '#home_banner .swiper-pagination',
-							clickable    : true,
-							renderBullet : function (index, className) {
-								return '<span class="' + className + ' swiper-pagination-bullet--long"><span class="swiper-pagination-bullet__title">' + titles[index] + '</span><span class="screen-reader-text">Slide ' + (index + 1) + '</span></span>';
-							}
-						},
-						navigation : {
-							nextEl : '#home_banner .swiper-button-next',
-							prevEl : '#home_banner .swiper-button-prev',
-						},
-						controller : {
-							control : [homeParallax, homeFrame1, homeFrame2],
-							by      : 'container',
-						},
-						parallax : true,
-						a11y     : true,
-					});
-				}
+						0.15 );
+					titleTimeline.staggerTo(
+						'.line',
+						1,
+						{
+							width : 100
+						});
+				
+				});
 				
 				// Dribbble galleries
 				// Set the Access Token

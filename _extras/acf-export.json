@@ -55,8 +55,8 @@
                 "key": "field_5af3c0aeec843",
                 "label": "Banner",
                 "name": "homepage_hero",
-                "type": "repeater",
-                "instructions": "Hero image behind the tagline on homepage.",
+                "type": "image",
+                "instructions": "Hero image behind the header on homepage.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -64,51 +64,35 @@
                     "class": "",
                     "id": ""
                 },
-                "collapsed": "",
-                "min": 3,
-                "max": 3,
-                "layout": "row",
-                "button_label": "Add Headline",
-                "sub_fields": [
-                    {
-                        "key": "field_5af3c131ec845",
-                        "label": "Headline",
-                        "name": "title",
-                        "type": "textarea",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "50",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "I&rsquo;m a<br>",
-                        "placeholder": "",
-                        "maxlength": "",
-                        "rows": 2,
-                        "new_lines": "br"
-                    },
-                    {
-                        "key": "field_5b43edc2087af",
-                        "label": "Link",
-                        "name": "link",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "50",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "\/",
-                        "placeholder": "",
-                        "prepend": "onemohrti.me",
-                        "append": "",
-                        "maxlength": ""
-                    }
-                ]
+                "return_format": "array",
+                "preview_size": "large",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "gif, png, jpg, jpeg, webp"
+            },
+            {
+                "key": "field_5c1f060deeb92",
+                "label": "Header",
+                "name": "homepage_header",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
             },
             {
                 "key": "field_5b3304b9c6678",
@@ -126,7 +110,7 @@
                 "default_value": "",
                 "tabs": "all",
                 "toolbar": "full",
-                "media_upload": 1,
+                "media_upload": 0,
                 "delay": 0
             },
             {

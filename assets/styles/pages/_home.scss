@@ -4,26 +4,82 @@
 
 .homepage {
 	
-	// .homepage__swipers moved to /components/_swiper.scss
-	
-	&__intro {
-		// .homepage__intro
-		background: $color__yellow;
-		background-image: linear-gradient(to top, $color__yellow, transparent), url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/chruch.png");
-		@include paragraph();
-		text-align: center;
-		font-weight: 700;
-		min-height: 75vh;
-		@include padding($gutter);
-		@include media(">=screen768")  { @include padding($gutter * 2 $gutter * 4); }
-		@include media(">=screen1024") { @include padding($gutter * 3 $gutter * 6); }
-		@include media(">=screen1440") { @include padding($gutter * 4 $gutter * 8); }
+	&__banner {
+		// .homepage__banner
+		position: relative;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: flex-end;
+		align-items: center;
+		min-height: 100vh;
+		@include media(">=screen840") {
+			align-items: flex-end;
+		}
 		
-		@supports (display: flex) {
-			display: flex;
-			flex-flow: column wrap;
-			justify-content: center;
-			align-items: center;
+		.banner {
+			@include position(absolute, 0 null null 0);
+			@include size(100%);
+			object-fit: contain;
+		}
+		
+		.intro {
+			position: relative;
+			color: fade-out($color__white, 0.05);
+			text-align: left;
+			@include text-shadow();
+			padding: $gutter $gutter 100px;
+			margin-bottom: $base-spacing;
+			@include media(">=screen840") {
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: flex-end;
+				text-align: right;
+				padding-left: 0;
+				padding-right: $gutter * 2;
+				padding-bottom: $gutter;
+			}
+			@include media(">=screen1024") {
+				padding-right: $gutter * 3;
+			}
+			
+			&__title {
+				// .intro__title
+				font-size: ms(1);
+				
+				@include media(">=screen1600") {
+					font-size: ms(2);
+				}
+				& > span {
+					display: block;
+				}
+				span[class^="word"] {
+					display: inline-block;
+				}
+			}
+			
+			&__description {
+				// .intro__description
+				font-size: ms(0);
+				@include media(">=screen840") {
+					width: 75vw;
+				}
+				@include media(">=screen1024") {
+					width: 67vw;
+				}
+				@include media(">=screen1280") {
+					width: 50vw;
+				}
+				@include media(">=screen1600") {
+					font-size: ms(1);
+					width: 67vw;
+				}
+			}
+			
+			.line {
+				background-color: fade-out($color__white, 0.05);
+				@include size(0, 1px);
+				margin-bottom: 0.5em;
+			}
 		}
 	}
 	

@@ -2,75 +2,26 @@
 
 {% block content %}
 	
-	{% if swiper %}
-	<section class="homepage__swipers">
-		
-		<div id="home_parallax" class="swiper-container">
-			<div class="parallax-bg" data-swiper-parallax="-33%">
-				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-					 alt="banner for derek mohr's portfolio"
-					 class="swiper__image"
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src('full') }} 1500w"
+	<figure id="home_banner" class="homepage__banner get-faded">
+		<img src="{{ post.thumbnail.src('thumbnail') }}"
+			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+			 alt="banner for derek mohr's portfolio"
+			 class="banner"
+			 srcset="{{ post.thumbnail.src('medium') }} 500w,
+					 {{ post.thumbnail.src('large') }} 1000w,
+					 {{ post.thumbnail.src('full') }} 1500w"
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-			</div>
-			<div class="swiper-wrapper">
-				{% for slide in swiper %}
-					<div class="swiper-slide"></div>
-				{% endfor %}
-			</div>
-		</div>
-		<div id="home_frame_2" class="swiper-container">
-			<div class="swiper-wrapper">
-				{% for slide in swiper %}
-				<div class="swiper-slide swiper-frame-2">
-					<div class="swiper-slide__frame"></div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		<div id="home_frame_1" class="swiper-container">
-			<div class="swiper-wrapper">
-				{% for slide in swiper %}
-				<div class="swiper-slide swiper-frame-1">
-					<div class="swiper-slide__frame"></div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		
-		<div id="home_banner" class="swiper-container">
-			
-			<div class="swiper-button-prev swiper-button-white"></div>
-			<div class="swiper-button-next swiper-button-white"></div>
-			
-			<div class="swiper-pagination swiper-pagination-white"></div>
-			
-			<div class="swiper-wrapper">
-				{% for slide in swiper %}
-				<div class="swiper-slide" data-title="{{ slide.title | raw }}">
-					
-					<h2 class="swiper-slide__title" data-swiper-parallax="-1000" data-swiper-parallax-duration="500">
-						{{ slide.title }}
-					</h2>
-					
-					<a href="{{ site.url }}{{ slide.link }}" class="swiper-slide__link" data-swiper-parallax="2000" data-swiper-parallax-duration="500" data-swiper-parallax-opacity="0">Find out more</a>
-					
-				</div>
-				{% endfor %}
-			</div>
-			
-		</div>
-	</section>
-	{% endif %}
+		<figcaption id="home_intro" class="intro wysiwyg">
+			{% if post.get_field('homepage_header') %}
+				<h2 id="home_title" class="intro__title">{{ post.get_field('homepage_header') | striptags('<a><span>') }}</h2>
+			{% endif %}
+			<div class="line"></div>
+			{% if post.get_field('homepage_intro') %}
+				<p class="intro__description">{{ post.get_field('homepage_intro') | striptags('<a>') }}</p>
+			{% endif %}
+		</figcaption>
+	</figure>
 	
-	{% if post.get_field('homepage_intro') %}
-	<section id="home_intro" class="homepage__intro wysiwyg get-faded">
-		{{ post.get_field('homepage_intro') }}
-	</section>
-	{% endif %}
 	
 	<section id="home_dribbble" class="homepage__dribbble">
 		<div id="dribbbles" class="dribbbles"></div>
