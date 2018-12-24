@@ -152,7 +152,8 @@
 			@include box-shadow();
 			@include small-font-size();
 			margin: 0 $gutter $gutter;
-			padding: $gutter;
+			margin: 0 $gutter / 2 $gutter;
+			padding: $base-spacing * 2;
 			transition: $speed;
 			@include media(">=screen540") {
 				flex: 0 0 calc(50% - #{$gutter});
@@ -164,11 +165,6 @@
 				flex-basis: calc(33.33% - #{$gutter});
 				max-width: calc(33.33% - #{$gutter});
 			}
-//			@include media(">=screen1440") {
-//				padding: $gutter;
-//				margin-left: $gutter;
-//				margin-right: $gutter;
-//			}
 			
 			&:hover,
 			&:focus {
@@ -190,10 +186,6 @@
 			
 			&__content {
 				// .feature__content
-				padding: $small-spacing $base-spacing;
-				@include media(">=screen1170") {
-					padding: 0;
-				}
 				
 				&--title {
 					// .feature__content--title

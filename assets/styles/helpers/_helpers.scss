@@ -67,6 +67,24 @@
 	}
 }
 
+.svg-icon {
+	$base: $color__black;
+	font-size: 1em;
+	line-height: 1em;
+	@include size(1em);
+
+	path,
+	polygon,
+	rect {
+		fill: $base;
+	}
+
+	circle {
+		stroke: $base;
+		stroke-width: 1;
+	}
+}
+
 .title--animated {
 	@include animateTitle();
 }

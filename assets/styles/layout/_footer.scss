@@ -60,7 +60,7 @@
 				grid-column: span 6;
 			}
 			@include media(">=screen960") {
-//				grid-column: span 2;
+				//grid-column: span 2;
 				grid-column: minmax(1fr, 2fr);
 				&.projects {
 					grid-column: span 4;
@@ -121,6 +121,13 @@
 					}
 					.fa {
 						transition: none;
+					}
+				}
+				.svg-icon {
+					path,
+					polygon,
+					rect {
+						fill: $color__white;
 					}
 				}
 			}

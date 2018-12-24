@@ -301,13 +301,13 @@
 				@include media(">=screen768")  { padding: $gutter * 2; }
 				@include media(">=screen1024") { padding: $gutter * 3; }
 				@include media(">=screen1440") { padding: $gutter * 4; }
-				&::before {
-					content: "\f10d";
-					display: block;
-					color: $color__yellow;
-					font-family: FontAwesome;
-					font-size: 1.5em;
-				}
+//				&::before {
+//					content: url("./assets/images/icons/left-quote.svg");
+//					display: block;
+//					color: $color__yellow;
+//					font-family: FontAwesome;
+//					font-size: 1.5em;
+//				}
 				
 				& > p {
 					color: shade($color__yellow, 67%);
@@ -340,14 +340,14 @@
 					position: relative;
 					padding-top: 1.5em;
 					margin-bottom: $small-spacing;
-					&::before {
-						content: "\f10d";
-						@include position(absolute, 0 null null 0);
-						display: block;
-						color: $color__yellow;
-						font-family: FontAwesome;
-						font-size: 1.5em;
-					}
+//					&::before {
+//						content: url("./assets/images/icons/left-quote.svg")
+//						@include position(absolute, 0 null null 0);
+//						display: block;
+//						color: $color__yellow;
+//						font-family: FontAwesome;
+//						font-size: 1.5em;
+//					}
 				}
 				
 				& > p {
@@ -520,12 +520,6 @@
 						@include position(absolute, 0 0 null null);
 						background-color: $color__white--darkest;
 						@include size(2px, 100%);
-					}
-					&::after {
-//						content: "\f00d";
-//						@include position(absolute, 50% 0 null null);
-//						font-family: "FontAwesome";
-//						transform: translate(7px, -50%);
 					}
 				}
 				@include media(">=screen1024") {

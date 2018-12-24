@@ -67,7 +67,7 @@
 					<div class="wysiwyg">
 						<p>{{ post.post_excerpt }}</p>
 					</div>
-					<div class="feature__read-more">Read on <i class="fas fa-long-arrow-alt-right"></i></div>
+					<div class="feature__read-more">Read on {% include '/assets/images/icons/arrow-right.svg' %}</div>
 				</div>
 				
 				<a href="{{ post.link }}" class="feature__link"></a>
@@ -79,7 +79,7 @@
 	
 	<article id="home_content" class="homepage__work get-faded wysiwyg">
 		{{ post.content }}
-		<a href="{{ TimberPost(638).link }}">See Featured Projects <span class="fas fa-long-arrow-alt-right"></span></a>
+		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/images/icons/arrow-right.svg' %} </a>
 	</article>
 	
 {% endblock %}

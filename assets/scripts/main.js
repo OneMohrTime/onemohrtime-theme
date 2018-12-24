@@ -22,6 +22,10 @@
 				//
 				// Remove .no-js from the DOM, css classes can follow no animation layouts
 				$('html.no-js').removeClass('no-js');
+//				var b = document.documentElement;
+//				b.className = b.className.replace('no-js', 'js');
+//				b.setAttribute("data-useragent",  navigator.userAgent);
+//				b.setAttribute("data-platform", navigator.platform );
 				//
 				
 				///////////////
@@ -304,7 +308,8 @@
 				WebFontConfig = {
 					google : {
 						families : ['Barlow Semi Condensed:400,700','Barlow:400,700','Abril Fatface']
-					}
+					},
+					timeout : 2000
 				};
 				(function(d) {
 					var wf = d.createElement('script'), s = d.scripts[0];

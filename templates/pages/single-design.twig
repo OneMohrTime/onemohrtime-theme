@@ -22,7 +22,7 @@
 		
 		<h1 class="project__title">{{ post.title }}</h1>
 		
-		<a href="#contact" class="project__banner--contact btn"><span class="fas fa-long-arrow-alt-left"></span> Contact</a>
+		<a href="#contact" class="project__banner--contact btn">{% include '/assets/images/icons/arrow-left.svg' %}Contact</a>
 		
 	</figure>
 	{# include "blocks/entry-meta.twig" #}
@@ -166,7 +166,7 @@
 			{% if image.caption %}
 				<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
 			{% else %}
-				<figcaption class="image__caption caption--zoom"><i class="fa fa-search-plus"></i></figcaption>
+				<figcaption class="image__caption caption--zoom">{% include '/assets/images/icons/plus-zoom.svg' %}</figcaption>
 			{% endif %}
 			
 			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
