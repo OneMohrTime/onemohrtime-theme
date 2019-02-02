@@ -20,22 +20,17 @@
 				// JavaScript to be fired on all pages
 				
 				//
-				// Remove .no-js from the DOM, css classes can follow no animation layouts
-				$('html.no-js').removeClass('no-js');
-//				var b = document.documentElement;
-//				b.className = b.className.replace('no-js', 'js');
-//				b.setAttribute("data-useragent",  navigator.userAgent);
-//				b.setAttribute("data-platform", navigator.platform );
+				// Declare javascript, basically
+				var doc = document.documentElement;
+				
+				doc.className = doc.className.replace('no-js', 'has-js');
+				doc.setAttribute('data-useragent', navigator.userAgent);
+				doc.setAttribute('data-platform', navigator.platform );
 				//
 				
 				///////////////
 				// FUNCTIONS //
 				///////////////
-				
-				// Check if mobile
-				function isMobile() {
-					return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-				}
 				
 				// Change MENU to EXIT
 				function changeLetters(btn) {
@@ -57,49 +52,11 @@
 					}
 				}
 				
-				// Fade in page titles
-//				function fadeInTitle() {
-//					var animDelay = 0.1;
-//					$('.title--animated').lettering('words').children('span').lettering();
-//					for(
-//						var x = 0;
-//						x < $('[class^="char"]').length;
-//						x++;
-//					) {
-//						$('.char' + (x + 1).toString()).css('animation', 'fadeInTitle 400ms ' + (x * animDelay).toString() + 's 1 forwards');
-//					}
-//				}
-//				if ($('.title--animated').length) {
-//					fadeInTitle();
-//				}
-				
 				// END FUNCTIONS
 				
 				//////////////////
 				// START JQUERY //
 				//////////////////
-				
-				// Bourbon refills nav
-				$('#menu_toggle').on('click touchstart', function(e) {
-					e.preventDefault();	
-					// Open nav menu
-					$('#primary_nav').toggleClass('is-visible');
-					// Add header hook
-					$('#masthead').toggleClass('nav-is-open');
-					// Switch menu toggle
-					$(this).toggleClass('open');
-					changeLetters($(this));
-					// Invert logo color
-					$('#logo').toggleClass('inverted');
-					// Add padding to navbar area
-					$('#page').toggleClass('padded');
-					// Move filters down on Featured Work page
-					if (window.matchMedia("(min-width: 600px)").matches) {
-						if (typeof mixitup == 'function') {
-							$('.gallery__filter').toggleClass('with-sticky')
-						}
-					}
-				});
 				
 				// Multilevel links
 //				$('.multilevel-link').on('click touchstart', function() {
@@ -248,9 +205,77 @@
 //					addIndicators : true
 				});
 				
+				// Viewport in log
 				var viewportWidth  = window.innerWidth,
 					viewportHeight = window.innerHeight;
 				console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
+				
+				// Mobile menu
+				var mobileToggle    = $('#menu_toggle'),
+					navbar          = $('#masthead'),
+					mobileMenu      = $('#desktop_menu'),
+					desktopMenu     = $('#primary_nav'),
+					menuItems       = $('#desktop_menu').children(),
+					menuDuration    = 0.3,
+					menuBetween     = 0.05,
+					mobileTimeline  = new TimelineMax({ paused : true, delay : 1 }),
+					desktopTimeline = new TimelineMax(),
+					$this           = $(this);
+				
+				if (viewportWidth < 601) {
+
+					mobileTimeline.to(navbar, menuDuration, {
+						height: '100%',
+						opacity : 1,
+						ease : Power2.easeOut
+					}, 0).to(mobileMenu, menuDuration, {
+						top : 0,
+						autoAlpha : 1,
+						ease : Power2.easeOut
+					}, 0).staggerFrom(menuItems, menuDuration, {
+						y       : 20,
+						opacity : 0,
+						ease    : Back.easeOut
+					}, menuBetween)
+
+					navbar.on('click', '#menu_toggle', function() {
+						if (mobileTimeline.time() > 0) {
+							mobileTimeline.reverse();
+						} else {
+							mobileTimeline.play(0);
+						}
+						// change MENU to EXIT
+						mobileToggle.toggleClass('open');
+						changeLetters(mobileToggle);
+						// Add padding to navbar area
+						$('#page').toggleClass('padded');
+						// Move filters down on Featured Work page
+//						if (window.matchMedia("(min-width: 600px)").matches) {
+							if (typeof mixitup == 'function') {
+								$('.gallery__filter').toggleClass('with-sticky')
+							}
+//						}
+					});
+				} else {
+					desktopTimeline.to(desktopMenu, menuDuration, {
+						y : -100
+					}, 0)
+					
+					navbar.on('click', '#menu_toggle', function() {
+						if (desktopTimeline.time() > 0) {
+							desktopTimeline.reverse();
+						} else {
+							desktopTimeline.play(0);
+						}
+						mobileToggle.toggleClass('open')
+						// change MENU to EXIT
+						changeLetters(mobileToggle);
+						// Invert logo color
+						$('#logo').toggleClass('inverted');
+						// Add padding to navbar area
+						$('#page').toggleClass('padded');
+					});
+				}
 				
 				// Parallax images
 				$('.parallax').each(function() {
@@ -334,10 +359,6 @@
 				var title = $('#home_title'),
 					line  = title.children();
 				
-//				line.lettering('words')
-				
-//				var char  = line.children();
-				
 				line.each( function() {
 					var $this = $(this),
 						chars = $this.lettering('words'),
@@ -347,18 +368,16 @@
 						titleChar     = words,
 						titleDuration = 1;
 					
-					console.log(words);
-					
 					titleTimeline.staggerFromTo(
 						titleChar,
 						titleDuration,
 						{
 							opacity : 0,
-							y  : 80
+							y       : 80
 						},
 						{
 							opacity : 1,
-							y : 0
+							y       : 0
 						},
 						0.15 );
 					titleTimeline.staggerTo(
@@ -396,6 +415,12 @@
 			finalize: function () {
 				// JavaScript to be fired on the home page, after the init JS
 				
+				// Links are stripped out of wysiwyg editor, manually add them in
+				var link_to_mighty = $('#title_1').children('.word3'),
+					link_to_work   = $('#title_2').children('.word4');
+				
+				link_to_mighty.wrapInner('<a href="//mightyinthemidwest.com/"></a>');
+				link_to_work.wrapInner('<a href="/design/"></a>');
 			}
 		},
 		// About us page, note the change from about-us to about_us.
