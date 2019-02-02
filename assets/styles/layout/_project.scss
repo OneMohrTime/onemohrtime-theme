@@ -139,7 +139,6 @@
 	
 	&__text {
 		// .project__text
-		@include drop-cap();
 		margin-bottom: $base-spacing;
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;

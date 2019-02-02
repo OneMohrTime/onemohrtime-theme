@@ -316,21 +316,14 @@
 }
 
 @mixin drop-cap() {
-	@supports (initial-letter: 1) or (-webkit-initial-letter: 1) {
-		// support too low
-		// https://caniuse.com/#feat=css-initial-letter
-	}
-	@supports (-webkit-user-select: none) {
-		// target only webkit browsers until line=height looks good on ff
-		& > *:first-child:first-letter {
-			color: $color__yellow;
-			font-family: $font__secondary;
-			font-size: 3.25em;
-			line-height: 1em;
-			float: left;
-			padding-right: .25em;
-			vertical-align: baseline;
-		}
+	&:first-letter {
+		color: $color__yellow;
+		font-family: $font__secondary;
+		font-size: 3.25em;
+		font-size: 3.375em;
+		font-size: 2em;
+		line-height: 1em;
+		margin: 0 0.25em 0 0;
 	}
 }
 
@@ -389,9 +382,12 @@
 		&:focus { 
 			color: inherit;
 			&::before {
-				height: 16px;
+				bottom: 0;
+				@include size(100%, 80%);
+				transform: translateY(2px) scaleY(1.2);
+				animation: inline-expand;
 			}
-			.fa {
+			.svg-icon {
 				transform: translateX($small-spacing);
 			}
 		}
@@ -407,7 +403,7 @@
 		z-index: -1;
 	}
 	
-	.fa {
+	.svg-icon {
 		position: relative;
 		transition: $speed--slow cubic-bezier(.455,.03,.515,.955);
 	}

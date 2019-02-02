@@ -96,6 +96,7 @@
 			color: $color__white--dark;
 			a {
 				@include inline();
+				line-height: 1em;
 				&::before {
 					background-color: $color__black--lightest;
 				}
@@ -115,11 +116,11 @@
 				a {
 					&:hover,
 					&:focus {
-						.fa { 
+						.svg-icon { 
 							transform: translateX(0);
 						}
 					}
-					.fa {
+					.svg-icon {
 						transition: none;
 					}
 				}

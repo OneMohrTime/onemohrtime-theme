@@ -9,13 +9,13 @@
 	@include texture($color__black, 54, 1);
 	box-shadow: 0 -1px 3px fade-out($color__black, 0.94), 0 -1px 2px fade-out($color__black, 0.88);
 	@include size(100%, auto);
-	max-height: 72px;
+	height: 72px;
 	transition: $speed linear;
 	z-index: 20;
 	
 	&.nav-is-open {
 		box-shadow: none;
-		max-height: 100vh;
+//		max-height: 100vh;
 	}
 	
 	@include media(">=screen600") {

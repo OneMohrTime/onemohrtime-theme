@@ -21,6 +21,11 @@
 	outline-color: fade-out($color__yellow, 0.4);
 }
 
+#{$all-buttons-hover} {
+	background-color: transparent;
+	color: inherit;
+}
+
 .btn {
 	@include btn-color();
 	border-radius: 3px;

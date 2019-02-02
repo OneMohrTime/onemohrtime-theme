@@ -6,8 +6,7 @@
 	margin: 5px 20px 20px 0;
 }
 
-.aligncenter,
-div.aligncenter {
+.aligncenter {
 	display: block;
 	margin: 5px auto 5px auto;
 }
@@ -20,6 +19,10 @@ div.aligncenter {
 .alignleft {
 	float: left;
 	margin: 5px 20px 20px 0;
+}
+
+.has-drop-cap:not(:focus) {
+	@include drop-cap();
 }
 
 a {
