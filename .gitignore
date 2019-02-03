@@ -66,3 +66,4 @@ wp-content/themes/twenty*/
 # bower not ignored until it stops causing fucking errors
 node_modules/
 # bower_components/
+package-lock.json
