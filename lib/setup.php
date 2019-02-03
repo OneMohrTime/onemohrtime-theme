@@ -105,7 +105,7 @@ function assets() {
 	}
 	
 	wp_enqueue_script('mixitup', Assets\asset_path('scripts/mixitup.js'), '', null, true);
-	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
+//	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
 	wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), ['jquery'], null, true);
 	wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
 //	wp_enqueue_script('cssplugin', Assets\asset_path('scripts/CSSPlugin.min.js'), ['tweenlite'], null, true);

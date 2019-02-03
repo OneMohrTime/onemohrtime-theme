@@ -277,6 +277,12 @@
 					});
 				}
 				
+				// END GREENSOCK
+				
+				///////////////////////
+				// BEGIN SCROLLMAGIC //
+				///////////////////////
+				
 				// Parallax images
 				$('.parallax').each(function() {
 					var parallaxParent = this,
@@ -323,7 +329,26 @@
 						.addTo(controller);
 				});
 				
-				// END GREENSOCK
+//				$('.type-post').each(function() {
+//					var $this = $(this),
+//						$contentParent  = this,
+//						$content = $this.children('.post__content');
+//					console.log($content)
+//					var expandContent = new TimelineMax()
+//						.to($content, 1, {
+//							width : '200%'
+//						})
+//					
+//					var expandContentScene = new ScrollMagic.Scene({
+//						triggerElement : $content,
+//						triggerHook    : 1,
+//						reverse        : false
+//					})
+//						.setTween(expandContent)
+//						.addTo(controller);
+//				});
+				
+				// END SCROLLMAGIC
 				
 				////////////////
 				// BEGIN APIS //

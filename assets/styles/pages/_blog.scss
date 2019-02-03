@@ -143,10 +143,10 @@ body.blog {
 					text-align: center;
 					margin-bottom: $small-spacing;
 					
-					& > *:not(.fa) {
-						margin-right: $small-spacing;
-						margin-bottom: $small-spacing;
-					}
+//					& > *:not(.fa) {
+//						margin-right: $small-spacing;
+//						margin-bottom: $small-spacing;
+//					}
 					
 					.updated,
 					.author,
@@ -156,8 +156,6 @@ body.blog {
 					
 					@include media(">=screen840") {
 						text-align: left;
-						& > *:not(.fa) {
-						}
 					}
 				}
 			}

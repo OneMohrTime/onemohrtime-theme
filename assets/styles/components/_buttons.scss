@@ -50,19 +50,9 @@
 	}
 	
 	&:hover,
-	&:focus,
-	&:active {
+	&:focus {
 		background-color: transparent;
 		color: inherit;
-		&.homepage__banner--contact,
-		&.gallery__banner--contact,
-		&.project__banner--contact,
-		&.posts__banner--contact {
-			.fa,
-			.svg-inline--fa {
-				transform: translateX(-#{$small-spacing});
-			}
-		}
 		
 		@include media(">=screen960") {
 			transition: all 300ms;
@@ -73,9 +63,21 @@
 		}
 	}
 	
-	.fa,
-	.svg-inline--fa {
+	.svg-icon {
 		position: relative;
 		transition: 500ms cubic-bezier(.455,.03,.515,.955);
+	}
+	
+	&.homepage__banner--contact,
+	&.gallery__banner--contact,
+	&.project__banner--contact,
+	&.posts__banner--contact {
+		&:hover,
+		&:focus {
+			.svg-icon {
+				fill: $color__white;
+				transform: translateX(-#{$small-spacing});
+			}
+		}
 	}
 }
