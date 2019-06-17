@@ -11,7 +11,7 @@
 	@include size(100vw, auto);
 	margin-bottom: $gutter * 2;
 //	transform: translateY(100%);
-//	transition: $speed linear;
+//	transition: $speed--slow linear;
 	@include media(">=screen600") {
 		background-color: $color__black;
 		height: 100px;
@@ -94,7 +94,7 @@
 			padding: $small-spacing;
 			border-radius: 2px;
 			padding: $small-spacing / 2 $small-spacing;
-			transition: background-color $speed, color $speed;
+			transition: background-color $speed--slow, color $speed--slow;
 			&:hover {
 				background-color: fade-out($color__white, 0.9);
 			}
@@ -105,7 +105,7 @@
 //		position: relative;
 //		&::after {
 //			content: "\f067";
-//			transition: transform $speed--slow;
+//			transition: transform $speed--slow--slow;
 //		}
 //		
 //		&.active {
@@ -134,7 +134,7 @@
 	margin: $gutter / 2 $gutter;
 	padding: $small-spacing / 2 0;
 	cursor: pointer;
-	transition: $speed linear;
+	transition: $speed--slow linear;
 	z-index: 35;
 	&:hover,
 	&:focus {
@@ -171,13 +171,13 @@
 	.n,
 	.u {
 		display: inline-block;
-		transition: $speed;
+		transition: $speed--slow;
 	}
 	
 	.e {
 		display: inline-block;
 		@include size(12px, 13px);
-		transition: color $speed;
+		transition: color $speed--slow;
 		
 		&.toggle__close {
 			@include size(14px, 13px);
@@ -192,17 +192,17 @@
 			.bar:nth-child(1) {
 				top: 5px;
 				transform: rotate(45deg);
-				transition: $speed;
+				transition: $speed--slow;
 			}
 			.bar:nth-child(2) {
 				margin: 2px 0;
 				opacity: 0;
-				transition: $speed;
+				transition: $speed--slow;
 			}
 			.bar:nth-child(3) {
 				bottom: 5px;
 				transform: rotate(-45deg);
-				transition: $speed;
+				transition: $speed--slow;
 			}
 		}
 		
@@ -212,7 +212,7 @@
 		position: relative;
 		display: block;
 		background-color: $color__white;
-		transition: background-color $speed;
+		transition: background-color $speed--slow;
 		width: 11px;
 		height: 3px;
 		&:nth-child(2) {

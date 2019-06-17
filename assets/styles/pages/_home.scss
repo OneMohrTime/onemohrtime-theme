@@ -290,18 +290,19 @@
 		@include base-font-size();
 		@include media(">=screen960") {
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
+			min-height: 100vh;
 		}
 		
 		&--image {
 			// .homepage__about--image
 			@include media(">=screen960") {
-				flex: 0 0 33.33%;
-				max-width: 33.33%;
-			}
-			@include media(">=screen1280") {
 				flex-basis: 50%;
 				max-width: 50%;
+				position: sticky;
+				top: 0;
+				height: 100vh;
+				object-fit: cover;
 			}
 		}
 		
@@ -309,14 +310,12 @@
 			// .homepage__about--content
 			padding: $gutter;
 			@include media(">=screen960") {
-				flex: 0 0 66.67%;
-				max-width: 66.67%;
+				flex-basis: 50%;
+				max-width: 50%;
 				padding-left: $gutter * 2;
 				padding-right: $gutter * 2;
 			}
 			@include media(">=screen1280") {
-				flex-basis: 50%;
-				max-width: 50%;
 				padding-left: $gutter * 3;
 				padding-right: $gutter * 3;
 			}
