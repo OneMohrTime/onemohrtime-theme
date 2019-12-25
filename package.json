@@ -1,69 +1,55 @@
 {
-  "name": "sage",
-  "version": "8.5.4",
-  "author": "Ben Word <ben@benword.com>",
-  "homepage": "https://roots.io/sage/",
-  "private": true,
+  "name": "your-project",
+  "description": "A WPGulp based project.",
+  "version": "1.0.0",
+  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/sage.git"
+    "url": "https://github.com/ahmadawais/WPGulp"
   },
-  "bugs": {
-    "url": "https://github.com/roots/sage/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
-  "scripts": {
-    "build": "bower install && gulp",
-    "jshint": "gulp jshint",
-    "jscs": "jscs gulpfile.js assets/scripts/*.js"
-  },
-  "engines": {
-    "node": ">= 4.5"
-  },
+  "license": "MIT",
   "devDependencies": {
-    "asset-builder": "^1.1.0",
-    "browser-sync": "^2.26.7",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-changed": "^1.3.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssnano": "^2.1.0",
-    "gulp-flatten": "0.3.1",
-    "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.4.0",
-    "gulp-jshint": "^2.0.1",
-    "gulp-less": "^3.0.3",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^2.0.0",
-    "imagemin": "^5.3.1",
-    "imagemin-pngcrush": "^5.0.0",
-    "imagemin-svgo": "^6.0.0",
-    "include-media": "^1.4.9",
-    "jquery": "^3.4.1",
-    "jshint": "^2.9.3",
-    "jshint-stylish": "^2.0.1",
-    "lazypipe": "^1.0.1",
-    "merge-stream": "^1.0.0",
-    "minimist": "^1.1.3",
-    "node-sass": "^4.9.4",
-    "normalize": "^0.3.1",
-    "normalize-scss": "^7.0.1",
-    "run-sequence": "^1.1.2",
-    "scrollmagic": "^2.0.5",
-    "svgo": "^1.0.5",
-    "traverse": "^0.6.6",
-    "wiredep": "^4.0.0",
-    "xml-fix-loader": "^1.0.3"
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "beepbeep": "^1.2.2",
+    "browser-sync": "^2.11.1",
+    "eslint": "^5.5.0",
+    "eslint-config-wordpress": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^5.1.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-remember": "^1.0.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-rtlcss": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sort": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-wp-pot": "^2.0.7"
   },
-  "dependencies": {}
+  "scripts": {
+    "start": "gulp",
+    "styles": "gulp styles",
+    "stylesRTL": "gulp stylesRTL",
+    "vendorsJS": "gulp vendorsJS",
+    "customJS": "gulp customJS",
+    "images": "gulp images",
+    "clearCache": "gulp clearCache",
+    "translate": "gulp translate"
+  },
+  "dependencies": {
+    "bourbon": "^6.0.0",
+    "include-media": "^1.4.9",
+    "normalize-scss": "^7.0.1"
+  }
 }

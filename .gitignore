@@ -1,69 +1,68 @@
-# ignore everything in the root except the "wp-content" directory.
-# /*
-# !wp-content/
-wp-config.php
+# NPM #
+##########
+# Ignore all directories called node_modules in current folder and any subfolders.
+node_modules/
+/node_modules/
 
-# ignore all files starting with .
-.*
-
-# track this file .gitignore (i.e. do NOT ignore it)
-!.gitignore
-
-# track .editorconfig file (i.e. do NOT ignore it)
-!.editorconfig
-
-# track readme.md in the root (i.e. do NOT ignore it)
-!readme.md
-
-# ignore all files that start with ~
-~*
-
-# ignore OS generated files
-ehthumbs.db
-Thumbs.db
-.DS_Store
-/theme
-
-# ignore log files and databases
-*.log
-*.sql
-*.sqlite
-
-# ignore compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# ignore packaged files
+# Packages #
+############
 *.7z
 *.dmg
 *.gz
+*.bz2
 *.iso
 *.jar
 *.rar
 *.tar
 *.zip
-
-#ignore css map
+*.tgz
 *.map
 
-# ignore everything in the "wp-content" directory, except:
-# "themes" directory
-wp-content/*
-wp-content/plugins/
-!wp-content/themes/
+# Logs and databases #
+######################
+*.log
+*.sql
+*.env
 
-# ignore these plugins
-wp-content/plugins/hello.php
+# OS generated files #
+######################
+**.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
 
-# ignore specific themes
-wp-content/themes/twenty*/
+# Vim generated files #
+######################
+*.un~
 
-# ignore node/grunt dependency directories
-# bower not ignored until it stops causing fucking errors
-node_modules/
-# bower_components/
-package-lock.json
+# SASS #
+##########
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+
+# Composer #
+##########
+!assets/js/vendor/
+wpcs/
+/vendor/
+
+# Bower #
+##########
+assets/bower_components/*
+
+# Codekit #
+##########
+/codekit-config.json
+*.codekit
+**.codekit-cache/*
+
+# Compiled Files and Build Dirs #
+##########
+/README.html
+
+# PhpStrom Project Files #
+.idea/
+library/vendors/composer
+assets/img/.DS_Store
