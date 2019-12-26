@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    {% include 'blocks/page-header.twig' %}
+    {% include 'components/title.twig' %}
 
     {% if posts == [] %}
         {{ __('Sorry, no results were found.', 'onemohrtime') }}
@@ -10,7 +10,7 @@
     {% endif %}
 
     {% for post in posts %}
-        {% include "templates/blocks/content.twig" with {post: post}  %}
+        {% include "templates/components/content.twig" with {post: post}  %}
     {% endfor %}
 
     {{ function('the_posts_navigation') }}

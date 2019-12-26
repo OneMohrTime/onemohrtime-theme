@@ -1,7 +1,7 @@
 {% extends 'templates/base.twig' %}
 
 {% block content %}
-	
+
 	<figure id="home_banner" class="homepage__banner get-faded">
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
@@ -21,14 +21,14 @@
 			{% endif %}
 		</figcaption>
 	</figure>
-	
+
 	<section id="home_dribbble" class="homepage__dribbble">
 		<div id="dribbbles" class="dribbbles"></div>
 	</section>
-	
+
 	{% if about %}
 	<figure id="home_about" class="homepage__about get-faded">
-		
+
 		<img src="{{ TimberImage(about.image).src }}"
 			 width="{{ about.image.width }}" height="{{ about.image.height }}"
 			 alt="{{ about.image.alt }}"
@@ -37,20 +37,20 @@
 					 {{ TimberImage(about.image).src('large') }} 1000w,
 					 {{ TimberImage(about.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
-		
+
 		<figcaption class="homepage__about--content wysiwyg get-faded">
 			{{ about.text }}
 		</figcaption>
-		
+
 	</figure>
 	{% endif %}
-	
+
 	{% if post.get_field('homepage_feature') %}
 	<section id="home_features" class="homepage__portfolio get-faded">
 		{% for post in post.get_field('homepage_feature') %}
-			
+
 			<div class="feature">
-				
+
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}"
 					 height="{{ post.thumbnail.height }}"
@@ -60,7 +60,7 @@
 							 {{ post.thumbnail.src('large') }} 1000w,
 							 {{ post.thumbnail.src }} 1500w"
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-				
+
 				<div class="feature__content get-faded">
 					<h2 class="feature__content--title">{{ post.title }}</h2>
 					<div class="wysiwyg">
@@ -68,17 +68,17 @@
 					</div>
 					<div class="feature__read-more">Read on {% include '/assets/images/icons/arrow-right.svg' %}</div>
 				</div>
-				
+
 				<a href="{{ post.link }}" class="feature__link"></a>
 			</div>
-			
+
 		{% endfor %}
 	</section>
 	{% endif %}
-	
+
 	<article id="home_content" class="homepage__work get-faded wysiwyg">
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/images/icons/arrow-right.svg' %} </a>
 	</article>
-	
+
 {% endblock %}
