@@ -1,16 +1,35 @@
 {% extends 'templates/base.twig' %}
 
+{% set isometric = post.get_field('homepage_links') %}
+
 {% block content %}
 
 	<figure id="home_banner" class="homepage__banner get-faded">
+		
+		<!-- if mobile banner -->
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="banner for derek mohr's portfolio"
-			 class="banner"
+			 class="banner{% if isometric is defined and isometric is not empty %} is-mobile{% endif %}"
 			 srcset="{{ post.thumbnail.src('medium') }} 500w,
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
-					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+		
+		<!-- else -->
+		<ul class="banner{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
+			{% for link in isometric %}
+				{% for page in link %}
+					<li class="banner__item">
+						<a href="{{ page.link }}" class="banner__link">
+							<img src="{{ page.thumbnail.src('medium') }}" class="banner__image" />
+							<span class="banner__title">{{ page.title }}</span>
+						</a>
+					</li>
+				{% endfor %}
+			{% endfor %}
+		</ul>
+		
 		<figcaption id="home_intro" class="intro wysiwyg">
 			{% if post.get_field('homepage_header') %}
 				<h2 id="home_title" class="intro__title">{{ post.get_field('homepage_header') | striptags('<a><span>') }}</h2>

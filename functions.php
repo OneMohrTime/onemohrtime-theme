@@ -52,7 +52,6 @@ Timber::$dirname = array( 'templates', 'views' );
  */
 Timber::$autoescape = false;
 
-
 /**
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
@@ -65,16 +64,19 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		parent::__construct();
 	}
-	/** This is where you can register custom post types. */
-	public function register_post_types() {
 
-	}
-	/** This is where you can register custom taxonomies. */
-	public function register_taxonomies() {
+	/**
+	 * This is where you can register custom post types.
+	 */
+	public function register_post_types() {}
 
-	}
+	/**
+	 * This is where you can register custom taxonomies.
+	 */
+	public function register_taxonomies() {}
 
 	/** This is where you add some context
 	 *
@@ -112,44 +114,75 @@ class StarterSite extends Timber\Site {
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support(
-			'html5',
-			array(
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
-		);
+		add_theme_support( 'html5', array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
 
 		/*
 		 * Enable support for Post Formats.
 		 *
 		 * See: https://codex.wordpress.org/Post_Formats
 		 */
-		add_theme_support(
-			'post-formats',
-			array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-				'gallery',
-				'audio',
-			)
-		);
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'image',
+			'video',
+			'quote',
+			'link',
+			'gallery',
+			'audio',
+		) );
 
 		add_theme_support( 'menus' );
 	}
-
-	/** This Would return 'foo bar!'.
-	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'.
+	
+	/**
+	 * Theme assets
 	 */
-	public function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
+//	public function assets() {
+//		wp_enqueue_style('style', Assets\asset_path('styles/main.css'), array(), false, null);
+//
+//		// Google Webfonts
+//		// wp_enqueue_style('webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('style'), false, null);
+//
+//		if (is_single() && comments_open() && get_option('thread_comments')) {
+//			wp_enqueue_script('comment-reply');
+//		}
+//
+//		wp_enqueue_script('mixitup', Assets\asset_path('scripts/mixitup.js'), '', null, true);
+//	//	wp_enqueue_script('swiper', Assets\asset_path('scripts/swiper.js'), '', null, true);
+//		wp_enqueue_script('fancybox', Assets\asset_path('scripts/fancybox.js'), ['jquery'], null, true);
+//		wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
+//	//	wp_enqueue_script('cssplugin', Assets\asset_path('scripts/CSSPlugin.min.js'), ['tweenlite'], null, true);
+//	//	wp_enqueue_script('easepack', Assets\asset_path('scripts/EasePack.min.js'), ['tweenlite'], null, true);
+//		wp_enqueue_script('gsap', '//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js', '[jquery]', null, true);
+//	//	wp_enqueue_script('tweenlite', Assets\asset_path('scripts/TweenLite.min.js'), '', null, true);
+//		wp_enqueue_script('jquery-gsap', Assets\asset_path('scripts/jquery-gsap.min.js'), ['jquery','gsap'], null, true);
+//		wp_enqueue_script('lettering', Assets\asset_path('scripts/jquery.lettering.min.js'), ['jquery'], null, true);
+//		wp_enqueue_script('scrollmagic', Assets\asset_path('scripts/ScrollMagic.js'), ['gsap'], null, true);
+//		wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
+//		wp_enqueue_script('scrollmagic-jquery', Assets\asset_path('scripts/jquery.ScrollMagic.js'), ['scrollmagic','jquery'], null, true);
+//		wp_enqueue_script('scrollmagic-gsap', Assets\asset_path('scripts/animation.gsap.js'), ['scrollmagic','gsap'], null, true);
+//		wp_enqueue_script('main', Assets\asset_path('scripts/main.js'), ['jquery','gsap','scrollmagic','fancybox','mixitup'], null, true);
+//	}
+//	add_action('wp_enqueue_scripts', 'assets', 100);
+	public function loadScripts() {
+		// Main "screen" stylesheet
+		wp_enqueue_style( 'screen', get_template_directory_uri() . '/dist/css/main.css', array(), null, 'screen' );
+		// Google Webfonts
+		wp_enqueue_style('webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null);
+		
+		// Upgrade jQuery
+		wp_deregister_script( 'jquery' );
+		wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
+		// Vendor script
+		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/dist/js/vendor.js', array('jquery'), null, true );
+		wp_enqueue_script('scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', array(), null, true);
+		// Main script file
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'vendor'), null, true );
 	}
 
 	/** This is where you can add your own functions to twig.
@@ -157,8 +190,8 @@ class StarterSite extends Timber\Site {
 	 * @param string $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+//		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
+//		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
 		return $twig;
 	}
 

@@ -19,10 +19,97 @@
 		
 		.banner {
 			position: relative;
-			display: block;
+			overflow: hidden;
+			
+			&__item {
+				// .banner__item
+				padding: $gutter / 3;
+				overflow: hidden;
+				background-color: $color__white--dark;
+			}
+			
+			&__link {
+				// .banner__link
+				display: block;
+				max-height: 100%;
+				overflow: hidden;
+				
+				&:focus,
+				&:hover {
+					.banner__image {
+						opacity: 0;
+					}
+				}
+			}
+			
+			&__image {
+				// .banner__image
+				@include size(100%);
+				opacity: 1;
+				transform: translateZ(0);
+				object-fit: cover;
+				transition: opacity $speed;
+				z-index: 2;
+			}
+			
+			&__title {
+				// .banner__title
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				@include size(100%);
+				@include small-font-size();
+				color: $color__black--light;
+				z-index: 1;
+			}
+		}
+		
+		.banner.is-mobile {
 			@include size(100%, auto);
 			margin-left: auto;
 			margin-right: auto;
+			
+			@include media("<screen840") {
+				display: block;
+			}
+			
+			@include media(">=screen840") {
+				display: none;
+			}
+		}
+		
+		.banner.is-desktop {
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include size(50vw, 100vh);
+			padding: $gutter / 2;
+			
+			@include media("<screen840") {
+				display: none;
+			}
+			
+			@include media(">=screen840") {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(4, minmax(auto, 25vh));
+				grid-gap: $gutter / 2;
+			}
+				
+			@include media(">=screen1170") {
+				transform: perspective(3000px) translate3d( 0, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
+				transform-origin: 50% 50%;
+				transform-style: preserve-3d;
+			}
+			
+			@include media(">=screen1440") {
+				height: 120vh;
+				transform: perspective(3000px) translate3d( -#{$gutter * 2}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
+				transform-origin: 50% 100%;
+			}
 		}
 		
 		.intro {
