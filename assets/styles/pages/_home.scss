@@ -126,6 +126,14 @@
 				transform: perspective(3000px) translate3d( -#{$gutter * 2}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
 				transform-origin: 50% 100%;
 			}
+			
+			@include media(">=screen1920") {
+				transform: perspective(3000px) translate3d( -#{$gutter * 6}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
+			}
+			
+			@include media(">=screen2560") {
+				transform: perspective(3000px) translate3d( -#{$gutter * 8}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
+			}
 		}
 
 		.intro {
@@ -144,6 +152,7 @@
 				justify-content: center;
 				align-items: flex-end;
 				text-align: right;
+				width: 50vw;
 				height: 100vh;
 				padding-left: 0;
 				padding-right: $gutter * 2;
@@ -153,13 +162,25 @@
 			@include media(">=screen1024") {
 				padding-right: $gutter * 3;
 			}
+			
+			@include media(">=screen1170") {
+				width: auto;
+			}
 
 			&__title {
 				// .intro__title
-				font-size: ms(1);
+				@include paragraph();
 
+				@include media(">=screen840") {
+					@include body-copy();
+				}
+				
+				@include media(">=screen1170") {
+					@include paragraph();
+				}
+				
 				@include media(">=screen1600") {
-					font-size: ms(2);
+					@include subtitle();
 				}
 
 				& > span {
@@ -190,23 +211,20 @@
 
 			&__description {
 				// .intro__description
-				font-size: ms(0);
-
+				@include body-copy();
+				
 				@include media(">=screen840") {
-					width: 75vw;
+					@include small-font-size();
 				}
 
-				@include media(">=screen1024") {
-					width: 67vw;
-				}
-
-				@include media(">=screen1280") {
-					width: 50vw;
+				@include media(">=screen1170") {
+					@include body-copy();
+					width: 50%;
 				}
 
 				@include media(">=screen1600") {
-					font-size: ms(1);
-					width: 67vw;
+					@include paragraph();
+					width: 67%;
 				}
 
 				a {
