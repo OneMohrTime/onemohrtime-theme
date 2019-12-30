@@ -181,12 +181,12 @@ jQuery(function( $ ) {
 	/////////////////////
 
 	// Init ScrollMagic
-//				var controller = new ScrollMagic.Controller({
-//					globalSceneOptions : {
-//						triggerHook : 0.8
-//					},
-////					addIndicators : true
-//				});
+	var controller = new ScrollMagic.Controller({
+		globalSceneOptions : {
+			triggerHook : 0.8
+		},
+//		addIndicators : true
+	});
 
 	// Viewport in log
 	var viewportWidth  = window.innerWidth,
@@ -279,13 +279,13 @@ jQuery(function( $ ) {
 					ease : Linear.easeNone,
 				})
 
-//						var parallaxScene = new ScrollMagic.Scene({
-//							triggerElement : parallaxParent,
-//							duration       : '200%'
-//						})
-//							.setTween(tweenParallax)
-//							.setClassToggle(this, 'parallax--scrolling')
-//							.addTo(controller);
+			var parallaxScene = new ScrollMagic.Scene({
+				triggerElement : parallaxParent,
+				duration       : '200%'
+			})
+				.setTween(tweenParallax)
+				.setClassToggle(this, 'parallax--scrolling')
+				.addTo(controller);
 		}
 	});
 
@@ -302,14 +302,14 @@ jQuery(function( $ ) {
 				autoAlpha : 1
 			}, fadeBetween)
 
-//					var fadeScene  = new ScrollMagic.Scene({
-//						triggerElement : fadeParent,
-//						triggerHook    : 1,
-//						reverse        : false
-//					})
-//						.setTween(tweenFade)
-//						.setClassToggle(fadeChild, 'got-faded')
-//						.addTo(controller);
+		var fadeScene  = new ScrollMagic.Scene({
+			triggerElement : fadeParent,
+			triggerHook    : 1,
+			reverse        : false
+		})
+			.setTween(tweenFade)
+			.setClassToggle(fadeChild, 'got-faded')
+			.addTo(controller);
 	});
 
 //				$('.type-post').each(function() {
@@ -355,38 +355,10 @@ jQuery(function( $ ) {
 	
 	// Home page
 	// JavaScript to be fired on the home page
+	var titleTimeline = new TimelineMax();
 
-	var title = $('#home_title'),
-		line  = title.children();
-
-	line.each( function() {
-		var $this = $(this),
-			chars = $this.lettering('words'),
-			words = chars.children('span');
-
-		var titleTimeline = new TimelineMax(),
-			titleChar     = words,
-			titleDuration = 1;
-
-		titleTimeline.staggerFromTo(
-			titleChar,
-			titleDuration,
-			{
-				opacity : 0,
-				y       : 80
-			},
-			{
-				opacity : 1,
-				y       : 0
-			},
-			0.15 );
-		titleTimeline.staggerTo(
-			'.line',
-			1,
-			{
-				width : 100
-			});
-
+	titleTimeline.staggerTo( '.line', 1, {
+		width : 100
 	});
 
 	// Dribbble galleries
@@ -411,25 +383,20 @@ jQuery(function( $ ) {
 		}
 	});
 
-	// Links are stripped out of wysiwyg editor, manually add them in
-	var link_to_mighty = $('#title_1').children('.word3'),
-		link_to_work   = $('#title_2').children('.word4');
-
-	link_to_mighty.wrapInner('<a href="//mightyinthemidwest.com/"></a>');
-	link_to_work.wrapInner('<a href="/design/"></a>');
-
 	// Mixitup.js
 	// https://github.com/patrickkunka/mixitup/tree/v2
-	var containerEl = document.querySelector('#gallery');
-	var mixer       = mixitup(containerEl, {
-//					animation : {
-//						effectsIn  : 'fade',
-//						effectsOut : 'fade',
-//						easing     : 'linear'
-//					},
-		controls : {
-			toggleLogic : 'and'
-		}
-	});
+	const designGallery = document.querySelector('#gallery');
+	if (designGallery) {
+		let mixer = mixitup(containerEl, {
+						animation : {
+							effectsIn  : 'fade',
+							effectsOut : 'fade',
+							easing     : 'linear'
+						},
+			controls : {
+				toggleLogic : 'and'
+			}
+		});
+	}
 
 });

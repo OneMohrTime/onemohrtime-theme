@@ -169,13 +169,13 @@ jQuery(function ($) {
   // BEGIN GREENSOCK //
   /////////////////////
   // Init ScrollMagic
-  //				var controller = new ScrollMagic.Controller({
-  //					globalSceneOptions : {
-  //						triggerHook : 0.8
-  //					},
-  ////					addIndicators : true
-  //				});
-  // Viewport in log
+
+  var controller = new ScrollMagic.Controller({
+    globalSceneOptions: {
+      triggerHook: 0.8
+    } //		addIndicators : true
+
+  }); // Viewport in log
 
   var viewportWidth = window.innerWidth,
       viewportHeight = window.innerHeight;
@@ -262,13 +262,11 @@ jQuery(function ($) {
       var tweenParallax = new TimelineMax().to(parallaxChild, 1, {
         y: '80%',
         ease: Linear.easeNone
-      }); //						var parallaxScene = new ScrollMagic.Scene({
-      //							triggerElement : parallaxParent,
-      //							duration       : '200%'
-      //						})
-      //							.setTween(tweenParallax)
-      //							.setClassToggle(this, 'parallax--scrolling')
-      //							.addTo(controller);
+      });
+      var parallaxScene = new ScrollMagic.Scene({
+        triggerElement: parallaxParent,
+        duration: '200%'
+      }).setTween(tweenParallax).setClassToggle(this, 'parallax--scrolling').addTo(controller);
     }
   }); // Fade in content blocks
 
@@ -280,14 +278,12 @@ jQuery(function ($) {
     var tweenFade = new TimelineMax().staggerTo(fadeChild, fadeDuration, {
       y: 0,
       autoAlpha: 1
-    }, fadeBetween); //					var fadeScene  = new ScrollMagic.Scene({
-    //						triggerElement : fadeParent,
-    //						triggerHook    : 1,
-    //						reverse        : false
-    //					})
-    //						.setTween(tweenFade)
-    //						.setClassToggle(fadeChild, 'got-faded')
-    //						.addTo(controller);
+    }, fadeBetween);
+    var fadeScene = new ScrollMagic.Scene({
+      triggerElement: fadeParent,
+      triggerHook: 1,
+      reverse: false
+    }).setTween(tweenFade).setClassToggle(fadeChild, 'got-faded').addTo(controller);
   }); //				$('.type-post').each(function() {
   //					var $this = $(this),
   //						$contentParent  = this,
@@ -330,25 +326,9 @@ jQuery(function ($) {
   // JavaScript to be fired on the home page
 
 
-  var title = $('#home_title'),
-      line = title.children();
-  line.each(function () {
-    var $this = $(this),
-        chars = $this.lettering('words'),
-        words = chars.children('span');
-    var titleTimeline = new TimelineMax(),
-        titleChar = words,
-        titleDuration = 1;
-    titleTimeline.staggerFromTo(titleChar, titleDuration, {
-      opacity: 0,
-      y: 80
-    }, {
-      opacity: 1,
-      y: 0
-    }, 0.15);
-    titleTimeline.staggerTo('.line', 1, {
-      width: 100
-    });
+  var titleTimeline = new TimelineMax();
+  titleTimeline.staggerTo('.line', 1, {
+    width: 100
   }); // Dribbble galleries
   // Set the Access Token
 
@@ -368,23 +348,21 @@ jQuery(function ($) {
         $('#dribbbles').append('<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>');
       }
     }
-  }); // Links are stripped out of wysiwyg editor, manually add them in
-
-  var link_to_mighty = $('#title_1').children('.word3'),
-      link_to_work = $('#title_2').children('.word4');
-  link_to_mighty.wrapInner('<a href="//mightyinthemidwest.com/"></a>');
-  link_to_work.wrapInner('<a href="/design/"></a>'); // Mixitup.js
+  }); // Mixitup.js
   // https://github.com/patrickkunka/mixitup/tree/v2
 
-  var containerEl = document.querySelector('#gallery');
-  var mixer = mixitup(containerEl, {
-    //					animation : {
-    //						effectsIn  : 'fade',
-    //						effectsOut : 'fade',
-    //						easing     : 'linear'
-    //					},
-    controls: {
-      toggleLogic: 'and'
-    }
-  });
+  var designGallery = document.querySelector('#gallery');
+
+  if (designGallery) {
+    var mixer = mixitup(containerEl, {
+      animation: {
+        effectsIn: 'fade',
+        effectsOut: 'fade',
+        easing: 'linear'
+      },
+      controls: {
+        toggleLogic: 'and'
+      }
+    });
+  }
 });

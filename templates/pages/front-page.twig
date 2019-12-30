@@ -19,21 +19,22 @@
 		<!-- else -->
 		<ul class="banner{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
 			{% for link in isometric %}
-				{% for page in link %}
-					<li class="banner__item">
+				<li class="banner__item banner__item--{{ loop.index }}">
+					{% for page in link %}
 						<a href="{{ page.link }}" class="banner__link">
 							<img src="{{ page.thumbnail.src('medium') }}" class="banner__image" />
 							<span class="banner__title">{{ page.title }}</span>
 						</a>
-					</li>
-				{% endfor %}
+					{% endfor %}
+				</li>
 			{% endfor %}
 		</ul>
 		
 		<figcaption id="home_intro" class="intro wysiwyg">
-			{% if post.get_field('homepage_header') %}
-				<h2 id="home_title" class="intro__title">{{ post.get_field('homepage_header') | striptags('<a><span>') }}</h2>
-			{% endif %}
+			<h2 id="home_title" class="intro__title">
+				<span>Developer for <a href="//mightyinthemidwest.com/" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
+				<span>Freelancing <a href="/design/">designer</a> by night.</span>
+			</h2>
 			<div class="line"></div>
 			{% if post.get_field('homepage_intro') %}
 				<p class="intro__description">{{ post.get_field('homepage_intro') | striptags('<a>') }}</p>
