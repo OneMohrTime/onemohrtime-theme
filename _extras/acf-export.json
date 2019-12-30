@@ -26,7 +26,9 @@
                 "max_width": "",
                 "max_height": "",
                 "max_size": "",
-                "mime_types": "gif, png, jpg, jpeg, webp, svg"
+                "mime_types": "gif, png, jpg, jpeg, webp, svg",
+                "return_format": "array",
+                "preview_size": "medium"
             }
         ],
         "location": [
@@ -44,7 +46,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -74,6 +76,51 @@
                 "max_height": "",
                 "max_size": "",
                 "mime_types": "gif, png, jpg, jpeg, webp"
+            },
+            {
+                "key": "field_5e07a36141d1e",
+                "label": "Links",
+                "name": "homepage_links",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 12,
+                "max": 12,
+                "layout": "row",
+                "button_label": "Add Link",
+                "sub_fields": [
+                    {
+                        "key": "field_5e07a37541d1f",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "post_object",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "20",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "design",
+                            "page",
+                            "post"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    }
+                ]
             },
             {
                 "key": "field_5c1f060deeb92",
@@ -217,7 +264,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -305,7 +352,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -355,7 +402,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -917,7 +964,9 @@
                                 "max_width": "",
                                 "max_height": "",
                                 "max_size": ".75",
-                                "mime_types": "gif, png, jpg, jpeg, webp, svg"
+                                "mime_types": "gif, png, jpg, jpeg, webp, svg",
+                                "return_format": "array",
+                                "preview_size": "medium"
                             }
                         ],
                         "min": "",
@@ -946,7 +995,7 @@
         "hide_on_screen": [
             "the_content"
         ],
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -1030,7 +1079,7 @@
         "hide_on_screen": [
             "the_content"
         ],
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -1072,7 +1121,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     }
 ]
