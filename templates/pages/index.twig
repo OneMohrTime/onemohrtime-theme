@@ -2,11 +2,11 @@
 
 {% block content %}
 	
-    {% include 'blocks/page-header.twig' %}
+    {% include 'components/title.twig' %}
 	
     {% for post in posts %}
 		
-        {% include "blocks/content.twig" with {post: post}  %}
+        {% include "components/content.twig" with {post: post}  %}
 		
     {% endfor %}
 	
