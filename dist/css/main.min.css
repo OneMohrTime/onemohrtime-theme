@@ -70,28 +70,16 @@ body{position:relative;background-color:#fffefa;color:#171409;font-family:"Barlo
 ::selection{color:#171409;background-color:#ffc300;text-shadow:none}
 h1{position:relative;display:block;color:inherit;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:3.0517578125em;font-weight:700;text-transform:uppercase;line-height:1.2em;margin:0 0 .5em}
 h1 a{color:inherit;line-height:inherit}
-.wysiwyg h1 a:focus{outline:0}
-.wysiwyg h1 a::before{display:none}
 h2{position:relative;display:block;color:inherit;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:2.44140625em;font-weight:700;text-transform:uppercase;line-height:1.2em;margin:0 0 .5em}
 h2 a{color:inherit;line-height:inherit}
-.wysiwyg h2 a:focus{outline:0}
-.wysiwyg h2 a::before{display:none}
 h3{position:relative;display:block;color:inherit;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:1.953125em;font-weight:700;text-transform:uppercase;line-height:1.2em;margin:0 0 .5em}
 h3 a{color:inherit;line-height:inherit}
-.wysiwyg h3 a:focus{outline:0}
-.wysiwyg h3 a::before{display:none}
 h4{position:relative;display:block;color:inherit;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:1.5625em;font-weight:700;text-transform:uppercase;line-height:1.2em;margin:0 0 .5em}
 h4 a{color:inherit;line-height:inherit}
-.wysiwyg h4 a:focus{outline:0}
-.wysiwyg h4 a::before{display:none}
 h5{position:relative;display:block;color:inherit;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:1.25em;font-weight:700;text-transform:uppercase;line-height:1.2em;margin:0 0 .5em}
 h5 a{color:inherit;line-height:inherit}
-.wysiwyg h5 a:focus{outline:0}
-.wysiwyg h5 a::before{display:none}
 h6{position:relative;display:block;color:inherit;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:1em;font-weight:700;text-transform:uppercase;line-height:1.2em;margin:0 0 .5em}
 h6 a{color:inherit;line-height:inherit}
-.wysiwyg h6 a:focus{outline:0}
-.wysiwyg h6 a::before{display:none}
 h1{font-size:4.2360680659em}
 h2{font-size:2.6180340252em}
 h3{font-size:1.618034em}
@@ -316,6 +304,9 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .homepage__banner .intro__title{font-size:1.618034em}
 .homepage__banner .intro__title>span{display:block}
 .homepage__banner .intro__title span[class^="word"]{display:inline-block}
+.homepage__banner .intro__title a{-webkit-transition:color 200ms;transition:color 200ms}
+.homepage__banner .intro__title a::before{background-color:#fffefa}
+.homepage__banner .intro__title a:hover,.homepage__banner .intro__title a:focus{color:#232015}
 .homepage__banner .intro__link{position:relative;color:inherit;line-height:1.7em;z-index:1}
 .homepage__banner .intro__link::before{content:"";position:absolute;bottom:8px;background-color:#ffc300;height:8px;width:auto;-webkit-transition:200ms;transition:200ms;-webkit-animation:dancemonkey 2s infinite;animation:dancemonkey 2s infinite;z-index:-1}
 .homepage__banner .intro__link .svg-icon{position:relative;-webkit-transition:400ms cubic-bezier(0.455,0.03,0.515,0.955);transition:400ms cubic-bezier(0.455,0.03,0.515,0.955)}

@@ -194,13 +194,15 @@
 				}
 
 				a {
-					// @include inline();
 					// style links manually
-//					transition: background-color $speed;
-//					&:hover,
-//					&:focus {
-//						background-color: fade-out($color__yellow, 0.15);
-//					}
+					transition: color $speed;
+					&::before {
+						background-color: $color__white;
+					}
+					&:hover,
+					&:focus {
+						color: $color__black--light;
+					}
 				}
 			}
 
