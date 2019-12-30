@@ -42,6 +42,16 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 /**
+ * ACF Warning
+ */
+if ( ! class_exists( 'acf' ) ) {
+	add_action( 'admin_notices', function() {
+		echo '<div class="error"><p><strong>Advanced Custom Fields Pro</strong> is required. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#acf' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+	} );
+	return;
+}
+
+/**
  * Sets the directories (inside your theme) to find .twig files
  */
 Timber::$dirname = array( 'templates', 'views' );
@@ -65,6 +75,9 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
+		add_action( 'widgets_init', array( $this, 'widgets' ) );
+		add_action( 'init', array( $this, 'disable_emojis' ) );
+		add_filter( 'wpseo_metabox_prio', array( $this, 'yoasttobottom' ) );
 		parent::__construct();
 	}
 
@@ -83,11 +96,23 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = new Timber\Menu();
+		// $context['foo']   = 'bar';
+		// $context['stuff'] = 'I am a value set in your functions.php file';
+		// $context['notes'] = 'These values are available everytime you call Timber::context();';
+		// $context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
+
+		/* Menu */
+        $context['menu'] = new TimberMenu('Primary Navigation');
+        $context['footer'] = new TimberMenu('Footer Projects');
+
+        /* Site info */
+        $context['site'] = $this;
+
+        /* Site info */
+        // $context['display_sidebar'] = Setup\display_sidebar();
+		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
+		
 		return $context;
 	}
 
@@ -173,6 +198,113 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
 		// Main script file
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
+	}
+
+	/**
+	 * Register sidebars
+	 */
+	public function widgets() {
+		register_sidebar([
+			'name'          => __('Primary', 'onemohrtime'),
+			'id'            => 'sidebar-primary',
+			'before_widget' => '<section class="widget %1$s %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>'
+		]);
+		
+		register_sidebar([
+			'name'          => __('Footer', 'onemohrtime'),
+			'id'            => 'sidebar-footer',
+			'before_widget' => '<section class="widget %1$s %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>'
+		]);
+	}
+
+	/**
+	 * Determine which pages should NOT display the sidebar
+	 */
+	public function display_sidebar() {
+		static $display;
+
+		isset($display) || $display = !in_array(true, [
+			// The sidebar will NOT be displayed if ANY of the following return true.
+			// @link https://codex.wordpress.org/Conditional_Tags
+			is_404(),
+			// is_front_page(),
+			is_singular('design'),
+		]);
+		
+		return apply_filters('sage/display_sidebar', $display);
+	}
+
+	// /**
+	//  * ACF Options
+	//  */
+	// if( function_exists('acf_add_options_page') ) {
+	// 	acf_add_options_page();
+	// }
+	// // Now add Timber to ACF
+	// function mytheme_timber_context( $context ) {
+	// 	$context['options'] = get_fields('option');
+	// 	return $context;
+	// }
+	// add_filter( 'timber_context', 'mytheme_timber_context' );
+
+	/**
+	 * Disable the emoji's
+	 */
+	public function disable_emojis() {
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+		add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+		// add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+	}
+
+	/**
+	 * Filter function used to remove the tinymce emoji plugin.
+	 * 
+	 * @param array $plugins 
+	 * @return array Difference betwen the two arrays
+	 */
+	public function disable_emojis_tinymce( $plugins ) {
+		if ( is_array( $plugins ) ) {
+		return array_diff( $plugins, array( 'wpemoji' ) );
+		} else {
+			return array();
+		}
+	}
+
+	// /**
+	//  * Remove emoji CDN hostname from DNS prefetching hints.
+	//  *
+	//  * @param array $urls URLs to print for resource hints.
+	//  * @param string $relation_type The relation type the URLs are printed for.
+	//  * @return array Difference betwen the two arrays.
+	//  */
+	// public function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+	// 	if ( 'dns-prefetch' == $relation_type ) {
+	// 		/** This filter is documented in wp-includes/formatting.php */
+	// 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+			
+	// 		$urls = array_diff( $urls, array( $emoji_svg_url ) );
+	// 	}
+		
+	// 	return $urls;
+	// }
+
+	/**
+	 * Move Yoast to bottom
+	 */
+	public function yoasttobottom() {
+		return 'low';
 	}
 
 	/** This is where you can add your own functions to twig.
