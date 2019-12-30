@@ -377,9 +377,10 @@
 	color: inherit;
 	line-height: $base-line-height;
 	z-index: 1;
+	
 	@include media(">=screen1170") {
 		&:hover,
-		&:focus { 
+		&:focus {
 			color: inherit;
 			&::before {
 				bottom: 0;
@@ -392,6 +393,7 @@
 			}
 		}
 	}
+	
 	&::before {
 		content: "";
 		position: absolute;

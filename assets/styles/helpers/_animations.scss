@@ -61,34 +61,18 @@
 	}
 }
 
-/*
-* — "jQuery" animation —
-*/
-
-.toggle-content {
-	display: none;
-	height: 0;
-	overflow: hidden;
-	transition: height 350ms ease-in-out;
-	
-	&.is-visible {
-		// .toggle-content.is-visible
-		display: block;
-		height: auto;
+// Homepage card hovers
+@keyframes cardHover {
+	0% {
+		transform: translateY(2px);
+	}
+	50% {
+		transform: translateY(-2px);
+	}
+	100% {
+		transform: translateY(2px);
 	}
 }
-
-//@keyframes jquery {
-//	0% {
-//		display: none;
-//	}
-//	1% {
-//		display: block;
-//	}
-//	100% {
-//		display: block;
-//	}
-//}
 
 
 /*
