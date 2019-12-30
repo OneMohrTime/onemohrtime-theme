@@ -338,6 +338,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .homepage__contact p{padding-right:36px}
 body.home{background-color:#ffc300;background-image:none;color:#fffefa}
 body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left top,right bottom,color-stop(85%,#fffefa),to(#f2f1ee));background:linear-gradient(to bottom right,#fffefa 85%,#f2f1ee);color:#171409}
+.dribbble__title{margin-bottom:1.5em;font-size:1.618034em;text-shadow:2px 2px 4px rgba(23,20,9,0.05);color:rgba(255,254,250,0.95)}
 .gallery{position:relative}
 .gallery__banner{position:relative;background-color:#f2f1ee;text-align:left;height:300px;width:100%;margin-bottom:36px;padding-left:36px;padding-right:36px;overflow:hidden}
 .gallery__banner--image{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);height:100%;width:100%}
@@ -529,6 +530,7 @@ body.blog .type-post{width:auto;margin-left:36px;margin-right:36px}
 .homepage__banner .intro__description{font-size:.6180339845em}
 .homepage__portfolio .feature{-ms-flex-preferred-size:calc(33.33% - 36px);flex-basis:calc(33.33% - 36px);max-width:calc(33.33% - 36px)}
 .homepage__contact p{padding-right:30%}
+.dribbble__title{font-size:1em}
 .gallery__project{margin-left:36px;margin-right:36px}
 .gallery__content{max-width:840px;margin-bottom:72px;margin-left:72px;margin-right:auto}
 .gallery__dribbble--content{padding-right:30%}
@@ -634,19 +636,21 @@ body.blog .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .homepage__banner .banner__item:nth-child(3n){-webkit-animation:cardHover 4s infinite alternate;animation:cardHover 4s infinite alternate}
 .homepage__banner .banner__item:nth-child(4n){-webkit-animation:cardHover 2s infinite alternate;animation:cardHover 2s infinite alternate}
 .homepage__banner .banner.is-desktop{padding:0;-webkit-transform:perspective(3000px) translate3d(0,72px,0) scale3d(1,1,1) rotateY(45deg) rotateZ(-10deg);transform:perspective(3000px) translate3d(0,72px,0) scale3d(1,1,1) rotateY(45deg) rotateZ(-10deg);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
-.homepage__banner .intro{width:auto}
+.homepage__banner .intro{width:auto;max-width:67%}
 .homepage__banner .intro__title{font-size:1.618034em}
 .homepage__banner .intro__link:hover,.homepage__banner .intro__link:focus{color:inherit}
 .homepage__banner .intro__link:hover::before,.homepage__banner .intro__link:focus::before{bottom:0;height:80%;width:100%;-webkit-transform:translateY(2px) scaleY(1.2);transform:translateY(2px) scaleY(1.2);-webkit-animation:inline-expand;animation:inline-expand}
 .homepage__banner .intro__link:hover .svg-icon,.homepage__banner .intro__link:focus .svg-icon{-webkit-transform:translateX(0.75em);transform:translateX(0.75em)}
-.homepage__banner .intro__description{font-size:1em;width:50%}
+.homepage__banner .intro__description{font-size:1em;max-width:85%}
 .homepage__about{font-size:1.618rem}
+.dribbble__title{font-size:1.618034em}
 .gallery__filter .arrays{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .gallery__filter .arrays .array__filter{font-size:1.618rem}
 .gallery__filter .arrays .array__btn{font-size:1.618rem}
 .gallery__project{height:100vh;margin-left:72px;margin-right:72px;margin-bottom:0}
 .gallery__content{margin-left:108px;margin-bottom:108px}
 }@media(min-width:1170px) and (max-width:320px){.homepage__banner .intro__title{font-size:1rem}
+.dribbble__title{font-size:1rem}
 }@media only screen and (min-width:1200px){.content-area{font-size:1.704rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.704rem}
 .project__blockquote .blockquote__image>p{font-size:1.704rem}
@@ -701,8 +705,9 @@ body.blog .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px}
 .daft-punk__content--title{font-size:10em}
 }@media(min-width:1600px){.site{max-width:1440px;border-left:1px #d9d8d5 solid;border-right:1px #d9d8d5 solid;margin-left:auto;margin-right:auto}
 .homepage__banner .intro__title{font-size:2.6180340252em;letter-spacing:2px}
-.homepage__banner .intro__description{font-size:1.618034em;width:67%}
+.homepage__banner .intro__description{font-size:1.618034em;max-width:67%}
 .homepage__contact p{padding-right:50%}
+.dribbble__title{font-size:2.6180340252em;letter-spacing:2px}
 .gallery__dribbble--content{padding-right:50%}
 body.blog .posts__article{padding-right:50%}
 }@media(min-width:1600px) and (max-width:320px){.homepage__banner .intro__description{font-size:1rem}
@@ -731,6 +736,7 @@ body.blog .posts__article{padding-right:50%}
 .site__contact .wysiwyg{font-size:1rem}
 .homepage__banner .intro__title{font-size:1rem}
 .homepage__portfolio .feature__content--title{font-size:1rem}
+.dribbble__title{font-size:1rem}
 body.blog .type-post .post__title{font-size:1rem}
 }@-webkit-keyframes dancemonkey{0%{left:0;right:25%}
 50%{left:25%;right:0}
