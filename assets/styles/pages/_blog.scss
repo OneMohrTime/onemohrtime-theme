@@ -15,62 +15,6 @@ body.blog {
 			margin-right: $gutter;
 		}
 		
-		&__banner {
-			// .posts__banner
-			position: relative;
-			background-color: $color__white--dark;
-			color: $color__white;
-			text-align: left;
-			@include size(100%, 300px);
-			margin-bottom: $gutter;
-			overflow: hidden;
-			@include media(">=screen768") {
-				height: 100vh;
-				margin-bottom: $gutter * 2;
-				padding-left: $gutter * 2;
-				padding-right: $gutter * 2;
-			}
-			@include media(">=screen1024") {
-				padding-left: $gutter * 3;
-				padding-right: $gutter * 3;
-			}
-			@include media(">=screen1440") {
-				padding-left: $gutter * 4;
-				padding-right: $gutter * 4;
-			}
-			
-			@supports (display: grid) {
-				grid-column: span 4;
-				display: grid;
-				align-items: center;
-				width: auto;
-			}
-			
-			&--image {
-				// .posts__banner--image
-				@include position(absolute, 50% null null 50%);
-				transform: translate3d(-50%, -50%, 0);
-				@include size(100%);
-				@supports (object-fit: cover) {
-					object-fit: cover;
-				}
-			}
-			
-			&--title {
-				// .posts__banner--title
-				@include text-shadow();
-				h2 {
-					@include title();
-					margin-bottom: 0;
-				}
-			}
-			
-			&--contact {
-				// .posts__banner--contact
-				@include btn-contact();
-			}
-		}
-		
 		&__article {
 			// .posts__article
 			width: 100%;
@@ -92,11 +36,11 @@ body.blog {
 		max-height: 100vh;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
-        @include media(">=screen768") {
+		@include media(">=screen768") {
 			width: auto;
 			margin-left: $gutter;
 			margin-right: $gutter;
-        }
+		}
 		@include media(">=screen840") {
 			@supports (display: flex) {
 				display: flex;
@@ -164,12 +108,24 @@ body.blog {
 				// .post__title
 				position: relative;
 				@include paragraph();
+
 				@include media(">=screen840") {
-					@include ellipsis();
 					margin-bottom: $base-spacing;
 				}
+
 				@include media(">=screen1280") {
 					@include subtitle();
+				}
+
+				a {
+
+					&::before {
+						display: none;
+					}
+
+					@include media(">=screen840") {
+						@include ellipsis();
+					}
 				}
 			}
 			
@@ -200,13 +156,31 @@ body.blog {
 			}
 			
 		}
+
 		// Inverse odd/even layout
 		@include media(">=screen840") {
 			&:nth-child(even) {
 				flex-direction: row-reverse;
-//				.post__image {}
-//				.post__content {}
 			}
+		}
+	}
+
+	.post-format {
+		position: relative;
+		margin-left: $base-spacing;
+
+		.svg-icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.1;
+			transform: translate3d( -#{$small-spacing}, -25%, 0 );
+			z-index: -1;
+			// double default size
+			font-size: 1.5em;
+			line-height: 1.5em;
+			height: 1.5em;
+			width: 1.5em;
 		}
 	}
 }

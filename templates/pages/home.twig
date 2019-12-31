@@ -2,24 +2,20 @@
 
 {% block content %}
 
-	<figure class="posts__banner">
-
-		<img src="{{ post.thumbnail.src('thumbnail') }}"
-			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-			 alt="{{ post.thumbnail.alt }}"
-			 class="posts__banner--image"
-			 srcset="{{ post.thumbnail.src('medium') }} 500w,
-					 {{ post.thumbnail.src('large') }} 1000w,
-					 {{ post.thumbnail.src('full') }} 1500w"
-			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-
-		<figcaption class="posts__banner--title">
-			<h2 class="title--animated">{{ post.title }}</h2>
-		</figcaption>
-
-		<a href="#contact" class="posts__banner--contact btn">{% include '/assets/images/icons/arrow-left.svg' %} Contact</a>
-
-	</figure>
+	<header class="posts__header">
+		{% if categories is defined and categories is not empty %}
+			<ul class="posts__categories meta">
+				{% for cat in categories %}
+					{% if cat.slug != 'shit' and cat.slug != 'uncategorized' %}
+						<li class="category">
+							<a href="{{ cat.link }}" class="category__link btn btn--sm">{{ cat.name }}</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+		{% include 'components/title.twig' %}
+	</header>
 
 	<section class="posts">
 		{% for post in posts %}

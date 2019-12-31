@@ -48,6 +48,7 @@
     "translate": "gulp translate"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "bourbon": "^6.0.0",
     "include-media": "^1.4.9",
     "normalize-scss": "^7.0.1"
