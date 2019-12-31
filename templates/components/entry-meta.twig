@@ -1,6 +1,12 @@
 <p class="meta wysiwyg">
 	<time class="original" datetime="{{ post.post_date | date(c) }}">Posted around {{ post.post_date_gmt | time_ago }}</time>
 	<time class="updated" datetime="{{ post.modified_date | date(c) }}">Updated {{ post.modified_date | time_ago }}</time>
-	<i class="far fa-newspaper"></i> {{ post.format | capitalize }}
+	{% if post.format is defined and post.format != false %}
+		{% include '/assets/images/icons/post-' ~ post.format ~'.svg' %}
+		{{ post.format | capitalize }}
+	{% else %}
+		{% include '/assets/images/icons/post-standard.svg' %}
+		Standard
+	{% endif %}
 	<span class="byline author vcard screen-reader-text"> | {{  __('', 'onemohrtime') }} <a href="{{ post.author.path }}" rel="author" class="fn">{{ post.author.name }}</a></span>
 </p>
