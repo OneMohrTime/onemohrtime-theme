@@ -294,7 +294,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .homepage__banner{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column nowrap;flex-flow:column nowrap;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:100vh}
 .homepage__banner .banner{position:relative;overflow:hidden}
 .homepage__banner .banner__item{padding:12px;overflow:hidden;background-color:#f2f1ee}
-.homepage__banner .banner__link{display:block;max-height:100%;overflow:hidden}
+.homepage__banner .banner__link{display:block;height:100%;overflow:hidden}
 .homepage__banner .banner__link:focus .banner__image,.homepage__banner .banner__link:hover .banner__image{opacity:0}
 .homepage__banner .banner__image{height:100%;width:100%;opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0);-o-object-fit:cover;object-fit:cover;-webkit-transition:opacity 200ms;transition:opacity 200ms;z-index:2}
 .homepage__banner .banner__title{position:absolute;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:100%;width:100%;font-size:.6180339845em;color:#232015;z-index:1}
@@ -338,7 +338,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .homepage__contact p{padding-right:36px}
 body.home{background-color:#ffc300;background-image:none;color:#fffefa}
 body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left top,right bottom,color-stop(85%,#fffefa),to(#f2f1ee));background:linear-gradient(to bottom right,#fffefa 85%,#f2f1ee);color:#171409}
-.dribbble__title{margin-bottom:1.5em;font-size:1.618034em;text-shadow:2px 2px 4px rgba(23,20,9,0.05);color:rgba(255,254,250,0.95)}
+.dribbble__title{display:inline-block;margin-bottom:1.5em;font-size:1.618034em;text-shadow:2px 2px 4px rgba(23,20,9,0.05);color:rgba(255,254,250,0.95)}
 .gallery{position:relative}
 .gallery__banner{position:relative;background-color:#f2f1ee;text-align:left;height:300px;width:100%;margin-bottom:36px;padding-left:36px;padding-right:36px;overflow:hidden}
 .gallery__banner--image{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);height:100%;width:100%}
@@ -643,14 +643,14 @@ body.blog .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .homepage__banner .intro__link:hover .svg-icon,.homepage__banner .intro__link:focus .svg-icon{-webkit-transform:translateX(0.75em);transform:translateX(0.75em)}
 .homepage__banner .intro__description{font-size:1em;max-width:85%}
 .homepage__about{font-size:1.618rem}
-.dribbble__title{font-size:1.618034em}
+.dribbble__title{position:relative;padding:12px 36px 12px 0;text-shadow:none;line-height:1em;border-top-right-radius:2em;border-bottom-right-radius:2em;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/concrete_wall_2.png");background-color:#171409;color:rgba(255,254,250,0.95);-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
+.dribbble__title::before{content:"";position:absolute;top:0;right:100%;height:100%;width:100vw;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/concrete_wall_2.png");background-color:#171409}
 .gallery__filter .arrays{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .gallery__filter .arrays .array__filter{font-size:1.618rem}
 .gallery__filter .arrays .array__btn{font-size:1.618rem}
 .gallery__project{height:100vh;margin-left:72px;margin-right:72px;margin-bottom:0}
 .gallery__content{margin-left:108px;margin-bottom:108px}
 }@media(min-width:1170px) and (max-width:320px){.homepage__banner .intro__title{font-size:1rem}
-.dribbble__title{font-size:1rem}
 }@media only screen and (min-width:1200px){.content-area{font-size:1.704rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.704rem}
 .project__blockquote .blockquote__image>p{font-size:1.704rem}

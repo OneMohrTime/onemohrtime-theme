@@ -144,6 +144,7 @@ class StarterSite extends Timber\Site {
 			'comment-list',
 			'gallery',
 			'caption',
+			'search-form'
 		) );
 
 		/*
@@ -152,12 +153,11 @@ class StarterSite extends Timber\Site {
 		 * See: https://codex.wordpress.org/Post_Formats
 		 */
 		add_theme_support( 'post-formats', array(
-			'aside',
-			'image',
-			'video',
-			'quote',
-			'link',
 			'gallery',
+			'link',
+			'image',
+			'quote',
+			'video',
 			'audio',
 		) );
 

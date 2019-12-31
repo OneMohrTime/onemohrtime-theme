@@ -22,7 +22,19 @@
 				<li class="banner__item banner__item--{{ loop.index }}">
 					{% for page in link %}
 						<a href="{{ page.link }}" class="banner__link">
-							<img src="{{ page.thumbnail.src('medium') }}" class="banner__image" />
+						{% if page.isometric_image is defined and page.isometric_image is not empty %}
+							<img src="{{ Image(page.isometric_image).src('medium') }}"
+								 alt="{{ Image(page.isometric_image).alt ? Image(page.isometric_image).alt : 'Banner slide image' }}"
+								 width="{{ Image(page.isometric_image).width }}"
+								 height="{{ Image(page.isometric_image).height }}"
+								 class="banner__image" />
+						{% else %}
+							<img src="{{ page.thumbnail.src('medium') }}"
+								 alt="{{ page.thumbnail.alt ? page.thumbnail.alt : 'Banner slide image' }}"
+								 width="{{ page.thumbnail.width }}"
+								 height="{{ page.thumbnail.height }}"
+								 class="banner__image" />
+						{% endif %}
 							<span class="banner__title">{{ page.title }}</span>
 						</a>
 					{% endfor %}
@@ -32,8 +44,8 @@
 		
 		<figcaption id="home_intro" class="intro wysiwyg">
 			<h2 id="home_title" class="intro__title">
-				<span>Developer for <a href="//mightyinthemidwest.com/" target="_blank" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
-				<span>Traveling <a href="/design/">designer</a> by night.</span>
+				<span>Developer for <a href="//mightyinthemidwest.com/" target="_blank" rel="noopener" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
+				<span>Traveling <a href="{{ site.link }}/design">designer</a> by night.</span>
 			</h2>
 			<div class="line"></div>
 			<p class="intro__description">I&rsquo;m Derek Mohr from Grand Rapids, MI. I also drink, travel, and talk about space discoveries to strangers.</p>
@@ -41,7 +53,7 @@
 	</figure>
 
 	<section id="home_dribbble" class="homepage__dribbble">
-		<h2 class="dribbble__title">Recent Designs</h2>
+		<h2 class="dribbble__title">Recent Designs on Dribbble</h2>
 		<div id="dribbbles" class="dribbbles"></div>
 	</section>
 
