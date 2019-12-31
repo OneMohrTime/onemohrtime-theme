@@ -26,7 +26,9 @@
                 "max_width": "",
                 "max_height": "",
                 "max_size": "",
-                "mime_types": "gif, png, jpg, jpeg, webp, svg"
+                "mime_types": "gif, png, jpg, jpeg, webp, svg",
+                "return_format": "array",
+                "preview_size": "medium"
             }
         ],
         "location": [
@@ -44,7 +46,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -53,7 +55,7 @@
         "fields": [
             {
                 "key": "field_5af3c0aeec843",
-                "label": "Banner",
+                "label": "Mobile Banner",
                 "name": "homepage_hero",
                 "type": "image",
                 "instructions": "Hero image behind the header on homepage.",
@@ -65,7 +67,7 @@
                     "id": ""
                 },
                 "return_format": "array",
-                "preview_size": "large",
+                "preview_size": "medium",
                 "library": "all",
                 "min_width": "",
                 "min_height": "",
@@ -76,10 +78,10 @@
                 "mime_types": "gif, png, jpg, jpeg, webp"
             },
             {
-                "key": "field_5c1f060deeb92",
-                "label": "Header",
-                "name": "homepage_header",
-                "type": "wysiwyg",
+                "key": "field_5e07a36141d1e",
+                "label": "Desktop Banner Links",
+                "name": "homepage_links",
+                "type": "repeater",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -88,30 +90,37 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 0,
-                "delay": 0
-            },
-            {
-                "key": "field_5b3304b9c6678",
-                "label": "Intro",
-                "name": "homepage_intro",
-                "type": "wysiwyg",
-                "instructions": "FYI: <code>&lt;div&gt;<\/code> is wrapped with <code>@paragraph()<\/code> and center aligned.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 0,
-                "delay": 0
+                "collapsed": "",
+                "min": 12,
+                "max": 12,
+                "layout": "row",
+                "button_label": "Add Link",
+                "sub_fields": [
+                    {
+                        "key": "field_5e07a37541d1f",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "post_object",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "20",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "design",
+                            "page",
+                            "post"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    }
+                ]
             },
             {
                 "key": "field_5b3447b4ce6d5",
@@ -217,39 +226,19 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
-        "key": "group_583243bba2ee5",
-        "title": "Page Elements",
+        "key": "group_5e0a2a6f32e09",
+        "title": "Isometric Homepage Image",
         "fields": [
             {
-                "key": "field_56d7ad1b2acc6",
-                "label": "Page Entry ID",
-                "name": "entry_id",
-                "type": "text",
-                "instructions": "Assign custom ID needed for this page.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "Unique ID",
-                "prepend": "",
-                "append": "",
-                "formatting": "none",
-                "maxlength": ""
-            },
-            {
-                "key": "field_56d79717ea843",
-                "label": "Background Image",
-                "name": "page_bg",
+                "key": "field_5e0a2a96f821c",
+                "label": "Image",
+                "name": "isometric_image",
                 "type": "image",
-                "instructions": "Background image for current page.",
+                "instructions": "Optional image to override the image on the homepage intro layout, if linked.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -257,55 +246,48 @@
                     "class": "",
                     "id": ""
                 },
-                "preview_size": "large",
-                "library": "all",
                 "return_format": "array",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "gif, png, jpg, jpeg, webp"
             }
         ],
         "location": [
             [
                 {
-                    "param": "page_type",
+                    "param": "post_type",
                     "operator": "==",
-                    "value": "top_level"
+                    "value": "design"
                 }
             ],
             [
                 {
-                    "param": "page_type",
+                    "param": "post_type",
                     "operator": "==",
-                    "value": "child"
+                    "value": "page"
                 }
             ],
             [
                 {
-                    "param": "page_parent",
-                    "operator": "!=",
-                    "value": "65"
-                }
-            ],
-            [
-                {
-                    "param": "page",
-                    "operator": "!=",
-                    "value": "620"
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
                 }
             ]
         ],
         "menu_order": 0,
-        "position": "normal",
+        "position": "side",
         "style": "seamless",
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -355,7 +337,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -917,7 +899,9 @@
                                 "max_width": "",
                                 "max_height": "",
                                 "max_size": ".75",
-                                "mime_types": "gif, png, jpg, jpeg, webp, svg"
+                                "mime_types": "gif, png, jpg, jpeg, webp, svg",
+                                "return_format": "array",
+                                "preview_size": "medium"
                             }
                         ],
                         "min": "",
@@ -946,7 +930,7 @@
         "hide_on_screen": [
             "the_content"
         ],
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -1030,7 +1014,7 @@
         "hide_on_screen": [
             "the_content"
         ],
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -1072,7 +1056,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     }
 ]

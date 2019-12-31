@@ -1,31 +1,37 @@
-<!doctype html>
-<html {{ function('language_attributes') }} class="no-js">
-	
-    {% include 'blocks/head.twig' %}
-	
-    <body {{ function('body_class') }}>
+{% block html_head_container %}
+
+{% include 'partials/html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{ body_class }}" data-template="base.twig">
 		<div id="page" class="site" role="document">
+
+			<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
 			
-			{% include 'blocks/header.twig' %}
-			
-			<main id="main" class="site__main content-area" role="main">
-				
-				{% block content %}
+			<header id="masthead" class="site__header" role="banner">
+				{% block header %}
+					{% include 'partials/header.twig' %}
 				{% endblock %}
-				
-			</main><!-- /.site__main -->
-			
-			{% include 'blocks/sidebar.twig' %}
-			
-			{% include 'blocks/contact.twig' %}
-			
+			</header>
+
+			<main id="main" class="site__main content-area" role="main">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</main>
+		
+			{% include 'partials/sidebar.twig' %}
+
+			{% include 'components/contact.twig' %}
+
 			{% block footer %}
-				{% include 'blocks/footer.twig' %}
+				{% include 'partials/footer.twig' %}
 				{{ function('wp_footer') }}
 			{% endblock %}
-			
-		</div><!-- /.site -->
-		
-    </body>
-	
+
+		</div>
+	</body>
 </html>

@@ -22,14 +22,14 @@
 	// site mixins + variables
 	"helpers/variables",
 	"helpers/mixins",
-	"helpers/helpers";
+	"helpers/helpers",
+	"helpers/animations";
 
 @import
 	"base/base",
 	"base/typography",
 	"base/links",
-	"base/media",
-	"base/animations";
+	"base/media";
 
 /*--------------------------------------------------------------
 	2.0 Layout

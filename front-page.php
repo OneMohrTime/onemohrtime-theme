@@ -3,16 +3,13 @@
  * Front page template file
  *
  * @package  WordPress
- * @subpackage  SageTimber
- * @since  SageTimber 0.1
  */
 
-$context = Timber::get_context();
-$post = new TimberPost();
+$context = Timber::context();
 
-$context['post']     = $post;
-$context['swiper']   = get_field('homepage_hero');
-$context['about']    = get_field('homepage_about');
-//$context['features'] = get_field('homepage_feature');
+$timber_post      = new Timber\Post();
+$context['post']  = $timber_post;
+$context['grid']  = get_field('homepage_grid');
+$context['about'] = get_field('homepage_about');
 
-Timber::render('pages/front-page.twig', $context);
+Timber::render( 'pages/front-page.twig', $context );

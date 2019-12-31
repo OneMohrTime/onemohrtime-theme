@@ -5,8 +5,8 @@
 	<article {{ function('post_class') }}>
 		
 		<header class="entry__header">
-			{% include "blocks/entry-meta.twig" %}
-			{% include "blocks/page-header.twig" %}
+			{% include "components/entry-meta.twig" %}
+			{% include "components/title.twig" %}
 		</header>
 		
 		<div class="entry__content get-faded">
@@ -15,8 +15,6 @@
 		
 		<footer class="entry__foooter get-faded">
 			{{ wp_link_pages }}
-			{# include "blocks/comment.twig" #}
-			{# include "blocks/comment-form.twig" #}
 		</footer>
 		
 	</article>

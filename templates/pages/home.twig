@@ -1,9 +1,9 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	
+
 	<figure class="posts__banner">
-		
+
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="{{ post.thumbnail.alt }}"
@@ -12,19 +12,19 @@
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
 			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-		
+
 		<figcaption class="posts__banner--title">
 			<h2 class="title--animated">{{ post.title }}</h2>
 		</figcaption>
-		
+
 		<a href="#contact" class="posts__banner--contact btn">{% include '/assets/images/icons/arrow-left.svg' %} Contact</a>
-		
+
 	</figure>
-	
+
 	<section class="posts">
 		{% for post in posts %}
 		<article {{ function('post_class') }}>
-			
+
 			<figure class="post__image parallax">
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
 					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
@@ -35,31 +35,31 @@
 							 {{ post.thumbnail.src('full') }} 1500w"
 					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 			</figure>
-			
+
 			<div class="post__content wysiwyg get-faded">
-				
-				{% include "blocks/entry-meta.twig" %}
-				
+
+				{% include "components/entry-meta.twig" %}
+
 				<h2 class="post__title">
 					<a href="{{ post.link }}">{{ post.title }}</a>
 				</h2>
-				
+
 				<p>
 					{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a>
 				</p>
-				
+
 			</div>
-			
+
 			<a href="{{ post.link }}" class="post__link"></a>
-			
+
 		</article>
 		{% endfor %}
 	</section>
-	
+
 {% endblock %}
 
 {% block sidebar %}
-	
-    {% include 'blocks/sidebar.twig' %}
-	
+
+	{% include 'blocks/sidebar.twig' %}
+
 {% endblock %}
