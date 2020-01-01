@@ -1,7 +1,6 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-{% for post in posts %}
 	<article {{ function('post_class') }}>
 		
 		<header class="entry__header">
@@ -18,5 +17,4 @@
 		</footer>
 		
 	</article>
-{% endfor %}
 {% endblock %}
