@@ -123,9 +123,11 @@
 		{% if section.image %}
 		<blockquote class="blockquote blockquote__image">
 			{{ section.text }}
-			<footer class="blockquote__footer">
-				<cite title="{{ section.cite }}">{{ section.cite }}</cite>
-			</footer>
+			{% if section.cite is defined and section.cite is not empty %}
+				<footer class="blockquote__footer">
+					<cite title="{{ section.cite }}">{{ section.cite }}</cite>
+				</footer>
+			{% endif %}
 		</blockquote>
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
@@ -139,9 +141,11 @@
 		{% else %}
 		<blockquote class="blockquote blockquote__default">
 			{{ section.text }}
-			<footer class="blockquote__footer">
-				<cite title="{{ section.cite }}">{{ section.cite }}</cite>
-			</footer>
+			{% if section.cite is defined and section.cite is not empty %}
+				<footer class="blockquote__footer">
+					<cite title="{{ section.cite }}">{{ section.cite }}</cite>
+				</footer>
+			{% endif %}
 		</blockquote>
 		
 		{% endif %}

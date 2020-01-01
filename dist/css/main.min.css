@@ -172,8 +172,8 @@ embed,iframe,object{max-width:100%}
 .project__image--fixed{height:100vh;width:auto;margin-left:0;margin-right:0;overflow:hidden}
 .project__blockquote{position:relative;margin:0 0 36px;overflow:hidden}
 .project__blockquote .blockquote{border:0;margin:0;padding:0;z-index:1}
-.project__blockquote .blockquote__defualt{padding:36px}
-.project__blockquote .blockquote__defualt>p{color:#544000;display:inline;background:-webkit-gradient(linear,left top,left bottom,from(rgba(255,254,250,0)),color-stop(49%,rgba(255,254,250,0)),color-stop(50%,#ffc300),to(#ffc300));background:linear-gradient(to bottom,rgba(255,254,250,0) 0,rgba(255,254,250,0) 49%,#ffc300 50%,#ffc300 100%)}
+.project__blockquote .blockquote__default{position:relative;padding-left:calc(36px + 10px)}
+.project__blockquote .blockquote__default::before{content:"";position:absolute;top:0;left:0;display:block;width:36px;height:100%;background-image:url("../images/icons/left-quote.svg");background-repeat:no-repeat;background-position:center center;background-size:36px 36px}
 .project__blockquote .blockquote__image{position:relative;background-color:rgba(255,254,250,0.85);padding:36px;margin:36px}
 .project__blockquote .blockquote__image>*:first-child{position:relative;padding-top:1.5em;margin-bottom:.75em}
 .project__blockquote .blockquote__image__image{position:absolute;top:-100%}
@@ -418,28 +418,28 @@ body.archive .post-format .svg-icon{position:absolute;top:0;left:0;opacity:.1;-w
 .daft-punk__content--alert{margin-bottom:.75em}
 .error404 .site__header,.error404 .site__footer{display:none}
 @media only screen and (min-width:360px){.content-area{font-size:1.2rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.2rem}
+.project__blockquote .blockquote__default>p{font-size:1.2rem}
 .project__blockquote .blockquote__image>p{font-size:1.2rem}
 }@media only screen and (min-width:400px){.content-area{font-size:1.224rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.224rem}
+.project__blockquote .blockquote__default>p{font-size:1.224rem}
 .project__blockquote .blockquote__image>p{font-size:1.224rem}
 }@media(min-width:400px){.project__gallery{-webkit-column-count:2;-moz-column-count:2;column-count:2}
 .page__gallery,.posts__gallery,.archives__gallery,.entry__gallery{-webkit-column-count:2;-moz-column-count:2;column-count:2}
 .dribbbles .shot{width:48%}
 .homepage__portfolio{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-left:18px;padding-right:18px}
 }@media only screen and (min-width:440px){.content-area{font-size:1.248rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.248rem}
+.project__blockquote .blockquote__default>p{font-size:1.248rem}
 .project__blockquote .blockquote__image>p{font-size:1.248rem}
 }@media only screen and (min-width:480px){.content-area{font-size:1.272rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.272rem}
+.project__blockquote .blockquote__default>p{font-size:1.272rem}
 .project__blockquote .blockquote__image>p{font-size:1.272rem}
 }@media only screen and (min-width:520px){.content-area{font-size:1.296rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.296rem}
+.project__blockquote .blockquote__default>p{font-size:1.296rem}
 .project__blockquote .blockquote__image>p{font-size:1.296rem}
 }@media(min-width:540px){.homepage__work{padding:108px 36px}
 .homepage__portfolio .feature{-webkit-box-flex:0;-ms-flex:0 0 calc(50% - 36px);flex:0 0 calc(50% - 36px);max-width:calc(50% - 36px);margin-left:18px;margin-right:18px}
 }@media only screen and (min-width:560px){.content-area{font-size:1.32rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.32rem}
+.project__blockquote .blockquote__default>p{font-size:1.32rem}
 .project__blockquote .blockquote__image>p{font-size:1.32rem}
 }@media(min-width:600px){.site{padding-bottom:0}
 .site.padded{padding-top:100px}
@@ -477,21 +477,21 @@ body.blog .posts__article{padding-right:20%}
 body.archive .archives__article{padding-right:20%}
 .daft-punk__content--title::after{width:100px}
 }@media only screen and (min-width:600px){.content-area{font-size:1.344rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.344rem}
+.project__blockquote .blockquote__default>p{font-size:1.344rem}
 .project__blockquote .blockquote__image>p{font-size:1.344rem}
 }@media(min-width:601px){.toggle__menu .bar{background-color:#171409}
 .toggle__menu .bar.open{background-color:#fffefa}
 }@media only screen and (min-width:640px){.content-area{font-size:1.368rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.368rem}
+.project__blockquote .blockquote__default>p{font-size:1.368rem}
 .project__blockquote .blockquote__image>p{font-size:1.368rem}
 }@media only screen and (min-width:680px){.content-area{font-size:1.392rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.392rem}
+.project__blockquote .blockquote__default>p{font-size:1.392rem}
 .project__blockquote .blockquote__image>p{font-size:1.392rem}
 }@media only screen and (min-width:720px){.content-area{font-size:1.416rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.416rem}
+.project__blockquote .blockquote__default>p{font-size:1.416rem}
 .project__blockquote .blockquote__image>p{font-size:1.416rem}
 }@media only screen and (min-width:760px){.content-area{font-size:1.44rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.44rem}
+.project__blockquote .blockquote__default>p{font-size:1.44rem}
 .project__blockquote .blockquote__image>p{font-size:1.44rem}
 }@media(min-width:768px){.site__footer{padding-left:72px;padding-right:72px}
 .site__sidebar{padding-left:72px;padding-right:72px}
@@ -504,8 +504,7 @@ body.archive .archives__article{padding-right:20%}
 .project__text-image .content--half{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%;padding-top:1.5em;padding-left:72px;padding-bottom:1.5em}
 .project__text-image .image--half{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}
 .project__text-image--reversed .content--half{padding-left:72px}
-.project__blockquote{margin-top:72px;margin-bottom:72px}
-.project__blockquote .blockquote__defualt{padding:72px}
+.project__blockquote{margin:72px}
 .project__blockquote .blockquote__image{padding:72px;margin:72px}
 .project__gallery{margin-left:72px;margin-right:72px}
 .project__specs{padding-left:72px;padding-right:72px}
@@ -527,13 +526,14 @@ body.blog .type-post{width:auto;margin-left:36px;margin-right:36px}
 body.archive .type-post{width:auto;margin-left:36px;margin-right:36px}
 .daft-punk__content--title{font-size:6em}
 }@media only screen and (min-width:800px){.content-area{font-size:1.464rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.464rem}
+.project__blockquote .blockquote__default>p{font-size:1.464rem}
 .project__blockquote .blockquote__image>p{font-size:1.464rem}
 }@media(min-width:840px){.parallax__image{top:-100%;height:200%;opacity:0}
 .project__text{max-width:840px}
 .project__gallery .image__caption{position:absolute;top:0;right:0;bottom:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:rgba(35,32,21,0.6);text-shadow:2px 2px 4px rgba(23,20,9,0.05);padding:1.5em;opacity:0;z-index:1}
 .project__gallery .image__caption.caption--text{color:#fffefa}
 .project__gallery .image__caption.caption--zoom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(255,254,250,0.4);font-size:1.618034em}
+.page__content>p,.posts__content>p,.archives__content>p,.entry__content>p{max-width:840px}
 .page__content .gallery-caption,.posts__content .gallery-caption,.archives__content .gallery-caption,.entry__content .gallery-caption{display:none}
 .page__gallery .image__caption,.posts__gallery .image__caption,.archives__gallery .image__caption,.entry__gallery .image__caption{position:absolute;top:0;right:0;bottom:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:rgba(35,32,21,0.6);text-shadow:2px 2px 4px rgba(23,20,9,0.05);padding:1.5em;opacity:0;z-index:1}
 .page__gallery .image__caption.caption--text,.posts__gallery .image__caption.caption--text,.archives__gallery .image__caption.caption--text,.entry__gallery .image__caption.caption--text{color:#fffefa}
@@ -565,22 +565,23 @@ body.archive .archive__title a{display:inline-block;max-width:100%;overflow:hidd
 body.archive .archive__image{-webkit-box-flex:0;-ms-flex:0 0 60%;flex:0 0 60%;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05);max-width:60%;min-height:100%;margin-bottom:0}
 body.archive:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 }@media only screen and (min-width:840px){.content-area{font-size:1.488rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.488rem}
+.project__blockquote .blockquote__default>p{font-size:1.488rem}
 .project__blockquote .blockquote__image>p{font-size:1.488rem}
 }@media(min-width:840px) and (max-width:320px){.project__gallery .image__caption.caption--zoom{font-size:1rem}
 .page__gallery .image__caption.caption--zoom,.posts__gallery .image__caption.caption--zoom,.archives__gallery .image__caption.caption--zoom,.entry__gallery .image__caption.caption--zoom{font-size:1rem}
 }@media only screen and (min-width:880px){.content-area{font-size:1.512rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.512rem}
+.project__blockquote .blockquote__default>p{font-size:1.512rem}
 .project__blockquote .blockquote__image>p{font-size:1.512rem}
 }@media only screen and (min-width:920px){.content-area{font-size:1.536rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.536rem}
+.project__blockquote .blockquote__default>p{font-size:1.536rem}
 .project__blockquote .blockquote__image>p{font-size:1.536rem}
 }@media only screen and (min-width:960px){.content-area{font-size:1.56rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.56rem}
+.project__blockquote .blockquote__default>p{font-size:1.56rem}
 .project__blockquote .blockquote__image>p{font-size:1.56rem}
 }@media(min-width:960px){.site__footer--column{width:30%}
 .project__title{max-width:50vw;margin:0 36px 0 72px;padding-bottom:36px}
 .project__title::after{background-color:#fffefa}
+.project__blockquote .blockquote__default>p{padding-left:10px;border-left:10px #f2f1ee solid}
 .project__gallery{-webkit-column-count:3;-moz-column-count:3;column-count:3}
 .page__content .gallery.gallery-columns-3,.page__content .gallery.gallery-columns-4,.page__content .gallery.gallery-columns-5,.posts__content .gallery.gallery-columns-3,.posts__content .gallery.gallery-columns-4,.posts__content .gallery.gallery-columns-5,.archives__content .gallery.gallery-columns-3,.archives__content .gallery.gallery-columns-4,.archives__content .gallery.gallery-columns-5,.entry__content .gallery.gallery-columns-3,.entry__content .gallery.gallery-columns-4,.entry__content .gallery.gallery-columns-5{-webkit-column-count:3;-moz-column-count:3;column-count:3}
 .page__gallery,.posts__gallery,.archives__gallery,.entry__gallery{-webkit-column-count:3;-moz-column-count:3;column-count:3}
@@ -597,7 +598,7 @@ body.archive:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction
 .homepage__about--content{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%;padding-left:72px;padding-right:72px}
 .daft-punk__content--title{font-size:7em}
 }@media only screen and (min-width:1000px){.content-area{font-size:1.584rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.584rem}
+.project__blockquote .blockquote__default>p{font-size:1.584rem}
 .project__blockquote .blockquote__image>p{font-size:1.584rem}
 }@media(min-width:1024px){.site__footer{padding:72px 108px}
 .site__sidebar{padding-left:108px;padding-right:108px}
@@ -607,8 +608,7 @@ body.archive:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction
 .project__text{margin-left:108px;margin-right:108px}
 .project__text-image .content--half{padding-left:108px}
 .project__text-image--reversed .content--half{padding-left:108px}
-.project__blockquote{margin-top:108px;margin-bottom:108px}
-.project__blockquote .blockquote__defualt{padding:108px}
+.project__blockquote{margin:108px}
 .project__blockquote .blockquote__image{padding:108px;margin:108px}
 .project__gallery{margin-left:108px;margin-right:108px}
 .project__specs{-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-size:.6180339845em;padding-left:108px;padding-right:108px}
@@ -632,16 +632,16 @@ body.archive .archives__article{padding-right:40%}
 body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .daft-punk__content--title{font-size:8em}
 }@media only screen and (min-width:1040px){.content-area{font-size:1.608rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.608rem}
+.project__blockquote .blockquote__default>p{font-size:1.608rem}
 .project__blockquote .blockquote__image>p{font-size:1.608rem}
 }@media only screen and (min-width:1080px){.content-area{font-size:1.632rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.632rem}
+.project__blockquote .blockquote__default>p{font-size:1.632rem}
 .project__blockquote .blockquote__image>p{font-size:1.632rem}
 }@media only screen and (min-width:1120px){.content-area{font-size:1.656rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.656rem}
+.project__blockquote .blockquote__default>p{font-size:1.656rem}
 .project__blockquote .blockquote__image>p{font-size:1.656rem}
 }@media only screen and (min-width:1160px){.content-area{font-size:1.68rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.68rem}
+.project__blockquote .blockquote__default>p{font-size:1.68rem}
 .project__blockquote .blockquote__image>p{font-size:1.68rem}
 }@media(min-width:1170px){.wysiwyg a:not(.btn):hover,.wysiwyg a:not(.btn):focus{color:inherit}
 .wysiwyg a:not(.btn):hover::before,.wysiwyg a:not(.btn):focus::before{bottom:0;height:80%;width:100%;-webkit-transform:translateY(2px) scaleY(1.2);transform:translateY(2px) scaleY(1.2);-webkit-animation:inline-expand;animation:inline-expand}
@@ -677,13 +677,13 @@ body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .gallery__content{margin-left:108px;margin-bottom:108px}
 }@media(min-width:1170px) and (max-width:320px){.homepage__banner .intro__title{font-size:1rem}
 }@media only screen and (min-width:1200px){.content-area{font-size:1.704rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.704rem}
+.project__blockquote .blockquote__default>p{font-size:1.704rem}
 .project__blockquote .blockquote__image>p{font-size:1.704rem}
 }@media only screen and (min-width:1240px){.content-area{font-size:1.728rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.728rem}
+.project__blockquote .blockquote__default>p{font-size:1.728rem}
 .project__blockquote .blockquote__image>p{font-size:1.728rem}
 }@media only screen and (min-width:1280px){.content-area{font-size:1.752rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.752rem}
+.project__blockquote .blockquote__default>p{font-size:1.752rem}
 .project__blockquote .blockquote__image>p{font-size:1.752rem}
 }@media(min-width:1280px){.project__title{max-width:75vw}
 .homepage__work{padding-top:216px;padding-bottom:216px}
@@ -692,10 +692,10 @@ body.blog .type-post .post__title{font-size:2.6180340252em;letter-spacing:2px}
 body.archive .archive__title{font-size:2.6180340252em;letter-spacing:2px}
 .daft-punk__content--title{font-size:9em}
 }@media only screen and (min-width:1320px){.content-area{font-size:1.776rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.776rem}
+.project__blockquote .blockquote__default>p{font-size:1.776rem}
 .project__blockquote .blockquote__image>p{font-size:1.776rem}
 }@media only screen and (min-width:1360px){.content-area{font-size:1.8rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.8rem}
+.project__blockquote .blockquote__default>p{font-size:1.8rem}
 .project__blockquote .blockquote__image>p{font-size:1.8rem}
 }@media(min-width:1440px){.site__footer{padding-left:144px;padding-right:144px}
 .site__sidebar{padding-left:144px;padding-right:144px}
@@ -707,8 +707,9 @@ body.archive .archive__title{font-size:2.6180340252em;letter-spacing:2px}
 .project__text-image .content--half{padding-left:144px}
 .project__text-image--reversed .content--half{padding-left:144px}
 .project__image{margin-bottom:3em}
-.project__blockquote{margin-top:144px;margin-bottom:144px}
-.project__blockquote .blockquote__defualt{padding:144px}
+.project__blockquote{margin:144px}
+.project__blockquote .blockquote__default{padding-left:72px}
+.project__blockquote .blockquote__default>p{padding-left:36px}
 .project__blockquote .blockquote__image{padding:144px;margin:144px}
 .project__gallery{-webkit-column-count:4;-moz-column-count:4;column-count:4;margin-left:144px;margin-right:144px}
 .project__specs{padding-left:144px;padding-right:144px}
@@ -758,7 +759,7 @@ body.archive .archives__article{padding-right:50%}
 }@media(max-width:599px) and (max-width:320px){.main-navigation .menu-item{font-size:1rem}
 }@media(max-width:320px){.content-area{font-size:1.2rem}
 .site__footer--column ul.icons li{font-size:1rem}
-.project__blockquote .blockquote__defualt>p{font-size:1.2rem}
+.project__blockquote .blockquote__default>p{font-size:1.2rem}
 .project__blockquote .blockquote__image>p{font-size:1.2rem}
 .site__contact .wysiwyg{font-size:1rem}
 .homepage__banner .intro__title{font-size:1rem}
