@@ -76,11 +76,22 @@
 	&.project__banner--contact,
 	&.posts__banner--contact {
 
+		.svg-icon {
+			margin-right: $small-spacing;
+			
+			path {
+				fill: $color__white;
+				tranistion: fill $speed;
+			}
+		}
+
 		&:hover,
 		&:focus {
 			.svg-icon {
-				fill: $color__white;
 				transform: translateX(-#{$small-spacing});
+				path {
+					fill: $color__yellow;
+				}
 			}
 		}
 	}
