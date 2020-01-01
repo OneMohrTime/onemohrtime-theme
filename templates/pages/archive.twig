@@ -3,22 +3,16 @@
 {% block content %}
 
 	<header class="archives__header">
-		{% if categories is defined and categories is not empty %}
-			<ul class="posts__categories meta">
-				{% for cat in categories %}
-					{% if cat.slug != 'shit' and cat.slug != 'uncategorized' %}
-						<li class="category">
-							<a href="{{ cat.link }}" class="category__link btn btn--sm">{{ cat.name }}</a>
-						</li>
-					{% endif %}
-				{% endfor %}
-			</ul>
+        {% if term_page.description is defined and term_page.description is not empty %}
+			<p class="meta">{{ term_page.description }}</p>
 		{% endif %}
 		{% include 'components/title.twig' %}
 	</header>
 
 	<section class="archives">
-		{% for post in posts %}
+    {% if term_page.count > 0 %}
+        {% for post in posts %}
+
 		<article {{ function('post_class') }}>
 
 			<figure class="archive__image parallax">
@@ -33,23 +27,20 @@
 			</figure>
 
 			<div class="archive__content wysiwyg get-faded">
-
 				{% include "components/entry-meta.twig" %}
-
 				<h2 class="archive__title">
 					<a href="{{ post.link }}">{{ post.title }}</a>
 				</h2>
-
-				<p>
-					{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a>
-				</p>
-
+				<p>{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a></p>
 			</div>
-
 			<a href="{{ post.link }}" class="archive__link"></a>
 
 		</article>
+
 		{% endfor %}
+    {% else %}
+        <p>Sorry, there aren&rsquo;t any posts here.</p>
+    {% endif %}
 	</section>
 
 {% endblock %}

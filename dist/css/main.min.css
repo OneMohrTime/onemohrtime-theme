@@ -396,6 +396,17 @@ body.blog .type-post .post__link{display:none}
 body.blog .post-format{position:relative;margin-left:1.5em}
 body.blog .post-format .svg-icon{position:absolute;top:0;left:0;opacity:.1;-webkit-transform:translate3d(-0.75em,-25%,0);transform:translate3d(-0.75em,-25%,0);z-index:-1;font-size:1.5em;line-height:1.5em;height:1.5em;width:1.5em}
 body.archive{position:relative;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/concrete_wall_2.png");background-color:#fffefa;margin-bottom:2em}
+body.archive .archives__article{width:100%;margin:1.5em 0 72px}
+body.archive .type-post{position:relative;font-size:1em;height:auto;width:100%;min-height:420px;max-height:100vh;margin-bottom:1.5em;overflow:hidden}
+body.archive .archive__content{position:relative;margin-bottom:1.5em}
+body.archive .archive__content .meta{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row wrap;flex-flow:row wrap;color:#aaa9a5;font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;text-align:center;margin-bottom:.75em}
+body.archive .archive__content .meta .updated,body.archive .archive__content .meta .author,body.archive .archive__content .meta a:not(.btn){position:absolute !important;border:0;height:1px;width:1px;margin:-1px;padding:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);overflow:hidden;word-wrap:normal !important}
+body.archive .archive__title{position:relative;font-size:1.618034em}
+body.archive .archive__title a::before{display:none}
+body.archive .archive__image{position:relative;background-color:#f2f1ee;color:#fffefa;height:auto;width:100%;margin-bottom:1.5em;overflow:hidden}
+body.archive .archive__link{display:none}
+body.archive .post-format{position:relative;margin-left:1.5em}
+body.archive .post-format .svg-icon{position:absolute;top:0;left:0;opacity:.1;-webkit-transform:translate3d(-0.75em,-25%,0);transform:translate3d(-0.75em,-25%,0);z-index:-1;font-size:1.5em;line-height:1.5em;height:1.5em;width:1.5em}
 .daft-punk{position:relative;background:transparent url("../images/daft-punk-404.gif") repeat center center fixed;background-size:cover;text-align:center;height:100vh;width:100vw;padding-top:36px}
 .daft-punk__content{text-shadow:2px 2px 4px rgba(23,20,9,0.05);height:100vh;width:100vw}
 .daft-punk__content--title{font-family:"Abril Fatface","Garamond","Baskerville","Baskerville Old Face","Hoefler Text","Times New Roman",serif;font-size:5em;text-transform:lowercase;position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em;margin-bottom:18px;padding-bottom:18px}
@@ -460,6 +471,7 @@ body.archive{position:relative;background:url("https://raw.github.com/Magnus-G/t
 .gallery__dribbble--title::after{width:100px}
 .gallery__dribbble--content{padding-right:20%}
 body.blog .posts__article{padding-right:20%}
+body.archive .archives__article{padding-right:20%}
 .daft-punk__content--title::after{width:100px}
 }@media only screen and (min-width:600px){.content-area{font-size:1.344rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.344rem}
@@ -509,6 +521,7 @@ body.blog .posts__article{padding-right:20%}
 .gallery__filter .arrays .array__filter::before{top:75%;left:50%;border-radius:2px;height:8px;width:8px;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}
 .gallery__grid{margin-top:0;-webkit-transform:translateY(-72px);transform:translateY(-72px)}
 body.blog .type-post{width:auto;margin-left:36px;margin-right:36px}
+body.archive .type-post{width:auto;margin-left:36px;margin-right:36px}
 .daft-punk__content--title{font-size:6em}
 }@media only screen and (min-width:800px){.content-area{font-size:1.464rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.464rem}
@@ -541,6 +554,13 @@ body.blog .type-post .post__title{margin-bottom:1.5em}
 body.blog .type-post .post__title a{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
 body.blog .type-post .post__image{-webkit-box-flex:0;-ms-flex:0 0 60%;flex:0 0 60%;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05);max-width:60%;min-height:100%;margin-bottom:0}
 body.blog .type-post:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+body.archive .archives__article{padding-right:30%}
+body.archive .archive__content{-webkit-box-flex:0;-ms-flex:0 0 calc(40% - 36px);flex:0 0 calc(40% - 36px);max-width:calc(40% - 36px);font-size:.6180339845em;margin-bottom:0}
+body.archive .archive__content .meta{text-align:left}
+body.archive .archive__title{margin-bottom:1.5em}
+body.archive .archive__title a{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+body.archive .archive__image{-webkit-box-flex:0;-ms-flex:0 0 60%;flex:0 0 60%;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05);max-width:60%;min-height:100%;margin-bottom:0}
+body.archive:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 }@media only screen and (min-width:840px){.content-area{font-size:1.488rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.488rem}
 .project__blockquote .blockquote__image>p{font-size:1.488rem}
@@ -605,6 +625,8 @@ body.blog .type-post:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-d
 .gallery__dribbble--content{padding-right:40%}
 body.blog .posts__article{padding-right:40%}
 body.blog .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
+body.archive .archives__article{padding-right:40%}
+body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .daft-punk__content--title{font-size:8em}
 }@media only screen and (min-width:1040px){.content-area{font-size:1.608rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.608rem}
@@ -664,6 +686,7 @@ body.blog .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .homepage__work{padding-top:216px;padding-bottom:216px}
 .homepage__about--content{padding-left:108px;padding-right:108px}
 body.blog .type-post .post__title{font-size:2.6180340252em;letter-spacing:2px}
+body.archive .archive__title{font-size:2.6180340252em;letter-spacing:2px}
 .daft-punk__content--title{font-size:9em}
 }@media only screen and (min-width:1320px){.content-area{font-size:1.776rem}
 .project__blockquote .blockquote__defualt>p{font-size:1.776rem}
@@ -701,6 +724,7 @@ body.blog .type-post .post__title{font-size:2.6180340252em;letter-spacing:2px}
 .gallery__project{margin-left:108px;margin-right:108px}
 .gallery__content{margin-left:144px;margin-bottom:144px}
 body.blog .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px}
+body.archive .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px}
 .daft-punk__content--title{font-size:10em}
 }@media(min-width:1600px){.site{max-width:1440px;border-left:1px #d9d8d5 solid;border-right:1px #d9d8d5 solid;margin-left:auto;margin-right:auto}
 .homepage__banner .intro__title{font-size:2.6180340252em;letter-spacing:2px}
@@ -709,6 +733,7 @@ body.blog .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px}
 .dribbble__title{font-size:2.6180340252em;letter-spacing:2px}
 .gallery__dribbble--content{padding-right:50%}
 body.blog .posts__article{padding-right:50%}
+body.archive .archives__article{padding-right:50%}
 }@media(min-width:1600px) and (max-width:320px){.homepage__banner .intro__description{font-size:1rem}
 }@media(min-width:1920px){.site{max-width:1600px}
 .project__gallery{-webkit-column-count:5;-moz-column-count:5;column-count:5}
@@ -737,6 +762,7 @@ body.blog .posts__article{padding-right:50%}
 .homepage__portfolio .feature__content--title{font-size:1rem}
 .dribbble__title{font-size:1rem}
 body.blog .type-post .post__title{font-size:1rem}
+body.archive .archive__title{font-size:1rem}
 }@-webkit-keyframes dancemonkey{0%{left:0;right:25%}
 50%{left:25%;right:0}
 100%{left:0;right:25%}

@@ -36,11 +36,13 @@ body.blog {
 		max-height: 100vh;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
+		
 		@include media(">=screen768") {
 			width: auto;
 			margin-left: $gutter;
 			margin-right: $gutter;
 		}
+		
 		@include media(">=screen840") {
 			@supports (display: flex) {
 				display: flex;
@@ -48,11 +50,13 @@ body.blog {
 				justify-content: space-between;
 			}
 		}
+		
 		@include media(">=screen1024") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 			margin-bottom: $gutter * 2;
 		}
+		
 		@include media(">=screen1440") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;

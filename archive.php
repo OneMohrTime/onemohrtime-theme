@@ -35,17 +35,7 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-if ( is_category() ) {
-	$args = array(
-		'post_type'      => 'post',
-		'posts_per_page' => -1,
-		'orderby'        => array(
-			'date' => 'DESC'
-		)
-	);
-	$context['posts'] = Timber::get_posts( $args );
-} else {
-	$context['posts'] = new Timber\PostQuery();
-}
+$context['term_page'] = new Timber\Term();
+$context['posts']     = new Timber\PostQuery();
 
 Timber::render( $templates, $context );
