@@ -96,17 +96,17 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		 /* Site info */
-		 $context['site'] = $this;
+		/* Site info */
+		$context['site'] = $this;
 
 		/* Menu */
-        $context['menu'] = new TimberMenu('Primary Navigation');
+        $context['menu']   = new TimberMenu('Primary Navigation');
         $context['footer'] = new TimberMenu('Footer Projects');
 
-        /* Site info */
+        /* Sidebar */
         // $context['display_sidebar'] = Setup\display_sidebar();
 		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
-		
+
 		return $context;
 	}
 
@@ -157,7 +157,7 @@ class StarterSite extends Timber\Site {
 
 		add_theme_support( 'menus' );
 	}
-	
+
 	/**
 	 * Theme assets
 	 */
@@ -166,7 +166,7 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_style( 'screen', get_template_directory_uri() . '/dist/css/main.css', array(), null, 'screen' );
 		// Google Webfonts
 		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null );
-		
+
 		// Upgrade jQuery
 		wp_deregister_script( 'jquery' );
 		wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
@@ -206,7 +206,7 @@ class StarterSite extends Timber\Site {
 			'before_title'  => '<h3>',
 			'after_title'   => '</h3>'
 		]);
-		
+
 		register_sidebar([
 			'name'          => __('Footer', 'onemohrtime'),
 			'id'            => 'sidebar-footer',
@@ -230,7 +230,7 @@ class StarterSite extends Timber\Site {
 			// is_front_page(),
 			is_singular('design'),
 		]);
-		
+
 		return apply_filters('sage/display_sidebar', $display);
 	}
 
@@ -254,9 +254,9 @@ class StarterSite extends Timber\Site {
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 		remove_action( 'wp_print_styles', 'print_emoji_styles' );
-		remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+		remove_action( 'admin_print_styles', 'print_emoji_styles' );
 		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 		// add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 		// add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
@@ -264,8 +264,8 @@ class StarterSite extends Timber\Site {
 
 	// /**
 	//  * Filter function used to remove the tinymce emoji plugin.
-	//  * 
-	//  * @param array $plugins 
+	//  *
+	//  * @param array $plugins
 	//  * @return array Difference betwen the two arrays
 	//  */
 	// public function disable_emojis_tinymce( $plugins ) {
@@ -287,10 +287,10 @@ class StarterSite extends Timber\Site {
 	// 	if ( 'dns-prefetch' == $relation_type ) {
 	// 		/** This filter is documented in wp-includes/formatting.php */
 	// 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
-			
+
 	// 		$urls = array_diff( $urls, array( $emoji_svg_url ) );
 	// 	}
-		
+
 	// 	return $urls;
 	// }
 
