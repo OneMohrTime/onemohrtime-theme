@@ -193,7 +193,7 @@ class StarterSite extends Timber\Site {
 		// Swiper
 		// wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
 		// Fancybox 3
-		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/jquery.fancybox.js', array('jquery'), '3.5.7', true );
+		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/dist/js/lib/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );
 		// Main script file
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
 	}
