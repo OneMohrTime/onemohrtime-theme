@@ -1,20 +1,25 @@
 {% extends 'base.twig' %}
+{% set displaySidebar = true %}
 
 {% block content %}
 	<article {{ function('post_class') }}>
-		
+
 		<header class="entry__header">
 			{% include "components/entry-meta.twig" %}
 			{% include "components/title.twig" %}
 		</header>
-		
+
 		<div class="entry__content get-faded">
 			{{ post.content }}
 		</div>
-		
+
 		<footer class="entry__foooter get-faded">
 			{{ wp_link_pages }}
 		</footer>
-		
+
 	</article>
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
 {% endblock %}

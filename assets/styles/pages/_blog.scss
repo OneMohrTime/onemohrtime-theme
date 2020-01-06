@@ -6,7 +6,7 @@ body.blog {
 	position: relative;
 	@include texture($color__white, 54, 0);
 	margin-bottom: 2em;
-	
+
 	.posts {
 		@supports (display: grid) {
 			grid-column: span 4;
@@ -14,7 +14,7 @@ body.blog {
 			margin-left: $gutter;
 			margin-right: $gutter;
 		}
-		
+
 		&__article {
 			// .posts__article
 			width: 100%;
@@ -27,7 +27,7 @@ body.blog {
 			@include media(">=screen1600") { padding-right: 50%; }
 		}
 	}
-	
+
 	.type-post {
 		position: relative;
 		@include body-copy();
@@ -36,13 +36,13 @@ body.blog {
 		max-height: 100vh;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
-		
+
 		@include media(">=screen768") {
 			width: auto;
 			margin-left: $gutter;
 			margin-right: $gutter;
 		}
-		
+
 		@include media(">=screen840") {
 			@supports (display: flex) {
 				display: flex;
@@ -50,64 +50,75 @@ body.blog {
 				justify-content: space-between;
 			}
 		}
-		
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 			margin-bottom: $gutter * 2;
 		}
-		
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 			margin-bottom: $gutter * 3;
 		}
-		
+
 		.post {
-			
+
 			&__content {
 				// .post__content
 				position: relative;
 				margin-bottom: $base-spacing;
+
 				@include media(">=screen840") {
 					flex: 0 0 calc(40% - #{$gutter});
 					max-width: calc(40% - #{$gutter});
 					@include small-font-size();
 					margin-bottom: 0;
-					
+
 					@supports (display: flex) {
 						display: flex;
 						flex-direction: column;
 						justify-content: flex-end;
 					}
 				}
-				
+
 				.meta {
 					display: flex;
 					flex-flow: row wrap;
 					//align-items: center;
-					color: $color__gray--light;
+					margin-bottom: $small-spacing;
+					transition: color $speed;
 					@include caption();
 					text-align: center;
-					margin-bottom: $small-spacing;
-					
-//					& > *:not(.fa) {
-//						margin-right: $small-spacing;
-//						margin-bottom: $small-spacing;
-//					}
-					
+					color: $color__gray--light;
+
 					.updated,
 					.author,
 					a:not(.btn) {
 						@include visually-hidden();
 					}
-					
+
 					@include media(">=screen840") {
 						text-align: left;
 					}
 				}
+
+				&:hover {
+					.meta {
+						color: $color__black--light;
+					}
+					.post-format {
+						.svg-icon {
+							opacity: 1;
+							path {
+								fill: $color__yellow;
+							}
+						}
+					}
+				}
 			}
-			
+
 			&__title {
 				// .post__title
 				position: relative;
@@ -132,7 +143,7 @@ body.blog {
 					}
 				}
 			}
-			
+
 			&__image {
 				// .post__image
 				position: relative;
@@ -152,13 +163,13 @@ body.blog {
 					// .post__image__image
 				}
 			}
-			
+
 			&__link {
 				// .post__link
 				display: none;
 				@include media(">=screen840") {}
 			}
-			
+
 		}
 
 		// Inverse odd/even layout

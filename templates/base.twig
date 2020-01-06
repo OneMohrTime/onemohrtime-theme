@@ -10,19 +10,19 @@
 		<div id="page" class="site" role="document">
 
 			<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-			
+
 			<header id="masthead" class="site__header" role="banner">
 				{% block header %}
 					{% include 'partials/header.twig' %}
 				{% endblock %}
 			</header>
 
-			<main id="main" class="site__main content-area" role="main">
+			<main id="main" class="site__main content-area{% if displaySidebar == true %} :hasSidebar{% endif %}" role="main">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
 			</main>
-		
+
 			{% include 'partials/sidebar.twig' %}
 
 			{% include 'components/contact.twig' %}

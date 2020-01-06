@@ -1,10 +1,11 @@
 {% extends 'templates/base.twig' %}
+{% set displaySidebar = true %}
 
 {% block content %}
-	
+
     {% for post in posts %}
 	<figure class="gallery__banner">
-		
+
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="{{ post.thumbnail.alt }}"
@@ -13,16 +14,16 @@
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
 			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px"/>
-		
+
 		<figcaption class="gallery__banner--title">
 			<h2>{{ post.title }}</h2>
 		</figcaption>
-		
+
 		<a href="#contact" class="gallery__banner--contact btn">{% include '/assets/images/icons/arrow-left.svg' %} Contact</a>
-		
+
 	</figure>
     {% endfor %}
-	
+
 	<div class="gallery__filter">
 		<form class="arrays get-faded" id="featured_project_filter">
 			<ul class="array array__roles" role="group" aria-labelledby="array_1">
@@ -59,29 +60,29 @@
 			</ul>
 		</form>
 	</div>
-	
+
 	{#{% if gallery %}#}
 	{% if projects %}
 	<section id="gallery" class="gallery__grid">
-		
+
 		{% for project in projects %}
-		
+
 		<div id="proj_id_{{ project.id }}" class="gallery__project parallax mix {{ project.post_class }}">
-			
+
 			<div class="gallery__project--content get-faded">
-				
+
 				{% if project.get_field('project_header') %}
 				<div class="gallery__project--excerpt">
 					{{ project.get_field('project_header').subtitle }}
 				</div>
 				{% endif %}
-				
+
 				<h2 class="gallery__project--header">
 					<a href="{{ project.link }}">{{ project.title }}</a>
 				</h2>
 				<a href="{{ project.link }}" class="gallery__project--link">See Project</a>
 			</div>
-			
+
 			<img src="{{ project.thumbnail.src }}"
 				 width="{{ project.thumbnail.width }}" height="{{ project.thumbnail.height }}"
 				 alt="{{ project.thumbnail.alt }}"
@@ -90,17 +91,21 @@
 						 {{ project.thumbnail.src('large') }} 1000w,
 						 {{ project.thumbnail.src('full') }} 1500w"
 				 sizes="(max-width: {{ project.thumbnail.width }}px) 100vw, {{ project.thumbnail.width }}px" />
-			
+
 		</div>
-		
+
 		{% endfor %}
 	</section>
 	{% endif %}
-	
+
 	{% for post in posts %}
 	<article class="gallery__content get-faded wysiwyg">
 		{{ post.content }}
 	</article>
 	{% endfor %}
-	
+
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
 {% endblock %}

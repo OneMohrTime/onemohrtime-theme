@@ -26,7 +26,7 @@
 				padding: $gutter / 3;
 				overflow: hidden;
 				background-color: $color__white--dark;
-				
+
 				@include media(">=screen1170") {
 					&:nth-child(1n) {
 						animation: cardHover 5s infinite alternate;
@@ -126,11 +126,11 @@
 				transform: perspective(3000px) translate3d( -#{$gutter * 2}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
 				transform-origin: 50% 100%;
 			}
-			
+
 			@include media(">=screen1920") {
 				transform: perspective(3000px) translate3d( -#{$gutter * 6}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
 			}
-			
+
 			@include media(">=screen2560") {
 				transform: perspective(3000px) translate3d( -#{$gutter * 8}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
 			}
@@ -162,7 +162,7 @@
 			@include media(">=screen1024") {
 				padding-right: $gutter * 3;
 			}
-			
+
 			@include media(">=screen1170") {
 				width: auto;
 				max-width: 67%;
@@ -175,11 +175,11 @@
 				@include media(">=screen840") {
 					@include body-copy();
 				}
-				
+
 				@include media(">=screen1170") {
 					@include paragraph();
 				}
-				
+
 				@include media(">=screen1600") {
 					@include subtitle();
 				}
@@ -215,7 +215,7 @@
 			&__description {
 				// .intro__description
 				@include body-copy();
-				
+
 				@include media(">=screen840") {
 					@include small-font-size();
 				}
@@ -265,6 +265,13 @@
 			padding: $gutter * 4 $gutter * 2;
 		}
 
+		@include media(">=screen840") {
+			// cap line lengths
+			& > p {
+				max-width: 840px;
+			}
+		}
+
 		@include media(">=screen1024") {
 			padding: $gutter * 5 $gutter * 3;
 		}
@@ -282,6 +289,18 @@
 		@include media(">=screen1920") {
 			padding-top: $gutter * 8;
 			padding-bottom: $gutter * 8;
+		}
+
+		.\:hasSidebar & {
+			@include media(">=screen768") {
+				padding-bottom: $gutter;
+			}
+			@include media(">=screen1280") {
+				padding-bottom: $gutter * 3;
+			}
+			@include media(">=screen1920") {
+				padding-bottom: $gutter * 4;
+			}
 		}
 
 		@supports (display: grid) {
@@ -520,7 +539,8 @@ body.home {
 	}
 }
 
-.dribbble__title {
+.dribbble__title,
+.homepage__work--title {
 	display: inline-block;
 	margin-bottom: $base-spacing;
 	@include paragraph();
@@ -530,7 +550,7 @@ body.home {
 	@include media(">=screen840") {
 		@include body-copy();
 	}
-	
+
 	@include media(">=screen1170") {
 		position: relative;
 		padding: $gutter / 3 $gutter $gutter / 3 0;
@@ -552,7 +572,7 @@ body.home {
 			@include texture($color__black, 54, 1);
 		}
 	}
-	
+
 	@include media(">=screen1600") {
 		@include subtitle();
 	}

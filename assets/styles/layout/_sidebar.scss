@@ -8,22 +8,23 @@
 	padding-bottom: $base-spacing;
 	padding-left: $gutter;
 	padding-right: $gutter;
-	
+	@include texture($color__white--dark, 54, 0);
+
 	@include media(">=screen768") {
 		padding-left: $gutter * 2;
 		padding-right: $gutter * 2;
 	}
-	
+
 	@include media(">=screen1024") {
 		padding-left: $gutter * 3;
 		padding-right: $gutter * 3;
 	}
-	
+
 	@include media(">=screen1440") {
 		padding-left: $gutter * 4;
 		padding-right: $gutter * 4;
 	}
-	
+
 	@supports (display: grid) {
 		grid-column: span 4;
 		width: auto;
@@ -32,10 +33,10 @@
 
 .widget {
 	margin-bottom: $gutter;
-	
+
 	&__instagram {
 		// .widget__instagram
-		
+
 		&--title {
 			// .widget__instagram--title
 			width: 100%;
@@ -43,13 +44,15 @@
 			line-height: $base-line-height;
 			margin-bottom: $gutter;
 			@include media(">=screen768") {
-				margin-bottom: $gutter * 2;
+				margin-top: $gutter;
+				margin-bottom: $gutter;
 			}
 			@include media(">=screen1440") {
-				margin-bottom: $gutter * 3;
+				margin-top: $gutter * 1.5;
+				margin-bottom: $gutter * 1.5;
 			}
 		}
-		
+
 		@supports (display: grid) {
 			&--title {
 				// .widget__instagram--title
@@ -62,26 +65,26 @@
 
 @supports (display: flex) {
 	#sb_instagram {
-		
+
 		#sbi_images {
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-between;
 			align-items: flex-start;
 		}
-		
+
 		// 4 column layout on smash balloon
 		&.sbi_col_4 {
 			#sbi_images {
 				.sbi_item {
 					width: calc(25% - #{$small-spacing});
 					margin-bottom: $small-spacing !important;
-					
+
 					@media (max-width: 640px) {
 						margin-bottom: $base-spacing !important;
 						width: calc(50% - #{$small-spacing});
 					}
-					
+
 //					@media (max-width: 480px) {
 //						width: 100%;
 //					}

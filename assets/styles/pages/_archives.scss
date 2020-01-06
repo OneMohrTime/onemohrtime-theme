@@ -14,7 +14,7 @@ body.archive {
 			margin-left: $gutter;
 			margin-right: $gutter;
 		}
-		
+
 		&__article {
 			// .archives__article
 			width: 100%;
@@ -27,7 +27,7 @@ body.archive {
 			@include media(">=screen1600") { padding-right: 50%; }
 		}
     }
-    
+
     .type-post {
 		position: relative;
 		@include body-copy();
@@ -36,13 +36,13 @@ body.archive {
 		max-height: 100vh;
 		margin-bottom: $base-spacing;
         overflow: hidden;
-        
+
 		@include media(">=screen768") {
 			width: auto;
 			margin-left: $gutter;
 			margin-right: $gutter;
         }
-        
+
 		@include media(">=screen840") {
 			@supports (display: flex) {
 				display: flex;
@@ -50,13 +50,13 @@ body.archive {
 				justify-content: space-between;
 			}
         }
-        
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 			margin-bottom: $gutter * 2;
         }
-        
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
@@ -65,24 +65,25 @@ body.archive {
     }
 
     .archive {
-			
+
         &__content {
-            // .post__content
+            // .archive__content
             position: relative;
-            margin-bottom: $base-spacing;
+			margin-bottom: $base-spacing;
+
             @include media(">=screen840") {
                 flex: 0 0 calc(40% - #{$gutter});
                 max-width: calc(40% - #{$gutter});
                 @include small-font-size();
                 margin-bottom: 0;
-                
+
                 @supports (display: flex) {
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-end;
                 }
             }
-            
+
             .meta {
                 display: flex;
                 flex-flow: row wrap;
@@ -90,25 +91,34 @@ body.archive {
                 color: $color__gray--light;
                 @include caption();
                 text-align: center;
-                margin-bottom: $small-spacing;
-                
-//					& > *:not(.fa) {
-//						margin-right: $small-spacing;
-//						margin-bottom: $small-spacing;
-//					}
-                
+				margin-bottom: $small-spacing;
+
                 .updated,
                 .author,
                 a:not(.btn) {
                     @include visually-hidden();
                 }
-                
+
                 @include media(">=screen840") {
                     text-align: left;
                 }
-            }
+			}
+
+			&:hover {
+				.meta {
+					color: $color__black--light;
+				}
+				.post-format {
+					.svg-icon {
+						opacity: 1;
+						path {
+							fill: $color__yellow;
+						}
+					}
+				}
+			}
         }
-        
+
         &__title {
             // .post__title
             position: relative;
@@ -133,7 +143,7 @@ body.archive {
                 }
             }
         }
-        
+
         &__image {
             // .post__image
             position: relative;
@@ -153,13 +163,13 @@ body.archive {
                 // .post__image__image
             }
         }
-        
+
         &__link {
             // .post__link
             display: none;
             @include media(">=screen840") {}
         }
-        
+
     }
 
     // Inverse odd/even layout

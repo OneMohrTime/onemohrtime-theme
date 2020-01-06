@@ -1,23 +1,23 @@
-{% if display_sidebar %}
+{% if displaySidebar is defined and displaySidebar == true %}
 <aside class="site__sidebar">
-	
+
 	<div class="widget widget__instagram">
-		
+
 		<h3 class="widget__instagram--title wysiwyg">{% include '/assets/images/icons/logo-instagram.svg' %} Instagram : <span><a href="//instagram.com/onemohrtimedesign" target="_blank">@onemohrtimedesign</a></span></h3>
-		
+
 		{% filter shortcodes %}
 			[instagram-feed]
 		{% endfilter %}
-		
+
 	</div>
-	
+
 	{{ sidebar }}
-	
+
 	{% if dynamic_sidebar %}
 		{% block sidebar %}
 			{{ dynamic_sidebar }}
 		{% endblock %}
 	{% endif %}
-	
+
 </aside>
 {% endif %}
