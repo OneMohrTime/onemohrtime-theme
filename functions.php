@@ -162,6 +162,8 @@ class StarterSite extends Timber\Site {
 	 * Theme assets
 	 */
 	public function loadScripts() {
+		// Fancybox 3
+		wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/dist/css/jquery.fancybox.min.css', array(), null, 'screen' );
 		// Main "screen" stylesheet
 		wp_enqueue_style( 'screen', get_template_directory_uri() . '/dist/css/main.css', array(), null, 'screen' );
 		// Google Webfonts
@@ -189,7 +191,9 @@ class StarterSite extends Timber\Site {
 		// GSAP jQuery plugin
 		wp_enqueue_script( 'gsap-jquery', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.gsap.min.js', array('tweenmax'), '0.1.12', true );
 		// Swiper
-		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
+		// wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
+		// Fancybox 3
+		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/jquery.fancybox.js', array('jquery'), '3.5.7', true );
 		// Main script file
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
 	}
