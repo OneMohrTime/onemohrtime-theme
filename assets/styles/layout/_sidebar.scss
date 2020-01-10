@@ -40,13 +40,16 @@
 		&--title {
 			// .widget__instagram--title
 			width: 100%;
+			margin-bottom: $gutter;
 			@include label();
 			line-height: $base-line-height;
-			margin-bottom: $gutter;
+			color: $color__black--light;
+
 			@include media(">=screen768") {
 				margin-top: $gutter;
 				margin-bottom: $gutter;
 			}
+
 			@include media(">=screen1440") {
 				margin-top: $gutter * 1.5;
 				margin-bottom: $gutter * 1.5;
