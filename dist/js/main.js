@@ -8,8 +8,7 @@ jQuery(function ($) {
   var doc = document.documentElement;
   doc.className = doc.className.replace('no-js', 'has-js');
   doc.setAttribute('data-useragent', navigator.userAgent);
-  doc.setAttribute('data-platform', navigator.platform); //
-  ///////////////
+  doc.setAttribute('data-platform', navigator.platform); ///////////////
   // FUNCTIONS //
   ///////////////
   // Change MENU to EXIT
@@ -35,11 +34,11 @@ jQuery(function ($) {
   // START JQUERY //
   //////////////////
   // Multilevel links
-  //				$('.multilevel-link').on('click touchstart', function() {
-  //					$(this).next('ul').animate({
-  //						width : 'toggle'
-  //					}, 200);
-  //				});
+  // $('.multilevel-link').on('click touchstart', function() {
+  // 	$(this).next('ul').animate({
+  // 		width : 'toggle'
+  // 	}, 200);
+  // });
   // find wordpress galleries
 
 
@@ -293,7 +292,7 @@ jQuery(function ($) {
   //						.to($content, 1, {
   //							width : '200%'
   //						})
-  //					
+  //
   //					var expandContentScene = new ScrollMagic.Scene({
   //						triggerElement : $content,
   //						triggerHook    : 1,
@@ -327,8 +326,17 @@ jQuery(function ($) {
 
 
   var titleTimeline = new TimelineMax();
+  titleTimeline.staggerFromTo('.line', 1, {
+    width: 0
+  }, {
+    x: -200,
+    width: '100%',
+    opacity: 0
+  }, 0.15);
   titleTimeline.staggerTo('.line', 1, {
-    width: 100
+    x: 0,
+    width: 100,
+    opacity: 1
   }); // Dribbble galleries
   // Set the Access Token
 

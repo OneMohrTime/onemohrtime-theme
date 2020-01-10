@@ -138,9 +138,8 @@
 
 		.intro {
 			@include position(absolute, 0 null null 0);
-			color: fade-out($color__white, 0.05);
+			color: $color__black--light;
 			text-align: left;
-			@include text-shadow();
 			padding: $gutter $gutter 100px;
 			margin-bottom: $base-spacing;
 
@@ -243,9 +242,9 @@
 			}
 
 			.line {
-				background-color: fade-out($color__white, 0.05);
-				@include size(0, 4px);
-				margin-bottom: 0.5em;
+				background-color: $color__black--light;
+				@include size(0, 10px);
+				margin-bottom: 1em;
 			}
 		}
 	}
@@ -346,16 +345,19 @@
 			margin: 0 $gutter / 2 $gutter;
 			padding: $base-spacing;
 			transition: $speed;
+
 			@include media(">=screen540") {
 				flex: 0 0 calc(50% - #{$gutter});
 				max-width: calc(50% - #{$gutter});
 				margin-left: $gutter / 2;
 				margin-right: $gutter / 2;
 			}
+
 			@include media(">=screen840") {
 				flex-basis: calc(33.33% - #{$gutter});
 				max-width: calc(33.33% - #{$gutter});
 			}
+
 			@include media(">=screen1440") {
 				padding: $base-spacing * 2;
 			}
@@ -375,6 +377,9 @@
 				}
 				.feature__read-more {
 					border-color: $color__white;
+				}
+				.wysiwyg {
+					transform: scaleY(0);
 				}
 			}
 
@@ -400,6 +405,10 @@
 
 				.wysiwyg {
 					margin-bottom: $small-spacing;
+
+					@include media(">=screen1170") {
+						transform: scaleY(1);
+					}
 				}
 			}
 
@@ -420,7 +429,7 @@
 
 			&__read-more {
 				// feature__read-more
-				border-top: 2px $color__yellow solid;
+				border-top: 4px $color__yellow solid;
 				font-weight: 400;
 				text-align: right;
 				margin-top: auto;
@@ -560,7 +569,7 @@ body.home {
 		border-bottom-right-radius: 2em;
 		@include texture($color__black, 54, 1);
 		color: fade-out($color__white, 0.05);
-		@include box-shadow;
+		@include box-shadow();
 
 		&::before {
 			content: "";

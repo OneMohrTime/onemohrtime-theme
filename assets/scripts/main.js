@@ -2,14 +2,13 @@
  * Scripts / Main
  * ======================================================================== */
 
-jQuery(function( $ ) {
+jQuery( function( $ ) {
 	// Declare javascript, basically
 	var doc = document.documentElement;
 
 	doc.className = doc.className.replace('no-js', 'has-js');
 	doc.setAttribute('data-useragent', navigator.userAgent);
 	doc.setAttribute('data-platform', navigator.platform );
-	//
 
 	///////////////
 	// FUNCTIONS //
@@ -42,11 +41,11 @@ jQuery(function( $ ) {
 	//////////////////
 
 	// Multilevel links
-//				$('.multilevel-link').on('click touchstart', function() {
-//					$(this).next('ul').animate({
-//						width : 'toggle'
-//					}, 200);
-//				});
+	// $('.multilevel-link').on('click touchstart', function() {
+	// 	$(this).next('ul').animate({
+	// 		width : 'toggle'
+	// 	}, 200);
+	// });
 
 	// find wordpress galleries
 	var wpGallery = document.querySelector('.entry__content .gallery');
@@ -321,7 +320,7 @@ jQuery(function( $ ) {
 //						.to($content, 1, {
 //							width : '200%'
 //						})
-//					
+//
 //					var expandContentScene = new ScrollMagic.Scene({
 //						triggerElement : $content,
 //						triggerHook    : 1,
@@ -352,13 +351,24 @@ jQuery(function( $ ) {
 	})(document);
 
 	// END APIS
-	
+
 	// Home page
 	// JavaScript to be fired on the home page
 	var titleTimeline = new TimelineMax();
 
+	titleTimeline.staggerFromTo( '.line', 1, {
+		width: 0
+	},
+	{
+		x: -200,
+		width: '100%',
+		opacity: 0
+	},
+	0.15 );
 	titleTimeline.staggerTo( '.line', 1, {
-		width : 100
+		x: 0,
+		width: 100,
+		opacity: 1
 	});
 
 	// Dribbble galleries

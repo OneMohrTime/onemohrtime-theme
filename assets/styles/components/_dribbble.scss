@@ -5,7 +5,7 @@
 .dribbbles {
 	position: relative;
 	width: 100%;
-	
+
 	@supports (display: grid) {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
@@ -14,7 +14,7 @@
 		justify-items: center;
 		width: auto;
 	}
-	
+
 	.shot {
 		width: 98%;
 		float: left;
@@ -29,42 +29,42 @@
 			@include media(">=screen768") { grid-column: span 2; }
 		}
 		position: relative;
-		@include box-shadow();
+		// @include box-shadow();
 		overflow: hidden;
 		transition: box-shadow $speed;
-		
+
 		&:hover,
 		&:focus {
 			// .shot::hover
 			// .shot::focus
 			.shot {
-				box-shadow: 0;
+				@include box-shadow();
 			}
 			.shot--hover {
 				opacity: 0;
 			}
 		}
-		
+
 		&--hover {
 			// .shot--hover
 			@include position(absolute, 0);
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background-color: fade-out($color__yellow, 0.15);
+			background-color: fade-out($color__yellow, 0.1);
+			color: $color__black--light;
 			@include caption();
-			@include text-shadow();
 			text-align: center;
 			padding: $gutter;
 			opacity: 1;
 			transition: opacity $speed;
-			
+
 			@include media("<screen1024") {
 				// hide only on small screens
 				@include visually-hidden();
 			}
 		}
-		
+
 		&__image {
 			// .shot__image
 			display: block;
@@ -72,18 +72,18 @@
 			margin: 0 auto;
 			transition: opacity 300ms;
 		}
-		
+
 		&__description {
 			// .shot__description
 			@include visually-hidden();
 		}
-		
+
 		&__link {
 			// .shot__link
 			@include block-link();
 		}
 	}
-	
+
 	& > code {
 		grid-column: span 6;
 		background-color: fade-out($color__white, 0.85);
@@ -93,12 +93,12 @@
 		text-align: center;
 		padding: $small-spacing $base-spacing;
 		transition: background-color $speed;
-		
+
 		&:hover,
 		&:focus {
 			background-color: fade-out($color__white, 0.15);
 		}
-		
+
 		& > a {
 			@include inline();
 		}
