@@ -177,17 +177,17 @@ class StarterSite extends Timber\Site {
 		// Vendor script
 		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/dist/js/vendor.js', array('jquery'), null, true );
 		// MixItUp
-		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/dist/js/lib/mixitup.js', array(), '3.2.2', true );
+		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/dist/js/lib/mixitup.min.js', array(), '3.2.2', true );
 		// ScrollMagic
-		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/dist/js/lib/ScrollMagic.js', array(), '2.0.5', true );
+		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/dist/js/lib/ScrollMagic.min.js', array(), '2.0.5', true );
 //		wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
-		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.ScrollMagic.js', array('scrollmagic'), '2.0.7', true );
+		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.ScrollMagic.min.js', array('scrollmagic'), '2.0.7', true );
 		// GSAP Tween Max
 		wp_enqueue_script( 'tweenmax', get_template_directory_uri() . '/dist/js/lib/TweenMax.min.js', array(), '2.0.5', true );
 		// GSAP CSS Plugin
 //		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/dist/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP CSS animation
-		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/dist/js/lib/plugins/animation.gsap.js', array('scrollmagic','tweenmax'), '2.0.5', true );
+		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/dist/js/lib/plugins/animation.gsap.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP jQuery plugin
 		wp_enqueue_script( 'gsap-jquery', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.gsap.min.js', array('tweenmax'), '0.1.12', true );
 		// Swiper
