@@ -209,42 +209,42 @@ embed,iframe,object{max-width:100%}
 .page__gallery .image__caption.caption--zoom,.posts__gallery .image__caption.caption--zoom,.archives__gallery .image__caption.caption--zoom,.entry__gallery .image__caption.caption--zoom{display:none}
 .page__gallery .image__link,.posts__gallery .image__link,.archives__gallery .image__link,.entry__gallery .image__link{position:absolute;top:0;right:0;bottom:0;left:0;display:block;background:0;z-index:10}
 .page__gallery .image:hover .image__caption,.page__gallery .image:focus .image__caption,.posts__gallery .image:hover .image__caption,.posts__gallery .image:focus .image__caption,.archives__gallery .image:hover .image__caption,.archives__gallery .image:focus .image__caption,.entry__gallery .image:hover .image__caption,.entry__gallery .image:focus .image__caption{opacity:1}
-.page__gallery .image:nth-child(1),.posts__gallery .image:nth-child(1),.archives__gallery .image:nth-child(1),.entry__gallery .image:nth-child(1){width:393px}
-.page__gallery .image:nth-child(2),.posts__gallery .image:nth-child(2),.archives__gallery .image:nth-child(2),.entry__gallery .image:nth-child(2){width:418px}
-.page__gallery .image:nth-child(3),.posts__gallery .image:nth-child(3),.archives__gallery .image:nth-child(3),.entry__gallery .image:nth-child(3){width:331px}
-.page__gallery .image:nth-child(4),.posts__gallery .image:nth-child(4),.archives__gallery .image:nth-child(4),.entry__gallery .image:nth-child(4){width:85px}
-.page__gallery .image:nth-child(5),.posts__gallery .image:nth-child(5),.archives__gallery .image:nth-child(5),.entry__gallery .image:nth-child(5){width:96px}
-.page__gallery .image:nth-child(6),.posts__gallery .image:nth-child(6),.archives__gallery .image:nth-child(6),.entry__gallery .image:nth-child(6){width:362px}
-.page__gallery .image:nth-child(7),.posts__gallery .image:nth-child(7),.archives__gallery .image:nth-child(7),.entry__gallery .image:nth-child(7){width:263px}
-.page__gallery .image:nth-child(8),.posts__gallery .image:nth-child(8),.archives__gallery .image:nth-child(8),.entry__gallery .image:nth-child(8){width:208px}
-.page__gallery .image:nth-child(9),.posts__gallery .image:nth-child(9),.archives__gallery .image:nth-child(9),.entry__gallery .image:nth-child(9){width:419px}
-.page__gallery .image:nth-child(10),.posts__gallery .image:nth-child(10),.archives__gallery .image:nth-child(10),.entry__gallery .image:nth-child(10){width:82px}
-.page__gallery .image:nth-child(11),.posts__gallery .image:nth-child(11),.archives__gallery .image:nth-child(11),.entry__gallery .image:nth-child(11){width:192px}
-.page__gallery .image:nth-child(12),.posts__gallery .image:nth-child(12),.archives__gallery .image:nth-child(12),.entry__gallery .image:nth-child(12){width:145px}
-.page__gallery .image:nth-child(13),.posts__gallery .image:nth-child(13),.archives__gallery .image:nth-child(13),.entry__gallery .image:nth-child(13){width:200px}
-.page__gallery .image:nth-child(14),.posts__gallery .image:nth-child(14),.archives__gallery .image:nth-child(14),.entry__gallery .image:nth-child(14){width:337px}
-.page__gallery .image:nth-child(15),.posts__gallery .image:nth-child(15),.archives__gallery .image:nth-child(15),.entry__gallery .image:nth-child(15){width:374px}
-.page__gallery .image:nth-child(16),.posts__gallery .image:nth-child(16),.archives__gallery .image:nth-child(16),.entry__gallery .image:nth-child(16){width:153px}
-.page__gallery .image:nth-child(17),.posts__gallery .image:nth-child(17),.archives__gallery .image:nth-child(17),.entry__gallery .image:nth-child(17){width:200px}
-.page__gallery .image:nth-child(18),.posts__gallery .image:nth-child(18),.archives__gallery .image:nth-child(18),.entry__gallery .image:nth-child(18){width:84px}
-.page__gallery .image:nth-child(19),.posts__gallery .image:nth-child(19),.archives__gallery .image:nth-child(19),.entry__gallery .image:nth-child(19){width:218px}
-.page__gallery .image:nth-child(20),.posts__gallery .image:nth-child(20),.archives__gallery .image:nth-child(20),.entry__gallery .image:nth-child(20){width:298px}
-.page__gallery .image:nth-child(21),.posts__gallery .image:nth-child(21),.archives__gallery .image:nth-child(21),.entry__gallery .image:nth-child(21){width:175px}
-.page__gallery .image:nth-child(22),.posts__gallery .image:nth-child(22),.archives__gallery .image:nth-child(22),.entry__gallery .image:nth-child(22){width:192px}
-.page__gallery .image:nth-child(23),.posts__gallery .image:nth-child(23),.archives__gallery .image:nth-child(23),.entry__gallery .image:nth-child(23){width:182px}
-.page__gallery .image:nth-child(24),.posts__gallery .image:nth-child(24),.archives__gallery .image:nth-child(24),.entry__gallery .image:nth-child(24){width:168px}
-.page__gallery .image:nth-child(25),.posts__gallery .image:nth-child(25),.archives__gallery .image:nth-child(25),.entry__gallery .image:nth-child(25){width:435px}
-.page__gallery .image:nth-child(26),.posts__gallery .image:nth-child(26),.archives__gallery .image:nth-child(26),.entry__gallery .image:nth-child(26){width:290px}
-.page__gallery .image:nth-child(27),.posts__gallery .image:nth-child(27),.archives__gallery .image:nth-child(27),.entry__gallery .image:nth-child(27){width:366px}
-.page__gallery .image:nth-child(28),.posts__gallery .image:nth-child(28),.archives__gallery .image:nth-child(28),.entry__gallery .image:nth-child(28){width:362px}
-.page__gallery .image:nth-child(29),.posts__gallery .image:nth-child(29),.archives__gallery .image:nth-child(29),.entry__gallery .image:nth-child(29){width:97px}
-.page__gallery .image:nth-child(30),.posts__gallery .image:nth-child(30),.archives__gallery .image:nth-child(30),.entry__gallery .image:nth-child(30){width:216px}
-.page__gallery .image:nth-child(31),.posts__gallery .image:nth-child(31),.archives__gallery .image:nth-child(31),.entry__gallery .image:nth-child(31){width:450px}
-.page__gallery .image:nth-child(32),.posts__gallery .image:nth-child(32),.archives__gallery .image:nth-child(32),.entry__gallery .image:nth-child(32){width:443px}
-.page__gallery .image:nth-child(33),.posts__gallery .image:nth-child(33),.archives__gallery .image:nth-child(33),.entry__gallery .image:nth-child(33){width:197px}
-.page__gallery .image:nth-child(34),.posts__gallery .image:nth-child(34),.archives__gallery .image:nth-child(34),.entry__gallery .image:nth-child(34){width:182px}
-.page__gallery .image:nth-child(35),.posts__gallery .image:nth-child(35),.archives__gallery .image:nth-child(35),.entry__gallery .image:nth-child(35){width:402px}
-.page__gallery .image:nth-child(36),.posts__gallery .image:nth-child(36),.archives__gallery .image:nth-child(36),.entry__gallery .image:nth-child(36){width:181px}
+.page__gallery .image:nth-child(1),.posts__gallery .image:nth-child(1),.archives__gallery .image:nth-child(1),.entry__gallery .image:nth-child(1){width:366px}
+.page__gallery .image:nth-child(2),.posts__gallery .image:nth-child(2),.archives__gallery .image:nth-child(2),.entry__gallery .image:nth-child(2){width:309px}
+.page__gallery .image:nth-child(3),.posts__gallery .image:nth-child(3),.archives__gallery .image:nth-child(3),.entry__gallery .image:nth-child(3){width:453px}
+.page__gallery .image:nth-child(4),.posts__gallery .image:nth-child(4),.archives__gallery .image:nth-child(4),.entry__gallery .image:nth-child(4){width:414px}
+.page__gallery .image:nth-child(5),.posts__gallery .image:nth-child(5),.archives__gallery .image:nth-child(5),.entry__gallery .image:nth-child(5){width:342px}
+.page__gallery .image:nth-child(6),.posts__gallery .image:nth-child(6),.archives__gallery .image:nth-child(6),.entry__gallery .image:nth-child(6){width:288px}
+.page__gallery .image:nth-child(7),.posts__gallery .image:nth-child(7),.archives__gallery .image:nth-child(7),.entry__gallery .image:nth-child(7){width:347px}
+.page__gallery .image:nth-child(8),.posts__gallery .image:nth-child(8),.archives__gallery .image:nth-child(8),.entry__gallery .image:nth-child(8){width:417px}
+.page__gallery .image:nth-child(9),.posts__gallery .image:nth-child(9),.archives__gallery .image:nth-child(9),.entry__gallery .image:nth-child(9){width:393px}
+.page__gallery .image:nth-child(10),.posts__gallery .image:nth-child(10),.archives__gallery .image:nth-child(10),.entry__gallery .image:nth-child(10){width:366px}
+.page__gallery .image:nth-child(11),.posts__gallery .image:nth-child(11),.archives__gallery .image:nth-child(11),.entry__gallery .image:nth-child(11){width:194px}
+.page__gallery .image:nth-child(12),.posts__gallery .image:nth-child(12),.archives__gallery .image:nth-child(12),.entry__gallery .image:nth-child(12){width:235px}
+.page__gallery .image:nth-child(13),.posts__gallery .image:nth-child(13),.archives__gallery .image:nth-child(13),.entry__gallery .image:nth-child(13){width:256px}
+.page__gallery .image:nth-child(14),.posts__gallery .image:nth-child(14),.archives__gallery .image:nth-child(14),.entry__gallery .image:nth-child(14){width:399px}
+.page__gallery .image:nth-child(15),.posts__gallery .image:nth-child(15),.archives__gallery .image:nth-child(15),.entry__gallery .image:nth-child(15){width:171px}
+.page__gallery .image:nth-child(16),.posts__gallery .image:nth-child(16),.archives__gallery .image:nth-child(16),.entry__gallery .image:nth-child(16){width:442px}
+.page__gallery .image:nth-child(17),.posts__gallery .image:nth-child(17),.archives__gallery .image:nth-child(17),.entry__gallery .image:nth-child(17){width:335px}
+.page__gallery .image:nth-child(18),.posts__gallery .image:nth-child(18),.archives__gallery .image:nth-child(18),.entry__gallery .image:nth-child(18){width:154px}
+.page__gallery .image:nth-child(19),.posts__gallery .image:nth-child(19),.archives__gallery .image:nth-child(19),.entry__gallery .image:nth-child(19){width:238px}
+.page__gallery .image:nth-child(20),.posts__gallery .image:nth-child(20),.archives__gallery .image:nth-child(20),.entry__gallery .image:nth-child(20){width:311px}
+.page__gallery .image:nth-child(21),.posts__gallery .image:nth-child(21),.archives__gallery .image:nth-child(21),.entry__gallery .image:nth-child(21){width:359px}
+.page__gallery .image:nth-child(22),.posts__gallery .image:nth-child(22),.archives__gallery .image:nth-child(22),.entry__gallery .image:nth-child(22){width:158px}
+.page__gallery .image:nth-child(23),.posts__gallery .image:nth-child(23),.archives__gallery .image:nth-child(23),.entry__gallery .image:nth-child(23){width:401px}
+.page__gallery .image:nth-child(24),.posts__gallery .image:nth-child(24),.archives__gallery .image:nth-child(24),.entry__gallery .image:nth-child(24){width:343px}
+.page__gallery .image:nth-child(25),.posts__gallery .image:nth-child(25),.archives__gallery .image:nth-child(25),.entry__gallery .image:nth-child(25){width:174px}
+.page__gallery .image:nth-child(26),.posts__gallery .image:nth-child(26),.archives__gallery .image:nth-child(26),.entry__gallery .image:nth-child(26){width:230px}
+.page__gallery .image:nth-child(27),.posts__gallery .image:nth-child(27),.archives__gallery .image:nth-child(27),.entry__gallery .image:nth-child(27){width:170px}
+.page__gallery .image:nth-child(28),.posts__gallery .image:nth-child(28),.archives__gallery .image:nth-child(28),.entry__gallery .image:nth-child(28){width:203px}
+.page__gallery .image:nth-child(29),.posts__gallery .image:nth-child(29),.archives__gallery .image:nth-child(29),.entry__gallery .image:nth-child(29){width:251px}
+.page__gallery .image:nth-child(30),.posts__gallery .image:nth-child(30),.archives__gallery .image:nth-child(30),.entry__gallery .image:nth-child(30){width:453px}
+.page__gallery .image:nth-child(31),.posts__gallery .image:nth-child(31),.archives__gallery .image:nth-child(31),.entry__gallery .image:nth-child(31){width:288px}
+.page__gallery .image:nth-child(32),.posts__gallery .image:nth-child(32),.archives__gallery .image:nth-child(32),.entry__gallery .image:nth-child(32){width:349px}
+.page__gallery .image:nth-child(33),.posts__gallery .image:nth-child(33),.archives__gallery .image:nth-child(33),.entry__gallery .image:nth-child(33){width:255px}
+.page__gallery .image:nth-child(34),.posts__gallery .image:nth-child(34),.archives__gallery .image:nth-child(34),.entry__gallery .image:nth-child(34){width:145px}
+.page__gallery .image:nth-child(35),.posts__gallery .image:nth-child(35),.archives__gallery .image:nth-child(35),.entry__gallery .image:nth-child(35){width:96px}
+.page__gallery .image:nth-child(36),.posts__gallery .image:nth-child(36),.archives__gallery .image:nth-child(36),.entry__gallery .image:nth-child(36){width:155px}
 .posts__categories{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline}
 .category{margin-right:.75em}
 .category__link{white-space:nowrap}
@@ -322,18 +322,12 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .site__contact.said-hi{min-height:50vh}
 .site__contact.said-hi .wysiwyg{display:block}
 .dribbbles{position:relative;width:100%}
-.dribbbles .shot{width:98%;float:left;margin:0 1% 1%;position:relative;overflow:hidden;-webkit-transition:-webkit-box-shadow 200ms;transition:-webkit-box-shadow 200ms;transition:box-shadow 200ms;transition:box-shadow 200ms,-webkit-box-shadow 200ms}
-.dribbbles .shot:hover .shot,.dribbbles .shot:focus .shot{-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
-.dribbbles .shot:hover .shot--hover,.dribbbles .shot:focus .shot--hover{opacity:0}
-.dribbbles .shot--hover{position:absolute;top:0;right:0;bottom:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:rgba(255,195,0,0.9);color:#232015;font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;text-align:center;padding:36px;opacity:1;-webkit-transition:opacity 200ms;transition:opacity 200ms}
-.dribbbles .shot__image{display:block;width:100%;margin:0 auto;-webkit-transition:opacity 300ms;transition:opacity 300ms}
+.dribbbles .shot{width:98%;margin:0 1% 1%;float:left;position:relative;-webkit-transition:-webkit-box-shadow 200ms;transition:-webkit-box-shadow 200ms;transition:box-shadow 200ms;transition:box-shadow 200ms,-webkit-box-shadow 200ms}
+.dribbbles .shot--hover{position:absolute;top:0;right:0;bottom:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:auto;max-height:100%;padding:36px;-webkit-transform:translateX(0);transform:translateX(0);-webkit-transition:margin 200ms,max-height 200ms,padding 200ms,-webkit-transform 200ms;transition:margin 200ms,max-height 200ms,padding 200ms,-webkit-transform 200ms;transition:margin 200ms,max-height 200ms,padding 200ms,transform 200ms;transition:margin 200ms,max-height 200ms,padding 200ms,transform 200ms,-webkit-transform 200ms;font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;text-align:center;background-color:rgba(255,195,0,0.9);color:#232015;z-index:10}
+.dribbbles .shot__link{position:absolute;top:0;right:0;bottom:0;left:0;display:block;background:0;z-index:20}
+.dribbbles .shot__link:hover ~ .shot--hover,.dribbbles .shot__link:focus ~ .shot--hover{max-height:50%;-webkit-transform:translateY(-36px);transform:translateY(-36px);margin-left:36px;margin-right:36px;padding:18px;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/concrete_wall_2.png");background-color:#fffefa;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
+.dribbbles .shot__image{display:block;width:100%;margin:0 auto}
 .dribbbles .shot__description{position:absolute !important;border:0;height:1px;width:1px;margin:-1px;padding:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);overflow:hidden;word-wrap:normal !important}
-.dribbbles .shot__link{position:absolute;top:0;right:0;bottom:0;left:0;display:block;background:0}
-.dribbbles>code{grid-column:span 6;background-color:rgba(255,254,250,0.15);border:0;color:rgba(23,20,9,0.95);font-size:1em;text-align:center;padding:.75em 1.5em;-webkit-transition:background-color 200ms;transition:background-color 200ms}
-.dribbbles>code:hover,.dribbbles>code:focus{background-color:rgba(255,254,250,0.85)}
-.dribbbles>code>a{position:relative;color:inherit;line-height:1.7em;z-index:1}
-.dribbbles>code>a::before{content:"";position:absolute;bottom:8px;background-color:#ffc300;height:8px;width:auto;-webkit-transition:200ms;transition:200ms;-webkit-animation:dancemonkey 2s infinite;animation:dancemonkey 2s infinite;z-index:-1}
-.dribbbles>code>a .svg-icon{position:relative;-webkit-transition:400ms cubic-bezier(0.455,0.03,0.515,0.955);transition:400ms cubic-bezier(0.455,0.03,0.515,0.955)}
 .homepage__banner{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column nowrap;flex-flow:column nowrap;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:100vh}
 .homepage__banner .banner{position:relative;overflow:hidden}
 .homepage__banner .banner__item{padding:12px;overflow:hidden;background-color:#f2f1ee}
@@ -693,9 +687,6 @@ body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .project__specs--title{font-size:1.618rem}
 .project__specs .spec{max-width:33.33%}
 .project__specs .spec__header h3{font-size:1.618rem}
-.dribbbles>code>a:hover,.dribbbles>code>a:focus{color:inherit}
-.dribbbles>code>a:hover::before,.dribbbles>code>a:focus::before{bottom:0;height:80%;width:100%;-webkit-transform:translateY(2px) scaleY(1.2);transform:translateY(2px) scaleY(1.2);-webkit-animation:inline-expand;animation:inline-expand}
-.dribbbles>code>a:hover .svg-icon,.dribbbles>code>a:focus .svg-icon{-webkit-transform:translateX(0.75em);transform:translateX(0.75em)}
 .homepage__banner .banner__item:nth-child(1n){-webkit-animation:cardHover 5s infinite alternate;animation:cardHover 5s infinite alternate}
 .homepage__banner .banner__item:nth-child(2n){-webkit-animation:cardHover 3s infinite alternate;animation:cardHover 3s infinite alternate}
 .homepage__banner .banner__item:nth-child(3n){-webkit-animation:cardHover 4s infinite alternate;animation:cardHover 4s infinite alternate}

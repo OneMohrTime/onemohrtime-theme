@@ -17,10 +17,17 @@
 
 	.shot {
 		width: 98%;
-		float: left;
 		margin: 0 1% 1%;
-		@include media(">=screen400") { width: 48%; }
-		@include media(">=screen768") { width: 31%; }
+		float: left;
+
+		@include media(">=screen400") {
+			width: 48%;
+		}
+
+		@include media(">=screen768") {
+			width: 31%;
+		}
+
 		@supports (display: grid) {
 			grid-column: span 6;
 			width: auto !important;
@@ -28,22 +35,9 @@
 			@include media(">=screen400") { grid-column: span 3; }
 			@include media(">=screen768") { grid-column: span 2; }
 		}
-		position: relative;
-		// @include box-shadow();
-		overflow: hidden;
-		transition: box-shadow $speed;
 
-		&:hover,
-		&:focus {
-			// .shot::hover
-			// .shot::focus
-			.shot {
-				@include box-shadow();
-			}
-			.shot--hover {
-				opacity: 0;
-			}
-		}
+		position: relative;
+		transition: box-shadow $speed;
 
 		&--hover {
 			// .shot--hover
@@ -51,17 +45,44 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background-color: fade-out($color__yellow, 0.1);
-			color: $color__black--light;
+			height: auto;
+			max-height: 100%;
+			padding: $gutter;
+			transform: translateX(0);
+			transition: margin $speed, max-height $speed, padding $speed, transform $speed;
 			@include caption();
 			text-align: center;
-			padding: $gutter;
-			opacity: 1;
-			transition: opacity $speed;
+			background-color: fade-out($color__yellow, 0.1);
+			color: $color__black--light;
+			z-index: 10;
 
 			@include media("<screen1024") {
 				// hide only on small screens
 				@include visually-hidden();
+			}
+		}
+
+		&__link {
+			// .shot__link
+			@include block-link();
+			z-index: 20;
+
+			&:hover,
+			&:focus {
+				// .shot__link:hover
+				// .shot__link:focus
+
+				& ~ .shot--hover {
+					// .shot__link:hover ~ .shot--hover
+					// .shot__link:focus ~ .shot--hover
+					max-height: 50%;
+					transform: translateY( -#{$gutter} );
+					margin-left: $gutter;
+					margin-right: $gutter;
+					padding: $gutter / 2;
+					@include texture($color__white, 54, 0);
+					@include box-shadow();
+				}
 			}
 		}
 
@@ -70,37 +91,32 @@
 			display: block;
 			width: 100%;
 			margin: 0 auto;
-			transition: opacity 300ms;
+			// transition: opacity 300ms;
 		}
 
 		&__description {
 			// .shot__description
 			@include visually-hidden();
 		}
-
-		&__link {
-			// .shot__link
-			@include block-link();
-		}
 	}
 
-	& > code {
-		grid-column: span 6;
-		background-color: fade-out($color__white, 0.85);
-		border: 0;
-		color: fade-out($color__black, 0.05);
-		@include body-copy();
-		text-align: center;
-		padding: $small-spacing $base-spacing;
-		transition: background-color $speed;
+	// & > code {
+	// 	grid-column: span 6;
+	// 	background-color: fade-out($color__white, 0.85);
+	// 	border: 0;
+	// 	color: fade-out($color__black, 0.05);
+	// 	@include body-copy();
+	// 	text-align: center;
+	// 	padding: $small-spacing $base-spacing;
+	// 	transition: background-color $speed;
 
-		&:hover,
-		&:focus {
-			background-color: fade-out($color__white, 0.15);
-		}
+	// 	&:hover,
+	// 	&:focus {
+	// 		background-color: fade-out($color__white, 0.15);
+	// 	}
 
-		& > a {
-			@include inline();
-		}
-	}
+	// 	& > a {
+	// 		@include inline();
+	// 	}
+	// }
 }
