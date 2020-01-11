@@ -313,7 +313,7 @@
 				@include media(">=screen1440") {
 					padding-left: $gutter * 2;
 				}
-				
+
 				&::before {
 					content: "";
 					position: absolute;
@@ -340,7 +340,7 @@
 					}
 
 					@include media(">=screen1440") {
-						padding-left: $gutter;	
+						padding-left: $gutter;
 					}
 				}
 			}

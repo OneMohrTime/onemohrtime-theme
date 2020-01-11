@@ -208,7 +208,7 @@
 
 			&__link {
 				// .intro__link
-				 @include inline();
+				@include inline();
 			}
 
 			&__description {
@@ -266,7 +266,9 @@
 
 		@include media(">=screen840") {
 			// cap line lengths
-			& > p {
+			& > p,
+			& > ul,
+			& > ol {
 				max-width: 840px;
 			}
 		}

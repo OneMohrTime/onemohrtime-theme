@@ -13,7 +13,7 @@
 .posts,
 .archives,
 .entry {
-	
+
 	&__header {
 		// .page__header
 		// .posts__header
@@ -36,7 +36,7 @@
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		
+
 		.title {
 			@include title();
 			// @include deep-shadow();
@@ -46,25 +46,22 @@
 			// @include condensed-shadow();
 			margin-bottom: 0;
 		}
-		
+
 		.meta {;
 			@include small-font-size();
 			margin-bottom: $small-spacing;
 			width: 100%;
-			
+
 			& > time {
 				position: relative;
 				display: inline-block;
-				
+
 				&::after {
 					content: " | ";
 					margin: 0 $small-spacing;
 				}
 			}
-			
-			// & > *:not(.fa) {}
-			// & > .fa,
-			// & > .svg-inline--fa {
+
 			.svg-icon {
 				@include position(absolute, null);
 				color: $color__yellow;
@@ -74,7 +71,7 @@
 			}
 		}
 	}
-	
+
 	&__content {
 		// .page__content
 		// .entry__content
@@ -87,7 +84,9 @@
 
 		@include media(">=screen840") {
 			// cap line lengths
-			& > p {
+			& > p,
+			& > ul,
+			& > ol {
 				max-width: 840px;
 			}
 		}
@@ -101,14 +100,14 @@
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		
+
 		.gallery {
 			// yes, exact class as '/design' page I know
 			column-count: 2;
 			column-gap: $gutter;
 			counter-reset: item-counter;
 			margin-bottom: $base-spacing;
-			
+
 			&.gallery-columns-3,
 			&.gallery-columns-4,
 			&.gallery-columns-5 {
@@ -121,7 +120,7 @@
 			&.gallery-columns-5 {
 				@include media(">=screen1920") { column-count: 5; }
 			}
-			
+
 			&-item {
 				// .gallery-item
 				position: relative;
@@ -129,48 +128,32 @@
 				break-inside: avoid;
 				counter-increment: item-counter;
 				margin-bottom: $gutter;
-				&:hover,
-				&:focus {
-//					.gallery-caption {
-//						opacity: 1;
-//					}
-				}
-				
+
 				a {
 					display: block;
 					pointer-events: all;
 					z-index: 1;
 				}
-				
+
 				img {
 					width: 100%;
 				}
 			}
-			
+
 			&-caption {
 				// .gallery-caption
 				color: $color__gray;
 				@include small-font-size();
 				transition: $speed;
 				pointer-events: none;
+
 				@include media(">=screen840") {
 					display: none;
-//					@include position(absolute, 0 0 0 0);
-//					display: flex;
-//					justify-content: center;
-//					align-items: center;
-//					background-color: fade-out($color__black--light, 0.4);
-//					color: $color__white;
-//					@include text-shadow();
-//					padding: $base-spacing;
-//					opacity: 0;
-//					pointer-events: none;
-//					z-index: 1;
 				}
 			}
 		}
 	}
-	
+
 	&__gallery {
 		// .page__gallery
 		// .posts__gallery
@@ -204,7 +187,7 @@
 		}
 
 		@include media(">=screen1920") {}
-		
+
 		.image {
 			position: relative;
 			@include box-shadow();
@@ -220,7 +203,7 @@
 				@include media(">=screen1440") {}
 				@include media(">=screen1920") {}
 			}
-			
+
 			&__image {
 				// .image__image
 				width: 100%;
@@ -228,7 +211,7 @@
 				object-fit: cover;
 				pointer-events: none;
 			}
-			
+
 			&__caption {
 				// .image__caption
 				color: $color__gray;
@@ -248,15 +231,16 @@
 					opacity: 0;
 					z-index: 1;
 				}
-				
+
 				&.caption--text {
 					@include media(">=screen840") {
 						color: $color__white;
 					}
 				}
-				
+
 				&.caption--zoom {
 					display: none;
+
 					@include media(">=screen840") {
 						display: flex;
 						justify-content: center;
@@ -266,13 +250,13 @@
 					}
 				}
 			}
-			
+
 			&__link {
 				// .image_link
 				@include block-link();
 				z-index: 10;
 			}
-			
+
 			&:hover,
 			&:focus {
 				.image__caption {
@@ -281,10 +265,24 @@
 			}
 		}
 
-		@for $i from 1 through 36 { 
+		@for $i from 1 through 36 {
 			.image:nth-child(#{$i}) {
-				$w: (random(400) + 70) + px;
-				width: $w;
+				@include media("<screen400") {
+					$w: (random(200) + 70) + px;
+					width: $w;
+				}
+				@include media(">=screen768") {
+					$w: (random(250) + 70) + px;
+					width: $w;
+				}
+				@include media(">=screen1024") {
+					$w: (random(350) + 70) + px;
+					width: $w;
+				}
+				@include media(">=screen1440") {
+					$w: (random(400) + 70) + px;
+					width: $w;
+				}
 			}
 		}
 	}
