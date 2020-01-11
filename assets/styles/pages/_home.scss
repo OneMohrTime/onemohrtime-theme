@@ -535,13 +535,11 @@
 }
 
 body.home {
-	background-color: $color__yellow;
-	background-image: none;
+	@include texture($color__yellow, 84, 1);
 	color: $color__white;
 
 	&.sidebar-primary {
 		.site__sidebar {
-//			background: linear-gradient(to bottom, $color__yellow--light 10%, $color__white);
 			background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 			color: $color__black;
 		}

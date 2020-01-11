@@ -397,7 +397,7 @@ jQuery( function( $ ) {
 	// https://github.com/patrickkunka/mixitup/tree/v2
 	const designGallery = document.querySelector('#gallery');
 	if (designGallery) {
-		let mixer = mixitup(containerEl, {
+		let mixer = mixitup(designGallery, {
 						animation : {
 							effectsIn  : 'fade',
 							effectsOut : 'fade',

@@ -362,7 +362,7 @@ jQuery(function ($) {
   var designGallery = document.querySelector('#gallery');
 
   if (designGallery) {
-    var mixer = mixitup(containerEl, {
+    var mixer = mixitup(designGallery, {
       animation: {
         effectsIn: 'fade',
         effectsOut: 'fade',

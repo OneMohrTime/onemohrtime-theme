@@ -209,42 +209,42 @@ embed,iframe,object{max-width:100%}
 .page__gallery .image__caption.caption--zoom,.posts__gallery .image__caption.caption--zoom,.archives__gallery .image__caption.caption--zoom,.entry__gallery .image__caption.caption--zoom{display:none}
 .page__gallery .image__link,.posts__gallery .image__link,.archives__gallery .image__link,.entry__gallery .image__link{position:absolute;top:0;right:0;bottom:0;left:0;display:block;background:0;z-index:10}
 .page__gallery .image:hover .image__caption,.page__gallery .image:focus .image__caption,.posts__gallery .image:hover .image__caption,.posts__gallery .image:focus .image__caption,.archives__gallery .image:hover .image__caption,.archives__gallery .image:focus .image__caption,.entry__gallery .image:hover .image__caption,.entry__gallery .image:focus .image__caption{opacity:1}
-.page__gallery .image:nth-child(1),.posts__gallery .image:nth-child(1),.archives__gallery .image:nth-child(1),.entry__gallery .image:nth-child(1){width:366px}
-.page__gallery .image:nth-child(2),.posts__gallery .image:nth-child(2),.archives__gallery .image:nth-child(2),.entry__gallery .image:nth-child(2){width:309px}
-.page__gallery .image:nth-child(3),.posts__gallery .image:nth-child(3),.archives__gallery .image:nth-child(3),.entry__gallery .image:nth-child(3){width:453px}
-.page__gallery .image:nth-child(4),.posts__gallery .image:nth-child(4),.archives__gallery .image:nth-child(4),.entry__gallery .image:nth-child(4){width:414px}
-.page__gallery .image:nth-child(5),.posts__gallery .image:nth-child(5),.archives__gallery .image:nth-child(5),.entry__gallery .image:nth-child(5){width:342px}
-.page__gallery .image:nth-child(6),.posts__gallery .image:nth-child(6),.archives__gallery .image:nth-child(6),.entry__gallery .image:nth-child(6){width:288px}
-.page__gallery .image:nth-child(7),.posts__gallery .image:nth-child(7),.archives__gallery .image:nth-child(7),.entry__gallery .image:nth-child(7){width:347px}
-.page__gallery .image:nth-child(8),.posts__gallery .image:nth-child(8),.archives__gallery .image:nth-child(8),.entry__gallery .image:nth-child(8){width:417px}
-.page__gallery .image:nth-child(9),.posts__gallery .image:nth-child(9),.archives__gallery .image:nth-child(9),.entry__gallery .image:nth-child(9){width:393px}
-.page__gallery .image:nth-child(10),.posts__gallery .image:nth-child(10),.archives__gallery .image:nth-child(10),.entry__gallery .image:nth-child(10){width:366px}
-.page__gallery .image:nth-child(11),.posts__gallery .image:nth-child(11),.archives__gallery .image:nth-child(11),.entry__gallery .image:nth-child(11){width:194px}
-.page__gallery .image:nth-child(12),.posts__gallery .image:nth-child(12),.archives__gallery .image:nth-child(12),.entry__gallery .image:nth-child(12){width:235px}
-.page__gallery .image:nth-child(13),.posts__gallery .image:nth-child(13),.archives__gallery .image:nth-child(13),.entry__gallery .image:nth-child(13){width:256px}
-.page__gallery .image:nth-child(14),.posts__gallery .image:nth-child(14),.archives__gallery .image:nth-child(14),.entry__gallery .image:nth-child(14){width:399px}
-.page__gallery .image:nth-child(15),.posts__gallery .image:nth-child(15),.archives__gallery .image:nth-child(15),.entry__gallery .image:nth-child(15){width:171px}
-.page__gallery .image:nth-child(16),.posts__gallery .image:nth-child(16),.archives__gallery .image:nth-child(16),.entry__gallery .image:nth-child(16){width:442px}
-.page__gallery .image:nth-child(17),.posts__gallery .image:nth-child(17),.archives__gallery .image:nth-child(17),.entry__gallery .image:nth-child(17){width:335px}
-.page__gallery .image:nth-child(18),.posts__gallery .image:nth-child(18),.archives__gallery .image:nth-child(18),.entry__gallery .image:nth-child(18){width:154px}
-.page__gallery .image:nth-child(19),.posts__gallery .image:nth-child(19),.archives__gallery .image:nth-child(19),.entry__gallery .image:nth-child(19){width:238px}
-.page__gallery .image:nth-child(20),.posts__gallery .image:nth-child(20),.archives__gallery .image:nth-child(20),.entry__gallery .image:nth-child(20){width:311px}
-.page__gallery .image:nth-child(21),.posts__gallery .image:nth-child(21),.archives__gallery .image:nth-child(21),.entry__gallery .image:nth-child(21){width:359px}
-.page__gallery .image:nth-child(22),.posts__gallery .image:nth-child(22),.archives__gallery .image:nth-child(22),.entry__gallery .image:nth-child(22){width:158px}
-.page__gallery .image:nth-child(23),.posts__gallery .image:nth-child(23),.archives__gallery .image:nth-child(23),.entry__gallery .image:nth-child(23){width:401px}
-.page__gallery .image:nth-child(24),.posts__gallery .image:nth-child(24),.archives__gallery .image:nth-child(24),.entry__gallery .image:nth-child(24){width:343px}
-.page__gallery .image:nth-child(25),.posts__gallery .image:nth-child(25),.archives__gallery .image:nth-child(25),.entry__gallery .image:nth-child(25){width:174px}
-.page__gallery .image:nth-child(26),.posts__gallery .image:nth-child(26),.archives__gallery .image:nth-child(26),.entry__gallery .image:nth-child(26){width:230px}
-.page__gallery .image:nth-child(27),.posts__gallery .image:nth-child(27),.archives__gallery .image:nth-child(27),.entry__gallery .image:nth-child(27){width:170px}
-.page__gallery .image:nth-child(28),.posts__gallery .image:nth-child(28),.archives__gallery .image:nth-child(28),.entry__gallery .image:nth-child(28){width:203px}
-.page__gallery .image:nth-child(29),.posts__gallery .image:nth-child(29),.archives__gallery .image:nth-child(29),.entry__gallery .image:nth-child(29){width:251px}
-.page__gallery .image:nth-child(30),.posts__gallery .image:nth-child(30),.archives__gallery .image:nth-child(30),.entry__gallery .image:nth-child(30){width:453px}
-.page__gallery .image:nth-child(31),.posts__gallery .image:nth-child(31),.archives__gallery .image:nth-child(31),.entry__gallery .image:nth-child(31){width:288px}
-.page__gallery .image:nth-child(32),.posts__gallery .image:nth-child(32),.archives__gallery .image:nth-child(32),.entry__gallery .image:nth-child(32){width:349px}
-.page__gallery .image:nth-child(33),.posts__gallery .image:nth-child(33),.archives__gallery .image:nth-child(33),.entry__gallery .image:nth-child(33){width:255px}
-.page__gallery .image:nth-child(34),.posts__gallery .image:nth-child(34),.archives__gallery .image:nth-child(34),.entry__gallery .image:nth-child(34){width:145px}
-.page__gallery .image:nth-child(35),.posts__gallery .image:nth-child(35),.archives__gallery .image:nth-child(35),.entry__gallery .image:nth-child(35){width:96px}
-.page__gallery .image:nth-child(36),.posts__gallery .image:nth-child(36),.archives__gallery .image:nth-child(36),.entry__gallery .image:nth-child(36){width:155px}
+.page__gallery .image:nth-child(1),.posts__gallery .image:nth-child(1),.archives__gallery .image:nth-child(1),.entry__gallery .image:nth-child(1){width:111px}
+.page__gallery .image:nth-child(2),.posts__gallery .image:nth-child(2),.archives__gallery .image:nth-child(2),.entry__gallery .image:nth-child(2){width:461px}
+.page__gallery .image:nth-child(3),.posts__gallery .image:nth-child(3),.archives__gallery .image:nth-child(3),.entry__gallery .image:nth-child(3){width:469px}
+.page__gallery .image:nth-child(4),.posts__gallery .image:nth-child(4),.archives__gallery .image:nth-child(4),.entry__gallery .image:nth-child(4){width:112px}
+.page__gallery .image:nth-child(5),.posts__gallery .image:nth-child(5),.archives__gallery .image:nth-child(5),.entry__gallery .image:nth-child(5){width:468px}
+.page__gallery .image:nth-child(6),.posts__gallery .image:nth-child(6),.archives__gallery .image:nth-child(6),.entry__gallery .image:nth-child(6){width:391px}
+.page__gallery .image:nth-child(7),.posts__gallery .image:nth-child(7),.archives__gallery .image:nth-child(7),.entry__gallery .image:nth-child(7){width:175px}
+.page__gallery .image:nth-child(8),.posts__gallery .image:nth-child(8),.archives__gallery .image:nth-child(8),.entry__gallery .image:nth-child(8){width:286px}
+.page__gallery .image:nth-child(9),.posts__gallery .image:nth-child(9),.archives__gallery .image:nth-child(9),.entry__gallery .image:nth-child(9){width:262px}
+.page__gallery .image:nth-child(10),.posts__gallery .image:nth-child(10),.archives__gallery .image:nth-child(10),.entry__gallery .image:nth-child(10){width:179px}
+.page__gallery .image:nth-child(11),.posts__gallery .image:nth-child(11),.archives__gallery .image:nth-child(11),.entry__gallery .image:nth-child(11){width:382px}
+.page__gallery .image:nth-child(12),.posts__gallery .image:nth-child(12),.archives__gallery .image:nth-child(12),.entry__gallery .image:nth-child(12){width:300px}
+.page__gallery .image:nth-child(13),.posts__gallery .image:nth-child(13),.archives__gallery .image:nth-child(13),.entry__gallery .image:nth-child(13){width:351px}
+.page__gallery .image:nth-child(14),.posts__gallery .image:nth-child(14),.archives__gallery .image:nth-child(14),.entry__gallery .image:nth-child(14){width:444px}
+.page__gallery .image:nth-child(15),.posts__gallery .image:nth-child(15),.archives__gallery .image:nth-child(15),.entry__gallery .image:nth-child(15){width:329px}
+.page__gallery .image:nth-child(16),.posts__gallery .image:nth-child(16),.archives__gallery .image:nth-child(16),.entry__gallery .image:nth-child(16){width:143px}
+.page__gallery .image:nth-child(17),.posts__gallery .image:nth-child(17),.archives__gallery .image:nth-child(17),.entry__gallery .image:nth-child(17){width:80px}
+.page__gallery .image:nth-child(18),.posts__gallery .image:nth-child(18),.archives__gallery .image:nth-child(18),.entry__gallery .image:nth-child(18){width:418px}
+.page__gallery .image:nth-child(19),.posts__gallery .image:nth-child(19),.archives__gallery .image:nth-child(19),.entry__gallery .image:nth-child(19){width:89px}
+.page__gallery .image:nth-child(20),.posts__gallery .image:nth-child(20),.archives__gallery .image:nth-child(20),.entry__gallery .image:nth-child(20){width:151px}
+.page__gallery .image:nth-child(21),.posts__gallery .image:nth-child(21),.archives__gallery .image:nth-child(21),.entry__gallery .image:nth-child(21){width:297px}
+.page__gallery .image:nth-child(22),.posts__gallery .image:nth-child(22),.archives__gallery .image:nth-child(22),.entry__gallery .image:nth-child(22){width:466px}
+.page__gallery .image:nth-child(23),.posts__gallery .image:nth-child(23),.archives__gallery .image:nth-child(23),.entry__gallery .image:nth-child(23){width:337px}
+.page__gallery .image:nth-child(24),.posts__gallery .image:nth-child(24),.archives__gallery .image:nth-child(24),.entry__gallery .image:nth-child(24){width:111px}
+.page__gallery .image:nth-child(25),.posts__gallery .image:nth-child(25),.archives__gallery .image:nth-child(25),.entry__gallery .image:nth-child(25){width:312px}
+.page__gallery .image:nth-child(26),.posts__gallery .image:nth-child(26),.archives__gallery .image:nth-child(26),.entry__gallery .image:nth-child(26){width:322px}
+.page__gallery .image:nth-child(27),.posts__gallery .image:nth-child(27),.archives__gallery .image:nth-child(27),.entry__gallery .image:nth-child(27){width:470px}
+.page__gallery .image:nth-child(28),.posts__gallery .image:nth-child(28),.archives__gallery .image:nth-child(28),.entry__gallery .image:nth-child(28){width:139px}
+.page__gallery .image:nth-child(29),.posts__gallery .image:nth-child(29),.archives__gallery .image:nth-child(29),.entry__gallery .image:nth-child(29){width:354px}
+.page__gallery .image:nth-child(30),.posts__gallery .image:nth-child(30),.archives__gallery .image:nth-child(30),.entry__gallery .image:nth-child(30){width:374px}
+.page__gallery .image:nth-child(31),.posts__gallery .image:nth-child(31),.archives__gallery .image:nth-child(31),.entry__gallery .image:nth-child(31){width:88px}
+.page__gallery .image:nth-child(32),.posts__gallery .image:nth-child(32),.archives__gallery .image:nth-child(32),.entry__gallery .image:nth-child(32){width:164px}
+.page__gallery .image:nth-child(33),.posts__gallery .image:nth-child(33),.archives__gallery .image:nth-child(33),.entry__gallery .image:nth-child(33){width:382px}
+.page__gallery .image:nth-child(34),.posts__gallery .image:nth-child(34),.archives__gallery .image:nth-child(34),.entry__gallery .image:nth-child(34){width:151px}
+.page__gallery .image:nth-child(35),.posts__gallery .image:nth-child(35),.archives__gallery .image:nth-child(35),.entry__gallery .image:nth-child(35){width:290px}
+.page__gallery .image:nth-child(36),.posts__gallery .image:nth-child(36),.archives__gallery .image:nth-child(36),.entry__gallery .image:nth-child(36){width:302px}
 .posts__categories{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline}
 .category{margin-right:.75em}
 .category__link{white-space:nowrap}
@@ -374,7 +374,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .homepage__contact h2{position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em}
 .homepage__contact h2::after{content:"";position:absolute;bottom:0;left:0;background-color:#ffc300;height:10px;width:50px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms}
 .homepage__contact p{padding-right:36px}
-body.home{background-color:#ffc300;background-image:none;color:#fffefa}
+body.home{background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/cream_pixels.png");background-color:#ffc300;color:#fffefa}
 body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left top,right bottom,color-stop(85%,#fffefa),to(#f2f1ee));background:linear-gradient(to bottom right,#fffefa 85%,#f2f1ee);color:#171409}
 .dribbble__title,.homepage__work--title{display:inline-block;margin-bottom:1.5em;font-size:1.618034em;text-shadow:2px 2px 4px rgba(23,20,9,0.05);color:rgba(255,254,250,0.95)}
 .gallery{position:relative}
