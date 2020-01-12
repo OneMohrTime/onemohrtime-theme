@@ -48,9 +48,14 @@ jQuery( function( $ ) {
 	// });
 
 	// find wordpress galleries
-	var wpGallery = document.querySelector('.entry__content .gallery');
+	var wpGallery = document.querySelector('.wp-block-gallery .blocks-gallery-grid');
 	// add .get-faded class
 	$(wpGallery).addClass('get-faded');
+	// add fancybox attribute
+	$(wpGallery).children().each(function( i, e ) {
+		console.log($(e).find('a'))
+		$(e).find('a').attr('data-fancybox', 'image')
+	})
 
 	// Slide nav menu up and down
 	// Initial scroll position
