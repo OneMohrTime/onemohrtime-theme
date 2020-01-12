@@ -24,14 +24,17 @@
 		align-content: center;
 		margin: 0 $gutter;
 		height: 100vh;
+
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
@@ -47,7 +50,7 @@
 			margin-bottom: 0;
 		}
 
-		.meta {;
+		.meta {
 			@include small-font-size();
 			margin-bottom: $small-spacing;
 			width: 100%;
@@ -64,10 +67,13 @@
 
 			.svg-icon {
 				@include position(absolute, null);
-				color: $color__yellow;
 				font-size: 2em;
 				transform: translateX(-10px);
 				z-index: -1;
+
+				path {
+					fill: $color__yellow;
+				}
 			}
 		}
 	}
