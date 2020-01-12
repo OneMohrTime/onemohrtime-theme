@@ -290,16 +290,13 @@
 		margin: 0 0 $gutter;
 		overflow: hidden;
 		@include media(">=screen768") {
-			margin-top: $gutter * 2;
-			margin-bottom: $gutter * 2;
+			margin: $gutter * 2;
 		}
 		@include media(">=screen1024") {
-			margin-top: $gutter * 3;
-			margin-bottom: $gutter * 3;
+			margin: $gutter * 3;
 		}
 		@include media(">=screen1440") {
-			margin-top: $gutter * 4;
-			margin-bottom: $gutter * 4;
+			margin: $gutter * 4;
 		}
 
 		.blockquote {
@@ -309,25 +306,42 @@
 			padding: 0;
 			z-index: 1;
 
-			&__defualt {
+			&__default {
 				// .blockquote__default
-				padding: $gutter;
-				@include media(">=screen768")  { padding: $gutter * 2; }
-				@include media(">=screen1024") { padding: $gutter * 3; }
-				@include media(">=screen1440") { padding: $gutter * 4; }
-//				&::before {
-//					content: url("./assets/images/icons/left-quote.svg");
-//					display: block;
-//					color: $color__yellow;
-//					font-family: FontAwesome;
-//					font-size: 1.5em;
-//				}
+				position: relative;
+				padding-left: calc(#{$gutter} + 10px);
+				@include media(">=screen1440") {
+					padding-left: $gutter * 2;
+				}
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					width: $gutter;
+					height: 100%;
+					background-image: url("../images/icons/left-quote.svg");
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: $gutter $gutter;
+				}
 
 				& > p {
-					color: shade($color__yellow, 67%);
-					display: inline;
-					background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
+					// color: shade($color__yellow, 67%);
+					// display: inline;
+					// background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
 					@include responsive-type();
+
+					@include media(">=screen960") {
+						padding-left: 10px;
+						border-left: 10px $color__white--dark solid;
+					}
+
+					@include media(">=screen1440") {
+						padding-left: $gutter;
+					}
 				}
 			}
 
@@ -378,29 +392,26 @@
 
 	&__gallery {
 		// .project__gallery
-		column-count: 1;
-		column-gap: $gutter;
-		counter-reset: item-counter;
 		margin-left: $gutter;
 		margin-right: $gutter;
 		margin-bottom: $base-spacing;
 
-		@include media(">=screen400") { column-count: 2; }
+		@include media(">=screen400") {}
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
-		@include media(">=screen960")  { column-count: 3; }
+		@include media(">=screen960")  {}
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
 		@include media(">=screen1440") {
-			column-count: 4;
+
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		@include media(">=screen1920") { column-count: 5; }
+		@include media(">=screen1920") {}
 
 		a {
 

@@ -8,7 +8,7 @@
  */
 
 $context = Timber::get_context();
-$context['post'] = new Timber\Post();
+$context['post']      = new Timber\Post();
 $args = array(
 	'post_type'      => 'post',
 	'posts_per_page' => -1,
@@ -16,5 +16,6 @@ $args = array(
 		'date' => 'DESC'
 	)
 );
-$context['posts'] = Timber::get_posts( $args );
+$context['posts']      = Timber::get_posts( $args );
+$context['categories'] = Timber::get_terms( 'category', array('parent' => 0) );
 Timber::render( 'pages/home.twig', $context );

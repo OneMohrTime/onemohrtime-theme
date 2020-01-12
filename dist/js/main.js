@@ -8,8 +8,7 @@ jQuery(function ($) {
   var doc = document.documentElement;
   doc.className = doc.className.replace('no-js', 'has-js');
   doc.setAttribute('data-useragent', navigator.userAgent);
-  doc.setAttribute('data-platform', navigator.platform); //
-  ///////////////
+  doc.setAttribute('data-platform', navigator.platform); ///////////////
   // FUNCTIONS //
   ///////////////
   // Change MENU to EXIT
@@ -35,17 +34,22 @@ jQuery(function ($) {
   // START JQUERY //
   //////////////////
   // Multilevel links
-  //				$('.multilevel-link').on('click touchstart', function() {
-  //					$(this).next('ul').animate({
-  //						width : 'toggle'
-  //					}, 200);
-  //				});
+  // $('.multilevel-link').on('click touchstart', function() {
+  // 	$(this).next('ul').animate({
+  // 		width : 'toggle'
+  // 	}, 200);
+  // });
   // find wordpress galleries
 
 
-  var wpGallery = document.querySelector('.entry__content .gallery'); // add .get-faded class
+  var wpGallery = document.querySelector('.wp-block-gallery .blocks-gallery-grid'); // add .get-faded class
 
-  $(wpGallery).addClass('get-faded'); // Slide nav menu up and down
+  $(wpGallery).addClass('get-faded'); // add fancybox attribute
+
+  $(wpGallery).children().each(function (i, e) {
+    console.log($(e).find('a'));
+    $(e).find('a').attr('data-fancybox', 'image');
+  }); // Slide nav menu up and down
   // Initial scroll position
 
   var scrollState = 0; // Store navbar classes
@@ -293,7 +297,7 @@ jQuery(function ($) {
   //						.to($content, 1, {
   //							width : '200%'
   //						})
-  //					
+  //
   //					var expandContentScene = new ScrollMagic.Scene({
   //						triggerElement : $content,
   //						triggerHook    : 1,
@@ -327,8 +331,17 @@ jQuery(function ($) {
 
 
   var titleTimeline = new TimelineMax();
+  titleTimeline.staggerFromTo('.line', 1, {
+    width: 0
+  }, {
+    x: -200,
+    width: '100%',
+    opacity: 0
+  }, 0.15);
   titleTimeline.staggerTo('.line', 1, {
-    width: 100
+    x: 0,
+    width: 100,
+    opacity: 1
   }); // Dribbble galleries
   // Set the Access Token
 
@@ -342,7 +355,7 @@ jQuery(function ($) {
     success: function success(data) {
       if (data.length > 0) {
         $.each(data.reverse(), function (i, val) {
-          $('#dribbbles').prepend('<figure id="shot_' + val.id + '" class="shot"><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a></figcaption></figure>');
+          $('#dribbbles').prepend('<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>');
         });
       } else {
         $('#dribbbles').append('<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>');
@@ -354,7 +367,7 @@ jQuery(function ($) {
   var designGallery = document.querySelector('#gallery');
 
   if (designGallery) {
-    var mixer = mixitup(containerEl, {
+    var mixer = mixitup(designGallery, {
       animation: {
         effectsIn: 'fade',
         effectsOut: 'fade',

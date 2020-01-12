@@ -1,12 +1,12 @@
 {% extends 'base.twig' %}
+{% set displaySidebar = true %}
 
 {% block content %}
-{% for post in posts %}
 
 {# Banner Area #}
 <header class="project__header">
 	<figure class="project__banner get-faded">
-		
+
 		{% if banner %}
 		<img src="{{ TimberImage(banner.image).src }}"
 			 width="{{ banner.image.width }}" height="{{ banner.image.height }}"
@@ -19,11 +19,11 @@
 			 sizes="(max-width: {{ banner.image.width }}px) 100vw, {{ banner.image.width }}px" />
 		<h2 class="project__subtitle">{{ banner.subtitle }}</h2>
 		{% endif %}
-		
+
 		<h1 class="project__title">{{ post.title }}</h1>
-		
+
 		<a href="#contact" class="project__banner--contact btn">{% include '/assets/images/icons/arrow-left.svg' %}Contact</a>
-		
+
 	</figure>
 	{# include "components/entry-meta.twig" #}
 </header>
@@ -31,9 +31,9 @@
 {# Project Details #}
 {% if details %}
 <aside class="project__specs get-faded">
-	
+
 	<h2 class="project__specs--title">More details</h2>
-	
+
 	{% if post.terms('role') %}
 	<ul class="spec spec--list">
 		<li class="spec__header"><h3>My Role(s)</h3></li>
@@ -42,7 +42,7 @@
 		{% endfor %}
 	</ul>
 	{% endif %}
-	
+
 	{% if post.terms('category') %}
 	<ul class="spec spec--list">
 		<li class="spec__header"><h3>Project Type</h3></li>
@@ -51,7 +51,7 @@
 		{% endfor %}
 	</ul>
 	{% endif %}
-	
+
 	{% if post.terms('coding') %}
 	<ul class="spec spec--group">
 		<li class="spec__header"><h3>Coding Components</h3></li>
@@ -60,25 +60,25 @@
 		{% endfor %}
 	</ul>
 	{% endif %}
-	
+
 </aside>
 {% endif %}
 
 {# Section Builder #}
 {% if sections %}
 <article class="project__story">
-	
+
 	{% for section in sections %}
-	
+
 	{% if section.acf_fc_layout == 'detail_text' %}
-	
+
 	{# Text #}
 	<div class="project__section project__text wysiwyg get-faded">
 		{{ section.text }}
 	</div>
-	
+
 	{% elseif section.acf_fc_layout == 'detail_text_image' %}
-	
+
 	{# Text + Image #}
 	<div class="project__section project__text-image
 				{% if section.reverse %} project__text-image--reversed{% endif %}
@@ -97,15 +97,15 @@
 				 sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
 		</figure>
 	</div>
-	
+
 	{% elseif section.acf_fc_layout == 'detail_image' %}
-	
+
 	{# Image #}
 	<div class="project__section project__image
 				{% if section.display == 'standard' %} project__image--default
 				{% elseif section.display == 'wide' %} project__image--wide
 				{% elseif section.display == 'fixed' %} project__image--fixed parallax{% endif %}">
-		
+
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
 			 alt="{{ section.image.alt }}"
@@ -115,18 +115,20 @@
 					 {{ TimberImage(section.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
 	</div>
-	
+
 	{% elseif section.acf_fc_layout == 'detail_blockquote' %}
-	
+
 	{# Blockquote #}
 	<div class="project__section project__blockquote wysiwyg get-faded{% if section.image %} parallax{% endif %}">
-		
+
 		{% if section.image %}
 		<blockquote class="blockquote blockquote__image">
 			{{ section.text }}
-			<footer class="blockquote__footer">
-				<cite title="{{ section.cite }}">{{ section.cite }}</cite>
-			</footer>
+			{% if section.cite is defined and section.cite is not empty %}
+				<footer class="blockquote__footer">
+					<cite title="{{ section.cite }}">{{ section.cite }}</cite>
+				</footer>
+			{% endif %}
 		</blockquote>
 		<img src="{{ TimberImage(section.image).src }}"
 			 width="{{ section.image.width }}" height="{{ section.image.height }}"
@@ -136,24 +138,26 @@
 					 {{ TimberImage(section.image).src('large') }} 1000w,
 					 {{ TimberImage(section.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
-		
+
 		{% else %}
 		<blockquote class="blockquote blockquote__default">
 			{{ section.text }}
-			<footer class="blockquote__footer">
-				<cite title="{{ section.cite }}">{{ section.cite }}</cite>
-			</footer>
+			{% if section.cite is defined and section.cite is not empty %}
+				<footer class="blockquote__footer">
+					<cite title="{{ section.cite }}">{{ section.cite }}</cite>
+				</footer>
+			{% endif %}
 		</blockquote>
-		
+
 		{% endif %}
 	</div>
-	
+
 	{% elseif section.acf_fc_layout == 'detail_gallery' %}
-	
+
 	{# Gallery #}
 	<div class="project__section project__gallery get-faded">
 	{% for image in section.images %}
-		
+
 		<figure class="image">
 			<img src="{{ TimberImage(image).src('thumbnail') }}"
 				 width="{{ image.width }}" height="{{ image.height }}"
@@ -166,21 +170,21 @@
 			{% if image.caption %}
 				<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
 			{% else %}
-				<figcaption class="image__caption caption--zoom">{% include '/assets/images/icons/plus-zoom.svg' %}</figcaption>
+				<figcaption class="image__caption caption--zoom">{% include 'assets/images/icons/plus-zoom.svg' %}</figcaption>
 			{% endif %}
-			
+
 			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
 				<span class="screen-reader-text">Click to zoom</span>
 			</a>
 		</figure>
-		
+
 	{% endfor %}
 	</div>
-	
+
 	{% endif %}
-	
+
 	{% endfor %}
-	
+
 </article>
 {% endif %}
 
@@ -189,5 +193,8 @@
 	{{ wp_link_pages }}
 </footer>
 
-{% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
 {% endblock %}

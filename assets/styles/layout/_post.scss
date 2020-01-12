@@ -10,10 +10,13 @@
 }
 
 .page,
+.posts,
+.archives,
 .entry {
-	
+
 	&__header {
 		// .page__header
+		// .posts__header
 		// .entry__header
 		display: flex;
 		flex-direction: column;
@@ -21,19 +24,22 @@
 		align-content: center;
 		margin: 0 $gutter;
 		height: 100vh;
+
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		
+
 		.title {
 			@include title();
 			// @include deep-shadow();
@@ -43,59 +49,71 @@
 			// @include condensed-shadow();
 			margin-bottom: 0;
 		}
-		
+
 		.meta {
 			@include small-font-size();
 			margin-bottom: $small-spacing;
 			width: 100%;
-			
+
 			& > time {
 				position: relative;
 				display: inline-block;
-				
+
 				&::after {
 					content: " | ";
 					margin: 0 $small-spacing;
 				}
 			}
-			
-			// & > *:not(.fa) {}
-			// & > .fa,
-			// & > .svg-inline--fa {
+
 			.svg-icon {
 				@include position(absolute, null);
-				color: $color__yellow;
 				font-size: 2em;
 				transform: translateX(-10px);
 				z-index: -1;
+
+				path {
+					fill: $color__yellow;
+				}
 			}
 		}
 	}
-	
+
 	&__content {
 		// .page__content
 		// .entry__content
 		margin: 0 $gutter $gutter * 2;
+
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
+
+		@include media(">=screen840") {
+			// cap line lengths
+			& > p,
+			& > ul,
+			& > ol {
+				max-width: 840px;
+			}
+		}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		
+
 		.gallery {
 			// yes, exact class as '/design' page I know
 			column-count: 2;
 			column-gap: $gutter;
 			counter-reset: item-counter;
 			margin-bottom: $base-spacing;
-			
+
 			&.gallery-columns-3,
 			&.gallery-columns-4,
 			&.gallery-columns-5 {
@@ -108,7 +126,7 @@
 			&.gallery-columns-5 {
 				@include media(">=screen1920") { column-count: 5; }
 			}
-			
+
 			&-item {
 				// .gallery-item
 				position: relative;
@@ -116,99 +134,97 @@
 				break-inside: avoid;
 				counter-increment: item-counter;
 				margin-bottom: $gutter;
-				&:hover,
-				&:focus {
-//					.gallery-caption {
-//						opacity: 1;
-//					}
-				}
-				
+
 				a {
 					display: block;
 					pointer-events: all;
 					z-index: 1;
 				}
-				
+
 				img {
 					width: 100%;
 				}
 			}
-			
+
 			&-caption {
 				// .gallery-caption
 				color: $color__gray;
 				@include small-font-size();
 				transition: $speed;
 				pointer-events: none;
+
 				@include media(">=screen840") {
 					display: none;
-//					@include position(absolute, 0 0 0 0);
-//					display: flex;
-//					justify-content: center;
-//					align-items: center;
-//					background-color: fade-out($color__black--light, 0.4);
-//					color: $color__white;
-//					@include text-shadow();
-//					padding: $base-spacing;
-//					opacity: 0;
-//					pointer-events: none;
-//					z-index: 1;
 				}
 			}
 		}
 	}
-	
+
 	&__gallery {
 		// .page__gallery
-		column-count: 1;
-		column-gap: $gutter;
-		counter-reset: item-counter;
+		// .posts__gallery
+		// .archives__gallery
+		// .entry__gallery
 		margin-left: $gutter;
 		margin-right: $gutter;
 		margin-bottom: $base-spacing;
-		@include media(">=screen400") { column-count: 2; }
+
+		@supports (display: flex) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		@include media(">=screen400") {}
+
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
-		@include media(">=screen960")  { column-count: 3; }
+
+		@include media(">=screen960") {}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
 		@include media(">=screen1440") {
-			column-count: 4;
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		@include media(">=screen1920") { column-count: 5; }
-		
-		a {
-			
-		}
-		
-		img {
-			width: 100%;
-		}
-		
+
+		@include media(">=screen1920") {}
+
 		.image {
 			position: relative;
 			@include box-shadow();
-			break-inside: avoid;
-			counter-increment: item-counter;
+			margin-right: $gutter;
 			margin-bottom: $gutter;
-			
+
+			@supports (display: flex) {
+				flex: 1 0 auto;
+				height: 200px;
+
+				@include media(">=screen400") {}
+				@include media(">=screen960") {}
+				@include media(">=screen1440") {}
+				@include media(">=screen1920") {}
+			}
+
 			&__image {
 				// .image__image
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 				pointer-events: none;
 			}
-			
+
 			&__caption {
 				// .image__caption
 				color: $color__gray;
 				@include small-font-size();
 				transition: $speed;
 				pointer-events: none;
+
 				@include media(">=screen840") {
 					@include position(absolute, 0 0 0 0);
 					display: flex;
@@ -216,19 +232,21 @@
 					align-items: center;
 					background-color: fade-out($color__black--light, 0.4);
 					@include text-shadow();
-					padding: $base-spacing;
+					padding-left: $base-spacing;
+					padding-right: $base-spacing;
 					opacity: 0;
 					z-index: 1;
 				}
-				
+
 				&.caption--text {
 					@include media(">=screen840") {
 						color: $color__white;
 					}
 				}
-				
+
 				&.caption--zoom {
 					display: none;
+
 					@include media(">=screen840") {
 						display: flex;
 						justify-content: center;
@@ -238,13 +256,13 @@
 					}
 				}
 			}
-			
+
 			&__link {
 				// .image_link
 				@include block-link();
 				z-index: 10;
 			}
-			
+
 			&:hover,
 			&:focus {
 				.image__caption {
@@ -252,7 +270,49 @@
 				}
 			}
 		}
+
+		@for $i from 1 through 36 {
+			.image:nth-child(#{$i}) {
+				@include media("<screen400") {
+					$w: (random(200) + 70) + px;
+					width: $w;
+				}
+				@include media(">=screen768") {
+					$w: (random(250) + 70) + px;
+					width: $w;
+				}
+				@include media(">=screen1024") {
+					$w: (random(350) + 70) + px;
+					width: $w;
+				}
+				@include media(">=screen1440") {
+					$w: (random(400) + 70) + px;
+					width: $w;
+				}
+			}
+		}
 	}
+}
+
+@supports (display: grid) {
+	.posts__header {
+		grid-column: span 4;
+	}
+}
+
+.posts__categories {
+	display: flex;
+	align-items: baseline;
+}
+
+.category {
+	margin-right: $small-spacing;
+
+	&__link {
+		// .category__link
+		white-space: nowrap;
+	}
+
 }
 
 body.single-post,

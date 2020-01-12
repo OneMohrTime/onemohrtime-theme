@@ -96,23 +96,17 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		// $context['foo']   = 'bar';
-		// $context['stuff'] = 'I am a value set in your functions.php file';
-		// $context['notes'] = 'These values are available everytime you call Timber::context();';
-		// $context['menu']  = new Timber\Menu();
-		$context['site']  = $this;
+		/* Site info */
+		$context['site'] = $this;
 
 		/* Menu */
-        $context['menu'] = new TimberMenu('Primary Navigation');
+        $context['menu']   = new TimberMenu('Primary Navigation');
         $context['footer'] = new TimberMenu('Footer Projects');
 
-        /* Site info */
-        $context['site'] = $this;
-
-        /* Site info */
+        /* Sidebar */
         // $context['display_sidebar'] = Setup\display_sidebar();
 		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
-		
+
 		return $context;
 	}
 
@@ -163,16 +157,18 @@ class StarterSite extends Timber\Site {
 
 		add_theme_support( 'menus' );
 	}
-	
+
 	/**
 	 * Theme assets
 	 */
 	public function loadScripts() {
+		// Fancybox 3
+		wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/dist/css/jquery.fancybox.min.css', array(), null, 'screen' );
 		// Main "screen" stylesheet
 		wp_enqueue_style( 'screen', get_template_directory_uri() . '/dist/css/main.css', array(), null, 'screen' );
 		// Google Webfonts
-		wp_enqueue_style('webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null);
-		
+		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null );
+
 		// Upgrade jQuery
 		wp_deregister_script( 'jquery' );
 		wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
@@ -181,21 +177,23 @@ class StarterSite extends Timber\Site {
 		// Vendor script
 		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/dist/js/vendor.js', array('jquery'), null, true );
 		// MixItUp
-		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/dist/js/lib/mixitup.js', array(), '3.2.2', true );
+		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/dist/js/lib/mixitup.min.js', array(), '3.2.2', true );
 		// ScrollMagic
-		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/dist/js/lib/ScrollMagic.js', array(), '2.0.5', true );
+		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/dist/js/lib/ScrollMagic.min.js', array(), '2.0.5', true );
 //		wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
-		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.ScrollMagic.js', array('scrollmagic'), '2.0.7', true );
+		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.ScrollMagic.min.js', array('scrollmagic'), '2.0.7', true );
 		// GSAP Tween Max
 		wp_enqueue_script( 'tweenmax', get_template_directory_uri() . '/dist/js/lib/TweenMax.min.js', array(), '2.0.5', true );
 		// GSAP CSS Plugin
 //		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/dist/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP CSS animation
-		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/dist/js/lib/plugins/animation.gsap.js', array('scrollmagic','tweenmax'), '2.0.5', true );
+		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/dist/js/lib/plugins/animation.gsap.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP jQuery plugin
 		wp_enqueue_script( 'gsap-jquery', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.gsap.min.js', array('tweenmax'), '0.1.12', true );
 		// Swiper
-		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
+		// wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
+		// Fancybox 3
+		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/dist/js/lib/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );
 		// Main script file
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
 	}
@@ -212,7 +210,7 @@ class StarterSite extends Timber\Site {
 			'before_title'  => '<h3>',
 			'after_title'   => '</h3>'
 		]);
-		
+
 		register_sidebar([
 			'name'          => __('Footer', 'onemohrtime'),
 			'id'            => 'sidebar-footer',
@@ -222,83 +220,6 @@ class StarterSite extends Timber\Site {
 			'after_title'   => '</h3>'
 		]);
 	}
-
-	/**
-	 * Determine which pages should NOT display the sidebar
-	 */
-	public function display_sidebar() {
-		static $display;
-
-		isset($display) || $display = !in_array(true, [
-			// The sidebar will NOT be displayed if ANY of the following return true.
-			// @link https://codex.wordpress.org/Conditional_Tags
-			is_404(),
-			// is_front_page(),
-			is_singular('design'),
-		]);
-		
-		return apply_filters('sage/display_sidebar', $display);
-	}
-
-	// /**
-	//  * ACF Options
-	//  */
-	// if( function_exists('acf_add_options_page') ) {
-	// 	acf_add_options_page();
-	// }
-	// // Now add Timber to ACF
-	// function mytheme_timber_context( $context ) {
-	// 	$context['options'] = get_fields('option');
-	// 	return $context;
-	// }
-	// add_filter( 'timber_context', 'mytheme_timber_context' );
-
-	/**
-	 * Disable the emoji's
-	 */
-	public function disable_emojis() {
-		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-		remove_action( 'wp_print_styles', 'print_emoji_styles' );
-		remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
-		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
-		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-		// add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
-		// add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
-	}
-
-	// /**
-	//  * Filter function used to remove the tinymce emoji plugin.
-	//  * 
-	//  * @param array $plugins 
-	//  * @return array Difference betwen the two arrays
-	//  */
-	// public function disable_emojis_tinymce( $plugins ) {
-	// 	if ( is_array( $plugins ) ) {
-	// 	return array_diff( $plugins, array( 'wpemoji' ) );
-	// 	} else {
-	// 		return array();
-	// 	}
-	// }
-
-	// /**
-	//  * Remove emoji CDN hostname from DNS prefetching hints.
-	//  *
-	//  * @param array $urls URLs to print for resource hints.
-	//  * @param string $relation_type The relation type the URLs are printed for.
-	//  * @return array Difference betwen the two arrays.
-	//  */
-	// public function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-	// 	if ( 'dns-prefetch' == $relation_type ) {
-	// 		/** This filter is documented in wp-includes/formatting.php */
-	// 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
-			
-	// 		$urls = array_diff( $urls, array( $emoji_svg_url ) );
-	// 	}
-		
-	// 	return $urls;
-	// }
 
 	/**
 	 * Move Yoast to bottom

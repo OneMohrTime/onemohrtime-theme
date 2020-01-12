@@ -1,21 +1,22 @@
 {% extends 'templates/base.twig' %}
+{% set displaySidebar = true %}
 
 {% block content %}
 {% for post in posts %}
 	<article {{ function('post_class') }}>
-		
+
 		<header class="page__header">
 			{% if post.post_excerpt %}
 				<p class="meta">{{ post.post_excerpt }}</p>
 			{% endif %}
 			{% include 'components/title.twig' %}
 		</header>
-		
+
 		{% if image_grid %}
 		<section id="images" class="page__gallery get-faded">
 
 			{% for image in image_grid %}
-				
+
 				<figure id="image_{{ image.id }}" class="image mix {{ image.post_class }}">
 					<img src="{{ TimberImage(image).src('thumbnail') }}"
 						 width="{{ image.width }}" height="{{ image.height }}"
@@ -28,25 +29,29 @@
 					{% if image.caption %}
 						<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
 					{% else %}
-						<figcaption class="image__caption caption--zoom"><i class="fa fa-search-plus"></i></figcaption>
+						<figcaption class="image__caption caption--zoom">{% include 'assets/images/icons/plus-zoom.svg' %}</figcaption>
 					{% endif %}
-					
+
 					<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
 						<span class="screen-reader-text">Click to zoom</span>
 					</a>
 				</figure>
-				
+
 			{% endfor %}
 		</section>
 		{% endif %}
-		
+
 		<div class="page__content get-faded wysiwyg">
 			{{ post.content }}
 		</div>
-		
+
 		<footer class="page__footer">
 		</footer>
-		
+
 	</article>
 {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
 {% endblock %}

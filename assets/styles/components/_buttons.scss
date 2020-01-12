@@ -37,14 +37,17 @@
 	text-transform: uppercase;
 	padding: $small-spacing $base-spacing;
 	//	@include mask-texture();
+
 	&::after {
 		content: "";
 		@include position(absolute, null 0 0 null);
 		@include size(0, 10px);
 	}
+
 	&:disabled {
 		background-color: transparent;
 	}
+
 	@include media(">=screen960") {
 		&::after { transition: all 300ms; }
 	}
@@ -65,19 +68,41 @@
 	
 	.svg-icon {
 		position: relative;
-		transition: 500ms cubic-bezier(.455,.03,.515,.955);
+		transition: $speed cubic-bezier(.455,.03,.515,.955);
 	}
 	
 	&.homepage__banner--contact,
 	&.gallery__banner--contact,
 	&.project__banner--contact,
 	&.posts__banner--contact {
+
+		.svg-icon {
+			margin-right: $small-spacing;
+			
+			path {
+				fill: $color__white;
+				tranistion: fill $speed;
+			}
+		}
+
 		&:hover,
 		&:focus {
 			.svg-icon {
-				fill: $color__white;
 				transform: translateX(-#{$small-spacing});
+				path {
+					fill: $color__yellow;
+				}
 			}
 		}
+	}
+}
+
+.btn--sm {
+	padding: $small-spacing / 2 $small-spacing;
+	@include small-font-size();
+	border-width: 2px;
+
+	&::after {
+		height: 5px;
 	}
 }

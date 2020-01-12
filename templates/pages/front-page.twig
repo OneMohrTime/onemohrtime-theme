@@ -1,11 +1,11 @@
 {% extends 'templates/base.twig' %}
-
+{% set displaySidebar = true %}
 {% set isometric = post.get_field('homepage_links') %}
 
 {% block content %}
 
 	<figure id="home_banner" class="homepage__banner get-faded">
-		
+
 		<!-- if mobile banner -->
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
@@ -15,7 +15,7 @@
 					 {{ post.thumbnail.src('large') }} 1000w,
 					 {{ post.thumbnail.src('full') }} 1500w"
 			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-		
+
 		<!-- else -->
 		<ul class="banner{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
 			{% for link in isometric %}
@@ -41,7 +41,7 @@
 				</li>
 			{% endfor %}
 		</ul>
-		
+
 		<figcaption id="home_intro" class="intro wysiwyg">
 			<h2 id="home_title" class="intro__title">
 				<span>Developer for <a href="//mightyinthemidwest.com/" target="_blank" rel="noopener" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
@@ -108,8 +108,13 @@
 	{% endif %}
 
 	<article id="home_content" class="homepage__work get-faded wysiwyg">
+		<h2 class="homepage__work--title">What do I actually do, then?</h2>
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/images/icons/arrow-right.svg' %} </a>
 	</article>
 
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
 {% endblock %}
