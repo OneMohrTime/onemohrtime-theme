@@ -12,7 +12,7 @@
 	clip-path: inset(50%);
 	overflow: hidden;
 	word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
-	
+
 	$focus: null !default;
 	@if $focus == null {
 		// nothing, continue on
@@ -97,7 +97,7 @@
 }
 
 @mixin deep-shadow() {
-	text-shadow: 1px -1px 0 shade($color__white, 50%), 
+	text-shadow: 1px -1px 0 shade($color__white, 50%),
 				-1px 2px 1px shade($color__white, 48%),
 				-2px 4px 1px shade($color__white, 46%),
 				-3px 6px 1px shade($color__white, 44%),
@@ -162,12 +162,12 @@
 @mixin retro-text() {
 	position: relative;
 	color: $color__white;
-	text-shadow: 
+	text-shadow:
 		-1px -1px 0 $color__black,
 		1px -1px 0 $color__black,
 		-1px 1px 0 $color__black,
 		1px 1px 0 $color__black,
-		
+
 		1px 0px 0px $color__yellow,
 		0px 1px 0px $color__yellow,
 		2px 1px 0px $color__yellow,
@@ -177,9 +177,9 @@
 		4px 3px 0px $color__yellow,
 		3px 4px 0px $color__yellow,
 		5px 4px 0px $color__yellow,
-		
+
 		3px 5px 0px $color__black,
-		6px 5px 0px $color__black, 
+		6px 5px 0px $color__black,
 		-1px 2px 0 $color__black,
 		0 3px 0 $color__black,
 		1px 4px 0 $color__black,
@@ -193,7 +193,7 @@
 		10px 10px 4px $color__white--darkest;
 	font-weight: 700;
 	letter-spacing: 5px;
-	-webkit-text-stroke: 1px $color__black; 
+	-webkit-text-stroke: 1px $color__black;
 			text-stroke: 1px $color__black;
 }
 
@@ -215,11 +215,11 @@
 	// Scale text responsively
 	$up-to-screen   : 1500px !default;
 	$down-to-screen : 500px !default;
-	
+
 	$range         : $up-to-screen - $down-to-screen !default;
 	$intervals     : 25 !default;
 	$interval-size : $range / $intervals !default;
-	
+
 	$i: 0;
 	@while $i <= $intervals {
 		@media only screen and (min-width: 360 + ($i * $interval-size)) {
@@ -354,7 +354,7 @@
 			content: "";
 			@include position(absolute, 0 null null 0);
 			display: block;
-			background: transparent url("../images/img-texture.png") repeat center center;
+			background: transparent url("../img/img-texture.png") repeat center center;
 			background-blend-mode: multiply;
 			@include size(100%);
 			overflow: hidden;
@@ -364,8 +364,8 @@
 }
 
 @mixin mask-texture() {
-	-webkit-mask-image: url("../images/rough-texture.png");
-			mask-image: url("../images/rough-texture.png");
+	-webkit-mask-image: url("../img/rough-texture.png");
+			mask-image: url("../img/rough-texture.png");
 }
 
 /*
@@ -377,7 +377,7 @@
 	color: inherit;
 	line-height: $base-line-height;
 	z-index: 1;
-	
+
 	@include media(">=screen1170") {
 		&:hover,
 		&:focus {
@@ -393,7 +393,7 @@
 			}
 		}
 	}
-	
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -404,7 +404,7 @@
 		animation: dancemonkey 2s infinite;
 		z-index: -1;
 	}
-	
+
 	.svg-icon {
 		position: relative;
 		transition: $speed--slow cubic-bezier(.455,.03,.515,.955);

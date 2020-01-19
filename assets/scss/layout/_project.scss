@@ -322,7 +322,7 @@
 					display: block;
 					width: $gutter;
 					height: 100%;
-					background-image: url("../images/icons/left-quote.svg");
+					background-image: url("../img/icons/left-quote.svg");
 					background-repeat: no-repeat;
 					background-position: center center;
 					background-size: $gutter $gutter;
@@ -369,7 +369,7 @@
 					padding-top: 1.5em;
 					margin-bottom: $small-spacing;
 //					&::before {
-//						content: url("./assets/images/icons/left-quote.svg")
+//						content: url("./assets/img/icons/left-quote.svg")
 //						@include position(absolute, 0 null null 0);
 //						display: block;
 //						color: $color__yellow;
@@ -412,10 +412,6 @@
 			margin-right: $gutter * 4;
 		}
 		@include media(">=screen1920") {}
-
-		a {
-
-		}
 
 		img {
 			width: 100%;

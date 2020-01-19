@@ -2,35 +2,35 @@
  * Scripts / Main
  * ======================================================================== */
 
+// Declare javascript, basically
 jQuery( function( $ ) {
-	// Declare javascript, basically
 	var doc = document.documentElement;
 
-	doc.className = doc.className.replace('no-js', 'has-js');
-	doc.setAttribute('data-useragent', navigator.userAgent);
-	doc.setAttribute('data-platform', navigator.platform );
+	doc.className = doc.className.replace( 'no-js', 'has-js' );
+	doc.setAttribute( 'data-useragent', navigator.userAgent );
+	doc.setAttribute( 'data-platform', navigator.platform );
 
 	///////////////
 	// FUNCTIONS //
 	///////////////
 
 	// Change MENU to EXIT
-	function changeLetters(btn) {
-		var m = $('.toggle__menu span.m'),
-			e = $('.toggle__menu span.e'),
-			n = $('.toggle__menu span.n'),
-			u = $('.toggle__menu span.u');
+	function changeLetters( btn ) {
+		var m = $( '.toggle__menu span.m' ),
+			e = $( '.toggle__menu span.e' ),
+			n = $( '.toggle__menu span.n' ),
+			u = $( '.toggle__menu span.u' );
 
-		e.toggleClass('toggle__close');
+		e.toggleClass( 'toggle__close' );
 
-		if(btn.hasClass('open')) {
-			m.text('E');
-			n.text('I');
-			u.text('T');
+		if ( btn.hasClass( 'open' ) ) {
+			m.text( 'E' );
+			n.text( 'I' );
+			u.text( 'T' );
 		} else {
-			m.text('M');
-			n.text('N');
-			u.text('U');
+			m.text( 'M' );
+			n.text( 'N' );
+			u.text( 'U' );
 		}
 	}
 

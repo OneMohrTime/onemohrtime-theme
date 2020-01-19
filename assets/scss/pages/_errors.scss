@@ -4,12 +4,12 @@
 
 .daft-punk {
 	position: relative;
-	background: transparent url("../images/daft-punk-404.gif") repeat center center fixed;
+	background: transparent url("../img/daft-punk-404.gif") repeat center center fixed;
 	background-size: cover;
 	text-align: center;
 	@include size(100vw, 100vh);
 	padding-top: $gutter;
-	
+
 	@supports (display: grid) {
 		grid-column: span 4;
 		color: $color__white;
@@ -27,17 +27,17 @@
 			}
 		}
 	}
-	
+
 	&__content {
 		// .daft-punk__content
 		@include text-shadow();
 		@include size(100vw, 100vh);
-		
+
 		@supports (display: grid) {
 			grid-column: span 4;
 			width: auto;
 		}
-		
+
 		&--title {
 			// .daft-punk__content--title
 			font-family: $font__secondary;
@@ -56,7 +56,7 @@
 			@include media(">=screen1280") { font-size: 9em; }
 			@include media(">=screen1440") { font-size: 10em; }
 		}
-		
+
 		&--alert {
 			// .daft-punk__content--alert
 			margin-bottom: $small-spacing;

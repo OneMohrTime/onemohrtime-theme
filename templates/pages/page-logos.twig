@@ -29,7 +29,7 @@
 					{% if image.caption %}
 						<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
 					{% else %}
-						<figcaption class="image__caption caption--zoom">{% include 'assets/images/icons/plus-zoom.svg' %}</figcaption>
+						<figcaption class="image__caption caption--zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
 					{% endif %}
 
 					<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
