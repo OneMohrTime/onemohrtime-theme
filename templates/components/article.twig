@@ -1,0 +1,37 @@
+{# <article class="article mix"> #}
+<article {{ function('post_class', 'article -' ~ post.type ~ ' mix') }}{% for term in post.terms %} data-{{ term.taxonomy }}="{{ term.name }}"{% endfor %}>
+
+	<figure class="article__image parallax">
+		<img src="{{ post.thumbnail.src('thumbnail') }}"
+			width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+			alt="{{ post.thumbnail.alt }}"
+			class="article__image__image parallax__image"
+			srcset="{{ post.thumbnail.src('medium') }} 500w,
+					{{ post.thumbnail.src('large') }} 1000w,
+					{{ post.thumbnail.src('full') }} 1500w"
+			sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+	</figure>
+
+	<div class="article__content wysiwyg get-faded">
+
+		{% if post.type == 'design' %}
+			<p class="meta wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
+		{% elseif post.type == 'page' %}
+			<p class="meta wysiwyg">{{ post.post_excerpt | truncate(16) }}</p>
+		{% else %}
+			{% include "components/entry-meta.twig" %}
+		{% endif %}
+
+		<h2 class="article__title">
+			<a href="{{ post.link }}">{{ post.title }}</a>
+		</h2>
+
+		{% if post.post_excerpt is defined and post.post_excerpt is not empty %}
+			<p>{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a></p>
+		{% else %}
+			<p>{{ post.post_content | truncate(30) }} <a href="{{ post.link }}">[&hellip;]</a></p>
+		{% endif %}
+
+	</div>
+	<a href="{{ post.link }}" class="article__link"></a>
+</article>

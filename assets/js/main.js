@@ -3,9 +3,10 @@
 /* ========================================================================
  * Scripts / Main
  * ======================================================================== */
+// Declare javascript, basically
 jQuery(function ($) {
-  // Declare javascript, basically
   var doc = document.documentElement;
+  var wpGallery;
   doc.className = doc.className.replace('no-js', 'has-js');
   doc.setAttribute('data-useragent', navigator.userAgent);
   doc.setAttribute('data-platform', navigator.platform); ///////////////
@@ -42,7 +43,7 @@ jQuery(function ($) {
   // find wordpress galleries
 
 
-  var wpGallery = document.querySelector('.wp-block-gallery .blocks-gallery-grid'); // add .get-faded class
+  wpGallery = document.querySelector('.wp-block-gallery .blocks-gallery-grid'); // add .get-faded class
 
   $(wpGallery).addClass('get-faded'); // add fancybox attribute
 
@@ -65,7 +66,7 @@ jQuery(function ($) {
     // Current scroll position
     var currentScroll = scrollTop();
 
-    if (scrollTop() === 0) {
+    if (0 === scrollTop()) {
       home();
     } else if (currentScroll > scrollState) {
       down();
@@ -96,7 +97,7 @@ jQuery(function ($) {
   }); // Add or remove scrolling navbar classes
 
   $(window).scroll(function () {
-    if ($(document).scrollTop() > 50) {
+    if (50 < $(document).scrollTop()) {
       $('nav').addClass('transparent');
     } else {
       $('nav').removeClass('transparent');
@@ -199,7 +200,9 @@ jQuery(function ($) {
       desktopTimeline = new TimelineMax(),
       $this = $(this);
 
-  if (viewportWidth < 601) {
+  if (601 > viewportWidth) {
+    // TODO: New Menu
+    // https://codepen.io/mikeK/pen/GyPYPZ
     mobileTimeline.to(navbar, menuDuration, {
       height: '100%',
       opacity: 1,
@@ -214,7 +217,7 @@ jQuery(function ($) {
       ease: Back.easeOut
     }, menuBetween);
     navbar.on('click', '#menu_toggle', function () {
-      if (mobileTimeline.time() > 0) {
+      if (0 < mobileTimeline.time()) {
         mobileTimeline.reverse();
       } else {
         mobileTimeline.play(0);
@@ -227,7 +230,7 @@ jQuery(function ($) {
       $('#page').toggleClass('padded'); // Move filters down on Featured Work page
       //						if (window.matchMedia("(min-width: 600px)").matches) {
 
-      if (typeof mixitup == 'function') {
+      if ('function' == typeof mixitup) {
         $('.gallery__filter').toggleClass('with-sticky');
       } //						}
 
@@ -237,7 +240,7 @@ jQuery(function ($) {
       y: -100
     }, 0);
     navbar.on('click', '#menu_toggle', function () {
-      if (desktopTimeline.time() > 0) {
+      if (0 < desktopTimeline.time()) {
         desktopTimeline.reverse();
       } else {
         desktopTimeline.play(0);
@@ -262,7 +265,7 @@ jQuery(function ($) {
     var parallaxParent = this,
         parallaxChild = $(this).children('.parallax__image');
 
-    if (viewportWidth >= 840) {
+    if (840 <= viewportWidth) {
       var tweenParallax = new TimelineMax().to(parallaxChild, 1, {
         y: '80%',
         ease: Linear.easeNone
@@ -332,16 +335,20 @@ jQuery(function ($) {
 
   var titleTimeline = new TimelineMax();
   titleTimeline.staggerFromTo('.line', 1, {
-    width: 0
+    width: 0,
+    opacity: 0
   }, {
     x: -200,
-    width: '100%',
+    width: '50%',
     opacity: 0
   }, 0.15);
-  titleTimeline.staggerTo('.line', 1, {
+  titleTimeline.staggerTo('.line', 0.7, {
     x: 0,
     width: 100,
     opacity: 1
+  });
+  $(function () {
+    $('#home_banner_list').removeClass('is-hidden');
   }); // Dribbble galleries
   // Set the Access Token
 
@@ -353,7 +360,7 @@ jQuery(function ($) {
     dataType: 'json',
     type: 'GET',
     success: function success(data) {
-      if (data.length > 0) {
+      if (0 < data.length) {
         $.each(data.reverse(), function (i, val) {
           $('#dribbbles').prepend('<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>');
         });

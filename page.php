@@ -23,20 +23,13 @@
 
 $context = Timber::context();
 
-$timber_post     = new Timber\Post();
-$context['post'] = $timber_post;
+$timber_post = new Timber\Post();
 
 $projects  = get_field('project_grid');
-//$projects2 = array(
-//	'post_type'      => 'design',
-//	'posts_per_page' => -1,
-//	'orderby'        => 'menu_order',
-//	'order'          => 'ASC'
-//);
-$context['post']     = $post;
-//$context['gallery']  = Timber::get_posts( $projects2 );
-$context['projects']  = Timber::get_posts( $projects );
-$context['roles']    = new TimberTerm('design');
+
+$context['post']       = $timber_post;
+$context['projects']   = Timber::get_posts( $projects );
+$context['roles']      = new TimberTerm('design');
 $context['image_grid'] = get_field('image_grid');
 
 Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );

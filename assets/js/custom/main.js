@@ -5,6 +5,7 @@
 // Declare javascript, basically
 jQuery( function( $ ) {
 	var doc = document.documentElement;
+	var wpGallery;
 
 	doc.className = doc.className.replace( 'no-js', 'has-js' );
 	doc.setAttribute( 'data-useragent', navigator.userAgent );
@@ -48,135 +49,142 @@ jQuery( function( $ ) {
 	// });
 
 	// find wordpress galleries
-	var wpGallery = document.querySelector('.wp-block-gallery .blocks-gallery-grid');
+	wpGallery = document.querySelector( '.wp-block-gallery .blocks-gallery-grid' );
+
 	// add .get-faded class
-	$(wpGallery).addClass('get-faded');
+	$( wpGallery ).addClass( 'get-faded' );
+
 	// add fancybox attribute
-	$(wpGallery).children().each(function( i, e ) {
-		console.log($(e).find('a'))
-		$(e).find('a').attr('data-fancybox', 'image')
-	})
+	$( wpGallery ).children().each( function( i, e ) {
+		console.log( $( e ).find( 'a' ) );
+		$( e ).find( 'a' ).attr( 'data-fancybox', 'image' );
+	});
 
 	// Slide nav menu up and down
 	// Initial scroll position
 	var scrollState = 0;
+
 	// Store navbar classes
-	var navClasses = document.getElementById('masthead').classList;
+	var navClasses = document.getElementById( 'masthead' ).classList;
+
 	// returns current scroll position
 	var scrollTop = function() {
 		return window.scrollY;
 	};
 
 	// Primary scroll event function
-	var scrollDetect = function(home, down, up) {
+	var scrollDetect = function( home, down, up ) {
+
 		// Current scroll position
 		var currentScroll = scrollTop();
-		if (scrollTop() === 0) {
+		if ( 0 === scrollTop() ) {
 			home();
-		} else if (currentScroll > scrollState) {
+		} else if ( currentScroll > scrollState ) {
 			down();
 		} else {
 			up();
 		}
+
 		// Set previous scroll position
 		scrollState = scrollTop();
 	};
 
 	function homeAction() {
-		console.log('home');
+		console.log( 'home' );
 	}
 
 	function downAction() {
-		navClasses.remove('slide--down');
-		navClasses.add('slide--up');
+		navClasses.remove( 'slide--down' );
+		navClasses.add( 'slide--up' );
 	}
 
 	function upAction() {
-		navClasses.remove('slide--up');
-		navClasses.add('slide--down');
+		navClasses.remove( 'slide--up' );
+		navClasses.add( 'slide--down' );
 	}
 
-	window.addEventListener('scroll', function() {
-		scrollDetect(homeAction, downAction, upAction);
+	window.addEventListener( 'scroll', function() {
+		scrollDetect( homeAction, downAction, upAction );
 	});
 
 	// Add or remove scrolling navbar classes
-	$(window).scroll(function() {
-		if ($(document).scrollTop() > 50) {
-			$('nav').addClass('transparent');
+	$( window ).scroll( function() {
+		if ( 50 < $( document ).scrollTop() ) {
+			$( 'nav' ).addClass( 'transparent' );
 		} else {
-			$('nav').removeClass('transparent');
+			$( 'nav' ).removeClass( 'transparent' );
 		}
 	});
 
 	// click to smoothscroll
-	$('a[href^="#"]').on('click', function(e) {
+	$( 'a[href^="#"]' ).on( 'click', function( e ) {
 		e.preventDefault();
-		$('html,body').animate({
-			scrollTop : $(this.hash).offset().top
-		}, 1500);
+		$( 'html,body' ).animate({
+			scrollTop: $( this.hash ).offset().top
+		}, 1500 );
 	});
+
 	// add scrolling class to contact
-	$('a[href^="#contact"]').on('click', function() {
-		$('#contact').addClass('said-hi');
-		$('#mobile_menu').removeClass('is-visible');
+	$( 'a[href^="#contact"]' ).on( 'click', function() {
+		$( '#contact' ).addClass( 'said-hi' );
+		$( '#mobile_menu' ).removeClass( 'is-visible' );
 	});
 
 	// Fancybox
-//				$('[data-fancybox], .fancybox, .gallery-item a').fancybox({
-//					// Enable infinite gallery navigation
-//					loop : true,
-//					// What buttons should appear in the top right corner.
-//					// Buttons will be created using templates from `btnTpl` option
-//					// and they will be placed into toolbar (class="fancybox-toolbar"` element)
-//					buttons : [
-//						'zoom',
-//						'share',
-//						//'slideShow',
-//						'fullScreen',
-//						//'download',
-//						'thumbs',
-//						'close'
-//					],
-//					// Open/close animation type
-//					// Possible values:
-//					//   false            - disable
-//					//   "zoom"           - zoom images from/to thumbnail
-//					//   "fade"
-//					//   "zoom-in-out"
-//					animationEffect   : 'zoom',
-//					// Duration in ms for open/close animation
-//					animationDuration : 200,
-//					// Transition effect between slides
-//					//
-//					// Possible values:
-//					//   false            - disable
-//					//   'fade'
-//					//   'slide'
-//					//   'circular'
-//					//   'tube'
-//					//   'zoom-in-out'
-//					//   'rotate'
-//					//
-//					transitionEffect   : 'slide',
-//					// Duration in ms for transition animation
-//					transitionDuration : 400,
-//					// Customize or add new media types
-//					// Example:
-//					/*
-//						media : {
-//							youtube : {
-//								params : {
-//									autoplay : 0
-//								}
-//							}
-//						}
-//					*/
-//					media  : {},
-//					thumbs : {
-//						autoStart : true, // Display thumbnails on opening
-//					},
-//				});
+	//				$('[data-fancybox], .fancybox, .gallery-item a').fancybox({
+	//					// Enable infinite gallery navigation
+	//					loop : true,
+	//					// What buttons should appear in the top right corner.
+	//					// Buttons will be created using templates from `btnTpl` option
+	//					// and they will be placed into toolbar (class="fancybox-toolbar"` element)
+	//					buttons : [
+	//						'zoom',
+	//						'share',
+	//						//'slideShow',
+	//						'fullScreen',
+	//						//'download',
+	//						'thumbs',
+	//						'close'
+	//					],
+	//					// Open/close animation type
+	//					// Possible values:
+	//					//   false            - disable
+	//					//   "zoom"           - zoom images from/to thumbnail
+	//					//   "fade"
+	//					//   "zoom-in-out"
+	//					animationEffect   : 'zoom',
+	//					// Duration in ms for open/close animation
+	//					animationDuration : 200,
+	//					// Transition effect between slides
+	//					//
+	//					// Possible values:
+	//					//   false            - disable
+	//					//   'fade'
+	//					//   'slide'
+	//					//   'circular'
+	//					//   'tube'
+	//					//   'zoom-in-out'
+	//					//   'rotate'
+	//					//
+	//					transitionEffect   : 'slide',
+	//					// Duration in ms for transition animation
+	//					transitionDuration : 400,
+	//					// Customize or add new media types
+	//					// Example:
+	//					/*
+	//						media : {
+	//							youtube : {
+	//								params : {
+	//									autoplay : 0
+	//								}
+	//							}
+	//						}
+	//					*/
+	//					media  : {},
+	//					thumbs : {
+	//						autoStart : true, // Display thumbnails on opening
+	//					},
+	//				});
 
 	// END JQUERY
 
@@ -186,10 +194,11 @@ jQuery( function( $ ) {
 
 	// Init ScrollMagic
 	var controller = new ScrollMagic.Controller({
-		globalSceneOptions : {
-			triggerHook : 0.8
-		},
-//		addIndicators : true
+		globalSceneOptions: {
+			triggerHook: 0.8
+		}
+
+		//		addIndicators : true
 	});
 
 	// Viewport in log
@@ -198,69 +207,79 @@ jQuery( function( $ ) {
 	console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
 
 	// Mobile menu
-	var mobileToggle    = $('#menu_toggle'),
-		navbar          = $('#masthead'),
-		mobileMenu      = $('#desktop_menu'),
-		desktopMenu     = $('#primary_nav'),
-		menuItems       = $('#desktop_menu').children(),
+	var mobileToggle    = $( '#menu_toggle' ),
+		navbar          = $( '#masthead' ),
+		mobileMenu      = $( '#desktop_menu' ),
+		desktopMenu     = $( '#primary_nav' ),
+		menuItems       = $( '#desktop_menu' ).children(),
 		menuDuration    = 0.3,
 		menuBetween     = 0.05,
-		mobileTimeline  = new TimelineMax({ paused : true, delay : 1 }),
+		mobileTimeline  = new TimelineMax({ paused: true, delay: 1 }),
 		desktopTimeline = new TimelineMax(),
-		$this           = $(this);
+		$this           = $( this );
 
-	if (viewportWidth < 601) {
+	if ( 601 > viewportWidth ) {
 
-		mobileTimeline.to(navbar, menuDuration, {
+		// TODO: New Menu
+		// https://codepen.io/mikeK/pen/GyPYPZ
+
+		mobileTimeline.to( navbar, menuDuration, {
 			height: '100%',
-			opacity : 1,
-			ease : Power2.easeOut
-		}, 0).to(mobileMenu, menuDuration, {
-			top : 0,
-			autoAlpha : 1,
-			ease : Power2.easeOut
-		}, 0).staggerFrom(menuItems, menuDuration, {
-			y       : 20,
-			opacity : 0,
-			ease    : Back.easeOut
-		}, menuBetween)
+			opacity: 1,
+			ease: Power2.easeOut
+		}, 0 ).to( mobileMenu, menuDuration, {
+			top: 0,
+			autoAlpha: 1,
+			ease: Power2.easeOut
+		}, 0 ).staggerFrom( menuItems, menuDuration, {
+			y: 20,
+			opacity: 0,
+			ease: Back.easeOut
+		}, menuBetween );
 
-		navbar.on('click', '#menu_toggle', function() {
-			if (mobileTimeline.time() > 0) {
+		navbar.on( 'click', '#menu_toggle', function() {
+			if ( 0 < mobileTimeline.time() ) {
 				mobileTimeline.reverse();
 			} else {
-				mobileTimeline.play(0);
+				mobileTimeline.play( 0 );
 			}
+
 			// change MENU to EXIT
-			mobileToggle.toggleClass('open');
-			changeLetters(mobileToggle);
+			mobileToggle.toggleClass( 'open' );
+			changeLetters( mobileToggle );
+
 			// Add padding to navbar area
-			$('#page').toggleClass('padded');
+			$( '#page' ).toggleClass( 'padded' );
+
 			// Move filters down on Featured Work page
-//						if (window.matchMedia("(min-width: 600px)").matches) {
-				if (typeof mixitup == 'function') {
-					$('.gallery__filter').toggleClass('with-sticky')
-				}
-//						}
+			//						if (window.matchMedia("(min-width: 600px)").matches) {
+			if ( 'function' == typeof mixitup ) {
+				$( '.gallery__filter' ).toggleClass( 'with-sticky' );
+			}
+
+			//						}
 		});
 	} else {
-		desktopTimeline.to(desktopMenu, menuDuration, {
-			y : -100
-		}, 0)
+		desktopTimeline.to( desktopMenu, menuDuration, {
+			y: -100
+		}, 0 );
 
-		navbar.on('click', '#menu_toggle', function() {
-			if (desktopTimeline.time() > 0) {
+		navbar.on( 'click', '#menu_toggle', function() {
+			if ( 0 < desktopTimeline.time() ) {
 				desktopTimeline.reverse();
 			} else {
-				desktopTimeline.play(0);
+				desktopTimeline.play( 0 );
 			}
-			mobileToggle.toggleClass('open')
+			mobileToggle.toggleClass( 'open' );
+
 			// change MENU to EXIT
-			changeLetters(mobileToggle);
+			changeLetters( mobileToggle );
+
 			// Invert logo color
-			$('#logo').toggleClass('inverted');
+			$( '#logo' ).toggleClass( 'inverted' );
+
 			// Add padding to navbar area
-			$('#page').toggleClass('padded');
+			$( '#page' ).toggleClass( 'padded' );
 		});
 	}
 
@@ -271,69 +290,69 @@ jQuery( function( $ ) {
 	///////////////////////
 
 	// Parallax images
-	$('.parallax').each(function() {
+	$( '.parallax' ).each( function() {
 		var parallaxParent = this,
-			parallaxChild  = $(this).children('.parallax__image');
+			parallaxChild  = $( this ).children( '.parallax__image' );
 
-		if (viewportWidth >= 840) {
+		if ( 840 <= viewportWidth ) {
 
 			var tweenParallax = new TimelineMax()
-				.to(parallaxChild, 1, {
-					y    : '80%',
-					ease : Linear.easeNone,
-				})
+				.to( parallaxChild, 1, {
+					y: '80%',
+					ease: Linear.easeNone
+				});
 
 			var parallaxScene = new ScrollMagic.Scene({
-				triggerElement : parallaxParent,
-				duration       : '200%'
+				triggerElement: parallaxParent,
+				duration: '200%'
 			})
-				.setTween(tweenParallax)
-				.setClassToggle(this, 'parallax--scrolling')
-				.addTo(controller);
+				.setTween( tweenParallax )
+				.setClassToggle( this, 'parallax--scrolling' )
+				.addTo( controller );
 		}
 	});
 
 	// Fade in content blocks
-	$('.get-faded').each(function() {
+	$( '.get-faded' ).each( function() {
 		var fadeParent   = this,
-			fadeChild    = $(this).children(),
+			fadeChild    = $( this ).children(),
 			fadeDuration = 0.3,
 			fadeBetween  = 0.3;
 
 		var tweenFade = new TimelineMax()
-			.staggerTo(fadeChild, fadeDuration, {
-				y         : 0,
-				autoAlpha : 1
-			}, fadeBetween)
+			.staggerTo( fadeChild, fadeDuration, {
+				y: 0,
+				autoAlpha: 1
+			}, fadeBetween );
 
 		var fadeScene  = new ScrollMagic.Scene({
-			triggerElement : fadeParent,
-			triggerHook    : 1,
-			reverse        : false
+			triggerElement: fadeParent,
+			triggerHook: 1,
+			reverse: false
 		})
-			.setTween(tweenFade)
-			.setClassToggle(fadeChild, 'got-faded')
-			.addTo(controller);
+			.setTween( tweenFade )
+			.setClassToggle( fadeChild, 'got-faded' )
+			.addTo( controller );
 	});
 
-//				$('.type-post').each(function() {
-//					var $this = $(this),
-//						$contentParent  = this,
-//						$content = $this.children('.post__content');
-//					console.log($content)
-//					var expandContent = new TimelineMax()
-//						.to($content, 1, {
-//							width : '200%'
-//						})
-//
-//					var expandContentScene = new ScrollMagic.Scene({
-//						triggerElement : $content,
-//						triggerHook    : 1,
-//						reverse        : false
-//					})
-//						.setTween(expandContent)
-//						.addTo(controller);
-//				});
+	//				$('.type-post').each(function() {
+	//					var $this = $(this),
+	//						$contentParent  = this,
+	//						$content = $this.children('.post__content');
+	//					console.log($content)
+	//					var expandContent = new TimelineMax()
+	//						.to($content, 1, {
+	//							width : '200%'
+	//						})
+	//
+	//					var expandContentScene = new ScrollMagic.Scene({
+	//						triggerElement : $content,
+	//						triggerHook    : 1,
+	//						reverse        : false
+	//					})
+	//						.setTween(expandContent)
+	//						.addTo(controller);
+	//				});
 
 	// END SCROLLMAGIC
 
@@ -343,17 +362,18 @@ jQuery( function( $ ) {
 
 	// load google fonts with webfont loader
 	const WebFontConfig = {
-		google : {
-			families : ['Barlow Semi Condensed:400,700','Barlow:400,700','Abril Fatface']
+		google: {
+			families: [ 'Barlow Semi Condensed:400,700', 'Barlow:400,700', 'Abril Fatface' ]
 		},
-		timeout : 2000
+		timeout: 2000
 	};
-	(function(d) {
-		var wf = d.createElement('script'), s = d.scripts[0];
+	( function( d ) {
+		var wf = d.createElement( 'script' ),
+			s = d.scripts[0];
 		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
 		wf.async = true;
-		s.parentNode.insertBefore(wf, s);
-	})(document);
+		s.parentNode.insertBefore( wf, s );
+	}( document ) );
 
 	// END APIS
 
@@ -362,54 +382,60 @@ jQuery( function( $ ) {
 	var titleTimeline = new TimelineMax();
 
 	titleTimeline.staggerFromTo( '.line', 1, {
-		width: 0
+		width: 0,
+		opacity: 0
 	},
 	{
 		x: -200,
-		width: '100%',
+		width: '50%',
 		opacity: 0
 	},
 	0.15 );
-	titleTimeline.staggerTo( '.line', 1, {
+	titleTimeline.staggerTo( '.line', 0.7, {
 		x: 0,
 		width: 100,
 		opacity: 1
+	});
+
+	$( function() {
+		$( '#home_banner_list' ).removeClass( 'is-hidden' );
 	});
 
 	// Dribbble galleries
 	// Set the Access Token
 	var accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6',
 		numberOfShots = '6';
+
 	// Call Dribble v2 API
 	$.ajax({
-		url      : 'https://api.dribbble.com/v2/user/shots?per_page=' + numberOfShots + '&access_token=' + accessToken,
-		dataType : 'json',
-		type     : 'GET',
-		success  : function (data) {
-			if (data.length > 0) {
-				$.each(data.reverse(), function (i, val) {
-					$('#dribbbles').prepend(
+		url: 'https://api.dribbble.com/v2/user/shots?per_page=' + numberOfShots + '&access_token=' + accessToken,
+		dataType: 'json',
+		type: 'GET',
+		success: function( data ) {
+			if ( 0 < data.length ) {
+				$.each( data.reverse(), function( i, val ) {
+					$( '#dribbbles' ).prepend(
 						'<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>'
-					)
-				})
+					);
+				});
 			} else {
-				$('#dribbbles').append('<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>');
+				$( '#dribbbles' ).append( '<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>' );
 			}
 		}
 	});
 
 	// Mixitup.js
 	// https://github.com/patrickkunka/mixitup/tree/v2
-	const designGallery = document.querySelector('#gallery');
-	if (designGallery) {
-		let mixer = mixitup(designGallery, {
-						animation : {
-							effectsIn  : 'fade',
-							effectsOut : 'fade',
-							easing     : 'linear'
-						},
-			controls : {
-				toggleLogic : 'and'
+	const designGallery = document.querySelector( '#gallery' );
+	if ( designGallery ) {
+		let mixer = mixitup( designGallery, {
+			animation: {
+				effectsIn: 'fade',
+				effectsOut: 'fade',
+				easing: 'linear'
+			},
+			controls: {
+				toggleLogic: 'and'
 			}
 		});
 	}
