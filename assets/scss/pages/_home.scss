@@ -21,6 +21,12 @@
 			position: relative;
 			overflow: hidden;
 
+			&.is-hidden {
+				@include media(">=screen1170") {
+					visibility: hidden;
+				}
+			}
+
 			&__item {
 				// .banner__item
 				padding: $gutter / 3;
@@ -80,6 +86,14 @@
 				color: $color__black--light;
 				z-index: 1;
 			}
+		}
+
+		.homepage__banner-bg {
+			position: absolute;
+			bottom: -50%;
+			right: $gutter * 2;
+			width: 50vw;
+			height: auto;
 		}
 
 		.banner.is-mobile {
@@ -242,7 +256,7 @@
 			}
 
 			.line {
-				background-color: $color__black--light;
+				background-color: $color__white;
 				@include size(0, 10px);
 				margin-bottom: 1em;
 			}

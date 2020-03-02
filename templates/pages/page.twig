@@ -3,25 +3,25 @@
 {% block content %}
 {% for post in posts %}
 	<article {{ function('post_class') }}>
-		
+
 		<header class="page__header">
-			
+
 			{% if post.post_excerpt %}
-			<p class="meta">{{ post.post_excerpt }}</p>
+				<p class="meta wysiwyg">{{ post.post_excerpt }}</p>
 			{% endif %}
-			
+
 			{% include 'components/title.twig' %}
 		</header>
-		
+
 		{% if post.content %}
 		<div class="page__content get-faded wysiwyg">
 			{{ post.content }}
 		</div>
 		{% endif %}
-		
+
 		<footer class="page__footer">
 		</footer>
-		
+
 	</article>
 {% endfor %}
 {% endblock %}
