@@ -21,8 +21,7 @@
 			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
 			 alt="background image"
 			 class="homepage__banner-bg"
-			 srcset="{{ theme.link }}/assets/img/home-bg@3x.png 3x,
-					 {{ theme.link }}/assets/img/home-bg@2x.png 2x,
+			 srcset="{{ theme.link }}/assets/img/home-bg@2x.png 2x,
 					 {{ theme.link }}/assets/img/home-bg.png 1x"
 			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 		<ul id="home_banner_list" class="banner is-hidden{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
