@@ -12,30 +12,31 @@
 	margin-bottom: $gutter * 2;
 //	transform: translateY(100%);
 //	transition: $speed--slow linear;
+
 	@include media(">=screen600") {
 		background-color: $color__black;
 		height: 100px;
 		margin-bottom: 0;
 //		transform: translateY(-100px);
 	}
-	
+
 	@supports (display: flex) {
 		// .site__header
 //		display: flex;
 //		align-items: center;
 	}
-	
+
 	&.is-visible {
 		max-height: calc(100vh - 72px);
 		overflow: auto;
 		transform: translateY(0);
 		z-index: 40;
-		
+
 		.site__header--logo {
 			top: 20px;
 		}
 	}
-	
+
 	.menu {
 		display: flex;
 		flex-direction: column;
@@ -65,13 +66,16 @@
 //			flex-direction: row;
 //			align-items: center;
 		}
-		
+
 		&-item {
 			// .menu-item
 			position: relative;
+
 			&-home {
 				// .menu-item-home
+				display: none;
 			}
+
 			// mobile only
 			@include media("<screen600") {
 				@include paragraph();
@@ -79,42 +83,30 @@
 				padding: $small-spacing / 2 0;
 			}
 		}
-		
+
 	}
-	
+
 	.nav-link {
 		display: block;
-		
+
 		@include media("<screen600") {
 			padding: $small-spacing / 2;
 		}
+
 		@include media(">=screen600") {
-			@include body-copy();
+			@include paragraph();
 			font-weight: 700;
 			padding: $small-spacing;
 			border-radius: 2px;
 			padding: $small-spacing / 2 $small-spacing;
 			transition: background-color $speed--slow, color $speed--slow;
+
 			&:hover {
 				background-color: fade-out($color__white, 0.9);
 			}
 		}
 	}
-	
-//	.multilevel-link {
-//		position: relative;
-//		&::after {
-//			content: "\f067";
-//			transition: transform $speed--slow--slow;
-//		}
-//		
-//		&.active {
-//			& ~ .submenu {
-//				display: block;
-//			}
-//		}
-//	}
-	
+
 	.submenu {
 		display: none;
 	}
@@ -136,11 +128,12 @@
 	cursor: pointer;
 	transition: $speed--slow linear;
 	z-index: 35;
+
 	&:hover,
 	&:focus {
 //		background-color: transparent;
 //		color: $color__white;
-//		
+//
 //		.bar {
 //			background-color: $color__white !important;
 //		}
@@ -148,40 +141,38 @@
 			color: $color__black;
 		}
 	}
-	
+
 	@include media(">=screen600") {
 		top: 0;
 		bottom: auto;
 		color: $color__black;
 		margin-top: 32px;
 		margin-bottom: 32px;
-		
+
 		&.open {
 			color: $color__white;
 		}
 	}
-	
+
 //	@include media(">=screen1170") {
 //		&:hover {
 //			color: $color__black;
 //		}
 //	}
-	
-	.m,
-	.n,
-	.u {
+
+	.m, .n, .u {
 		display: inline-block;
 		transition: $speed--slow;
 	}
-	
+
 	.e {
 		display: inline-block;
 		@include size(12px, 13px);
 		transition: color $speed--slow;
-		
+
 		&.toggle__close {
 			@include size(14px, 13px);
-			
+
 			.bar {
 				width: 15px;
 				background-color: $color__white;
@@ -205,9 +196,9 @@
 				transition: $speed--slow;
 			}
 		}
-		
+
 	}
-	
+
 	.bar {
 		position: relative;
 		display: block;

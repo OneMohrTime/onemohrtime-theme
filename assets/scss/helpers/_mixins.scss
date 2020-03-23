@@ -382,12 +382,14 @@
 		&:hover,
 		&:focus {
 			color: inherit;
+
 			&::before {
 				bottom: 0;
 				@include size(100%, 80%);
 				transform: translateY(2px) scaleY(1.2);
 				animation: inline-expand;
 			}
+
 			.svg-icon {
 				transform: translateX($small-spacing);
 			}
@@ -441,11 +443,12 @@
 }
 
 @mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
-    border: 3px $buttoncolor solid;
+	border: 3px $buttoncolor solid;
 	color: $buttoncolor;
-    &::after {
-        background-color: $hover;
-    }
+
+	&::after {
+		background-color: $hover;
+	}
 }
 
 @mixin btn-contact() {
@@ -455,6 +458,7 @@
 	transform: rotate(-90deg) !important;
 	transform-origin: center top 0;
 	z-index: 2;
+
 	&:hover,
 	&:focus {
 		@include btn-color($color__white);

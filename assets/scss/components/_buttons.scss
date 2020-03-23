@@ -51,12 +51,12 @@
 	@include media(">=screen960") {
 		&::after { transition: all 300ms; }
 	}
-	
+
 	&:hover,
 	&:focus {
 		background-color: transparent;
 		color: inherit;
-		
+
 		@include media(">=screen960") {
 			transition: all 300ms;
 			&::after {
@@ -65,12 +65,12 @@
 			}
 		}
 	}
-	
+
 	.svg-icon {
 		position: relative;
 		transition: $speed cubic-bezier(.455,.03,.515,.955);
 	}
-	
+
 	&.homepage__banner--contact,
 	&.gallery__banner--contact,
 	&.project__banner--contact,
@@ -78,10 +78,10 @@
 
 		.svg-icon {
 			margin-right: $small-spacing;
-			
+
 			path {
 				fill: $color__white;
-				tranistion: fill $speed;
+				transition: fill $speed;
 			}
 		}
 
