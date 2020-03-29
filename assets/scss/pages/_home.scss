@@ -257,7 +257,7 @@
 
 			.line {
 				background-color: $color__white;
-				@include size(0, 10px);
+				@include size(110px, 8px);
 				margin-bottom: 1em;
 			}
 		}
@@ -382,17 +382,9 @@
 			&:focus {
 				// .feature:hover
 				// .feature:focus
-				background: transparent;
-				color: $color__white;
 				box-shadow: none;
 				.feature__image {
-					opacity: 1 !important;
-				}
-				.feature__content--title::after {
-					background-color: $color__white;
-				}
-				.feature__read-more {
-					border-color: $color__white;
+					opacity: 0.1 !important;
 				}
 				.wysiwyg {
 					transform: scaleY(0);
@@ -433,10 +425,12 @@
 				@include position(absolute, 0);
 				opacity: 0 !important;
 				transition: opacity $speed;
+
 				@supports (object-fit: cover) {
 					@include size(100%);
 					min-height: 100%;
 					object-fit: cover;
+
 					@include media(">=screen1170") {
 						height: 250px;
 					}

@@ -78,8 +78,7 @@ jQuery(function ($) {
     scrollState = scrollTop();
   };
 
-  function homeAction() {
-    console.log('home');
+  function homeAction() {// console.log( 'home' );
   }
 
   function downAction() {
@@ -331,22 +330,24 @@ jQuery(function ($) {
   })(document); // END APIS
   // Home page
   // JavaScript to be fired on the home page
+  // var titleTimeline = new TimelineMax();
+  // titleTimeline.staggerFromTo( '.line', 1, {
+  // 	width: 0,
+  // 	opacity: 0
+  // },
+  // {
+  // 	x: -200,
+  // 	width: '50%',
+  // 	opacity: 0
+  // },
+  // 0.15 );
+  // titleTimeline.staggerTo( '.line', 0.7, {
+  // 	x: 0,
+  // 	width: 100,
+  // 	opacity: 1
+  // });
 
 
-  var titleTimeline = new TimelineMax();
-  titleTimeline.staggerFromTo('.line', 1, {
-    width: 0,
-    opacity: 0
-  }, {
-    x: -200,
-    width: '50%',
-    opacity: 0
-  }, 0.15);
-  titleTimeline.staggerTo('.line', 0.7, {
-    x: 0,
-    width: 100,
-    opacity: 1
-  });
   $(function () {
     $('#home_banner_list').removeClass('is-hidden');
   }); // Dribbble galleries
