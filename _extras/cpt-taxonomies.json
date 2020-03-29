@@ -59,7 +59,7 @@
 		"rewrite_hierarchical": "0",
 		"show_admin_column": "false",
 		"show_in_rest": "false",
-		"show_in_quick_edit": "",
+		"show_in_quick_edit": "true",
 		"rest_base": "",
 		"labels": {
 			"menu_name": "Coding Languages",
@@ -101,7 +101,7 @@
 		"rewrite_hierarchical": "0",
 		"show_admin_column": "false",
 		"show_in_rest": "false",
-		"show_in_quick_edit": "",
+		"show_in_quick_edit": "true",
 		"rest_base": "",
 		"labels": {
 			"menu_name": "",

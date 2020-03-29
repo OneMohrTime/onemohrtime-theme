@@ -74,6 +74,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'acf_add_local_field_group' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		add_action( 'widgets_init', array( $this, 'widgets' ) );
 		add_action( 'init', array( $this, 'disable_emojis' ) );
@@ -84,7 +85,9 @@ class StarterSite extends Timber\Site {
 	/**
 	 * This is where you can register custom post types.
 	 */
-	public function register_post_types() {}
+	public function register_post_types() {
+		include( 'includes/custom-posts.php' );
+	}
 
 	/**
 	 * This is where you can register custom taxonomies.
@@ -100,14 +103,21 @@ class StarterSite extends Timber\Site {
 		$context['site'] = $this;
 
 		/* Menu */
-        $context['menu']   = new TimberMenu('Primary Navigation');
-        $context['footer'] = new TimberMenu('Footer Projects');
+		$context['menu']   = new TimberMenu('Primary Navigation');
+		$context['footer'] = new TimberMenu('Footer Projects');
 
-        /* Sidebar */
-        // $context['display_sidebar'] = Setup\display_sidebar();
+		/* Sidebar */
+		// $context['display_sidebar'] = Setup\display_sidebar();
 		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
 
 		return $context;
+	}
+
+	/**
+	 * Advanced Custom Fields
+	 */
+	public function acf_add_local_field_group() {
+		include( 'includes/acf.php' );
 	}
 
 	public function theme_supports() {
