@@ -5,7 +5,6 @@
 // Declare javascript, basically
 jQuery( function( $ ) {
 	var doc = document.documentElement;
-	var wpGallery;
 
 	doc.className = doc.className.replace( 'no-js', 'has-js' );
 	doc.setAttribute( 'data-useragent', navigator.userAgent );
@@ -49,16 +48,32 @@ jQuery( function( $ ) {
 	// });
 
 	// find wordpress galleries
-	wpGallery = document.querySelector( '.wp-block-gallery .blocks-gallery-grid' );
+	const wpGallery = $( '.wp-block-gallery .blocks-gallery-grid' );
 
-	// add .get-faded class
-	$( wpGallery ).addClass( 'get-faded' );
+	if ( wpGallery ) {
+		let sizer  = $( '<li class="blocks-gallery-sizer"></li>' );
+		let gutter = $( '<li class="blocks-gallery-gutter"></li>' );
+		wpGallery.prepend( sizer, gutter );
 
-	// add fancybox attribute
-	$( wpGallery ).children().each( function( i, e ) {
-		console.log( $( e ).find( 'a' ) );
-		$( e ).find( 'a' ).attr( 'data-fancybox', 'image' );
-	});
+		// reorganize with Masonry
+		wpGallery.isotope({
+			itemSelector: '.blocks-gallery-item',
+			percentPosition: true,
+			masonry: {
+				columnWidth: '.blocks-gallery-sizer',
+				gutter: '.blocks-gallery-gutter',
+				horizontalOrder: true,
+			}
+		});
+
+		// add .get-faded class
+		wpGallery.parent().addClass( 'get-faded' );
+
+		// add fancybox attribute
+		wpGallery.children().each( function( i, e ) {
+			$( e ).find( 'a' ).attr( 'data-fancybox', 'image' );
+		});
+	}
 
 	// Slide nav menu up and down
 	// Initial scroll position
@@ -116,19 +131,27 @@ jQuery( function( $ ) {
 		}
 	});
 
-	// click to smoothscroll
-	$( 'a[href^="#"]' ).on( 'click', function( e ) {
-		e.preventDefault();
-		$( 'html,body' ).animate({
-			scrollTop: $( this.hash ).offset().top
-		}, 1500 );
-	});
+	// // click to smoothscroll
+	// $( '.content-area a[href^="#"]' ).on( 'click', function( e ) {
+	// 	e.preventDefault();
+	// 	$( 'html,body' ).animate({
+	// 		scrollTop: $( this.hash ).offset().top
+	// 	}, 1500 );
+	// });
 
 	// add scrolling class to contact
 	$( 'a[href^="#contact"]' ).on( 'click', function() {
 		$( '#contact' ).addClass( 'said-hi' );
 		$( '#mobile_menu' ).removeClass( 'is-visible' );
 	});
+
+	// Filter & sort design projects
+	const designGallery = $( '#gallery' );
+	// if ( designGallery ) {
+	// 	designGallery.isotope({
+	// 		filter: '*'
+	// 	})
+	// }
 
 	// Fancybox
 	//				$('[data-fancybox], .fancybox, .gallery-item a').fancybox({
@@ -250,14 +273,6 @@ jQuery( function( $ ) {
 
 			// Add padding to navbar area
 			$( '#page' ).toggleClass( 'padded' );
-
-			// Move filters down on Featured Work page
-			//						if (window.matchMedia("(min-width: 600px)").matches) {
-			if ( 'function' == typeof mixitup ) {
-				$( '.gallery__filter' ).toggleClass( 'with-sticky' );
-			}
-
-			//						}
 		});
 	} else {
 		desktopTimeline.to( desktopMenu, menuDuration, {
@@ -375,6 +390,42 @@ jQuery( function( $ ) {
 		s.parentNode.insertBefore( wf, s );
 	}( document ) );
 
+	// Dribbble galleries
+	// Set the Access Token
+	var accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6',
+		numberOfShots = '6';
+
+	// Call Dribble v2 API
+	$.ajax({
+		url: 'https://api.dribbble.com/v2/user/shots?per_page=' + numberOfShots + '&access_token=' + accessToken,
+		dataType: 'json',
+		type: 'GET',
+		success: function( data ) {
+			if ( 0 < data.length ) {
+				$.each( data.reverse(), function( i, val ) {
+					$( '#dribbbles' ).prepend(
+						'<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>'
+					);
+				});
+			} else {
+				$( '#dribbbles' ).append( '<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>' );
+			}
+		}
+	});
+
+	// getDribbbles: function(access_token) {
+	// 	$.getJSON('https://api.dribbble.com/v2/user/shots?access_token=' + access_token).success(function(data) {
+	// 		for (i = 0; i < 6; i++) {
+	// 			var shotId = data[i].id,
+	// 				shotImg = data[i].images.normal,
+	// 				shotTitle = data[i].title,
+	// 				shotDate = data[i].created_at,
+	// 				shotUrl = data[i].html_url;
+	// 			$('.dribbble-list').append('<li class="dribbble-list__item grid-col"><a href="' + shotUrl + '"><article class="dribbble"><header class="dribbble__detail"><h1 class="dribbble__title">' + shotTitle + '</h1></header><img class="dribbble__thumb" src="' + shotImg + '" width="320" height="240" alt="' + shotTitle + '" /></article></a></li>');
+	// 		}
+	// 	});
+	// },
+
 	// END APIS
 
 	// Home page
@@ -400,44 +451,4 @@ jQuery( function( $ ) {
 	$( function() {
 		$( '#home_banner_list' ).removeClass( 'is-hidden' );
 	});
-
-	// Dribbble galleries
-	// Set the Access Token
-	var accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6',
-		numberOfShots = '6';
-
-	// Call Dribble v2 API
-	$.ajax({
-		url: 'https://api.dribbble.com/v2/user/shots?per_page=' + numberOfShots + '&access_token=' + accessToken,
-		dataType: 'json',
-		type: 'GET',
-		success: function( data ) {
-			if ( 0 < data.length ) {
-				$.each( data.reverse(), function( i, val ) {
-					$( '#dribbbles' ).prepend(
-						'<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>'
-					);
-				});
-			} else {
-				$( '#dribbbles' ).append( '<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>' );
-			}
-		}
-	});
-
-	// Mixitup.js
-	// https://github.com/patrickkunka/mixitup/tree/v2
-	const designGallery = document.querySelector( '#gallery' );
-	if ( designGallery ) {
-		let mixer = mixitup( designGallery, {
-			animation: {
-				effectsIn: 'fade',
-				effectsOut: 'fade',
-				easing: 'linear'
-			},
-			controls: {
-				toggleLogic: 'and'
-			}
-		});
-	}
-
 });
