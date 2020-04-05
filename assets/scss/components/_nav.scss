@@ -94,7 +94,7 @@
 		}
 
 		@include media(">=screen600") {
-			@include paragraph();
+			@include body-copy();
 			font-weight: 700;
 			padding: $small-spacing;
 			border-radius: 2px;

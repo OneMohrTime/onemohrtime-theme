@@ -29,17 +29,16 @@ jQuery(function ($) {
       n.text('N');
       u.text('U');
     }
-  } // END FUNCTIONS
-  //////////////////
-  // START JQUERY //
-  //////////////////
-  // Multilevel links
+  } // Multilevel links
   // $('.multilevel-link').on('click touchstart', function() {
   // 	$(this).next('ul').animate({
   // 		width : 'toggle'
   // 	}, 200);
   // });
-  // find wordpress galleries
+
+  /**
+   * Convert WordPress Block Galleries into Masonry layout
+   */
 
 
   var wpGallery = $('.wp-block-gallery .blocks-gallery-grid');
@@ -63,6 +62,25 @@ jQuery(function ($) {
 
     wpGallery.children().each(function (i, e) {
       $(e).find('a').attr('data-fancybox', 'image');
+    });
+  }
+  /**
+   * Convert WordPress Block Galleries into Masonry layout
+   */
+
+
+  var pageGallery = $('#images');
+
+  if (pageGallery) {
+    // reorganize with Masonry
+    pageGallery.isotope({
+      itemSelector: '.image',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.-sizer',
+        gutter: '.-gutter',
+        horizontalOrder: true
+      }
     });
   } // Slide nav menu up and down
   // Initial scroll position
@@ -135,76 +153,21 @@ jQuery(function ($) {
   // 		filter: '*'
   // 	})
   // }
-  // Fancybox
-  //				$('[data-fancybox], .fancybox, .gallery-item a').fancybox({
-  //					// Enable infinite gallery navigation
-  //					loop : true,
-  //					// What buttons should appear in the top right corner.
-  //					// Buttons will be created using templates from `btnTpl` option
-  //					// and they will be placed into toolbar (class="fancybox-toolbar"` element)
-  //					buttons : [
-  //						'zoom',
-  //						'share',
-  //						//'slideShow',
-  //						'fullScreen',
-  //						//'download',
-  //						'thumbs',
-  //						'close'
-  //					],
-  //					// Open/close animation type
-  //					// Possible values:
-  //					//   false            - disable
-  //					//   "zoom"           - zoom images from/to thumbnail
-  //					//   "fade"
-  //					//   "zoom-in-out"
-  //					animationEffect   : 'zoom',
-  //					// Duration in ms for open/close animation
-  //					animationDuration : 200,
-  //					// Transition effect between slides
-  //					//
-  //					// Possible values:
-  //					//   false            - disable
-  //					//   'fade'
-  //					//   'slide'
-  //					//   'circular'
-  //					//   'tube'
-  //					//   'zoom-in-out'
-  //					//   'rotate'
-  //					//
-  //					transitionEffect   : 'slide',
-  //					// Duration in ms for transition animation
-  //					transitionDuration : 400,
-  //					// Customize or add new media types
-  //					// Example:
-  //					/*
-  //						media : {
-  //							youtube : {
-  //								params : {
-  //									autoplay : 0
-  //								}
-  //							}
-  //						}
-  //					*/
-  //					media  : {},
-  //					thumbs : {
-  //						autoStart : true, // Display thumbnails on opening
-  //					},
-  //				});
-  // END JQUERY
+  // END FUNCTIONS
   /////////////////////
   // BEGIN GREENSOCK //
   /////////////////////
   // Init ScrollMagic
 
-  var controller = new ScrollMagic.Controller({
+  var scrollMagicController = new ScrollMagic.Controller({
     globalSceneOptions: {
       triggerHook: 0.8
-    } //		addIndicators : true
+    } // addIndicators : true
 
   }); // Viewport in log
 
-  var viewportWidth = window.innerWidth,
-      viewportHeight = window.innerHeight;
+  var viewportWidth = window.innerWidth;
+  var viewportHeight = window.innerHeight;
   console.log('Current viewport: ' + viewportWidth + 'w × ' + viewportHeight + 'h'); // Mobile menu
 
   var mobileToggle = $('#menu_toggle'),
@@ -288,7 +251,7 @@ jQuery(function ($) {
       var parallaxScene = new ScrollMagic.Scene({
         triggerElement: parallaxParent,
         duration: '200%'
-      }).setTween(tweenParallax).setClassToggle(this, 'parallax--scrolling').addTo(controller);
+      }).setTween(tweenParallax).setClassToggle(this, 'parallax--scrolling').addTo(scrollMagicController);
     }
   }); // Fade in content blocks
 
@@ -305,26 +268,8 @@ jQuery(function ($) {
       triggerElement: fadeParent,
       triggerHook: 1,
       reverse: false
-    }).setTween(tweenFade).setClassToggle(fadeChild, 'got-faded').addTo(controller);
-  }); //				$('.type-post').each(function() {
-  //					var $this = $(this),
-  //						$contentParent  = this,
-  //						$content = $this.children('.post__content');
-  //					console.log($content)
-  //					var expandContent = new TimelineMax()
-  //						.to($content, 1, {
-  //							width : '200%'
-  //						})
-  //
-  //					var expandContentScene = new ScrollMagic.Scene({
-  //						triggerElement : $content,
-  //						triggerHook    : 1,
-  //						reverse        : false
-  //					})
-  //						.setTween(expandContent)
-  //						.addTo(controller);
-  //				});
-  // END SCROLLMAGIC
+    }).setTween(tweenFade).setClassToggle(fadeChild, 'got-faded').addTo(scrollMagicController);
+  }); // END SCROLLMAGIC
   ////////////////
   // BEGIN APIS //
   ////////////////

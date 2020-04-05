@@ -13,11 +13,14 @@
 		</header>
 
 		{% if image_grid %}
-		<section id="images" class="page__gallery get-faded">
+		<section id="images" class="page__gallery">
+
+			<div class="-sizer"></div>
+			<div class="-gutter"></div>
 
 			{% for image in image_grid %}
 
-				<figure id="image_{{ image.id }}" class="image mix {{ image.post_class }}">
+				<figure id="image_{{ image.id }}" class="image {{ image.post_class }}">
 					<img src="{{ TimberImage(image).src('thumbnail') }}"
 						 width="{{ image.width }}" height="{{ image.height }}"
 						 alt="{{ section.image.alt }}"

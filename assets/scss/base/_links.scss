@@ -16,9 +16,9 @@ a {
 	&:focus {
 		outline-color: fade-out($color__yellow, 0.4);
 	}
-	
+
 	// if link is not a button
-	&:not(.btn) {
+	&:not(.btn):not([data-fancybox]) {
 		// but is a child of .wysiwyg
 		.wysiwyg & {
 			// stylize as inline link
