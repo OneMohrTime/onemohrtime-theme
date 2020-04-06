@@ -187,6 +187,8 @@ class StarterSite extends Timber\Site {
 //		wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
 		// Vendor script
 		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/js/vendor.js', array('jquery'), null, true );
+		// Isotope
+		wp_enqueue_script( 'isotope', get_template_directory_uri() . '/assets/js/lib/isotope.pkgd.min.js', array(), '3.0.6', true );
 		// MixItUp
 		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/assets/js/lib/mixitup.min.js', array(), '3.2.2', true );
 		// ScrollMagic
@@ -196,7 +198,7 @@ class StarterSite extends Timber\Site {
 		// GSAP Tween Max
 		wp_enqueue_script( 'tweenmax', get_template_directory_uri() . '/assets/js/lib/TweenMax.min.js', array(), '2.0.5', true );
 		// GSAP CSS Plugin
-//		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/assets/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
+		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/assets/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP CSS animation
 		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/assets/js/lib/plugins/animation.gsap.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP jQuery plugin

@@ -140,6 +140,7 @@
 					height: 36px;
 					margin-left: $small-spacing;
 					margin-right: $small-spacing;
+
 					@include media(">=screen768") {
 						line-height: 72px;
 						height: 72px;
@@ -150,35 +151,39 @@
 					// .array__title
 					position: relative;
 					color: $color__gray;
+
 					&--before,
 					&--after {
 						// .array__title--before
 						// .array__title--after
 						transition: opacity $speed, position $speed;
 					}
+
 					&--before {
 						// .array__title--before
 						position: absolute;
 						opacity: 0;
 					}
+
 					&--after {
 						// .array__title--after
 						position: relative;
 						opacity: 1;
 					}
-					&.mixitup-control-active {
-						.array__title--before,
-						.array__title--after {}
 
-						.array__title--before {
-							position: relative;
-							opacity: 1;
-						}
-						.array__title--after {
-							position: absolute;
-							opacity: 0;
-						}
-					}
+					// &.mixitup-control-active {
+					// 	.array__title--before,
+					// 	.array__title--after {}
+
+					// 	.array__title--before {
+					// 		position: relative;
+					// 		opacity: 1;
+					// 	}
+					// 	.array__title--after {
+					// 		position: absolute;
+					// 		opacity: 0;
+					// 	}
+					// }
 				}
 
 				&__filter {
@@ -189,6 +194,7 @@
 					height: 100%;
 					padding: 0 $small-spacing;
 					cursor: pointer;
+
 					&::before {
 						// .array__filter::before
 						content: "";
@@ -197,6 +203,7 @@
 						background-color: $color__white--dark;
 						@include size(100%, 4px);
 						transition: background-color $speed linear;
+
 						@include media(">=screen768") {
 							top: 75%;
 							left: 50%;
@@ -205,19 +212,23 @@
 							transform: translate(-50%, -50%);
 						}
 					}
+
 					&:hover {
 						background-color: transparent;
 						color: inherit;
 					}
+
 					&:focus {
 						outline: none;
+
 						&::before {
 							outline: 3px fade-out($color__yellow, 0.4) solid;
 							outline-offset: 2px;
 						}
 					}
 
-					&.mixitup-control-active {
+					&.-isActive {
+
 						&::before {
 							// .array__filter::before
 							background-color: $color__yellow;
@@ -232,6 +243,7 @@
 					font-size: .75rem !important;
 					padding: 0;
 					border: 0;
+
 					@supports (display: flex) {
 						margin-left: auto;
 					}

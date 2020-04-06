@@ -36,37 +36,37 @@
 }
 
 @mixin hide-visually($toggle: "hide") {
-    @if not index("hide" "unhide", $toggle) {
-        @error "`#{$toggle}` is not a valid value for the `$toggle` argument in " +
-               "the `hide-visually` mixin. Must be either `hide` or `unhide`.";
-    } @else if $toggle == "hide" {
-        border: 0;
-        clip: rect(1px, 1px, 1px, 1px);
-        clip-path: inset(100%);
-        height: 1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-    } @else if $toggle == "unhide" {
-        clip: auto;
-        clip-path: none;
-        height: auto;
-        overflow: visible;
-        position: static;
-        white-space: inherit;
-        width: auto;
-    }
-/// @example scss
-///   .element {
-///     @include hide-visually;
-///
-///     &:active,
-///     &:focus {
-///       @include hide-visually("unhide");
-///     }
-///   }
+	@if not index("hide" "unhide", $toggle) {
+		@error "`#{$toggle}` is not a valid value for the `$toggle` argument in " +
+			"the `hide-visually` mixin. Must be either `hide` or `unhide`.";
+	} @else if $toggle == "hide" {
+		border: 0;
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(100%);
+		height: 1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	} @else if $toggle == "unhide" {
+		clip: auto;
+		clip-path: none;
+		height: auto;
+		overflow: visible;
+		position: static;
+		white-space: inherit;
+		width: auto;
+	}
+//// @example scss
+////   .element {
+////     @include hide-visually;
+////
+////     &:active,
+////     &:focus {
+////       @include hide-visually("unhide");
+////     }
+////   }
 }
 
 @mixin aspect-ratio($width, $height) {
@@ -155,8 +155,8 @@
 
 @mixin condensed-shadow() {
 	text-shadow: -15px 5px 20px $color__white--darkest;
-    color: $color__white;
-    letter-spacing: -0.05em;
+	color: $color__white;
+	letter-spacing: -0.05em;
 }
 
 @mixin retro-text() {
@@ -208,17 +208,16 @@
 	line-height: $base-line-height;
 	widows: 3;
 	orphans: 3;
-    // hyphens: auto;
+	// hyphens: auto;
 }
 
 @mixin responsive-type() {
 	// Scale text responsively
-	$up-to-screen   : 1500px !default;
-	$down-to-screen : 500px !default;
-
-	$range         : $up-to-screen - $down-to-screen !default;
-	$intervals     : 25 !default;
-	$interval-size : $range / $intervals !default;
+	$up-to-screen:   1500px !default;
+	$down-to-screen: 500px !default;
+	$range:          $up-to-screen - $down-to-screen !default;
+	$intervals:      25 !default;
+	$interval-size:  $range / $intervals !default;
 
 	$i: 0;
 	@while $i <= $intervals {
@@ -309,6 +308,7 @@
 		background-color: $color__yellow;
 		@include size(50px, 10px);
 		transition: background-color $speed, width $speed;
+
 		@include media(">=screen600") {
 			width: 100px;
 		}
@@ -317,13 +317,15 @@
 
 @mixin drop-cap() {
 	&:first-letter {
-		color: $color__yellow;
+		margin: 0 0.25em 0 0;
+		float: left;
 		font-family: $font__secondary;
 		font-size: 3.25em;
-		font-size: 3.375em;
-		font-size: 2em;
-		line-height: 1em;
-		margin: 0 0.25em 0 0;
+		// font-size: 3.375em;
+		// font-size: 2em;
+		font-size: 5.5em;
+		line-height: 0.9em;
+		color: $color__yellow;
 	}
 }
 

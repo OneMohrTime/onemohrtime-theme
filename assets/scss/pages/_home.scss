@@ -306,7 +306,7 @@
 			padding-bottom: $gutter * 8;
 		}
 
-		.\:hasSidebar & {
+		.-hasSidebar & {
 			@include media(">=screen768") {
 				padding-bottom: $gutter;
 			}
