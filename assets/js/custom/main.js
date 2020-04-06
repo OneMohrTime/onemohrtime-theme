@@ -111,9 +111,6 @@ jQuery( function( $ ) {
 		const $featuredProjectFilter = $( '#featured_project_filter' );
 		$featuredProjectFilter.on( 'click', 'button', function() {
 			let filterValue = $( this ).attr( 'data-filter' );
-
-			// // use filterFn if matches value
-			// filterValue = filterFns[ filterValue ] || filterValue;
 			designGallery.isotope({ filter: filterValue });
 		});
 

@@ -4,12 +4,10 @@
 
 .article {
 	position: relative;
-	@include body-copy();
 	@include size(100%, auto);
-	min-height: 420px;
-	max-height: 100vh;
-	margin-bottom: $base-spacing;
+	margin-bottom: $large-spacing;
 	overflow: hidden;
+	@include body-copy();
 
 	@include media(">=screen768") {
 		width: auto;
@@ -18,6 +16,8 @@
 	}
 
 	@include media(">=screen840") {
+		margin-bottom: $base-spacing;
+
 		@supports (display: flex) {
 			display: flex;
 			align-items: stretch;
@@ -40,18 +40,19 @@
 	&__image {
 		// .article__image
 		position: relative;
-		background-color: $color__white--dark;
-		color: $color__white;
-		@include size(100%, auto);
+		@include size(100%, 400px);
 		margin-bottom: $base-spacing;
 		overflow: hidden;
+		background-color: $color__white--dark;
+		color: $color__white;
 
 		@include media(">=screen840") {
 			flex: 0 0 60%;
-			@include box-shadow();
 			max-width: 60%;
+			height: 500px;
 			min-height: 100%;
 			margin-bottom: 0;
+			@include box-shadow();
 		}
 	}
 
@@ -63,8 +64,8 @@
 		@include media(">=screen840") {
 			flex: 0 0 calc(40% - #{$gutter});
 			max-width: calc(40% - #{$gutter});
-			@include small-font-size();
 			margin-bottom: 0;
+			@include small-font-size();
 
 			@supports (display: flex) {
 				display: flex;
@@ -95,9 +96,11 @@
 		}
 
 		&:hover {
+
 			.meta {
 				color: $color__black--light;
 			}
+
 			.post-format {
 				.svg-icon {
 					opacity: 1;
@@ -123,6 +126,7 @@
 		}
 
 		a {
+			line-height: $heading-line-height !important;
 
 			&::before {
 				display: none;
@@ -130,6 +134,13 @@
 
 			@include media(">=screen840") {
 				@include ellipsis();
+				// transition: overflow $speed, white-space $speed;
+
+				// &:hover,
+				// &:focus {
+				// 	overflow: visible;
+				// 	white-space: normal;
+				// }
 			}
 		}
 	}

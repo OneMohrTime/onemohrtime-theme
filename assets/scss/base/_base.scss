@@ -73,7 +73,8 @@ body {
 			grid-column-gap: $gutter;
 			width: auto;
 
-			body.home & {
+			&.-home,
+			&.-design {
 				display: block;
 			}
 		}

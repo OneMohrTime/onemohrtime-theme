@@ -40,21 +40,20 @@
 	.menu {
 		display: flex;
 		flex-direction: column;
-//		font-family: $font__header;
-//		font-weight: 700;
-		text-transform: uppercase;
+		width: 100%;
+		height: calc(100vh - 72px);
 		margin: 0;
 		padding: 72px $gutter 0;
-		letter-spacing: 4px;
-		@include size(100%);
-		height: calc(100vh - 72px);
-//		max-height: calc(100vh - 72px);
 		opacity: 0;
+		text-transform: uppercase;
+		letter-spacing: 4px;
 		visibility: hidden;
+
 		@include media("<screen600") {
 			justify-content: center;
 			align-items: center;
 		}
+
 		@include media(">=screen600") {
 			flex-direction: row;
 			align-items: center;
@@ -63,8 +62,6 @@
 			padding-left: calc(35px + #{$gutter * 2});
 			opacity: 1;
 			visibility: visible;
-//			flex-direction: row;
-//			align-items: center;
 		}
 
 		&-item {
@@ -94,12 +91,11 @@
 		}
 
 		@include media(">=screen600") {
-			@include body-copy();
-			font-weight: 700;
-			padding: $small-spacing;
-			border-radius: 2px;
 			padding: $small-spacing / 2 $small-spacing;
 			transition: background-color $speed--slow, color $speed--slow;
+			@include body-copy();
+			font-weight: 700;
+			border-radius: 2px;
 
 			&:hover {
 				background-color: fade-out($color__white, 0.9);
@@ -119,26 +115,28 @@
 .toggle__menu {
 	// .toggle__menu
 	@include position(absolute, null null 0 0);
-	color: $color__white;
+	margin: $gutter / 2 $gutter;
+	padding: $small-spacing / 2 0;
+	transition: background-color $speed--slow linear, color $speed--slow linear, box-shadow $speed--slow linear;
 	font-family: $font__header;
 	font-size: 1.25em !important;
 	font-weight: 700;
-	margin: $gutter / 2 $gutter;
-	padding: $small-spacing / 2 0;
-	cursor: pointer;
-	transition: $speed--slow linear;
+	color: $color__white;
 	z-index: 35;
+	cursor: pointer;
 
-	&:hover,
-	&:focus {
-//		background-color: transparent;
-//		color: $color__white;
-//
-//		.bar {
-//			background-color: $color__white !important;
-//		}
+	&:hover {
 		@include media(">=screen600") {
-			color: $color__black;
+			background-color: $color__black--lighter;
+			box-shadow: 0 0 0 5px $color__black--lighter;
+
+			.m, .n, .u {
+				color: $color__white;
+			}
+
+			.bar {
+				background-color: $color__white;
+			}
 		}
 	}
 
@@ -162,7 +160,7 @@
 
 	.m, .n, .u {
 		display: inline-block;
-		transition: $speed--slow;
+		transition: color $speed--slow;
 	}
 
 	.e {
@@ -175,10 +173,8 @@
 
 			.bar {
 				width: 15px;
+				transition: background-color $speed--slow;
 				background-color: $color__white;
-//				@include media(">screen600") {
-//					background-color: $color__black;
-//				}
 			}
 			.bar:nth-child(1) {
 				top: 5px;
@@ -206,6 +202,7 @@
 		transition: background-color $speed--slow;
 		width: 11px;
 		height: 3px;
+
 		&:nth-child(2) {
 			margin: 2px 0;
 		}

@@ -16,6 +16,7 @@
 		padding-left: $gutter;
 		padding-right: $gutter;
 		overflow: hidden;
+
 		@include media(">=screen768") {
 			height: calc(100vh - 72px);
 			height: 100vh;
@@ -23,10 +24,12 @@
 			padding-left: $gutter * 2;
 			padding-right: $gutter * 2;
 		}
+
 		@include media(">=screen1024") {
 			padding-left: $gutter * 3;
 			padding-right: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			padding-left: $gutter * 4;
 			padding-right: $gutter * 4;
@@ -43,6 +46,7 @@
 			@include position(absolute, 50% null null 50%);
 			transform: translate3d(-50%, -50%, 0);
 			@include size(100%);
+
 			@supports (object-fit: cover) {
 				object-fit: cover;
 			}
@@ -86,6 +90,7 @@
 		transform: translateY(-72px);
 		transition: top $speed linear;
 		z-index: 30;
+
 		&.with-sticky {
 			top: 100px;
 		}
@@ -94,10 +99,12 @@
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
@@ -119,6 +126,7 @@
 			@include size(100%);
 			padding-left: $small-spacing;
 			padding-right: $small-spacing;
+
 			@include media(">=screen1170") {
 				flex-direction: row;
 				justify-content: space-between;
@@ -170,20 +178,6 @@
 						position: relative;
 						opacity: 1;
 					}
-
-					// &.mixitup-control-active {
-					// 	.array__title--before,
-					// 	.array__title--after {}
-
-					// 	.array__title--before {
-					// 		position: relative;
-					// 		opacity: 1;
-					// 	}
-					// 	.array__title--after {
-					// 		position: absolute;
-					// 		opacity: 0;
-					// 	}
-					// }
 				}
 
 				&__filter {
@@ -272,35 +266,30 @@
 			margin-top: 0;
 			transform: translateY(-72px);
 		}
-
-		@supports (display: flex) {
-			display: flex;
-			flex-flow: row wrap;
-		}
-
-		@supports (display: grid) {
-			grid-column: span 4;
-		}
 	}
 
 	&__content {
 		// .gallery__content
 		grid-column: span 4;
 		margin: 0 $gutter $base-spacing;
+
 		@include media(">=screen840") {
 			max-width: 840px;
 			margin-bottom: $gutter * 2;
 			margin-left: $gutter * 2;
 			margin-right: auto;
 		}
+
 		@include media(">=screen1170") {
 			margin-left: $gutter * 3;
 			margin-bottom: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-bottom: $gutter * 4;
 		}
+
 		@include media(">=screen1920") {
 			margin-left: $gutter * 5;
 			margin-bottom: $gutter * 5;
@@ -311,6 +300,7 @@
 		// .gallery__dribbble
 		width: 100%;
 		margin: 0 $gutter #{$gutter * 2};
+
 		@supports(display: grid) {
 			grid-column: span 4;
 			width: auto;
