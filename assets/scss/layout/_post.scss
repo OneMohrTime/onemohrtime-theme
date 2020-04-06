@@ -18,12 +18,13 @@
 		// .page__header
 		// .posts__header
 		// .entry__header
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
-		margin: 0 $gutter;
 		height: 100vh;
+		margin: 0 $gutter;
 
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;

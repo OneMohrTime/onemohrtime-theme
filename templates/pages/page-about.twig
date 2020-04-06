@@ -1,0 +1,31 @@
+{% extends 'templates/base.twig' %}
+{% set displaySidebar = true %}
+
+{% block content %}
+
+	<article {{ function('post_class') }}>
+
+		<header class="page__header">
+			{% if post.subtitle %}
+				<p class="meta">{{ post.subtitle }}</p>
+			{% elseif post.post_excerpt %}
+				<p class="meta">{{ post.post_excerpt }}</p>
+			{% endif %}
+			{% include 'components/title.twig' %}
+			{% include 'components/personality-types.twig' %}
+		</header>
+
+		<div class="page__content get-faded wysiwyg">
+			{{ post.content }}
+		</div>
+
+		<footer class="page__footer">
+		</footer>
+
+	</article>
+
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
+{% endblock %}

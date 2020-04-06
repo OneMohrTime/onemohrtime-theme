@@ -1,0 +1,24 @@
+{% if post.personality_traits %}
+
+<dl class="c-table -personalityTypes">
+	{% for test in post.get_field('personality_traits') %}
+
+		<dt class="c-table__header">
+			{% if test.test_link %}
+				<a href="{{ test.test_link }}" target="_blank" rel="noopener">{{ test.test_name }}</a>
+			{% else %}
+				{{ test.test_name }}
+			{% endif %}
+		</dt>
+		<dd class="c-table__data wysiwyg">
+			{% if test.answer_link %}
+				<a href="{{ test.answer_link }}" target="_blank" rel="noopener">{{ test.answer }}</a>
+			{% else %}
+				{{ test.answer }}
+			{% endif %}
+		</dd>
+
+	{% endfor %}
+</dl>
+
+{% endif %}
