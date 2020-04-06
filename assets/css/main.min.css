@@ -362,14 +362,12 @@ body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left
 .gallery__filter .arrays .array__title--before,.gallery__filter .arrays .array__title--after{-webkit-transition:opacity 200ms,position 200ms;transition:opacity 200ms,position 200ms}
 .gallery__filter .arrays .array__title--before{position:absolute;opacity:0}
 .gallery__filter .arrays .array__title--after{position:relative;opacity:1}
-.gallery__filter .arrays .array__title.mixitup-control-active .array__title--before{position:relative;opacity:1}
-.gallery__filter .arrays .array__title.mixitup-control-active .array__title--after{position:absolute;opacity:0}
 .gallery__filter .arrays .array__filter{position:relative;font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;font-size:.75rem !important;height:100%;padding:0 .75em;cursor:pointer}
 .gallery__filter .arrays .array__filter::before{content:"";position:absolute;top:auto;right:0;bottom:0;left:0;display:block;background-color:#f2f1ee;height:4px;width:100%;-webkit-transition:background-color 200ms linear;transition:background-color 200ms linear}
 .gallery__filter .arrays .array__filter:hover{background-color:transparent;color:inherit}
 .gallery__filter .arrays .array__filter:focus{outline:0}
 .gallery__filter .arrays .array__filter:focus::before{outline:3px rgba(255,195,0,0.6) solid;outline-offset:2px}
-.gallery__filter .arrays .array__filter.mixitup-control-active::before{background-color:#ffc300}
+.gallery__filter .arrays .array__filter.-isActive::before{background-color:#ffc300}
 .gallery__filter .arrays .array__btn{font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;border-radius:0;font-size:.75rem !important;padding:0;border:0}
 .gallery__grid{position:relative;margin:0 36px 36px}
 .gallery__grid::before{content:"";position:absolute;top:25%;left:33.3%;right:36px;bottom:15%;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat}
@@ -501,7 +499,7 @@ body.archive .archives__article{padding-right:20%}
 .dribbbles .shot{width:31%}
 .widget__instagram--title{margin-top:36px;margin-bottom:36px}
 .homepage__work{padding:144px 72px}
-.\:hasSidebar .homepage__work{padding-bottom:36px}
+.-hasSidebar .homepage__work{padding-bottom:36px}
 .homepage__portfolio{padding:72px 36px}
 .homepage__portfolio .feature__content--title{letter-spacing:2px}
 .homepage__dribbble{margin-left:72px;margin-right:72px}
@@ -667,7 +665,7 @@ body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 }@media(min-width:1280px){.project__title{max-width:75vw}
 .article__title{font-size:2.6180340252em;letter-spacing:2px}
 .homepage__work{padding-top:216px;padding-bottom:216px}
-.\:hasSidebar .homepage__work{padding-bottom:108px}
+.-hasSidebar .homepage__work{padding-bottom:108px}
 .homepage__about--content{padding-left:108px;padding-right:108px}
 body.archive .archive__title{font-size:2.6180340252em;letter-spacing:2px}
 .daft-punk__content--title{font-size:9em}
@@ -721,7 +719,7 @@ body.archive .archives__article{padding-right:50%}
 .page__gallery .-sizer,.page__gallery .image,.posts__gallery .-sizer,.posts__gallery .image,.archives__gallery .-sizer,.archives__gallery .image,.entry__gallery .-sizer,.entry__gallery .image{width:calc(20% - 36px)}
 .homepage__banner .banner.is-desktop{-webkit-transform:perspective(3000px) translate3d(-216px,72px,0) scale3d(1,1,1) rotateY(45deg) rotateZ(-10deg);transform:perspective(3000px) translate3d(-216px,72px,0) scale3d(1,1,1) rotateY(45deg) rotateZ(-10deg)}
 .homepage__work{padding-top:288px;padding-bottom:288px}
-.\:hasSidebar .homepage__work{padding-bottom:144px}
+.-hasSidebar .homepage__work{padding-bottom:144px}
 .homepage__about--content{padding-left:144px;padding-right:144px}
 .gallery__content{margin-left:180px;margin-bottom:180px}
 }@media(min-width:2560px){.homepage__banner .banner.is-desktop{-webkit-transform:perspective(3000px) translate3d(-288px,72px,0) scale3d(1,1,1) rotateY(45deg) rotateZ(-10deg);transform:perspective(3000px) translate3d(-288px,72px,0) scale3d(1,1,1) rotateY(45deg) rotateZ(-10deg)}

@@ -94,6 +94,39 @@ jQuery( function( $ ) {
 		});
 	}
 
+	/**
+	 * Filter & sort design projects
+	 */
+	const designGallery = $( '#gallery' );
+
+	if ( designGallery ) {
+
+		// stack articles vertically
+		designGallery.isotope({
+			itemSelector: '.article',
+			layoutMode: 'vertical'
+		});
+
+		// Add filtering
+		const $featuredProjectFilter = $( '#featured_project_filter' );
+		$featuredProjectFilter.on( 'click', 'button', function() {
+			let filterValue = $( this ).attr( 'data-filter' );
+
+			// // use filterFn if matches value
+			// filterValue = filterFns[ filterValue ] || filterValue;
+			designGallery.isotope({ filter: filterValue });
+		});
+
+		// change -isActive class on buttons
+		$( '.array' ).each( function( i, buttonGroup ) {
+			var $buttonGroup = $( buttonGroup );
+			$buttonGroup.on( 'click', 'button', function() {
+				$buttonGroup.find( '.-isActive' ).removeClass( '-isActive' );
+				$( this ).addClass( '-isActive' );
+			});
+		});
+	}
+
 	// Slide nav menu up and down
 	// Initial scroll position
 	var scrollState = 0;
@@ -163,14 +196,6 @@ jQuery( function( $ ) {
 		$( '#contact' ).addClass( 'said-hi' );
 		$( '#mobile_menu' ).removeClass( 'is-visible' );
 	});
-
-	// Filter & sort design projects
-	const designGallery = $( '#gallery' );
-	// if ( designGallery ) {
-	// 	designGallery.isotope({
-	// 		filter: '*'
-	// 	})
-	// }
 
 	// END FUNCTIONS
 
