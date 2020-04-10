@@ -1,18 +1,28 @@
 /**
- * === About ===
+ * === ABOUT ===
  */
 
 .-personalityTypes {
-	position: absolute;
-	bottom: $gutter;
-	display: grid;
-	grid-template-rows: auto auto;
-	grid-auto-columns: 1fr;
-	grid-auto-flow: column;
 	@include small-font-size();
 
-	dt,
-	dd {
-		margin-right: $gutter / 2;
+	dt {
+		margin-top: $gutter / 2;
+	}
+
+	@include media('>=screen600') {
+		@supports (display: grid) {
+			position: absolute;
+			bottom: $gutter;
+			display: grid;
+			grid-template-rows: auto auto;
+			grid-auto-columns: 1fr;
+			grid-auto-flow: column;
+
+			dt,
+			dd {
+				margin-top: 0;
+				margin-right: $gutter / 2;
+			}
+		}
 	}
 }
