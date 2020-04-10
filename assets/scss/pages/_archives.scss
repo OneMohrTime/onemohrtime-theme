@@ -84,7 +84,7 @@ body.archive {
                 }
             }
 
-            .meta {
+            ._meta {
                 display: flex;
                 flex-flow: row wrap;
                 //align-items: center;
@@ -105,7 +105,7 @@ body.archive {
 			}
 
 			&:hover {
-				.meta {
+				._meta {
 					color: $color__black--light;
 				}
 				.post-format {

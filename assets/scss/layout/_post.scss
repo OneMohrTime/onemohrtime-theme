@@ -1,6 +1,6 @@
-/*
-* === POSTS & DEFAULT PAGES ===
-*/
+/**
+ * === POSTS & DEFAULT PAGES ===
+ */
 
 .type-post,
 .type-page {
@@ -51,7 +51,7 @@
 			margin-bottom: 0;
 		}
 
-		.meta {
+		._meta {
 			@include small-font-size();
 			margin-bottom: $small-spacing;
 			width: 100%;

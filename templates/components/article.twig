@@ -14,12 +14,12 @@
 		{% endif %}
 	</figure>
 
-	<div class="article__content wysiwyg get-faded">
+	<div class="article__content _wysiwyg get-faded">
 
 		{% if post.type == 'design' %}
-			<p class="meta wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
+			<p class="_meta _wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
 		{% elseif post.type == 'page' %}
-			<p class="meta wysiwyg">{{ post.post_excerpt | truncate(16) }}</p>
+			<p class="_meta _wysiwyg">{{ post.post_excerpt | truncate(16) }}</p>
 		{% else %}
 			{% include "components/entry-meta.twig" %}
 		{% endif %}

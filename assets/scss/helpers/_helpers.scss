@@ -1,18 +1,18 @@
-/*
-* === HELPERS ===
-*/
+/**
+ * === HELPERS ===
+ */
 
 .parallax {
 	// parent element
 	position: relative;
 	overflow: hidden;
-	
+
 	&.parallax--scrolling {
 		.parallax__image {
 			opacity: 1;
 		}
 	}
-	
+
 	&__image {
 		// .parallax__image
 		// child element
@@ -29,7 +29,7 @@
 			height: 200%;
 			opacity: 0;
 		}
-		
+
 		html.no-js & {
 			opacity: 1 !important;
 		}
@@ -48,18 +48,18 @@
 
 .get-faded {
 	position: relative;
-	
+
 	& > * {
 		// get all children
 		opacity: 0;
 		transform: translate3d(0, 2em, 0);
-//		transition: opacity $speed, transform $speed--slow;
-		
+		// transition: opacity $speed, transform $speed--slow;
+
 		&.got-faded {
-//			opacity: 1;
-//			transform: translate3d(0, 0, 0);
+			// opacity: 1;
+			// transform: translate3d(0, 0, 0);
 		}
-		
+
 		html.no-js & {
 			opacity: 1 !important;
 			transform: translate3d(0,0,0) !important;

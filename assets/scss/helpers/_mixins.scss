@@ -1,6 +1,6 @@
-/*
-* === MIXINS ===
-*/
+/**
+ * === MIXINS ===
+ */
 
 @mixin visually-hidden($focus: null) {
 	position: absolute !important;
@@ -58,15 +58,15 @@
 		white-space: inherit;
 		width: auto;
 	}
-//// @example scss
-////   .element {
-////     @include hide-visually;
-////
-////     &:active,
-////     &:focus {
-////       @include hide-visually("unhide");
-////     }
-////   }
+	// @example scss
+	//   .element {
+	//     @include hide-visually;
+	//
+	//     &:active,
+	//     &:focus {
+	//       @include hide-visually("unhide");
+	//     }
+	//   }
 }
 
 @mixin aspect-ratio($width, $height) {
@@ -197,9 +197,9 @@
 			text-stroke: 1px $color__black;
 }
 
-/*
-* — Type Styles —
-*/
+/**
+ * — Type Styles —
+ */
 
 @mixin type() {
 	color: inherit;
@@ -248,15 +248,21 @@
 	}
 }
 
-@mixin paragraph() {
+@mixin paragraph($underline: null) {
 	font-size: ms(1);
 	@include media("<=screen320") {
 		font-size: 1rem;
 	}
+	@if $underline == "underlined" {
+		@include underlined();
+	}
 }
 
-@mixin body-copy() {
+@mixin body-copy($underline: null) {
 	font-size: ms(0);
+	@if $underline == "underlined" {
+		@include underlined();
+	}
 }
 
 @mixin base-font-size() {
@@ -302,6 +308,7 @@
 	position: relative;
 	padding-bottom: calc(.5em + 10px);
 	margin-bottom: .5em;
+
 	&::after {
 		content: "";
 		@include position(absolute, null null 0 0);
@@ -341,9 +348,9 @@
 	}
 }
 
-/*
-* — Texture effects —
-*/
+/**
+ * — Texture effects —
+ */
 
 @mixin texture-grid() {
 	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
@@ -370,9 +377,9 @@
 			mask-image: url("../img/rough-texture.png");
 }
 
-/*
-* — Buttons and links —
-*/
+/**
+ * — Buttons and links —
+ */
 
 @mixin inline() {
 	position: relative;

@@ -3,7 +3,7 @@
  # "Last updated" if over a year ago, "Updated" if less
  #}
 
-<p class="meta wysiwyg">
+<p class="_meta _wysiwyg">
 	<time class="original" datetime="{{ post.post_date | date(c) }}">{% if (post.post_date_gmt | time_ago) > '1 year' %}First p{% else %}P{% endif %}osted {% if (post.post_date_gmt | time_ago) > '1 year' %}around {% endif %}{{ post.post_date_gmt | time_ago }}</time>
 	<time class="updated" datetime="{{ post.modified_date | date(c) }}">{% if (post.post_date_gmt | time_ago) > '1 year' %}Last u{% else %}U{% endif %}pdated {{ post.modified_date | time_ago }}</time>
 	<span class="post-format">

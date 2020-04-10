@@ -73,7 +73,7 @@
 	{% if section.acf_fc_layout == 'detail_text' %}
 
 	{# Text #}
-	<div class="project__section project__text wysiwyg get-faded">
+	<div class="project__section project__text _wysiwyg get-faded">
 		{{ section.text }}
 	</div>
 
@@ -83,7 +83,7 @@
 	<div class="project__section project__text-image
 				{% if section.reverse %} project__text-image--reversed{% endif %}
 				get-faded">
-		<div class="content--half get-faded wysiwyg">
+		<div class="content--half get-faded _wysiwyg">
 			{{ section.text }}
 		</div>
 		<figure class="image--half">
@@ -119,7 +119,7 @@
 	{% elseif section.acf_fc_layout == 'detail_blockquote' %}
 
 	{# Blockquote #}
-	<div class="project__section project__blockquote wysiwyg get-faded{% if section.image %} parallax{% endif %}">
+	<div class="project__section project__blockquote _wysiwyg get-faded{% if section.image %} parallax{% endif %}">
 
 		{% if section.image %}
 		<blockquote class="blockquote blockquote__image">

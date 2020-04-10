@@ -1,6 +1,6 @@
-/*
-* === LINKS ===
-*/
+/**
+ * === LINKS ===
+ */
 
 a {
 	position: relative;
@@ -10,17 +10,19 @@ a {
 	cursor: pointer;
 	color: inherit;
 	vertical-align: baseline;
+
 	&:hover {
 		color: inherit;
 	}
+
 	&:focus {
 		outline-color: fade-out($color__yellow, 0.4);
 	}
 
 	// if link is not a button
 	&:not(.btn):not([data-fancybox]) {
-		// but is a child of .wysiwyg
-		.wysiwyg & {
+		// but is a child of ._wysiwyg
+		._wysiwyg & {
 			// stylize as inline link
 			@include inline();
 		}

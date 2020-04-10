@@ -7,7 +7,7 @@
 
 		<header class="page__header">
 			{% if post.post_excerpt %}
-				<p class="meta">{{ post.post_excerpt }}</p>
+				<p class="_meta">{{ post.post_excerpt }}</p>
 			{% endif %}
 			{% include 'components/title.twig' %}
 		</header>
@@ -44,7 +44,7 @@
 		</section>
 		{% endif %}
 
-		<div class="page__content get-faded wysiwyg">
+		<div class="page__content get-faded _wysiwyg">
 			{{ post.content }}
 		</div>
 

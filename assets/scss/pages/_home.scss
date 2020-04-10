@@ -386,7 +386,7 @@
 				.feature__image {
 					opacity: 0.1 !important;
 				}
-				.wysiwyg {
+				._wysiwyg {
 					transform: scaleY(0);
 				}
 			}
@@ -411,7 +411,7 @@
 					}
 				}
 
-				.wysiwyg {
+				._wysiwyg {
 					margin-bottom: $small-spacing;
 
 					@include media(">=screen1170") {

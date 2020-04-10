@@ -1,6 +1,6 @@
-/*
-* === TYPOGRAPHY ===
-*/
+/**
+ * === TYPOGRAPHY ===
+ */
 
 .content-area {
 	@include responsive-type();
@@ -12,9 +12,9 @@
 	text-shadow: none;
 }
 
-/*
-* — Headers —
-*/
+/**
+ * — Headers —
+ */
 
 @for $i from 1 through 6 {
 	h#{$i} {
@@ -32,7 +32,7 @@
 			color: inherit;
 			line-height: inherit;
 
-			// .wysiwyg & {
+			// ._wysiwyg & {
 			// 	&:focus { outline: none; }
 			// 	&::before { display: none; }
 			// }
@@ -47,14 +47,17 @@ h4 { font-size: ms(0); }
 h5 { font-size: ms(-1); }
 h6 { font-size: ms(-2); }
 
-/*
-* — Body Copy —
-*/
+/**
+ * — Body Copy —
+ */
 
 p {
 	@include type();
+
 	&:last-child,
-	&:only-child { margin-bottom: 0; }
+	&:only-child {
+		margin-bottom: 0;
+	}
 }
 
 b, strong { font-weight: 700; }
@@ -75,32 +78,32 @@ small {
 	font-size: ms(-1);
 }
 
-/*
-* — Lists —
-*/
+/**
+ * — Lists —
+ */
 
 ul, ol, dl {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	
-	.wysiwyg & {
+
+	._wysiwyg & {
 		@include type();
 		margin: 0 0 1.7em;
 		padding-left: 1.7em;
-		
+
 		& #{&} {
 			margin: 0;
 		}
 	}
 }
 
-.wysiwyg ul { list-style: disc; }
-.wysiwyg ol { list-style: decimal; }
+._wysiwyg ul { list-style: disc; }
+._wysiwyg ol { list-style: decimal; }
 
-/*
-* — Code —
-*/
+/**
+ * — Code —
+ */
 
 pre, code {
 	display: inline-block;
@@ -112,17 +115,38 @@ pre, code {
 	padding: $small-spacing;
 }
 
-/*
-* — Utility classes —
-*/
+/**
+ * — Utility classes —
+ */
 
-.serif {
+.-serif {
 	font-family: $font__secondary;
 }
 
-/*
-* — Additional needs —
-*/
+._title {
+	@include title();
+	&.-underline {
+		@include title("underlined");
+	}
+}
+
+._headline {
+	@include subtitle();
+	&.-underline {
+		@include subtitle("underlined");
+	}
+}
+
+._subheadline {
+	@include paragraph();
+	&.-underline {
+		@include paragraph("underlined");
+	}
+}
+
+/**
+ * — Additional needs —
+ */
 
 i, cite, em, var, address, dfn {
 	// cancel out italics
@@ -144,13 +168,16 @@ blockquote {
 	border-left: 10px $color__yellow solid;
 	margin: $base-spacing 0;
 	padding-left: 10px;
+
 	p {
 		margin-bottom: 0;
 	}
+
 	footer {
 		font-size: .75em;
 		color: $color__gray;
 		cite {font-weight: 700;}
+
 		&::before {
 			content: "\2014 \00A0";
 		}
@@ -158,8 +185,8 @@ blockquote {
 }
 
 hr {
-	background-color: $color__yellow;
-	border: 0;
-	@include size(100px, 10px);
+	@include size(50%, 10px);
 	margin: 0 auto $base-spacing;
+	border: 0;
+	background-color: $color__yellow;
 }

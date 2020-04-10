@@ -49,7 +49,7 @@
 			{% endfor %}
 		</ul>
 
-		<figcaption id="home_intro" class="intro get-faded wysiwyg">
+		<figcaption id="home_intro" class="intro get-faded _wysiwyg">
 			<h2 id="home_title" class="intro__title">
 				<span>Developer for <a href="//mightyinthemidwest.com/" target="_blank" rel="noopener" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
 				<span>Traveling <a href="{{ site.link }}/design">designer</a> by night.</span>
@@ -76,7 +76,7 @@
 					 {{ TimberImage(about.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
 
-		<figcaption class="homepage__about--content wysiwyg get-faded">
+		<figcaption class="homepage__about--content _wysiwyg get-faded">
 			{{ about.text }}
 		</figcaption>
 
@@ -101,7 +101,7 @@
 
 				<div class="feature__content get-faded">
 					<h2 class="feature__content--title">{{ post.title }}</h2>
-					<div class="wysiwyg">
+					<div class="_wysiwyg">
 						<p>{{ post.post_excerpt }}</p>
 					</div>
 					<div class="feature__read-more">Read on {% include '/assets/img/icons/arrow-right.svg' %}</div>
@@ -114,7 +114,7 @@
 	</section>
 	{% endif %}
 
-	<article id="home_content" class="homepage__work get-faded wysiwyg">
+	<article id="home_content" class="homepage__work get-faded _wysiwyg">
 		<h2 class="homepage__work--title">What do I actually do, then?</h2>
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/img/icons/arrow-right.svg' %} </a>
