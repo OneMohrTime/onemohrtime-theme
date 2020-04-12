@@ -83,21 +83,21 @@
 	</figure>
 	{% endif %}
 
-	{% if post.get_field('homepage_feature') %}
+	{# {% if post.get_field('homepage_feature') %}
 	<section id="home_features" class="homepage__portfolio get-faded">
 		{% for post in post.get_field('homepage_feature') %}
 
 			<div class="feature">
 
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 width="{{ post.thumbnail.width }}"
-					 height="{{ post.thumbnail.height }}"
-					 alt="slide image for {{ post.post_title }}"
-					 class="feature__image"
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src }} 1500w"
-					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+					width="{{ post.thumbnail.width }}"
+					height="{{ post.thumbnail.height }}"
+					alt="slide image for {{ post.post_title }}"
+					class="feature__image"
+					srcset="{{ post.thumbnail.src('medium') }} 500w,
+							{{ post.thumbnail.src('large') }} 1000w,
+							{{ post.thumbnail.src }} 1500w"
+					sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 
 				<div class="feature__content get-faded">
 					<h2 class="feature__content--title">{{ post.title }}</h2>
@@ -118,7 +118,7 @@
 		<h2 class="homepage__work--title">What do I actually do, then?</h2>
 		{{ post.content }}
 		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/img/icons/arrow-right.svg' %} </a>
-	</article>
+	</article> #}
 
 {% endblock %}
 
