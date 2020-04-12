@@ -167,6 +167,7 @@ class StarterSite extends Timber\Site {
 		) );
 
 		add_theme_support( 'menus' );
+		add_post_type_support( 'page', 'excerpt' );
 	}
 
 	/**
