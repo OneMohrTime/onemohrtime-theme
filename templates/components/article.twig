@@ -1,7 +1,23 @@
 <article class="article -{{ post.type }}{% for term in post.terms %} {{ term.taxonomy | lower | replace({' ': '-', '/': '-'}) }}-{{ term.name | lower | replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
 
-	<figure class="article__image parallax">
-		{% if post.thumbnail %}
+	<figure class="article__image{% if post.gallery %} swiper-container -attachments js-swiper-attachments{% else %} parallax{% endif %}">
+		{% if post.gallery %}
+			<div class="swiper-wrapper">
+				{% for slide in post_gallery %}
+					<div class="swiper-slide" data-history="{{ slide.post_title | sanitize }}">
+						{# {{ dump(slide) }} #}
+						<img src="{{ slide.guid }}" />
+						<div>
+							{{ loop.index }} / {{ post_gallery|length }}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+				<div class="swiper-pagination swiper-pagination-white"></div>
+				<div class="swiper-button-next swiper-button-white"></div>
+				<div class="swiper-button-prev swiper-button-white"></div>
+
+		{% elseif post.thumbnail %}
 			<img src="{{ post.thumbnail.src('thumbnail') }}"
 				alt="{{ post.thumbnail.alt }}"
 				class="article__image__image parallax__image"
@@ -9,8 +25,10 @@
 						{{ post.thumbnail.src('large') }} 1000w,
 						{{ post.thumbnail.src('full') }} 1500w"
 				sizes="(max-width: 840px) 100vw, 50vw" />
+
 		{% else %}
 			<img src="{{ theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="article__image__image parallax__image" />
+
 		{% endif %}
 	</figure>
 

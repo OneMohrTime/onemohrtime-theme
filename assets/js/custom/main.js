@@ -153,8 +153,8 @@ jQuery( function( $ ) {
 		scrollState = scrollTop();
 	};
 
-	function homeAction() {
-		// console.log( 'home' );
+	function homeAction( e ) {
+		console.log( e );
 	}
 
 	function downAction() {
@@ -195,6 +195,37 @@ jQuery( function( $ ) {
 	});
 
 	// END FUNCTIONS
+
+	//////////////////
+	// BEGIN SWIPER //
+	//////////////////
+
+	// https://swiperjs.com/api/
+
+	const gallerySwipers = $( '.js-swiper-attachments' );
+
+	gallerySwipers.each( function( i, el ) {
+		let $this = this;
+		let gallerySwiper = new Swiper( el, {
+			cssMode: true, // enables CSS Scroll Snap API, which limits many option
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev'
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'progressbar'
+			},
+			keyboard: {
+				enabled: true
+			},
+			// history: {
+			// 	replaceState: true
+			// },
+		});
+	});
+
+	// END SWIPER
 
 	/////////////////////
 	// BEGIN GREENSOCK //

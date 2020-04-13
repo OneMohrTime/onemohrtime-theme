@@ -8,8 +8,8 @@
  */
 
 $context = Timber::get_context();
-$context['post']      = new Timber\Post();
-$args = array(
+
+$blog_args = array(
 	'post_type'      => 'post',
 	'posts_per_page' => -1,
 	'orderby'        => array(
@@ -25,6 +25,19 @@ $args = array(
 		),
 	),
 );
-$context['posts']      = Timber::get_posts( $args );
-$context['categories'] = Timber::get_terms( 'category', array('parent' => 0) );
+
+$gallery_args = array(
+	'posts_per_page' => -1,
+	'order'          => 'ASC',
+	'post_mime_type' => 'image',
+	'post_parent'    => $post->post_parent,
+	'post_status'    => null,
+	'post_type'      => 'attachment',
+);
+
+$context['post']         = new Timber\Post();
+$context['posts']        = Timber::get_posts( $blog_args );
+$context['post_gallery'] = get_children( $gallery_args );
+$context['categories']   = Timber::get_terms( 'category', array('parent' => 0) );
+
 Timber::render( 'pages/home.twig', $context );

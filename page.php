@@ -25,11 +25,19 @@ $context = Timber::context();
 
 $timber_post = new Timber\Post();
 
+// $images = get_children( array(
+// 	'post_parent'    => 1,
+// 	'post_type'      => 'attachment',
+// 	'post_mime_type' => 'image',
+// 	'orderby'        => 'menu_order',
+// 	'order'          => 'ASC',
+// 	'numberposts'    => 999 ) );
 $projects  = get_field('project_grid');
 
-$context['post']       = $timber_post;
-$context['projects']   = Timber::get_posts( $projects );
-$context['roles']      = new TimberTerm('design');
-$context['image_grid'] = get_field('image_grid');
+$context['post']        = $timber_post;
+// $context['post_images'] = $images;
+$context['projects']    = Timber::get_posts( $projects );
+$context['roles']       = new TimberTerm('design');
+$context['image_grid']  = get_field('image_grid');
 
 Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );

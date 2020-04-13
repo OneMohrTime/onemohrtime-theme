@@ -141,7 +141,8 @@ jQuery(function ($) {
     scrollState = scrollTop();
   };
 
-  function homeAction() {// console.log( 'home' );
+  function homeAction(e) {
+    console.log(e);
   }
 
   function downAction() {
@@ -177,6 +178,33 @@ jQuery(function ($) {
     $('#contact').addClass('said-hi');
     $('#mobile_menu').removeClass('is-visible');
   }); // END FUNCTIONS
+  //////////////////
+  // BEGIN SWIPER //
+  //////////////////
+  // https://swiperjs.com/api/
+
+  var gallerySwipers = $('.js-swiper-attachments');
+  gallerySwipers.each(function (i, el) {
+    var $this = this;
+    var gallerySwiper = new Swiper(el, {
+      cssMode: true,
+      // enables CSS Scroll Snap API, which limits many option
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar'
+      },
+      keyboard: {
+        enabled: true
+      } // history: {
+      // 	replaceState: true
+      // },
+
+    });
+  }); // END SWIPER
   /////////////////////
   // BEGIN GREENSOCK //
   /////////////////////

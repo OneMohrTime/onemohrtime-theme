@@ -233,6 +233,7 @@ embed,iframe,object{max-width:100%}
 body.single-post,body.page-template-default{background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/concrete_wall_2.png");background-color:#fffefa}
 .article{position:relative;height:auto;width:100%;margin-bottom:3em;overflow:hidden;font-size:1em}
 .article__image{position:relative;height:400px;width:100%;margin-bottom:1.5em;overflow:hidden;background-color:#f2f1ee;color:#fffefa}
+.article__image .swiper-slide img{height:100%;width:100%;-o-object-fit:cover;object-fit:cover}
 .article__content{position:relative;margin-bottom:1.5em}
 .article__content ._meta{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row wrap;flex-flow:row wrap;margin-bottom:.75em;-webkit-transition:color 200ms;transition:color 200ms;font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;text-align:center;color:#aaa9a5}
 .article__content ._meta .updated,.article__content ._meta .author,.article__content ._meta a:not(.btn){position:absolute !important;border:0;height:1px;width:1px;margin:-1px;padding:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);overflow:hidden;word-wrap:normal !important}
