@@ -11,20 +11,29 @@ body {
 	background-color: $color__white;
 	color: $color__black;
 	font-family: $font__main;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	@include size(100vw, auto);
+	width: 100vw;
 	height: auto;
 	min-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
+	// typography
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&.blog,
+	&.single-post,
+	&.page-template-default {
+		@include texture($color__white, 25, 0);
+	}
 }
 
 * {
-    box-sizing: border-box;
-    &::before,
-    &::after { box-sizing: border-box; }
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
 }
 
 .site {

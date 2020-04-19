@@ -1,29 +1,29 @@
-/*
-* === NAV ===
-*/
+/**
+ * === NAV ===
+ */
 
-/*
-* — Menu —
-*/
+/**
+ * — Menu —
+ */
 
 .main-navigation {
 	color: $color__white;
 	@include size(100vw, auto);
 	margin-bottom: $gutter * 2;
-//	transform: translateY(100%);
-//	transition: $speed--slow linear;
+	// transform: translateY(100%);
+	// transition: $speed--slow linear;
 
 	@include media(">=screen600") {
 		background-color: $color__black;
 		height: 100px;
 		margin-bottom: 0;
-//		transform: translateY(-100px);
+		// transform: translateY(-100px);
 	}
 
 	@supports (display: flex) {
 		// .site__header
-//		display: flex;
-//		align-items: center;
+		// display: flex;
+		// align-items: center;
 	}
 
 	&.is-visible {
@@ -108,9 +108,9 @@
 	}
 }
 
-/*
-* — Toggle —
-*/
+/**
+ * — Toggle —
+ */
 
 .toggle__menu {
 	// .toggle__menu
@@ -152,11 +152,11 @@
 		}
 	}
 
-//	@include media(">=screen1170") {
-//		&:hover {
-//			color: $color__black;
-//		}
-//	}
+	// @include media(">=screen1170") {
+	// 	&:hover {
+	// 		color: $color__black;
+	// 	}
+	// }
 
 	.m, .n, .u {
 		display: inline-block;

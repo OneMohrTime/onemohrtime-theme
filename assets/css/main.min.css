@@ -61,7 +61,8 @@ html.no-js .get-faded>*{opacity:1 !important;-webkit-transform:translate3d(0,0,0
 .infinite-scroll .paging-navigation,.infinite-scroll.neverending .site-footer{display:none}
 .infinity-end.neverending .site-footer{display:block}
 html{background-color:#171409}
-body{position:relative;background-color:#fffefa;color:#171409;font-family:"Barlow",system-ui,-apple-system,BlinkMacSystemFont,"Avenir Next","Avenir","Segoe UI","Lucida Grande","Helvetica Neue","Helvetica","Fira Sans","Roboto","Noto","Droid Sans","Cantarell","Oxygen","Ubuntu","Franklin Gothic Medium","Century Gothic","Liberation Sans",sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;height:auto;width:100vw;height:auto;min-height:100vh;overflow-x:hidden;overflow-y:auto}
+body{position:relative;background-color:#fffefa;color:#171409;font-family:"Barlow",system-ui,-apple-system,BlinkMacSystemFont,"Avenir Next","Avenir","Segoe UI","Lucida Grande","Helvetica Neue","Helvetica","Fira Sans","Roboto","Noto","Droid Sans","Cantarell","Oxygen","Ubuntu","Franklin Gothic Medium","Century Gothic","Liberation Sans",sans-serif;width:100vw;height:auto;min-height:100vh;overflow-x:hidden;overflow-y:auto;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body.blog,body.single-post,body.page-template-default{background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/old_mathematics.png");background-color:#fffefa}
 *{-webkit-box-sizing:border-box;box-sizing:border-box}
 *::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}
 .site{position:relative;padding-top:0;padding-bottom:72px;-webkit-transition:200ms linear;transition:200ms linear;z-index:1}
@@ -230,7 +231,6 @@ embed,iframe,object{max-width:100%}
 .posts__categories{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline}
 .category{margin-right:.75em}
 .category__link{white-space:nowrap}
-body.single-post,body.page-template-default{background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/concrete_wall_2.png");background-color:#fffefa}
 .article{position:relative;height:auto;width:100%;margin-bottom:3em;overflow:hidden;font-size:1em}
 .article__image{position:relative;height:400px;width:100%;margin-bottom:1.5em;overflow:hidden;background-color:#f2f1ee;color:#fffefa}
 .article__image .swiper-slide img{height:100%;width:100%;-o-object-fit:cover;object-fit:cover}
@@ -341,7 +341,7 @@ body.archive .post-format .svg-icon{position:absolute;top:0;left:0;opacity:.1;-w
 .daft-punk__content--title::after{left:50%;margin-left:-50px}
 .daft-punk__content--alert{margin-bottom:.75em}
 .error404 .site__header,.error404 .site__footer{display:none}
-body.blog{position:relative;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/concrete_wall_2.png");background-color:#fffefa;margin-bottom:2em}
+body.blog{position:relative;margin-bottom:2em}
 body.blog .posts__article{width:100%;margin:1.5em 0 72px}
 .homepage__banner{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column nowrap;flex-flow:column nowrap;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:100vh}
 .homepage__banner .banner{position:relative;overflow:hidden}

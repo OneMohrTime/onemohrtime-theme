@@ -4,7 +4,7 @@
 
 body.blog {
 	position: relative;
-	@include texture($color__white, 54, 0);
+	// @include texture($color__white, 54, 0);
 	margin-bottom: 2em;
 
 	.posts {

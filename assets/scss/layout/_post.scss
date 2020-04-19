@@ -360,8 +360,3 @@
 	}
 
 }
-
-body.single-post,
-body.page-template-default {
-	@include texture($color__white, 54, 0);
-}

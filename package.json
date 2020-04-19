@@ -1,11 +1,11 @@
 {
-  "name": "your-project",
-  "description": "A WPGulp based project.",
-  "version": "1.0.0",
-  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
+  "name": "onemohrtime",
+  "description": "Wordpress theme for my personal design portfolio.",
+  "version": "1.2.1",
+  "author": "Derek Mohr (https://twitter.com/onemohrtime/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadawais/WPGulp"
+    "url": "git+https://github.com/OneMohrTime/onemohrtime.git"
   },
   "license": "MIT",
   "devDependencies": {
