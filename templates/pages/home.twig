@@ -5,7 +5,7 @@
 
 	<header class="posts__header">
 		{% if categories is defined and categories is not empty %}
-			<ul class="posts__categories meta">
+			<ul class="posts__categories _meta">
 				{% for cat in categories %}
 					{% if cat.slug != 'shit' and cat.slug != 'uncategorized' %}
 						<li class="category">
@@ -20,36 +20,7 @@
 
 	<section class="posts">
 		{% for post in posts %}
-		<article {{ function('post_class') }}>
-
-			<figure class="post__image parallax">
-				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-					 alt="{{ post.thumbnail.alt }}"
-					 class="post__image__image parallax__image"
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src('full') }} 1500w"
-					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-			</figure>
-
-			<div class="post__content wysiwyg get-faded">
-
-				{% include "components/entry-meta.twig" %}
-
-				<h2 class="post__title">
-					<a href="{{ post.link }}">{{ post.title }}</a>
-				</h2>
-
-				<p>
-					{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a>
-				</p>
-
-			</div>
-
-			<a href="{{ post.link }}" class="post__link"></a>
-
-		</article>
+			{% include 'components/article.twig' %}
 		{% endfor %}
 	</section>
 

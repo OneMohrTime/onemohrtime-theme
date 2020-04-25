@@ -6,8 +6,8 @@
 	</head>
 {% endblock %}
 
-	<body class="{{ body_class }}" data-template="base.twig">
-		<div id="page" class="site" role="document">
+	<body class="{{ body_class }}">
+		<div id="page" class="site">
 
 			<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
 
@@ -17,7 +17,7 @@
 				{% endblock %}
 			</header>
 
-			<main id="main" class="site__main content-area{% if displaySidebar == true %} :hasSidebar{% endif %}" role="main">
+			<main id="main" class="site__main content-area{{ ' -' ~ post.slug ?? '' }}{% if displaySidebar == true %} -hasSidebar{% endif %}" role="main">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}

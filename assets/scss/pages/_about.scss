@@ -1,0 +1,28 @@
+/**
+ * === ABOUT ===
+ */
+
+.-personalityTypes {
+	@include small-font-size();
+
+	dt {
+		margin-top: $gutter / 2;
+	}
+
+	@include media('>=screen600') {
+		@supports (display: grid) {
+			position: absolute;
+			bottom: $gutter;
+			display: grid;
+			grid-template-rows: auto auto;
+			grid-auto-columns: 1fr;
+			grid-auto-flow: column;
+
+			dt,
+			dd {
+				margin-top: 0;
+				margin-right: $gutter / 2;
+			}
+		}
+	}
+}

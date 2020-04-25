@@ -16,31 +16,31 @@ module.exports = {
 	injectChanges: true,
 
 	// Style options.
-	styleSRC: './assets/styles/main.scss', // Path to main .scss file.
-	styleDestination: './dist/css/', // Path to place the compiled CSS file. Default set to root folder.
+	styleSRC: './assets/scss/main.scss', // Path to main .scss file.
+	styleDestination: './assets/css/', // Path to place the compiled CSS file. Default set to root folder.
 	outputStyle: 'compact', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
 	errLogToConsole: true,
 	precision: 10,
 
 	// JS Vendor options.
-	jsVendorSRC: './assets/scripts/vendor/*.js', // Path to JS vendor folder.
-	jsVendorDestination: './dist/js/', // Path to place the compiled JS vendors file.
+	jsVendorSRC: './assets/js/vendor/*.js', // Path to JS vendor folder.
+	jsVendorDestination: './assets/js/', // Path to place the compiled JS vendors file.
 	jsVendorFile: 'vendor', // Compiled JS vendors file name. Default set to vendors i.e. vendors.js.
 
 	// JS Custom options.
-	jsCustomSRC: './assets/scripts/*.js', // Path to JS custom scripts folder.
-	jsCustomDestination: './dist/js/', // Path to place the compiled JS custom scripts file.
+	jsCustomSRC: './assets/js/custom/*.js', // Path to JS custom scripts folder.
+	jsCustomDestination: './assets/js/', // Path to place the compiled JS custom scripts file.
 	jsCustomFile: 'main', // Compiled JS custom file name. Default set to custom i.e. custom.js.
 
 	// Images options.
-	imgSRC: './assets/images/**/*', // Source folder of images which should be optimized and watched. You can also specify types e.g. raw/**.{png,jpg,gif} in the glob.
-	imgDST: './dist/images/', // Destination folder of optimized images. Must be different from the imagesSRC folder.
+	imgSRC: './assets/media/**/*', // Source folder of images which should be optimized and watched. You can also specify types e.g. raw/**.{png,jpg,gif} in the glob.
+	imgDST: './assets/img/', // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 	// Watch files paths.
-	watchStyles: './assets/styles/**/*.scss', // Path to all *.scss files inside css folder and inside them.
-	watchJsVendor: './assets/scripts/**/*.js', // Path to all vendor JS files.
-	watchJsCustom: './assets/scripts/*.js', // Path to all custom JS files.
-	watchPhp: ['./**/*.php', './**/*.twig'], // Path to all PHP files.
+	watchStyles: './assets/scss/**/*.scss', // Path to all *.scss files inside css folder and inside them.
+	watchJsVendor: './assets/js/vendor/*/*.js', // Path to all vendor JS files.
+	watchJsCustom: './assets/js/custom/*.js', // Path to all custom JS files.
+	watchPhp: [ './**/*.php', './**/*.twig' ], // Path to all PHP files.
 
 	// Translation options.
 	textDomain: 'onemohrtime', // Your textdomain here.

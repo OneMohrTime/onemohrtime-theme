@@ -1,0 +1,93 @@
+{% extends 'templates/base.twig' %}
+{% set displaySidebar = true %}
+
+{% set workHistory = post.get_field('work_history') %}
+{% set education   = post.get_field('education') %}
+
+{% block content %}
+
+	<article {{ function('post_class') }}>
+
+		<header class="page__header">
+			{% if post.subtitle %}
+				<p class="_meta">{{ post.subtitle }}</p>
+			{% elseif post.post_excerpt %}
+				<p class="_meta">{{ post.post_excerpt }}</p>
+			{% endif %}
+			{% include 'components/title.twig' %}
+			{% include 'components/personality-types.twig' %}
+		</header>
+
+		<section class="page__content get-faded _wysiwyg">
+			{{ post.content }}
+		</section>
+
+		{% if (workHistory is defined and workHistory is not empty)
+			or (education is defined and education is not empty) %}
+			<h2 class="page__headline screen-reader-text">Résumé Specs</h2>
+		{% endif %}
+
+		{% if workHistory is defined and workHistory is not empty %}
+			<section class="page__repeater">
+
+				<h3 class="_subheadline -underline">Professional History</h3>
+
+				{% for work in workHistory %}
+					<details class="repeater{{ work.end_date ? '' : ' -current' }}"{% if work.end_date is empty %} data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
+						<summary class="repeater__summary">
+							<h4 class="repeater__title">{{ work.company }}</h4>
+						</summary>
+						<div class="repeater__body _wysiwyg">
+							<h5 class="_subheadline">{{ work.job_title }}</h5>
+							{{ work.job_description }}
+							<a href="{{ work.website }}" target="_blank" class="repeater__link">Website</a>
+						</div>
+					</details>
+				{% endfor %}
+			</section>
+		{% endif %}
+
+		{% if education is defined and education is not empty %}
+			<section class="page__repeater">
+
+				<h3 class="_subheadline -underline">Education</h3>
+
+				{% for school in education %}
+					<details class="repeater"{% if loop.first %} open{% endif %}>
+						<summary class="repeater__summary">
+							<h4 class="repeater__title">{{ school.school_name }}</h4>
+						</summary>
+						<div class="repeater__body _wysiwyg">
+							{{ school.description }}
+							<a href="{{ school.school_website }}" target="_blank" class="repeater__link">Website</a>
+						</div>
+						<div class="repeater__overlay">
+							{% if school.end_date is empty %}
+								<span>Present</span>
+							{% else %}
+								<span>{{ school.start_date }} &ndash; {{ school.end_date }}</span>
+							{% endif %}
+						</div>
+					</details>
+				{% endfor %}
+			</section>
+		{% endif %}
+
+		{# <header class="page__content">
+			<h2 class="_headline">Hello, here&rsquo;s more</h2>
+		</header>
+
+		<section class="page__content _wysiwyg">
+			<p>text</p>
+		</section>
+
+		<footer class="page__footer">
+		</footer> #}
+
+	</article>
+
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'blocks/sidebar.twig' %}
+{% endblock %}

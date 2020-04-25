@@ -1,0 +1,362 @@
+/**
+ * === POSTS & DEFAULT PAGES ===
+ */
+
+.type-post,
+.type-page {
+	@supports (display: grid) {
+		grid-column: span 4;
+	}
+}
+
+.page,
+.posts,
+.archives,
+.entry {
+
+	&__header {
+		// .page__header
+		// .posts__header
+		// .entry__header
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		height: 100vh;
+		margin: 0 $gutter;
+
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+
+		.title {
+			@include title();
+			// @include deep-shadow();
+			// @include deep-white-shadow();
+			// @include white-shadow();
+			// @include retro-text();
+			// @include condensed-shadow();
+			margin-bottom: 0;
+		}
+
+		._meta {
+			@include small-font-size();
+			margin-bottom: $small-spacing;
+			width: 100%;
+
+			& > time {
+				position: relative;
+				display: inline-block;
+
+				&::after {
+					content: " | ";
+					margin: 0 $small-spacing;
+				}
+			}
+
+			.svg-icon {
+				@include position(absolute, null);
+				font-size: 2em;
+				transform: translateX(-10px);
+				z-index: -1;
+
+				path {
+					fill: $color__yellow;
+				}
+			}
+		}
+	}
+
+	&__content {
+		// .page__content
+		// .entry__content
+		margin: 0 $gutter $gutter * 2;
+
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
+
+		@include media(">=screen840") {
+			// cap line lengths
+			& > p,
+			& > ul,
+			& > ol {
+				max-width: 840px;
+			}
+		}
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+
+		.gallery {
+			// yes, exact class as '/design' page I know
+			column-count: 2;
+			column-gap: $gutter;
+			counter-reset: item-counter;
+			margin-bottom: $base-spacing;
+
+			&.gallery-columns-3,
+			&.gallery-columns-4,
+			&.gallery-columns-5 {
+				@include media(">=screen960")  { column-count: 3; }
+			}
+			&.gallery-columns-4,
+			&.gallery-columns-5 {
+				@include media(">=screen1440") { column-count: 4; }
+			}
+			&.gallery-columns-5 {
+				@include media(">=screen1920") { column-count: 5; }
+			}
+
+			&-item {
+				// .gallery-item
+				position: relative;
+				@include box-shadow();
+				break-inside: avoid;
+				counter-increment: item-counter;
+				margin-bottom: $gutter;
+
+				a {
+					display: block;
+					pointer-events: auto;
+					z-index: 1;
+				}
+
+				img {
+					width: 100%;
+				}
+			}
+
+			&-caption {
+				// .gallery-caption
+				color: $color__gray;
+				@include small-font-size();
+				transition: $speed;
+				pointer-events: none;
+
+				@include media(">=screen840") {
+					display: none;
+				}
+			}
+		}
+
+		// WP Galleries
+		.wp-block-gallery {
+			display: block;
+
+			.blocks-gallery-grid {
+				display: block;
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+
+			.blocks-gallery-item,
+			.blocks-gallery-sizer {
+				display: block;
+				width: calc(50% - #{$gutter / 2});
+				margin: 0;
+				float: left;
+
+				@include media('>=screen600') {
+					width: calc(50% - #{$gutter});
+				}
+
+				@include media('>=screen768') {
+					width: calc(#{percentage(1/3)} - #{$gutter});
+				}
+			}
+
+			.blocks-gallery-item {
+				margin-bottom: #{$gutter / 2};
+
+				@include media('>=screen600') {
+					margin-bottom: $gutter;
+				}
+			}
+
+			.blocks-gallery-gutter {
+				display: block;
+				width: $gutter / 2;
+
+				@include media('>=screen600') {
+					width: $gutter;
+				}
+			}
+		}
+	}
+
+	&__gallery {
+		// .page__gallery
+		// .posts__gallery
+		// .archives__gallery
+		// .entry__gallery
+		@include clearfix();
+		margin-left: $gutter;
+		margin-right: $gutter;
+		margin-bottom: $base-spacing;
+
+		.-sizer,
+		.image {
+			width: calc(50% - #{$gutter / 2});
+			@include media(">=screen600") {
+				width: calc(50% - #{$gutter});
+			}
+			@include media(">=screen960") {
+				width: calc(#{percentage(1/3)} - #{$gutter});
+			}
+			@include media(">=screen1440") {
+				width: calc(25% - #{$gutter});
+			}
+			@include media(">=screen1920") {
+				width: calc(20% - #{$gutter});
+			}
+		}
+
+		.-gutter {
+			width: #{$gutter / 2};
+
+			@include media(">=screen600") {
+				width: $gutter;
+			}
+		}
+
+		.image {
+			position: relative;
+			@include box-shadow();
+			margin-right: $gutter;
+			margin-bottom: $gutter;
+			float: left;
+
+			&__image {
+				// .image__image
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				pointer-events: none;
+			}
+
+			&__caption {
+				// .image__caption
+				color: $color__gray;
+				@include small-font-size();
+				transition: $speed;
+				pointer-events: none;
+
+				@include media(">=screen840") {
+					@include position(absolute, 0 0 0 0);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: fade-out($color__black--light, 0.4);
+					@include text-shadow();
+					padding-left: $base-spacing;
+					padding-right: $base-spacing;
+					opacity: 0;
+					z-index: 1;
+				}
+
+				&.caption--text {
+					@include media(">=screen840") {
+						color: $color__white;
+					}
+				}
+
+				&.caption--zoom {
+					display: none;
+
+					@include media(">=screen840") {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: fade-out($color__white, 0.6);
+						@include paragraph();
+					}
+				}
+			}
+
+			&__link {
+				// .image_link
+				@include block-link();
+				z-index: 10;
+			}
+
+			&:hover,
+			&:focus {
+				.image__caption {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__repeater {
+		// page__repeater
+		margin: 0 $gutter $gutter * 2;
+
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
+
+		// @include media(">=screen840") {
+		// 	// cap line lengths
+		// 	& > p,
+		// 	& > ul,
+		// 	& > ol {
+		// 		max-width: 840px;
+		// 	}
+		// }
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+	}
+}
+
+@supports (display: grid) {
+	.posts__header {
+		grid-column: span 4;
+	}
+}
+
+.posts__categories {
+	display: flex;
+	align-items: baseline;
+}
+
+.category {
+	margin-right: $small-spacing;
+
+	&__link {
+		// .category__link
+		white-space: nowrap;
+	}
+
+}

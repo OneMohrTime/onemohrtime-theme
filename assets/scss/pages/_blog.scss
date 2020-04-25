@@ -1,0 +1,30 @@
+/**
+ * === BLOG ===
+ */
+
+body.blog {
+	position: relative;
+	// @include texture($color__white, 54, 0);
+	margin-bottom: 2em;
+
+	.posts {
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		&__article {
+			// .posts__article
+			width: 100%;
+			margin: $base-spacing 0 #{$gutter * 2};
+			@include media(">=screen600")  {
+				padding-right: 20%;
+			}
+			@include media(">=screen840")  { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+	}
+}

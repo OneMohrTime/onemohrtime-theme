@@ -1,0 +1,71 @@
+/*
+* === HEADER ===
+*/
+
+.site__header {
+	position: fixed;
+	bottom: 0;
+	@include size(100%, 72px);
+	transition: $speed linear;
+	background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+	@include texture($color__black, 54, 1);
+	box-shadow: 0 -1px 3px fade-out($color__black, 0.94), 0 -1px 2px fade-out($color__black, 0.88);
+	z-index: 20;
+
+	&.nav-is-open {
+		box-shadow: none;
+	}
+
+	@include media(">=screen600") {
+		top: 0;
+		bottom: auto;
+		height: 100px;
+		max-height: none;
+		background: transparent;
+		box-shadow: none;
+
+		&.slide--up {
+			animation: navSlideUp $speed--slow ease forwards;
+		}
+		&.slide--down {
+			animation: navSlideDown $speed--slow ease forwards;
+		}
+	}
+}
+
+@supports (pointer-events: all) {
+	.site__header { pointer-events: none; }
+	.toggle__menu,
+	.site__logo,
+	.main-navigation { pointer-events: auto; }
+}
+
+.site__logo {
+	@include position(absolute, 15px 36px null null);
+	z-index: 35;
+
+	@include media(">=screen600") {
+		top: 30px;
+	}
+
+	.logo {
+		display: block;
+		@include size(auto, 40px);
+
+		#design {
+			// ID inside inline-svg
+			path {
+				fill: $color__black;
+				transition: $speed linear;
+			}
+		}
+	}
+
+	&.inverted {
+		#design {
+			path {
+				fill: $color__white;
+			}
+		}
+	}
+}

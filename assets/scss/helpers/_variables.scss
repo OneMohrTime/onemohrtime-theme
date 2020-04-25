@@ -1,0 +1,79 @@
+/**
+ * === VARIABLES ===
+ */
+
+/**
+ * — Colors —
+ */
+
+$color__black: #171409;
+$color__black--light: tint($color__black, 5%);
+$color__black--lighter: tint($color__black, 10%);
+$color__black--lightest: tint($color__black, 15%);
+
+$color__white: #fffefa;
+$color__white--dark: shade($color__white, 5%);
+$color__white--darker: shade($color__white, 10%);
+$color__white--darkest: shade($color__white, 15%);
+
+$color__yellow: #ffc300;
+$color__yellow--light: #fef7e3;
+$color__yellow--transparent: fade-out($color__yellow--light, 0.75);
+$color__yellow--dark: shade($color__yellow, 10%);
+
+$color__gray: #9b9a95;
+$color__gray--light: tint($color__gray, 15%);
+$color__gray--dark: shade($color__gray, 15%);
+
+$color__red: #9c0000;
+
+//$color--notice: #9c0000 !important;
+//$color--success: #9c0000 !important;
+//$color--warning: #9c0000 !important;
+$color--error: $color__red;
+
+/*
+* — Typography —
+*/
+
+$font__main      : "Barlow", $font-stack-system;
+$font__secondary : "Abril Fatface", $font-stack-garamond;
+$font__header    : "Barlow Semi Condensed", $font-stack-helvetica;
+$font__code      : "Inconsolata", $font-stack-monaco;
+
+/*
+* — Everything else —
+*/
+
+$speed         : 200ms;
+$speed--fast   : $speed / 2;
+$speed--slow   : $speed * 2;
+$base-duration : $speed;
+
+//$cubic-bezier : cubic-bezier(.455, .03, .515, .955);
+$cubic-bezier : cubic-bezier(0.17, 0.04, 0.03, 0.94);
+
+$gutter : 36px;
+
+$breakpoints : (
+	'screen320'  : 320px,
+	'screen400'  : 400px,
+	'screen480'  : 480px,
+	'screen540'  : 540px,
+	'screen600'  : 600px,
+	'screen768'  : 768px,
+	'screen840'  : 840px,
+	'screen960'  : 960px,
+	'screen1024' : 1024px,
+	'screen1170' : 1170px,
+	'screen1280' : 1280px,
+	'screen1440' : 1440px,
+	'screen1600' : 1600px,
+	'screen1920' : 1920px,
+	'screen2560' : 2560px
+);
+
+$modularscale : (
+	base  : 1em,
+	ratio : $golden
+);

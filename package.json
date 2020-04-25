@@ -1,11 +1,11 @@
 {
-  "name": "your-project",
-  "description": "A WPGulp based project.",
-  "version": "1.0.0",
-  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
+  "name": "onemohrtime",
+  "description": "Wordpress theme for my personal design portfolio.",
+  "version": "1.2.1",
+  "author": "Derek Mohr (https://twitter.com/onemohrtime/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadawais/WPGulp"
+    "url": "git+https://github.com/OneMohrTime/onemohrtime.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -51,6 +51,9 @@
     "@fancyapps/fancybox": "^3.5.7",
     "bourbon": "^6.0.0",
     "include-media": "^1.4.9",
-    "normalize-scss": "^7.0.1"
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.5.0",
+    "normalize-scss": "^7.0.1",
+    "swiper": "^5.3.7"
   }
 }

@@ -4,7 +4,7 @@
 
 {% block content %}
 
-	<figure id="home_banner" class="homepage__banner get-faded">
+	<figure id="home_banner" class="homepage__banner">
 
 		<!-- if mobile banner -->
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
@@ -17,7 +17,14 @@
 			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 
 		<!-- else -->
-		<ul class="banner{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
+		<img src="{{ theme.link }}/assets/img/home-bg.png"
+			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+			 alt="background image"
+			 class="homepage__banner-bg"
+			 srcset="{{ theme.link }}/assets/img/home-bg@2x.png 2x,
+					 {{ theme.link }}/assets/img/home-bg.png 1x"
+			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+		<ul id="home_banner_list" class="banner is-hidden{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
 			{% for link in isometric %}
 				<li class="banner__item banner__item--{{ loop.index }}">
 					{% for page in link %}
@@ -42,13 +49,13 @@
 			{% endfor %}
 		</ul>
 
-		<figcaption id="home_intro" class="intro wysiwyg">
+		<figcaption id="home_intro" class="intro get-faded _wysiwyg">
 			<h2 id="home_title" class="intro__title">
 				<span>Developer for <a href="//mightyinthemidwest.com/" target="_blank" rel="noopener" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
 				<span>Traveling <a href="{{ site.link }}/design">designer</a> by night.</span>
 			</h2>
 			<div class="line"></div>
-			<p class="intro__description">I&rsquo;m Derek Mohr from Grand Rapids, MI. I also drink, travel, and talk about space discoveries to strangers.</p>
+			<p class="intro__description">I&rsquo;m Derek Mohr from Grand Rapids, MI. I travel, drink, and talk about space discoveries to strangers.</p>
 		</figcaption>
 	</figure>
 
@@ -69,35 +76,35 @@
 					 {{ TimberImage(about.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
 
-		<figcaption class="homepage__about--content wysiwyg get-faded">
+		<figcaption class="homepage__about--content _wysiwyg get-faded">
 			{{ about.text }}
 		</figcaption>
 
 	</figure>
 	{% endif %}
 
-	{% if post.get_field('homepage_feature') %}
+	{# {% if post.get_field('homepage_feature') %}
 	<section id="home_features" class="homepage__portfolio get-faded">
 		{% for post in post.get_field('homepage_feature') %}
 
 			<div class="feature">
 
 				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 width="{{ post.thumbnail.width }}"
-					 height="{{ post.thumbnail.height }}"
-					 alt="slide image for {{ post.post_title }}"
-					 class="feature__image"
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src }} 1500w"
-					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+					width="{{ post.thumbnail.width }}"
+					height="{{ post.thumbnail.height }}"
+					alt="slide image for {{ post.post_title }}"
+					class="feature__image"
+					srcset="{{ post.thumbnail.src('medium') }} 500w,
+							{{ post.thumbnail.src('large') }} 1000w,
+							{{ post.thumbnail.src }} 1500w"
+					sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
 
 				<div class="feature__content get-faded">
 					<h2 class="feature__content--title">{{ post.title }}</h2>
-					<div class="wysiwyg">
+					<div class="_wysiwyg">
 						<p>{{ post.post_excerpt }}</p>
 					</div>
-					<div class="feature__read-more">Read on {% include '/assets/images/icons/arrow-right.svg' %}</div>
+					<div class="feature__read-more">Read on {% include '/assets/img/icons/arrow-right.svg' %}</div>
 				</div>
 
 				<a href="{{ post.link }}" class="feature__link"></a>
@@ -107,11 +114,11 @@
 	</section>
 	{% endif %}
 
-	<article id="home_content" class="homepage__work get-faded wysiwyg">
+	<article id="home_content" class="homepage__work get-faded _wysiwyg">
 		<h2 class="homepage__work--title">What do I actually do, then?</h2>
 		{{ post.content }}
-		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/images/icons/arrow-right.svg' %} </a>
-	</article>
+		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/img/icons/arrow-right.svg' %} </a>
+	</article> #}
 
 {% endblock %}
 

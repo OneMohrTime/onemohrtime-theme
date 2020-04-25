@@ -74,6 +74,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'acf_add_local_field_group' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		add_action( 'widgets_init', array( $this, 'widgets' ) );
 		add_action( 'init', array( $this, 'disable_emojis' ) );
@@ -84,7 +85,9 @@ class StarterSite extends Timber\Site {
 	/**
 	 * This is where you can register custom post types.
 	 */
-	public function register_post_types() {}
+	public function register_post_types() {
+		include( 'includes/custom-posts.php' );
+	}
 
 	/**
 	 * This is where you can register custom taxonomies.
@@ -100,14 +103,21 @@ class StarterSite extends Timber\Site {
 		$context['site'] = $this;
 
 		/* Menu */
-        $context['menu']   = new TimberMenu('Primary Navigation');
-        $context['footer'] = new TimberMenu('Footer Projects');
+		$context['menu']   = new TimberMenu('Primary Navigation');
+		$context['footer'] = new TimberMenu('Footer Projects');
 
-        /* Sidebar */
-        // $context['display_sidebar'] = Setup\display_sidebar();
+		/* Sidebar */
+		// $context['display_sidebar'] = Setup\display_sidebar();
 		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
 
 		return $context;
+	}
+
+	/**
+	 * Advanced Custom Fields
+	 */
+	public function acf_add_local_field_group() {
+		include( 'includes/acf.php' );
 	}
 
 	public function theme_supports() {
@@ -148,6 +158,7 @@ class StarterSite extends Timber\Site {
 		 */
 		add_theme_support( 'post-formats', array(
 			'gallery',
+			'aside',
 			'link',
 			'image',
 			'quote',
@@ -156,6 +167,7 @@ class StarterSite extends Timber\Site {
 		) );
 
 		add_theme_support( 'menus' );
+		add_post_type_support( 'page', 'excerpt' );
 	}
 
 	/**
@@ -163,9 +175,11 @@ class StarterSite extends Timber\Site {
 	 */
 	public function loadScripts() {
 		// Fancybox 3
-		wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/dist/css/jquery.fancybox.min.css', array(), null, 'screen' );
+		wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/assets/css/jquery.fancybox.min.css', array(), null, 'screen' );
+		// Swiper 5
+		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper.min.css', array(), null, 'screen' );
 		// Main "screen" stylesheet
-		wp_enqueue_style( 'screen', get_template_directory_uri() . '/dist/css/main.css', array(), null, 'screen' );
+		wp_enqueue_style( 'screen', get_template_directory_uri() . '/assets/css/main.css', array(), null, 'screen' );
 		// Google Webfonts
 		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null );
 
@@ -175,27 +189,29 @@ class StarterSite extends Timber\Site {
 		// Google Webfonts
 //		wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
 		// Vendor script
-		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/dist/js/vendor.js', array('jquery'), null, true );
+		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/js/vendor.js', array('jquery'), null, true );
+		// Isotope
+		wp_enqueue_script( 'isotope', get_template_directory_uri() . '/assets/js/lib/isotope.pkgd.min.js', array(), '3.0.6', true );
 		// MixItUp
-		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/dist/js/lib/mixitup.min.js', array(), '3.2.2', true );
+		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/assets/js/lib/mixitup.min.js', array(), '3.2.2', true );
 		// ScrollMagic
-		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/dist/js/lib/ScrollMagic.min.js', array(), '2.0.5', true );
+		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/assets/js/lib/ScrollMagic.min.js', array(), '2.0.5', true );
 //		wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
-		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.ScrollMagic.min.js', array('scrollmagic'), '2.0.7', true );
+		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/assets/js/lib/plugins/jquery.ScrollMagic.min.js', array('scrollmagic'), '2.0.7', true );
 		// GSAP Tween Max
-		wp_enqueue_script( 'tweenmax', get_template_directory_uri() . '/dist/js/lib/TweenMax.min.js', array(), '2.0.5', true );
+		wp_enqueue_script( 'tweenmax', get_template_directory_uri() . '/assets/js/lib/TweenMax.min.js', array(), '2.0.5', true );
 		// GSAP CSS Plugin
-//		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/dist/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
+		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/assets/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP CSS animation
-		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/dist/js/lib/plugins/animation.gsap.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
+		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/assets/js/lib/plugins/animation.gsap.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
 		// GSAP jQuery plugin
-		wp_enqueue_script( 'gsap-jquery', get_template_directory_uri() . '/dist/js/lib/plugins/jquery.gsap.min.js', array('tweenmax'), '0.1.12', true );
+		wp_enqueue_script( 'gsap-jquery', get_template_directory_uri() . '/assets/js/lib/plugins/jquery.gsap.min.js', array('tweenmax'), '0.1.12', true );
 		// Swiper
-		// wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/lib/swiper.js', array(), '4.2.6', true );
+		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/lib/swiper.min.js', array(), '5.3.7', true );
 		// Fancybox 3
-		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/dist/js/lib/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );
+		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/lib/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );
 		// Main script file
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
 	}
 
 	/**

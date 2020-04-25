@@ -1,0 +1,206 @@
+/*
+* === ARCHIVES ===
+*/
+
+body.archive {
+	position: relative;
+	@include texture($color__white, 54, 0);
+    margin-bottom: 2em;
+
+    .archives {
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		&__article {
+			// .archives__article
+			width: 100%;
+			margin: $base-spacing 0 #{$gutter * 2};
+			@include media(">=screen600")  {
+				padding-right: 20%;
+			}
+			@include media(">=screen840")  { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+    }
+
+    .type-post {
+		position: relative;
+		@include body-copy();
+		@include size(100%, auto);
+		min-height: 420px;
+		max-height: 100vh;
+		margin-bottom: $base-spacing;
+        overflow: hidden;
+
+		@include media(">=screen768") {
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+        }
+
+		@include media(">=screen840") {
+			@supports (display: flex) {
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+			}
+        }
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+			margin-bottom: $gutter * 2;
+        }
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+			margin-bottom: $gutter * 3;
+        }
+    }
+
+    .archive {
+
+        &__content {
+            // .archive__content
+            position: relative;
+			margin-bottom: $base-spacing;
+
+            @include media(">=screen840") {
+                flex: 0 0 calc(40% - #{$gutter});
+                max-width: calc(40% - #{$gutter});
+                @include small-font-size();
+                margin-bottom: 0;
+
+                @supports (display: flex) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+            }
+
+            ._meta {
+                display: flex;
+                flex-flow: row wrap;
+                //align-items: center;
+                color: $color__gray--light;
+                @include caption();
+                text-align: center;
+				margin-bottom: $small-spacing;
+
+                .updated,
+                .author,
+                a:not(.btn) {
+                    @include visually-hidden();
+                }
+
+                @include media(">=screen840") {
+                    text-align: left;
+                }
+			}
+
+			&:hover {
+				._meta {
+					color: $color__black--light;
+				}
+				.post-format {
+					.svg-icon {
+						opacity: 1;
+						path {
+							fill: $color__yellow;
+						}
+					}
+				}
+			}
+        }
+
+        &__title {
+            // .post__title
+            position: relative;
+            @include paragraph();
+
+            @include media(">=screen840") {
+                margin-bottom: $base-spacing;
+            }
+
+            @include media(">=screen1280") {
+                @include subtitle();
+            }
+
+            a {
+
+                &::before {
+                    display: none;
+                }
+
+                @include media(">=screen840") {
+                    @include ellipsis();
+                }
+            }
+        }
+
+        &__image {
+            // .post__image
+            position: relative;
+            background-color: $color__white--dark;
+            color: $color__white;
+            @include size(100%, auto);
+            margin-bottom: $base-spacing;
+            overflow: hidden;
+            @include media(">=screen840") {
+                flex: 0 0 60%;
+                @include box-shadow();
+                max-width: 60%;
+                min-height: 100%;
+                margin-bottom: 0;
+            }
+            &__image {
+                // .post__image__image
+            }
+        }
+
+        &__link {
+            // .post__link
+            display: none;
+            @include media(">=screen840") {}
+        }
+
+    }
+
+    // Inverse odd/even layout
+    @include media(">=screen840") {
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .post-format {
+        position: relative;
+        margin-left: $base-spacing;
+
+        .svg-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.1;
+            transform: translate3d( -#{$small-spacing}, -25%, 0 );
+            z-index: -1;
+            // double default size
+            font-size: 1.5em;
+            line-height: 1.5em;
+            height: 1.5em;
+            width: 1.5em;
+        }
+    }
+}
+
+@supports (display: grid) {
+    .archives__header {
+        grid-column: span 4;
+    }
+}
