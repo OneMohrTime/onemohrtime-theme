@@ -2,27 +2,36 @@
  * === ABOUT ===
  */
 
+.-about {
+	.repeater {
+		& + .repeater {
+			padding-top: $gutter;
+			border-top: 5px $color__yellow solid;
+		}
+	}
+	.repeater__title {
+		text-transform: none;
+	}
+}
+
 .-personalityTypes {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	@include small-font-size();
 
-	dt {
+	& > div {
 		margin-top: $gutter / 2;
 	}
 
 	@include media('>=screen600') {
-		@supports (display: grid) {
-			position: absolute;
-			bottom: $gutter;
-			display: grid;
-			grid-template-rows: auto auto;
-			grid-auto-columns: 1fr;
-			grid-auto-flow: column;
+		position: absolute;
+		bottom: $gutter;
+		flex-direction: row;
 
-			dt,
-			dd {
-				margin-top: 0;
-				margin-right: $gutter / 2;
-			}
+		& > div {
+			margin-top: 0;
+			margin-right: $gutter / 2;
 		}
 	}
 }
