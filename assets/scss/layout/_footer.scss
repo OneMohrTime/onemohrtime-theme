@@ -1,6 +1,6 @@
-/*
-* === FOOTER ===
-*/
+/**
+ * === FOOTER ===
+ */
 
 .site__footer {
 	position: relative;
@@ -46,6 +46,7 @@
 		// .site__footer--column
 		width: 100%;
 		margin-bottom: $base-spacing;
+
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -69,7 +70,7 @@
 			}
 
 			@include media(">=screen960") {
-				//grid-column: span 2;
+				// grid-column: span 2;
 				grid-column: minmax(1fr, 2fr);
 				&.projects {
 					grid-column: span 4;
@@ -101,7 +102,7 @@
 			padding-bottom: $small-spacing;
 		}
 
-		ul {
+		p, ul, ol {
 			@include type();
 			color: $color__white--dark;
 
