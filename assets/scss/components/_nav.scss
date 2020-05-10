@@ -127,8 +127,8 @@
 
 	&:hover {
 		@include media(">=screen600") {
-			background-color: $color__black--lighter;
-			box-shadow: 0 0 0 5px $color__black--lighter;
+			background-color: $color__black--light;
+			box-shadow: 0 0 0 5px $color__black--light;
 
 			.m, .n, .u {
 				color: $color__white;
