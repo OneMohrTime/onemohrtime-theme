@@ -7,56 +7,65 @@ This repo is the codebase for [https://onemohrti.me](https://onemohrti.me), writ
 ## Requirements
 
 >- Node 12.x
->- PHP 7.3
+>- Gulp 3.x
+>- PHP 7.2
 >- MySQL 5.7
 
 ## Build Commands
 
 ### Dev Environment
 
->- _Live reload browser with BrowserSync_
->- _Hotloading styles with CSS Injection_
+>- Live reload browser with BrowserSync
+>- Hotloading styles with CSS Injection
+>- For changes in files to recompile
+>- File types: `.css`, `.html`, `.php`, `.js`
+
+```sh
+npm start
+# or
+gulp watch
+```
 
 ### Styles
 
->- _Sass to CSS conversion_
->- _Merging media queries_
->- _Error handling_
->- _Auto-prefixing_
->- _Minification_
->- _Sourcemaps_
+>- Sass to CSS conversion
+>- Merging media queries
+>- Error handling
+>- Auto-prefixing
+>- Minification
+>- Sourcemaps
+
+```sh
+# To minify css.
+gulp styles
+```
 
 ### Javascripts
 
->- _Concatenation_
->- _Minification/uglification_
->- _Separate vendor and custom JS files handling_
+>- Concatenation
+>- Minification/uglification
+>- Separate vendor and custom JS files handling
+
+```sh
+# To minify javascript.
+gulp uglify
+```
 
 ### Images
 
->- _Minification/optimization of images_
->- _File types: `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`_
-
-### Translation
-
->- _Generates `.pot` translation file for i18n and l10n_
-
-### Watching
-
->- _For changes in files to recompile_
->- _File types: `.css`, `.html`, `.php`, `.js`_
-
-## More Scripts/Tasks
-
-To optimize images and generate WP POT translation file, or generate a RTL stylesheet you can run the following commands
+>- Minification/optimization of images
+>- File types: `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`
 
 ```sh
 # To optimize images.
 gulp images
+```
 
+### Translation
+
+>- Generates `.pot` translation file for i18n and l10n
+
+```sh
 # To generate WP POT translation file.
 gulp translate
-
-# To generate RTL stylesheets and Sourcemap.
-gulp stylesRTL
 ```
