@@ -3,13 +3,14 @@
  */
 
 .site__footer {
+	@include clearfix();
 	position: relative;
-	background: linear-gradient(to top left, $color__black 85%, $color__black--light);
+	width: 100%;
+	height: auto;
+	padding: $gutter;
+	// background: linear-gradient(to top left, $color__black 85%, $color__black--light);
 	@include texture($color__black, 54, 1);
 	color: $color__white;
-	@include size(100%, auto);
-	padding: $gutter;
-	@include clearfix();
 
 	@include media(">=screen768") {
 		padding-left: $gutter * 2;
@@ -42,8 +43,7 @@
 		}
 	}
 
-	&--column {
-		// .site__footer--column
+	._column {
 		width: 100%;
 		margin-bottom: $base-spacing;
 
@@ -61,7 +61,6 @@
 		}
 
 		@supports (display: grid) {
-			// .site__footer--column
 			grid-column: span 12;
 			width: auto !important;
 
@@ -70,12 +69,11 @@
 			}
 
 			@include media(">=screen960") {
-				// grid-column: span 2;
 				grid-column: minmax(1fr, 2fr);
-				&.projects {
+				&.-projects {
 					grid-column: span 4;
 				}
-				&.about-site {
+				&.-about {
 					grid-column: span 4;
 				}
 				&.social-media {
@@ -84,14 +82,19 @@
 			}
 
 			@include media(">=screen1280") {
-				&.projects {
-					grid-column: span 3;
+				&.-projects {
+					grid-column: span 2;
 				}
-				&.about-site {
-					grid-column: span 3;
+				&.-about {
+					grid-column: span 5;
+					@include media(">=screen1280") {
+						h3 {
+							width: 37.2%; // mimic grid column
+						}
+					}
 				}
 				&.social-media {
-					grid-column: 10 / 13;
+					grid-column: 11 / 13;
 				}
 			}
 		}
@@ -107,18 +110,7 @@
 			color: $color__white--dark;
 
 			a {
-				@include inline();
 				line-height: 1em;
-
-				&::before {
-					background-color: $color__black--lightest;
-				}
-
-				&:hover {
-					&::before {
-						background-color: $color__gray--dark;
-					}
-				}
 			}
 
 			&.icons {
@@ -162,15 +154,17 @@
 		}
 	}
 
-	._wysiwyg {
-		a {
+	a {
+		@include inline();
+		line-height: 1em;
+
+		&::before {
+			background-color: $color__black--lightest;
+		}
+
+		&:hover {
 			&::before {
-				background-color: $color__black--lightest;
-			}
-			&:hover {
-				&::before {
-					background-color: $color__gray--dark;
-				}
+				background-color: $color__gray--dark;
 			}
 		}
 	}
