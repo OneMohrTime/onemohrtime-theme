@@ -260,8 +260,8 @@ jQuery( function( $ ) {
     //     return current.type === "image" ? "zoom" : false;
     //   }
     // },
-
   });
+
 
   /**
    * Convert WordPress Block Galleries into Masonry layout
@@ -279,6 +279,12 @@ jQuery( function( $ ) {
         columnWidth: '.-sizer',
         gutter: '.-gutter',
         horizontalOrder: true,
+      },
+      hiddenStyle: {
+        opacity: 0
+      },
+      visibleStyle: {
+        opacity: 1
       }
     });
   }

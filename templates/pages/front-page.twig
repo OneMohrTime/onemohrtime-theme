@@ -35,11 +35,15 @@
 								 width="{{ Image(page.isometric_image).width }}"
 								 height="{{ Image(page.isometric_image).height }}"
 								 class="banner__image" />
-						{% else %}
+						{% elseif page.thumbnail is defined and page.thumbnail is not empty %}
 							<img src="{{ page.thumbnail.src('medium') }}"
 								 alt="{{ page.thumbnail.alt ? page.thumbnail.alt : 'Banner slide image' }}"
 								 width="{{ page.thumbnail.width }}"
 								 height="{{ page.thumbnail.height }}"
+								 class="banner__image" />
+						{% else %}
+							<img src="{{ theme.link }}/assets/img/placeholder.png"
+								 alt="placeholder image"
 								 class="banner__image" />
 						{% endif %}
 							<span class="banner__title">{{ page.title }}</span>
