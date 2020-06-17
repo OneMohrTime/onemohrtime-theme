@@ -1,4 +1,4 @@
-/*
+/**
 * === ANIMATIONS ===
 */
 
@@ -74,8 +74,38 @@
 	}
 }
 
+/**
+ * Rotating Div Frame
+ * https://codepen.io/jamesmellers/pen/XKmyoo
+ *
+ * @example scss
+ *   .element {
+ *     position: absolute|relative;
+ *
+ *     &::before,
+ *     &::after {
+ *       content: "";
+ *       position: absolute;
+ *       top: 50%;
+ *       left: 50%;
+ *       display: block;
+ *       width: 100%;
+ *       transform: translateX(-50%) translateY(-50%) rotate(0deg);
+ *       border: 15px $yellow solid;
+ *       animation: 10s infinite alternate ease-in-out tipsy;
+ *     }
+ *   }
+ */
+@keyframes tipsy {
+	0% {
+		transform: translateX(-50%) translateY(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) rotate(360deg);
+	}
+}
 
-/*
+/**
 * — WordPress specific —
 */
 
