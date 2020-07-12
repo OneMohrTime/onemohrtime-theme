@@ -84,7 +84,6 @@
 		._meta {
 			display: flex;
 			flex-flow: row wrap;
-			//align-items: center;
 			margin-bottom: $small-spacing;
 			transition: color $speed;
 			@include caption();
@@ -123,8 +122,10 @@
 		// .article__title
 		position: relative;
 		@include paragraph();
+		margin-top: $gutter / 2;
 
 		@include media(">=screen840") {
+			margin-top: 0;
 			margin-bottom: $base-spacing;
 		}
 
