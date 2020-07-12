@@ -193,8 +193,6 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/js/vendor.js', array('jquery'), null, true );
 		// Isotope
 		wp_enqueue_script( 'isotope', get_template_directory_uri() . '/assets/js/lib/isotope.pkgd.min.js', array(), '3.0.6', true );
-		// MixItUp
-		wp_enqueue_script( 'mixitup', get_template_directory_uri() . '/assets/js/lib/mixitup.min.js', array(), '3.2.2', true );
 		// ScrollMagic
 		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/assets/js/lib/ScrollMagic.min.js', array(), '2.0.5', true );
 //		wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
@@ -212,7 +210,7 @@ class StarterSite extends Timber\Site {
 		// Fancybox 3
 		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/lib/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );
 		// Main script file
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'vendor', 'mixitup'), null, true );
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'vendor'), null, true );
 	}
 
 	/**
