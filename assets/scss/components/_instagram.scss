@@ -3,19 +3,20 @@
  */
 
 .widget__instagram {
+	margin-bottom: 0;
+
+	@include media('>=768px') {
+		margin-bottom: $gutter;
+	}
 
 	&--title {
 		// .widget__instagram--title
-		width: 100%;
-		margin-bottom: $gutter;
 		@include label();
+		width: 100%;
+		margin-top: $gutter;
+		margin-bottom: $gutter;
 		line-height: $base-line-height;
 		color: $color__black--light;
-
-		@include media(">=screen768") {
-			margin-top: $gutter;
-			margin-bottom: $gutter;
-		}
 
 		@include media(">=screen1440") {
 			margin-top: $gutter * 1.5;
@@ -47,11 +48,11 @@
 			#sbi_images {
 				.sbi_item {
 					width: calc(25% - #{$gutter});
-					margin-bottom: $gutter !important;
+					margin-bottom: 0 !important;
 
 					@media (max-width: 768px) {
-						margin-bottom: $base-spacing !important;
-						width: calc(50% - #{$gutter});
+						margin-bottom: $gutter !important;
+						width: calc(50% - #{$gutter / 2});
 					}
 				}
 			}

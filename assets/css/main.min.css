@@ -281,7 +281,8 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .fancybox-navigation .fancybox-button--arrow_left{padding-left:0;-webkit-transition:background-color 200ms,color 200ms;transition:background-color 200ms,color 200ms}
 .fancybox-navigation .fancybox-button--arrow_right{padding-right:0;-webkit-transition:background-color 200ms,color 200ms;transition:background-color 200ms,color 200ms}
 .fancybox-thumbs__list a::before{border:5px solid #ffc300}
-.widget__instagram--title{width:100%;margin-bottom:36px;font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;line-height:1.7em;color:#232015}
+.widget__instagram{margin-bottom:0}
+.widget__instagram--title{font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;width:100%;margin-top:36px;margin-bottom:36px;line-height:1.7em;color:#232015}
 .main-navigation{color:#fffefa;height:auto;width:100vw;margin-bottom:72px}
 .main-navigation.is-visible{max-height:calc(100vh - 72px);overflow:auto;-webkit-transform:translateY(0);transform:translateY(0);z-index:40}
 .main-navigation.is-visible .site__header--logo{top:20px}
@@ -538,7 +539,7 @@ body.blog .posts__article{padding-right:20%}
 .article{width:auto;margin-left:36px;margin-right:36px}
 .site__contact{padding-left:72px;padding-right:72px}
 .dribbbles .shot{width:31%}
-.widget__instagram--title{margin-top:36px;margin-bottom:36px}
+.widget__instagram{margin-bottom:36px}
 body.archive .type-post{width:auto;margin-left:36px;margin-right:36px}
 .daft-punk__content--title{font-size:6em}
 .homepage__work{padding:144px 72px}

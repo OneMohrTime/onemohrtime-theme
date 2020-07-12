@@ -11,11 +11,11 @@
 	<span class="post-format">
 		{% if post.format is defined and post.format != false %}
 			{% include '/assets/img/icons/post-' ~ post.format ~'.svg' %}
-			{{ post.format | capitalize }}
+			{{ post.format|capitalize }}
 		{% else %}
 			{% include '/assets/img/icons/post-standard.svg' %}
 			Standard
 		{% endif %}
 	</span>
-	<span class="byline author vcard screen-reader-text"> | {{  __('', 'onemohrtime') }} <a href="{{ post.author.path }}" rel="author" class="fn">{{ post.author.name }}</a></span>
+	<span class="byline author vcard screen-reader-text"> | {{ __('', 'onemohrtime') }} <a href="{{ post.author.path }}" rel="author" class="fn">{{ post.author.name }}</a></span>
 </p>
