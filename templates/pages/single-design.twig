@@ -155,30 +155,33 @@
 	{% elseif section.acf_fc_layout == 'detail_gallery' %}
 
 	{# Gallery #}
-	<div class="project__section project__gallery get-faded">
-	{% for image in section.images %}
+	<div class="project__section project__gallery">
+		<div class="image__sizer"></div>
+		<div class="image__gutter"></div>
 
-		<figure class="image">
-			<img src="{{ TimberImage(image).src('thumbnail') }}"
-				 width="{{ image.width }}" height="{{ image.height }}"
-				 alt="{{ section.image.alt }}"
-				 class="image__image"
-				 srcset="{{ TimberImage(image).src('medium') }} 500w,
-						 {{ TimberImage(image).src('large') }} 1000w,
-						 {{ TimberImage(image).src('full') }} 1500w"
-				 sizes="(max-width: {{ image.width }}px) 100vw, {{ image.width }}px"/>
-			{% if image.caption %}
-				<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
-			{% else %}
-				<figcaption class="image__caption caption--zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
-			{% endif %}
+		{% for image in section.images %}
+			<figure class="image">
 
-			<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
-				<span class="screen-reader-text">Click to zoom</span>
-			</a>
-		</figure>
+				<img src="{{ TimberImage(image).src('thumbnail') }}"
+					width="{{ image.width }}" height="{{ image.height }}"
+					alt="{{ section.image.alt }}"
+					class="image__image"
+					srcset="{{ TimberImage(image).src('medium') }} 500w,
+							{{ TimberImage(image).src('large') }} 1000w,
+							{{ TimberImage(image).src('full') }} 1500w"
+					sizes="(max-width: {{ image.width }}px) 100vw, {{ image.width }}px"/>
+				{% if image.caption %}
+					<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
+				{% else %}
+					<figcaption class="image__caption caption--zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
+				{% endif %}
 
-	{% endfor %}
+				<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
+					<span class="screen-reader-text">Click to zoom</span>
+				</a>
+
+			</figure>
+		{% endfor %}
 	</div>
 
 	{% endif %}

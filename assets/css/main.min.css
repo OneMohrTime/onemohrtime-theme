@@ -186,12 +186,14 @@ embed,iframe,object{max-width:100%}
 .project__blockquote .blockquote__image>*:first-child{position:relative;padding-top:1.5em;margin-bottom:.75em}
 .project__blockquote .blockquote__image__image{position:absolute;top:-100%}
 .project__gallery{margin-left:36px;margin-right:36px;margin-bottom:1.5em}
-.project__gallery img{width:100%}
-.project__gallery .image{position:relative;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05);-webkit-column-break-inside:avoid;-moz-column-break-inside:avoid;break-inside:avoid;counter-increment:item-counter;margin-bottom:36px}
+.project__gallery img{display:block;width:100%;max-width:100%;height:auto}
+.project__gallery .image{position:relative;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05);margin-bottom:36px}
 .project__gallery .image__caption{color:#9b9a95;font-size:.6180339845em;-webkit-transition:200ms;transition:200ms}
 .project__gallery .image__caption.caption--zoom{display:none}
 .project__gallery .image__link{position:absolute;top:0;right:0;bottom:0;left:0;display:block;background:0;z-index:2}
 .project__gallery .image:hover .image__caption,.project__gallery .image:focus .image__caption{opacity:1}
+.project__gallery .image__sizer{display:block;width:calc(50% - 18px);margin:0;float:left}
+.project__gallery .image__gutter{width:18px}
 .project__specs{grid-column:span 4;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/old_mathematics.png");background-color:#f2f1ee;color:#aaa9a5;font-size:1em;padding:36px 36px .75em}
 .project__specs--title{font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;color:#d9d8d5;margin-bottom:36px}
 .project__specs .spec{margin-bottom:.75em}
@@ -467,6 +469,9 @@ body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left
 .site__logo{top:30px}
 .site__footer ._column{float:left;width:50%}
 .project__banner{height:100vh}
+.project__gallery .image{max-width:calc(50% - 36px)}
+.project__gallery .image__sizer{width:calc(50% - 36px)}
+.project__gallery .image__gutter{width:36px}
 .project__specs{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row wrap;flex-flow:row wrap;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;padding:36px}
 .project__specs--title{margin-right:36px}
 .project__specs .spec{margin-bottom:0;color:#84837f;font-size:1em}
@@ -531,6 +536,8 @@ body.blog .posts__article{padding-right:20%}
 .project__blockquote{margin:72px}
 .project__blockquote .blockquote__image{padding:72px;margin:72px}
 .project__gallery{margin-left:72px;margin-right:72px}
+.project__gallery .image{max-width:calc(33.3333333333% - 36px)}
+.project__gallery .image__sizer{width:calc(33.3333333333% - 36px)}
 .project__specs{padding-left:72px;padding-right:72px}
 .page__header,.posts__header,.archives__header,.entry__header{margin-left:72px;margin-right:72px}
 .page__content,.posts__content,.archives__content,.entry__content{margin-left:72px;margin-right:72px}

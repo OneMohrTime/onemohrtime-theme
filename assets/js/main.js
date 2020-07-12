@@ -37,6 +37,27 @@ jQuery(function ($) {
   // });
 
   /**
+   * Change project gallery into Masonry layout
+   */
+
+
+  var projGallery = $('.project__section.project__gallery');
+
+  if (projGallery) {
+    projGallery.each(function () {
+      // reorganize with Masonry
+      projGallery.isotope({
+        itemSelector: '.image',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '.image__sizer',
+          gutter: '.image__gutter',
+          horizontalOrder: true
+        }
+      });
+    });
+  }
+  /**
    * Convert WordPress Block Galleries into Masonry layout
    */
 
