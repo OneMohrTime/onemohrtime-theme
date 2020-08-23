@@ -17,12 +17,12 @@
 				{% endblock %}
 			</header>
 
-			<main id="main" class="site__main content-area{{ ' -' ~ post.slug ?? '' }}{% if displaySidebar == true %} -hasSidebar{% endif %}">
+			<main id="main" class="site__main content-area{{ post.slug ? ' -' ~ post.slug : ' daft-punk' }}{% if displaySidebar == true %} -hasSidebar{% endif %}">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
 			</main>
-
+{{dump(post)}}
 			{% include 'partials/sidebar.twig' %}
 
 			{% include 'components/contact.twig' %}
