@@ -1,6 +1,6 @@
-/*
-* === HEADER ===
-*/
+/**
+ * === HEADER ===
+ */
 
 .site__header {
 	position: fixed;
@@ -46,6 +46,19 @@
 
 	@include media(">=screen600") {
 		top: 30px;
+	}
+
+	@include media(">=screen768") {
+		margin-right: $gutter * 2;
+	}
+
+	@include media(">=screen1024") {
+		margin-right: $gutter * 3;
+		transform: translateX( calc(100% + #{$gutter}) );
+	}
+
+	@include media(">=screen1440") {
+		margin-right: $gutter * 4;
 	}
 
 	.logo {

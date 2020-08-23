@@ -1,6 +1,6 @@
-/*
-* === SIDEBAR ===
-*/
+/**
+ * === SIDEBAR ===
+ */
 
 .site__sidebar {
 	position: relative;
@@ -20,10 +20,10 @@
 		padding-right: $gutter * 3;
 	}
 
-	// @include media(">=screen1440") {
-	// 	padding-left: $gutter * 4;
-	// 	padding-right: $gutter * 4;
-	// }
+	@include media(">=screen1440") {
+		padding-left: $gutter * 4;
+		padding-right: $gutter * 4;
+	}
 
 	@supports (display: grid) {
 		grid-column: span 4;

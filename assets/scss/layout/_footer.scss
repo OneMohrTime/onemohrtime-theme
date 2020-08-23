@@ -20,6 +20,11 @@
 		padding: $gutter * 2 $gutter * 3;
 	}
 
+	@include media(">=screen1440") {
+		padding-left: $gutter * 4;
+		padding-right: $gutter * 4;
+	}
+
 	@supports (display: grid) {
 		grid-column: span 4;
 		display: grid;
@@ -146,6 +151,10 @@
 			grid-column: span 12;
 			grid-row: span 1;
 		}
+	}
+
+	.top {
+		margin-bottom: $gutter;
 	}
 
 	a {

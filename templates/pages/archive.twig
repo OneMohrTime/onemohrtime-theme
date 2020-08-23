@@ -4,44 +4,44 @@
 {% block content %}
 
 	<header class="archives__header">
-        {% if term_page.description is defined and term_page.description is not empty %}
+		{% if term_page.description is defined and term_page.description is not empty %}
 			<p class="_meta">{{ term_page.description }}</p>
 		{% endif %}
 		{% include 'components/title.twig' %}
 	</header>
 
 	<section class="archives">
-    {% if term_page.count > 0 %}
-        {% for post in posts %}
+		{% if term_page.count > 0 %}
+			{% for post in posts %}
 
-		<article {{ function('post_class') }}>
+				<article {{ function('post_class') }}>
 
-			<figure class="archive__image parallax">
-				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-					 alt="{{ post.thumbnail.alt }}"
-					 class="archive__image__image parallax__image"
-					 srcset="{{ post.thumbnail.src('medium') }} 500w,
-							 {{ post.thumbnail.src('large') }} 1000w,
-							 {{ post.thumbnail.src('full') }} 1500w"
-					 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-			</figure>
+					<figure class="archive__image parallax">
+						<img src="{{ post.thumbnail.src('thumbnail') }}"
+							width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
+							alt="{{ post.thumbnail.alt }}"
+							class="archive__image__image parallax__image"
+							srcset="{{ post.thumbnail.src('medium') }} 500w,
+									{{ post.thumbnail.src('large') }} 1000w,
+									{{ post.thumbnail.src('full') }} 1500w"
+							sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
+					</figure>
 
-			<div class="archive__content _wysiwyg get-faded">
-				{% include "components/entry-meta.twig" %}
-				<h2 class="archive__title">
-					<a href="{{ post.link }}">{{ post.title }}</a>
-				</h2>
-				<p>{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a></p>
-			</div>
-			<a href="{{ post.link }}" class="archive__link"></a>
+					<div class="archive__content _wysiwyg get-faded">
+						{% include "components/entry-meta.twig" %}
+						<h2 class="archive__title">
+							<a href="{{ post.link }}">{{ post.title }}</a>
+						</h2>
+						<p>{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a></p>
+					</div>
+					<a href="{{ post.link }}" class="archive__link"></a>
 
-		</article>
+				</article>
 
-		{% endfor %}
-    {% else %}
-        <p>Sorry, there aren&rsquo;t any posts here.</p>
-    {% endif %}
+			{% endfor %}
+		{% else %}
+			<p>Sorry, there aren&rsquo;t any posts here.</p>
+		{% endif %}
 	</section>
 
 {% endblock %}

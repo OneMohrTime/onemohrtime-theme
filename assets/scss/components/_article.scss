@@ -87,6 +87,7 @@
 			margin-bottom: $small-spacing;
 			transition: color $speed;
 			@include caption();
+			line-height: 1.7em;
 			text-align: center;
 			color: $color__gray--light;
 
