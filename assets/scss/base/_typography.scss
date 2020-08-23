@@ -47,6 +47,14 @@ h4 { font-size: ms(0); }
 h5 { font-size: ms(-1); }
 h6 { font-size: ms(-2); }
 
+._wysiwyg {
+	h1, h2, h3, h4, h5, h6 {
+		&:not(:first-child) {
+			margin-top: $base-spacing;
+		}
+	}
+}
+
 /**
  * — Body Copy —
  */

@@ -87,6 +87,7 @@ h3{font-size:1.618034em}
 h4{font-size:1em}
 h5{font-size:.6180339845em}
 h6{font-size:.3819660059em}
+._wysiwyg h1:not(:first-child),._wysiwyg h2:not(:first-child),._wysiwyg h3:not(:first-child),._wysiwyg h4:not(:first-child),._wysiwyg h5:not(:first-child),._wysiwyg h6:not(:first-child){margin-top:1.5em}
 p{color:inherit;font-family:inherit;font-weight:normal;line-height:1.7em;widows:3;orphans:3}
 p:last-child,p:only-child{margin-bottom:0}
 b,strong{font-weight:700}
