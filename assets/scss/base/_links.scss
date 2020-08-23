@@ -5,11 +5,11 @@
 a {
 	position: relative;
 	display: inline-block;
-	text-decoration: none;
 	outline: none;
-	cursor: pointer;
+	text-decoration: none;
 	color: inherit;
 	vertical-align: baseline;
+	cursor: pointer;
 
 	&:hover {
 		color: inherit;

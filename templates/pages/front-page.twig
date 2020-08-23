@@ -4,64 +4,28 @@
 
 {% block content %}
 
-	<figure id="home_banner" class="homepage__banner">
+	<section id="home_banner" class="banner -typographic -yellow">
 
-		<!-- if mobile banner -->
-		<img src="{{ post.thumbnail.src('thumbnail') }}"
-			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-			 alt="banner for derek mohr's portfolio"
-			 class="banner{% if isometric is defined and isometric is not empty %} is-mobile{% endif %}"
-			 srcset="{{ post.thumbnail.src('medium') }} 500w,
-					 {{ post.thumbnail.src('large') }} 1000w,
-					 {{ post.thumbnail.src('full') }} 1500w"
-			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-
-		<!-- else -->
-		<img src="{{ theme.link }}/assets/img/home-bg.png"
-			 width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-			 alt="background image"
-			 class="homepage__banner-bg"
-			 srcset="{{ theme.link }}/assets/img/home-bg@2x.png 2x,
-					 {{ theme.link }}/assets/img/home-bg.png 1x"
-			 sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-		<ul id="home_banner_list" class="banner is-hidden{% if isometric is defined and isometric is not empty %} is-desktop{% endif %}">
+		<ul id="home_banner_list" class="banner__list get-faded">
 			{% for link in isometric %}
-				<li class="banner__item banner__item--{{ loop.index }}">
+				<li class="banner__listItem">
 					{% for page in link %}
-						<a href="{{ page.link }}" class="banner__link">
-						{% if page.isometric_image is defined and page.isometric_image is not empty %}
-							<img src="{{ Image(page.isometric_image).src('medium') }}"
-								 alt="{{ Image(page.isometric_image).alt ? Image(page.isometric_image).alt : 'Banner slide image' }}"
-								 width="{{ Image(page.isometric_image).width }}"
-								 height="{{ Image(page.isometric_image).height }}"
-								 class="banner__image" />
-						{% elseif page.thumbnail is defined and page.thumbnail is not empty %}
-							<img src="{{ page.thumbnail.src('medium') }}"
-								 alt="{{ page.thumbnail.alt ? page.thumbnail.alt : 'Banner slide image' }}"
-								 width="{{ page.thumbnail.width }}"
-								 height="{{ page.thumbnail.height }}"
-								 class="banner__image" />
-						{% else %}
-							<img src="{{ theme.link }}/assets/img/placeholder.png"
-								 alt="placeholder image"
-								 class="banner__image" />
-						{% endif %}
-							<span class="banner__title">{{ page.title }}</span>
-						</a>
+						<a href="{{ page.link }}" class="banner__link">{{ page.title }}</a>
 					{% endfor %}
+					{% if not loop.last %}//&nbsp;{% endif %}
 				</li>
 			{% endfor %}
 		</ul>
 
-		<figcaption id="home_intro" class="intro get-faded _wysiwyg">
-			<h2 id="home_title" class="intro__title">
+		<div id="home_intro" class="banner__intro get-faded">
+			<div class="_line"></div>
+			<h2 id="home_title" class="_title _wysiwyg">
 				<span>Developer for <a href="//mightyinthemidwest.com/" target="_blank" rel="noopener" title="Mighty In The Midwest" class="intro__link">Mighty</a> by day,</span>
-				<span>Traveling <a href="{{ site.link }}/design">designer</a> by night.</span>
+				<span><a href="{{ site.link }}/topics/travel/" class="intro__link">Traveling</a> designer by night.</span>
 			</h2>
-			<div class="line"></div>
-			<p class="intro__description">I&rsquo;m Derek Mohr from Grand Rapids, MI. I travel, drink, and talk about space discoveries to strangers.</p>
-		</figcaption>
-	</figure>
+			<p class="_tagline">Derek Mohr // Grand Rapids, MI // <a href="//www.instagram.com/onemohrtimedesign/" target="_blank" rel="noopener" title="OneMohrTimeDesign's Instagram" class="banner__link">@OneMohrTime</a></p>
+		</div>
+	</section>
 
 	<section id="home_dribbble" class="homepage__dribbble">
 		<h2 class="dribbble__title">Recent Designs on Dribbble</h2>
@@ -69,60 +33,23 @@
 	</section>
 
 	{% if about %}
-	<figure id="home_about" class="homepage__about get-faded">
+		<figure id="home_about" class="homepage__about get-faded">
 
-		<img src="{{ TimberImage(about.image).src }}"
-			 width="{{ about.image.width }}" height="{{ about.image.height }}"
-			 alt="{{ about.image.alt }}"
-			 class="homepage__about--image"
-			 srcset="{{ TimberImage(about.image).src('medium') }} 500w,
-					 {{ TimberImage(about.image).src('large') }} 1000w,
-					 {{ TimberImage(about.image).src('full') }} 1500w"
-			 sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
+			<img src="{{ TimberImage(about.image).src }}"
+				width="{{ about.image.width }}" height="{{ about.image.height }}"
+				alt="{{ about.image.alt }}"
+				class="homepage__about--image"
+				srcset="{{ TimberImage(about.image).src('medium') }} 500w,
+						{{ TimberImage(about.image).src('large') }} 1000w,
+						{{ TimberImage(about.image).src('full') }} 1500w"
+				sizes="(max-width: {{ about.image.width }}px) 100vw, {{ about.image.width }}px" />
 
-		<figcaption class="homepage__about--content _wysiwyg get-faded">
-			{{ about.text }}
-		</figcaption>
+			<figcaption class="homepage__about--content _wysiwyg get-faded">
+				{{ about.text }}
+			</figcaption>
 
-	</figure>
+		</figure>
 	{% endif %}
-
-	{# {% if post.get_field('homepage_feature') %}
-	<section id="home_features" class="homepage__portfolio get-faded">
-		{% for post in post.get_field('homepage_feature') %}
-
-			<div class="feature">
-
-				<img src="{{ post.thumbnail.src('thumbnail') }}"
-					width="{{ post.thumbnail.width }}"
-					height="{{ post.thumbnail.height }}"
-					alt="slide image for {{ post.post_title }}"
-					class="feature__image"
-					srcset="{{ post.thumbnail.src('medium') }} 500w,
-							{{ post.thumbnail.src('large') }} 1000w,
-							{{ post.thumbnail.src }} 1500w"
-					sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-
-				<div class="feature__content get-faded">
-					<h2 class="feature__content--title">{{ post.title }}</h2>
-					<div class="_wysiwyg">
-						<p>{{ post.post_excerpt }}</p>
-					</div>
-					<div class="feature__read-more">Read on {% include '/assets/img/icons/arrow-right.svg' %}</div>
-				</div>
-
-				<a href="{{ post.link }}" class="feature__link"></a>
-			</div>
-
-		{% endfor %}
-	</section>
-	{% endif %}
-
-	<article id="home_content" class="homepage__work get-faded _wysiwyg">
-		<h2 class="homepage__work--title">What do I actually do, then?</h2>
-		{{ post.content }}
-		<a href="{{ TimberPost(638).link }}">See Featured Projects {% include '/assets/img/icons/arrow-right.svg' %} </a>
-	</article> #}
 
 {% endblock %}
 

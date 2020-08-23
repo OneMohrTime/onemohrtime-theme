@@ -1,267 +1,8 @@
-/*
+/**
 * === HOME ===
 */
 
 .homepage {
-
-	&__banner {
-		// .homepage__banner
-		position: relative;
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: flex-end;
-		align-items: center;
-		min-height: 100vh;
-
-		@include media(">=screen840") {
-			align-items: flex-end;
-		}
-
-		.banner {
-			position: relative;
-			overflow: hidden;
-
-			&.is-hidden {
-				@include media(">=screen1170") {
-					visibility: hidden;
-				}
-			}
-
-			&__item {
-				// .banner__item
-				padding: $gutter / 3;
-				overflow: hidden;
-				background-color: $color__white--dark;
-
-				@include media(">=screen1170") {
-					&:nth-child(1n) {
-						animation: cardHover 5s infinite alternate;
-					}
-					&:nth-child(2n) {
-						animation: cardHover 3s infinite alternate;
-					}
-					&:nth-child(3n) {
-						animation: cardHover 4s infinite alternate;
-					}
-					&:nth-child(4n) {
-						animation: cardHover 2s infinite alternate;
-					}
-				}
-			}
-
-			&__link {
-				// .banner__link
-				display: block;
-				height: 100%;
-				overflow: hidden;
-
-				&:focus,
-				&:hover {
-					.banner__image {
-						opacity: 0;
-					}
-				}
-			}
-
-			&__image {
-				// .banner__image
-				@include size(100%);
-				opacity: 1;
-				transform: translateZ(0);
-				object-fit: cover;
-				transition: opacity $speed;
-				z-index: 2;
-			}
-
-			&__title {
-				// .banner__title
-				position: absolute;
-				top: 0;
-				left: 0;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				@include size(100%);
-				@include small-font-size();
-				color: $color__black--light;
-				z-index: 1;
-			}
-		}
-
-		.homepage__banner-bg {
-			position: absolute;
-			bottom: -50%;
-			right: $gutter * 2;
-			width: 50vw;
-			height: auto;
-		}
-
-		.banner.is-mobile {
-			@include size(100%, auto);
-			margin-left: auto;
-			margin-right: auto;
-
-			@include media("<screen840") {
-				display: block;
-			}
-
-			@include media(">=screen840") {
-				display: none;
-			}
-		}
-
-		.banner.is-desktop {
-			position: absolute;
-			top: 0;
-			left: 0;
-			@include size(50vw, 100vh);
-			padding: $gutter / 2;
-
-			@include media("<screen840") {
-				display: none;
-			}
-
-			@include media(">=screen840") {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-template-rows: repeat(4, minmax(auto, 25vh));
-				grid-gap: $gutter / 2;
-			}
-
-			@include media(">=screen1170") {
-				padding: 0;
-				transform: perspective(3000px) translate3d( 0, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
-				transform-origin: 50% 50%;
-				transform-style: preserve-3d;
-			}
-
-			@include media(">=screen1440") {
-				height: 120vh;
-				transform: perspective(3000px) translate3d( -#{$gutter * 2}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
-				transform-origin: 50% 100%;
-			}
-
-			@include media(">=screen1920") {
-				transform: perspective(3000px) translate3d( -#{$gutter * 6}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
-			}
-
-			@include media(">=screen2560") {
-				transform: perspective(3000px) translate3d( -#{$gutter * 8}, #{$gutter * 2}, 0 ) scale3d(1, 1, 1) rotateY(45deg) rotateZ(-10deg);
-			}
-		}
-
-		.intro {
-			@include position(absolute, 0 null null 0);
-			color: $color__black--light;
-			text-align: left;
-			padding: $gutter $gutter 100px;
-			margin-bottom: $base-spacing;
-
-			@include media(">=screen840") {
-				left: auto;
-				right: 0;
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: center;
-				align-items: flex-end;
-				text-align: right;
-				width: 50vw;
-				height: 100vh;
-				padding-left: 0;
-				padding-right: $gutter * 2;
-				padding-bottom: $gutter;
-			}
-
-			@include media(">=screen1024") {
-				padding-right: $gutter * 3;
-			}
-
-			@include media(">=screen1170") {
-				width: auto;
-				max-width: 67%;
-			}
-
-			&__title {
-				// .intro__title
-				@include paragraph();
-
-				@include media(">=screen840") {
-					@include body-copy();
-				}
-
-				@include media(">=screen1170") {
-					@include paragraph();
-				}
-
-				@include media(">=screen1600") {
-					@include subtitle();
-				}
-
-				& > span {
-					// two lines
-					display: block;
-				}
-
-				span[class^="word"] {
-					// split words to blocks
-					display: inline-block;
-				}
-
-				a {
-					// style links manually
-					transition: color $speed;
-					&::before {
-						background-color: $color__white;
-					}
-					&:hover,
-					&:focus {
-						color: $color__black--light;
-					}
-				}
-			}
-
-			&__link {
-				// .intro__link
-				@include inline();
-			}
-
-			&__description {
-				// .intro__description
-				@include body-copy();
-
-				@include media(">=screen840") {
-					@include small-font-size();
-				}
-
-				@include media(">=screen1170") {
-					@include body-copy();
-					max-width: 85%;
-				}
-
-				@include media(">=screen1600") {
-					@include paragraph();
-					max-width: 67%;
-				}
-
-				a {
-					&::before {
-						background-color: fade-out($color__white--dark, 0.15);
-					}
-					&:hover {
-						&::before {
-							background-color: fade-out($color__yellow, 0.15);
-						}
-					}
-				}
-			}
-
-			.line {
-				background-color: $color__white;
-				@include size(110px, 8px);
-				margin-bottom: 1em;
-			}
-		}
-	}
 
 	&__work {
 		// .homepage__work
@@ -480,20 +221,33 @@
 
 		&--content {
 			// .homepage__about--content
-			padding: $gutter;
-			@include media(">=screen960") {
-				flex-basis: 50%;
-				max-width: 50%;
+			padding: #{$gutter * 3} $gutter;
+
+			@include media(">=screen768") {
 				padding-left: $gutter * 2;
 				padding-right: $gutter * 2;
 			}
-			@include media(">=screen1280") {
+
+			@include media(">=screen960") {
+				flex-basis: 50%;
+				max-width: 50%;
+			}
+
+			@include media(">=screen1024") {
 				padding-left: $gutter * 3;
 				padding-right: $gutter * 3;
 			}
-			@include media(">=screen1920") {
-				padding-left: $gutter * 4;
-				padding-right: $gutter * 4;
+
+			a {
+				&::before {
+					background-color: $color__black--lightest !important;
+				}
+
+				&:hover {
+					&::before {
+						background-color: $color__gray--dark !important;
+					}
+				}
 			}
 		}
 	}
@@ -501,15 +255,18 @@
 	&__dribbble {
 		// .homepage__dribbble
 		width: 100%;
-		margin: 0 $gutter #{$gutter * 2};
+		margin: 0 $gutter #{$gutter * 3};
+
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
@@ -525,6 +282,7 @@
 		// .homepage__contact
 		width: 100%;
 		margin: 0 $gutter #{$gutter * 2};
+
 		@supports (display: grid) {
 			grid-column: span 4;
 			width: auto;
@@ -545,7 +303,9 @@
 }
 
 body.home {
-	@include texture($color__yellow, 84, 1);
+	background-color: $color__yellow;
+	// @include texture($color__yellow, 84, 1);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e6b000' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 	color: $color__white;
 
 	&.sidebar-primary {
@@ -559,10 +319,9 @@ body.home {
 .dribbble__title,
 .homepage__work--title {
 	display: inline-block;
-	margin-bottom: $base-spacing;
+	margin-bottom: $gutter;
 	@include paragraph();
-	@include text-shadow();
-	color: fade-out($color__white, 0.05);
+	color: $color__black--light;
 
 	@include media(">=screen840") {
 		@include body-copy();

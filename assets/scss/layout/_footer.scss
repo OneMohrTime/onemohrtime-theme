@@ -8,7 +8,6 @@
 	width: 100%;
 	height: auto;
 	padding: $gutter;
-	// background: linear-gradient(to top left, $color__black 85%, $color__black--light);
 	@include texture($color__black, 54, 1);
 	color: $color__white;
 
@@ -20,11 +19,6 @@
 	@include media(">=screen1024") {
 		padding: $gutter * 2 $gutter * 3;
 	}
-
-	// @include media(">=screen1440") {
-	// 	padding-left: $gutter * 4;
-	// 	padding-right: $gutter * 4;
-	// }
 
 	@supports (display: grid) {
 		grid-column: span 4;
@@ -159,11 +153,14 @@
 		line-height: 1em;
 
 		&::before {
+			bottom: -2px;
 			background-color: $color__black--lightest;
 		}
 
 		&:hover {
+
 			&::before {
+				bottom: 2px;
 				background-color: $color__gray--dark;
 			}
 		}

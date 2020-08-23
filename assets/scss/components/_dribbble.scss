@@ -51,6 +51,7 @@
 			transform: translateX(0);
 			transition: margin $speed, max-height $speed, padding $speed, transform $speed;
 			@include caption();
+			line-height: 1.25em;
 			text-align: center;
 			background-color: fade-out($color__yellow, 0.1);
 			color: $color__black--light;
@@ -76,6 +77,7 @@
 					// .shot__link:hover ~ .shot--hover
 					// .shot__link:focus ~ .shot--hover
 					max-height: 50%;
+					max-height: fit-content;
 					transform: translateY( -#{$gutter} );
 					margin-left: $gutter;
 					margin-right: $gutter;
