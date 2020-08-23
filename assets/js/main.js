@@ -62,14 +62,14 @@ jQuery(function ($) {
    */
 
 
-  var wpGallery = $('.wp-block-gallery .blocks-gallery-grid');
+  var $wpGallery = $('.wp-block-gallery .blocks-gallery-grid');
 
-  if (wpGallery) {
+  if ($wpGallery) {
     var sizer = $('<li class="blocks-gallery-sizer"></li>');
     var gutter = $('<li class="blocks-gallery-gutter"></li>');
-    wpGallery.prepend(sizer, gutter); // reorganize with Masonry
+    $wpGallery.prepend(sizer, gutter); // reorganize with Masonry
 
-    wpGallery.isotope({
+    $wpGallery.isotope({
       itemSelector: '.blocks-gallery-item',
       percentPosition: true,
       masonry: {
@@ -79,16 +79,24 @@ jQuery(function ($) {
       }
     }); // add .get-faded class
 
-    wpGallery.parent().addClass('get-faded'); // add fancybox attribute
+    $wpGallery.parent().addClass('get-faded'); // add fancybox attribute
 
-    wpGallery.children().each(function (i, e) {
+    $wpGallery.children().each(function (i, e) {
       $(e).find('a').attr('data-fancybox', 'image');
     });
   }
   /**
-   * Customize Fancybox
+   * Add fancybox to single images if linked
    */
 
+
+  var $wpImageLink = $('.wp-block-image > a');
+  $wpImageLink.each(function () {
+    $(this).attr('data-fancybox', true);
+  });
+  /**
+   * Customize Fancybox
+   */
 
   $('[data-fancybox]').fancybox({
     // Enable infinite gallery navigation

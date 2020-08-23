@@ -195,6 +195,11 @@
 				}
 			}
 
+			.blocks-gallery-item__caption {
+				@include smallest-font-size();
+				line-height: $base-line-height;
+			}
+
 			.blocks-gallery-gutter {
 				display: block;
 				width: $gutter / 2;
@@ -318,15 +323,6 @@
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
-
-		// @include media(">=screen840") {
-		// 	// cap line lengths
-		// 	& > p,
-		// 	& > ul,
-		// 	& > ol {
-		// 		max-width: 840px;
-		// 	}
-		// }
 
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;

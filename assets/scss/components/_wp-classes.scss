@@ -3,6 +3,11 @@
  */
 
 .wp-block-image {
+	a {
+		&::before {
+			display: none;
+		}
+	}
 	figcaption {
 		@include caption();
 		margin-top: 0.5em;
