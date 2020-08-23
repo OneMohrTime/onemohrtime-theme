@@ -1,5 +1,18 @@
-/*
-* === WORDPRESS CORE ===
+/**
+ * === WP BLOCK STYLES ===
+ */
+
+.wp-block-image {
+	figcaption {
+		@include caption();
+		margin-top: 0.5em;
+		color: $color__black--lightest;
+	}
+}
+
+/**
+* === DEPRECATED ===
+* TODO: take care of this garbage
 */
 
 .alignnone {

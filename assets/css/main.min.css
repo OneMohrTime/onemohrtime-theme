@@ -324,6 +324,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .repeater__body ._subheadline{font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;margin-bottom:1.5em}
 .repeater__link{font-weight:700}
 .repeater::before{content:attr(data-start) " – " attr(data-end);position:absolute;top:0;right:0;display:block;font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;margin-top:1.75em}
+.wp-block-image figcaption{font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;margin-top:.5em;color:#3a372e}
 .alignnone{margin:5px 20px 20px 0}
 .aligncenter{display:block;margin:5px auto 5px auto}
 .alignright{float:right;margin:5px 0 20px 20px}
