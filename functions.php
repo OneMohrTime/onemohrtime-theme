@@ -117,7 +117,10 @@ class StarterSite extends Timber\Site {
 	 * Advanced Custom Fields
 	 */
 	public function acf_add_local_field_group() {
+		// add field groups through PHP export
 		include( 'includes/acf.php' );
+		// add global site options
+		acf_add_options_page();
 	}
 
 	public function theme_supports() {
