@@ -393,8 +393,11 @@
 			color: inherit;
 
 			&::before {
-				bottom: 0;
-				@include size(100%, 80%);
+				left: -4px;
+				right: -4px;
+				bottom: 4px;
+				width: calc(100% + 8px);
+				height: 80%;
 				transform: translateY(2px) scaleY(1.2);
 				animation: inline-expand;
 			}
