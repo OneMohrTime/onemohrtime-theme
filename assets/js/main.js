@@ -493,8 +493,8 @@ jQuery(function ($) {
   $('.get-faded').each(function () {
     var fadeParent = this,
         fadeChild = $(this).children(),
-        fadeDuration = 0.3,
-        fadeBetween = 0.3;
+        fadeDuration = 0.2,
+        fadeBetween = 0.1;
     var tweenFade = new TimelineMax().staggerTo(fadeChild, fadeDuration, {
       y: 0,
       autoAlpha: 1
