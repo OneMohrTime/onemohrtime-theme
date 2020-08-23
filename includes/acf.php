@@ -1,5 +1,11 @@
 <?php
 
+// THIS IS IMPORTANT
+//
+// Remember to remove the encapsulating `if` statement
+// from the ACF PHP export
+//
+
 acf_add_local_field_group(array(
 	'key' => 'group_5e80d898b45f4',
 	'title' => 'About',
@@ -393,30 +399,6 @@ acf_add_local_field_group(array(
 	'title' => 'Home Page',
 	'fields' => array(
 		array(
-			'key' => 'field_5af3c0aeec843',
-			'label' => 'Mobile Banner',
-			'name' => 'homepage_hero',
-			'type' => 'image',
-			'instructions' => 'Hero image behind the header on homepage.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'array',
-			'preview_size' => 'medium',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => 'gif, png, jpg, jpeg, webp',
-		),
-		array(
 			'key' => 'field_5e07a36141d1e',
 			'label' => 'Desktop Banner Links',
 			'name' => 'homepage_links',
@@ -430,7 +412,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'collapsed' => '',
-			'min' => 12,
+			'min' => 0,
 			'max' => 12,
 			'layout' => 'row',
 			'button_label' => 'Add Link',
@@ -439,25 +421,16 @@ acf_add_local_field_group(array(
 					'key' => 'field_5e07a37541d1f',
 					'label' => 'Link',
 					'name' => 'link',
-					'type' => 'post_object',
+					'type' => 'link',
 					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
-						'width' => '20',
+						'width' => '',
 						'class' => '',
 						'id' => '',
 					),
-					'post_type' => array(
-						0 => 'design',
-						1 => 'page',
-						2 => 'post',
-					),
-					'taxonomy' => '',
-					'allow_null' => 0,
-					'multiple' => 0,
-					'return_format' => 'object',
-					'ui' => 1,
+					'return_format' => 'array',
 				),
 			),
 		),
@@ -521,35 +494,6 @@ acf_add_local_field_group(array(
 				),
 			),
 		),
-		array(
-			'key' => 'field_58a0fe0035633',
-			'label' => 'Features',
-			'name' => 'homepage_feature',
-			'type' => 'relationship',
-			'instructions' => 'Projects, pages, or posts to be featured on the home page.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'post_type' => array(
-				0 => 'design',
-				1 => 'post',
-				2 => 'page',
-			),
-			'taxonomy' => array(
-			),
-			'filters' => array(
-				0 => 'search',
-				1 => 'post_type',
-			),
-			'elements' => '',
-			'min' => '',
-			'max' => '',
-			'return_format' => 'object',
-		),
 	),
 	'location' => array(
 		array(
@@ -561,73 +505,13 @@ acf_add_local_field_group(array(
 		),
 	),
 	'menu_order' => 0,
-	'position' => 'normal',
+	'position' => 'acf_after_title',
 	'style' => 'seamless',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-));
-
-acf_add_local_field_group(array(
-	'key' => 'group_5e0a2a6f32e09',
-	'title' => 'Isometric Homepage Image',
-	'fields' => array(
-		array(
-			'key' => 'field_5e0a2a96f821c',
-			'label' => 'Image',
-			'name' => 'isometric_image',
-			'type' => 'image',
-			'instructions' => 'Optional image to override the image on the homepage intro layout, if linked.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'array',
-			'preview_size' => 'thumbnail',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => 'gif, png, jpg, jpeg, webp',
-		),
+	'hide_on_screen' => array(
+		0 => 'the_content',
 	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'design',
-			),
-		),
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'page',
-			),
-		),
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'post',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'side',
-	'style' => 'seamless',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
 ));
