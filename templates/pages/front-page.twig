@@ -1,17 +1,14 @@
 {% extends 'templates/base.twig' %}
 {% set displaySidebar = true %}
-{% set isometric = post.get_field('homepage_links') %}
 
 {% block content %}
-
 	<section id="home_banner" class="banner -typographic -yellow">
 
 		<ul id="home_banner_list" class="banner__list get-faded">
-			{% for link in isometric %}
+			{% for link in links %}
+				{% set link = link.link %}
 				<li class="banner__listItem">
-					{% for page in link %}
-						<a href="{{ page.link }}" class="banner__link">{{ page.title }}</a>
-					{% endfor %}
+					<a href="{{ link.url }}" class="banner__link">{{ link.title }}</a>
 					{% if not loop.last %}//&nbsp;{% endif %}
 				</li>
 			{% endfor %}
