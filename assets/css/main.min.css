@@ -432,13 +432,13 @@ body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left
 .project__blockquote .blockquote__default>p{font-size:1.32rem}
 .project__blockquote .blockquote__image>p{font-size:1.32rem}
 }@media(min-width:600px){.site{padding-bottom:0}
-.site.padded{padding-top:100px}
+.site.-activeNavigationAreaUpTopButNotWhenScrolling{padding-top:100px}
 ._title.-underline::after{width:100px}
 ._headline.-underline::after{width:100px}
 ._subheadline.-underline::after{width:100px}
 .site__header{top:0;bottom:auto;height:100px;max-height:none;background:transparent;-webkit-box-shadow:none;box-shadow:none}
-.site__header.slide--up{-webkit-animation:navSlideUp 400ms ease forwards;animation:navSlideUp 400ms ease forwards}
-.site__header.slide--down{-webkit-animation:navSlideDown 400ms ease forwards;animation:navSlideDown 400ms ease forwards}
+.site__header.-slideUp{-webkit-animation:navSlideUp 400ms ease forwards;animation:navSlideUp 400ms ease forwards}
+.site__header.-slideDown{-webkit-animation:navSlideDown 400ms ease forwards;animation:navSlideDown 400ms ease forwards}
 .site__logo{top:30px}
 .site__footer ._column{float:left;width:50%}
 .project__banner{height:100vh}
@@ -591,7 +591,8 @@ body.blog .posts__article{padding-right:30%}
 }@media only screen and (min-width:1000px){.content-area{font-size:1.584rem}
 .project__blockquote .blockquote__default>p{font-size:1.584rem}
 .project__blockquote .blockquote__image>p{font-size:1.584rem}
-}@media(min-width:1024px){.site__logo{margin-right:108px;-webkit-transform:translateX(calc(100% + 36px + 18px));transform:translateX(calc(100% + 36px + 18px))}
+}@media(min-width:1024px){.site__logo{margin-right:108px;-webkit-transform:translateX(0);transform:translateX(0);-webkit-transition:-webkit-transform 200ms;transition:-webkit-transform 200ms;transition:transform 200ms;transition:transform 200ms,-webkit-transform 200ms}
+.-slideUp .site__logo,.-slideDown .site__logo,.-activeNavigationAreaUpTopButNotWhenScrolling .site__logo{-webkit-transform:translateX(calc(100% + 36px + 18px));transform:translateX(calc(100% + 36px + 18px))}
 .site__footer{padding:72px 108px}
 .site__sidebar{padding-left:108px;padding-right:108px}
 .project__section{margin-left:108px;margin-right:108px}
@@ -615,7 +616,8 @@ body.blog .posts__article{padding-right:30%}
 .-typographic .banner__list{margin-bottom:216px;font-size:.6180339845em}
 .site__contact{padding-left:108px;padding-right:108px}
 .main-navigation .menu{padding-left:calc(50px + 72px)}
-.toggle__menu{margin-left:108px;-webkit-transform:translateX(calc(-100% - 36px));transform:translateX(calc(-100% - 36px))}
+.toggle__menu{margin-left:108px;-webkit-transform:translateX(0);transform:translateX(0);-webkit-transition:-webkit-transform 200ms;transition:-webkit-transform 200ms;transition:transform 200ms;transition:transform 200ms,-webkit-transform 200ms}
+.-slideUp .toggle__menu,.-slideDown .toggle__menu,.-activeNavigationAreaUpTopButNotWhenScrolling .toggle__menu{-webkit-transform:translateX(calc(-100% - 36px));transform:translateX(calc(-100% - 36px))}
 body.archive .archives__article{padding-right:40%}
 body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .daft-punk__content--title{font-size:8em}

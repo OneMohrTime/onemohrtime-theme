@@ -334,18 +334,22 @@ jQuery(function ($) {
     scrollState = scrollTop();
   };
 
-  function homeAction(e) {
-    console.log(e);
+  function homeAction() {
+    navClasses.remove('-slideUp');
+    navClasses.remove('-slideDown');
+    navClasses.add('-slideTop');
   }
 
   function downAction() {
-    navClasses.remove('slide--down');
-    navClasses.add('slide--up');
+    navClasses.remove('-slideTop');
+    navClasses.remove('-slideDown');
+    navClasses.add('-slideUp');
   }
 
   function upAction() {
-    navClasses.remove('slide--up');
-    navClasses.add('slide--down');
+    navClasses.remove('-slideTop');
+    navClasses.remove('-slideUp');
+    navClasses.add('-slideDown');
   }
 
   window.addEventListener('scroll', function () {
@@ -454,7 +458,7 @@ jQuery(function ($) {
       mobileToggle.toggleClass('open');
       changeLetters(mobileToggle); // Add padding to navbar area
 
-      $('#page').toggleClass('padded');
+      $('#page').toggleClass('-activeNavigationAreaUpTopButNotWhenScrolling');
     });
   } else {
     desktopTimeline.to(desktopMenu, menuDuration, {
@@ -473,7 +477,7 @@ jQuery(function ($) {
 
       $('#logo').toggleClass('inverted'); // Add padding to navbar area
 
-      $('#page').toggleClass('padded');
+      $('#page').toggleClass('-activeNavigationAreaUpTopButNotWhenScrolling');
     });
   } // END GREENSOCK
   ///////////////////////

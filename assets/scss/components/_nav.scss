@@ -112,7 +112,9 @@
 	@include position(absolute, null null 0 0);
 	margin: $gutter / 2 $gutter;
 	padding: $small-spacing / 2 0;
-	transition: background-color $speed--slow linear, color $speed--slow linear, box-shadow $speed--slow linear;
+	transition: background-color $speed--slow linear,
+				color $speed--slow linear,
+				box-shadow $speed--slow linear;
 	font-family: $font__header;
 	font-size: 1.25em !important;
 	font-weight: 700;
@@ -153,7 +155,14 @@
 
 	@include media(">=screen1024") {
 		margin-left: $gutter * 3;
-		transform: translateX( calc(-100% - #{$gutter}) );
+		transform: translateX(0);
+		transition: transform $speed;
+
+		.-slideUp &,
+		.-slideDown &,
+		.-activeNavigationAreaUpTopButNotWhenScrolling & {
+			transform: translateX( calc(-100% - #{$gutter}) );
+		}
 	}
 
 	@include media(">=screen1440") {

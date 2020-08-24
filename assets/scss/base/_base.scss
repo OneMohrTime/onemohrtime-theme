@@ -45,7 +45,8 @@ body {
 
 	@include media(">=screen600") {
 		padding-bottom: 0;
-		&.padded {
+
+		&.-activeNavigationAreaUpTopButNotWhenScrolling {
 			padding-top: 100px;
 		}
 	}

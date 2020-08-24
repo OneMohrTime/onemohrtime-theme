@@ -25,10 +25,10 @@
 		background: transparent;
 		box-shadow: none;
 
-		&.slide--up {
+		&.-slideUp {
 			animation: navSlideUp $speed--slow ease forwards;
 		}
-		&.slide--down {
+		&.-slideDown {
 			animation: navSlideDown $speed--slow ease forwards;
 		}
 	}
@@ -57,7 +57,14 @@
 
 	@include media(">=screen1024") {
 		margin-right: $gutter * 3;
-		transform: translateX( calc(100% + #{$gutter} + #{$gutter / 2}) );
+		transform: translateX(0);
+		transition: transform $speed;
+
+		.-slideUp &,
+		.-slideDown &,
+		.-activeNavigationAreaUpTopButNotWhenScrolling & {
+			transform: translateX( calc(100% + #{$gutter} + #{$gutter / 2}) );
+		}
 	}
 
 	@include media(">=screen1440") {
