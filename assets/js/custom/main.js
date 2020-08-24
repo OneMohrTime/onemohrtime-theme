@@ -46,19 +46,19 @@ jQuery( function( $ ) {
    * Change project gallery into Masonry layout
    */
 
-  const projGallery = $( '.project__section.project__gallery' );
+  const $projGallery = $( '.project__section.project__gallery' );
 
-  if ( projGallery ) {
-    projGallery.each( function() {
+  if ( $projGallery ) {
+    $projGallery.each( function() {
 
       // reorganize with Masonry
-      projGallery.isotope({
+      $projGallery.isotope({
         itemSelector: '.image',
         percentPosition: true,
         masonry: {
           columnWidth: '.image__sizer',
           gutter: '.image__gutter',
-          horizontalOrder: true,
+          horizontalOrder: true
         }
       });
     });
@@ -83,7 +83,7 @@ jQuery( function( $ ) {
       masonry: {
         columnWidth: '.blocks-gallery-sizer',
         gutter: '.blocks-gallery-gutter',
-        horizontalOrder: true,
+        horizontalOrder: true
       }
     });
 
@@ -300,18 +300,18 @@ jQuery( function( $ ) {
    * Convert WordPress Block Galleries into Masonry layout
    */
 
-  const pageGallery = $( '#images' );
+  const $pageGallery = $( '#images' );
 
-  if ( pageGallery ) {
+  if ( $pageGallery ) {
 
     // reorganize with Masonry
-    pageGallery.isotope({
+    $pageGallery.isotope({
       itemSelector: '.image',
       percentPosition: true,
       masonry: {
         columnWidth: '.-sizer',
         gutter: '.-gutter',
-        horizontalOrder: true,
+        horizontalOrder: true
       },
       hiddenStyle: {
         opacity: 0

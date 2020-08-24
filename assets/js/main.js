@@ -41,12 +41,12 @@ jQuery(function ($) {
    */
 
 
-  var projGallery = $('.project__section.project__gallery');
+  var $projGallery = $('.project__section.project__gallery');
 
-  if (projGallery) {
-    projGallery.each(function () {
+  if ($projGallery) {
+    $projGallery.each(function () {
       // reorganize with Masonry
-      projGallery.isotope({
+      $projGallery.isotope({
         itemSelector: '.image',
         percentPosition: true,
         masonry: {
@@ -256,11 +256,11 @@ jQuery(function ($) {
    * Convert WordPress Block Galleries into Masonry layout
    */
 
-  var pageGallery = $('#images');
+  var $pageGallery = $('#images');
 
-  if (pageGallery) {
+  if ($pageGallery) {
     // reorganize with Masonry
-    pageGallery.isotope({
+    $pageGallery.isotope({
       itemSelector: '.image',
       percentPosition: true,
       masonry: {
