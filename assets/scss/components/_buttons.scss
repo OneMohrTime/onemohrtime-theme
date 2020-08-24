@@ -40,8 +40,11 @@
 
 	&::after {
 		content: "";
-		@include position(absolute, null 0 0 null);
-		@include size(0, 10px);
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 0;
+		height: 10px;
 	}
 
 	&:disabled {
@@ -49,7 +52,7 @@
 	}
 
 	@include media(">=screen960") {
-		&::after { transition: all 300ms; }
+		&::after { transition: all $speed; }
 	}
 
 	&:hover,
@@ -58,7 +61,7 @@
 		color: inherit;
 
 		@include media(">=screen960") {
-			transition: all 300ms;
+			transition: all $speed;
 			&::after {
 				left: 0;
 				width: 100%;

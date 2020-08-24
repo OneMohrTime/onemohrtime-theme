@@ -11,7 +11,8 @@
 		background-color: $color__white--dark;
 		text-align: left;
 		@include image-overlay();
-		@include size(100%, 300px);
+		width: 100%;
+		height: 300px;
 		margin-bottom: $gutter;
 		padding-left: $gutter;
 		padding-right: $gutter;
@@ -43,9 +44,12 @@
 
 		&--image {
 			// .gallery__banner--image
-			@include position(absolute, 50% null null 50%);
+			position: absolute;
+			top: 50%;
+			left: 50%;
 			transform: translate3d(-50%, -50%, 0);
-			@include size(100%);
+			width: 100%;
+			height: 100%;
 
 			@supports (object-fit: cover) {
 				object-fit: cover;
@@ -61,6 +65,7 @@
 				color: $color__white;
 				@include text-shadow();
 				margin-bottom: 0;
+
 				@include media(">=screen600") {
 					@include title();
 				}
@@ -84,7 +89,8 @@
 		// .gallery__filter
 		position: sticky;
 		top: 72px;
-		@include size(100%, 72px);
+		width: 100%;
+		height: 72px;
 		margin-left: $gutter;
 		margin-right: $gutter;
 		transform: translateY(-72px);
@@ -123,7 +129,8 @@
 			display: flex;
 			flex-direction: column;
 			background-color: fade-out($color__white, 0.02);
-			@include size(100%);
+			width: 100%;
+			height: 100%;
 			padding-left: $small-spacing;
 			padding-right: $small-spacing;
 
@@ -195,14 +202,16 @@
 						@include position(absolute, auto 0 0 0);
 						display: block;
 						background-color: $color__white--dark;
-						@include size(100%, 4px);
+						width: 100%;
+						height: 4px;
 						transition: background-color $speed linear;
 
 						@include media(">=screen768") {
 							top: 75%;
 							left: 50%;
 							border-radius: 2px;
-							@include size(8px);
+							width: 8px;
+							height: 8px;
 							transform: translate(-50%, -50%);
 						}
 					}

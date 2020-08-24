@@ -5,7 +5,8 @@
 @mixin visually-hidden($focus: null) {
 	position: absolute !important;
 	border: 0;
-	@include size(1px);
+	width: 1px;
+	height: 1px;
 	margin: -1px;
 	padding: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -26,7 +27,8 @@
 			font-size: 1em;
 			text-decoration: none;
 			line-height: normal;
-			@include size(auto);
+			width: auto;
+			height: auto;
 			padding: $gutter / 2 $gutter;
 			clip: auto !important;
 			clip-path: none;
@@ -344,7 +346,7 @@
 	[class^="char"] {
 		display: inline-block;
 		opacity: 0;
-		animation: fadeInTitle $speed--slow 1 forwards;
+		animation: fadeInTitle $speed-slow 1 forwards;
 	}
 }
 
@@ -421,7 +423,7 @@
 
 	.svg-icon {
 		position: relative;
-		transition: $speed--slow cubic-bezier(.455,.03,.515,.955);
+		transition: $speed-slow cubic-bezier(.455,.03,.515,.955);
 	}
 }
 

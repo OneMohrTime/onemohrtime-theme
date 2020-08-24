@@ -65,7 +65,9 @@
 
 			&-home {
 				// .menu-item-home
-				display: none;
+				@include media(">=screen600") {
+					display: none;
+				}
 			}
 
 			// mobile only
@@ -87,7 +89,7 @@
 
 		@include media(">=screen600") {
 			padding: $small-spacing / 2 $small-spacing;
-			transition: background-color $speed--slow, color $speed--slow;
+			transition: background-color $speed-slow, color $speed-slow;
 			@include body-copy();
 			font-weight: 700;
 			border-radius: 2px;
@@ -112,9 +114,9 @@
 	@include position(absolute, null null 0 0);
 	margin: $gutter / 2 $gutter;
 	padding: $small-spacing / 2 0;
-	transition: background-color $speed--slow linear,
-				color $speed--slow linear,
-				box-shadow $speed--slow linear;
+	transition: background-color $speed-slow linear,
+				color $speed-slow linear,
+				box-shadow $speed-slow linear;
 	font-family: $font__header;
 	font-size: 1.25em !important;
 	font-weight: 700;
@@ -171,36 +173,36 @@
 
 	.m, .n, .u {
 		display: inline-block;
-		transition: color $speed--slow;
+		transition: color $speed-slow;
 	}
 
 	.e {
 		display: inline-block;
 		@include size(12px, 13px);
-		transition: color $speed--slow;
+		transition: color $speed-slow;
 
 		&.toggle__close {
 			@include size(14px, 13px);
 
 			.bar {
 				width: 15px;
-				transition: background-color $speed--slow;
+				transition: background-color $speed-slow;
 				background-color: $color__white;
 			}
 			.bar:nth-child(1) {
 				top: 5px;
 				transform: rotate(45deg);
-				transition: $speed--slow;
+				transition: $speed-slow;
 			}
 			.bar:nth-child(2) {
 				margin: 2px 0;
 				opacity: 0;
-				transition: $speed--slow;
+				transition: $speed-slow;
 			}
 			.bar:nth-child(3) {
 				bottom: 5px;
 				transform: rotate(-45deg);
-				transition: $speed--slow;
+				transition: $speed-slow;
 			}
 		}
 
@@ -210,7 +212,7 @@
 		position: relative;
 		display: block;
 		background-color: $color__white;
-		transition: background-color $speed--slow;
+		transition: background-color $speed-slow;
 		width: 11px;
 		height: 3px;
 

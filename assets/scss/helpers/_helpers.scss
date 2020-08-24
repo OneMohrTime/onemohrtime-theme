@@ -17,13 +17,15 @@
 		// .parallax__image
 		// child element
 		position: relative;
-		@include size(100%);
+		width: 100%;
+		height: 100%;
 		opacity: 1;
 		@supports (object-fit: cover) {
 			object-fit: cover;
 		}
 		pointer-events: none;
-		transition: opacity $speed--slow;
+		transition: opacity $speed-slow;
+
 		@include media(">=screen840") {
 			top: -100%;
 			height: 200%;
@@ -53,7 +55,7 @@
 		// get all children
 		opacity: 0;
 		transform: translate3d(0, 2em, 0);
-		// transition: opacity $speed, transform $speed--slow;
+		// transition: opacity $speed, transform $speed-slow;
 
 		&.got-faded {
 			// opacity: 1;
@@ -71,7 +73,8 @@
 	$base: $color__black;
 	font-size: 1em;
 	line-height: 1em;
-	@include size(1em);
+	width: 1em;
+	height: 1em;
 
 	path,
 	polygon,

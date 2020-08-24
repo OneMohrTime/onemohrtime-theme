@@ -26,10 +26,10 @@
 		box-shadow: none;
 
 		&.-slideUp {
-			animation: navSlideUp $speed--slow ease forwards;
+			animation: navSlideUp $speed-slow ease forwards;
 		}
 		&.-slideDown {
-			animation: navSlideDown $speed--slow ease forwards;
+			animation: navSlideDown $speed-slow ease forwards;
 		}
 	}
 }
@@ -71,6 +71,7 @@
 		margin-right: $gutter * 4;
 	}
 
+
 	.logo {
 		display: block;
 		width: auto;
@@ -87,8 +88,19 @@
 
 	&.inverted {
 		#design {
+			// ID inside inline-svg
 			path {
 				fill: $color__white;
+			}
+		}
+		// only turn logo yellow when menu is down
+		&:hover {
+			.logo {
+				#design {
+					path {
+						fill: $color__yellow;
+					}
+				}
 			}
 		}
 	}

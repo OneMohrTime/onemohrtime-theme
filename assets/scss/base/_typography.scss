@@ -49,7 +49,9 @@ h6 { font-size: ms(-2); }
 
 ._wysiwyg {
 	h1, h2, h3, h4, h5, h6 {
-		&:not(:first-child) {
+
+		// headers in a wysiwyg section only...hopefully
+		&:not([class]):not(:first-child) {
 			margin-top: $base-spacing;
 		}
 	}
@@ -193,7 +195,9 @@ blockquote {
 }
 
 hr {
-	@include size(50%, 10px);
+
+	width: 50%;
+	height: 10px;
 	margin: 0 auto $base-spacing;
 	border: 0;
 	background-color: $color__yellow;

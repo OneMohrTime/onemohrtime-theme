@@ -83,7 +83,8 @@ a {
 
 	img {
 		border: 0 none;
-		@include size(auto);
+		width: auto;
+		height: auto;
 		max-width: 98.5%;
 		margin: 0;
 		padding: 0;
