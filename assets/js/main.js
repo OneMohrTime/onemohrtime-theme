@@ -3,7 +3,7 @@
 /** =======================================================================
  * Scripts / Main
  * ======================================================================== */
-// Declare javascript, basically
+// Declare jQuery, basically
 jQuery(function ($) {
   var doc = document.documentElement;
   doc.className = doc.className.replace('no-js', 'has-js');
@@ -545,7 +545,8 @@ jQuery(function ($) {
     success: function success(data) {
       if (0 < data.length) {
         $.each(data.reverse(), function (i, val) {
-          $('#dribbbles').prepend('<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>');
+          var description = val.description.replace(/(<([^>]+)>)/gi, '') || val.title;
+          $('#dribbbles').prepend('<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '">' + description + '</a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>');
         });
       } else {
         $('#dribbbles').append('<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>');

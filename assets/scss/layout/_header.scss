@@ -5,7 +5,8 @@
 .site__header {
 	position: fixed;
 	bottom: 0;
-	@include size(100%, 72px);
+	width: 100%;
+	height: 72px;
 	transition: $speed linear;
 	background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 	@include texture($color__black, 54, 1);
@@ -41,7 +42,9 @@
 }
 
 .site__logo {
-	@include position(absolute, 15px 36px null null);
+	position: absolute;
+	top: 15px;
+	right: $gutter;
 	z-index: 35;
 
 	@include media(">=screen600") {
@@ -54,7 +57,7 @@
 
 	@include media(">=screen1024") {
 		margin-right: $gutter * 3;
-		transform: translateX( calc(100% + #{$gutter}) );
+		transform: translateX( calc(100% + #{$gutter} + #{$gutter / 2}) );
 	}
 
 	@include media(">=screen1440") {
@@ -63,7 +66,8 @@
 
 	.logo {
 		display: block;
-		@include size(auto, 40px);
+		width: auto;
+		height: 40px;
 
 		#design {
 			// ID inside inline-svg

@@ -2,7 +2,7 @@
  * Scripts / Main
  * ======================================================================== */
 
-// Declare javascript, basically
+// Declare jQuery, basically
 jQuery( function( $ ) {
   var doc = document.documentElement;
 
@@ -618,7 +618,7 @@ jQuery( function( $ ) {
   // Dribbble galleries
   // Set the Access Token
   var accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6',
-    numberOfShots = '6';
+      numberOfShots = '6';
 
   // Call Dribble v2 API
   $.ajax({
@@ -628,8 +628,9 @@ jQuery( function( $ ) {
     success: function( data ) {
       if ( 0 < data.length ) {
         $.each( data.reverse(), function( i, val ) {
+          var description = val.description.replace( /(<([^>]+)>)/gi, '' ) || val.title;
           $( '#dribbbles' ).prepend(
-            '<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>'
+            '<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="' + val.title + '">' + description + '</a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover">' + val.title + '<span class="shot__description">' + val.description + '</span></figcaption></figure>'
           );
         });
       } else {
