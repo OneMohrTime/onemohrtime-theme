@@ -17,7 +17,7 @@
 				{% endblock %}
 			</header>
 
-			<main id="main" class="site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ post.slug ? term_page.slug }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
+			<main id="main" class="site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
