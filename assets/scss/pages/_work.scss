@@ -1,6 +1,6 @@
-/**
- * === PROJECTS ===
- */
+/*
+* === PROJECTS ===
+*/
 
 .gallery {
 	position: relative;
@@ -58,15 +58,7 @@
 
 		&--title {
 			// .gallery__banner--title
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: 0 #{$gutter * 2} 0 $gutter;
 			z-index: 2;
-
-			@include media(">=screen768") {
-				padding-left: 0;
-			}
 
 			h2 {
 				@include subtitle();
@@ -77,6 +69,13 @@
 				@include media(">=screen600") {
 					@include title();
 				}
+			}
+
+			@supports (display: flex) {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0 $gutter;
 			}
 		}
 
@@ -272,19 +271,9 @@
 			@include texture-grid();
 		}
 
-		@include media(">=screen600") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
-		}
-
 		@include media(">=screen768") {
 			margin-top: 0;
 			transform: translateY(-72px);
-		}
-
-		@include media(">=screen1024") {
-			margin-left: $gutter;
-			margin-right: $gutter;
 		}
 	}
 

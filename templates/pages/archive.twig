@@ -1,7 +1,5 @@
 {% extends 'base.twig' %}
-
 {% set displaySidebar = true %}
-{% set loopClass      = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %}
 
 {% block content %}
 
@@ -16,7 +14,7 @@
 		{% if term_page.count > 0 %}
 			{% for post in posts %}
 
-				<article class="article -{{ post.type }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy | lower | replace({' ': '-', '/': '-'}) }}-{{ term.name | lower | replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
+				<article {{ function('post_class') }}>
 
 					<figure class="archive__image parallax">
 						<img src="{{ post.thumbnail.src('thumbnail') }}"

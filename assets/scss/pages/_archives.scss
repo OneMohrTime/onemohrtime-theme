@@ -174,7 +174,7 @@ body.archive {
 
 	// Inverse odd/even layout
 	@include media(">=screen840") {
-		&.-isEven {
+		&:nth-child(even) {
 			flex-direction: row-reverse;
 		}
 	}
