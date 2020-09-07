@@ -124,17 +124,17 @@
 				a {
 					&:hover,
 					&:focus {
-						.svg-icon {
+						.-svg {
 							transform: translateX(0);
 						}
 					}
 
-					.svg-icon {
+					.-svg {
 						transition: none;
 					}
 				}
 
-				.svg-icon {
+				.-svg {
 					path,
 					polygon,
 					rect {

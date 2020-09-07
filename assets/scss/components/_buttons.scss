@@ -69,7 +69,7 @@
 		}
 	}
 
-	.svg-icon {
+	.-svg {
 		position: relative;
 		transition: $speed cubic-bezier(.455,.03,.515,.955);
 	}
@@ -78,7 +78,7 @@
 	&.project__banner--contact,
 	&.posts__banner--contact {
 
-		.svg-icon {
+		.-svg {
 			margin-right: $small-spacing;
 
 			path {
@@ -89,7 +89,7 @@
 
 		&:hover,
 		&:focus {
-			.svg-icon {
+			.-svg {
 				transform: translateX(-#{$small-spacing});
 				path {
 					fill: $color__yellow;

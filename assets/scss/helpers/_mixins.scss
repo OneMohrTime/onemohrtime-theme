@@ -404,7 +404,7 @@
 				animation: inline-expand;
 			}
 
-			.svg-icon {
+			.-svg {
 				transform: translateX($small-spacing);
 			}
 		}
@@ -421,7 +421,7 @@
 		z-index: -1;
 	}
 
-	.svg-icon {
+	.-svg {
 		position: relative;
 		transition: $speed-slow cubic-bezier(.455,.03,.515,.955);
 	}

@@ -112,7 +112,7 @@
 			}
 
 			.post-format {
-				.svg-icon {
+				.-svg {
 					opacity: 1;
 					path {
 						fill: $color__yellow;
@@ -176,7 +176,7 @@
 	position: relative;
 	margin-left: $base-spacing;
 
-	.svg-icon {
+	.-svg {
 		position: absolute;
 		top: 0;
 		left: 0;
