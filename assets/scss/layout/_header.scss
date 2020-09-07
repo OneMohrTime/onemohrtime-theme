@@ -52,6 +52,7 @@
 	}
 
 	@include media(">=screen768") {
+		right: 0;
 		margin-right: $gutter * 2;
 	}
 

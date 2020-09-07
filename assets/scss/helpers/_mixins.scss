@@ -466,15 +466,30 @@
 }
 
 @mixin btn-contact() {
-	@include position(absolute, 50% $base-spacing null null);
+	position: absolute;
+	top: 50%;
+	right: $base-spacing;
 	@include btn-color($color__white);
 	@include caption();
 	transform: rotate(-90deg) !important;
 	transform-origin: center top 0;
 	z-index: 2;
 
-	&:hover,
 	&:focus {
 		@include btn-color($color__white);
+	}
+
+	@include media(">=screen600") {
+		transform: rotate(-90deg) translateY(-50%) !important;
+	}
+
+	@include media(">=screen1024") {
+		transform: rotate(-90deg) translateY(-100%) !important;
+	}
+
+	@include media(">=screen1170") {
+		&:hover {
+			@include btn-color($color__white);
+		}
 	}
 }

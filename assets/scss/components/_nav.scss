@@ -50,9 +50,13 @@
 			align-items: center;
 			height: 100%;
 			padding: 0;
-			padding-left: calc(50px + #{$gutter * 2} + #{$gutter / 2});
+			padding-left: calc(50px + #{$gutter} + #{$gutter / 2});
 			opacity: 1;
 			visibility: visible;
+		}
+
+		@include media(">=screen768") {
+			padding-left: calc(50px + #{$gutter * 2} + #{$gutter / 2});
 		}
 
 		@include media(">=screen1024") {
