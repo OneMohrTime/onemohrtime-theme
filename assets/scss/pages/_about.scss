@@ -4,11 +4,13 @@
 
 .-about {
 	.repeater {
+		padding-top: $gutter;
+
 		& + .repeater {
-			padding-top: $gutter;
 			border-top: 5px $color__yellow solid;
 		}
 	}
+
 	.repeater__title {
 		text-transform: none;
 	}

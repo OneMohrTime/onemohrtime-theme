@@ -7,7 +7,8 @@
 	background: transparent url("../img/daft-punk-404.gif") repeat center center fixed;
 	background-size: cover;
 	text-align: center;
-	@include size(100vw, 100vh);
+	width: 100vw;
+	height: 100vh;
 	padding-top: $gutter;
 
 	@supports (display: grid) {
@@ -15,6 +16,7 @@
 		color: $color__white;
 		width: auto;
 		padding-top: 0;
+
 		&__content {
 			// .daft-punk__content
 			display: flex;
@@ -22,6 +24,7 @@
 			justify-content: flex-end;
 			align-items: center;
 			padding-bottom: $gutter;
+
 			.btn {
 				@include btn-color($color__white);
 			}
@@ -30,8 +33,9 @@
 
 	&__content {
 		// .daft-punk__content
+		width: 100vw;
+		height: 100vh;
 		@include text-shadow();
-		@include size(100vw, 100vh);
 
 		@supports (display: grid) {
 			grid-column: span 4;
@@ -40,12 +44,13 @@
 
 		&--title {
 			// .daft-punk__content--title
-			font-family: $font__secondary;
-			font-size: 5em;
-			text-transform: lowercase;
 			@include underlined();
 			margin-bottom: $gutter / 2;
 			padding-bottom: $gutter / 2;
+			font-family: $font__secondary;
+			font-size: 5em;
+			text-transform: lowercase;
+
 			&::after {
 				left: 50%;
 				margin-left: -50px;
