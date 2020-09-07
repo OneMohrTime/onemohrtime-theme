@@ -1,11 +1,11 @@
 {##
- # "First posted" if over a year ago, "Posted" if less
- # "Last updated" if over a year ago, "Updated" if less
+ # "First posted" if over 5 years ago, "Posted" if less
+ # "Last updated" if over 5 years ago, "Updated" if less
  #}
 
 <p class="_meta _wysiwyg">
-	<time class="original" datetime="{{ post.post_date|date(c) }}">{% if ((post.post_date_gmt|time_ago) > '1 year') and (post.slug != 'blog') %}Originally p{% else %}P{% endif %}osted {% if (post.post_date_gmt|time_ago) > '1 year' %}around {% endif %}{{ post.post_date_gmt|time_ago }}</time>
-	{% if (post.post_date_gmt|time_ago) < '1 year' %}
+	<time class="original" datetime="{{ post.post_date|date(c) }}">{% if ((post.post_date_gmt|time_ago) > '5 years') and (post.slug != 'blog') %}Originally p{% else %}P{% endif %}osted {% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}</time>
+	{% if (post.post_date_gmt|time_ago) < '5 years' %}
 		<time class="updated" datetime="{{ post.modified_date|date(c) }}">Updated {{ post.modified_date | time_ago }}</time>
 	{% endif %}
 	<span class="post-format">
