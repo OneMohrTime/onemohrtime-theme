@@ -335,7 +335,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .wp-block-image figcaption{font-size:.6180339845em;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:3px;margin:0;margin-top:.5em;color:#3a372e}
 .wp-embed-aspect-16-9 .wp-block-embed__wrapper{position:relative}
 .wp-embed-aspect-16-9 .wp-block-embed__wrapper::before{display:block;content:"";width:100%;height:0;padding-top:56.25%}
-.wp-block-embed-youtube .wp-block-embed__wrapper iframe{position:absolute;top:0;left:0;width:100%}
+.wp-block-embed-youtube .wp-block-embed__wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%}
 .alignnone{margin:5px 20px 20px 0}
 .aligncenter{display:block;margin:5px auto 5px auto}
 .alignright{float:right;margin:5px 0 20px 20px}
