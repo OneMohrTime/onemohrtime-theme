@@ -492,4 +492,8 @@
 			@include btn-color($color__white);
 		}
 	}
+
+	@include media(">=screen1440") {
+		transform: rotate(-90deg) translateY(-150%) !important;
+	}
 }

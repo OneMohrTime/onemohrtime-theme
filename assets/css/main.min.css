@@ -274,6 +274,7 @@ button:hover,[type='button']:hover,[type='reset']:hover,[type='submit']:hover{ba
 .btn:disabled{background-color:transparent}
 .btn:hover,.btn:focus{background-color:transparent;color:inherit}
 .btn .-svg{position:relative;-webkit-transition:200ms cubic-bezier(0.455,0.03,0.515,0.955);transition:200ms cubic-bezier(0.455,0.03,0.515,0.955)}
+.btn.gallery__banner--contact,.btn.project__banner--contact,.btn.posts__banner--contact{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .btn.gallery__banner--contact .-svg,.btn.project__banner--contact .-svg,.btn.posts__banner--contact .-svg{margin-right:.75em}
 .btn.gallery__banner--contact .-svg path,.btn.project__banner--contact .-svg path,.btn.posts__banner--contact .-svg path{fill:#fffefa;-webkit-transition:fill 200ms;transition:fill 200ms}
 .btn.gallery__banner--contact:hover .-svg,.btn.gallery__banner--contact:focus .-svg,.btn.project__banner--contact:hover .-svg,.btn.project__banner--contact:focus .-svg,.btn.posts__banner--contact:hover .-svg,.btn.posts__banner--contact:focus .-svg{-webkit-transform:translateX(-0.75em);transform:translateX(-0.75em)}
@@ -303,6 +304,7 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .fancybox-thumbs__list a::before{border:5px solid #ffc300}
 .widget__instagram{margin-bottom:0}
 .widget__instagram--title{font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;width:100%;margin-top:36px;margin-bottom:36px;line-height:1.7em;color:#232015}
+.widget__instagram--title .-svg{display:inline-block;width:24px;height:24px;margin-bottom:2px;vertical-align:middle;line-height:24px}
 .main-navigation{color:#fffefa;height:auto;width:100vw;margin-bottom:72px}
 .main-navigation.is-visible{max-height:calc(100vh - 72px);overflow:auto;-webkit-transform:translateY(0);transform:translateY(0);z-index:40}
 .main-navigation.is-visible .site__header--logo{top:20px}
@@ -700,6 +702,7 @@ body.archive .archive__title{font-size:2.6180340252em;letter-spacing:2px}
 .site__footer{padding-left:144px;padding-right:144px}
 .site__sidebar{padding-left:144px;padding-right:144px}
 .project__section{margin-left:144px;margin-right:144px}
+.project__banner--contact.btn{-webkit-transform:rotate(-90deg) translateY(-150%) !important;transform:rotate(-90deg) translateY(-150%) !important}
 .project__subtitle{-webkit-transform:rotate(-4deg) translate(144px,1em) !important;transform:rotate(-4deg) translate(144px,1em) !important}
 .project__title{margin-left:144px}
 .project__text{margin-left:144px;margin-right:144px}
@@ -726,6 +729,7 @@ body.archive .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px
 .daft-punk__content--title{font-size:10em}
 .homepage__dribbble{margin-left:144px;margin-right:144px}
 .gallery__banner{padding-left:144px;padding-right:144px}
+.gallery__banner--contact{-webkit-transform:rotate(-90deg) translateY(-150%) !important;transform:rotate(-90deg) translateY(-150%) !important}
 .gallery__filter{margin-left:144px;margin-right:144px}
 .gallery__content{margin-left:144px;margin-bottom:144px}
 }@media(min-width:1600px){.site{max-width:1440px;border-left:1px #d9d8d5 solid;border-right:1px #d9d8d5 solid;margin-left:auto;margin-right:auto}

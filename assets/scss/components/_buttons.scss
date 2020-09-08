@@ -77,6 +77,8 @@
 	&.gallery__banner--contact,
 	&.project__banner--contact,
 	&.posts__banner--contact {
+		display: flex;
+		align-items: center;
 
 		.-svg {
 			margin-right: $small-spacing;
