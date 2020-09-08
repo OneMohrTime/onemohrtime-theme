@@ -526,6 +526,7 @@ body.blog .posts__article{padding-right:20%}
 .page__content .wp-block-gallery .blocks-gallery-item,.page__content .wp-block-gallery .blocks-gallery-sizer,.posts__content .wp-block-gallery .blocks-gallery-item,.posts__content .wp-block-gallery .blocks-gallery-sizer,.archives__content .wp-block-gallery .blocks-gallery-item,.archives__content .wp-block-gallery .blocks-gallery-sizer,.entry__content .wp-block-gallery .blocks-gallery-item,.entry__content .wp-block-gallery .blocks-gallery-sizer{width:calc(33.3333333333% - 36px)}
 .page__repeater,.posts__repeater,.archives__repeater,.entry__repeater{margin-left:72px;margin-right:72px}
 .article{width:auto;margin-left:36px;margin-right:36px}
+.gallery__grid .article{margin-left:0;margin-right:0}
 .banner.-typographic{margin-left:72px;margin-right:72px}
 .site__contact{padding-left:72px;padding-right:72px}
 .dribbbles .shot{width:31%}
@@ -555,9 +556,9 @@ body.archive .type-post{width:auto;margin-left:36px;margin-right:36px}
 .page__gallery .image__caption,.posts__gallery .image__caption,.archives__gallery .image__caption,.entry__gallery .image__caption{position:absolute;top:0;right:0;bottom:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:rgba(35,32,21,0.6);text-shadow:2px 2px 4px rgba(23,20,9,0.05);padding-left:1.5em;padding-right:1.5em;opacity:0;z-index:1}
 .page__gallery .image__caption.caption--text,.posts__gallery .image__caption.caption--text,.archives__gallery .image__caption.caption--text,.entry__gallery .image__caption.caption--text{color:#fffefa}
 .page__gallery .image__caption.caption--zoom,.posts__gallery .image__caption.caption--zoom,.archives__gallery .image__caption.caption--zoom,.entry__gallery .image__caption.caption--zoom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(255,254,250,0.4);font-size:1.618034em}
-.article{margin-bottom:1.5em}
-.article__image{-webkit-box-flex:0;-ms-flex:0 0 60%;flex:0 0 60%;max-width:60%;height:500px;min-height:100%;margin-bottom:0;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
-.article__content{-webkit-box-flex:0;-ms-flex:0 0 calc(40% - 36px);flex:0 0 calc(40% - 36px);max-width:calc(40% - 36px);margin-bottom:0;font-size:.6180339845em}
+.article{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin-bottom:1.5em;width:100%}
+.article__image{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-ms-flex-preferred-size:60%;flex-basis:60%;max-width:60%;height:500px;min-height:100%;margin-bottom:0;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
+.article__content{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-ms-flex-preferred-size:calc(40% - 36px);flex-basis:calc(40% - 36px);max-width:calc(40% - 36px);margin-bottom:0;font-size:.6180339845em}
 .article__content ._meta{text-align:left}
 .article__title{margin-top:0;margin-bottom:1.5em}
 .article__title a{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
@@ -625,6 +626,7 @@ body.blog .posts__article{padding-right:30%}
 .page__content,.posts__content,.archives__content,.entry__content{margin-left:108px;margin-right:108px}
 .page__repeater,.posts__repeater,.archives__repeater,.entry__repeater{margin-left:108px;margin-right:108px}
 .article{margin-left:72px;margin-right:72px;margin-bottom:72px}
+.gallery__grid .article{margin-left:0;margin-right:0}
 .banner.-typographic{margin-left:108px;margin-right:108px}
 .-typographic .banner__list{margin-bottom:216px;font-size:.6180339845em}
 .site__contact{padding-left:108px;padding-right:108px}
@@ -641,7 +643,7 @@ body.blog .posts__article{padding-right:40%}
 .gallery__banner{padding-left:108px;padding-right:108px}
 .gallery__banner--contact{-webkit-transform:rotate(-90deg) translateY(-100%) !important;transform:rotate(-90deg) translateY(-100%) !important}
 .gallery__filter{margin-left:108px;margin-right:108px}
-.gallery__grid{margin-left:36px;margin-right:36px}
+.gallery__grid{margin-left:108px;margin-right:108px}
 .gallery__dribbble--content{padding-right:40%}
 }@media only screen and (min-width:1040px){.content-area{font-size:1.608rem}
 .project__blockquote .blockquote__default>p{font-size:1.608rem}
@@ -721,6 +723,7 @@ body.archive .archive__title{font-size:2.6180340252em;letter-spacing:2px}
 .page__gallery .-sizer,.page__gallery .image,.posts__gallery .-sizer,.posts__gallery .image,.archives__gallery .-sizer,.archives__gallery .image,.entry__gallery .-sizer,.entry__gallery .image{width:calc(25% - 36px)}
 .page__repeater,.posts__repeater,.archives__repeater,.entry__repeater{margin-left:144px;margin-right:144px}
 .article{margin-left:108px;margin-right:108px;margin-bottom:108px}
+.gallery__grid .article{margin-left:0;margin-right:0}
 .banner.-typographic{margin-left:144px;margin-right:144px}
 .site__contact{padding-left:144px;padding-right:144px}
 .widget__instagram--title{margin-top:54px;margin-bottom:54px}
@@ -731,6 +734,7 @@ body.archive .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px
 .gallery__banner{padding-left:144px;padding-right:144px}
 .gallery__banner--contact{-webkit-transform:rotate(-90deg) translateY(-150%) !important;transform:rotate(-90deg) translateY(-150%) !important}
 .gallery__filter{margin-left:144px;margin-right:144px}
+.gallery__grid{margin-left:144px;margin-right:144px}
 .gallery__content{margin-left:144px;margin-bottom:144px}
 }@media(min-width:1600px){.site{max-width:1440px;border-left:1px #d9d8d5 solid;border-right:1px #d9d8d5 solid;margin-left:auto;margin-right:auto}
 body.archive .archives__article{padding-right:50%}

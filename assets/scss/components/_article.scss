@@ -17,13 +17,11 @@
 	}
 
 	@include media(">=screen840") {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
 		margin-bottom: $base-spacing;
-
-		@supports (display: flex) {
-			display: flex;
-			align-items: stretch;
-			justify-content: space-between;
-		}
+		width: 100%;
 	}
 
 	@include media(">=screen1024") {
@@ -38,6 +36,23 @@
 		margin-bottom: $gutter * 3;
 	}
 
+	.gallery__grid & {
+		@include media(">=screen768") {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		@include media(">=screen1024") {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
 	&__image {
 		// .article__image
 		position: relative;
@@ -49,7 +64,9 @@
 		color: $color__white;
 
 		@include media(">=screen840") {
-			flex: 0 0 60%;
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: 60%;
 			max-width: 60%;
 			height: 500px;
 			min-height: 100%;
@@ -72,7 +89,9 @@
 		margin-bottom: $base-spacing;
 
 		@include media(">=screen840") {
-			flex: 0 0 calc(40% - #{$gutter});
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: calc(40% - #{$gutter});
 			max-width: calc(40% - #{$gutter});
 			margin-bottom: 0;
 			@include small-font-size();

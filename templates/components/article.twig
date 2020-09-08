@@ -7,9 +7,8 @@
 			<img src="{{ post.thumbnail.src('thumbnail') }}"
 				alt="{{ post.thumbnail.alt }}"
 				class="article__image__image parallax__image"
-				srcset="{{ post.thumbnail.src('medium') }} 500w,
-						{{ post.thumbnail.src('large') }} 1000w,
-						{{ post.thumbnail.src('full') }} 1500w"
+				srcset="{{ post.thumbnail.src('medium') }} 750w,
+						{{ post.thumbnail.src('large') }} 1500w"
 				sizes="(max-width: 840px) 100vw, 50vw" />
 
 		{% else %}
