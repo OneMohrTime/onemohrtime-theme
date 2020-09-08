@@ -8,11 +8,23 @@ body.blog {
 	margin-bottom: 2em;
 
 	.posts {
+		width: 100%;
+		margin-left: $gutter;
+		margin-right: $gutter;
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+
 		@supports (display: grid) {
 			grid-column: span 4;
 			width: auto;
-			margin-left: $gutter;
-			margin-right: $gutter;
 		}
 
 		&__article {

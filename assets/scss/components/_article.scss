@@ -12,8 +12,8 @@
 
 	@include media(">=screen768") {
 		width: auto;
-		margin-left: $gutter;
-		margin-right: $gutter;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	@include media(">=screen840") {
@@ -25,32 +25,11 @@
 	}
 
 	@include media(">=screen1024") {
-		margin-left: $gutter * 2;
-		margin-right: $gutter * 2;
 		margin-bottom: $gutter * 2;
 	}
 
 	@include media(">=screen1440") {
-		margin-left: $gutter * 3;
-		margin-right: $gutter * 3;
 		margin-bottom: $gutter * 3;
-	}
-
-	.gallery__grid & {
-		@include media(">=screen768") {
-			margin-left: 0;
-			margin-right: 0;
-		}
-
-		@include media(">=screen1024") {
-			margin-left: 0;
-			margin-right: 0;
-		}
-
-		@include media(">=screen1440") {
-			margin-left: 0;
-			margin-right: 0;
-		}
 	}
 
 	&__image {
