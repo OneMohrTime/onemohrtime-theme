@@ -15,6 +15,22 @@
 	}
 }
 
+.wp-block-embed__wrapper {
+	// youtube 16:9 embedder
+	.wp-embed-aspect-16-9 & {
+		@include aspect-ratio(16, 9);
+	}
+
+	iframe {
+		.wp-block-embed-youtube & {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+}
+
 /**
 * === DEPRECATED ===
 * TODO: take care of this garbage
