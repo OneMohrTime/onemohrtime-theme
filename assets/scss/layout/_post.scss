@@ -305,7 +305,10 @@
 					height: 72px;
 					max-width: 100%;
 					margin: 0;
-					fill: $color__white;
+
+					path {
+						fill: $color__white;
+					}
 				}
 			}
 
