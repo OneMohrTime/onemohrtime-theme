@@ -422,7 +422,8 @@ body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left
 .gallery__dribbble--title{position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em}
 .gallery__dribbble--title::after{content:"";position:absolute;bottom:0;left:0;background-color:#ffc300;height:10px;width:50px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms}
 .gallery__dribbble--content{margin-bottom:.75em;padding-right:36px}
-@media only screen and (min-width:360px){.content-area{font-size:1.2rem}
+@media(prefers-reduced-motion:reduce){*{-webkit-animation:none !important;animation:none !important;-webkit-transition:none !important;transition:none !important}
+}@media only screen and (min-width:360px){.content-area{font-size:1.2rem}
 .project__blockquote .blockquote__default>p{font-size:1.2rem}
 .project__blockquote .blockquote__image>p{font-size:1.2rem}
 }@media only screen and (min-width:400px){.content-area{font-size:1.224rem}
