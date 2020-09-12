@@ -160,7 +160,7 @@
 		<div class="image__gutter"></div>
 
 		{% for image in section.images %}
-			<figure class="image">
+			<figure class="image js-image">
 
 				<img src="{{ TimberImage(image).src('thumbnail') }}"
 					width="{{ image.width }}" height="{{ image.height }}"
@@ -193,7 +193,7 @@
 
 {# Navigate between projects #}
 <footer>
-	{{ wp_link_pages }}
+	{{ dump(wp_link_pages) }}
 </footer>
 
 {% endblock %}

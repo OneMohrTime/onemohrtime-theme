@@ -53,7 +53,7 @@ jQuery( function( $ ) {
 
       // reorganize with Masonry
       $projGallery.isotope({
-        itemSelector: '.image',
+        itemSelector: '.js-image',
         percentPosition: true,
         masonry: {
           columnWidth: '.image__sizer',
@@ -306,7 +306,7 @@ jQuery( function( $ ) {
 
     // reorganize with Masonry
     $pageGallery.isotope({
-      itemSelector: '.image',
+      itemSelector: '.js-image',
       percentPosition: true,
       masonry: {
         columnWidth: '.-sizer',

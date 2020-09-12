@@ -422,8 +422,8 @@
 
 		.image {
 			position: relative;
-			@include box-shadow();
 			margin-bottom: $gutter;
+			@include box-shadow();
 
 			@include media('>=screen600') {
 				max-width: calc(50% - #{$gutter});
@@ -435,19 +435,23 @@
 
 			&__caption {
 				// .image__caption
-				color: $color__gray;
-				@include small-font-size();
 				transition: $speed;
+				@include small-font-size();
+				color: $color__gray;
 
 				@include media(">=screen840") {
-					@include position(absolute, 0 0 0 0);
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					background-color: fade-out($color__black--light, 0.4);
-					@include text-shadow();
 					padding: $base-spacing;
 					opacity: 0;
+					@include text-shadow();
+					background-color: fade-out($color__black--light, 0.4);
 					z-index: 1;
 				}
 
@@ -463,8 +467,20 @@
 						display: flex;
 						justify-content: center;
 						align-items: center;
-						color: fade-out($color__white, 0.6);
 						@include paragraph();
+						color: fade-out($color__white, 0.6);
+					}
+				}
+
+				// Zoom in icon
+				.image.-svg {
+					width: 72px;
+					height: 72px;
+					max-width: 72px;
+					margin: 0;
+
+					path {
+						fill: $color__white;
 					}
 				}
 			}

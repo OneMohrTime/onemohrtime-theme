@@ -32,18 +32,18 @@ $color__red: #9c0000;
 //$color--warning: #9c0000 !important;
 $color--error: $color__red;
 
-/*
-* — Typography —
-*/
+/**
+ * — Typography —
+ */
 
 $font__main     : "Barlow", $font-stack-system;
 $font__secondary: "Abril Fatface", $font-stack-garamond;
 $font__header   : "Barlow Semi Condensed", $font-stack-helvetica;
 $font__code     : "Inconsolata", $font-stack-monaco;
 
-/*
-* — Everything else —
-*/
+/**
+ * — Everything else —
+ */
 
 $speed        : 200ms;
 $speed--fast  : $speed / 2;

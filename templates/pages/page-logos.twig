@@ -20,7 +20,7 @@
 
 			{% for image in image_grid %}
 
-				<figure id="image_{{ image.id }}" class="image {{ image.post_class }}">
+				<figure id="image_{{ image.id }}" class="image {{ image.post_class }} js-image">
 					<img src="{{ TimberImage(image).src('thumbnail') }}"
 						 width="{{ image.width }}" height="{{ image.height }}"
 						 alt="{{ section.image.alt }}"
@@ -32,7 +32,9 @@
 					{% if image.caption %}
 						<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
 					{% else %}
-						<figcaption class="image__caption caption--zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
+						<figcaption class="image__caption caption--zoom">
+							{% include 'assets/media/icons/plus-zoom.svg' %}
+						</figcaption>
 					{% endif %}
 
 					<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">

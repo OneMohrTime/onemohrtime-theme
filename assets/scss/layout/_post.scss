@@ -67,7 +67,7 @@
 			}
 
 			.-svg {
-				@include position(absolute, null);
+				position: absolute;
 				font-size: 2em;
 				transform: translateX(-10px);
 				z-index: -1;
@@ -248,10 +248,10 @@
 
 		.image {
 			position: relative;
-			@include box-shadow();
 			margin-right: $gutter;
 			margin-bottom: $gutter;
 			float: left;
+			@include box-shadow();
 
 			&__image {
 				// .image__image
@@ -263,9 +263,9 @@
 
 			&__caption {
 				// .image__caption
-				color: $color__gray;
-				@include small-font-size();
 				transition: $speed;
+				@include small-font-size();
+				color: $color__gray;
 				pointer-events: none;
 
 				@include media(">=screen840") {
@@ -273,11 +273,11 @@
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					background-color: fade-out($color__black--light, 0.4);
-					@include text-shadow();
 					padding-left: $base-spacing;
 					padding-right: $base-spacing;
 					opacity: 0;
+					@include text-shadow();
+					background-color: fade-out($color__black--light, 0.4);
 					z-index: 1;
 				}
 
@@ -294,9 +294,18 @@
 						display: flex;
 						justify-content: center;
 						align-items: center;
-						color: fade-out($color__white, 0.6);
 						@include paragraph();
+						color: fade-out($color__white, 0.6);
 					}
+				}
+
+				// Zoom in icon
+				.image.-svg {
+					width: 72px;
+					height: 72px;
+					max-width: 100%;
+					margin: 0;
+					fill: $color__white;
 				}
 			}
 
