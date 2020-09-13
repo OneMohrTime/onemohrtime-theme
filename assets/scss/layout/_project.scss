@@ -156,17 +156,25 @@
 	&__text {
 		// .project__text
 		margin-bottom: $base-line-height;
+
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
+
 		@include media(">=screen840") {
 			max-width: 840px;
 		}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
+
+		@include media(">=screen1170") {
+			margin-bottom: $base-line-height * 2;
+		}
+
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
@@ -180,9 +188,14 @@
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: $base-line-height;
+
 		@include media(">=screen768") {
 			flex-direction: row;
 			align-items: center;
+		}
+
+		@include media(">=screen1170") {
+			margin-bottom: $base-line-height * 2;
 		}
 
 		.content--half {
@@ -190,6 +203,7 @@
 			flex: 0 0 100%;
 			max-width: 100%;
 			padding: $gutter;
+
 			@include media(">=screen768") {
 				flex-basis: 50%;
 				max-width: 50%;
@@ -197,9 +211,11 @@
 				padding-left: $gutter * 2;
 				padding-bottom: $base-spacing;
 			}
+
 			@include media(">=screen1024") {
 				padding-left: $gutter * 3;
 			}
+
 			@include media(">=screen1440") {
 				padding-left: $gutter * 4;
 			}
@@ -207,9 +223,12 @@
 
 		.image--half {
 			order: 2;
-			flex: 0 0 100%;
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: 100%;
 			max-width: 100%;
 			margin: 0;
+
 			@include media(">=screen768") {
 				flex-basis: 50%;
 				max-width: 50%;
@@ -248,6 +267,11 @@
 		// .project__image
 		align-items: center;
 		margin-bottom: $base-line-height;
+
+		@include media(">=screen1170") {
+			margin-bottom: $base-line-height * 2;
+		}
+
 		@include media(">=screen1440") {
 			margin-bottom: $base-spacing * 2;
 		}
@@ -392,22 +416,24 @@
 		margin-right: $gutter;
 		margin-bottom: $base-line-height;
 
-		@include media(">=screen400") {}
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
 		}
-		@include media(">=screen960")  {}
+
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
 			margin-right: $gutter * 3;
 		}
-		@include media(">=screen1440") {
 
+		@include media(">=screen1170") {
+			margin-bottom: $base-line-height * 2;
+		}
+
+		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
 		}
-		@include media(">=screen1920") {}
 
 		img {
 			display: block;
@@ -522,27 +548,31 @@
 	&__specs {
 		// .project__specs
 		grid-column: span 4;
+		padding: $gutter $gutter $small-spacing;
+		@include body-copy();
 		@include texture($color__white--dark, 25, 0);
 		color: $color__gray--light;
-		@include body-copy();
-		padding: $gutter $gutter $small-spacing;
+
 		@include media(">=screen600") {
 			display: flex;
 			flex-flow: row wrap;
 			align-items: flex-start;
 			padding: $gutter;
 		}
+
 		@include media(">=screen768") {
 			padding-left: $gutter * 2;
 			padding-right: $gutter * 2;
 		}
+
 		@include media(">=screen1024") {
 			flex-wrap: nowrap;
 			justify-content: space-between;
-			@include small-font-size();
 			padding-left: $gutter * 3;
 			padding-right: $gutter * 3;
+			@include small-font-size();
 		}
+
 		@include media(">=screen1440") {
 			padding-left: $gutter * 4;
 			padding-right: $gutter * 4;
@@ -606,9 +636,12 @@
 
 			&__header {
 				// .spec__header
-				flex: 0 0 100%;
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 100%;
 				max-width: 100%;
 				margin-bottom: $small-spacing;
+
 				h3 {
 					@include label();
 					margin-bottom: 0;

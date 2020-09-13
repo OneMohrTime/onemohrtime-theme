@@ -181,7 +181,7 @@ embed,iframe,object{max-width:100%}
 .project__text{margin-bottom:1.7em}
 .project__text-image{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;margin-left:0;margin-right:0;margin-bottom:1.7em}
 .project__text-image .content--half{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;padding:36px}
-.project__text-image .image--half{-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2;-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;margin:0}
+.project__text-image .image--half{-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2;-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%;margin:0}
 .project__text-image .image--half img{width:100%;pointer-events:none}
 .project__text-image--reversed .content--half{-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2;padding:36px}
 .project__text-image--reversed .image--half{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}
@@ -207,11 +207,11 @@ embed,iframe,object{max-width:100%}
 .project__gallery .image:hover .image__caption,.project__gallery .image:focus .image__caption{opacity:1}
 .project__gallery .image__sizer{display:block;width:calc(50% - 18px);margin:0;float:left}
 .project__gallery .image__gutter{width:18px}
-.project__specs{grid-column:span 4;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/old_mathematics.png");background-color:#f2f1ee;color:#aaa9a5;font-size:1em;padding:36px 36px .75em}
+.project__specs{grid-column:span 4;padding:36px 36px .75em;font-size:1em;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/old_mathematics.png");background-color:#f2f1ee;color:#aaa9a5}
 .project__specs--title{margin-bottom:36px;font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;color:#d9d8d5}
 .project__specs .spec{margin-bottom:.75em}
 .project__specs .spec:not(:last-child){border-bottom:1px #d9d8d5 solid;margin-right:.75em;padding-bottom:.75em}
-.project__specs .spec__header{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;margin-bottom:.75em}
+.project__specs .spec__header{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%;margin-bottom:.75em}
 .project__specs .spec__header h3{font-size:1rem;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-weight:700;line-height:1em;text-transform:uppercase;letter-spacing:2px;margin:0;margin-bottom:0}
 .page__header,.posts__header,.archives__header,.entry__header{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-ms-flex-line-pack:center;align-content:center;height:100vh;margin:0 36px}
 .page__header .title,.posts__header .title,.archives__header .title,.entry__header .title{font-size:4.2360680659em;letter-spacing:5px;margin-bottom:0}
@@ -650,7 +650,7 @@ abbr:focus::after{font-size:1.584rem}
 .project__blockquote{margin:108px}
 .project__blockquote .blockquote__image{padding:108px;margin:108px}
 .project__gallery{margin-left:108px;margin-right:108px}
-.project__specs{-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-size:.6180339845em;padding-left:108px;padding-right:108px}
+.project__specs{-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding-left:108px;padding-right:108px;font-size:.6180339845em}
 .project__specs--title{margin-right:auto;margin-bottom:0;font-size:1em}
 .project__specs .spec:not(:last-child){margin-right:1.5em;padding-right:1.5em}
 .project__specs .spec__header h3{font-size:1em}
@@ -701,12 +701,17 @@ abbr:focus::after{font-size:1.68rem}
 .site__footer a:hover .-svg,.site__footer a:focus .-svg{-webkit-transform:translateX(0.75em);transform:translateX(0.75em)}
 .project__banner--contact.btn:hover{border:3px #fffefa solid;color:#fffefa}
 .project__banner--contact.btn:hover::after{background-color:#ffc300}
+.project__text{margin-bottom:3.4em}
+.project__text-image{margin-bottom:3.4em}
+.project__image{margin-bottom:3.4em}
+.project__gallery{margin-bottom:3.4em}
 .project__specs--title{font-size:1.618rem}
 .project__specs .spec{max-width:33.3333333333%}
 .project__specs .spec__header h3{font-size:1.618rem}
 .intro__link:hover::before{bottom:12px !important;height:80% !important}
 .widget__instagram--title{font-size:1.618rem}
 .repeater{font-size:1.618rem}
+[class^="wp-block-"]{margin-bottom:3.4em}
 .homepage__about{font-size:1.618rem}
 .dribbble__title,.homepage__work--title{position:relative;margin-bottom:72px;padding:12px 36px 12px 0;text-shadow:none;line-height:1em;border-top-right-radius:2em;border-bottom-right-radius:2em;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/concrete_wall_2.png");background-color:#171409;color:rgba(255,254,250,0.95);-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
 .dribbble__title::before,.homepage__work--title::before{content:"";position:absolute;top:0;right:100%;height:100%;width:100vw;background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/concrete_wall_2.png");background-color:#171409}

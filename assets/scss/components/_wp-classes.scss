@@ -4,6 +4,10 @@
 
 [class^="wp-block-"] {
 	margin-bottom: $base-line-height;
+
+	@include media(">=screen1170") {
+		margin-bottom: $base-line-height * 2;
+	}
 }
 
 .wp-block-image {
