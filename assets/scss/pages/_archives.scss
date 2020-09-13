@@ -118,7 +118,7 @@ body.archive {
 		}
 
 		&__title {
-			// .post__title
+			// .archive__title
 			position: relative;
 			@include paragraph();
 
@@ -143,7 +143,7 @@ body.archive {
 		}
 
 		&__image {
-			// .post__image
+			// .archive__image
 			position: relative;
 			width: 100%;
 			height: auto;
@@ -162,13 +162,13 @@ body.archive {
 				@include box-shadow();
 			}
 
-			&__image {
-				// .post__image__image
-			}
+			// &__image {
+				// .archive__image__image
+			// }
 		}
 
 		&__link {
-			// .post__link
+			// .archive__link
 			display: none;
 			@include media(">=screen840") {}
 		}

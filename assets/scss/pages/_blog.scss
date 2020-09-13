@@ -2,12 +2,13 @@
  * === BLOG ===
  */
 
-body.blog {
+body.blog,
+body.archive {
 	position: relative;
 	// @include texture($color__white, 54, 0);
 	margin-bottom: 2em;
 
-	.posts {
+	.archives {
 		width: 100%;
 		margin-left: $gutter;
 		margin-right: $gutter;

@@ -389,9 +389,9 @@ body.archive .post-format .-svg{position:absolute;top:0;left:0;opacity:.1;-webki
 .daft-punk__content--title::after{left:50%;margin-left:-50px}
 .daft-punk__content--alert{margin-bottom:.75em}
 .error404 .site__header,.error404 .site__footer{display:none}
-body.blog{position:relative;margin-bottom:2em}
-body.blog .posts{width:100%;margin-left:36px;margin-right:36px}
-body.blog .posts__article{width:100%;margin:1.5em 0 72px}
+body.blog,body.archive{position:relative;margin-bottom:2em}
+body.blog .archives,body.archive .archives{width:100%;margin-left:36px;margin-right:36px}
+body.blog .archives__article,body.archive .archives__article{width:100%;margin:1.5em 0 72px}
 .homepage__about{background:-webkit-gradient(linear,right bottom,left top,color-stop(85%,#171409),to(#232015));background:linear-gradient(to top left,#171409 85%,#232015);background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/concrete_wall_2.png");background-color:#171409;color:#fffefa;font-size:1rem}
 .homepage__about--content{padding:108px 36px}
 .homepage__about--content a::before{background-color:#3a372e !important}
@@ -502,7 +502,7 @@ abbr:focus::after{font-size:1.32rem}
 .-personalityTypes>div{margin-top:0;margin-right:18px}
 body.archive .archives__article{padding-right:20%}
 .daft-punk__content--title::after{width:100px}
-body.blog .posts__article{padding-right:20%}
+body.blog .archives__article,body.archive .archives__article{padding-right:20%}
 .gallery__banner--title h2{font-size:4.2360680659em;letter-spacing:5px}
 .gallery__banner--contact{-webkit-transform:rotate(-90deg) translateY(-50%) !important;transform:rotate(-90deg) translateY(-50%) !important}
 .gallery__grid{margin-left:72px;margin-right:72px}
@@ -597,7 +597,7 @@ body.archive .archive__title{margin-bottom:1.5em}
 body.archive .archive__title a{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
 body.archive .archive__image{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-ms-flex-preferred-size:60%;flex-basis:60%;max-width:60%;min-height:100%;margin-bottom:0;-webkit-box-shadow:1px 2px 10px rgba(23,20,9,0.05);box-shadow:1px 2px 10px rgba(23,20,9,0.05)}
 body.archive.-isEven{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
-body.blog .posts__article{padding-right:30%}
+body.blog .archives__article,body.archive .archives__article{padding-right:30%}
 .dribbble__title,.homepage__work--title{font-size:1em}
 .gallery__content{max-width:840px;margin-bottom:72px;margin-left:72px;margin-right:auto}
 .gallery__dribbble--content{padding-right:30%}
@@ -668,8 +668,8 @@ abbr:focus::after{font-size:1.584rem}
 body.archive .archives__article{padding-right:40%}
 body.archive .type-post{margin-left:72px;margin-right:72px;margin-bottom:72px}
 .daft-punk__content--title{font-size:8em}
-body.blog .posts{margin-left:108px;margin-right:108px}
-body.blog .posts__article{padding-right:40%}
+body.blog .archives,body.archive .archives{margin-left:108px;margin-right:108px}
+body.blog .archives__article,body.archive .archives__article{padding-right:40%}
 .homepage__about--content{padding-left:108px;padding-right:108px}
 .homepage__dribbble{margin-left:108px;margin-right:108px}
 .gallery__banner{padding-left:108px;padding-right:108px}
@@ -775,7 +775,7 @@ abbr:focus::after{font-size:1.8rem}
 .toggle__menu{margin-left:144px}
 body.archive .type-post{margin-left:108px;margin-right:108px;margin-bottom:108px}
 .daft-punk__content--title{font-size:10em}
-body.blog .posts{margin-left:144px;margin-right:144px}
+body.blog .archives,body.archive .archives{margin-left:144px;margin-right:144px}
 .homepage__dribbble{margin-left:144px;margin-right:144px}
 .gallery__banner{padding-left:144px;padding-right:144px}
 .gallery__banner--contact{-webkit-transform:rotate(-90deg) translateY(-150%) !important;transform:rotate(-90deg) translateY(-150%) !important}
@@ -784,7 +784,7 @@ body.blog .posts{margin-left:144px;margin-right:144px}
 .gallery__content{margin-left:144px;margin-bottom:144px}
 }@media(min-width:1600px){.site{max-width:1440px;border-left:1px #d9d8d5 solid;border-right:1px #d9d8d5 solid;margin-left:auto;margin-right:auto}
 body.archive .archives__article{padding-right:50%}
-body.blog .posts__article{padding-right:50%}
+body.blog .archives__article,body.archive .archives__article{padding-right:50%}
 .dribbble__title,.homepage__work--title{font-size:2.6180340252em;letter-spacing:2px}
 .gallery__dribbble--content{padding-right:50%}
 }@media(min-width:1920px){.site{max-width:1600px}
