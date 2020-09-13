@@ -323,8 +323,8 @@ body.home .site__contact{background:url("https://raw.github.com/Magnus-G/texture
 .main-navigation .submenu{display:none}
 .toggle__menu{position:absolute;left:0;bottom:0;margin:18px 36px;padding:.375em 0;-webkit-transition:background-color 400ms linear,color 400ms linear,-webkit-box-shadow 400ms linear;transition:background-color 400ms linear,color 400ms linear,-webkit-box-shadow 400ms linear;transition:background-color 400ms linear,color 400ms linear,box-shadow 400ms linear;transition:background-color 400ms linear,color 400ms linear,box-shadow 400ms linear,-webkit-box-shadow 400ms linear;font-family:"Barlow Semi Condensed","Helvetica Neue","Helvetica","Arial",sans-serif;font-size:1.25em !important;font-weight:700;color:#fffefa;z-index:35;cursor:pointer}
 .toggle__menu .m,.toggle__menu .n,.toggle__menu .u{display:inline-block;-webkit-transition:color 400ms;transition:color 400ms}
-.toggle__menu .e{display:inline-block;width:12px;height:12px;-webkit-transition:color 400ms;transition:color 400ms}
-.toggle__menu .e.toggle__close{width:14px;height:13px}
+.toggle__menu .e{position:relative;top:-2px;display:inline-block;width:12px;height:12px;-webkit-transition:color 400ms;transition:color 400ms}
+.toggle__menu .e.toggle__close{top:-1px;width:14px;height:13px}
 .toggle__menu .e.toggle__close .bar{width:15px;-webkit-transition:background-color 400ms;transition:background-color 400ms;background-color:#fffefa}
 .toggle__menu .e.toggle__close .bar:nth-child(1){top:5px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-transition:400ms;transition:400ms}
 .toggle__menu .e.toggle__close .bar:nth-child(2){margin:2px 0;opacity:0;-webkit-transition:400ms;transition:400ms}
