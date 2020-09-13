@@ -107,13 +107,13 @@ pre,code{display:inline-block;font-family:"Inconsolata","Monaco","Consolas","Luc
 .-serif{font-family:"Abril Fatface","Garamond","Baskerville","Baskerville Old Face","Hoefler Text","Times New Roman",serif}
 ._title{font-size:4.2360680659em;letter-spacing:5px}
 ._title.-underline{font-size:4.2360680659em;letter-spacing:5px;position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em}
-._title.-underline::after{content:"";position:absolute;right:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
+._title.-underline::after{content:"";position:absolute;left:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
 ._headline{font-size:2.6180340252em;letter-spacing:2px}
 ._headline.-underline{font-size:2.6180340252em;letter-spacing:2px;position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em}
-._headline.-underline::after{content:"";position:absolute;right:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
+._headline.-underline::after{content:"";position:absolute;left:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
 ._subheadline{font-size:1.618034em}
 ._subheadline.-underline{font-size:1.618034em;position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em}
-._subheadline.-underline::after{content:"";position:absolute;right:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
+._subheadline.-underline::after{content:"";position:absolute;left:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
 i,cite,em,var,address,dfn{font-style:normal}
 abbr{padding:2px 4px;text-decoration:none;border-bottom:1px #171409 dotted;background-color:rgba(23,20,9,0.05);cursor:help}
 abbr:focus{padding:0;font-size:0;line-height:initial;outline:3px solid rgba(255,195,0,0.6);outline-offset:2px;border-bottom:0;background-color:transparent}
@@ -385,7 +385,7 @@ body.archive .post-format .-svg{position:absolute;top:0;left:0;opacity:.1;-webki
 .daft-punk{position:relative;background:transparent url("../img/daft-punk-404.gif") repeat center center fixed;background-size:cover;text-align:center;width:100vw;height:100vh;padding-top:36px}
 .daft-punk__content{width:100vw;height:100vh;text-shadow:2px 2px 4px rgba(23,20,9,0.05)}
 .daft-punk__content--title{position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em;margin-bottom:18px;padding-bottom:18px;font-family:"Abril Fatface","Garamond","Baskerville","Baskerville Old Face","Hoefler Text","Times New Roman",serif;font-size:5em;text-transform:lowercase}
-.daft-punk__content--title::after{content:"";position:absolute;right:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
+.daft-punk__content--title::after{content:"";position:absolute;left:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
 .daft-punk__content--title::after{left:50%;margin-left:-50px}
 .daft-punk__content--alert{margin-bottom:.75em}
 .error404 .site__header,.error404 .site__footer{display:none}
@@ -430,7 +430,7 @@ body.home.sidebar-primary .site__sidebar{background:-webkit-gradient(linear,left
 .gallery__content{grid-column:span 4;margin:0 36px 1.5em}
 .gallery__dribbble{width:100%;margin:0 36px 72px}
 .gallery__dribbble--title{position:relative;padding-bottom:calc(.5em + 10px);margin-bottom:.5em}
-.gallery__dribbble--title::after{content:"";position:absolute;right:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
+.gallery__dribbble--title::after{content:"";position:absolute;left:0;bottom:0;width:50px;height:10px;-webkit-transition:background-color 200ms,width 200ms;transition:background-color 200ms,width 200ms;background-color:#ffc300}
 .gallery__dribbble--content{margin-bottom:.75em;padding-right:36px}
 @media(prefers-reduced-motion:reduce){*{-webkit-animation:none !important;animation:none !important;-webkit-transition:none !important;transition:none !important}
 }@media only screen and (min-width:360px){.content-area{font-size:1.2rem}
