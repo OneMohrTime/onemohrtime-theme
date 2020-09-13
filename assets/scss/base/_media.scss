@@ -45,12 +45,14 @@ object {
  */
 
 .wp-caption {
-	margin: 0 0 1.7em;
+	margin: 0 0 $base-line-height;
 	max-width: 100%;
 	position: relative;
 
 	&-text {
-		@include position(absolute, null 0 0 null);
+		position: absolute;
+		right: 0;
+		bottom: 0;
 		background-color: fade-out($color__black, 0.1);
 		color: $color__white;
 		font-size: .75em;

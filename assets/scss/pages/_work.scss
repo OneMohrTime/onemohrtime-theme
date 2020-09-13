@@ -200,7 +200,11 @@
 					&::before {
 						// .array__filter::before
 						content: "";
-						@include position(absolute, auto 0 0 0);
+						position: absolute;
+						top: auto;
+						left: 0;
+						right: 0;
+						bottom: 0;
 						display: block;
 						background-color: $color__white--dark;
 						width: 100%;

@@ -20,17 +20,17 @@
 	h#{$i} {
 		position: relative;
 		display: block;
-		color: inherit;
+		margin: 0 0 .5em;
 		font-family: $font__header;
 		font-size: modular-scale((6 - $i), 1em, $major-third);
 		font-weight: 700;
 		text-transform: uppercase;
 		line-height: $heading-line-height;
-		margin: 0 0 .5em;
+		color: inherit;
 
 		a {
-			color: inherit;
 			line-height: inherit;
+			color: inherit;
 
 			// ._wysiwyg & {
 			// 	&:focus { outline: none; }
@@ -195,7 +195,6 @@ blockquote {
 }
 
 hr {
-
 	width: 50%;
 	height: 10px;
 	margin: 0 auto $base-spacing;

@@ -67,12 +67,13 @@
 		&--image {
 			// .project__banner--image
 			position: absolute;
-//			top: 0 !important; // .fade-content
 			pointer-events: none;
 			z-index: 0;
+
 			@supports (object-fit: cover) {
+				width: 100vw;
+				height: 100%;
 				object-fit: cover;
-				@include size(100vw, 100%);
 			}
 		}
 
@@ -84,15 +85,15 @@
 
 	&__subtitle {
 		// .project__subtitle
-		color: $color__black;
-		background-color: $color__white;
-		@include box-shadow();
+		margin: 0 $gutter;
+		padding: $small-spacing $base-spacing;
 		@include small-font-size();
 		font-family: $font__secondary;
 		text-transform: lowercase;
 		letter-spacing: .075em;
-		margin: 0 $gutter;
-		padding: $small-spacing $base-spacing;
+		background-color: $color__white;
+		color: $color__black;
+		@include box-shadow();
 		z-index: 2;
 
 		@include media(">=screen768") {
@@ -269,14 +270,16 @@
 
 		&--fixed {
 			// .project__image--fixed
-			@include size(auto, 100vh);
+			width: auto;
+			height: 100vh;
 			margin-left: 0;
 			margin-right: 0;
 			overflow: hidden;
 
 			@supports (object-fit: cover) {
 				img {
-					@include size(auto, 150vh);
+					width: auto;
+					height: 150vh;
 					min-width: 100vw;
 					object-fit: cover;
 				}
@@ -368,14 +371,6 @@
 					position: relative;
 					padding-top: 1.5em;
 					margin-bottom: $small-spacing;
-//					&::before {
-//						content: url("./assets/img/icons/left-quote.svg")
-//						@include position(absolute, 0 null null 0);
-//						display: block;
-//						color: $color__yellow;
-//						font-family: FontAwesome;
-//						font-size: 1.5em;
-//					}
 				}
 
 				& > p {
@@ -384,7 +379,8 @@
 
 				&__image {
 					// .blockquote__image__image
-					@include position(absolute, -100% null null null);
+					position: absolute;
+					top: -100%;
 				}
 			}
 		}
@@ -554,42 +550,52 @@
 
 		&--title {
 			// .project__specs--title
+			margin-bottom: $gutter;
 			@include label();
 			color: $color__white--darkest;
-			margin-bottom: $gutter;
+
 			@include media(">=screen600") {
 				margin-right: $gutter;
 			}
+
 			@include media(">=screen1024") {
-				@include body-copy();
 				margin-right: auto;
 				margin-bottom: 0;
+				@include body-copy();
 			}
 		}
 
 		.spec {
 			margin-bottom: $small-spacing;
+
 			@include media(">=screen600") {
 				margin-bottom: 0;
-				color: $color__gray--dark;
 				@include body-copy();
+				color: $color__gray--dark;
 			}
+
 			@include media(">=screen1170") {
-				max-width: 33.33%;
+				max-width: percentage(1/3);
 			}
+
 			&:not(:last-child) {
 				border-bottom: 1px $color__white--darkest solid;
 				margin-right: $small-spacing;
 				padding-bottom: $small-spacing;
+
 				@include media(">=screen600") {
 					border-bottom: none;
 					padding-right: $small-spacing;
 					padding-bottom: 0;
+
 					&::before {
 						content: "";
-						@include position(absolute, 0 0 null null);
+						position: absolute;
+						top: 0;
+						right: 0;
 						background-color: $color__white--darkest;
-						@include size(2px, 100%);
+						width: 2px;
+						height: 100%;
 					}
 				}
 				@include media(">=screen1024") {

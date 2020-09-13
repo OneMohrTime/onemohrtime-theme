@@ -30,12 +30,13 @@ body.archive {
 
 	.type-post {
 		position: relative;
-		@include body-copy();
-		@include size(100%, auto);
-		min-height: 420px;
+		width: 100%;
+		height: auto;
 		max-height: 100vh;
+		min-height: 420px;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
+		@include body-copy();
 
 		@include media(">=screen768") {
 			width: auto;
@@ -44,11 +45,9 @@ body.archive {
 		}
 
 		@include media(">=screen840") {
-			@supports (display: flex) {
-				display: flex;
-				align-items: stretch;
-				justify-content: space-between;
-			}
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
 		}
 
 		@include media(">=screen1024") {
@@ -72,26 +71,25 @@ body.archive {
 			margin-bottom: $base-spacing;
 
 			@include media(">=screen840") {
-				flex: 0 0 calc(40% - #{$gutter});
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: calc(40% - #{$gutter});
 				max-width: calc(40% - #{$gutter});
-				@include small-font-size();
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
 				margin-bottom: 0;
-
-				@supports (display: flex) {
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-end;
-				}
+				@include small-font-size();
 			}
 
 			._meta {
 				display: flex;
 				flex-flow: row wrap;
 				//align-items: center;
-				color: $color__gray--light;
+				margin-bottom: $small-spacing;
 				@include caption();
 				text-align: center;
-				margin-bottom: $small-spacing;
+				color: $color__gray--light;
 
 				.updated,
 				.author,
@@ -147,18 +145,23 @@ body.archive {
 		&__image {
 			// .post__image
 			position: relative;
-			background-color: $color__white--dark;
-			color: $color__white;
-			@include size(100%, auto);
+			width: 100%;
+			height: auto;
 			margin-bottom: $base-spacing;
 			overflow: hidden;
+			background-color: $color__white--dark;
+			color: $color__white;
+
 			@include media(">=screen840") {
-				flex: 0 0 60%;
-				@include box-shadow();
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 60%;
 				max-width: 60%;
 				min-height: 100%;
 				margin-bottom: 0;
+				@include box-shadow();
 			}
+
 			&__image {
 				// .post__image__image
 			}
