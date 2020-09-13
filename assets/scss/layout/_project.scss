@@ -155,7 +155,7 @@
 
 	&__text {
 		// .project__text
-		margin-bottom: $base-spacing;
+		margin-bottom: $base-line-height;
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
 			margin-right: $gutter * 2;
@@ -179,7 +179,7 @@
 		flex-direction: column;
 		margin-left: 0;
 		margin-right: 0;
-		margin-bottom: $base-spacing;
+		margin-bottom: $base-line-height;
 		@include media(">=screen768") {
 			flex-direction: row;
 			align-items: center;
@@ -247,7 +247,7 @@
 	&__image {
 		// .project__image
 		align-items: center;
-		margin-bottom: $base-spacing;
+		margin-bottom: $base-line-height;
 		@include media(">=screen1440") {
 			margin-bottom: $base-spacing * 2;
 		}
@@ -390,7 +390,7 @@
 		// .project__gallery
 		margin-left: $gutter;
 		margin-right: $gutter;
-		margin-bottom: $base-spacing;
+		margin-bottom: $base-line-height;
 
 		@include media(">=screen400") {}
 		@include media(">=screen768") {

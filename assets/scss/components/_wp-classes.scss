@@ -2,6 +2,10 @@
  * === WP BLOCK STYLES ===
  */
 
+[class^="wp-block-"] {
+	margin-bottom: $base-line-height;
+}
+
 .wp-block-image {
 	a {
 		&::before {
