@@ -120,8 +120,8 @@ body.home {
 		padding: $gutter / 3 $gutter $gutter / 3 0;
 		text-shadow: none;
 		line-height: 1em;
-		border-top-right-radius: 2em;
-		border-bottom-right-radius: 2em;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
 		@include texture($color__black, 54, 1);
 		color: fade-out($color__white, 0.05);
 		@include box-shadow();
