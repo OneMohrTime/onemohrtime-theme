@@ -19,8 +19,8 @@
 		&--image {
 			// .homepage__about--image
 			@include media(">=screen960") {
-				flex-basis: 50%;
-				max-width: 50%;
+				flex-basis: 40%;
+				max-width: 40%;
 				position: sticky;
 				top: 0;
 				height: 100vh;
@@ -38,8 +38,8 @@
 			}
 
 			@include media(">=screen960") {
-				flex-basis: 50%;
-				max-width: 50%;
+				flex-basis: 60%;
+				max-width: 60%;
 			}
 
 			@include media(">=screen1024") {
