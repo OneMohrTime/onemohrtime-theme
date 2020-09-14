@@ -85,6 +85,11 @@
 					// .shot__link:hover ~ .shot--hover
 					// .shot__link:focus ~ .shot--hover
 					opacity: 1;
+					.shot__headline,
+					.shot__description {
+						opacity: 1;
+						transform: translate3d(0, 0, 0);
+					}
 				}
 				& ~ .shot__image {
 					// .shot__link:hover ~ .shot__image
@@ -108,6 +113,10 @@
 			@include caption();
 			margin-bottom: 0.5em;
 			padding-bottom: calc(0.5em + 5px);
+			opacity: 0;
+			transform: translate3d(0, -0.5em, 0);
+			transition: transform $speed, opacity $speed;
+			transition-delay: $speed;
 
 			&::after {
 				left: 50%;
@@ -118,6 +127,10 @@
 
 		&__description {
 			// .shot__description
+			opacity: 0;
+			transform: translate3d(0, 0.5em, 0);
+			transition: transform $speed, opacity $speed;
+			transition-delay: $speed;
 			@include small-font-size();
 			line-height: $heading-line-height;
 		}
