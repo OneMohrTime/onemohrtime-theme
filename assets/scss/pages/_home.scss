@@ -47,6 +47,14 @@
 				padding-right: $gutter * 3;
 			}
 
+			h1, h2, h3, h4, h5, h6 {
+				// headers in a wysiwyg section only...hopefully
+				margin-bottom: $heading-line-height;
+				&:not(:first-child) {
+					margin-top: $base-line-height;
+				}
+			}
+
 			a {
 				&::before {
 					background-color: $color__black--lightest !important;

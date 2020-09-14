@@ -87,7 +87,8 @@ h3{font-size:1.618034em}
 h4{font-size:1em}
 h5{font-size:.6180339845em}
 h6{font-size:.3819660059em}
-._wysiwyg h1:not([class]):not(:first-child),._wysiwyg h2:not([class]):not(:first-child),._wysiwyg h3:not([class]):not(:first-child),._wysiwyg h4:not([class]):not(:first-child),._wysiwyg h5:not([class]):not(:first-child),._wysiwyg h6:not([class]):not(:first-child){margin-top:1.5em}
+._wysiwyg h1:not([class]),._wysiwyg h2:not([class]),._wysiwyg h3:not([class]),._wysiwyg h4:not([class]),._wysiwyg h5:not([class]),._wysiwyg h6:not([class]){margin-bottom:1.2em}
+._wysiwyg h1:not([class]):not(:first-child),._wysiwyg h2:not([class]):not(:first-child),._wysiwyg h3:not([class]):not(:first-child),._wysiwyg h4:not([class]):not(:first-child),._wysiwyg h5:not([class]):not(:first-child),._wysiwyg h6:not([class]):not(:first-child){margin-top:1.7em}
 p{margin:0 0 1.7em;font-family:inherit;font-weight:normal;line-height:1.7em;widows:3;orphans:3;color:inherit}
 p:last-child{margin-bottom:0}
 p:last-child,p:only-child{margin-bottom:0}
@@ -398,6 +399,8 @@ body.blog .archives,body.archive .archives{width:100%;margin-left:36px;margin-ri
 body.blog .archives__article,body.archive .archives__article{width:100%;margin:1.5em 0 72px}
 .homepage__about{background:-webkit-gradient(linear,right bottom,left top,color-stop(85%,#171409),to(#232015));background:linear-gradient(to top left,#171409 85%,#232015);background:url("https://raw.github.com/Magnus-G/texture-mixin/gh-pages/textures/inverted/concrete_wall_2.png");background-color:#171409;color:#fffefa;font-size:1rem}
 .homepage__about--content{padding:108px 36px}
+.homepage__about--content h1,.homepage__about--content h2,.homepage__about--content h3,.homepage__about--content h4,.homepage__about--content h5,.homepage__about--content h6{margin-bottom:1.2em}
+.homepage__about--content h1:not(:first-child),.homepage__about--content h2:not(:first-child),.homepage__about--content h3:not(:first-child),.homepage__about--content h4:not(:first-child),.homepage__about--content h5:not(:first-child),.homepage__about--content h6:not(:first-child){margin-top:1.7em}
 .homepage__about--content a::before{background-color:#3a372e !important}
 .homepage__about--content a:hover::before{background-color:#84837f !important}
 .homepage__dribbble{width:100%;margin:0 36px 108px}

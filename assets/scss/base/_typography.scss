@@ -51,8 +51,11 @@ h6 { font-size: ms(-2); }
 	h1, h2, h3, h4, h5, h6 {
 
 		// headers in a wysiwyg section only...hopefully
+		&:not([class]) {
+			margin-bottom: $heading-line-height;
+		}
 		&:not([class]):not(:first-child) {
-			margin-top: $base-spacing;
+			margin-top: $base-line-height;
 		}
 	}
 }
