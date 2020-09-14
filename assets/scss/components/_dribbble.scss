@@ -4,67 +4,67 @@
 
 .dribbbles {
 	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	width: 100%;
 
-	@supports (display: grid) {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		grid-column-gap: $gutter;
-		grid-row-gap: $gutter;
-		justify-items: center;
-		width: auto;
-
-		@include media(">=screen768") {
-			grid-column-gap: $gutter-lg;
-			grid-row-gap: $gutter-lg;
-		}
-	}
-
 	.shot {
-		width: 98%;
-		margin: 0 1% 1%;
-		float: left;
+		position: relative;
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 100%;
+		max-width: 100%;
+		overflow: hidden;
+		transition: box-shadow $speed;
+		background-color: $color__black;
+		@include box-shadow();
+
+		@include media("<screen400") {
+			& + .shot {
+				margin-top: $gutter;
+			}
+		}
 
 		@include media(">=screen400") {
-			width: 48%;
+			flex-basis: 50%;
+			max-width: 50%;
 		}
 
-		@include media(">=screen768") {
-			width: 31%;
+		@include media(">=screen480") {
+			flex-basis: calc(50% - #{$gutter-sm});
+			max-width: calc(50% - #{$gutter-sm});
+			margin-bottom: $gutter;
 		}
 
-		@supports (display: grid) {
-			grid-column: span 6;
-			width: auto !important;
-			margin: 0;
-			@include media(">=screen400") { grid-column: span 3; }
-			@include media(">=screen768") { grid-column: span 2; }
-		}
+		@include media(">=screen960") {
+			flex-basis: calc(33.3% - #{$gutter * 2 / 3});
+			max-width: calc(33.3% - #{$gutter * 2 / 3});
+			margin-bottom: 0;
 
-		position: relative;
-		transition: box-shadow $speed;
+			&:nth-child(n+4) {
+				margin-top: $gutter;
+			}
+		}
 
 		&--hover {
 			// .shot--hover
 			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
+			top: 5%;
+			left: 5%;
+			right: 5%;
+			bottom: 5%;
+			width: 90%;
+			height: 90%;
+			text-align: center;
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			height: auto;
-			max-height: 100%;
 			padding: $gutter;
-			transform: translateX(0);
-			transition: margin $speed, max-height $speed, padding $speed, transform $speed;
-			@include caption();
-			line-height: 1.25em;
-			text-align: center;
-			background-color: fade-out($color__yellow, 0.1);
-			color: $color__black--light;
-			z-index: 10;
+			opacity: 0;
+			transition: opacity $speed;
+			border: 3px $color__yellow solid;
 
 			@include media("<screen1024") {
 				// hide only on small screens
@@ -75,27 +75,22 @@
 		&__link {
 			// .shot__link
 			@include block-link();
-			font-size: 0;
-			text-indent: 9999px;
 			z-index: 20;
 
 			&:hover,
 			&:focus {
 				// .shot__link:hover
 				// .shot__link:focus
-
 				& ~ .shot--hover {
 					// .shot__link:hover ~ .shot--hover
 					// .shot__link:focus ~ .shot--hover
-					width: auto;
-					max-height: 50%;
-					max-height: fit-content;
-					transform: translateY( -#{$gutter} );
-					margin-left: $gutter;
-					margin-right: $gutter;
-					padding: $gutter / 2;
-					@include texture($color__white, 54, 0);
-					@include box-shadow();
+					opacity: 1;
+				}
+				& ~ .shot__image {
+					// .shot__link:hover ~ .shot__image
+					// .shot__link:focus ~ .shot__image
+					transform: scale(1.33);
+					opacity: 0.1;
 				}
 			}
 		}
@@ -105,12 +100,26 @@
 			display: block;
 			width: 100%;
 			margin: 0 auto;
-			// transition: opacity 300ms;
+			transition: opacity $speed, transform $speed;
+		}
+
+		&__headline {
+			// .shot__headline
+			@include caption();
+			margin-bottom: 0.5em;
+			padding-bottom: calc(0.5em + 5px);
+
+			&::after {
+				left: 50%;
+				height: 3px;
+				transform: translateX(-50%);
+			}
 		}
 
 		&__description {
 			// .shot__description
-			@include visually-hidden();
+			@include small-font-size();
+			line-height: $heading-line-height;
 		}
 	}
 }
