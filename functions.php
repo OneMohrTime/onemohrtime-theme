@@ -183,7 +183,7 @@ class StarterSite extends Timber\Site {
 		// Swiper 5
 		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper.min.css', array(), null, 'screen' );
 		// Main "screen" stylesheet
-		wp_enqueue_style( 'screen', get_template_directory_uri() . '/assets/css/main.min.css', array(), null, 'screen' );
+		wp_enqueue_style( 'screen', get_template_directory_uri() . '/assets/css/main.css', array(), null, 'screen' );
 		// Google Webfonts
 		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null );
 
