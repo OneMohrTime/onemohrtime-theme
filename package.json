@@ -8,11 +8,6 @@
     "url": "git+https://github.com/OneMohrTime/onemohrtime.git"
   },
   "license": "MIT",
-  "browserslist": [
-    "> 1%",
-    "last 20 versions",
-    "ie 9-11"
-  ],
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
