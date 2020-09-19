@@ -8,7 +8,7 @@
 	&__banner {
 		// .gallery__banner
 		position: relative;
-		background-color: $color__white--dark;
+		background-color: $color__gray--darkest;
 		text-align: left;
 		@include image-overlay();
 		width: 100%;

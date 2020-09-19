@@ -31,12 +31,12 @@
 
 					<div class="archive__content _wysiwyg get-faded">
 						{% include "components/entry-meta.twig" %}
-						<h2 class="archive__title">
-							<a href="{{ post.link }}">{{ post.title }}</a>
-						</h2>
-						<p>{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a></p>
+						<h2 class="archive__title">{{ post.title }}</h2>
+						<p>{{ post.post_excerpt }}[&hellip;]</p>
 					</div>
-					<a href="{{ post.link }}" class="archive__link"></a>
+					<a href="{{ post.link }}" class="archive__link">
+						<span class="screen-reader-text">{{ post.title }}</span>
+					</a>
 
 				</article>
 

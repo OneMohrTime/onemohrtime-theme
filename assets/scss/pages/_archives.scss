@@ -85,11 +85,10 @@ body.archive {
 			._meta {
 				display: flex;
 				flex-flow: row wrap;
-				//align-items: center;
 				margin-bottom: $small-spacing;
 				@include caption();
 				text-align: center;
-				color: $color__gray--light;
+				color: $color__gray--darkest;
 
 				.updated,
 				.author,

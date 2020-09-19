@@ -22,7 +22,7 @@
 		{% if post.type == 'design' %}
 			<p class="_meta _wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
 		{% elseif post.type == 'page' %}
-			<p class="_meta _wysiwyg">{{ post.post_excerpt | truncate(16) }}</p>
+			<p class="_meta _wysiwyg">{{ post.post_excerpt|truncate(16) }}</p>
 		{% else %}
 			{% include "components/entry-meta.twig" %}
 		{% endif %}
@@ -32,11 +32,13 @@
 		</h2>
 
 		{% if post.post_excerpt is defined and post.post_excerpt is not empty %}
-			<p>{{ post.post_excerpt }} <a href="{{ post.link }}">[&hellip;]</a></p>
+			<p>{{ post.post_excerpt }}</p>
 		{% else %}
-			<p>{{ post.post_content|striptags|raw|truncate(30) }} <a href="{{ post.link }}">[&hellip;]</a></p>
+			<p>{{ post.post_content|striptags|raw|truncate(30) }}[&hellip;]</p>
 		{% endif %}
 
 	</div>
-	<a href="{{ post.link }}" class="article__link"></a>
+	<a href="{{ post.link }}" class="article__link">
+		<span class="screen-reader-text">{{ post.title }}</span>
+	</a>
 </article>

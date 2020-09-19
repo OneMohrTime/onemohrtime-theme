@@ -52,9 +52,9 @@
 		}
 
 		._meta {
-			@include small-font-size();
-			margin-bottom: $small-spacing;
 			width: 100%;
+			margin-bottom: $small-spacing;
+			@include small-font-size();
 
 			& > time {
 				position: relative;
