@@ -385,7 +385,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5f5d6d096c6d4',
 			'label' => 'Downloads',
 			'name' => 'downloads',
-			'type' => 'group',
+			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
@@ -394,7 +394,11 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
+			'collapsed' => 'field_5f7a47d6c1b44',
+			'min' => 0,
+			'max' => 0,
 			'layout' => 'block',
+			'button_label' => 'Add Card',
 			'sub_fields' => array(
 				array(
 					'key' => 'field_5f5d6d3c6c6d5',
