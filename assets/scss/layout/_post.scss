@@ -2,8 +2,8 @@
  * === POSTS & DEFAULT PAGES ===
  */
 
-.type-post,
-.type-page {
+.-post,
+.-page {
 	@supports (display: grid) {
 		grid-column: span 4;
 	}

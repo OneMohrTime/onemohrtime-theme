@@ -3,7 +3,7 @@
 
 {% block content %}
 
-	<article {{ function('post_class') }}>
+	<article class="post-{{ post.id }} -{{ post.type }}">
 
 		<header class="page__header">
 			{% if post.post_excerpt %}
