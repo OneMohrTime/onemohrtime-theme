@@ -2,7 +2,7 @@
 {% set displaySidebar = true %}
 
 {% block content %}
-{% for post in posts %}
+
 	<article {{ function('post_class') }}>
 
 		<header class="page__header">
@@ -54,7 +54,7 @@
 		</footer>
 
 	</article>
-{% endfor %}
+
 {% endblock %}
 
 {% block sidebar %}
