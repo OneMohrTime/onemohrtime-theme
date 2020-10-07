@@ -14,32 +14,7 @@
 	<section class="archives">
 		{% if term_page.count > 0 %}
 			{% for post in posts %}
-				{% set loopClass = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %}
-
-				<article class="article -{{ post.type }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy | lower | replace({' ': '-', '/': '-'}) }}-{{ term.name | lower | replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
-
-					<figure class="archive__image parallax">
-						<img src="{{ post.thumbnail.src('thumbnail') }}"
-							width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}"
-							alt="{{ post.thumbnail.alt }}"
-							class="archive__image__image parallax__image"
-							srcset="{{ post.thumbnail.src('medium') }} 500w,
-									{{ post.thumbnail.src('large') }} 1000w,
-									{{ post.thumbnail.src('full') }} 1500w"
-							sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px" />
-					</figure>
-
-					<div class="archive__content _wysiwyg get-faded">
-						{% include "components/entry-meta.twig" %}
-						<h2 class="archive__title">{{ post.title }}</h2>
-						<p>{{ post.post_excerpt }}[&hellip;]</p>
-					</div>
-					<a href="{{ post.link }}" class="archive__link">
-						<span class="screen-reader-text">{{ post.title }}</span>
-					</a>
-
-				</article>
-
+				{% include 'components/article.twig' %}
 			{% endfor %}
 		{% else %}
 			<p>Sorry, there aren&rsquo;t any posts here.</p>
