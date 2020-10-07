@@ -24,22 +24,8 @@
 		justify-content: center;
 		align-content: center;
 		height: 100vh;
-		margin: 0 $gutter;
-
-		@include media(">=screen768") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
-		}
-
-		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
-		}
-
-		@include media(">=screen1440") {
-			margin-left: $gutter * 4;
-			margin-right: $gutter * 4;
-		}
+		@include block-width();
+		margin-bottom: 0;
 
 		.title {
 			@include title();
@@ -82,31 +68,8 @@
 	&__content {
 		// .page__content
 		// .entry__content
-		margin: 0 $gutter $gutter * 2;
-
-		@include media(">=screen768") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
-		}
-
-		@include media(">=screen840") {
-			// cap line lengths
-			& > p,
-			& > ul,
-			& > ol {
-				max-width: 840px;
-			}
-		}
-
-		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
-		}
-
-		@include media(">=screen1440") {
-			margin-left: $gutter * 4;
-			margin-right: $gutter * 4;
-		}
+		@include block-width();
+		@include content-width();
 
 		.gallery {
 			// yes, exact class as '/design' page I know
@@ -333,22 +296,7 @@
 
 	&__repeater {
 		// page__repeater
-		margin: 0 $gutter $gutter * 2;
-
-		@include media(">=screen768") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
-		}
-
-		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
-		}
-
-		@include media(">=screen1440") {
-			margin-left: $gutter * 4;
-			margin-right: $gutter * 4;
-		}
+		@include block-width();
 	}
 }
 

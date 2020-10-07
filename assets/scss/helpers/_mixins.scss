@@ -2,6 +2,47 @@
  * === MIXINS ===
  */
 
+/**
+ * — Structure —
+ */
+
+@mixin block-width() {
+	margin-top: 0;
+	margin-left: $gutter;
+	margin-right: $gutter;
+	margin-bottom: $gutter * 2;
+
+	@include media(">=screen768") {
+		margin-left: $gutter * 2;
+		margin-right: $gutter * 2;
+	}
+
+	@include media(">=screen1024") {
+		margin-left: $gutter * 3;
+		margin-right: $gutter * 3;
+	}
+
+	@include media(">=screen1440") {
+		margin-left: $gutter * 4;
+		margin-right: $gutter * 4;
+	}
+}
+
+@mixin content-width() {
+	@include media(">=screen840") {
+		// cap line lengths
+		& > p,
+		& > ul,
+		& > ol {
+			max-width: 840px;
+		}
+	}
+}
+
+/**
+ * — Accessibility —
+ */
+
 @mixin visually-hidden($focus: null) {
 	position: absolute !important;
 	border: 0;
@@ -71,6 +112,10 @@
 	//   }
 }
 
+/**
+ * — Tools —
+ */
+
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 	&::before {
@@ -93,6 +138,10 @@
 		box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
 	}
 }
+
+/**
+ * — Header Styles —
+ */
 
 @mixin white-shadow() {
 	color: shade($color__white, 0.05);
