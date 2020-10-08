@@ -8,25 +8,11 @@ body.archive {
 	// @include texture($color__white, 54, 0);
 	margin-bottom: 2em;
 
+	.posts,
 	.archives {
-		width: 100%;
-		margin-left: $gutter;
-		margin-right: $gutter;
-
-		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
-		}
-
-		@include media(">=screen1440") {
-			margin-left: $gutter * 4;
-			margin-right: $gutter * 4;
-		}
-
-		@supports (display: grid) {
-			grid-column: span 4;
-			width: auto;
-		}
+		@include block-width();
+		// width: 100%;
+		margin-bottom: 0;
 
 		&__article {
 			// .posts__article
