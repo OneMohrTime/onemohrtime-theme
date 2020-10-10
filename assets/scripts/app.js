@@ -1,20 +1,47 @@
+/** =======================================================================
+ * Javascript ES6: Main/App Entrypoint
+ *
+ * Main file used to import, check, and initiate functions used globally
+ * amongst elements
+ * ===================================================================== */
 
-// ==========================================================================
-// Main javascript file
-// ==========================================================================
+const doc = document.documentElement;
+doc.className = doc.className.replace( 'no-js', 'has-js' );
+doc.setAttribute( 'data-useragent', navigator.userAgent );
+doc.setAttribute( 'data-platform', navigator.platform );
 
-//
-// Used to import, check, and initiate functions used globally amongst elements
-//
+///////////////
+// POLYFILLS //
+///////////////
 
-// Import Polyfills
 // import './polyfills/includes';
 
-// Import Util
+///////////////
+// UTILITIES //
+///////////////
+
 // import './util/includes';
 
-// Import Components
-import stickyNavigation from './components/stickyNavigation';
+////////////////
+// COMPONENTS //
+////////////////
 
-// Initialize Scripts
-stickyNavigation();
+// import dribbble from './components/dribbble';
+// import gallery from './components/gallery';
+// import homepage from './components/homepage';
+// import images from './components/images';
+import navigation from './components/navigation';
+// import projects from './components/projects';
+// import scrolling from './components/scrolling';
+
+//////////
+// INIT //
+//////////
+
+// dribbble();
+// gallery();
+// homepage();
+// images();
+navigation();
+// projects();
+// scrolling();

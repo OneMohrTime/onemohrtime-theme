@@ -180,12 +180,20 @@ class StarterSite extends Timber\Site {
 	public function loadScripts() {
 		// Main "screen" stylesheet
 		wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css', array(), null, 'screen' );
+
 		// Google Webfonts
 		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('main'), false, null );
 
 		// Upgrade jQuery
 		wp_deregister_script( 'jquery' );
-		// wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
+		wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
+
+		// Vendor script file
+		// wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/scripts/vendor.js', array(), null, true );
+
+		// Load Fancybox seperately
+		wp_enqueue_style( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', array(), false, null );
+		wp_enqueue_script( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array(), null, true );
 
 		// Main script file
 		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array(), null, true );

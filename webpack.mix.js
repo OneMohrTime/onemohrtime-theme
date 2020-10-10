@@ -17,6 +17,7 @@ mix.setPublicPath('assets') // generate manifest in this directory
   // JavaScript ES6
   .js('assets/scripts/app.js', 'assets/scripts/main.js')
   // .extract([
+  //   'fancybox',
   //   'jquery',
   // ])
 
