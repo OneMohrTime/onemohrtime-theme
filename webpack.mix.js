@@ -12,23 +12,26 @@
 const mix = require('laravel-mix');
 // const dotenv = require('dotenv');
 
-mix.setPublicPath('assets')
+mix.setPublicPath('assets') // generate manifest in this directory
 
   // JavaScript ES6
   .js('assets/scripts/app.js', 'assets/scripts/main.js')
   // .extract([
-  //   'vue',
+  //   'jquery',
   // ])
 
   // SCSS to CSS
   .sass('assets/styles/app.scss', 'assets/styles/main.css')
+  // .sourceMaps();
+
+  // Process images + media
   .copyDirectory('assets/media/src', 'assets/images')
 
   // Live reload browser
   .browserSync({
     watch: true,
     // proxy: process.env.SITE_URL,
-    proxy: 'onemohrti.local',
+    proxy: 'https://onemohrti.local',
     // files: [
     //   '{*,**/*}.css',
     //   '{*,**/*}.js',
@@ -46,8 +49,9 @@ mix.setPublicPath('assets')
   })
 
   // Additional config
-  // .version()
+  // .minify() // create sibling *.min file
   // .disableSuccessNotifications()
+  // .version()
   .options({
     // autoprefixer: {
     //   options: {
