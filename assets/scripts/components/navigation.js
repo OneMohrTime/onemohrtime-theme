@@ -3,7 +3,7 @@
  * ===================================================================== */
 
 // import {$,jQuery} from 'jquery';
-import { TweenLite, Elastic, CSSPlugin, TimelineLite } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 export default function navigation() {
 
