@@ -127,7 +127,7 @@ class StarterSite extends Timber\Site {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
-		/*
+		/**
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
 		 * hard-coded <title> tag in the document head, and expect WordPress to
@@ -135,14 +135,14 @@ class StarterSite extends Timber\Site {
 		 */
 		add_theme_support( 'title-tag' );
 
-		/*
+		/**
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		/*
+		/**
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
@@ -154,7 +154,7 @@ class StarterSite extends Timber\Site {
 			'search-form'
 		) );
 
-		/*
+		/**
 		 * Enable support for Post Formats.
 		 *
 		 * See: https://codex.wordpress.org/Post_Formats
@@ -178,42 +178,17 @@ class StarterSite extends Timber\Site {
 	 * Theme assets
 	 */
 	public function loadScripts() {
-		// Fancybox 3
-		wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/assets/css/jquery.fancybox.min.css', array(), null, 'screen' );
-		// Swiper 5
-		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper.min.css', array(), null, 'screen' );
 		// Main "screen" stylesheet
-		wp_enqueue_style( 'screen', get_template_directory_uri() . '/assets/css/main.css', array(), null, 'screen' );
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css', array(), null, 'screen' );
 		// Google Webfonts
-		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('screen'), false, null );
+		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('main'), false, null );
 
 		// Upgrade jQuery
 		wp_deregister_script( 'jquery' );
-		wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
-		// Google Webfonts
-//		wp_enqueue_script('webfonts', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.6.26', true);
-		// Vendor script
-		wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/js/vendor.js', array('jquery'), null, true );
-		// Isotope
-		wp_enqueue_script( 'isotope', get_template_directory_uri() . '/assets/js/lib/isotope.pkgd.min.js', array(), '3.0.6', true );
-		// ScrollMagic
-		wp_enqueue_script( 'scrollmagic', get_template_directory_uri() . '/assets/js/lib/ScrollMagic.min.js', array(), '2.0.5', true );
-//		wp_enqueue_script('scrollmagic-debug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', ['scrollmagic'], null, true);
-		wp_enqueue_script( 'jquery-scrollmagic', get_template_directory_uri() . '/assets/js/lib/plugins/jquery.ScrollMagic.min.js', array('scrollmagic'), '2.0.7', true );
-		// GSAP Tween Max
-		wp_enqueue_script( 'tweenmax', get_template_directory_uri() . '/assets/js/lib/TweenMax.min.js', array(), '2.0.5', true );
-		// GSAP CSS Plugin
-		wp_enqueue_script( 'gsap-css', get_template_directory_uri() . '/assets/js/lib/plugins/CSSPlugin.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
-		// GSAP CSS animation
-		wp_enqueue_script( 'gsap-animation', get_template_directory_uri() . '/assets/js/lib/plugins/animation.gsap.min.js', array('scrollmagic','tweenmax'), '2.0.5', true );
-		// GSAP jQuery plugin
-		wp_enqueue_script( 'gsap-jquery', get_template_directory_uri() . '/assets/js/lib/plugins/jquery.gsap.min.js', array('tweenmax'), '0.1.12', true );
-		// Swiper
-		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/lib/swiper.min.js', array(), '5.3.7', true );
-		// Fancybox 3
-		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/lib/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );
+		// wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true );
+
 		// Main script file
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'vendor'), null, true );
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array(), null, true );
 	}
 
 	/**
