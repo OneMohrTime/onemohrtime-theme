@@ -12,11 +12,10 @@ export default function gallery() {
 
   const $projGallery = $( '.project__section.project__gallery' );
 
-  if ( $projGallery ) {
-    $projGallery.each( function() {
-
+  if ( $projGallery.length ) {
+    $projGallery.each( function(index, item) {
       // reorganize with Masonry
-      $projGallery.isotope({
+      const projGalleryIso = new Isotope( item, {
         itemSelector: '.js-image',
         percentPosition: true,
         masonry: {
@@ -34,28 +33,31 @@ export default function gallery() {
 
   const $wpGallery = $( '.wp-block-gallery .blocks-gallery-grid' );
 
-  if ( $wpGallery ) {
-    let sizer  = $( '<li class="blocks-gallery-sizer"></li>' );
-    let gutter = $( '<li class="blocks-gallery-gutter"></li>' );
-    $wpGallery.prepend( sizer, gutter );
+  if ( $wpGallery.length ) {
+    $wpGallery.each( function(index, item) {
 
-    // reorganize with Masonry
-    $wpGallery.isotope({
-      itemSelector: '.blocks-gallery-item',
-      percentPosition: true,
-      masonry: {
-        columnWidth: '.blocks-gallery-sizer',
-        gutter: '.blocks-gallery-gutter',
-        horizontalOrder: true
-      }
-    });
+      let sizer  = $( '<li class="blocks-gallery-sizer"></li>' );
+      let gutter = $( '<li class="blocks-gallery-gutter"></li>' );
+      $wpGallery.prepend( sizer, gutter );
 
-    // add .get-faded class
-    $wpGallery.parent().addClass( 'get-faded' );
+      // reorganize with Masonry
+      const wpGalleryIso = new Isotope( item, {
+        itemSelector: '.blocks-gallery-item',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '.blocks-gallery-sizer',
+          gutter: '.blocks-gallery-gutter',
+          horizontalOrder: true
+        }
+      });
 
-    // add fancybox attribute
-    $wpGallery.children().each( function( i, e ) {
-      $( e ).find( 'a' ).attr( 'data-fancybox', 'image' );
+      // add .get-faded class
+      $wpGallery.parent().addClass( 'get-faded' );
+
+      // add fancybox attribute
+      $wpGallery.children().each( function( index, item ) {
+        $( item ).find( 'a' ).attr( 'data-fancybox', 'image' );
+      });
     });
   }
 
@@ -66,10 +68,9 @@ export default function gallery() {
 
   const $pageGallery = $( '#images' );
 
-  if ( $pageGallery ) {
-
+  if ( $pageGallery.length ) {
     // reorganize with Masonry
-    $pageGallery.isotope({
+    const pageGalleryIso = new Isotope( $pageGallery, {
       itemSelector: '.js-image',
       percentPosition: true,
       masonry: {
@@ -85,5 +86,4 @@ export default function gallery() {
       }
     });
   }
-
 }
