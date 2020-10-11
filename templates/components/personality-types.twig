@@ -2,22 +2,24 @@
 
 <dl class="c-definitionList -personalityTypes">
 	{% for test in post.get_field('personality_traits') %}
+		<div>
 
-		<dt class="c-definitionList__header">
-			{% if test.test_link %}
-				<a href="{{ test.test_link }}" target="_blank" rel="noopener">{{ test.test_name }}</a>
-			{% else %}
-				{{ test.test_name }}
-			{% endif %}
-		</dt>
-		<dd class="c-definitionList__data _wysiwyg">
-			{% if test.answer_link %}
-				<a href="{{ test.answer_link }}" target="_blank" rel="noopener">{{ test.answer }}</a>
-			{% else %}
-				{{ test.answer }}
-			{% endif %}
-		</dd>
+			<dt class="c-definitionList__header">
+				{% if test.test_link %}
+					<a href="{{ test.test_link }}" target="_blank" rel="noopener">{{ test.test_name }}</a>
+				{% else %}
+					{{ test.test_name }}
+				{% endif %}
+			</dt>
+			<dd class="c-definitionList__data _wysiwyg">
+				{% if test.answer_link %}
+					<a href="{{ test.answer_link }}" target="_blank" rel="noopener">{{ test.answer }}</a>
+				{% else %}
+					{{ test.answer }}
+				{% endif %}
+			</dd>
 
+		</div>
 	{% endfor %}
 </dl>
 

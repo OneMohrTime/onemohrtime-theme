@@ -1,0 +1,108 @@
+/**
+ * === HEADER ===
+ */
+
+.site__header {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 72px;
+	transition: $speed linear;
+	background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+	@include texture($color__black, 54, 1);
+	box-shadow: 0 -1px 3px fade-out($color__black, 0.94), 0 -1px 2px fade-out($color__black, 0.88);
+	z-index: 20;
+
+	&.nav-is-open {
+		box-shadow: none;
+	}
+
+	@include media(">=screen600") {
+		top: 0;
+		bottom: auto;
+		height: 100px;
+		max-height: none;
+		background: transparent;
+		box-shadow: none;
+
+		&.-slideUp {
+			animation: navSlideUp $speed-slow ease forwards;
+		}
+		&.-slideDown {
+			animation: navSlideDown $speed-slow ease forwards;
+		}
+	}
+}
+
+@supports (pointer-events: all) {
+	.site__header { pointer-events: none; }
+	.toggle__menu,
+	.site__logo,
+	.main-navigation { pointer-events: auto; }
+}
+
+.site__logo {
+	position: absolute;
+	top: 15px;
+	right: $gutter;
+	z-index: 35;
+
+	@include media(">=screen600") {
+		top: 30px;
+	}
+
+	@include media(">=screen768") {
+		right: 0;
+		margin-right: $gutter * 2;
+	}
+
+	@include media(">=screen1024") {
+		margin-right: $gutter * 3;
+		transform: translateX(0);
+		transition: transform $speed;
+
+		.-slideUp &,
+		.-slideDown &,
+		.-activeNavigationAreaUpTopButNotWhenScrolling & {
+			transform: translateX( calc(100% + #{$gutter} + #{$gutter / 2}) );
+		}
+	}
+
+	@include media(">=screen1440") {
+		margin-right: $gutter * 4;
+	}
+
+
+	.logo {
+		display: block;
+		width: auto;
+		height: 40px;
+
+		#design {
+			// ID inside inline-svg
+			path {
+				fill: $color__black;
+				transition: $speed linear;
+			}
+		}
+	}
+
+	&.inverted {
+		#design {
+			// ID inside inline-svg
+			path {
+				fill: $color__white;
+			}
+		}
+		// only turn logo yellow when menu is down
+		&:hover {
+			.logo {
+				#design {
+					path {
+						fill: $color__yellow;
+					}
+				}
+			}
+		}
+	}
+}

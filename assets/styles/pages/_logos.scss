@@ -1,0 +1,12 @@
+/**
+ * === LOGOS ===
+ */
+
+.-logos {
+
+	.page__gallery {
+		// .-logos .page__gallery
+		@include block-width();
+		@include content-width();
+	}
+}

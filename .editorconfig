@@ -11,10 +11,10 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
-[{*.json,*.js,*.php}]
+[{*.json,*.php}]
 indent_size = 2
 
-[{package.json,*.yml}]
+[{package.json,*.yml,*.js}]
 indent_style = space
 indent_size = 2
 

@@ -6,7 +6,7 @@
 
 {% block content %}
 
-	<article {{ function('post_class') }}>
+	<article class="post-{{ post.id }} -{{ post.type }}">
 
 		<header class="page__header">
 			{% if post.subtitle %}
@@ -72,17 +72,6 @@
 				{% endfor %}
 			</section>
 		{% endif %}
-
-		{# <header class="page__content">
-			<h2 class="_headline">Hello, here&rsquo;s more</h2>
-		</header>
-
-		<section class="page__content _wysiwyg">
-			<p>text</p>
-		</section>
-
-		<footer class="page__footer">
-		</footer> #}
 
 	</article>
 

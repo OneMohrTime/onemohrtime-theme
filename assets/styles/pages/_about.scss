@@ -1,0 +1,39 @@
+/**
+ * === ABOUT ===
+ */
+
+.-about {
+	.repeater {
+		padding-top: $gutter;
+
+		& + .repeater {
+			border-top: 5px $color__yellow solid;
+		}
+	}
+
+	.repeater__title {
+		text-transform: none;
+	}
+}
+
+.-personalityTypes {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	@include small-font-size();
+
+	& > div {
+		margin-top: $gutter / 2;
+	}
+
+	@include media('>=screen600') {
+		position: absolute;
+		bottom: $gutter;
+		flex-direction: row;
+
+		& > div {
+			margin-top: 0;
+			margin-right: $gutter / 2;
+		}
+	}
+}

@@ -1,0 +1,34 @@
+/**
+ * === LINKS ===
+ */
+
+a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	color: inherit;
+	vertical-align: baseline;
+	cursor: pointer;
+
+	&:hover {
+		color: inherit;
+	}
+
+	&:focus {
+		outline-color: fade-out($color__yellow, 0.4);
+	}
+
+	// if link is not a button
+	&:not(.btn):not([data-fancybox]) {
+		// but is a child of ._wysiwyg
+		._wysiwyg & {
+			// stylize as inline link
+			@include inline();
+		}
+	}
+}
+
+// specific styles for external links
+//a[href*="//"]:not([href*="onemohrti.me"]) {}
+

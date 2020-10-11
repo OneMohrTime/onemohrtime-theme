@@ -1,0 +1,208 @@
+/**
+ * === ARCHIVES ===
+ */
+
+body.archive {
+	position: relative;
+	@include texture($color__white, 54, 0);
+	margin-bottom: 2em;
+
+	.archives {
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		&__article {
+			// .archives__article
+			width: 100%;
+			margin: $base-spacing 0 #{$gutter * 2};
+			@include media(">=screen600")  {
+				padding-right: 20%;
+			}
+			@include media(">=screen840")  { padding-right: 30%; }
+			@include media(">=screen1024") { padding-right: 40%; }
+			@include media(">=screen1600") { padding-right: 50%; }
+		}
+	}
+
+	.type-post {
+		position: relative;
+		width: 100%;
+		height: auto;
+		max-height: 100vh;
+		min-height: 420px;
+		margin-bottom: $base-spacing;
+		overflow: hidden;
+		@include body-copy();
+
+		@include media(">=screen768") {
+			width: auto;
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		@include media(">=screen840") {
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+			margin-bottom: $gutter * 2;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+			margin-bottom: $gutter * 3;
+		}
+	}
+
+	.archive {
+
+		&__content {
+			// .archive__content
+			position: relative;
+			margin-bottom: $base-spacing;
+
+			@include media(">=screen840") {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: calc(40% - #{$gutter});
+				max-width: calc(40% - #{$gutter});
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-bottom: 0;
+				@include small-font-size();
+			}
+
+			._meta {
+				display: flex;
+				flex-flow: row wrap;
+				margin-bottom: $small-spacing;
+				@include caption();
+				text-align: center;
+				color: $color__gray--darkest;
+
+				.updated,
+				.author,
+				a:not(.btn) {
+					@include visually-hidden();
+				}
+
+				@include media(">=screen840") {
+					text-align: left;
+				}
+			}
+
+			&:hover {
+				._meta {
+					color: $color__black--light;
+				}
+				.post-format {
+					.-svg {
+						opacity: 1;
+						path {
+							fill: $color__yellow;
+						}
+					}
+				}
+			}
+		}
+
+		&__title {
+			// .archive__title
+			position: relative;
+			@include paragraph();
+
+			@include media(">=screen840") {
+				margin-bottom: $base-spacing;
+			}
+
+			@include media(">=screen1280") {
+				@include subtitle();
+			}
+
+			a {
+
+				&::before {
+					display: none;
+				}
+
+				@include media(">=screen840") {
+					@include ellipsis();
+				}
+			}
+		}
+
+		&__image {
+			// .archive__image
+			position: relative;
+			width: 100%;
+			height: auto;
+			margin-bottom: $base-spacing;
+			overflow: hidden;
+			background-color: $color__white--dark;
+			color: $color__white;
+
+			@include media(">=screen840") {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 60%;
+				max-width: 60%;
+				min-height: 100%;
+				margin-bottom: 0;
+				@include box-shadow();
+			}
+
+			// &__image {
+				// .archive__image__image
+			// }
+		}
+
+		&__link {
+			// .archive__link
+			display: none;
+			@include media(">=screen840") {}
+		}
+
+	}
+
+	// Inverse odd/even layout
+	@include media(">=screen840") {
+		&.-isEven {
+			flex-direction: row-reverse;
+		}
+	}
+
+	.post-format {
+		position: relative;
+		margin-left: $base-spacing;
+
+		.-svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.1;
+			transform: translate3d( -#{$small-spacing}, -25%, 0 );
+			z-index: -1;
+			// double default size
+			font-size: 1.5em;
+			line-height: 1.5em;
+			height: 1.5em;
+			width: 1.5em;
+		}
+	}
+}
+
+@supports (display: grid) {
+	.archives__header {
+		grid-column: span 4;
+	}
+}

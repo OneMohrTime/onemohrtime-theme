@@ -1,0 +1,56 @@
+/**
+ * === FANCYBOX ===
+ */
+
+.fancybox-bg {
+	background: $color__black;
+}
+
+.fancybox-button {
+	width: 96px;
+	height: 72px;
+	padding: $gutter / 2 $gutter;
+	transition: background-color $speed, color $speed;
+	background: $color__yellow;
+	color: $color__black;
+
+	&:focus,
+	&:hover {
+		background-color: $color__yellow--dark;
+	}
+}
+
+.fancybox-infobar {
+	width: 96px;
+	height: 72px;
+	padding: 0 $gutter / 2;
+	line-height: 72px;
+	color: $color__white;
+}
+
+.fancybox-navigation {
+	.fancybox-button {
+		width: 98px;
+		height: 158px;
+		div {
+			padding: $gutter $gutter / 2;
+			transition: background-color $speed, color $speed;
+		}
+	}
+	.fancybox-button--arrow_left {
+		padding-left: 0;
+		transition: background-color $speed, color $speed;
+	}
+	.fancybox-button--arrow_right {
+		padding-right: 0;
+		transition: background-color $speed, color $speed;
+	}
+}
+
+.fancybox-thumbs__list {
+	a {
+		&::before {
+			border: 5px solid $color__yellow;
+		}
+	}
+}

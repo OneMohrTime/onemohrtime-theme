@@ -1,0 +1,93 @@
+/**
+ * === BASE ===
+ */
+
+html {
+	background-color: $color__black;
+}
+
+body {
+	position: relative;
+	background-color: $color__white;
+	color: $color__black;
+	font-family: $font__main;
+	width: 100vw;
+	height: auto;
+	min-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	// typography
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&.blog,
+	&.single-post,
+	&.page-template-default {
+		@include texture($color__white, 25, 0);
+	}
+}
+
+* {
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+
+.site {
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 72px;
+	transition: $speed linear;
+	z-index: 1;
+
+	@include media(">=screen600") {
+		padding-bottom: 0;
+
+		&.-activeNavigationAreaUpTopButNotWhenScrolling {
+			padding-top: 100px;
+		}
+	}
+
+	@include media(">=screen1600") {
+		max-width: 1440px;
+		border-left: 1px $color__white--darkest solid;
+		border-right: 1px $color__white--darkest solid;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@include media(">=screen1920") {
+		max-width: 1600px;
+	}
+
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		width: 100vw;
+		min-height: 100vh;
+	}
+
+	&__main {
+		// .site__main
+		position: relative;
+		width: 100%;
+		min-height: 100vh;
+
+		@supports (display: grid) {
+			grid-column: span 4;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-column-gap: $gutter;
+			width: auto;
+
+			&.-home,
+			&.-posts,
+			&.-design {
+				display: block;
+			}
+		}
+	}
+}

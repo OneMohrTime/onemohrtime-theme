@@ -9,15 +9,15 @@
 	<body class="{{ body_class }}">
 		<div id="page" class="site">
 
-			<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+			<a class="skip-link screen-reader-text" href="#main">{{ _e( 'Skip to main') }}</a>
 
-			<header id="masthead" class="site__header" role="banner">
+			<header id="masthead" class="site__header">
 				{% block header %}
 					{% include 'partials/header.twig' %}
 				{% endblock %}
 			</header>
 
-			<main id="main" class="site__main content-area{{ ' -' ~ post.slug ?? '' }}{% if displaySidebar == true %} -hasSidebar{% endif %}" role="main">
+			<main id="main" class="site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}

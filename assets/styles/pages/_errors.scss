@@ -1,0 +1,77 @@
+/**
+ * === ERROR PAGES ===
+ */
+
+.daft-punk {
+	position: relative;
+	background: transparent url("../img/daft-punk-404.gif") repeat center center fixed;
+	background-size: cover;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+	padding-top: $gutter;
+
+	@supports (display: grid) {
+		grid-column: span 4;
+		color: $color__white;
+		width: auto;
+		padding-top: 0;
+
+		&__content {
+			// .daft-punk__content
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: center;
+			padding-bottom: $gutter;
+
+			.btn {
+				@include btn-color($color__white);
+			}
+		}
+	}
+
+	&__content {
+		// .daft-punk__content
+		width: 100vw;
+		height: 100vh;
+		@include text-shadow();
+
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
+
+		&--title {
+			// .daft-punk__content--title
+			@include underlined();
+			margin-bottom: $gutter / 2;
+			padding-bottom: $gutter / 2;
+			font-family: $font__secondary;
+			font-size: 5em;
+			text-transform: lowercase;
+
+			&::after {
+				left: 50%;
+				margin-left: -50px;
+			}
+			@include media(">=screen768")  { font-size: 6em; }
+			@include media(">=screen960")  { font-size: 7em; }
+			@include media(">=screen1024") { font-size: 8em; }
+			@include media(">=screen1280") { font-size: 9em; }
+			@include media(">=screen1440") { font-size: 10em; }
+		}
+
+		&--alert {
+			// .daft-punk__content--alert
+			margin-bottom: $small-spacing;
+		}
+	}
+}
+
+.error404 {
+	.site__header,
+	.site__footer {
+		display: none;
+	}
+}

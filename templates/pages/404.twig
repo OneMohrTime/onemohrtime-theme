@@ -2,10 +2,15 @@
 
 {% block content %}
 
-	<div class="alert alert-warning">
-		{{ __('Sorry, but the page you were trying to view does not exist.', 'onemohrtime') }}
+<section class="daft-punk__content">
+
+	<h1 class="daft-punk__content--title">404</h1>
+
+	<div class="daft-punk__content--alert alert-warning">
+		<p>Daft Punk broke a page on my website... one <s>mohr</s> more time 🎵</p>
 	</div>
 
-	{{ function('get_search_form') }}
+	<a href="{{ site.link }}" class="btn">Home</a>
+</section>
 
 {% endblock %}

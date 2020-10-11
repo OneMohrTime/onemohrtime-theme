@@ -1,62 +1,33 @@
 # OneMohrTi.me/
 
-[![buddy pipeline](https://app.buddy.works/onemohrtime/onemohrtime/pipelines/pipeline/231049/badge.svg?token=87fbddf4764a79d8087606f27acba051a5f8777676ebcfd6ebb9563158502a61 "buddy pipeline")](https://app.buddy.works/onemohrtime/onemohrtime/pipelines/pipeline/231049)
+[![GitHub issues](https://img.shields.io/github/issues/onemohrtime/onemohrtime-theme)](https://github.com/OneMohrTime/onemohrtime-theme/issues)
+[![buddy pipeline](https://app.buddy.works/onemohrtime/onemohrtime/pipelines/pipeline/231049/badge.svg?token=87fbddf4764a79d8087606f27acba051a5f8777676ebcfd6ebb9563158502a61 "buddy pipeline")](https://buddy.works/)
+[![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fonemohrti.me)](https://validator.w3.org/)
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fonemohrtime)](https://twitter.com/intent/tweet?text=Check+out+these+interactions:&url=https%3A%2F%2Fgithub.com%2FOneMohrTime%2Fonemohrtime-theme)
 
 This repo is the codebase for [https://onemohrti.me](https://onemohrti.me), written by [Derek Mohr](https://instagram.com/onemohrtimedesign).
 
-## Requirements
+## Build Tools
 
->- Node 12.x
->- PHP 7.3
->- MySQL 5.7
+| Server | - | - | - | Sass | JS Libraries | - | - |
+| - | - | - | - | - | - | - | - |
+| `Node 12.x` | `NPM 6.x` | `PHP 7.4` | `MySQL 5.7` | `1.27.x` | `gsap@3` | `Isotope v3` | `jQuery 3` |
 
 ## Build Commands
 
-### Dev Environment
+This project uses **Laravel Mix** to compile most assets. Unfortunately, `Fancybox 3` doesn't compile as a module, and parallax images (_along with almost all scroll events_) must be completely re-written.
 
->- _Live reload browser with BrowserSync_
->- _Hotloading styles with CSS Injection_
+- [x] Convert WP Gulp to Laravel Mix
+- [ ] Restore and add to `GSAP` animations
+- [ ] Slim down files with more ES6 options
 
-### Styles
+```zsh
+# compile expanded assets
+npm run dev
 
->- _Sass to CSS conversion_
->- _Merging media queries_
->- _Error handling_
->- _Auto-prefixing_
->- _Minification_
->- _Sourcemaps_
+# compile compressed assets
+npm run prod
 
-### Javascripts
-
->- _Concatenation_
->- _Minification/uglification_
->- _Separate vendor and custom JS files handling_
-
-### Images
-
->- _Minification/optimization of images_
->- _File types: `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`_
-
-### Translation
-
->- _Generates `.pot` translation file for i18n and l10n_
-
-### Watching
-
->- _For changes in files to recompile_
->- _File types: `.css`, `.html`, `.php`, `.js`_
-
-## More Scripts/Tasks
-
-To optimize images and generate WP POT translation file, or generate a RTL stylesheet you can run the following commands
-
-```sh
-# To optimize images.
-gulp images
-
-# To generate WP POT translation file.
-gulp translate
-
-# To generate RTL stylesheets and Sourcemap.
-gulp stylesRTL
+# watch and reload components
+npm run watch
 ```
