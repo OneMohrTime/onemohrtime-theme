@@ -13,6 +13,15 @@
 			{{ post.content }}
 		</div>
 
+		{% if post.sections|length %}
+			<div class="entry__builder">
+				{% for block in builder %}
+					{% set module = block.acf_fc_layout %}
+					{% include "_repeater/" ~ module ~ '.twig' %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
 		<footer class="entry__foooter get-faded">
 			{{ wp_link_pages }}
 		</footer>
