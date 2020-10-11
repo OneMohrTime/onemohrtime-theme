@@ -1,0 +1,28 @@
+{% set section = block %}
+
+{% set headline    = section.headline ?? null %}
+{% set subheadline = section.subheadline ?? null %}
+{% set text        = section.text ?? null %}
+{% set button      = section.button ?? null %}
+{% set isLarge     = section.is_large.value ?? false %}
+
+{#
+ # Text Block
+ #}
+
+<div class="project__section project__text get-faded">
+	{% if headline %}
+		<h2 class="_headline">{{ headline }}</h2>
+	{% endif %}
+	{% if subheadline %}
+		<h3 class="_subheadline">{{ subheadline }}</h3>
+	{% endif %}
+	{% if text %}
+		<div class="_wysiwyg{% if isLarge %} -isLarge{% endif %}">
+			{{ text }}
+		</div>
+	{% endif %}
+	{% if button %}
+		<a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="btn">{{ button.title }}</a>
+	{% endif %}
+</div>
