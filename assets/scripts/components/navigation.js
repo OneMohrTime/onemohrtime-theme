@@ -2,19 +2,14 @@
  * Components / Navigation
  * ===================================================================== */
 
-// import {$,jQuery} from 'jquery';
 import { TimelineMax } from 'gsap';
 
 export default function navigation() {
 
-  // use jQuery
-  // window.$ = $;
-  // window.jQuery = jQuery;
-
-  // Viewport in log
+  // Viewport check
   const viewportWidth  = window.innerWidth;
   const viewportHeight = window.innerHeight;
-  console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
+  // console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
 
   /**
    * Change MENU to EXIT

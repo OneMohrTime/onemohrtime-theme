@@ -2,28 +2,20 @@
  * Components / Scrolling
  * ===================================================================== */
 
-import {$,jQuery} from 'jquery';
-import ScrollMagic from 'scrollmagic';
+import { gsap } from 'gsap';
+import { random } from 'gsap/gsap-core';
+import ScrollTrigger from 'gsap/scrollTrigger'
 
 export default function scrolling() {
 
-  // use jQuery
-  window.$ = $;
-  window.jQuery = jQuery;
+  // Add replacement for ScrollMagic
+  // (required in order to use `scrollTrigger`)
+  gsap.registerPlugin(ScrollTrigger);
 
-
-  /**
-   * Init ScrollMagic
-   */
-
-  const scrollMagicController = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: 0.8
-    }
-
-    // addIndicators : true
-  });
-
+  // Viewport check
+  const viewportWidth  = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  // console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
 
   /**
    * Parallax images
@@ -55,26 +47,33 @@ export default function scrolling() {
    * Fade in content blocks
    */
 
-  $( '.get-faded' ).each( function() {
-    var fadeParent   = this,
-      fadeChild    = $( this ).children(),
-      fadeDuration = 0.2,
-      fadeBetween  = 0.1;
+  $( '.get-faded' ).each( function(i,e) {
 
-    var tweenFade = new TimelineMax()
-      .staggerTo( fadeChild, fadeDuration, {
-        y: 0,
-        autoAlpha: 1
-      }, fadeBetween );
+    let fadeParent   = e;
+    let fadeChild    = $( this ).children();
+    let fadeDuration = 0.3;
+    let fadeBetween  = 0.2;
 
-    var fadeScene  = new ScrollMagic.Scene({
-      triggerElement: fadeParent,
-      triggerHook: 1,
-      reverse: false
-    })
-      .setTween( tweenFade )
-      .setClassToggle( fadeChild, 'got-faded' )
-      .addTo( scrollMagicController );
+    const fadedTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: fadeParent,
+        onEnter: () => $(this).removeClass('get-faded').addClass('got-faded'),
+        onEnterBack: () => $(this).removeClass('get-faded').addClass('got-faded'),
+      }
+    });
+
+    // fadedTimeline.to( fadeChild, {
+    //   scrollTrigger: fadeParent,
+    //   duration: fadeDuration,
+    //   y: 0,
+    //   autoAlpha: 1
+    // });
+
+    fadedTimeline.staggerTo( fadeChild, fadeDuration, {
+      y: 0,
+      autoAlpha: 1
+    }, fadeBetween);
+
   });
 
 }

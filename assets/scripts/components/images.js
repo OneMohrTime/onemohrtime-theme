@@ -2,20 +2,11 @@
  * Components / Images
  * ===================================================================== */
 
-import {$,jQuery} from 'jquery';
-// import '@fancyapps/fancybox';
-// fancybox($);
-
 export default function images() {
-
-  // use jQuery
-  window.$ = $;
-  window.jQuery = jQuery;
 
   /**
    * Customize Fancybox
    */
-
 
   $( '[data-fancybox]' ).fancybox({
 

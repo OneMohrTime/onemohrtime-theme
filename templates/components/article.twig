@@ -1,7 +1,7 @@
 {% set loopClass = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %}
 
-<article class="article -{{ post.type }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy | lower | replace({' ': '-', '/': '-'}) }}-{{ term.name | lower | replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
-	<figure class="article__image{% if post.gallery %} swiper-container -attachments js-swiper-attachments{% else %} parallax{% endif %}">
+<article class="article -{{ post.type }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
+	<figure class="article__image parallax">
 
 		{% if post.thumbnail %}
 			<img src="{{ post.thumbnail.src('thumbnail') }}"

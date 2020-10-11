@@ -2,13 +2,9 @@
  * Components / Gallery
  * ===================================================================== */
 
-import {$,jQuery} from 'jquery';
+import Isotope from 'isotope-layout';
 
 export default function gallery() {
-
-  // use jQuery
-  window.$ = $;
-  window.jQuery = jQuery;
 
   /**
    * Change project gallery into Masonry layout

@@ -192,11 +192,11 @@ class StarterSite extends Timber\Site {
 		// wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/scripts/vendor.js', array(), null, true );
 
 		// Load Fancybox seperately
-		wp_enqueue_style( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', array(), false, null );
+		// wp_enqueue_style( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', array(), false, null );
 		wp_enqueue_script( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array(), null, true );
 
 		// Main script file
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array(), null, true );
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array('fancybox'), null, true );
 	}
 
 	/**

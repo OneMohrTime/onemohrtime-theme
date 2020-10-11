@@ -2,13 +2,7 @@
  * Components / Dribbble
  * ===================================================================== */
 
-import {$,jQuery} from 'jquery';
-
 export default function dribbble() {
-
-  // use jQuery
-  window.$ = $;
-  window.jQuery = jQuery;
 
   /**
    * Dribbble galleries

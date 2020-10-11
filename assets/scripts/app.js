@@ -26,22 +26,22 @@ doc.setAttribute( 'data-platform', navigator.platform );
 // COMPONENTS //
 ////////////////
 
-// import dribbble from './components/dribbble';
-// import gallery from './components/gallery';
-// import homepage from './components/homepage';
-// import images from './components/images';
+import dribbble from './components/dribbble';
+import gallery from './components/gallery';
+import homepage from './components/homepage';
+import images from './components/images';
 import navigation from './components/navigation';
-// import projects from './components/projects';
-// import scrolling from './components/scrolling';
+import projects from './components/projects';
+import scrolling from './components/scrolling';
 
 //////////
 // INIT //
 //////////
 
-// dribbble();
-// gallery();
-// homepage();
-// images();
+dribbble();
+gallery();
+homepage();
+images();
 navigation();
-// projects();
-// scrolling();
+projects();
+scrolling();
