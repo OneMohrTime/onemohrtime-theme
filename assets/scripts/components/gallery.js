@@ -66,11 +66,11 @@ export default function gallery() {
    * Convert WordPress Block Galleries into Masonry layout
    */
 
-  const $pageGallery = $( '#images' );
+  const pageGallery = document.getElementById('images');
 
-  if ( $pageGallery.length ) {
+  if ( pageGallery.length ) {
     // reorganize with Masonry
-    const pageGalleryIso = new Isotope( $pageGallery, {
+    const pageGalleryIso = new Isotope( pageGallery, {
       itemSelector: '.js-image',
       percentPosition: true,
       masonry: {
@@ -84,6 +84,6 @@ export default function gallery() {
       visibleStyle: {
         opacity: 1
       }
-    });
+    }, 0);
   }
 }
