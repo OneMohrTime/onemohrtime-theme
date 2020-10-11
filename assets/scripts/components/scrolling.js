@@ -21,27 +21,46 @@ export default function scrolling() {
    * Parallax images
    */
 
-  $( '.parallax' ).each( function() {
-    var parallaxParent = this,
-      parallaxChild  = $( this ).children( '.parallax__image' );
+  // $( '.parallax' ).each( function(i,e) {
+  //   let parallaxParent   = e;
+  //   let parallaxChild    = $( this ).children( '.parallax__image' );
+  //   let parallaxDuration = '200%';
 
-    if ( 840 <= viewportWidth ) {
+  //   const parallaxTween = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: parallaxParent,
+  //         start: 'top center',
+  //         end: 'bottom center',
+  //         scrub: true,
+  //         onEnter: () => $(this).addClass('-scrolling'),
+  //         onLeave: () => $(this).removeClass('-scrolling'),
+  //         onEnterBack: () => $(this).addClass('-scrolling'),
+  //         onLeaveBack: () => $(this).removeClass('-scrolling'),
+  //       }
+  //     });
 
-      var tweenParallax = new TimelineMax()
-        .to( parallaxChild, 1, {
-          y: '80%',
-          ease: Linear.easeNone
-        });
+  //   if ( 840 <= viewportWidth ) {
 
-      var parallaxScene = new ScrollMagic.Scene({
-        triggerElement: parallaxParent,
-        duration: '200%'
-      })
-        .setTween( tweenParallax )
-        .setClassToggle( this, 'parallax--scrolling' )
-        .addTo( scrollMagicController );
-    }
-  });
+  //     gsap.utils.toArray('.parallax').forEach((parallax) => {
+  //       parallax.bg = parallax.querySelector('.parallax__image');
+
+  //       parallax.bg.style.top = "-100%";
+
+  //       gsap.to(parallax.bg, {
+  //         top: `${-innerHeight / 2}px`,
+  //         left: '50%',
+  //         ease: "none",
+  //         scrollTrigger: {
+  //           trigger: parallax,
+  //           start: "top top",
+  //           end: "bottom top",
+  //           scrub: true
+  //         }
+  //       });
+  //     });
+  //   }
+  // });
+
 
   /**
    * Fade in content blocks
