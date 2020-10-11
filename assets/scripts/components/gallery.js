@@ -12,7 +12,7 @@ export default function gallery() {
 
   const $projGallery = $( '.project__section.project__gallery' );
 
-  if ( $projGallery.length ) {
+  if ( $projGallery && $projGallery.length ) {
     $projGallery.each( function(index, item) {
       // reorganize with Masonry
       const projGalleryIso = new Isotope( item, {
@@ -33,7 +33,7 @@ export default function gallery() {
 
   const $wpGallery = $( '.wp-block-gallery .blocks-gallery-grid' );
 
-  if ( $wpGallery.length ) {
+  if ( $wpGallery && $wpGallery.length ) {
     $wpGallery.each( function(index, item) {
 
       let sizer  = $( '<li class="blocks-gallery-sizer"></li>' );
@@ -66,9 +66,10 @@ export default function gallery() {
    * Convert WordPress Block Galleries into Masonry layout
    */
 
-  const pageGallery = document.getElementById('images');
+  const pageGallery = document.querySelector('#images');
 
-  if ( pageGallery.length ) {
+
+  if ( pageGallery && pageGallery.length ) {
     // reorganize with Masonry
     const pageGalleryIso = new Isotope( pageGallery, {
       itemSelector: '.js-image',
