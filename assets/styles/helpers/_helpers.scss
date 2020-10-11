@@ -7,7 +7,7 @@
 	position: relative;
 	overflow: hidden;
 
-	&.parallax--scrolling {
+	&.-scrolling {
 		.parallax__image {
 			opacity: 1;
 		}

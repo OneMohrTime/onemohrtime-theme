@@ -261,7 +261,8 @@
 			margin-bottom: $base-spacing * 2;
 		}
 
-		img {
+		._image {
+			position: fixed;
 			width: 100%;
 			pointer-events: none;
 		}
@@ -281,14 +282,18 @@
 			// .project__image--fixed
 			width: auto;
 			height: 100vh;
+			max-height: 100vh;
 			margin-left: 0;
 			margin-right: 0;
 			overflow: hidden;
 
 			@supports (object-fit: cover) {
-				img {
-					width: auto;
-					height: 150vh;
+				._image {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100vh;
 					min-width: 100vw;
 					object-fit: cover;
 				}
