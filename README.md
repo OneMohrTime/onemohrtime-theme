@@ -7,13 +7,27 @@
 
 This repo is the codebase for [https://onemohrti.me](https://onemohrti.me), written by [Derek Mohr](https://instagram.com/onemohrtimedesign).
 
-## Requirements
+## Build Tools
 
->- Node 12.x
->- Gulp 3.x
->- PHP 7.2
->- MySQL 5.7
+| Server | - | - | - | Sass | JS Libraries | - | - |
+| - | - | - | - | - | - | - | - |
+| `Node 12.x` | `NPM 6.x` | `PHP 7.4` | `MySQL 5.7` | `1.27.x` | `gsap@3` | `Isotope v3` | `jQuery 3` |
 
 ## Build Commands
 
-This project uses **Laravel Mix**
+This project uses **Laravel Mix** to compile most assets. Unfortunately, `Fancybox 3` doesn't compile as a module, and parallax images (_along with almost all scroll events_) must be completely re-written.
+
+- [x] Convert WP Gulp to Laravel Mix
+- [ ] Restore and add to `GSAP` animations
+- [ ] Slim down files with more ES6 options
+
+```zsh
+# compile expanded assets
+npm run dev
+
+# compile compressed assets
+npm run prod
+
+# watch and reload components
+npm run watch
+```
