@@ -1,0 +1,24 @@
+{% set section = block %}
+
+{% set text    = section.text ?? '' %}
+{% set image   = section.image ? Image(section.image) : null %}
+{% set reverse = section.reverse ?? false %}
+
+{#
+ # Text + Image Block
+ #}
+
+<div class="project__section project__text-image{% if reverse %} project__text-image--reversed{% endif %} get-faded">
+	<div class="content--half get-faded _wysiwyg">
+		{{ text }}
+	</div>
+	<figure class="image--half">
+		<img src="{{ image.src('thumbnail') }}"
+			alt="{{ section.image.alt }}"
+			class="image--half__image"
+			srcset="{{ image.src('medium') }} 500w,
+					{{ image.src('large') }} 1000w,
+					{{ image.src('full') }} 1500w"
+			sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
+	</figure>
+</div>
