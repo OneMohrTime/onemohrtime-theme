@@ -1,0 +1,30 @@
+{% set section = block %}
+
+{#
+ # Image Block
+ #}
+
+{% set image   = section.image ? Image(section.image) : null %}
+{% set caption = section.image.caption|default(null) %}
+{% if section.image.alt is not empty %}
+	{% set alt = section.image.alt %}
+{% elseif section.image.description is not empty %}
+	{% set alt = section.image.description %}
+{% elseif caption is defined and caption is not empty %}
+	{% set alt = caption %}
+{% elseif section.image.title is not empty %}
+	{% set alt = section.image.title %}
+{% else %}
+	{% set alt = '' %}
+{% endif %}
+{% set width   = section.image.width ?? null %}
+
+<figure class="builder__section -image -{{ section.layout }} _wysiwyg get-faded">
+	{# TODO: Bring back parallax functionality #}
+	<img src="{{ image.src('thumbnail') }}"
+		alt="{{ alt }}"
+		class="_image"
+		srcset="{{ image.src('medium') }} 1000w,
+				{{ image.src('large') }} 1500w"
+		sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />
+</figure>
