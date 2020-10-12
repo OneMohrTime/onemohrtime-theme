@@ -37,6 +37,7 @@ $projects  = get_field('project_grid');
 $context['post']        = $timber_post;
 // $context['post_images'] = $images;
 $context['projects']    = Timber::get_posts( $projects );
+$context['builder']     = get_field('sections');
 $context['roles']       = new TimberTerm('design');
 $context['image_grid']  = get_field('image_grid');
 
