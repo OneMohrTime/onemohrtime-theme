@@ -4,8 +4,8 @@
  # Text Block
  #}
 
-{% set headline    = section.headline ?? null %}
-{% set subheadline = section.subheadline ?? null %}
+{% set headline    = section.headline|default(null) %}
+{% set subheadline = section.subheadline|default(null) %}
 {% set text        = section.text ?? null %}
 {% set button      = section.button ?? null %}
 {% set isLarge     = section.is_large.value ?? false %}

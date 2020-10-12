@@ -10,23 +10,30 @@
 {% set images      = section.images ?? null %}
 
 <div class="builder__section -gallery _wysiwyg get-faded">
+
 	{% if headline %}
 		<h2 class="_headline">{{ headline }}</h2>
 	{% endif %}
+
 	{% if subheadline %}
 		<h3 class="_subheadline">{{ subheadline }}</h3>
 	{% endif %}
+
 	{% if text %}
 		<div class="_wysiwyg{% if isLarge %} -isLarge{% endif %}">
 			{{ text }}
 		</div>
 	{% endif %}
+
 	{% if images %}
 		<div class="_gallery">
+
 			<div class="image__sizer"></div>
 			<div class="image__gutter"></div>
+
 			{% for image in images %}
 				<figure class="image__frame js-image">
+
 					{% set imageOptimized = image ? Image(image) : null %}
 					{% set caption        = image.caption|default(null) %}
 					{% if image.alt is not empty %}
@@ -58,8 +65,10 @@
 					<a href="{{ imageOptimized.src('full') }}" class="image__link" data-fancybox="gallery"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
 						<span class="screen-reader-text">Zoom</span>
 					</a>
+
 				</figure>
 			{% endfor %}
+
 		</div>
 	{% endif %}
 </div>
