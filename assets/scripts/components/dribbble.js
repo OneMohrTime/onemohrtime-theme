@@ -8,6 +8,13 @@ export default function dribbble() {
    * Dribbble galleries
    */
 
+  // Check for Dribbble on page
+  const dribbbles = document.querySelector('#dribbbles');
+
+  if (!dribbbles) {
+    return;
+  }
+
   // Set the Access Token
   const accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
   const numberOfShots = '6';
