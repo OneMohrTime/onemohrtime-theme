@@ -1526,7 +1526,7 @@
                                 "key": "field_5f7d190046a1c",
                                 "label": "Is Large",
                                 "name": "is_large",
-                                "type": "text",
+                                "type": "checkbox",
                                 "instructions": "Will increase section text size",
                                 "required": 0,
                                 "conditional_logic": 0,
@@ -1535,11 +1535,13 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "",
-                                "placeholder": "",
-                                "prepend": "",
-                                "append": "",
-                                "maxlength": ""
+                                "choices": [],
+                                "allow_custom": 0,
+                                "default_value": [],
+                                "layout": "vertical",
+                                "toggle": 0,
+                                "return_format": "value",
+                                "save_custom": 0
                             }
                         ],
                         "min": "",
@@ -1753,7 +1755,7 @@
                                 "name": "embed",
                                 "type": "oembed",
                                 "instructions": "",
-                                "required": 0,
+                                "required": 1,
                                 "conditional_logic": [
                                     [
                                         {
@@ -1777,7 +1779,7 @@
                                 "name": "script",
                                 "type": "textarea",
                                 "instructions": "",
-                                "required": 0,
+                                "required": 1,
                                 "conditional_logic": [
                                     [
                                         {
@@ -1804,8 +1806,16 @@
                                 "name": "upload",
                                 "type": "file",
                                 "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5f7d1fe745f74",
+                                            "operator": "==",
+                                            "value": "internal"
+                                        }
+                                    ]
+                                ],
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -2152,7 +2162,7 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "Section builder used on multiple \"page builder\" layouts"
     },
     {
         "key": "group_5b3799d77260c",

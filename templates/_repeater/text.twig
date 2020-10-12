@@ -1,16 +1,16 @@
 {% set section = block %}
 
+{#
+ # Text Block
+ #}
+
 {% set headline    = section.headline ?? null %}
 {% set subheadline = section.subheadline ?? null %}
 {% set text        = section.text ?? null %}
 {% set button      = section.button ?? null %}
 {% set isLarge     = section.is_large.value ?? false %}
 
-{#
- # Text Block
- #}
-
-<div class="project__section project__text get-faded">
+<div class="builder__section -text get-faded">
 	{% if headline %}
 		<h2 class="_headline">{{ headline }}</h2>
 	{% endif %}

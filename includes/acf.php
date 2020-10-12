@@ -1545,7 +1545,7 @@ acf_add_local_field_group(array(
 							'key' => 'field_5f7d190046a1c',
 							'label' => 'Is Large',
 							'name' => 'is_large',
-							'type' => 'text',
+							'type' => 'checkbox',
 							'instructions' => 'Will increase section text size',
 							'required' => 0,
 							'conditional_logic' => 0,
@@ -1554,11 +1554,15 @@ acf_add_local_field_group(array(
 								'class' => '',
 								'id' => '',
 							),
-							'default_value' => '',
-							'placeholder' => '',
-							'prepend' => '',
-							'append' => '',
-							'maxlength' => '',
+							'choices' => array(
+							),
+							'allow_custom' => 0,
+							'default_value' => array(
+							),
+							'layout' => 'vertical',
+							'toggle' => 0,
+							'return_format' => 'value',
+							'save_custom' => 0,
 						),
 					),
 					'min' => '',
@@ -1772,7 +1776,7 @@ acf_add_local_field_group(array(
 							'name' => 'embed',
 							'type' => 'oembed',
 							'instructions' => '',
-							'required' => 0,
+							'required' => 1,
 							'conditional_logic' => array(
 								array(
 									array(
@@ -1796,7 +1800,7 @@ acf_add_local_field_group(array(
 							'name' => 'script',
 							'type' => 'textarea',
 							'instructions' => '',
-							'required' => 0,
+							'required' => 1,
 							'conditional_logic' => array(
 								array(
 									array(
@@ -1823,8 +1827,16 @@ acf_add_local_field_group(array(
 							'name' => 'upload',
 							'type' => 'file',
 							'instructions' => '',
-							'required' => 0,
-							'conditional_logic' => 0,
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_5f7d1fe745f74',
+										'operator' => '==',
+										'value' => 'internal',
+									),
+								),
+							),
 							'wrapper' => array(
 								'width' => '',
 								'class' => '',
@@ -2172,7 +2184,7 @@ Horizontal: Image on left',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,
-	'description' => '',
+	'description' => 'Section builder used on multiple "page builder" layouts',
 ));
 
 acf_add_local_field_group(array(

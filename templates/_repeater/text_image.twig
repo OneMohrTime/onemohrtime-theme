@@ -1,24 +1,35 @@
 {% set section = block %}
 
-{% set text    = section.text ?? '' %}
-{% set image   = section.image ? Image(section.image) : null %}
-{% set reverse = section.reverse ?? false %}
-
 {#
  # Text + Image Block
  #}
 
-<div class="project__section project__text-image{% if reverse %} project__text-image--reversed{% endif %} get-faded">
-	<div class="content--half get-faded _wysiwyg">
+{% set text    = section.text ?? '' %}
+{% set image   = section.image ? Image(section.image) : null %}
+{% if section.image.alt is not empty %}
+	{% set alt = section.image.alt %}
+{% elseif section.image.description is not empty %}
+	{% set alt = section.image.description %}
+{% elseif section.image.caption is not empty %}
+	{% set alt = section.image.caption %}
+{% elseif section.image.title is not empty %}
+	{% set alt = section.image.title %}
+{% else %}
+	{% set alt = '' %}
+{% endif %}
+{% set reverse = section.reverse ?? false %}
+{% set width   = section.image.width ?? null %}
+
+<div class="builder__section -textAndImage{% if reverse %} -reversed{% endif %} get-faded">
+	<div class="_col -content get-faded _wysiwyg">
 		{{ text }}
 	</div>
-	<figure class="image--half">
+	<figure class="_col -image">
 		<img src="{{ image.src('thumbnail') }}"
-			alt="{{ section.image.alt }}"
-			class="image--half__image"
-			srcset="{{ image.src('medium') }} 500w,
-					{{ image.src('large') }} 1000w,
-					{{ image.src('full') }} 1500w"
-			sizes="(max-width: {{ section.image.width }}px) 100vw, {{ section.image.width }}px" />
+			alt="{{ alt }}"
+			class="_image"
+			srcset="{{ image.src('medium') }} 1000w,
+					{{ image.src('large') }} 1500w"
+			sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />
 	</figure>
 </div>
