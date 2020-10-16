@@ -1545,7 +1545,7 @@ acf_add_local_field_group(array(
 							'key' => 'field_5f7d190046a1c',
 							'label' => 'Is Large',
 							'name' => 'is_large',
-							'type' => 'text',
+							'type' => 'checkbox',
 							'instructions' => 'Will increase section text size',
 							'required' => 0,
 							'conditional_logic' => 0,
@@ -1554,11 +1554,15 @@ acf_add_local_field_group(array(
 								'class' => '',
 								'id' => '',
 							),
-							'default_value' => '',
-							'placeholder' => '',
-							'prepend' => '',
-							'append' => '',
-							'maxlength' => '',
+							'choices' => array(
+							),
+							'allow_custom' => 0,
+							'default_value' => array(
+							),
+							'layout' => 'vertical',
+							'toggle' => 0,
+							'return_format' => 'value',
+							'save_custom' => 0,
 						),
 					),
 					'min' => '',
@@ -1772,7 +1776,7 @@ acf_add_local_field_group(array(
 							'name' => 'embed',
 							'type' => 'oembed',
 							'instructions' => '',
-							'required' => 0,
+							'required' => 1,
 							'conditional_logic' => array(
 								array(
 									array(
@@ -1796,7 +1800,7 @@ acf_add_local_field_group(array(
 							'name' => 'script',
 							'type' => 'textarea',
 							'instructions' => '',
-							'required' => 0,
+							'required' => 1,
 							'conditional_logic' => array(
 								array(
 									array(
@@ -1823,8 +1827,16 @@ acf_add_local_field_group(array(
 							'name' => 'upload',
 							'type' => 'file',
 							'instructions' => '',
-							'required' => 0,
-							'conditional_logic' => 0,
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_5f7d1fe745f74',
+										'operator' => '==',
+										'value' => 'internal',
+									),
+								),
+							),
 							'wrapper' => array(
 								'width' => '',
 								'class' => '',
@@ -2048,23 +2060,47 @@ Horizontal: Image on left',
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array(
-								'width' => '',
+								'width' => '50',
 								'class' => '',
 								'id' => '',
 							),
-							'collapsed' => '',
+							'collapsed' => 'field_5f7d1f1845f6f',
 							'min' => 0,
 							'max' => 0,
-							'layout' => 'table',
-							'button_label' => '',
+							'layout' => 'block',
+							'button_label' => 'Add Card',
 							'sub_fields' => array(
+								array(
+									'key' => 'field_5f83bb698352b',
+									'label' => 'Image',
+									'name' => 'image',
+									'type' => 'image',
+									'instructions' => '',
+									'required' => 1,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'return_format' => 'array',
+									'preview_size' => 'medium',
+									'library' => 'all',
+									'min_width' => '',
+									'min_height' => '',
+									'min_size' => '',
+									'max_width' => '',
+									'max_height' => '',
+									'max_size' => '',
+									'mime_types' => 'gif, png, jpg, webp, svg',
+								),
 								array(
 									'key' => 'field_5f7d1f1845f6f',
 									'label' => 'Headline',
 									'name' => 'headline',
 									'type' => 'text',
 									'instructions' => '',
-									'required' => 1,
+									'required' => 0,
 									'conditional_logic' => 0,
 									'wrapper' => array(
 										'width' => '',
@@ -2172,7 +2208,7 @@ Horizontal: Image on left',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,
-	'description' => '',
+	'description' => 'Section builder used on multiple "page builder" layouts',
 ));
 
 acf_add_local_field_group(array(

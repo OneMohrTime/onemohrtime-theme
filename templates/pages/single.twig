@@ -13,6 +13,19 @@
 			{{ post.content }}
 		</div>
 
+		{% if post.sections|length %}
+			<div class="entry__builder">
+				{% for block in builder %}
+					{# Pick repeater block based on section handle #}
+					{% set module = block.acf_fc_layout %}
+					{# Set context, but don't let the templates "leak out" their generic variables #}
+					{% include "_repeater/" ~ module ~ '.twig' with {
+						block: block
+					} only %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
 		<footer class="entry__foooter get-faded">
 			{{ wp_link_pages }}
 		</footer>

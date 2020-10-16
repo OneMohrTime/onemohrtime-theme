@@ -1,0 +1,35 @@
+{% set section = block %}
+
+{#
+ # Text + Image Block
+ #}
+
+{% set text    = section.text ?? '' %}
+{% set image   = section.image ? Image(section.image) : null %}
+{% if section.image.alt is not empty %}
+	{% set alt = section.image.alt %}
+{% elseif section.image.description is not empty %}
+	{% set alt = section.image.description %}
+{% elseif section.image.caption is not empty %}
+	{% set alt = section.image.caption %}
+{% elseif section.image.title is not empty %}
+	{% set alt = section.image.title %}
+{% else %}
+	{% set alt = '' %}
+{% endif %}
+{% set reverse = section.reverse ?? false %}
+{% set width   = section.image.width ?? null %}
+
+<div class="builder__section -textAndImage{% if reverse %} -reversed{% endif %} get-faded">
+	<div class="_col -content get-faded _wysiwyg">
+		{{ text }}
+	</div>
+	<figure class="_col -image">
+		<img src="{{ image.src('thumbnail') }}"
+			alt="{{ alt }}"
+			class="_image"
+			srcset="{{ image.src('medium') }} 1000w,
+					{{ image.src('large') }} 1500w"
+			sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />
+	</figure>
+</div>

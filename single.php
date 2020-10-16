@@ -9,13 +9,14 @@
  * @since    Timber 0.1
  */
 
-$context         = Timber::context();
-$timber_post     = Timber::query_post();
+$context     = Timber::context();
+$timber_post = Timber::query_post();
 
 $context['post']     = $timber_post;
 $context['banner']   = get_field('project_header');
 $context['details']  = get_field('project_deets');
 $context['sections'] = get_field('project_specs');
+$context['builder']  = get_field('sections');
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'pages/single-password.twig', $context );

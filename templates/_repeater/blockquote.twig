@@ -1,0 +1,55 @@
+{% set section = block %}
+
+{#
+ # Blockquote Block
+ #}
+
+{% set hasImage = section.image|default(null) %}
+{% set text     = section.text ?? null %}
+{% set cite     = section.cite ?? null %}
+{% set image    = section.image ? Image(section.image) : null %}
+{% set caption  = section.image.caption|default(null) %}
+{% if section.image.alt is not empty %}
+	{% set alt = section.image.alt %}
+{% elseif section.image.description is not empty %}
+	{% set alt = section.image.description %}
+{% elseif caption is defined and caption is not empty %}
+	{% set alt = caption %}
+{% elseif section.image.title is not empty %}
+	{% set alt = section.image.title %}
+{% else %}
+	{% set alt = '' %}
+{% endif %}
+{% set width    = section.image.width ?? null %}
+
+<div class="builder__section -blockquote _wysiwyg get-faded">
+	{# TODO: Bring back parallax functionality #}
+
+	{% if hasImage %}
+		<blockquote class="blockquote -withImage">
+			{{ text }}
+			{% if cite is defined and cite is not empty %}
+				<footer class="blockquote__footer">
+					<cite title="{{ cite }}">{{ cite }}</cite>
+				</footer>
+			{% endif %}
+		</blockquote>
+		<img src="{{ image.src('thumbnail') }}"
+			alt="{{ alt }}"
+			class="_image -background"
+			srcset="{{ image.src('medium') }} 1000w,
+					{{ image.src('large') }} 1500w"
+			sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />
+
+	{% else %}
+		<blockquote class="blockquote -default">
+			{{ text }}
+			{% if cite is defined and cite is not empty %}
+				<footer class="blockquote__footer">
+					<cite title="{{ cite }}">{{ cite }}</cite>
+				</footer>
+			{% endif %}
+		</blockquote>
+
+	{% endif %}
+</div>

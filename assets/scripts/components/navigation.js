@@ -16,6 +16,7 @@ export default function navigation() {
    */
 
   function changeLetters( btn ) {
+    const toggleMenu = $( '.toggle__menu' );
     let m = $( '.toggle__menu span.m' ),
         e = $( '.toggle__menu span.e' ),
         n = $( '.toggle__menu span.n' ),
@@ -66,18 +67,20 @@ export default function navigation() {
     // TODO: New Menu
     // https://codepen.io/mikeK/pen/GyPYPZ
 
-    mobileTimeline.to( navbar, menuDuration, {
+    mobileTimeline.to( navbar, {
+      duration: menuDuration,
       height: '100%',
       opacity: 1,
-      ease: Power2.easeOut
-    }, 0 ).to( mobileMenu, menuDuration, {
+      // ease: Power2.easeOut
+    }, 0 ).to( mobileMenu, {
+      duration: menuDuration,
       top: 0,
       autoAlpha: 1,
-      ease: Power2.easeOut
+      // ease: Power2.easeOut
     }, 0 ).staggerFrom( menuItems, menuDuration, {
       y: 20,
       opacity: 0,
-      ease: Back.easeOut
+      // ease: Back.easeOut
     }, menuBetween );
 
     navbar.on( 'click', '#menu_toggle', function() {

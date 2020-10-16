@@ -1,0 +1,55 @@
+{% set section = block %}
+
+{#
+ # Video Block
+ #}
+
+{% set headline = section.headline|default(null) %}
+{% set text     = section.text ?? null %}
+{% set layout   = section.layout|default('url') %}
+{% set oEmbed   = section.embed ?? null %}
+{% set iFrame   = section.script ?? null %}
+{% set upload   = section.upload ?? null %}
+
+<div class="builder__section -video -from{{ layout|capitalize }} _wysiwyg get-faded">
+	{% if headline %}
+		<h2 class="_headline">{{ headline }}</h2>
+	{% endif %}
+	{% if text %}
+		<div class="_wysiwyg">
+			{{ text }}
+		</div>
+	{% endif %}
+	{# `url` triggers ACF's oEmbed field #}
+	{% if layout == 'url' %}
+		{# Label: URL (YouTube, Vimeo, etc) #}
+		<figure class="wrapper -is16:9">
+			{{ oEmbed }}
+		</figure>
+	{% endif %}
+	{# `external` triggers a blank textarea #}
+	{% if layout == 'external' %}
+		{# Label: Embed Code #}
+		<figure class="wrapper -isCustom">
+			{{ iFrame }}
+		</figure>
+	{% endif %}
+	{# `internal` triggers a file upload #}
+	{% if layout == 'internal' %}
+		{# Label: Internal Upload #}
+		<figure class="wrapper -isCustom">
+			<video controls preload="metadata" autoplay="false">
+				{% if upload.subtype == 'webm' %}
+					<source src="{{ upload.url }}" type="video/webm" />
+				{% endif %}
+				{% if upload.subtype == 'mp4' %}
+					<source src="{{ upload.url }}" type="video/mp4" />
+				{% endif %}
+				{% if upload.subtype == 'ogg' %}
+					<source src="{{ upload.url }}" type="video/ogg" />
+				{% endif %}
+				Sorry, your browser doesn't support embedded videos.
+			</video>
+		</figure>
+	{% endif %}
+</div>
