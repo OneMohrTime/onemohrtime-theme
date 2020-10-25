@@ -82,6 +82,7 @@ body {
 			grid-template-columns: repeat(4, 1fr);
 			grid-column-gap: $gutter;
 			width: auto;
+			max-width: 100%;
 
 			&.-home,
 			&.-posts,

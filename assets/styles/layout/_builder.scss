@@ -1,0 +1,112 @@
+/**
+ * === SECTION BUILDER ===
+ */
+
+.entry__builder {
+	position: relative;
+	margin-bottom: $base-line-height;
+
+	@include media(">=screen1170") {
+		margin-bottom: $base-line-height * 2;
+	}
+}
+
+.builder__section {
+	@include block-width();
+
+	// no margins at the very top
+	&:first-child {
+		margin-top: 0;
+	}
+
+	// no margins at the very bottom
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	// set subheadlines apart a bit more
+	._subheadline {
+		color: $color__gray--dark;
+	}
+
+	// cap text line lengths
+	.-wysiwyg {
+		@include content-width();
+	}
+
+	/**
+	 * Text & Image
+	 */
+
+	// moved to `/components/_text-image`
+	// &.-textAndImage {}
+
+	/**
+	 * Image
+	 */
+
+	&.-image {
+
+		._image {
+			// set child images to full width
+			width: 100%;
+		}
+
+		//
+		// Full width images
+		//
+
+		&.-wide {
+			// .-image.-wide
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		//
+		// Parallax background images
+		//
+
+		&.-fixed {
+			// .-image.-fixed
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	/**
+	 * Video
+	 */
+
+	// &.-video {
+	// }
+
+	/**
+	 * Blockquote
+	 */
+
+	&.-blockquote {
+		position: relative;
+		// margin: 0 0 $gutter;
+		overflow: hidden;
+
+		// @include media(">=screen768") {
+		// 	margin: $gutter * 2;
+		// }
+
+		// @include media(">=screen1024") {
+		// 	margin: $gutter * 3;
+		// }
+
+		// @include media(">=screen1440") {
+		// 	margin: $gutter * 4;
+		// }
+	}
+
+	/**
+	 * Card Decks
+	 */
+
+	&.-cards {
+		position: relative;
+	}
+}

@@ -4,9 +4,11 @@
 
 .site__header {
 	position: fixed;
+	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: 72px;
+	max-width: 100vw;
 	transition: $speed linear;
 	background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
 	@include texture($color__black, 54, 1);

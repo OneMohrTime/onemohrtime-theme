@@ -144,8 +144,4 @@ body.home {
 			@include texture($color__black, 54, 1);
 		}
 	}
-
-	@include media(">=screen1600") {
-		@include subtitle();
-	}
 }

@@ -53,10 +53,9 @@
 			}
 
 			.-svg {
-				position: absolute;
-				font-size: 2em;
-				transform: translateX(-10px);
-				z-index: -1;
+				top: 5px;
+				width: 1.25em;
+				opacity: 1;
 
 				path {
 					fill: $color__yellow;

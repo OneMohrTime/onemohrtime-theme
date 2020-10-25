@@ -47,7 +47,8 @@ h4 { font-size: ms(0); }
 h5 { font-size: ms(-1); }
 h6 { font-size: ms(-2); }
 
-._wysiwyg {
+._wysiwyg,
+.-wysiwyg {
 	h1, h2, h3, h4, h5, h6 {
 
 		// headers in a wysiwyg section only...hopefully
@@ -100,19 +101,24 @@ ul, ol, dl {
 	margin: 0;
 	padding: 0;
 
-	._wysiwyg & {
+	._wysiwyg &,
+	.-wysiwyg & {
 		@include type();
 		margin: 0 0 1.7em;
 		padding-left: 1.7em;
 
-		& #{&} {
+		& ul,
+		& ol,
+		& dl {
 			margin: 0;
 		}
 	}
 }
 
-._wysiwyg ul { list-style: disc; }
-._wysiwyg ol { list-style: decimal; }
+._wysiwyg ul,
+.-wysiwyg ul { list-style: disc; }
+._wysiwyg ol,
+.-wysiwyg ol { list-style: decimal; }
 
 /**
  * — Code —
@@ -155,6 +161,11 @@ pre, code {
 	&.-underline {
 		@include paragraph("underlined");
 	}
+}
+
+._text {
+	@include type();
+	@include content-width();
 }
 
 /**

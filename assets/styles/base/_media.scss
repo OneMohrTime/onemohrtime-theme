@@ -18,9 +18,16 @@ object {
  * — Utility Classes —
  */
 
-.image {
+.image,
+._image {
 	display: block;
 	max-width: 100%;
+
+	&.-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 
 	&.-cover {
 		width: 100%;
