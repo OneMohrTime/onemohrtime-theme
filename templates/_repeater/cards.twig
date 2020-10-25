@@ -4,11 +4,12 @@
  # Cards Block
  #}
 
-{% set deck = section.cards %}
+{% set layout = section.card_layout %}
+{% set deck   = section.cards %}
 
-<ul class="builder__section -cards _wysiwyg get-faded">
+<ul class="builder__section -cards -{{ layout }}Deck get-faded">
 	{% for card in deck %}
-		<li class="card">
+		<li class="card -wysiwyg">
 
 			{% set headline    = card.headline|default(null) %}
 			{% set subheadline = card.subheadline|default(null) %}
@@ -29,31 +30,37 @@
 			{% set width       = card.image.width ?? null %}
 
 			{% if image %}
-				<img src="{{ image.src('thumbnail') }}"
-					alt="{{ alt }}"
-					class="_image"
-					srcset="{{ image.src('medium') }} 1000w,
-							{{ image.src('large') }} 1500w"
-					sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />
+				<figure class="card__image">
+					<img src="{{ image.src('thumbnail') }}"
+						alt="{{ alt }}"
+						class="_image"
+						srcset="{{ image.src('medium') }} 1000w,
+								{{ image.src('large') }} 1500w"
+						sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />
+				</figure>
 			{% endif %}
 
-			{% if headline %}
-				<h3 class="_headline">{{ headline }}</h3>
-			{% endif %}
+			<div class="card__body">
 
-			{% if subheadline %}
-				<h3 class="_subheadline">{{ subheadline }}</h3>
-			{% endif %}
+				{% if headline %}
+					<h3 class="_headline">{{ headline }}</h3>
+				{% endif %}
 
-			{% if text %}
-				<div class="_wysiwyg">
-					{{ text }}
-				</div>
-			{% endif %}
+				{% if subheadline %}
+					<h3 class="_subheadline">{{ subheadline }}</h3>
+				{% endif %}
 
-			{% if button %}
-				<a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="btn">{{ button.title }}</a>
-			{% endif %}
+				{% if text %}
+					<div class="_text">
+						{{ text }}
+					</div>
+				{% endif %}
+
+				{% if button %}
+					<a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="_button">{{ button.title }}</a>
+				{% endif %}
+
+			</div>
 
 		</li>
 	{% endfor %}
