@@ -130,8 +130,19 @@
 	z-index: 35;
 	cursor: pointer;
 
-	&:hover {
-		@include media(">=screen600") {
+	&:focus,
+	&.open {
+		color: $color__white;
+	}
+
+	@include media(">=screen600") {
+		top: 0;
+		bottom: auto;
+		color: $color__black;
+		margin-top: 32px;
+		margin-bottom: 32px;
+
+		&:hover {
 			background-color: $color__black--light;
 			box-shadow: 0 0 0 5px $color__black--light;
 
@@ -142,18 +153,6 @@
 			.bar {
 				background-color: $color__white;
 			}
-		}
-	}
-
-	@include media(">=screen600") {
-		top: 0;
-		bottom: auto;
-		color: $color__black;
-		margin-top: 32px;
-		margin-bottom: 32px;
-
-		&.open {
-			color: $color__white;
 		}
 	}
 

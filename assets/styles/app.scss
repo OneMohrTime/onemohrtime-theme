@@ -18,6 +18,11 @@
 	"vendor/texture-mixin";
 
 @import
+	"tools/family",
+	"tools/functions",
+	"tools/mixins";
+
+@import
 	// site mixins + variables
 	"helpers/variables",
 	"helpers/mixins",
@@ -35,12 +40,13 @@
 --------------------------------------------------------------*/
 
 @import
-	"layout/header",
+	"layout/builder",
 	"layout/footer",
-	"layout/sidebar",
 	"layout/forms",
+	"layout/header",
+	"layout/post",
 	"layout/project",
-	"layout/post";
+	"layout/sidebar";
 
 /*--------------------------------------------------------------
 	3.0 Components
@@ -49,13 +55,18 @@
 @import
 	"components/article",
 	"components/banner",
+	"components/blockquote",
 	"components/buttons",
+	"components/card",
 	"components/contact",
 	"components/dribbble",
+	"components/embed",
 	"components/fancybox",
+	"components/gallery",
 	"components/instagram",
 	"components/nav",
 	"components/repeater",
+	"components/text-image",
 	"components/wp-classes";
 
 /*--------------------------------------------------------------
