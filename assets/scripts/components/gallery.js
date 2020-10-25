@@ -7,6 +7,27 @@ import Isotope from 'isotope-layout';
 export default function gallery() {
 
   /**
+   * Change section galleries into Masonry layout
+   */
+
+  const $gallery = $( '._gallery' );
+
+  if ( $gallery && $gallery.length ) {
+    $gallery.each( function(index, item) {
+      // reorganize with Masonry
+      const galleryIso = new Isotope( item, {
+        itemSelector: '.js-image',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '._sizer',
+          gutter: '._gutter',
+          horizontalOrder: true
+        }
+      });
+    });
+  }
+
+  /**
    * Change project gallery into Masonry layout
    */
 
