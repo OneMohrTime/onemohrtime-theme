@@ -26,7 +26,8 @@
 	color: inherit;
 }
 
-.btn {
+.btn,
+._button {
 	@include btn-color();
 	border-radius: 3px;
 	@include body-copy();
