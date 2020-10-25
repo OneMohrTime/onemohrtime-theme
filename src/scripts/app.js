@@ -6,7 +6,6 @@
  * ===================================================================== */
 
 const doc = document.documentElement;
-doc.className = doc.className.replace( 'no-js', 'has-js' );
 doc.setAttribute( 'data-useragent', navigator.userAgent );
 doc.setAttribute( 'data-platform', navigator.platform );
 
