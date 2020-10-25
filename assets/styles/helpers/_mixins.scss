@@ -291,6 +291,12 @@
 @mixin title($underline: null) {
 	font-size: ms(3);
 	letter-spacing: 5px;
+
+	@include media('<screen480') {
+		hyphens: auto;
+		word-break: break-word;
+	}
+
 	@if $underline == "underlined" {
 		@include underlined();
 	}
@@ -299,6 +305,11 @@
 @mixin subtitle($underline: null) {
 	font-size: ms(2);
 	letter-spacing: 2px;
+
+	@include media('<screen480') {
+		hyphens: auto;
+	}
+
 	@if $underline == "underlined" {
 		@include underlined();
 	}
