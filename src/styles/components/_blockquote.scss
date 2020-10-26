@@ -1,0 +1,86 @@
+/**
+ * === BLOCKQUOTE ===
+ */
+
+.blockquote {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+
+	&.-default {
+		// .blockquote.-default
+		position: relative;
+		padding-left: calc(#{$gutter} + 10px);
+		@include media(">=screen1440") {
+			padding-left: $gutter * 2;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: $gutter;
+			height: 100%;
+			background-image: url("../img/icons/left-quote.svg");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: $gutter $gutter;
+		}
+
+		& > p {
+			// color: shade($color__yellow, 67%);
+			// display: inline;
+			// background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
+			@include responsive-type();
+
+			@include media(">=screen960") {
+				padding-left: 10px;
+				border-left: 10px $color__white--dark solid;
+			}
+
+			@include media(">=screen1440") {
+				padding-left: $gutter;
+			}
+		}
+	}
+
+	&.-withImage {
+		// .blockquote.-withImage
+		position: relative;
+		background-color: fade-out($color__white, 0.15);
+		padding: $gutter;
+		margin: $gutter;
+
+		@include media(">=screen768") {
+			padding: $gutter * 2;
+			margin: $gutter * 2;
+		}
+
+		@include media(">=screen1024") {
+			padding: $gutter * 3;
+			margin: $gutter * 3;
+		}
+
+		@include media(">=screen1440") {
+			padding: $gutter * 4;
+			margin: $gutter * 4;
+		}
+
+		& > *:first-child {
+			position: relative;
+			padding-top: 1.5em;
+			margin-bottom: $small-spacing;
+		}
+
+		& > p {
+			@include responsive-type();
+		}
+
+		// Background image is actually a sibling
+		// TODO: Parallax
+		// & + ._image {}
+	}
+}

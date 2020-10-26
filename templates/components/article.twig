@@ -27,7 +27,7 @@
 			{% include "components/entry-meta.twig" %}
 		{% endif %}
 
-		<h2 class="article__title">
+		<h2 id="{{ post.title|lower|replace({' ': '-', '/': '-'}) }}" class="article__title">
 			<a href="{{ post.link }}">{{ post.title }}</a>
 		</h2>
 

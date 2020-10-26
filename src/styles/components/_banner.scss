@@ -1,0 +1,114 @@
+/**
+* === BANNER ===
+*/
+
+.banner {
+
+	&.-typographic {
+		@include block-width();
+		margin-bottom: $gutter * 3;
+	}
+
+	&.-yellow {
+		color: $color__black--light;
+	}
+}
+
+.banner__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+
+	//
+	// Typographic banner, like home page
+	//
+	.-typographic & {
+		margin-top: 30px;
+		margin-bottom: $gutter * 4;
+
+		@include media('>=screen600') {
+			margin-top: $gutter * 3;
+			margin-bottom: $gutter * 3;
+		}
+
+		@include media('>=screen1024') {
+			margin-bottom: $gutter * 6;
+			@include small-font-size();
+		}
+
+		@include media('>=screen1280') {
+			margin-bottom: $gutter * 7;
+		}
+
+		// @include media('>=screen1600') {
+		// 	margin-bottom: $gutter * 8;
+		// }
+	}
+}
+
+// .banner__listItem {}
+
+.banner__intro {
+
+	._title {
+		@include subtitle();
+		@include media('<screen840') {
+			letter-spacing: 1px;
+		}
+
+		.-row {
+			display: block;
+		}
+
+		.-word {
+		}
+
+		@keyframes wordIn {
+			0% {
+				opacity: 0;
+				transform: translateY(-#{$gutter-sm});
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	._tagline {
+		@include caption();
+	}
+}
+
+.banner__link {
+	transition: border $speed;
+	line-height: $base-line-height;
+	border-bottom: 1px transparent solid;
+
+	&:hover {
+		border-bottom-color: $color__white;
+	}
+}
+
+.intro__link {
+	line-height: 1.35em !important;
+
+	&::before {
+		height: 12px !important;
+		background-color: $color__white !important;
+	}
+
+	&:hover {
+		@include media("<screen1170") {
+			&::before {
+				background-color: $color__black--light !important;
+			}
+		}
+		@include media(">=screen1170") {
+			&::before {
+				bottom: 12px !important;
+				height: 80% !important;
+			}
+		}
+	}
+}

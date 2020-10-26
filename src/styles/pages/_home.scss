@@ -1,0 +1,147 @@
+/**
+* === HOME ===
+*/
+
+.homepage {
+
+	&__about {
+		// .homepage__about
+		background: linear-gradient(to top left, $color__black 85%, $color__black--light);
+		@include texture($color__black, 54, 1);
+		color: $color__white;
+		@include base-font-size();
+		@include media(">=screen960") {
+			display: flex;
+			align-items: flex-start;
+			min-height: 100vh;
+		}
+
+		&--image {
+			// .homepage__about--image
+			@include media(">=screen960") {
+				flex-basis: 40%;
+				max-width: 40%;
+				position: sticky;
+				top: 0;
+				height: 100vh;
+				object-fit: cover;
+			}
+		}
+
+		&--content {
+			// .homepage__about--content
+			padding: #{$gutter * 3} $gutter;
+
+			@include media(">=screen768") {
+				padding-left: $gutter * 2;
+				padding-right: $gutter * 2;
+			}
+
+			@include media(">=screen960") {
+				flex-basis: 60%;
+				max-width: 60%;
+			}
+
+			@include media(">=screen1024") {
+				padding-left: $gutter * 3;
+				padding-right: $gutter * 3;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				// headers in a wysiwyg section only...hopefully
+				margin-bottom: $heading-line-height;
+				&:not(:first-child) {
+					margin-top: $base-line-height;
+				}
+			}
+
+			a {
+				&::before {
+					background-color: $color__black--lightest !important;
+				}
+
+				&:hover {
+					&::before {
+						background-color: $color__gray--dark !important;
+					}
+				}
+			}
+		}
+	}
+
+	&__dribbble {
+		// .homepage__dribbble
+		width: 100%;
+		margin: 0 $gutter #{$gutter * 3};
+
+		@include media(">=screen768") {
+			margin-left: $gutter * 2;
+			margin-right: $gutter * 2;
+		}
+
+		@include media(">=screen1024") {
+			margin-left: $gutter * 3;
+			margin-right: $gutter * 3;
+		}
+
+		@include media(">=screen1440") {
+			margin-left: $gutter * 4;
+			margin-right: $gutter * 4;
+		}
+
+		@supports (display: grid) {
+			grid-column: span 4;
+			width: auto;
+		}
+	}
+}
+
+body.home {
+	background-color: $color__yellow;
+	// @include texture($color__yellow, 84, 1);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e6b000' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+	background-position: top center;
+	color: $color__white;
+
+	&.sidebar-primary {
+		.site__sidebar {
+			background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
+			color: $color__black;
+		}
+	}
+}
+
+.dribbble__title,
+.homepage__work--title {
+	display: inline-block;
+	margin-bottom: $gutter;
+	@include paragraph();
+	color: $color__black--light;
+
+	@include media(">=screen840") {
+		@include body-copy();
+	}
+
+	@include media(">=screen1170") {
+		position: relative;
+		margin-bottom: $gutter-lg;
+		padding: $gutter / 3 $gutter $gutter / 3 0;
+		text-shadow: none;
+		line-height: 1em;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		@include texture($color__black, 54, 1);
+		color: fade-out($color__white, 0.05);
+		@include box-shadow();
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 100%;
+			height: 100%;
+			width: 100vw;
+			@include texture($color__black, 54, 1);
+		}
+	}
+}

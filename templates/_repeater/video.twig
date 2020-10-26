@@ -11,34 +11,38 @@
 {% set iFrame   = section.script ?? null %}
 {% set upload   = section.upload ?? null %}
 
-<div class="builder__section -video -from{{ layout|capitalize }} _wysiwyg get-faded">
+<div class="builder__section -video -from{{ layout|capitalize }} get-faded">
 	{% if headline %}
 		<h2 class="_headline">{{ headline }}</h2>
 	{% endif %}
 	{% if text %}
-		<div class="_wysiwyg">
+		<div class="_text -wysiwyg">
 			{{ text }}
 		</div>
 	{% endif %}
 	{# `url` triggers ACF's oEmbed field #}
 	{% if layout == 'url' %}
 		{# Label: URL (YouTube, Vimeo, etc) #}
-		<figure class="wrapper -is16:9">
+		<figure class="wrapper -hd">
 			{{ oEmbed }}
 		</figure>
 	{% endif %}
 	{# `external` triggers a blank textarea #}
 	{% if layout == 'external' %}
 		{# Label: Embed Code #}
-		<figure class="wrapper -isCustom">
+		<figure class="wrapper -fullSize">
 			{{ iFrame }}
 		</figure>
 	{% endif %}
 	{# `internal` triggers a file upload #}
 	{% if layout == 'internal' %}
+		{# calculate aspect ratio #}
+		{% set height  = upload.height %}
+		{% set width   = upload.width %}
+		{% set decimal = height / width * 100 %}
 		{# Label: Internal Upload #}
-		<figure class="wrapper -isCustom">
-			<video controls preload="metadata" autoplay="false">
+		<figure class="wrapper -isCustom -ratio{{ width }}:{{ height }}">
+			<video controls preload="metadata" autoplay="false" width="{{ width }}" height="{{ height }}">
 				{% if upload.subtype == 'webm' %}
 					<source src="{{ upload.url }}" type="video/webm" />
 				{% endif %}

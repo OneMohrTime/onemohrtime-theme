@@ -1,0 +1,67 @@
+/**
+ * === TEXT AND IMAGE ===
+ */
+
+.-textAndImage {
+
+	@include media(">=screen768") {
+		display: flex;
+		align-items: center;
+		margin-right: 0;
+
+		&.-reversed {
+			margin-right: $gutter * 2;
+			margin-left: 0;
+		}
+	}
+
+	._col {
+		position: relative;
+
+		//
+		// Text column
+		//
+		&.-wysiwyg {
+
+			@include media(">=screen768") {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 50%;
+				max-width: 50%;
+				margin-bottom: 0;
+				padding-right: $gutter;
+
+				&.-reversed {
+					padding-right: 0;
+					padding-left: $gutter;
+				}
+			}
+
+			@include media(">=screen1170") {
+				padding-right: $gutter-lg;
+
+				&.-reversed {
+					padding-right: 0;
+					padding-left: $gutter-lg;
+				}
+			}
+		}
+
+		//
+		// Image column
+		//
+		&.-image {
+
+			@include media(">=screen768") {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 50%;
+				max-width: 50%;
+			}
+
+			._image {
+				width: 100%;
+			}
+		}
+	}
+}

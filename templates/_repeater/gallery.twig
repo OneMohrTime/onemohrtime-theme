@@ -20,7 +20,7 @@
 	{% endif %}
 
 	{% if text %}
-		<div class="_wysiwyg{% if isLarge %} -isLarge{% endif %}">
+		<div class="_text -wysiwyg{% if isLarge %} -isLarge{% endif %}">
 			{{ text }}
 		</div>
 	{% endif %}
@@ -28,11 +28,11 @@
 	{% if images %}
 		<div class="_gallery">
 
-			<div class="image__sizer"></div>
-			<div class="image__gutter"></div>
+			<div class="_sizer"></div>
+			<div class="_gutter"></div>
 
 			{% for image in images %}
-				<figure class="image__frame js-image">
+				<figure class="media js-image">
 
 					{% set imageOptimized = image ? Image(image) : null %}
 					{% set caption        = image.caption|default(null) %}
@@ -57,12 +57,12 @@
 								{{ imageOptimized.src('large') }} 1500w"
 						sizes="(max-width: {{ width }}px) 100vw, {{ width }}px"/>
 					{% if caption %}
-						<figcaption class="image__caption -text">{{ caption }}</figcaption>
+						<figcaption class="media__caption -text">{{ caption }}</figcaption>
 					{% else %}
-						<figcaption class="image__caption -zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
+						<figcaption class="media__caption -zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
 					{% endif %}
 
-					<a href="{{ imageOptimized.src('full') }}" class="image__link" data-fancybox="gallery"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
+					<a href="{{ imageOptimized.src('full') }}" class="media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
 						<span class="screen-reader-text">Zoom</span>
 					</a>
 

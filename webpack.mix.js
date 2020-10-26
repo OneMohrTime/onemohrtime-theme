@@ -15,18 +15,18 @@ const mix = require('laravel-mix');
 mix.setPublicPath('assets') // generate manifest in this directory
 
   // JavaScript ES6
-  .js('assets/scripts/app.js', 'assets/scripts/main.js')
+  .js('src/scripts/app.js', 'assets/scripts/main.js')
   // .extract([
   //   'fancybox',
   //   'jquery',
   // ])
 
   // SCSS to CSS
-  .sass('assets/styles/app.scss', 'assets/styles/main.css')
+  .sass('src/styles/app.scss', 'assets/styles/main.css')
   // .sourceMaps();
 
   // Process images + media
-  .copyDirectory('assets/media/src', 'assets/images')
+  .copyDirectory('src/media/src', 'assets/images')
 
   // Live reload browser
   .browserSync({
@@ -40,10 +40,11 @@ mix.setPublicPath('assets') // generate manifest in this directory
     // ],
     files: [
       'assets/scripts/*.js',
-      'assets/scripts/**/*.js',
+      'src/scripts/*.js',
+      'src/scripts/**/*.js',
       'assets/styles/*.css',
-      'assets/styles/*.scss',
-      'assets/styles/**/*.scss',
+      'src/styles/*.scss',
+      'src/styles/**/*.scss',
       'templates/*.twig',
       'templates/**/*.twig'
     ]

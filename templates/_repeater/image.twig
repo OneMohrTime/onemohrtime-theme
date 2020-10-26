@@ -19,7 +19,7 @@
 {% endif %}
 {% set width   = section.image.width ?? null %}
 
-<figure class="builder__section -image -{{ section.layout }} _wysiwyg get-faded">
+<figure class="builder__section -image -{{ section.layout }} get-faded">
 	{# TODO: Bring back parallax functionality #}
 	<img src="{{ image.src('thumbnail') }}"
 		alt="{{ alt }}"

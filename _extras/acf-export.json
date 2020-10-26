@@ -2007,7 +2007,7 @@
                                 "key": "field_5f7d1e7b45f6d",
                                 "label": "Card Layout",
                                 "name": "card_layout",
-                                "type": "checkbox",
+                                "type": "radio",
                                 "instructions": "Vertical: Image on top\r\nHorizontal: Image on left",
                                 "required": 0,
                                 "conditional_logic": 0,
@@ -2020,14 +2020,12 @@
                                     "vertical": "Vertical",
                                     "horizontal": "Horizontal"
                                 },
-                                "allow_custom": 0,
-                                "default_value": [
-                                    "vertical"
-                                ],
-                                "layout": "vertical",
-                                "toggle": 0,
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "default_value": "vertical",
+                                "layout": "horizontal",
                                 "return_format": "value",
-                                "save_custom": 0
+                                "save_other_choice": 0
                             },
                             {
                                 "key": "field_5f7d1f0f45f6e",
