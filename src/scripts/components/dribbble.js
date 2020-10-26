@@ -15,6 +15,8 @@ export default function dribbble() {
     return;
   }
 
+  // dribbbles.classList.add('get-faded')
+
   // Set the Access Token
   const accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
   const numberOfShots = '6';
@@ -46,7 +48,7 @@ export default function dribbble() {
           // manually truncate description
           var trimmedDesc = jQuery.trim( description ).substring( 0, 80 ).trim( this ) + '...';
 
-          $( '#dribbbles' ).prepend(
+          $('#dribbbles').prepend(
             '<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="See ' + val.title + ' on Dribbble" aria-label="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover"><h3 class="shot__headline _headline -underline">' + val.title + '</h3><span class="shot__description">' + trimmedDesc + '</span></figcaption></figure>'
           );
         });
@@ -55,5 +57,6 @@ export default function dribbble() {
       }
     }
   });
+
 
 }
