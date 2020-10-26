@@ -40,10 +40,11 @@ mix.setPublicPath('assets') // generate manifest in this directory
     // ],
     files: [
       'assets/scripts/*.js',
-      'assets/scripts/**/*.js',
+      'src/scripts/*.js',
+      'src/scripts/**/*.js',
       'assets/styles/*.css',
-      'assets/styles/*.scss',
-      'assets/styles/**/*.scss',
+      'src/styles/*.scss',
+      'src/styles/**/*.scss',
       'templates/*.twig',
       'templates/**/*.twig'
     ]

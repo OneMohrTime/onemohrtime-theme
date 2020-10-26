@@ -66,33 +66,51 @@ export default function scrolling() {
    * Fade in content blocks
    */
 
-  $( '.get-faded' ).each( function(i,e) {
+  // find all fading containers on page
+  const $getFaded = $('.get-faded');
 
-    let fadeParent   = e;
-    let fadeChild    = $( this ).children();
-    let fadeDuration = 0.3;
-    let fadeBetween  = 0.2;
+  if ($getFaded.length > 1) {
+    // divide up child elements of fade container
+    $getFaded.each(function(i,e) {
+      let $this         = $(this);
+      let fadeContainer = e;
+      // let $fadeChildren = $(this).find('> *');
+      let $fadeChildren = $(this).children();
+      let fadeDuration  = 0.3;
+      let fadeBetween   = 0.2;
 
-    const fadedTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: fadeParent,
-        onEnter: () => $(this).removeClass('get-faded').addClass('got-faded'),
-        onEnterBack: () => $(this).removeClass('get-faded').addClass('got-faded'),
-      }
+      var picOverlay = $(this).find(".overlay");
+      var projectInfo = $(this).find(".project-info");
+
+      const getFadedIn = gsap.timeline({
+        scrollTrigger: {
+          trigger: fadeContainer,
+          start: 'top 80%',     // when the top of the trigger hits the top of the viewport
+          // scrub: 0.2,        // smooth scrubbing, takes 0.2 seconds to "catch up" to the scrollbar
+          markers: 'true',
+          toggleActions: 'play none none none',
+          onEnter: () => $(this).removeClass('get-faded').addClass('got-faded'),
+          onEnterBack: () => $(this).removeClass('get-faded').addClass('got-faded'),
+        }
+      });
+
+      getFadedIn.fromTo($fadeChildren, {
+        y: 50,
+        autoAlpha: 0
+      }, {
+        duration: fadeDuration,
+        stagger: fadeBetween,
+        y: 0,
+        autoAlpha: 1,
+        ease: 'power4',
+      });
     });
+  }
 
-    // fadedTimeline.to( fadeChild, {
-    //   scrollTrigger: fadeParent,
-    //   duration: fadeDuration,
-    //   y: 0,
-    //   autoAlpha: 1
-    // });
 
-    fadedTimeline.staggerTo( fadeChild, fadeDuration, {
-      y: 0,
-      autoAlpha: 1
-    }, fadeBetween);
+  /**
+   * Home page
+   */
 
-  });
 
 }

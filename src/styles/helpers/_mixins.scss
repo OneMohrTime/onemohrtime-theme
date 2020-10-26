@@ -497,7 +497,8 @@
 		height: 8px;
 		transition: $speed;
 		background-color: $color__yellow;
-		animation: dancemonkey 2s infinite;
+		animation: dancemonkey 2s infinite ease-in-out;
+		// animation-delay: #{random(10)}00ms;
 		z-index: -1;
 	}
 

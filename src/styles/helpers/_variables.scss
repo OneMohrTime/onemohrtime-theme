@@ -48,8 +48,8 @@ $font__code     : "Inconsolata", $font-stack-monaco;
  */
 
 $speed        : 200ms;
-$speed--fast  : $speed / 2;
-$speed-slow  : $speed * 2;
+$speed-fast   : $speed / 2;
+$speed-slow   : $speed * 2;
 $base-duration: $speed;
 
 //$cubic-bezier : cubic-bezier(.455, .03, .515, .955);
