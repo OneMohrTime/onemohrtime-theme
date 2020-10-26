@@ -87,7 +87,7 @@ export default function scrolling() {
           trigger: fadeContainer,
           start: 'top 80%',     // when the top of the trigger hits the top of the viewport
           // scrub: 0.2,        // smooth scrubbing, takes 0.2 seconds to "catch up" to the scrollbar
-          markers: 'true',
+          // markers: 'true',
           toggleActions: 'play none none none',
           onEnter: () => $(this).removeClass('get-faded').addClass('got-faded'),
           onEnterBack: () => $(this).removeClass('get-faded').addClass('got-faded'),
@@ -106,11 +106,4 @@ export default function scrolling() {
       });
     });
   }
-
-
-  /**
-   * Home page
-   */
-
-
 }

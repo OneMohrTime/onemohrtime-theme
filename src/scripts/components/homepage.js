@@ -15,7 +15,9 @@ export default function homepage() {
   const homeTitle = document.querySelectorAll('#home_title span');
   homeTitle.forEach((row) => {
     row.innerHTML = row.innerHTML.replace(/(^|<\/?[^>]+>|\s+)([^\s<]+)/g, '$1<span class="-word">$2</span>');
+    row.classList.add('get-faded')
   });
+
 
   // let split = new SplitText($titlet)
   // console.log(split);
