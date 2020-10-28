@@ -17,6 +17,7 @@ export default function scrolling() {
   const viewportHeight = window.innerHeight;
   // console.log( 'Current viewport: ' +  viewportWidth + 'w × ' + viewportHeight + 'h' );
 
+
   /**
    * Parallax images
    */
@@ -79,9 +80,6 @@ export default function scrolling() {
       let fadeDuration  = 0.3;
       let fadeBetween   = 0.2;
 
-      var picOverlay = $(this).find(".overlay");
-      var projectInfo = $(this).find(".project-info");
-
       const getFadedIn = gsap.timeline({
         scrollTrigger: {
           trigger: fadeContainer,
@@ -96,14 +94,38 @@ export default function scrolling() {
 
       getFadedIn.fromTo($fadeChildren, {
         y: 50,
-        autoAlpha: 0
+        autoAlpha: 0,
       }, {
         duration: fadeDuration,
         stagger: fadeBetween,
         y: 0,
         autoAlpha: 1,
-        ease: 'power4',
+        ease: 'power2',
       });
     });
+  }
+
+
+  /**
+   * Home page animations
+   */
+
+  // Find out if this is actually the home page
+  const isHomePage = document.querySelector('body.home') ? true : false;
+
+  // If it is..
+  if (isHomePage) {
+    // Animate dribbble headline in
+    const homeTimeline = gsap.timeline({
+        start: 'top 80%',
+        markers: 'true',
+        toggleActions: 'play none none none',
+      });
+    // console.log(homeTimeline);
+    const dribbbleTitle = $('.dribbble__title');
+    homeTimeline.fromTo(dribbbleTitle,
+      {left: '-100%', autoAlpha: 0},
+      {left: 0, autoAlpha: 1, duration: 1, ease: 'power2' }
+    )
   }
 }
