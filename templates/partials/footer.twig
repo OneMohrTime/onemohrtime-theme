@@ -1,8 +1,8 @@
-<footer class="site__footer get-faded">
+<footer class="site__footer">
 
 	<div class="_column -projects">
 		<h3>Pages of Interest</h3>
-		<ul>
+		<ul class="get-faded">
 			{% for item in footer.items %}
 			<li>
 				<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
@@ -22,7 +22,7 @@
 
 	<div class="_column -about">
 		<h3>About Thy Website</h3>
-		<div>
+		<div class="get-faded">
 			{# {{ options.site_about }} #}
 			<p>Hosted on <a href="//digitalocean.com" target="_blank" rel="noopener">DigitalOcean</a>. Registered on <a href="//domains.google.com" target="_blank" rel="noopener">Google Domains</a>. Built using <a href="//twig.symfony.com/" target="_blank" rel="noopener">Twig</a>, <a href="//www.advancedcustomfields.com/" target="_blank" rel="noopener">ACF</a>, <a href="//greensock.com/" target="_blank" rel="noopener">Greensock</a>, and a little <a href="//sass-lang.com/" target="_blank" rel="noopener">Sass</a>.</p>
 			<p>Find the source code on <a href="//github.com/OneMohrTime/onemohrtime" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -31,7 +31,7 @@
 
 	<div class="_column social-media">
 		<a class="top btn" href="#page">Back to Top</a>
-		<ul class="icons">
+		<ul class="icons get-faded">
 			<li>
 				<a target="_blank" href="//dribbble.com/OneMohrTime" title="Dribbble" aria-label="Dribbble">
 					{% include '/assets/media/icons/logo-dribbble.svg' %}
