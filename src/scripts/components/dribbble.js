@@ -42,14 +42,25 @@ export default function dribbble() {
       if ( 0 < data.length ) {
         $.each( data, function( i, val ) {
 
+          let title       = val.title || '';
+          let htmlUrl     = val.html_url || 'https://dribbble.com/onemohrtime';
+          let normalUrl   = val.images.normal || null;
+          let hidpiUrl    = val.images.hidpi || null;
           // strip tags off to avoid front-end code breaking
-          var description = val.description.replace( /(<([^>]+)>)/gi, '' ) || val.title;
-
+          let description = val.description.replace( /(<([^>]+)>)/gi, '' ) || val.title;
           // manually truncate description
-          var trimmedDesc = jQuery.trim( description ).substring( 0, 80 ).trim( this ) + '...';
+          let trimmedDesc = jQuery.trim( description ).substring( 0, 80 ).trim( this ) + '...';
 
-          $('#dribbbles').append(
-            '<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="See ' + val.title + ' on Dribbble" aria-label="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover"><h3 class="shot__headline _headline -underline">' + val.title + '</h3><span class="shot__description">' + trimmedDesc + '</span></figcaption></figure>'
+          $('#dribbbles').append(`
+            <figure id="shot_${val.id}" class="shot">
+              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" title="See ${title} on Dribbble"></a>
+              <img src="${val.images.teaser}" alt="${title}" srcset="${normalUrl} 800w, ${hidpiUrl} 1600w" class="shot__image" />
+              <figcaption class="shot--hover">
+                <h3 class="shot__headline _headline -underline">${title}</h3>
+                <span class="shot__description">${trimmedDesc}</span>
+              </figcaption>
+            </figure>
+            `
           );
 
           // limit to 6 shots
