@@ -1535,7 +1535,9 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "choices": [],
+                                "choices": {
+                                    "true": "Is Large"
+                                },
                                 "allow_custom": 0,
                                 "default_value": [],
                                 "layout": "vertical",
@@ -1611,9 +1613,9 @@
                                 },
                                 "message": "",
                                 "default_value": 0,
-                                "ui": 0,
-                                "ui_on_text": "",
-                                "ui_off_text": ""
+                                "ui": 1,
+                                "ui_on_text": "Image Left",
+                                "ui_off_text": "Image Right"
                             }
                         ],
                         "min": "",
@@ -1997,6 +1999,35 @@
                         "min": "",
                         "max": ""
                     },
+                    "layout_5f9ced51b47be": {
+                        "key": "layout_5f9ced51b47be",
+                        "name": "code_snippet",
+                        "label": "Code Snippet",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5f9cedccb47bf",
+                                "label": "Markdown",
+                                "name": "markdown",
+                                "type": "wysiwyg",
+                                "instructions": "To add syntax highlighting, add <code># [language]<\/code> to the very first line",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "text",
+                                "media_upload": 0,
+                                "toolbar": "full",
+                                "delay": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
                     "layout_5f7d1e3545f6c": {
                         "key": "layout_5f7d1e3545f6c",
                         "name": "cards",
@@ -2036,7 +2067,7 @@
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
-                                    "width": "50",
+                                    "width": "",
                                     "class": "",
                                     "id": ""
                                 },
@@ -2079,7 +2110,7 @@
                                         "required": 0,
                                         "conditional_logic": 0,
                                         "wrapper": {
-                                            "width": "",
+                                            "width": "60",
                                             "class": "",
                                             "id": ""
                                         },
@@ -2098,7 +2129,7 @@
                                         "required": 0,
                                         "conditional_logic": 0,
                                         "wrapper": {
-                                            "width": "",
+                                            "width": "40",
                                             "class": "",
                                             "id": ""
                                         },
