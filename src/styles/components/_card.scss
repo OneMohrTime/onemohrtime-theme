@@ -10,6 +10,27 @@ $lgImage: 200px;
 	position: relative;
 
 	//
+	// Wrapping link
+	//
+	.card__link {
+		display: block;
+
+		@include hocus {
+			// .card__link:hover
+			// .card__link:focus
+			.card__body {
+				transform: translateY(-#{$gutter-sm});
+				background-color: $color__yellow;
+				color: $color__black;
+
+				._text {
+					border-color: $color__black;
+				}
+			}
+		}
+	}
+
+	//
 	// Image area
 	//
 	.card__image {
@@ -72,8 +93,11 @@ $lgImage: 200px;
 		margin-left: #{$smImage - $gutter-sm};
 		padding: $gutter-sm;
 		padding-left: $gutter;
+		transition: background-color $speed,
+					color $speed,
+					transform $speed;
 		background-color: $color__white--dark;
-		@include box-shadow();
+		// @include box-shadow();
 		z-index: 9;
 
 		// images get sized up
@@ -121,6 +145,7 @@ $lgImage: 200px;
 		._text {
 			margin-top: 0.75em;
 			padding-top: $gutter-sm / 2;
+			transition: border-color $speed;
 			border-top: 1px $color__gray--light solid;
 		}
 
@@ -194,6 +219,10 @@ $lgImage: 200px;
 				margin-left: $gutter-sm;
 			}
 
+			@include first(2) {
+				margin-top: 0;
+			}
+
 			// space between siblings
 			& + .card {
 				margin-top: 0;
@@ -225,6 +254,11 @@ $lgImage: 200px;
 			// last card of all should push left
 			@include last(1) {
 				margin-right: auto;
+			}
+
+			// first four don't need top margins
+			@include first(4) {
+				margin-top: 0;
 			}
 		}
 

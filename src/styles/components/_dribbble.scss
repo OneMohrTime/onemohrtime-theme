@@ -18,6 +18,7 @@
 		overflow: hidden;
 		transition: box-shadow $speed;
 		background-color: $color__black;
+		color: $color__white;
 		@include box-shadow();
 
 		@include media("<screen400") {
