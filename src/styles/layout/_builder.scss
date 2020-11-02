@@ -2,7 +2,10 @@
  * === SECTION BUILDER ===
  */
 
-.entry__builder {
+.page__builder,
+.homepage__builder,
+.entry__builder,
+.project__builder {
 	position: relative;
 	margin-bottom: $base-line-height;
 

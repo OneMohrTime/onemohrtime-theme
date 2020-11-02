@@ -45,6 +45,13 @@
 		</figure>
 	{% endif %}
 
+	{# Add Section Repeater #}
+	{% if post.sections|length %}
+		<div class="homepage__builder">
+			{% include 'partials/builder.twig' %}
+		</div>
+	{% endif %}
+
 {% endblock %}
 
 {% block sidebar %}

@@ -192,6 +192,13 @@
 </article>
 {% endif %}
 
+{# Add Section Repeater #}
+{% if post.sections|length %}
+	<div class="project__builder">
+		{% include 'partials/builder.twig' %}
+	</div>
+{% endif %}
+
 {# Navigate between projects
 <footer>
 	{{ dump(wp_link_pages) }}

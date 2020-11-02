@@ -13,16 +13,10 @@
 			{{ post.content }}
 		</div>
 
+		{# Add Section Repeater #}
 		{% if post.sections|length %}
 			<div class="entry__builder">
-				{% for block in builder %}
-					{# Pick repeater block based on section handle #}
-					{% set module = block.acf_fc_layout %}
-					{# Set context, but don't let the templates "leak out" their generic variables #}
-					{% include "_repeater/" ~ module ~ '.twig' with {
-						block: block
-					} only %}
-				{% endfor %}
+				{% include 'partials/builder.twig' %}
 			</div>
 		{% endif %}
 
