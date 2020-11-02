@@ -9,6 +9,8 @@ html {
 body {
 	position: relative;
 	background-color: $color__white;
+	background-image: url("../img/transparent.png");
+	background-position: top center;
 	color: $color__black;
 	font-family: $font__main;
 	width: 100vw;
@@ -16,16 +18,10 @@ body {
 	min-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
-	// typography
+	// crisp typography rendering
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-	&.blog,
-	&.single-post,
-	&.page-template-default {
-		@include texture($color__white, 25, 0);
-	}
 }
 
 * {
