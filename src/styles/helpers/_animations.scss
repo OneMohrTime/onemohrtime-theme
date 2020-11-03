@@ -2,7 +2,10 @@
 * === ANIMATIONS ===
 */
 
-// .-wysiwyg hyperlinks
+/**
+ * Styled inline links
+ * (.-wysiwyg hyperlinks)
+ */
 @keyframes dancemonkey {
 	0% {
 		left: 0;
@@ -61,19 +64,6 @@
 	}
 }
 
-// Homepage card hovers
-@keyframes cardHover {
-	0% {
-		transform: translateY(2px);
-	}
-	50% {
-		transform: translateY(-2px);
-	}
-	100% {
-		transform: translateY(2px);
-	}
-}
-
 /**
  * Rotating Div Frame
  * https://codepen.io/jamesmellers/pen/XKmyoo
@@ -106,16 +96,32 @@
 }
 
 /**
-* — WordPress specific —
-*/
+ * Fade in homepage title
+ */
 
-// Globally hidden elements when Infinite Scroll is supported and in use.
-.infinite-scroll .paging-navigation, // Older / Newer Posts Navigation (always hidden)
-.infinite-scroll.neverending .site-footer { // Theme Footer (when set to scrolling)
-	display: none;
+@keyframes blockIn {
+	0% {
+		height: 0%;
+	}
+	40% {
+		height: 100%;
+	}
+	60% {
+		height: 100%;
+	}
+	100% {
+		height: 0;
+	}
 }
 
-// When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before
-.infinity-end.neverending .site-footer {
-	display: block;
+@keyframes wordIn {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

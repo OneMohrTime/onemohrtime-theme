@@ -19,7 +19,7 @@ export default function dribbble() {
 
   // Set the Access Token
   const accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
-  const numberOfShots = '6';
+  const numberOfShots = 6;
 
   // Call Dribbble v2 API
   // getDribbbles: function(access_token) {
@@ -35,28 +35,41 @@ export default function dribbble() {
   //   });
   // },
   $.ajax({
-    url: 'https://api.dribbble.com/v2/user/shots?per_page=' + numberOfShots + '&access_token=' + accessToken,
+    url: 'https://api.dribbble.com/v2/user/shots?access_token=' + accessToken,
     dataType: 'json',
     type: 'GET',
     success: function( data ) {
       if ( 0 < data.length ) {
-        $.each( data.reverse(), function( i, val ) {
+        $.each( data, function( i, val ) {
 
+          let title       = val.title || '';
+          let htmlUrl     = val.html_url || 'https://dribbble.com/onemohrtime';
+          let teaserUrl   = val.images.teaser || null;
+          let normalUrl   = val.images.normal || null;
+          let hidpiUrl    = val.images.hidpi || null;
           // strip tags off to avoid front-end code breaking
-          var description = val.description.replace( /(<([^>]+)>)/gi, '' ) || val.title;
-
+          let description = val.description.replace( /(<([^>]+)>)/gi, '' ) || val.title;
           // manually truncate description
-          var trimmedDesc = jQuery.trim( description ).substring( 0, 80 ).trim( this ) + '...';
+          let trimmedDesc = jQuery.trim( description ).substring( 0, 80 ).trim( this ) + '...';
 
-          $('#dribbbles').prepend(
-            '<figure id="shot_' + val.id + '" class="shot"><a class="shot__link" href="' + val.html_url + '" target="_blank" title="See ' + val.title + ' on Dribbble" aria-label="' + val.title + '"></a><img src="' + val.images.teaser + '" alt="' + val.title + '" srcset="' + val.images.normal + ' 400w, ' + val.images.hidpi + ' 800w" class="shot__image" /><figcaption class="shot--hover"><h3 class="shot__headline _headline -underline">' + val.title + '</h3><span class="shot__description">' + trimmedDesc + '</span></figcaption></figure>'
+          $('#dribbbles').append(`
+            <figure id="shot_${val.id}" class="shot">
+              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" data-caption="${trimmedDesc}" title="See ${title} on Dribbble" aria-describedby="caption-${i}"></a>
+              <img src="${teaserUrl}" alt="${title}" srcset="${normalUrl} 800w, ${hidpiUrl} 1600w" class="shot__image" />
+              <figcaption class="shot--hover" id="caption-${i}">
+                <h3 class="shot__headline _headline -underline">${title}</h3>
+                <span class="shot__description">${trimmedDesc}</span>
+              </figcaption>
+            </figure>
+            `
           );
+
+          // limit to 6 shots
+          return i < numberOfShots - 1;
         });
       } else {
         $( '#dribbbles' ).append( '<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>' );
       }
     }
   });
-
-
 }

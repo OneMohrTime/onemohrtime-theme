@@ -13,37 +13,50 @@
 		</header>
 
 		{% if image_grid %}
-		<section id="images" class="page__gallery">
+		<div id="images" class="page__gallery _gallery">
 
-			<div class="-sizer"></div>
-			<div class="-gutter"></div>
+			<div class="_sizer"></div>
+			<div class="_gutter"></div>
 
 			{% for image in image_grid %}
+				<figure class="media js-image">
 
-				<figure id="image_{{ image.id }}" class="image {{ image.post_class }} js-image">
-					<img src="{{ TimberImage(image).src('thumbnail') }}"
-						 width="{{ image.width }}" height="{{ image.height }}"
-						 alt="{{ section.image.alt }}"
-						 class="image__image"
-						 srcset="{{ TimberImage(image).src('medium') }} 500w,
-								 {{ TimberImage(image).src('large') }} 1000w,
-								 {{ TimberImage(image).src('full') }} 1500w"
-						 sizes="(max-width: {{ image.width }}px) 100vw, {{ image.width }}px"/>
-					{% if image.caption %}
-						<figcaption class="image__caption caption--text">{{ image.caption }}</figcaption>
+					{% set imageOptimized = image ? Image(image) : null %}
+					{% set caption        = image.caption|default(null) %}
+					{% if image.alt is not empty %}
+						{% set alt = image.alt %}
+					{% elseif image.description is not empty %}
+						{% set alt = image.description %}
+					{% elseif caption is defined and caption is not empty %}
+						{% set alt = caption %}
+					{% elseif image.title is not empty %}
+						{% set alt = image.title %}
 					{% else %}
-						<figcaption class="image__caption caption--zoom">
-							{% include 'assets/media/icons/plus-zoom.svg' %}
-						</figcaption>
+						{% set alt = '' %}
+					{% endif %}
+					{% set width          = image.width ?? null %}
+					{% set height         = image.height ?? null %}
+
+					<img src="{{ imageOptimized.src('thumbnail') }}"
+						alt="{{ alt }}"
+						class="_image"
+						srcset="{{ imageOptimized.src('medium') }} 1000w,
+								{{ imageOptimized.src('large') }} 1500w"
+						sizes="(max-width: {{ width }}px) 100vw, {{ width }}px"/>
+					{% if caption %}
+						<figcaption class="media__caption -text">{{ caption }}</figcaption>
+					{% else %}
+						<figcaption class="media__caption -zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
 					{% endif %}
 
-					<a href="{{ TimberImage(image).src('full') }}" class="image__link" data-fancybox="gallery"{% if image.caption %} data-caption="{{ image.caption }}"{% endif %} data-width="{{ image.width }}" data-height="{{ image.height }}" data-trigger="gallery">
+					<a href="{{ imageOptimized.src('full') }}" class="media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
 						<span class="screen-reader-text">Zoom</span>
 					</a>
-				</figure>
 
+				</figure>
 			{% endfor %}
-		</section>
+
+		</div>
 		{% endif %}
 
 		<div class="page__content get-faded _wysiwyg">

@@ -31,6 +31,7 @@ import homepage from './components/homepage';
 import images from './components/images';
 import navigation from './components/navigation';
 import projects from './components/projects';
+import prism from './components/prism';
 import scrolling from './components/scrolling';
 
 //////////
@@ -43,4 +44,5 @@ homepage();
 images();
 navigation();
 projects();
+prism();
 scrolling();

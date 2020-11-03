@@ -56,11 +56,7 @@
 		opacity: 0;
 		transform: translate3d(0, 2em, 0);
 		// transition: opacity $speed, transform $speed-slow;
-
-		&.got-faded {
-			// opacity: 1;
-			// transform: translate3d(0, 0, 0);
-		}
+		transition-timing-function: $ease-out-back;
 
 		html.no-js & {
 			opacity: 1 !important;

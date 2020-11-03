@@ -14,9 +14,16 @@
 		</header>
 
 		{% if post.content %}
-		<div class="page__content get-faded _wysiwyg">
-			{{ post.content }}
-		</div>
+			<div class="page__content get-faded _wysiwyg">
+				{{ post.content }}
+			</div>
+		{% endif %}
+
+		{# Add Section Repeater #}
+		{% if post.sections|length %}
+			<div class="page__builder">
+				{% include 'partials/builder.twig' %}
+			</div>
 		{% endif %}
 
 		<footer class="page__footer">

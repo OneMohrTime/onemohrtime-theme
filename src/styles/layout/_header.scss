@@ -27,16 +27,25 @@
 		background: transparent;
 		box-shadow: none;
 
+		// when the window scrolls up the page
 		&.-slideUp {
 			animation: navSlideUp $speed-slow ease forwards;
 		}
+		// when the window scrolls down the page
 		&.-slideDown {
 			animation: navSlideDown $speed-slow ease forwards;
 		}
 	}
+
+	@include media(">=screen1600") {
+		// center nav on wide displays
+		left: calc(50% - 800px);
+		max-width: 1600px;
+	}
 }
 
 @supports (pointer-events: all) {
+	// allow clicking "behind" transparent area of nav
 	.site__header { pointer-events: none; }
 	.toggle__menu,
 	.site__logo,

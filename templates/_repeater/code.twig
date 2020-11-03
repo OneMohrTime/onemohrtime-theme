@@ -1,0 +1,13 @@
+{% set section = block %}
+
+{#
+ # Code Block
+ #}
+
+{% set language = section.language ?? null %}
+{% set snippet  = section.snippet ?? null %}
+
+<div class="builder__section -code">
+	{# don't stack tags, whitespace throws off code #}
+	<pre><code class="code{% if language %} language-{{ language }}{% endif %}">{{ snippet|e }}</code></pre>
+</div>

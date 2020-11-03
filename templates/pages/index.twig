@@ -1,19 +1,15 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	
-    {% include 'components/title.twig' %}
-	
-    {% for post in posts %}
-		
-        {% include "components/content.twig" with {post: post}  %}
-		
-    {% endfor %}
-	
+
+	{% include 'components/title.twig' %}
+
+	{% for post in posts %}
+		{% include "components/content.twig" with {post: post}  %}
+	{% endfor %}
+
 {% endblock %}
 
 {% block sidebar %}
-	
-    {% include "blocks/sidebar.twig" %}
-	
+	{% include "blocks/sidebar.twig" %}
 {% endblock %}
