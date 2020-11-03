@@ -44,6 +44,7 @@ export default function dribbble() {
 
           let title       = val.title || '';
           let htmlUrl     = val.html_url || 'https://dribbble.com/onemohrtime';
+          let teaserUrl   = val.images.teaser || null;
           let normalUrl   = val.images.normal || null;
           let hidpiUrl    = val.images.hidpi || null;
           // strip tags off to avoid front-end code breaking
@@ -53,9 +54,9 @@ export default function dribbble() {
 
           $('#dribbbles').append(`
             <figure id="shot_${val.id}" class="shot">
-              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" title="See ${title} on Dribbble"></a>
-              <img src="${val.images.teaser}" alt="${title}" srcset="${normalUrl} 800w, ${hidpiUrl} 1600w" class="shot__image" />
-              <figcaption class="shot--hover">
+              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" data-caption="${trimmedDesc}" title="See ${title} on Dribbble" aria-describedby="caption-${i}"></a>
+              <img src="${teaserUrl}" alt="${title}" srcset="${normalUrl} 800w, ${hidpiUrl} 1600w" class="shot__image" />
+              <figcaption class="shot--hover" id="caption-${i}">
                 <h3 class="shot__headline _headline -underline">${title}</h3>
                 <span class="shot__description">${trimmedDesc}</span>
               </figcaption>
