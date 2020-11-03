@@ -81,31 +81,4 @@ export default function gallery() {
       });
     });
   }
-
-
-  /**
-   * Convert WordPress Block Galleries into Masonry layout
-   */
-
-  const pageGallery = document.querySelector('#images');
-
-
-  if ( pageGallery && pageGallery.length ) {
-    // reorganize with Masonry
-    const pageGalleryIso = new Isotope( pageGallery, {
-      itemSelector: '.js-image',
-      percentPosition: true,
-      masonry: {
-        columnWidth: '.-sizer',
-        gutter: '.-gutter',
-        horizontalOrder: true
-      },
-      hiddenStyle: {
-        opacity: 0
-      },
-      visibleStyle: {
-        opacity: 1
-      }
-    }, 0);
-  }
 }
