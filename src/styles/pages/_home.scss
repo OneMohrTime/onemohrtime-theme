@@ -108,6 +108,14 @@
 			margin-bottom: 0;
 			padding-top: $gutter-lg;
 			padding-bottom: $gutter-lg;
+
+			// these styles assume a two section text/card layout _only_
+			@include first(1) {
+				padding-bottom: 0;
+			}
+			@include last(1) {
+				padding-top: 0;
+			}
 		}
 	}
 }
