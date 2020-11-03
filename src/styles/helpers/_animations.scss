@@ -116,14 +116,12 @@
 
 @keyframes wordIn {
 	0% {
-		// transform: translateY(#{$gutter-sm});
-		color: $color__yellow;
+		opacity: 0;
 	}
 	90% {
-		color: $color__yellow;
+		opacity: 0;
 	}
 	100% {
-		color: $color__black;
-		// transform: translateY(0);
+		opacity: 1;
 	}
 }

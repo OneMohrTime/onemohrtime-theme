@@ -70,13 +70,15 @@
 		.-word {
 			position: relative;
 			display: inline-block;
-			// opacity: 0;
-			animation: wordIn $speed linear;
 
+			// apply animation delays to child elements
+			// that are created with javascript
 			@for $i from 1 through 10 {
 				&:nth-child(#{$i}) {
-					animation-delay: #{100ms * $i};
 					.-block {
+						animation-delay: #{100ms * $i};
+					}
+					.-word {
 						animation-delay: #{100ms * $i};
 					}
 				}
@@ -89,14 +91,19 @@
 			bottom: 0;
 			width: 100%;
 			height: 0;
-			background-color: $color__black;
-			// animation: blockIn 2s $cubic-bezier;
-			animation: blockIn 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+			background-color: $color__black--light;
+			animation: blockIn forwards 1s cubic-bezier(0.22, 0.68, 0, 1.71);
+		}
+
+		.-text {
+			display: inline-block;
+			animation: wordIn forwards $speed-slow linear;
 		}
 	}
 
 	._tagline {
 		@include caption();
+		letter-spacing: 1px;
 	}
 }
 
