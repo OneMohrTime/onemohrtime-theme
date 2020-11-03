@@ -70,9 +70,12 @@
 		.-word {
 			position: relative;
 			display: inline-block;
+			// opacity: 0;
+			animation: wordIn $speed linear;
 
 			@for $i from 1 through 10 {
 				&:nth-child(#{$i}) {
+					animation-delay: #{100ms * $i};
 					.-block {
 						animation-delay: #{100ms * $i};
 					}
@@ -87,19 +90,8 @@
 			width: 100%;
 			height: 0;
 			background-color: $color__black;
-			animation: blockIn 2s linear;
-
-		}
-
-		@keyframes wordIn {
-			0% {
-				opacity: 0;
-				transform: translateY(-#{$gutter-sm});
-			}
-			100% {
-				opacity: 1;
-				transform: translateY(0);
-			}
+			// animation: blockIn 2s $cubic-bezier;
+			animation: blockIn 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 		}
 	}
 
