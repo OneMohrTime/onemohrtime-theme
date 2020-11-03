@@ -71,6 +71,10 @@ body {
 		position: relative;
 		width: 100%;
 		min-height: 100vh;
+		background-color: $color__white;
+		background-image: url("../img/old_mathematics.png");
+		background-position: top center;
+		color: $color__black;
 
 		//
 		// Home Page
