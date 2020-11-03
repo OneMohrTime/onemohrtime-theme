@@ -125,5 +125,5 @@ a {
 
 // Text meant only for screen readers.
 .screen-reader-text {
-	@include visually-hidden();
+	@include visually-hidden(true);
 }
