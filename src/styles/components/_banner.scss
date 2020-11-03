@@ -12,6 +12,13 @@
 	&.-yellow {
 		color: $color__black--light;
 	}
+
+	.-home & {
+		// make banner links accessible
+		a:focus {
+			outline-color: fade-out($color__white, 0.4);
+		}
+	}
 }
 
 .banner__list {
