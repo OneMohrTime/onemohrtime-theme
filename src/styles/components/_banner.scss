@@ -126,16 +126,9 @@
 	}
 
 	&:hover {
-		@include media("<screen1170") {
-			&::before {
-				background-color: $color__black--light !important;
-			}
-		}
-		@include media(">=screen1170") {
-			&::before {
-				bottom: 12px !important;
-				height: 80% !important;
-			}
+		&::before {
+			bottom: 12px !important;
+			height: 80% !important;
 		}
 	}
 }
