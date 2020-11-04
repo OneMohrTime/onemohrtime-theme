@@ -66,11 +66,6 @@
 			opacity: 0;
 			transition: opacity $speed;
 			border: 3px $color__yellow solid;
-
-			@include media("<screen1024") {
-				// hide only on small screens
-				@include visually-hidden();
-			}
 		}
 
 		&__link {

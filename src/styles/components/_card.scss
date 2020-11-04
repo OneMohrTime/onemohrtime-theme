@@ -222,11 +222,6 @@ $lgImage: 200px;
 			@include first(2) {
 				margin-top: 0;
 			}
-
-			// space between siblings
-			& + .card {
-				margin-top: 0;
-			}
 		}
 
 		// no less than 768px
@@ -294,11 +289,16 @@ $lgImage: 200px;
 		@include clearfix();
 	}
 
-	// no less than 768px
-	@include media(">=screen768") {
+	// no less than 600px
+	@include media(">=screen600") {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		align-items: center;
+	}
+
+	// no less than 768px
+	@include media(">=screen768") {
 		align-items: flex-start;
 	}
 }

@@ -77,8 +77,8 @@ export default function scrolling() {
       let fadeContainer = e;
       // let $fadeChildren = $(this).find('> *');
       let $fadeChildren = $(this).children();
-      let fadeDuration  = 0.3;
-      let fadeBetween   = 0.2;
+      let fadeDuration  = 0.25;
+      let fadeBetween   = 0.125;
 
       const getFadedIn = gsap.timeline({
         scrollTrigger: {
