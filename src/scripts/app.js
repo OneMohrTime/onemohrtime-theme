@@ -33,6 +33,7 @@ import navigation from './components/navigation';
 import projects from './components/projects';
 import prism from './components/prism';
 import scrolling from './components/scrolling';
+import titles from './components/titles';
 
 //////////
 // INIT //
@@ -46,3 +47,4 @@ navigation();
 projects();
 prism();
 scrolling();
+titles();

@@ -415,14 +415,39 @@
 }
 
 @mixin animateTitle() {
-	[class^="word"] {
+
+	.-word {
+		position: relative;
 		display: inline-block;
-		margin-right: 30px; // for non breaking spaces
+
+		// apply animation delays to child elements
+		// that are created with javascript
+		@for $i from 1 through 10 {
+			&:nth-child(#{$i}) {
+				.-block {
+					animation-delay: #{100ms * $i};
+				}
+				.-word {
+					animation-delay: #{100ms * $i};
+				}
+			}
+		}
 	}
-	[class^="char"] {
+
+	.-block {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 0;
+		background-color: $color__black--light;
+		animation: blockIn forwards 1s cubic-bezier(0.22, 0.68, 0, 1.71);
+	}
+
+	.-text {
 		display: inline-block;
-		opacity: 0;
-		animation: fadeInTitle $speed-slow 1 forwards;
+		color: $color__black--light;
+		animation: wordIn forwards $speed-slow linear;
 	}
 }
 
