@@ -147,11 +147,11 @@ class StarterSite extends Timber\Site {
 		 * to output valid HTML5.
 		 */
 		add_theme_support( 'html5', array(
-			'comment-form',
-			'comment-list',
+			// 'comment-form',
+			// 'comment-list',
 			'gallery',
 			'caption',
-			'search-form'
+			// 'search-form'
 		) );
 
 		/**
@@ -227,6 +227,14 @@ class StarterSite extends Timber\Site {
 	 */
 	public function yoasttobottom() {
 		return 'low';
+	}
+
+	/**
+	 * Remove comments styles from <head>
+	 */
+	function remove_recent_comments_style() {
+		global $wp_widget_factory;
+		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
 	}
 
 	/** This is where you can add your own functions to twig.
