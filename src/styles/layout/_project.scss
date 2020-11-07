@@ -25,7 +25,7 @@
 	&__banner {
 		// .project__banner
 		position: relative;
-		@include image-overlay();
+		// @include image-overlay();
 		width: 100%;
 		height: calc(100vh - 72px);
 
