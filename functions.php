@@ -169,7 +169,7 @@ class StarterSite extends Timber\Site {
 			'audio',
 		) );
 
-		add_editor_style( 'assets/css/editor.css' );
+		add_editor_style( 'assets/styles/editor.css' );
 		add_theme_support( 'menus' );
 		add_post_type_support( 'page', 'excerpt' );
 	}
