@@ -53,7 +53,9 @@
 	}
 }
 
-// .banner__listItem {}
+.banner__listItem {
+	font-size: ms(0) !important;
+}
 
 .banner__intro {
 
