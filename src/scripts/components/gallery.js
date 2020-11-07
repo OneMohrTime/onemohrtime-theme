@@ -3,6 +3,7 @@
  * ===================================================================== */
 
 import Isotope from 'isotope-layout';
+import imagesLoaded from 'imagesloaded';
 
 export default function gallery() {
 
@@ -10,12 +11,21 @@ export default function gallery() {
    * Change section galleries into Masonry layout
    */
 
-  const $gallery = $( '._gallery' );
+  // Find all galleries on page
+  const gallery = document.querySelectorAll('._gallery');
 
-  if ( $gallery && $gallery.length ) {
-    $gallery.each( function(index, item) {
-      // reorganize with Masonry
-      const galleryIso = new Isotope( item, {
+  // Do nothing if we find none
+  if (!gallery) {
+    return;
+  }
+
+  // Make each NodeList of galleries into usable object
+  gallery.forEach( (media) => {
+
+    // Leverage imagesLoaded to delay Isotope
+    imagesLoaded( media, function() {
+      // init Isotope after all images have loaded
+      let iso = new Isotope( media, {
         itemSelector: '.js-image',
         percentPosition: true,
         masonry: {
@@ -25,7 +35,9 @@ export default function gallery() {
         }
       });
     });
-  }
+
+  });
+
 
   /**
    * Change project gallery into Masonry layout

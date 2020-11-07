@@ -34,6 +34,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "bourbon": "^6.0.0",
     "gsap": "^3.5.1",
+    "imagesloaded": "^4.1.4",
     "include-media": "^1.4.9",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.5.1",
