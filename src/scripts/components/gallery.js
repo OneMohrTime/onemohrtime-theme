@@ -22,6 +22,9 @@ export default function gallery() {
   // Make each NodeList of galleries into usable object
   gallery.forEach( (media) => {
 
+    // Fade images in
+    media.classList.add('get-faded')
+
     // Leverage imagesLoaded to delay Isotope
     imagesLoaded( media, function() {
       // init Isotope after all images have loaded
