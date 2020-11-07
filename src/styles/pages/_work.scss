@@ -88,19 +88,13 @@
 
 	&__filter {
 		// .gallery__filter
-		position: sticky;
-		top: 72px;
+		position: relative;
 		width: 100%;
 		height: 72px;
 		margin-left: $gutter;
 		margin-right: $gutter;
-		transform: translateY(-72px);
 		transition: top $speed linear;
 		z-index: 30;
-
-		&.with-sticky {
-			top: 100px;
-		}
 
 		@include media(">=screen768") {
 			margin-left: $gutter * 2;
@@ -281,10 +275,7 @@
 			margin-right: $gutter * 2;
 		}
 
-		@include media(">=screen768") {
-			margin-top: 0;
-			transform: translateY(-72px);
-		}
+		// @include media(">=screen768") {}
 
 		@include media(">=screen1024") {
 			margin-left: $gutter * 3;
