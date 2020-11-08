@@ -104,8 +104,8 @@ ul, ol, dl {
 	._wysiwyg &,
 	.-wysiwyg & {
 		@include type();
-		margin: 0 0 1.7em;
-		padding-left: 1.7em;
+		margin: 0 0 $base-line-height;
+		padding-left: $base-line-height;
 
 		& ul,
 		& ol,
