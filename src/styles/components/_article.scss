@@ -22,6 +22,17 @@
 		justify-content: space-between;
 		margin-bottom: $base-spacing;
 		width: 100%;
+
+		//
+		// hover, active state
+		&:hover,
+		.article__link:focus {
+
+			// move text up to center, slowish
+			.article__content {
+				transform: translateY(-#{$gutter-lg});
+			}
+		}
 	}
 
 	@include media(">=screen1024") {
@@ -70,14 +81,12 @@
 			flex-shrink: 0;
 			flex-basis: calc(40% - #{$gutter});
 			max-width: calc(40% - #{$gutter});
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
 			margin-bottom: 0;
+			transition: transform $speed;
 			@include small-font-size();
-
-			@supports (display: flex) {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-			}
 		}
 
 		._meta {
@@ -138,17 +147,6 @@
 
 			&::before {
 				display: none;
-			}
-
-			@include media(">=screen840") {
-				@include ellipsis();
-				// transition: overflow $speed, white-space $speed;
-
-				// &:hover,
-				// &:focus {
-				// 	overflow: visible;
-				// 	white-space: normal;
-				// }
 			}
 		}
 	}
