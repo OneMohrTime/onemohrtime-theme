@@ -130,7 +130,16 @@
 	z-index: 35;
 	cursor: pointer;
 
-	&:focus,
+	@include hocus {
+		background-color: $color__black--light;
+		color: $color__white;
+		box-shadow: 0 0 0 5px $color__black--light;
+
+		.bar {
+			background-color: $color__white;
+		}
+	}
+
 	&.open {
 		color: $color__white;
 	}
@@ -143,13 +152,9 @@
 		margin-bottom: 32px;
 
 		&:hover {
-			background-color: $color__black--light;
-			box-shadow: 0 0 0 5px $color__black--light;
-
 			.m, .n, .u {
 				color: $color__white;
 			}
-
 			.bar {
 				background-color: $color__white;
 			}

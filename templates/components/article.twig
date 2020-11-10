@@ -28,7 +28,7 @@
 		{% endif %}
 
 		<h2 id="{{ post.title|lower|replace({' ': '-', '/': '-'}) }}" class="article__title">
-			<a href="{{ post.link }}">{{ post.title }}</a>
+			<a href="{{ post.link }}" tabindex="-1">{{ post.title }}</a>
 		</h2>
 
 		{% if post.post_excerpt is defined and post.post_excerpt is not empty %}
@@ -37,8 +37,6 @@
 			<p>{{ post.post_content|striptags|raw|truncate(30) }}[&hellip;]</p>
 		{% endif %}
 
+		<a href="{{ post.link }}" class="article__link _button">View {{ post.title }}</a>
 	</div>
-	<a href="{{ post.link }}" class="article__link">
-		<span class="screen-reader-text">{{ post.title }}</span>
-	</a>
 </article>
