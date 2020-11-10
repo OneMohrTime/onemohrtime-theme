@@ -7,7 +7,7 @@
 	width: 100%;
 	height: auto;
 	margin-bottom: $large-spacing;
-	overflow: hidden;
+	// overflow: hidden;
 	@include body-copy();
 
 	@include media(">=screen768") {
@@ -25,12 +25,14 @@
 
 		//
 		// hover, active state
+		// they also need seperate declarations due to link hover states
 		&:hover,
 		.article__link:focus {
 
 			// move text up to center, slowish
 			.article__content {
-				transform: translateY(-#{$gutter-lg});
+				// transform: translate(-#{$gutter-lg}, -#{$gutter-lg});
+				// background-color: $color__yellow;
 			}
 		}
 	}
@@ -84,8 +86,8 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
+			align-items: flex-start;
 			margin-bottom: 0;
-			transition: transform $speed;
 			@include small-font-size();
 		}
 
@@ -107,6 +109,13 @@
 
 			@include media(">=screen840") {
 				text-align: left;
+			}
+		}
+
+		// adjust margins a bit
+		& > * {
+			@include last(2) {
+				margin-bottom: 0;
 			}
 		}
 
@@ -153,8 +162,27 @@
 
 	&__link {
 		// .article__link
-		display: none;
-		@include media(">=screen840") {}
+		&::before,
+		&::after {
+			display: none;
+		}
+
+		@include media("<screen840") {
+			margin-top: $base-line-height;
+		}
+
+		@include media(">=screen840") {
+			@include accessibly-hidden;
+			@include accessibly-focusable;
+			border: 0 !important;
+			padding: 0 !important;
+
+			&:focus {
+				margin-top: $base-line-height;
+				padding: $small-spacing $base-spacing !important;
+				border: 3px $color__black solid !important;
+			}
+		}
 	}
 
 

@@ -126,7 +126,7 @@
 // @output  Injects `:focus`, `:active` pseudo-classes.
 //
 @mixin accessibly-focusable {
-    @include u-actus {
+    @include actus {
         clip: auto;
         width: auto;
         height: auto;
