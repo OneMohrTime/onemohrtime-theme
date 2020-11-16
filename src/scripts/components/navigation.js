@@ -56,7 +56,7 @@ export default function navigation() {
   const mobileMenu      = $( '#desktop_menu' );
   const desktopMenu     = $( '#primary_nav' );
   const menuItems       = $( '#desktop_menu' ).children();
-  const menuDuration    = 0.3;
+  const menuDuration    = 0.15;
   const menuBetween     = 0.05;
   const mobileTimeline  = new TimelineMax({ paused: true, delay: 1 });
   const desktopTimeline = new TimelineMax();

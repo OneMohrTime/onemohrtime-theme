@@ -4,20 +4,9 @@
 
 ._gallery {
 
-	// @include media(">=screen768") {
-	// }
-
-	// @include media(">=screen1024") {
-	// }
-
-	// @include media(">=screen1170") {
-	// }
-
-	// @include media(">=screen1440") {
-	// }
-
 	.media {
 		position: relative;
+		width: 100%;
 		margin-bottom: $gutter;
 		@include box-shadow();
 
