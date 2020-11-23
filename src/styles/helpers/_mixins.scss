@@ -298,7 +298,7 @@
 
 @mixin title($underline: null) {
 	font-size: ms(3);
-	letter-spacing: 5px;
+	letter-spacing: 2px;
 
 	@include media('<screen480') {
 		hyphens: auto;
@@ -312,7 +312,7 @@
 
 @mixin subtitle($underline: null) {
 	font-size: ms(2);
-	letter-spacing: 2px;
+	letter-spacing: 0;
 
 	@include media('<screen480') {
 		hyphens: auto;
@@ -365,7 +365,7 @@
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	margin: 0;
 }
 
@@ -375,7 +375,7 @@
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	margin: 0;
 }
 
