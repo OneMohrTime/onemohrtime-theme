@@ -59,8 +59,9 @@
 		&--title {
 			// .gallery__banner--title
 			display: flex;
-			justify-content: center;
+			justify-content: flex-start;
 			align-items: center;
+			max-width: 1115px;
 			padding: 0 #{$gutter * 2} 0 $gutter;
 			z-index: 2;
 

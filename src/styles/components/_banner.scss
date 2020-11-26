@@ -110,12 +110,12 @@
 }
 
 .banner__link {
-	transition: border $speed;
+	transition: box-shadow $speed linear;
 	line-height: $base-line-height;
-	border-bottom: 1px transparent solid;
+	box-shadow: none;
 
 	&:hover {
-		border-bottom-color: $color__white;
+		box-shadow: 0 7px 0 0 $color__white;
 	}
 }
 

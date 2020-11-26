@@ -3,7 +3,7 @@
  * ===================================================================== */
 
 import Isotope from 'isotope-layout';
-import imagesLoaded from 'imagesloaded';
+import { imagesLoaded } from 'imagesloaded';
 
 export default function gallery() {
 
