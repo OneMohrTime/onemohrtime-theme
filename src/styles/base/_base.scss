@@ -8,6 +8,7 @@ html {
 
 body {
 	position: relative;
+	background-attachment: fixed;
 	background-color: $color__white;
 	background-image: url("../img/transparent.png");
 	background-position: top center;
@@ -49,10 +50,10 @@ body {
 
 	@include media(">=screen1600") {
 		max-width: 1440px;
-		// border-left: 1px $color__white--darkest solid;
-		// border-right: 1px $color__white--darkest solid;
 		margin-left: auto;
 		margin-right: auto;
+		box-shadow: #{$gutter-sm} 0 #{$gutter * 0.67} -#{$gutter * 0.67} fade-out($color__black, 0.4),
+					-#{$gutter-sm} 0 #{$gutter * 0.67} -#{$gutter * 0.67} fade-out($color__black, 0.4);
 	}
 
 	@include media(">=screen1920") {
