@@ -32,7 +32,7 @@ import images from './components/images';
 import navigation from './components/navigation';
 import parallax from './components/parallax';
 import prism from './components/prism';
-import projects from './components/projects';
+// import projects from './components/projects';
 import scrolling from './components/scrolling';
 import titles from './components/titles';
 
@@ -47,6 +47,6 @@ images();
 navigation();
 parallax();
 prism();
-projects();
+// projects();
 scrolling();
 titles();
