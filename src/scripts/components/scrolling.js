@@ -73,7 +73,7 @@ export default function scrolling() {
     // Animate dribbble headline in
     const homeTimeline = gsap.timeline({
         start: 'top 80%',
-        markers: 'true',
+        // markers: 'true',
         toggleActions: 'play none none none',
       });
     // console.log(homeTimeline);
