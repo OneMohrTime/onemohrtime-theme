@@ -6,13 +6,13 @@
 		{% if post.thumbnail %}
 			<img src="{{ post.thumbnail.src('thumbnail') }}"
 				alt="{{ post.thumbnail.alt }}"
-				class="_image"
+				class="_image -parallax"
 				srcset="{{ post.thumbnail.src('medium') }} 750w,
 						{{ post.thumbnail.src('large') }} 1500w"
 				sizes="(max-width: 840px) 100vw, 50vw" />
 
 		{% else %}
-			<img src="{{ theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image" />
+			<img src="{{ theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image -parallax" />
 
 		{% endif %}
 	</figure>

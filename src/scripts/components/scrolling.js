@@ -19,51 +19,6 @@ export default function scrolling() {
 
 
   /**
-   * Parallax images
-   */
-
-  // $( '.parallax' ).each( function(i,e) {
-  //   let parallaxParent   = e;
-  //   let parallaxChild    = $( this ).children( '.parallax__image' );
-  //   let parallaxDuration = '200%';
-
-  //   const parallaxTween = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: parallaxParent,
-  //         start: 'top center',
-  //         end: 'bottom center',
-  //         scrub: true,
-  //         onEnter: () => $(this).addClass('-scrolling'),
-  //         onLeave: () => $(this).removeClass('-scrolling'),
-  //         onEnterBack: () => $(this).addClass('-scrolling'),
-  //         onLeaveBack: () => $(this).removeClass('-scrolling'),
-  //       }
-  //     });
-
-  //   if ( 840 <= viewportWidth ) {
-
-  //     gsap.utils.toArray('.parallax').forEach((parallax) => {
-  //       parallax.bg = parallax.querySelector('.parallax__image');
-
-  //       parallax.bg.style.top = "-100%";
-
-  //       gsap.to(parallax.bg, {
-  //         top: `${-innerHeight / 2}px`,
-  //         left: '50%',
-  //         ease: "none",
-  //         scrollTrigger: {
-  //           trigger: parallax,
-  //           start: "top top",
-  //           end: "bottom top",
-  //           scrub: true
-  //         }
-  //       });
-  //     });
-  //   }
-  // });
-
-
-  /**
    * Fade in content blocks
    */
 
@@ -107,7 +62,7 @@ export default function scrolling() {
 
 
   /**
-   * Home page animations
+   * Home page scroll animations
    */
 
   // Find out if this is actually the home page
