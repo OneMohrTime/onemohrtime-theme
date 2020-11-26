@@ -30,15 +30,15 @@
 		{% if workHistory is defined and workHistory is not empty %}
 			<section class="page__repeater">
 
-				<h3 class="_subheadline -underline">Professional History</h3>
+				<h3 id="work-history" class="_subheadline -underline">Professional History</h3>
 
 				{% for work in workHistory %}
 					<details class="repeater{{ work.end_date ? '' : ' -current' }}"{% if work.end_date is empty %} data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
 						<summary class="repeater__summary">
-							<h4 class="repeater__title">{{ work.company }}</h4>
+							<h4 id="{{ work.company|sanitize }}" class="repeater__title">{{ work.company }}</h4>
 						</summary>
 						<div class="repeater__body _wysiwyg">
-							<h5 class="_subheadline">{{ work.job_title }}</h5>
+							<h5 id="{{ work.job_title|sanitize }}" class="_subheadline">{{ work.job_title }}</h5>
 							{{ work.job_description }}
 							<a href="{{ work.website }}" target="_blank" class="repeater__link">Website</a>
 						</div>
@@ -50,12 +50,12 @@
 		{% if education is defined and education is not empty %}
 			<section class="page__repeater">
 
-				<h3 class="_subheadline -underline">Education</h3>
+				<h3 id="educational-history" class="_subheadline -underline">Education</h3>
 
 				{% for school in education %}
 					<details class="repeater"{% if loop.first %} open{% endif %}>
 						<summary class="repeater__summary">
-							<h4 class="repeater__title">{{ school.school_name }}</h4>
+							<h4 id="{{ school.school_name|sanitize }}" class="repeater__title">{{ school.school_name }}</h4>
 						</summary>
 						<div class="repeater__body _wysiwyg">
 							{{ school.description }}
