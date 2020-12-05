@@ -20,9 +20,9 @@
 
 	<div class="article__content _wysiwyg get-faded">
 
-		{% if post.type == 'design' %}
+		{% if postType == 'design' %}
 			<p class="_meta -wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
-		{% elseif post.type == 'page' %}
+		{% elseif postType == 'page' %}
 			<p class="_meta -wysiwyg">{{ post.post_excerpt|truncate(16) }}</p>
 		{% else %}
 			{% include "components/entry-meta.twig" %}
