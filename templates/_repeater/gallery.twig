@@ -52,6 +52,8 @@
 
 					<img src="{{ imageOptimized.src('thumbnail') }}"
 						alt="{{ alt }}"
+						width="{{ width }}"
+						height="{{ height }}"
 						class="_image"
 						srcset="{{ imageOptimized.src('medium') }} 1000w,
 								{{ imageOptimized.src('large') }} 1500w"
@@ -63,7 +65,7 @@
 					{% endif %}
 
 					<a href="{{ imageOptimized.src('full') }}" class="media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
-						<span class="screen-reader-text">Zoom</span>
+						<span class="screen-reader-text">{{ image.caption ?? image.title ?? 'See Image' }}</span>
 					</a>
 
 				</figure>
