@@ -74,7 +74,7 @@
 
 	&__dribbble {
 		// .homepage__dribbble
-		width: 100%;
+		width: auto;
 		margin: 0 $gutter #{$gutter * 3};
 
 		@include media(">=screen768") {
@@ -90,11 +90,6 @@
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 			margin-right: $gutter * 4;
-		}
-
-		@supports (display: grid) {
-			grid-column: span 4;
-			width: auto;
 		}
 	}
 

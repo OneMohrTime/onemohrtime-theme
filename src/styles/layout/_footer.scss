@@ -3,9 +3,12 @@
  */
 
 .site__footer {
-	@include clearfix();
+	grid-column: span 4;
 	position: relative;
-	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(12, auto);
+	align-items: start;
+	width: auto;
 	height: auto;
 	padding: $gutter;
 	background-color: $color__black;
@@ -13,9 +16,18 @@
 	background-repeat: repeat-x;
 	color: $color__white;
 
+	@include media(">=screen600") {
+		column-gap: $small-spacing;
+	}
+
 	@include media(">=screen768") {
 		padding-left: $gutter * 2;
 		padding-right: $gutter * 2;
+	}
+
+	@include media(">=screen960") {
+		grid-template-columns: repeat(12, 1fr);
+		column-gap: $gutter;
 	}
 
 	@include media(">=screen1024") {
@@ -27,25 +39,9 @@
 		padding-right: $gutter * 4;
 	}
 
-	@supports (display: grid) {
-		grid-column: span 4;
-		display: grid;
-		grid-template-columns: repeat(12, auto);
-		align-items: start;
-		width: auto;
-
-		@include media(">=screen600") {
-			grid-column-gap: $small-spacing;
-		}
-
-		@include media(">=screen960") {
-			grid-template-columns: repeat(12, 1fr);
-			grid-column-gap: $gutter;
-		}
-	}
-
 	._column {
-		width: 100%;
+		grid-column: span 12;
+		width: auto;
 		margin-bottom: $base-spacing;
 
 		&:last-child {
@@ -53,50 +49,34 @@
 		}
 
 		@include media(">=screen600") {
-			float: left;
-			width: 50%;
+			grid-column: span 6;
 		}
 
 		@include media(">=screen960") {
-			width: 30%;
+			grid-column: minmax(1fr, 2fr);
+			&.-projects {
+				grid-column: span 4;
+			}
+			&.-about {
+				grid-column: span 4;
+			}
+			&.social-media {
+				grid-column: span 4;
+			}
 		}
 
-		@supports (display: grid) {
-			grid-column: span 12;
-			width: auto !important;
-
-			@include media(">=screen600") {
-				grid-column: span 6;
+		@include media(">=screen1280") {
+			&.-projects {
+				grid-column: span 2;
 			}
-
-			@include media(">=screen960") {
-				grid-column: minmax(1fr, 2fr);
-				&.-projects {
-					grid-column: span 4;
-				}
-				&.-about {
-					grid-column: span 4;
-				}
-				&.social-media {
-					grid-column: span 4;
+			&.-about {
+				grid-column: span 5;
+				h3 {
+					width: 37.2%; // mimic grid column
 				}
 			}
-
-			@include media(">=screen1280") {
-				&.-projects {
-					grid-column: span 2;
-				}
-				&.-about {
-					grid-column: span 5;
-					@include media(">=screen1280") {
-						h3 {
-							width: 37.2%; // mimic grid column
-						}
-					}
-				}
-				&.social-media {
-					grid-column: 11 / 13;
-				}
+			&.social-media {
+				grid-column: 11 / 13;
 			}
 		}
 
@@ -152,10 +132,8 @@
 	}
 
 	.copyright {
-		@supports (display: grid) {
-			grid-column: span 12;
-			grid-row: span 1;
-		}
+		grid-column: span 12;
+		grid-row: span 1;
 	}
 
 	.top {

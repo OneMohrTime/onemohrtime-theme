@@ -38,16 +38,6 @@
 	}
 }
 
-.clearfix {
-	@include clearfix();
-	@supports (display: flex) {
-		display: none;
-	}
-	@supports (display: grid) {
-		display: none;
-	}
-}
-
 .get-faded {
 	position: relative;
 

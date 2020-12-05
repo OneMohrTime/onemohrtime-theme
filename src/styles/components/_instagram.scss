@@ -32,14 +32,6 @@
 			line-height: 24px;
 		}
 	}
-
-	@supports (display: grid) {
-		&--title {
-			// .widget__instagram--title
-			grid-column: span 4;
-			width: auto;
-		}
-	}
 }
 
 @supports (display: flex) {
@@ -58,10 +50,21 @@
 				.sbi_item {
 					width: calc(25% - #{$gutter});
 					margin-bottom: 0 !important;
+					overflow: visible;
 
 					@media (max-width: 768px) {
 						margin-bottom: $gutter !important;
 						width: calc(50% - #{$gutter / 2});
+					}
+				}
+				.sbi_photo {
+					opacity: 1 !important;
+					transition: box-shadow $speed $cubic-bezier;
+					box-shadow: none;
+					@include hocus {
+						opacity: 1 !important;
+						box-shadow: 0 0 0 10px $color__white--dark,
+									0 0 0 20px $color__yellow;
 					}
 				}
 			}

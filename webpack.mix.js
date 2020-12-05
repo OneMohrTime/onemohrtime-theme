@@ -51,7 +51,10 @@ mix.setPublicPath('assets') // generate manifest in this directory
   })
 
   // Additional config
-  // .minify() // create sibling *.min file
+  .minify([
+    'assets/scripts/main.js',
+    'assets/styles/main.css'
+  ]) // create sibling *.min file
   // .disableSuccessNotifications()
   // .version()
   .options({

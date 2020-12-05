@@ -166,6 +166,8 @@
 				<img src="{{ TimberImage(image).src('thumbnail') }}"
 					width="{{ image.width }}" height="{{ image.height }}"
 					alt="{{ section.image.alt }}"
+					width="{{ section.image.width }}"
+					height="{{ section.image.height }}"
 					class="image__image"
 					srcset="{{ TimberImage(image).src('medium') }} 500w,
 							{{ TimberImage(image).src('large') }} 1000w,
