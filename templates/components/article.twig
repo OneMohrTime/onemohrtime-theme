@@ -1,18 +1,19 @@
 {% set loopClass = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %}
+{% set postType  = post.type.slug ?? 'default' %}
 
-<article class="article js-article -{{ post.type }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
+<article class="article js-article -{{ postType }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
 	<figure class="article__image">
 
 		{% if post.thumbnail %}
 			<img src="{{ post.thumbnail.src('thumbnail') }}"
 				alt="{{ post.thumbnail.alt }}"
-				class="_image -parallax"
+				class="_image{% if postType == 'design' %} -parallax{% endif %}"
 				srcset="{{ post.thumbnail.src('medium') }} 750w,
 						{{ post.thumbnail.src('large') }} 1500w"
 				sizes="(max-width: 840px) 100vw, 50vw" />
 
 		{% else %}
-			<img src="{{ theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image -parallax" />
+			<img src="{{ theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image{% if postType == 'design' %} -parallax{% endif %}" />
 
 		{% endif %}
 	</figure>
@@ -20,9 +21,9 @@
 	<div class="article__content _wysiwyg get-faded">
 
 		{% if post.type == 'design' %}
-			<p class="_meta _wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
+			<p class="_meta -wysiwyg">{{ post.get_field('project_header').subtitle }}</p>
 		{% elseif post.type == 'page' %}
-			<p class="_meta _wysiwyg">{{ post.post_excerpt|truncate(16) }}</p>
+			<p class="_meta -wysiwyg">{{ post.post_excerpt|truncate(16) }}</p>
 		{% else %}
 			{% include "components/entry-meta.twig" %}
 		{% endif %}
