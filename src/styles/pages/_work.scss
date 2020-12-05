@@ -36,12 +36,6 @@
 			padding-right: $gutter * 4;
 		}
 
-		@supports (display: grid) {
-			display: grid;
-			grid-column: span 4;
-			width: auto;
-		}
-
 		&--image {
 			// .gallery__banner--image
 			position: absolute;
@@ -114,11 +108,6 @@
 
 		@include media("<=screen600") {
 			display: none;
-		}
-
-		@supports (display: grid) {
-			grid-column: span 4;
-			width: auto;
 		}
 
 		.arrays {
@@ -314,34 +303,6 @@
 		@include media(">=screen1920") {
 			margin-left: $gutter * 5;
 			margin-bottom: $gutter * 5;
-		}
-	}
-
-	&__dribbble {
-		// .gallery__dribbble
-		width: 100%;
-		margin: 0 $gutter #{$gutter * 2};
-
-		@supports(display: grid) {
-			grid-column: span 4;
-			width: auto;
-			margin-left: $gutter;
-			margin-right: $gutter;
-		}
-
-		&--title {
-			// .gallery__dribbble--title
-			@include underlined();
-		}
-
-		&--content {
-			// .gallery__dribbble--content
-			margin-bottom: $small-spacing;
-			padding-right: $gutter;
-			@include media(">=screen600")  { padding-right: 20%; }
-			@include media(">=screen840")  { padding-right: 30%; }
-			@include media(">=screen1024") { padding-right: 40%; }
-			@include media(">=screen1600") { padding-right: 50%; }
 		}
 	}
 }

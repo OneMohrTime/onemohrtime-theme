@@ -15,17 +15,16 @@
 		// .project__header
 		position: relative;
 		width: 100%;
-
-		@supports (display: grid) {
-			grid-column: span 4;
-			width: auto;
-		}
 	}
 
 	&__banner {
 		// .project__banner
 		position: relative;
 		// @include image-overlay();
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		width: 100%;
 		height: calc(100vh - 72px);
 
@@ -33,20 +32,9 @@
 			height: 100vh;
 		}
 
-		@supports (display: grid) {
-			grid-column: span 4;
-			width: auto;
-		}
-
-		@supports (display: flex) {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			@include media(">=screen960") {
-				align-items: flex-start;
-				justify-content: flex-end;
-			}
+		@include media(">=screen960") {
+			align-items: flex-start;
+			justify-content: flex-end;
 		}
 
 		&--image {

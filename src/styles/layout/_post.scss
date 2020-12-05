@@ -2,13 +2,6 @@
  * === POSTS & DEFAULT PAGES ===
  */
 
-.-post,
-.-page {
-	@supports (display: grid) {
-		grid-column: span 4;
-	}
-}
-
 .page,
 .posts,
 .archives,
@@ -296,12 +289,6 @@
 	&__repeater {
 		// page__repeater
 		@include block-width();
-	}
-}
-
-@supports (display: grid) {
-	.posts__header {
-		grid-column: span 4;
 	}
 }
 

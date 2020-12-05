@@ -32,14 +32,6 @@
 			line-height: 24px;
 		}
 	}
-
-	@supports (display: grid) {
-		&--title {
-			// .widget__instagram--title
-			grid-column: span 4;
-			width: auto;
-		}
-	}
 }
 
 @supports (display: flex) {

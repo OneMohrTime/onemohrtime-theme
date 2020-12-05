@@ -3,6 +3,7 @@
  */
 
 .site__sidebar {
+	grid-column: span 4;
 	position: relative;
 	width: 100%;
 	padding-bottom: $base-spacing;
@@ -23,11 +24,6 @@
 	@include media(">=screen1440") {
 		padding-left: $gutter * 4;
 		padding-right: $gutter * 4;
-	}
-
-	@supports (display: grid) {
-		grid-column: span 4;
-		width: auto;
 	}
 }
 
