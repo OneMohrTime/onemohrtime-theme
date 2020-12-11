@@ -14,27 +14,25 @@ This repo is the codebase for [https://onemohrti.me](https://onemohrti.me), writ
 	<thead>
 		<tr>
 			<th colspan="4">Server</th>
-			<th>Sass</th>
 			<th colspan="3">JS Libs</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>`Node 12.x`</td>
-			<td>`NPM 6.x`</td>
-			<td>`PHP 7.4`</td>
-			<td>`MySQL 5.7`</td>
-			<td>`1.27.x`</td>
-			<td>`gsap@3`</td>
-			<td>`Isotope v3`</td>
-			<td>`jQuery 3`</td>
+			<td><code>Node 12.x</code></td>
+			<td><code>NPM 6.x</code></td>
+			<td><code>PHP 7.4</code></td>
+			<td><code>MySQL 5.7</code></td>
+			<td><code>gsap@3</code></td>
+			<td><code>Isotope v3</code></td>
+			<td><code>jQuery 3</code></td>
 		</tr>
 	</tbody>
 </table>
 
 ## Build Commands
 
-This project uses **Laravel Mix** to compile most assets. Unfortunately, `Fancybox 3` doesn't compile as a module, among other issues in the [backlog](./issues),
+This project uses **Laravel Mix** to compile most assets. Unfortunately, `Fancybox 3` doesn't compile as a module, among other issues in the [backlog](./issues).
 
 ```zsh
 # compile expanded assets
@@ -51,7 +49,7 @@ npm run watch
 
 Shortcut to the common upgrade commands
 
-```apache2
+```apache
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
