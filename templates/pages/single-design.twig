@@ -1,6 +1,10 @@
 {% extends 'layouts/base.twig' %}
 {% set displaySidebar = true %}
 
+{% set roles   = post.terms('role') ?? null %}
+{% set jobType = post.terms('job_type') ?? null %}
+{% set coding  = post.terms('coding') ?? null %}
+
 {% block content %}
 
 {# Banner Area #}
