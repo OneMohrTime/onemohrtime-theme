@@ -115,16 +115,6 @@
 	}
 }
 
-body.home {
-
-	&.sidebar-primary {
-		.site__sidebar {
-			background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
-			color: $color__black;
-		}
-	}
-}
-
 .dribbble__title,
 .homepage__work--title {
 	display: inline-block;

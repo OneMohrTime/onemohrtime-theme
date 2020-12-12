@@ -35,7 +35,9 @@
 		height: auto;
 	}
 
-	iframe:not(.cp_embed_iframe), // codepen embed
+	iframe:not(.cp_embed_iframe) // codepen embed
+		  :not(.instagram-media) // instagram embed
+		  :not(.-absoluteSize), // instagram embed
 	object,
 	embed {
 		width: 100%;
