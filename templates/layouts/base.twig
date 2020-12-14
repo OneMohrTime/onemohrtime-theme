@@ -6,8 +6,13 @@
 	</head>
 {% endblock %}
 
-{% set postTypeClass  = post ? post.type.slug : 'error404' %}
-{% set postTitleClass = post ? '-' ~ post.slug : '' %}
+{% if term_page %}
+	{% set postTypeClass  = 'archive' %}
+	{% set postTitleClass = '-category' %}
+{% else %}
+	{% set postTypeClass  = post ? post.type.slug : 'error404' %}
+	{% set postTitleClass = post ? '-' ~ post.slug : '' %}
+{% endif %}
 
 <body class="{{ postTypeClass }} {{ postTitleClass }}">
 	<div id="page" class="site">

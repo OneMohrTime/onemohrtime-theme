@@ -7,6 +7,11 @@
 	&.-typographic {
 		@include block-width();
 		margin-bottom: $gutter * 3;
+		// reverse order on mobile
+		@include media("<screen600") {
+			display: flex;
+			flex-flow: column-reverse nowrap;
+		}
 	}
 
 	&.-yellow {
@@ -30,8 +35,8 @@
 	// Typographic banner, like home page
 	//
 	.-typographic & {
-		margin-top: 30px;
-		margin-bottom: $gutter * 4;
+		margin-top: $gutter * 4;
+		margin-bottom: $gutter;
 
 		@include media('>=screen600') {
 			margin-top: $gutter * 3;
@@ -46,10 +51,6 @@
 		@include media('>=screen1280') {
 			margin-bottom: $gutter * 7;
 		}
-
-		// @include media('>=screen1600') {
-		// 	margin-bottom: $gutter * 8;
-		// }
 	}
 }
 
@@ -58,6 +59,10 @@
 }
 
 .banner__intro {
+
+	@include media("<screen600") {
+		margin-top: $gutter * 4;
+	}
 
 	._title {
 		@include subtitle();
