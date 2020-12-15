@@ -51,39 +51,34 @@ export default function navigation() {
    * Mobile Menu
    */
 
-  const mobileToggle    = $( '#menu_toggle' );
-  const navbar          = $( '#masthead' );
-  const mobileMenu      = $( '#desktop_menu' );
-  const desktopMenu     = $( '#primary_nav' );
-  const menuItems       = $( '#desktop_menu' ).children();
+  const $mobileToggle   = $('#menu_toggle');
+  const $navbar         = $('#masthead');
+  const $mobileMenu     = $('#desktop_menu');
+  const $desktopMenu    = $('#primary_nav');
+  const $menuItems      = $('#desktop_menu').children();
   const menuDuration    = 0.15;
   const menuBetween     = 0.05;
   const mobileTimeline  = new TimelineMax({ paused: true, delay: 1 });
   const desktopTimeline = new TimelineMax();
-  const $this           = $( this );
 
-  if ( 601 > viewportWidth ) {
-
-    // TODO: New Menu
-    // https://codepen.io/mikeK/pen/GyPYPZ
-
-    mobileTimeline.to( navbar, {
+  function navigationIsMobile() {
+    mobileTimeline.to( $navbar, {
       duration: menuDuration,
       height: '100%',
       opacity: 1,
       // ease: Power2.easeOut
-    }, 0 ).to( mobileMenu, {
+    }, 0 ).to( $mobileMenu, {
       duration: menuDuration,
       top: 0,
       autoAlpha: 1,
       // ease: Power2.easeOut
-    }, 0 ).staggerFrom( menuItems, menuDuration, {
+    }, 0 ).staggerFrom( $menuItems, menuDuration, {
       y: 20,
       opacity: 0,
       // ease: Back.easeOut
     }, menuBetween );
 
-    navbar.on( 'click', '#menu_toggle', function() {
+    $navbar.on( 'click', '#menu_toggle', function() {
       if ( 0 < mobileTimeline.time() ) {
         mobileTimeline.reverse();
       } else {
@@ -91,35 +86,50 @@ export default function navigation() {
       }
 
       // change MENU to EXIT
-      mobileToggle.toggleClass( 'open' );
-      changeLetters( mobileToggle );
-
+      $mobileToggle.toggleClass( 'open' );
+      changeLetters( $mobileToggle );
       // Add padding to navbar area
       $( '#page' ).toggleClass( '-activeNavigationAreaUpTopButNotWhenScrolling' );
     });
-  } else {
-    desktopTimeline.to( desktopMenu, menuDuration, {
+  }
+
+  function navigationIsDesktop() {
+    desktopTimeline.to( $desktopMenu, {
+      duration: menuDuration,
       y: -100
     }, 0 );
 
-    navbar.on( 'click', '#menu_toggle', function() {
+    $navbar.on( 'click', '#menu_toggle', function() {
       if ( 0 < desktopTimeline.time() ) {
         desktopTimeline.reverse();
       } else {
         desktopTimeline.play( 0 );
       }
-      mobileToggle.toggleClass( 'open' );
+      $mobileToggle.toggleClass( 'open' );
 
       // change MENU to EXIT
-      changeLetters( mobileToggle );
-
+      changeLetters( $mobileToggle );
       // Invert logo color
       $( '#logo' ).toggleClass( 'inverted' );
-
       // Add padding to navbar area
       $( '#page' ).toggleClass( '-activeNavigationAreaUpTopButNotWhenScrolling' );
     });
   }
+
+  // Fire the nav menu switch at 600px
+  const mobileTrigger   = viewportWidth < 601 ? true : false;
+  if (mobileTrigger) {
+    navigationIsMobile();
+  } else {
+    navigationIsDesktop();
+  }
+  window.addEventListener('resize', function() {
+    if (mobileTrigger) {
+      navigationIsMobile();
+    } else {
+      navigationIsDesktop();
+    }
+  })
 
 
   /**
@@ -128,18 +138,14 @@ export default function navigation() {
 
   // Initial scroll position
   var scrollState = 0;
-
   // Store navbar classes
   var navClasses = document.getElementById( 'masthead' ).classList;
-
   // returns current scroll position
   var scrollTop = function() {
     return window.scrollY;
   };
-
   // Primary scroll event function
   var scrollDetect = function( home, down, up ) {
-
     // Current scroll position
     var currentScroll = scrollTop();
     if ( 0 === scrollTop() ) {
@@ -149,7 +155,6 @@ export default function navigation() {
     } else {
       up();
     }
-
     // Set previous scroll position
     scrollState = scrollTop();
   };
@@ -189,8 +194,20 @@ export default function navigation() {
    * Add scrolling class to contact button
    */
 
-  $( 'a[href^="#contact"]' ).on( 'click', function() {
+  // click the contact link
+  $( 'a[href^="#contact"]' ).on( 'click', function(e) {
+    // keep hash out of url
+    // e.preventDefault();
+    // add display class to div, scroll page to it
     $( '#contact' ).addClass( 'said-hi' );
+    // $( 'html, body' ).animate({ scrollTop: 0 }, 'fast');
+    // remove visible classes from navbar
     $( '#mobile_menu' ).removeClass( 'is-visible' );
+    // remove mobile GSAP classes
+    if ( 0 < mobileTimeline.time() ) {
+      mobileTimeline.reverse();
+    }
+    // reset letters
+    changeLetters($mobileToggle);
   });
 }

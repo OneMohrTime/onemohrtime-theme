@@ -301,6 +301,8 @@
 	letter-spacing: 2px;
 
 	@include media('<screen480') {
+		font-size: ms(2);
+		letter-spacing: 1px;
 		hyphens: auto;
 		word-break: break-word;
 	}
