@@ -62,6 +62,18 @@ export default function scrolling() {
 
 
   /**
+   * Footer scroll-to-top
+   */
+
+  const $scrollToTop = $('#scroll_to_top');
+
+  $scrollToTop.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+  });
+
+
+  /**
    * Home page scroll animations
    */
 

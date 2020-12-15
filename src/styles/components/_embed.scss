@@ -36,6 +36,8 @@
 	}
 
 	iframe:not(.cp_embed_iframe), // codepen embed
+		  :not(.instagram-media), // instagram embed
+		  :not(.-absoluteSize), // instagram embed
 	object,
 	embed {
 		width: 100%;
@@ -43,7 +45,10 @@
 	}
 
 	iframe.cp_embed_iframe {
-		max-width: 840px;
+		max-width: 100%;
+		height: auto;
+		min-height: 265px;
+		max-height: 500px;
 	}
 
 	video {

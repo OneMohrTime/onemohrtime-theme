@@ -1,5 +1,9 @@
-{% extends 'base.twig' %}
+{% extends 'layouts/base.twig' %}
 {% set displaySidebar = true %}
+
+{% set roles   = post.terms('role') ?? null %}
+{% set jobType = post.terms('job_type') ?? null %}
+{% set coding  = post.terms('coding') ?? null %}
 
 {% block content %}
 
@@ -32,33 +36,33 @@
 {% if details %}
 <aside class="project__specs get-faded">
 
-	<h2 class="project__specs--title">More details</h2>
+	<h2 class="_subheadline" aria-hidden="true">More details</h2>
 
-	{% if post.terms('role') %}
-	<ul class="spec spec--list">
-		<li class="spec__header"><h3>My Role(s)</h3></li>
-		{% for role in post.terms('role') %}
-			<li class="spec__role spec--list__item">{{ role }}</li>
-		{% endfor %}
-	</ul>
+	{% if roles %}
+		<ul class="spec spec--list">
+			<li class="spec__header"><h3>My Role{% if roles|length > 1 %}s{% endif %}</h3></li>
+			{% for role in roles %}
+				<li class="spec__role spec--list__item">{{ role }}</li>
+			{% endfor %}
+		</ul>
 	{% endif %}
 
-	{% if post.terms('category') %}
-	<ul class="spec spec--list">
-		<li class="spec__header"><h3>Project Type</h3></li>
-		{% for category in post.terms('category') %}
-			<li class="spec__category spec--list__item">{{ category }}</li>
-		{% endfor %}
-	</ul>
+	{% if jobType %}
+		<ul class="spec spec--list">
+			<li class="spec__header"><h3>Project Type</h3></li>
+			{% for job in jobType %}
+				<li class="spec__category spec--list__item">{{ job }}</li>
+			{% endfor %}
+		</ul>
 	{% endif %}
 
-	{% if post.terms('coding') %}
-	<ul class="spec spec--group">
-		<li class="spec__header"><h3>Coding Components</h3></li>
-		{% for code in post.terms('coding') %}
-			<li class="spec__role spec--group__item">{{ code }}</li>
-		{% endfor %}
-	</ul>
+	{% if coding %}
+		<ul class="spec spec--group">
+			<li class="spec__header"><h3>Coding Components</h3></li>
+			{% for language in coding %}
+				<li class="spec__role spec--group__item">{{ language }}</li>
+			{% endfor %}
+		</ul>
 	{% endif %}
 
 </aside>

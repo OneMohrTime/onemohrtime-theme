@@ -49,12 +49,15 @@
 		// .article__image
 		position: relative;
 		width: 100%;
-		height: 400px;
+		height: 300px;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
 		background-color: $color__white--dark;
 		color: $color__white;
 
+		@include media(">=screen768") {
+			height: 400px;
+		}
 		@include media(">=screen840") {
 			flex-grow: 0;
 			flex-shrink: 0;

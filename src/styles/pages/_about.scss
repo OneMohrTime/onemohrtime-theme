@@ -12,6 +12,7 @@
 	}
 
 	.repeater__title {
+		padding-right: $gutter-lg;
 		text-transform: none;
 	}
 }
@@ -22,8 +23,12 @@
 	align-items: flex-start;
 	@include small-font-size();
 
+	// space top on mobile
 	& > div {
 		margin-top: $gutter / 2;
+		&:not(:first-child) {
+			margin-top: 0;
+		}
 	}
 
 	@include media('>=screen600') {

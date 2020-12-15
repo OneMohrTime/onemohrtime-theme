@@ -140,7 +140,16 @@
 		margin-bottom: $gutter;
 	}
 
-	a {
+	.btn {
+		border-color: $color__yellow;
+		color: $color__white;
+
+		@include media(">=screen960") {
+			border-color: $color__white--darkest;
+		}
+	}
+
+	a:not(.btn) {
 		@include inline();
 		line-height: 1em;
 

@@ -1,0 +1,13 @@
+{# {% extends 'layouts/no-frame.twig' %} #}
+{% extends 'layouts/base.twig' %}
+{% set displaySidebar = false %}
+
+{% block content %}
+
+	<article class="post-{{ post.id }} -{{ post.type }}">
+		<div class="page__content">
+			{{ post.content }}
+		</section>
+	</div>
+
+{% endblock %}

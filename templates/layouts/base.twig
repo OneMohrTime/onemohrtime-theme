@@ -1,0 +1,48 @@
+{% block html_head_container %}
+
+{% include 'partials/html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+{% if term_page %}
+	{% set postTypeClass  = 'archive' %}
+	{% set postTitleClass = '-category' %}
+{% else %}
+	{% set postTypeClass  = post ? post.type.slug : 'error404' %}
+	{% set postTitleClass = post ? '-' ~ post.slug : '' %}
+{% endif %}
+
+<body class="{{ postTypeClass }} {{ postTitleClass }}">
+	<div id="page" class="site">
+
+		<a class="screen-reader-text" href="#main">Skip to main</a>
+
+		<header id="masthead" class="site__header">
+			{% block header %}
+				{% include 'partials/header.twig' %}
+			{% endblock %}
+		</header>
+
+		<main id="main" class="site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</main>
+
+		{% include 'partials/sidebar.twig' %}
+
+		{% include 'components/contact.twig' %}
+
+		{% block footer %}
+			{% include 'partials/footer.twig' %}
+			{{ function('wp_footer') }}
+		{% endblock %}
+
+	</div>
+	{# Add personal branding mark, just for funsies #}
+	{% include 'components/html-comment.twig' %}
+</body>
+
+</html>

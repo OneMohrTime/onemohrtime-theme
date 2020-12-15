@@ -13,6 +13,9 @@ export default function images() {
     // Enable infinite gallery navigation
     loop: true,
 
+    // Enable keyboard navigation
+    keyboard: true,
+
     // What buttons should appear in the top right corner.
     // Buttons will be created using templates from `btnTpl` option
     // and they will be placed into toolbar (class="fancybox-toolbar"` element)
@@ -27,7 +30,32 @@ export default function images() {
     ],
 
     // Detect "idle" time in seconds
-    idleTime: 10,
+    idleTime: 30,
+
+    // Disable right-click and use simple image protection for images
+    protect: false,
+
+    // Shortcut to make content "modal" - disable keyboard navigtion, hide buttons, etc
+    // modal: false,
+
+    image: {
+      // Wait for images to load before displaying
+      //   true  - wait for image to load and then display;
+      //   false - display thumbnail and load the full-sized image over top,
+      //           requires predefined image dimensions (`data-width` and `data-height` attributes)
+      preload: false
+    },
+
+    ajax: {
+      // Object containing settings for ajax request
+      settings: {
+        // This helps to indicate that request comes from the modal
+        // Feel free to change naming
+        data: {
+          fancybox: true
+        }
+      }
+    },
 
     // iframe: {
     //   // Iframe template

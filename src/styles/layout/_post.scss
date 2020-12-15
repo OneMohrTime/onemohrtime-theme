@@ -10,6 +10,7 @@
 	&__header {
 		// .page__header
 		// .posts__header
+		// .archives__header
 		// .entry__header
 		position: relative;
 		display: flex;
@@ -116,54 +117,54 @@
 		}
 
 		// WP Galleries
-		.wp-block-gallery {
-			display: block;
+		// .wp-block-gallery {
+		// 	display: block;
 
-			.blocks-gallery-grid {
-				display: block;
-				margin: 0;
-				padding: 0;
-				list-style-type: none;
-			}
+		// 	.blocks-gallery-grid {
+		// 		display: block;
+		// 		margin: 0;
+		// 		padding: 0;
+		// 		list-style-type: none;
+		// 	}
 
-			.blocks-gallery-item,
-			.blocks-gallery-sizer {
-				display: block;
-				width: calc(50% - #{$gutter / 2});
-				margin: 0;
-				float: left;
+		// 	.blocks-gallery-item,
+		// 	.blocks-gallery-sizer {
+		// 		display: block;
+		// 		width: calc(50% - #{$gutter / 2});
+		// 		margin: 0;
+		// 		float: left;
 
-				@include media('>=screen600') {
-					width: calc(50% - #{$gutter});
-				}
+		// 		@include media('>=screen600') {
+		// 			width: calc(50% - #{$gutter});
+		// 		}
 
-				@include media('>=screen768') {
-					width: calc(#{percentage(1/3)} - #{$gutter});
-				}
-			}
+		// 		@include media('>=screen768') {
+		// 			width: calc(#{percentage(1/3)} - #{$gutter});
+		// 		}
+		// 	}
 
-			.blocks-gallery-item {
-				margin-bottom: #{$gutter / 2};
+		// 	.blocks-gallery-item {
+		// 		margin-bottom: #{$gutter / 2};
 
-				@include media('>=screen600') {
-					margin-bottom: $gutter;
-				}
-			}
+		// 		@include media('>=screen600') {
+		// 			margin-bottom: $gutter;
+		// 		}
+		// 	}
 
-			.blocks-gallery-item__caption {
-				@include smallest-font-size();
-				line-height: $base-line-height;
-			}
+		// 	.blocks-gallery-item__caption {
+		// 		@include smallest-font-size();
+		// 		line-height: $base-line-height;
+		// 	}
 
-			.blocks-gallery-gutter {
-				display: block;
-				width: $gutter / 2;
+		// 	.blocks-gallery-gutter {
+		// 		display: block;
+		// 		width: $gutter / 2;
 
-				@include media('>=screen600') {
-					width: $gutter;
-				}
-			}
-		}
+		// 		@include media('>=screen600') {
+		// 			width: $gutter;
+		// 		}
+		// 	}
+		// }
 	}
 
 	&__gallery {
