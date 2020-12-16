@@ -123,13 +123,13 @@ export default function navigation() {
   } else {
     navigationIsDesktop();
   }
-  window.addEventListener('resize', function() {
-    if (mobileTrigger) {
-      navigationIsMobile();
-    } else {
-      navigationIsDesktop();
-    }
-  })
+  // window.addEventListener('resize', function() {
+  //   if (mobileTrigger) {
+  //     navigationIsMobile();
+  //   } else {
+  //     navigationIsDesktop();
+  //   }
+  // })
 
 
   /**
