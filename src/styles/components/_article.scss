@@ -201,13 +201,17 @@
 	position: relative;
 	margin-left: $base-spacing;
 
+	.image__caption {
+		position: relative;
+		display: inline-block;
+	}
+
 	.-svg {
 		position: absolute;
 		top: 0;
 		left: 0;
 		opacity: 0.1;
 		transform: translate3d( -#{$small-spacing}, -25%, 0 );
-		z-index: -1;
 		// double default size
 		font-size: 1.5em;
 		line-height: 1.5em;

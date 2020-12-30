@@ -60,8 +60,9 @@
 			&.-about {
 				grid-column: span 4;
 			}
-			&.social-media {
+			&.-socialMedia {
 				grid-column: span 4;
+				text-align: right;
 			}
 		}
 
@@ -75,7 +76,7 @@
 					width: 37.2%; // mimic grid column
 				}
 			}
-			&.social-media {
+			&.-socialMedia {
 				grid-column: 11 / 13;
 			}
 		}
@@ -94,8 +95,9 @@
 				line-height: 1em;
 			}
 
-			&.icons {
+			&.-icons {
 				display: flex;
+				justify-content: flex-end;
 				align-items: center;
 
 				li {
@@ -129,6 +131,11 @@
 			}
 		}
 
+		.-cssda {
+			&::before {
+				display: none;
+			}
+		}
 	}
 
 	.copyright {
