@@ -38,6 +38,6 @@
 			<p>{{ post.post_content|striptags|raw|truncate(30) }}[&hellip;]</p>
 		{% endif %}
 
-		<a href="{{ post.link }}" class="article__link _button">View {{ post.title }}</a>
+		<a href="{{ post.link }}" class="article__link _button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a>
 	</div>
 </article>
