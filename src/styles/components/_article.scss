@@ -52,12 +52,12 @@
 		height: 300px;
 		margin-bottom: $base-spacing;
 		overflow: hidden;
-		background-color: $color__white--dark;
-		color: $color__white;
+		z-index: 1;
 
 		@include media(">=screen768") {
 			height: 400px;
 		}
+
 		@include media(">=screen840") {
 			flex-grow: 0;
 			flex-shrink: 0;
@@ -66,13 +66,38 @@
 			height: 500px;
 			min-height: 100%;
 			margin-bottom: 0;
-			@include box-shadow();
 		}
 
 		._image {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+		}
+	}
+
+	// parallax images have shadows above & below
+	&.-design {
+		.article__image {
+			border-top: 1px solid fade-out($color__black, 0.90);
+			border-bottom: 1px solid fade-out($color__black, 0.90);
+			background-color: fade-out($color__black, 0.95);
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 15px;
+				z-index: 2;
+			}
+			&::before {
+				top: 0;
+				background-image: linear-gradient(to bottom, fade-out($color__black, 0.92), fade-out($color__black, 1));
+			}
+			&::after {
+				bottom: 0;
+				background-image: linear-gradient(to top, fade-out($color__black, 0.92), fade-out($color__black, 1));
+			}
 		}
 	}
 
@@ -165,26 +190,12 @@
 
 	&__link {
 		// .article__link
-		&::before,
-		&::after {
+		margin-top: $base-line-height;
+		font-size: ms(-1) !important;
+		letter-spacing: 1px !important;
+
+		&::before {
 			display: none;
-		}
-
-		@include media("<screen840") {
-			margin-top: $base-line-height;
-		}
-
-		@include media(">=screen840") {
-			@include accessibly-hidden;
-			@include accessibly-focusable;
-			border: 0 !important;
-			padding: 0 !important;
-
-			&:focus {
-				margin-top: $base-line-height;
-				padding: $small-spacing $base-spacing !important;
-				border: 3px $color__black solid !important;
-			}
 		}
 	}
 
