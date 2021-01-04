@@ -32,8 +32,8 @@ export default function scrolling() {
       let fadeContainer = e;
       // let $fadeChildren = $(this).find('> *');
       let $fadeChildren = $(this).children();
-      let fadeDuration  = 0.25;
-      let fadeBetween   = 0.125;
+      let fadeDuration  = 1.25;
+      let fadeBetween   = 0.0625;
 
       const getFadedIn = gsap.timeline({
         scrollTrigger: {
@@ -55,7 +55,7 @@ export default function scrolling() {
         stagger: fadeBetween,
         y: 0,
         autoAlpha: 1,
-        ease: 'power2',
+        ease: 'elastic',
       });
     });
   }
