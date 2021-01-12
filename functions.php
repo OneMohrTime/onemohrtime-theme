@@ -75,9 +75,9 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'acf_add_local_field_group' ) );
+		add_action( 'init', array( $this, 'smartwp_disable_emojis' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		add_action( 'widgets_init', array( $this, 'widgets' ) );
-		add_action( 'init', array( $this, 'disable_emojis' ) );
 		add_filter( 'wpseo_metabox_prio', array( $this, 'yoasttobottom' ) );
 		parent::__construct();
 	}
@@ -235,6 +235,28 @@ class StarterSite extends Timber\Site {
 	function remove_recent_comments_style() {
 		global $wp_widget_factory;
 		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+	}
+
+	/**
+	 * Disable emojis in WordPress
+	 */
+	function smartwp_disable_emojis() {
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+		remove_action( 'admin_print_styles', 'print_emoji_styles' );
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+		add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+	}
+
+	function disable_emojis_tinymce( $plugins ) {
+		if ( is_array( $plugins ) ) {
+			return array_diff( $plugins, array( 'wpemoji' ) );
+		} else {
+			return array();
+		}
 	}
 
 	/** This is where you can add your own functions to twig.
