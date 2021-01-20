@@ -295,11 +295,17 @@
 
 .posts__categories {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: baseline;
+
+	&._meta {
+		margin-bottom: 0;
+	}
 }
 
 .category {
 	margin-right: $small-spacing;
+	margin-bottom: $small-spacing;
 
 	&__link {
 		// .category__link
