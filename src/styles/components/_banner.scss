@@ -37,6 +37,7 @@
 	.-typographic & {
 		margin-top: $gutter * 4;
 		margin-bottom: $gutter;
+		max-width: 840px;
 
 		@include media('>=screen600') {
 			margin-top: $gutter * 3;
