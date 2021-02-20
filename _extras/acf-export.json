@@ -1365,10 +1365,10 @@
                             },
                             {
                                 "key": "field_5f7d190046a1c",
-                                "label": "Is Large",
+                                "label": "Increase Size",
                                 "name": "is_large",
                                 "type": "checkbox",
-                                "instructions": "Will increase section text size",
+                                "instructions": "Increase section's text size",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -1377,7 +1377,7 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "true": "Is Large"
+                                    "true": "Large Text"
                                 },
                                 "allow_custom": 0,
                                 "default_value": [],
@@ -1499,7 +1499,7 @@
                                 "label": "Image",
                                 "name": "image",
                                 "type": "image",
-                                "instructions": "Also works with link to <code>media file<\/code>",
+                                "instructions": "Checking <i>Link to Image<\/i> checkbox links image directly to <code>media file<\/code.\r\n\r\nLooking for text for this module? Add a <i>Text<\/i> module above, and  the spacing will work out.",
                                 "required": 1,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -1517,6 +1517,25 @@
                                 "max_height": "",
                                 "max_size": "",
                                 "mime_types": "gif, png, jpg, webp, svg"
+                            },
+                            {
+                                "key": "field_6030ac3f6b329",
+                                "label": "Link to File",
+                                "name": "link_to_file",
+                                "type": "true_false",
+                                "instructions": "Insert a link directly to the image",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 1,
+                                "ui_on_text": "Linked",
+                                "ui_off_text": "Unlinked"
                             }
                         ],
                         "min": "",
@@ -1525,7 +1544,7 @@
                     "layout_5f7d1fe145f73": {
                         "key": "layout_5f7d1fe145f73",
                         "name": "video",
-                        "label": "Video",
+                        "label": "Video \/ Audio \/ Embeds",
                         "display": "block",
                         "sub_fields": [
                             {
@@ -1597,7 +1616,7 @@
                                 "label": "Embed",
                                 "name": "embed",
                                 "type": "oembed",
-                                "instructions": "",
+                                "instructions": "Paste a YouTube, Vimeo, or similar oEmbed link",
                                 "required": 1,
                                 "conditional_logic": [
                                     [
@@ -1621,7 +1640,7 @@
                                 "label": "Script",
                                 "name": "script",
                                 "type": "textarea",
-                                "instructions": "",
+                                "instructions": "Paste the entire embed script",
                                 "required": 1,
                                 "conditional_logic": [
                                     [
@@ -1648,7 +1667,7 @@
                                 "label": "Upload",
                                 "name": "upload",
                                 "type": "file",
-                                "instructions": "",
+                                "instructions": "Upload video or audio",
                                 "required": 1,
                                 "conditional_logic": [
                                     [
@@ -1668,7 +1687,7 @@
                                 "library": "all",
                                 "min_size": "",
                                 "max_size": "",
-                                "mime_types": "mov, mp4, ogg, webm"
+                                "mime_types": "mov, mp4, ogg, webm, mp3, wav"
                             }
                         ],
                         "min": "",
@@ -2079,7 +2098,7 @@
     },
     {
         "key": "group_5b3799d77260c",
-        "title": "Site Options",
+        "title": "Site Globals",
         "fields": [
             {
                 "key": "field_5b379a4c81e95",
@@ -2106,11 +2125,11 @@
                 {
                     "param": "options_page",
                     "operator": "==",
-                    "value": "acf-options"
+                    "value": "globals"
                 }
             ]
         ],
-        "menu_order": 0,
+        "menu_order": 10,
         "position": "normal",
         "style": "seamless",
         "label_placement": "top",

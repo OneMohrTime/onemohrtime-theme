@@ -1382,10 +1382,10 @@ acf_add_local_field_group(array(
 						),
 						array(
 							'key' => 'field_5f7d190046a1c',
-							'label' => 'Is Large',
+							'label' => 'Increase Size',
 							'name' => 'is_large',
 							'type' => 'checkbox',
-							'instructions' => 'Will increase section text size',
+							'instructions' => 'Increase section\'s text size',
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array(
@@ -1394,7 +1394,7 @@ acf_add_local_field_group(array(
 								'id' => '',
 							),
 							'choices' => array(
-								'true' => 'Is Large',
+								'true' => 'Large Text',
 							),
 							'allow_custom' => 0,
 							'default_value' => array(
@@ -1517,7 +1517,9 @@ acf_add_local_field_group(array(
 							'label' => 'Image',
 							'name' => 'image',
 							'type' => 'image',
-							'instructions' => 'Also works with link to <code>media file</code>',
+							'instructions' => 'Checking <i>Link to Image</i> checkbox links image directly to <code>media file</code.
+
+Looking for text for this module? Add a <i>Text</i> module above, and	the spacing will work out.',
 							'required' => 1,
 							'conditional_logic' => 0,
 							'wrapper' => array(
@@ -1536,6 +1538,25 @@ acf_add_local_field_group(array(
 							'max_size' => '',
 							'mime_types' => 'gif, png, jpg, webp, svg',
 						),
+						array(
+							'key' => 'field_6030ac3f6b329',
+							'label' => 'Link to File',
+							'name' => 'link_to_file',
+							'type' => 'true_false',
+							'instructions' => 'Insert a link directly to the image',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => '',
+							'default_value' => 0,
+							'ui' => 1,
+							'ui_on_text' => 'Linked',
+							'ui_off_text' => 'Unlinked',
+						),
 					),
 					'min' => '',
 					'max' => '',
@@ -1543,7 +1564,7 @@ acf_add_local_field_group(array(
 				'layout_5f7d1fe145f73' => array(
 					'key' => 'layout_5f7d1fe145f73',
 					'name' => 'video',
-					'label' => 'Video',
+					'label' => 'Video / Audio / Embeds',
 					'display' => 'block',
 					'sub_fields' => array(
 						array(
@@ -1615,7 +1636,7 @@ acf_add_local_field_group(array(
 							'label' => 'Embed',
 							'name' => 'embed',
 							'type' => 'oembed',
-							'instructions' => '',
+							'instructions' => 'Paste a YouTube, Vimeo, or similar oEmbed link',
 							'required' => 1,
 							'conditional_logic' => array(
 								array(
@@ -1639,7 +1660,7 @@ acf_add_local_field_group(array(
 							'label' => 'Script',
 							'name' => 'script',
 							'type' => 'textarea',
-							'instructions' => '',
+							'instructions' => 'Paste the entire embed script',
 							'required' => 1,
 							'conditional_logic' => array(
 								array(
@@ -1666,7 +1687,7 @@ acf_add_local_field_group(array(
 							'label' => 'Upload',
 							'name' => 'upload',
 							'type' => 'file',
-							'instructions' => '',
+							'instructions' => 'Upload video or audio',
 							'required' => 1,
 							'conditional_logic' => array(
 								array(
@@ -1686,7 +1707,7 @@ acf_add_local_field_group(array(
 							'library' => 'all',
 							'min_size' => '',
 							'max_size' => '',
-							'mime_types' => 'mov, mp4, ogg, webm',
+							'mime_types' => 'mov, mp4, ogg, webm, mp3, wav',
 						),
 					),
 					'min' => '',
@@ -2099,7 +2120,7 @@ Horizontal: Image on left',
 
 acf_add_local_field_group(array(
 	'key' => 'group_5b3799d77260c',
-	'title' => 'Site Options',
+	'title' => 'Site Globals',
 	'fields' => array(
 		array(
 			'key' => 'field_5b379a4c81e95',
@@ -2126,11 +2147,11 @@ acf_add_local_field_group(array(
 			array(
 				'param' => 'options_page',
 				'operator' => '==',
-				'value' => 'acf-options',
+				'value' => 'globals',
 			),
 		),
 	),
-	'menu_order' => 0,
+	'menu_order' => 10,
 	'position' => 'normal',
 	'style' => 'seamless',
 	'label_placement' => 'top',
