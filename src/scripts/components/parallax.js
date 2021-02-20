@@ -35,7 +35,7 @@ export default function parallax() {
         toggleActions: 'play none none none',
         toggleClass: '-parallaxin',
         // start: '<element> <viewport>'
-        start: 'top 80%',
+        start: 'top 100%',
         // end: '<element> <viewport>'
         // end: '+=1',
         scrub: 1,
@@ -44,7 +44,7 @@ export default function parallax() {
         onEnterBack: () => $(this).addClass('-scrolling'),
         onLeaveBack: () => $(this).removeClass('-scrolling'),
       },
-      y: '-100%',
+      y: '-90%',
 
     });
   });
