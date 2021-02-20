@@ -155,15 +155,20 @@
 		._subheadline {
 			@include label();
 			text-align: right;
+
 			@include media(">=screen600") {
 				flex-grow: 0;
 				flex-shrink: 0;
 				flex-basis: 100%;
 				max-width: 100%;
-				margin-bottom: $gutter-sm;
+				margin-bottom: 0;
+				padding-top: $gutter-sm;
+				padding-right: $gutter-sm;
 				padding-bottom: $gutter-sm;
+				border-right: 1px $color__white--darkest solid;
 				border-bottom: 1px $color__white--darkest solid;
 			}
+
 			@include media(">=screen600") {
 				font-size: 1rem;
 			}
@@ -173,10 +178,6 @@
 			margin-bottom: $small-spacing;
 			padding-bottom: $small-spacing;
 			border-bottom: 1px $color__white--darkest solid;
-
-			// &:first-child {
-			// 	margin-left: auto;
-			// }
 
 			&:last-child {
 				margin-bottom: 0;
@@ -190,7 +191,10 @@
 				flex-basis: auto;
 				max-width: calc(#{percentage(1/3)} - #{$gutter-sm});
 				margin-bottom: 0;
+				padding-left: $gutter-sm;
+				padding-top: $gutter-sm;
 				padding-bottom: 0;
+				border-right: 1px $color__white--darkest solid;
 				border-bottom: 0;
 				@include body-copy();
 			}

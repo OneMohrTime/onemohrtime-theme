@@ -75,6 +75,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'acf_add_local_field_group' ) );
+		add_action( 'init', array( $this, 'my_acf_op_init' ) );
 		add_action( 'init', array( $this, 'smartwp_disable_emojis' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		add_action( 'widgets_init', array( $this, 'widgets' ) );
@@ -119,8 +120,20 @@ class StarterSite extends Timber\Site {
 	public function acf_add_local_field_group() {
 		// add field groups through PHP export
 		include( 'includes/acf.php' );
-		// add global site options
-		acf_add_options_page();
+	}
+
+	public function my_acf_op_init() {
+		// Check function exists.
+		if( function_exists('acf_add_options_page') ) {
+			// Register options page.
+			$option_page = acf_add_options_page(array(
+				'page_title'    => __('Theme Global Settings'),
+				'menu_title'    => __('Theme Globals'),
+				'menu_slug'     => 'globals',
+				'capability'    => 'edit_posts',
+				'redirect'      => false
+			));
+		}
 	}
 
 	public function theme_supports() {
