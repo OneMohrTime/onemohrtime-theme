@@ -131,9 +131,37 @@
 			}
 		}
 
+		// CSS Design Awards Kudos
 		.-cssda {
 			&::before {
 				display: none;
+			}
+
+			@include media(">=screen600") {
+				transform: scale(0.75);
+			}
+		}
+
+		// CSS Nectar Site of the Day
+		.-cssNectar {
+			position: relative;
+			width: 60px;
+			height: 60px;
+			margin-right: $gutter-sm;
+			overflow: hidden;
+
+			&::before {
+				display: none;
+			}
+
+			@include media(">=screen600") {
+				margin-right: 5px;
+				margin-bottom: 14px;
+			}
+
+			span {
+				position: absolute;
+				text-indent: -9999px;
 			}
 		}
 	}
