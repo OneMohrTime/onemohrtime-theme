@@ -37,15 +37,14 @@ export default function parallax() {
         // start: '<element> <viewport>'
         start: 'top 100%',
         // end: '<element> <viewport>'
-        // end: '+=1',
+        end: 'bottom 0%',
         scrub: 1,
         onEnter: () => $(this).addClass('-scrolling'),
         onLeave: () => $(this).removeClass('-scrolling'),
         onEnterBack: () => $(this).addClass('-scrolling'),
         onLeaveBack: () => $(this).removeClass('-scrolling'),
       },
-      y: '-90%',
-
+      y: '-50%',
     });
   });
 }
