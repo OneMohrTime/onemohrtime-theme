@@ -1517,7 +1517,7 @@ acf_add_local_field_group(array(
 							'label' => 'Image',
 							'name' => 'image',
 							'type' => 'image',
-							'instructions' => 'Checking <i>Link to Image</i> checkbox links image directly to <code>media file</code.
+							'instructions' => 'Checking <i>Link to Image</i> checkbox links image directly to <code>media file</code>.
 
 Looking for text for this module? Add a <i>Text</i> module above, and	the spacing will work out.',
 							'required' => 1,
