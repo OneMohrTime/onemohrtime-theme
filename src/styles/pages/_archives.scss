@@ -5,7 +5,6 @@
 body.archive {
 	position: relative;
 	margin-bottom: 2em;
-	@include texture($color__white, 54, 0);
 
 	.archives {
 		width: auto;

@@ -125,7 +125,9 @@
 		position: relative;
 		padding: $gutter;
 		@include body-copy();
-		@include texture($color__white--dark, 25, 0);
+		background-color: $color__white--dark;
+		background-image: url("../img/concrete-light.png");
+		background-position: center center;
 		color: $color__black--lightest;
 
 		@include media(">=screen600") {

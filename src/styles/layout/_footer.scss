@@ -11,9 +11,9 @@
 	width: auto;
 	height: auto;
 	padding: $gutter;
-	background-color: $color__black;
-	background-image: url("../img/footer-texture.jpg");
-	background-repeat: repeat-x;
+	background-color: shade($color__black, 67%);
+	background-image: url("../img/concrete-dark.png");
+	background-position: center center;
 	color: $color__white;
 
 	@include media(">=screen600") {
