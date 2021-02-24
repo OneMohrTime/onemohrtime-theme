@@ -4,8 +4,6 @@
 
 .wrapper {
 	position: relative;
-	// height: 0;
-	max-width: 100%;
 
 	// 4:3 ratio
 	&.-sd {
@@ -31,13 +29,15 @@
 		@include box-shadow();
 	}
 
+	// iFrames, embeds, etc.
 	&.-fullSize {
+		max-width: 100%;
 		height: auto;
 	}
 
 	iframe:not(.cp_embed_iframe), // codepen embed
-		  :not(.instagram-media), // instagram embed
-		  :not(.-absoluteSize), // instagram embed
+	iframe:not(.instagram-media), // instagram embed
+	iframe:not(.-absoluteSize), // instagram embed
 	object,
 	embed {
 		width: 100%;
@@ -55,5 +55,11 @@
 		width: 100%;
 		height: 100%;
 		max-width: 100%;
+	}
+
+	audio {
+		@include media(">=screen1170") {
+			width: 840px;
+		}
 	}
 }
