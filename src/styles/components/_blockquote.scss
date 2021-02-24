@@ -80,7 +80,11 @@
 		}
 
 		// Background image is actually a sibling
-		// TODO: Parallax
-		// & + ._image {}
+		& + ._image {
+			// margins can push this taller than the viewport, and the bottom of the image shows up
+			@include media(">=screen840") {
+				height: 200vh !important;
+			}
+		}
 	}
 }

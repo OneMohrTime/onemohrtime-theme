@@ -23,7 +23,6 @@
 {% set width    = section.image.width ?? null %}
 
 <div class="builder__section -blockquote get-faded">
-	{# TODO: Bring back parallax functionality #}
 
 	{% if hasImage %}
 		<blockquote class="blockquote -withImage">
@@ -36,7 +35,7 @@
 		</blockquote>
 		<img src="{{ image.src('thumbnail') }}"
 			alt="{{ alt }}"
-			class="_image -background -cover"
+			class="_image -parallax"
 			srcset="{{ image.src('medium') }} 1000w,
 					{{ image.src('large') }} 1500w"
 			sizes="(max-width: {{ width }}px) 100vw, {{ width }}px" />

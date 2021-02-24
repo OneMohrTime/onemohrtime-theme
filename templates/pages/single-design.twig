@@ -9,22 +9,20 @@
 
 {# Banner Area #}
 <header class="project__header">
-	<figure class="project__banner get-faded">
-		{# TODO: Bring back parallax functionality #}
+	<figure class="project__banner">
 		{% if banner %}
 		<img src="{{ TimberImage(banner.image).src }}"
 			 width="{{ banner.image.width }}" height="{{ banner.image.height }}"
 			 alt="{{ banner.image.alt }}"
-			 class="project__banner--image"
-			 data-speed="-0.25"
+			 class="_image -parallax"
 			 srcset="{{ TimberImage(banner.image).src('medium') }} 500w,
 					 {{ TimberImage(banner.image).src('large') }} 1000w,
 					 {{ TimberImage(banner.image).src('full') }} 1500w"
 			 sizes="(max-width: {{ banner.image.width }}px) 100vw, {{ banner.image.width }}px" />
-		<h2 class="project__subtitle">{{ banner.subtitle }}</h2>
 		{% endif %}
 
-		<h1 class="project__title">{{ post.title }}</h1>
+		<h2 class="project__subtitle">{{ banner.subtitle }}</h2>
+		<h1 class="project__title title title--animated">{{ post.title }}</h1>
 
 		<a href="#contact" class="project__banner--contact btn">{% include '/assets/img/icons/arrow-left.svg' %}Contact</a>
 
