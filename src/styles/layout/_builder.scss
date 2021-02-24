@@ -71,8 +71,16 @@
 
 		&.-fixed {
 			// .-image.-fixed
+			position: relative;
+			width: 100%;
+			height: 350px;
 			margin-left: 0;
 			margin-right: 0;
+			overflow: hidden;
+
+			@include media(">=screen840") {
+				height: 80vh;
+			}
 		}
 	}
 

@@ -8,8 +8,11 @@
 	justify-content: flex-start;
 	align-items: center;
 	padding: 0 $gutter;
-	transition: min-height $speed-slow, height $speed-slow;
-	@include texture($color__yellow, 54, 1);
+	transition: min-height $speed-slow,
+				height $speed-slow;
+	background-color: $color__yellow;
+	background-image: url("../img/concrete-dark.png");
+	background-position: center center;
 	color: $color__black;
 
 	@include media(">=screen768") {

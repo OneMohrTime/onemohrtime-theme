@@ -8,17 +8,17 @@ html {
 
 body {
 	position: relative;
-	background-attachment: fixed;
-	background-color: $color__white--darker;
-	background-image: url("../img/concrete_wall_2.png");
-	background-position: top center;
-	color: $color__black;
-	font-family: $font__main;
 	width: 100vw;
 	height: auto;
 	min-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
+	font-family: $font__main;
+	background-attachment: fixed;
+	background-color: $color__white--darker;
+	background-image: url("../img/concrete-light.png");
+	background-position: top center;
+	color: $color__black;
 	// crisp typography rendering
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;

@@ -9,7 +9,9 @@
 	padding-bottom: $base-spacing;
 	padding-left: $gutter;
 	padding-right: $gutter;
-	@include texture($color__white--dark, 54, 0);
+	background-color: $color__white--dark;
+	background-image: url("../img/concrete-light.png");
+	background-position: center center;
 
 	@include media(">=screen768") {
 		padding-left: $gutter * 2;

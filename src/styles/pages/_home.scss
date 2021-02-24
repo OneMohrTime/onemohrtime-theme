@@ -6,8 +6,10 @@
 
 	&__about {
 		// .homepage__about
-		background: linear-gradient(to top left, $color__black 85%, $color__black--light);
-		@include texture($color__black, 54, 1);
+		background-color: $color__black;
+		// background-image: linear-gradient(to top left, $color__black 85%, $color__black--light);
+		background-image: url("../img/concrete-dark.png");
+		background-position: center center;
 		color: $color__white;
 		@include base-font-size();
 		@include media(">=screen960") {
@@ -95,7 +97,9 @@
 
 	&__builder {
 		// .homepage__builder
-		@include texture($color__white, 54, 0);
+		background-color: $color__white;
+		background-image: url("../img/concrete-light.png");
+		background-position: center center;
 		margin-bottom: 0;
 
 		.builder__section {
@@ -134,7 +138,9 @@
 		line-height: 1em;
 		border-top-right-radius: 3px;
 		border-bottom-right-radius: 3px;
-		@include texture($color__black, 54, 1);
+		background-color: $color__black;
+		background-image: url("../img/concrete-dark.png");
+		background-position: center center;
 		color: fade-out($color__white, 0.05);
 		@include box-shadow();
 
@@ -146,7 +152,9 @@
 			height: 100%;
 			width: 100vw;
 			max-width: $gutter * 4; // keep within frame of 1600px screens
-			@include texture($color__black, 54, 1);
+			background-color: $color__black;
+			background-image: url("../img/concrete-dark.png");
+			background-position: center center;
 		}
 	}
 }

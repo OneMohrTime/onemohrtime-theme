@@ -20,13 +20,13 @@
 	&__banner {
 		// .project__banner
 		position: relative;
-		// @include image-overlay();
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
 		height: calc(100vh - 72px);
+		overflow: hidden;
 
 		@include media(">=screen600") {
 			height: 100vh;
@@ -37,16 +37,11 @@
 			justify-content: flex-end;
 		}
 
-		&--image {
-			// .project__banner--image
-			position: absolute;
-			pointer-events: none;
+		._image {
 			z-index: 0;
-
-			@supports (object-fit: cover) {
-				width: 100vw;
-				height: 100%;
-				object-fit: cover;
+			pointer-events: none;
+			@include media(">=screen840") {
+				height: 200vh !important;
 			}
 		}
 
@@ -118,6 +113,14 @@
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
 		}
+
+		// make the "reveal" text white
+		.-block {
+			background-color: $color__white;
+		}
+		.-text {
+			color: $color__white;
+		}
 	}
 
 	&__specs {
@@ -125,7 +128,9 @@
 		position: relative;
 		padding: $gutter;
 		@include body-copy();
-		@include texture($color__white--dark, 25, 0);
+		background-color: $color__white--dark;
+		background-image: url("../img/concrete-light.png");
+		background-position: center center;
 		color: $color__black--lightest;
 
 		@include media(">=screen600") {
