@@ -41,7 +41,7 @@ body.-instagram {
 				overflow: hidden;
 				appearance: none;
 				@include btn-color($color__black, $color__white);
-				border-radius: 3px;
+				border-radius: $base-border-radius;
 				@include body-copy();
 				font-family: $font__header;
 				font-weight: 700;

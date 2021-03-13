@@ -97,7 +97,7 @@
 			transition: background-color $speed-slow, color $speed-slow;
 			@include body-copy();
 			font-weight: 700;
-			border-radius: 2px;
+			border-radius: $base-border-radius;
 
 			&:hover {
 				background-color: fade-out($color__white, 0.9);

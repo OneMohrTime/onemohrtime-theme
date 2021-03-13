@@ -29,7 +29,7 @@
 .btn,
 ._button {
 	@include btn-color();
-	border-radius: 3px;
+	border-radius: $base-border-radius;
 	@include body-copy();
 	font-family: $font__header;
 	font-weight: 700;

@@ -162,6 +162,7 @@
 		}
 	}
 
+	// button
 	&__link {
 		// .article__link
 		margin-top: $base-line-height;
@@ -170,6 +171,10 @@
 
 		&::before {
 			display: none;
+		}
+
+		&::after {
+			height: 5px;
 		}
 	}
 
