@@ -301,4 +301,14 @@ $lgImage: 200px;
 	@include media(">=screen768") {
 		align-items: flex-start;
 	}
+
+	// no greater than 1170px, no less than 768px
+	@include media("<screen1170", ">=screen768") {
+		.card {
+			// hide the last card between these sizes
+			@include after-first(3) {
+				display: none;
+			}
+		}
+	}
 }
