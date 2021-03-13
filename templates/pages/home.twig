@@ -6,6 +6,7 @@
 	<header class="posts__header">
 		{% if categories is defined and categories is not empty %}
 			<ul class="posts__categories _meta">
+				{# {% if post and post.show_categories %} #}
 				{% for cat in categories %}
 					{% if cat.slug != 'shit' and cat.slug != 'uncategorized' %}
 						<li class="category">

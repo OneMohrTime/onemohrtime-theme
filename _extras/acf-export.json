@@ -370,6 +370,58 @@
         "description": ""
     },
     {
+        "key": "group_604d05e3d2f5d",
+        "title": "Categories",
+        "fields": [
+            {
+                "key": "field_604d065079b57",
+                "label": "Show Categories",
+                "name": "show_categories",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "category",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ],
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "posts_page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_5b60ec726011e",
         "title": "Gallery",
         "fields": [
@@ -535,8 +587,139 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": [
-            "the_content"
+            "permalink",
+            "the_content",
+            "discussion",
+            "comments",
+            "slug",
+            "author",
+            "format",
+            "page_attributes",
+            "categories",
+            "tags",
+            "send-trackbacks"
         ],
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_604d1235314bb",
+        "title": "Logos",
+        "fields": [
+            {
+                "key": "field_604d15ff49bed",
+                "label": "Logo Gallery",
+                "name": "logo_gallery",
+                "type": "repeater",
+                "instructions": "Allows for additional details to be added",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_604d204249bee",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add Logo",
+                "sub_fields": [
+                    {
+                        "key": "field_604d204249bee",
+                        "label": "Image",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "-left",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "gif, png, jpg, jpeg, webp, svg"
+                    },
+                    {
+                        "key": "field_604d245b49bef",
+                        "label": "Description",
+                        "name": "description",
+                        "type": "wysiwyg",
+                        "instructions": "Optionally describe what the logo was designed for",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0
+                    },
+                    {
+                        "key": "field_604d264d49bf0",
+                        "label": "Template",
+                        "name": "template",
+                        "type": "file",
+                        "instructions": "If there is something to download",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_604d27c049bf1",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "link",
+                        "instructions": "If logo exists for a linkable project",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "1104"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
         "active": true,
         "description": ""
     },
@@ -1344,7 +1527,7 @@
                                 },
                                 "default_value": "",
                                 "tabs": "all",
-                                "toolbar": "basic",
+                                "toolbar": "full",
                                 "media_upload": 0,
                                 "delay": 0
                             },
@@ -1411,7 +1594,7 @@
                                 },
                                 "default_value": "",
                                 "tabs": "all",
-                                "toolbar": "basic",
+                                "toolbar": "full",
                                 "media_upload": 0,
                                 "delay": 0
                             },
@@ -1499,7 +1682,7 @@
                                 "label": "Image",
                                 "name": "image",
                                 "type": "image",
-                                "instructions": "Checking <i>Link to Image<\/i> checkbox links image directly to <code>media file<\/code.\r\n\r\nLooking for text for this module? Add a <i>Text<\/i> module above, and  the spacing will work out.",
+                                "instructions": "Checking <i>Link to Image<\/i> checkbox links image directly to <code>media file<\/code>.\r\n\r\nLooking for text for this module? Add a <i>Text<\/i> module above, and  the spacing will work out.",
                                 "required": 1,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -1581,7 +1764,7 @@
                                 },
                                 "default_value": "",
                                 "tabs": "all",
-                                "toolbar": "basic",
+                                "toolbar": "full",
                                 "media_upload": 0,
                                 "delay": 0
                             },
@@ -1714,7 +1897,7 @@
                                 },
                                 "default_value": "",
                                 "tabs": "all",
-                                "toolbar": "basic",
+                                "toolbar": "full",
                                 "media_upload": 0,
                                 "delay": 0
                             },
@@ -1824,7 +2007,7 @@
                                 },
                                 "default_value": "",
                                 "tabs": "all",
-                                "toolbar": "basic",
+                                "toolbar": "full",
                                 "media_upload": 0,
                                 "delay": 0
                             },
@@ -2033,7 +2216,7 @@
                                         },
                                         "default_value": "",
                                         "tabs": "all",
-                                        "toolbar": "basic",
+                                        "toolbar": "full",
                                         "media_upload": 0,
                                         "delay": 0
                                     },

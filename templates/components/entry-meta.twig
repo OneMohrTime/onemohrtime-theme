@@ -4,10 +4,9 @@
  #}
 
 <p class="_meta _wysiwyg">
-	<time class="original" datetime="{{ post.post_date|date(c) }}">{% if ((post.post_date_gmt|time_ago) > '5 years') and (post.slug != 'blog') %}Originally p{% else %}P{% endif %}osted {% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}</time>
-	{# {% if (post.post_date_gmt|time_ago) < '5 years' %}
-		<time class="updated" datetime="{{ post.modified_date|date(c) }}">Updated {{ post.modified_date|time_ago }}</time>
-	{% endif %} #}
+	<time class="original" datetime="{{ post.post_date|date(c) }}">
+		{% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}
+	</time>
 	<span class="post-format">
 		{% if post.format is defined and post.format != false %}
 			{% include '/assets/media/icons/post-' ~ post.format ~ '.svg' %}
@@ -17,5 +16,5 @@
 			<span class="image__caption">Standard</span>
 		{% endif %}
 	</span>
-	<span class="screen-reader-text"> | {{ __('', 'onemohrtime') }} <a href="{{ post.author.path }}" rel="author" class="fn">{{ post.author.name }}</a></span>
+	<span class="screen-reader-text"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
 </p>
