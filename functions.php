@@ -103,6 +103,9 @@ class StarterSite extends Timber\Site {
 		/* Site info */
 		$context['site'] = $this;
 
+		/* Globals */
+		$context['globals'] = get_fields('option');
+
 		/* Menu */
 		$context['menu']   = new TimberMenu('Primary Navigation');
 		$context['footer'] = new TimberMenu('Footer Projects');
@@ -248,28 +251,6 @@ class StarterSite extends Timber\Site {
 	function remove_recent_comments_style() {
 		global $wp_widget_factory;
 		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
-	}
-
-	/**
-	 * Disable emojis in WordPress
-	 */
-	function smartwp_disable_emojis() {
-		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-		remove_action( 'wp_print_styles', 'print_emoji_styles' );
-		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-		remove_action( 'admin_print_styles', 'print_emoji_styles' );
-		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-		add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
-	}
-
-	function disable_emojis_tinymce( $plugins ) {
-		if ( is_array( $plugins ) ) {
-			return array_diff( $plugins, array( 'wpemoji' ) );
-		} else {
-			return array();
-		}
 	}
 
 	/** This is where you can add your own functions to twig.
