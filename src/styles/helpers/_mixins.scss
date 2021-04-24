@@ -63,7 +63,7 @@
 			top: 5px;
 			left: 5px;
 			display: block;
-			background-color: $color__yellow--light;
+			background-color: $yellow--light;
 			color: #444;
 			font-size: 1em;
 			text-decoration: none;
@@ -136,14 +136,14 @@
 }
 
 @mixin text-shadow() {
-	text-shadow: 2px 2px 4px fade-out($color__black, 0.95);
+	text-shadow: 2px 2px 4px fade-out($black, 0.95);
 }
 
 @mixin box-shadow($inset: null) {
 	@if $inset == 'inset' {
-		box-shadow: inset 1px 2px 10px fade-out($color__black, 0.95);
+		box-shadow: inset 1px 2px 10px fade-out($black, 0.95);
 	} @else {
-		box-shadow: 1px 2px 10px fade-out($color__black, 0.95);
+		box-shadow: 1px 2px 10px fade-out($black, 0.95);
 	}
 }
 
@@ -152,109 +152,109 @@
  */
 
 @mixin white-shadow() {
-	color: shade($color__white, 0.05);
-	text-shadow: 0 13.36px 8.896px $color__white--darkest, 0 -2px 1px $color__white;
+	color: shade($white, 0.05);
+	text-shadow: 0 13.36px 8.896px $white--darkest, 0 -2px 1px $white;
 }
 
 @mixin deep-shadow() {
-	text-shadow: 1px -1px 0 shade($color__white, 50%),
-				-1px 2px 1px shade($color__white, 48%),
-				-2px 4px 1px shade($color__white, 46%),
-				-3px 6px 1px shade($color__white, 44%),
-				-4px 8px 1px shade($color__white, 42%),
-				-5px 10px 1px shade($color__white, 40%),
-				-6px 12px 1px shade($color__white, 38%),
-				-7px 14px 1px shade($color__white, 36%),
-				-8px 16px 1px shade($color__white, 34%),
-				-9px 18px 1px shade($color__white, 32%),
-				-10px 20px 1px shade($color__white, 30%),
-				-11px 22px 1px shade($color__white, 28%),
-				-12px 24px 1px shade($color__white, 26%),
-				-13px 26px 1px shade($color__white, 24%),
-				-14px 28px 1px shade($color__white, 22%),
-				-15px 30px 1px shade($color__white, 20%),
-				-16px 32px 1px shade($color__white, 18%),
-				-17px 34px 1px shade($color__white, 16%),
-				-18px 36px 1px shade($color__white, 14%),
-				-19px 38px 1px shade($color__white, 12%),
-				-20px 40px 1px shade($color__white, 10%),
-				-21px 42px 1px shade($color__white, 8%),
-				-22px 44px 1px shade($color__white, 6%),
-				-23px 46px 1px shade($color__white, 4%),
-				-24px 48px 1px shade($color__white, 2%);
+	text-shadow: 1px -1px 0 shade($white, 50%),
+				-1px 2px 1px shade($white, 48%),
+				-2px 4px 1px shade($white, 46%),
+				-3px 6px 1px shade($white, 44%),
+				-4px 8px 1px shade($white, 42%),
+				-5px 10px 1px shade($white, 40%),
+				-6px 12px 1px shade($white, 38%),
+				-7px 14px 1px shade($white, 36%),
+				-8px 16px 1px shade($white, 34%),
+				-9px 18px 1px shade($white, 32%),
+				-10px 20px 1px shade($white, 30%),
+				-11px 22px 1px shade($white, 28%),
+				-12px 24px 1px shade($white, 26%),
+				-13px 26px 1px shade($white, 24%),
+				-14px 28px 1px shade($white, 22%),
+				-15px 30px 1px shade($white, 20%),
+				-16px 32px 1px shade($white, 18%),
+				-17px 34px 1px shade($white, 16%),
+				-18px 36px 1px shade($white, 14%),
+				-19px 38px 1px shade($white, 12%),
+				-20px 40px 1px shade($white, 10%),
+				-21px 42px 1px shade($white, 8%),
+				-22px 44px 1px shade($white, 6%),
+				-23px 46px 1px shade($white, 4%),
+				-24px 48px 1px shade($white, 2%);
 }
 
 @mixin deep-white-shadow() {
-	color: shade($color__white, 0.05);
-	text-shadow: 1px -1px 0 $color__white,
-				-1px 2px 1px shade($color__white, 24%),
-				-2px 4px 1px shade($color__white, 23%),
-				-3px 6px 1px shade($color__white, 22%),
-				-4px 8px 1px shade($color__white, 21%),
-				-5px 10px 1px shade($color__white, 20%),
-				-6px 12px 1px shade($color__white, 19%),
-				-7px 14px 1px shade($color__white, 18%),
-				-8px 16px 1px shade($color__white, 17%),
-				-9px 18px 1px shade($color__white, 16%),
-				-10px 20px 1px shade($color__white, 15%),
-				-11px 22px 1px shade($color__white, 14%),
-				-12px 24px 1px shade($color__white, 13%),
-				-13px 26px 1px shade($color__white, 12%),
-				-14px 28px 1px shade($color__white, 11%),
-				-15px 30px 1px shade($color__white, 10%),
-				-16px 32px 1px shade($color__white, 9%),
-				-17px 34px 1px shade($color__white, 8%),
-				-18px 36px 1px shade($color__white, 7%),
-				-19px 38px 1px shade($color__white, 6%),
-				-20px 40px 1px shade($color__white, 5%),
-				-21px 42px 1px shade($color__white, 4%),
-				-22px 44px 1px shade($color__white, 3%),
-				-23px 46px 1px shade($color__white, 2%),
-				-24px 48px 1px shade($color__white, 1%);
+	color: shade($white, 0.05);
+	text-shadow: 1px -1px 0 $white,
+				-1px 2px 1px shade($white, 24%),
+				-2px 4px 1px shade($white, 23%),
+				-3px 6px 1px shade($white, 22%),
+				-4px 8px 1px shade($white, 21%),
+				-5px 10px 1px shade($white, 20%),
+				-6px 12px 1px shade($white, 19%),
+				-7px 14px 1px shade($white, 18%),
+				-8px 16px 1px shade($white, 17%),
+				-9px 18px 1px shade($white, 16%),
+				-10px 20px 1px shade($white, 15%),
+				-11px 22px 1px shade($white, 14%),
+				-12px 24px 1px shade($white, 13%),
+				-13px 26px 1px shade($white, 12%),
+				-14px 28px 1px shade($white, 11%),
+				-15px 30px 1px shade($white, 10%),
+				-16px 32px 1px shade($white, 9%),
+				-17px 34px 1px shade($white, 8%),
+				-18px 36px 1px shade($white, 7%),
+				-19px 38px 1px shade($white, 6%),
+				-20px 40px 1px shade($white, 5%),
+				-21px 42px 1px shade($white, 4%),
+				-22px 44px 1px shade($white, 3%),
+				-23px 46px 1px shade($white, 2%),
+				-24px 48px 1px shade($white, 1%);
 }
 
 @mixin condensed-shadow() {
-	text-shadow: -15px 5px 20px $color__white--darkest;
-	color: $color__white;
+	text-shadow: -15px 5px 20px $white--darkest;
+	color: $white;
 	letter-spacing: -0.05em;
 }
 
 @mixin retro-text() {
 	position: relative;
-	color: $color__white;
+	color: $white;
 	text-shadow:
-		-1px -1px 0 $color__black,
-		1px -1px 0 $color__black,
-		-1px 1px 0 $color__black,
-		1px 1px 0 $color__black,
+		-1px -1px 0 $black,
+		1px -1px 0 $black,
+		-1px 1px 0 $black,
+		1px 1px 0 $black,
 
-		1px 0px 0px $color__yellow,
-		0px 1px 0px $color__yellow,
-		2px 1px 0px $color__yellow,
-		1px 2px 0px $color__yellow,
-		3px 2px 0px $color__yellow,
-		2px 3px 0px $color__yellow,
-		4px 3px 0px $color__yellow,
-		3px 4px 0px $color__yellow,
-		5px 4px 0px $color__yellow,
+		1px 0px 0px $yellow,
+		0px 1px 0px $yellow,
+		2px 1px 0px $yellow,
+		1px 2px 0px $yellow,
+		3px 2px 0px $yellow,
+		2px 3px 0px $yellow,
+		4px 3px 0px $yellow,
+		3px 4px 0px $yellow,
+		5px 4px 0px $yellow,
 
-		3px 5px 0px $color__black,
-		6px 5px 0px $color__black,
-		-1px 2px 0 $color__black,
-		0 3px 0 $color__black,
-		1px 4px 0 $color__black,
-		2px 5px 0px $color__black,
-		2px -1px 0 $color__black,
-		3px 0 0 $color__black,
-		4px 1px 0 $color__black,
-		5px 2px 0px $color__black,
-		6px 3px 0 $color__black,
-		7px 4px 0 $color__black,
-		10px 10px 4px $color__white--darkest;
+		3px 5px 0px $black,
+		6px 5px 0px $black,
+		-1px 2px 0 $black,
+		0 3px 0 $black,
+		1px 4px 0 $black,
+		2px 5px 0px $black,
+		2px -1px 0 $black,
+		3px 0 0 $black,
+		4px 1px 0 $black,
+		5px 2px 0px $black,
+		6px 3px 0 $black,
+		7px 4px 0 $black,
+		10px 10px 4px $white--darkest;
 	font-weight: 700;
 	letter-spacing: 5px;
-	-webkit-text-stroke: 1px $color__black;
-			text-stroke: 1px $color__black;
+	-webkit-text-stroke: 1px $black;
+			text-stroke: 1px $black;
 }
 
 /**
@@ -394,7 +394,7 @@
 		width: 50px;
 		height: 10px;
 		transition: background-color $speed, width $speed;
-		background-color: $color__yellow;
+		background-color: $yellow;
 
 		@include media(">=screen600") {
 			width: 100px;
@@ -412,7 +412,7 @@
 		// font-size: 2em;
 		font-size: 5.5em;
 		line-height: 0.9em;
-		color: $color__yellow;
+		color: $yellow;
 	}
 }
 
@@ -442,13 +442,13 @@
 		bottom: 0;
 		width: 100%;
 		height: 0;
-		background-color: $color__black--light;
+		background-color: $black--light;
 		animation: blockIn forwards 1s cubic-bezier(0.22, 0.68, 0, 1.71);
 	}
 
 	.-text {
 		display: inline-block;
-		color: $color__black--light;
+		color: $black--light;
 		animation: wordIn forwards $speed-slow linear;
 	}
 }
@@ -523,7 +523,7 @@
 		width: auto;
 		height: 8px;
 		transition: $speed;
-		background-color: $color__yellow;
+		background-color: $yellow;
 		animation: dancemonkey 2s infinite ease-in-out;
 		// animation-delay: #{random(10)}00ms;
 		z-index: -1;
@@ -553,7 +553,7 @@
 		transition: border $speed;
 		&:hover,
 		&:focus {
-			border-color: fade-out($color__yellow, 0.15);
+			border-color: fade-out($yellow, 0.15);
 		}
 	} @else {
 		// nothing, continue on
@@ -561,7 +561,7 @@
 }
 
 @mixin underline-link() {
-	border-bottom: 3px $color__black solid;
+	border-bottom: 3px $black solid;
 	font-weight: 700;
 	letter-spacing: 1px;
 	padding-left: $small-spacing;
@@ -569,7 +569,7 @@
 	padding-bottom: .25em;
 }
 
-@mixin btn-color($buttoncolor: $color__black, $hover: $color__yellow) {
+@mixin btn-color($buttoncolor: $black, $hover: $yellow) {
 	border: 3px $buttoncolor solid;
 	color: $buttoncolor;
 
@@ -582,14 +582,14 @@
 	position: absolute;
 	top: 50%;
 	right: $base-spacing;
-	@include btn-color($color__white);
+	@include btn-color($white);
 	@include caption();
 	transform: rotate(-90deg) !important;
 	transform-origin: center top 0;
 	z-index: 2;
 
 	&:focus {
-		@include btn-color($color__white);
+		@include btn-color($white);
 	}
 
 	@include media(">=screen600") {
@@ -602,7 +602,7 @@
 
 	@include media(">=screen1170") {
 		&:hover {
-			@include btn-color($color__white);
+			@include btn-color($white);
 		}
 	}
 

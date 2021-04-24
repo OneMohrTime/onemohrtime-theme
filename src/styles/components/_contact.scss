@@ -10,10 +10,10 @@
 	padding: 0 $gutter;
 	transition: min-height $speed-slow,
 				height $speed-slow;
-	background-color: $color__yellow;
+	background-color: $yellow;
 	background-image: url("../img/concrete-dark.png");
 	background-position: center center;
-	color: $color__black;
+	color: $black;
 
 	@include media(">=screen768") {
 		padding-left: $gutter * 2;
@@ -36,7 +36,7 @@
 
 		a {
 			&::before {
-				background-color: $color__white !important;
+				background-color: $white !important;
 			}
 		}
 	}

@@ -10,12 +10,12 @@
 	width: 100vw;
 	height: auto;
 	margin-bottom: $gutter * 2;
-	color: $color__white;
+	color: $white;
 
 	@include media(">=screen600") {
 		height: 100px;
 		margin-bottom: 0;
-		background-color: $color__black;
+		background-color: $black;
 	}
 
 	&.is-visible {
@@ -100,7 +100,7 @@
 			border-radius: $base-border-radius;
 
 			&:hover {
-				background-color: fade-out($color__white, 0.9);
+				background-color: fade-out($white, 0.9);
 			}
 		}
 	}
@@ -126,37 +126,37 @@
 	font-family: $font__header;
 	font-size: 1.25em !important;
 	font-weight: 700;
-	color: $color__white;
+	color: $white;
 	z-index: 35;
 	cursor: pointer;
 
 	@include hocus {
-		background-color: $color__black--light;
-		color: $color__white;
-		box-shadow: 0 0 0 5px $color__black--light;
+		background-color: $black--light;
+		color: $white;
+		box-shadow: 0 0 0 5px $black--light;
 
 		.bar {
-			background-color: $color__white;
+			background-color: $white;
 		}
 	}
 
 	&.open {
-		color: $color__white;
+		color: $white;
 	}
 
 	@include media(">=screen600") {
 		top: 0;
 		bottom: auto;
-		color: $color__black;
+		color: $black;
 		margin-top: 32px;
 		margin-bottom: 32px;
 
 		&:hover {
 			.m, .n, .u {
-				color: $color__white;
+				color: $white;
 			}
 			.bar {
-				background-color: $color__white;
+				background-color: $white;
 			}
 		}
 	}
@@ -202,7 +202,7 @@
 			.bar {
 				width: 15px;
 				transition: background-color $speed-slow;
-				background-color: $color__white;
+				background-color: $white;
 			}
 			.bar:nth-child(1) {
 				top: 5px;
@@ -226,7 +226,7 @@
 	.bar {
 		position: relative;
 		display: block;
-		background-color: $color__white;
+		background-color: $white;
 		transition: background-color $speed-slow;
 		width: 11px;
 		height: 3px;
@@ -236,10 +236,10 @@
 		}
 
 		@include media(">screen600") {
-			background-color: $color__black;
+			background-color: $black;
 
 			&.open {
-				background-color: $color__white;
+				background-color: $white;
 			}
 		}
 	}

@@ -11,7 +11,7 @@
 	text-align: center;
 	background: transparent url("../img/daft-punk-404.gif") repeat center center fixed;
 	background-size: cover;
-	color: $color__white;
+	color: $white;
 
 	&__content {
 		// .daft-punk__content
@@ -51,7 +51,7 @@
 		}
 
 		.btn {
-			@include btn-color($color__white);
+			@include btn-color($white);
 		}
 	}
 }

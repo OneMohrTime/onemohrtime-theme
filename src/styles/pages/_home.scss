@@ -6,11 +6,11 @@
 
 	&__about {
 		// .homepage__about
-		background-color: $color__black;
-		// background-image: linear-gradient(to top left, $color__black 85%, $color__black--light);
+		background-color: $black;
+		// background-image: linear-gradient(to top left, $black 85%, $black--light);
 		background-image: url("../img/concrete-dark.png");
 		background-position: center center;
-		color: $color__white;
+		color: $white;
 		@include base-font-size();
 		@include media(">=screen960") {
 			display: flex;
@@ -62,12 +62,12 @@
 
 			a {
 				&::before {
-					background-color: $color__black--lightest !important;
+					background-color: $black--lightest !important;
 				}
 
 				&:hover {
 					&::before {
-						background-color: $color__gray--dark !important;
+						background-color: $gray--dark !important;
 					}
 				}
 			}
@@ -97,7 +97,7 @@
 
 	&__builder {
 		// .homepage__builder
-		background-color: $color__white;
+		background-color: $white;
 		background-image: url("../img/concrete-light.png");
 		background-position: center center;
 		margin-bottom: 0;
@@ -124,7 +124,7 @@
 	display: inline-block;
 	margin-bottom: $gutter;
 	@include paragraph();
-	color: $color__black--light;
+	color: $black--light;
 
 	@include media(">=screen840") {
 		@include body-copy();
@@ -138,10 +138,10 @@
 		line-height: 1em;
 		border-top-right-radius: 3px;
 		border-bottom-right-radius: 3px;
-		background-color: $color__black;
+		background-color: $black;
 		background-image: url("../img/concrete-dark.png");
 		background-position: center center;
-		color: fade-out($color__white, 0.05);
+		color: fade-out($white, 0.05);
 		@include box-shadow();
 
 		&::before {
@@ -152,7 +152,7 @@
 			height: 100%;
 			width: 100vw;
 			max-width: $gutter * 4; // keep within frame of 1600px screens
-			background-color: $color__black;
+			background-color: $black;
 			background-image: url("../img/concrete-dark.png");
 			background-position: center center;
 		}

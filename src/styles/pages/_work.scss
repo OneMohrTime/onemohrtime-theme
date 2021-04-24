@@ -15,7 +15,7 @@
 		padding-right: $gutter;
 		overflow: hidden;
 		text-align: left;
-		background-color: $color__gray--darkest;
+		background-color: $gray--darkest;
 
 		@include media(">=screen768") {
 			height: calc(100vh - 72px);
@@ -65,7 +65,7 @@
 
 			h2 {
 				@include subtitle();
-				color: $color__white;
+				color: $white;
 				@include text-shadow();
 				margin-bottom: 0;
 
@@ -113,7 +113,7 @@
 		.arrays {
 			display: flex;
 			flex-direction: column;
-			background-color: fade-out($color__white, 0.02);
+			background-color: fade-out($white, 0.02);
 			width: 100%;
 			height: 100%;
 			padding-left: $small-spacing;
@@ -150,7 +150,7 @@
 				&__title {
 					// .array__title
 					position: relative;
-					color: $color__gray;
+					color: $gray;
 
 					&--before,
 					&--after {
@@ -190,7 +190,7 @@
 						right: 0;
 						bottom: 0;
 						display: block;
-						background-color: $color__white--dark;
+						background-color: $white--dark;
 						width: 100%;
 						height: 4px;
 						transition: background-color $speed linear;
@@ -214,7 +214,7 @@
 						outline: none;
 
 						&::before {
-							outline: 3px fade-out($color__yellow, 0.4) solid;
+							outline: 3px fade-out($yellow, 0.4) solid;
 							outline-offset: 2px;
 						}
 					}
@@ -223,7 +223,7 @@
 
 						&::before {
 							// .array__filter::before
-							background-color: $color__yellow;
+							background-color: $yellow;
 						}
 					}
 				}

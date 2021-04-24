@@ -17,8 +17,8 @@
 		max-width: 100%;
 		overflow: hidden;
 		transition: box-shadow $speed;
-		background-color: $color__black;
-		color: $color__white;
+		background-color: $black;
+		color: $white;
 		@include box-shadow();
 
 		@include media("<screen400") {
@@ -65,7 +65,7 @@
 			padding: $gutter;
 			opacity: 0;
 			transition: opacity $speed;
-			border: 3px $color__yellow solid;
+			border: 3px $yellow solid;
 		}
 
 		&__link {

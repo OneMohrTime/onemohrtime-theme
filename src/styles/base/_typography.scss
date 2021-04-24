@@ -7,8 +7,8 @@
 }
 
 ::selection {
-	color: $color__black;
-	background-color: $color__yellow;
+	color: $black;
+	background-color: $yellow;
 	text-shadow: none;
 }
 
@@ -128,8 +128,8 @@ ul, ol, dl {
 // 	display: inline-block;
 // 	font-family: $font__code;
 // 	font-size: .875em;
-// 	background-color: $color__white--dark;
-// 	border: 1px $color__white--darker solid;
+// 	background-color: $white--dark;
+// 	border: 1px $white--darker solid;
 // 	color: inherit;
 // 	padding: $small-spacing;
 // }
@@ -180,8 +180,8 @@ i, cite, em, var, address, dfn {
 abbr {
 	padding: 2px 4px;
 	text-decoration: none;
-	border-bottom: 1px $color__black dotted;
-	background-color: fade-out($color__black, 0.95);
+	border-bottom: 1px $black dotted;
+	background-color: fade-out($black, 0.95);
 	cursor: help;
 
 	&:focus {
@@ -200,19 +200,19 @@ abbr {
 			@include responsive-type();
 			text-decoration: none;
 			line-height: inherit;
-			border-bottom: 1px $color__black dotted;
-			background-color: fade-out($color__black, 0.95);
+			border-bottom: 1px $black dotted;
+			background-color: fade-out($black, 0.95);
 		}
 	}
 }
 
 mark {
-	background-color: $color__yellow--light;
-	color: $color__yellow--dark;
+	background-color: $yellow--light;
+	color: $yellow--dark;
 }
 
 blockquote {
-	border-left: 10px $color__yellow solid;
+	border-left: 10px $yellow solid;
 	margin: $base-spacing 0;
 	padding-left: 10px;
 
@@ -222,7 +222,7 @@ blockquote {
 
 	footer {
 		font-size: .75em;
-		color: $color__gray;
+		color: $gray;
 		cite {font-weight: 700;}
 
 		&::before {
@@ -236,5 +236,5 @@ hr {
 	height: 10px;
 	margin: 0 auto $base-spacing;
 	border: 0;
-	background-color: $color__yellow;
+	background-color: $yellow;
 }

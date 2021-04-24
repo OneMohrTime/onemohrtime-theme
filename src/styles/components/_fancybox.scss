@@ -3,7 +3,7 @@
  */
 
 .fancybox-bg {
-	background: $color__black;
+	background: $black;
 }
 
 .fancybox-button {
@@ -11,12 +11,12 @@
 	height: 72px;
 	padding: $gutter / 2 $gutter;
 	transition: background-color $speed, color $speed;
-	background: $color__yellow;
-	color: $color__black;
+	background: $yellow;
+	color: $black;
 
 	&:focus,
 	&:hover {
-		background-color: $color__yellow--dark;
+		background-color: $yellow--dark;
 	}
 }
 
@@ -25,7 +25,7 @@
 	height: 72px;
 	padding: 0 $gutter / 2;
 	line-height: 72px;
-	color: $color__white;
+	color: $white;
 }
 
 .fancybox-navigation {
@@ -50,7 +50,7 @@
 .fancybox-thumbs__list {
 	a {
 		&::before {
-			border: 5px solid $color__yellow;
+			border: 5px solid $yellow;
 		}
 	}
 }
