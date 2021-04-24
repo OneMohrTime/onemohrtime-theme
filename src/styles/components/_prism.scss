@@ -114,7 +114,8 @@ pre[class*="language-"] {
 .token.regex,
 .token.important,
 .token.variable {
-	color: $color__yellow;
+	font-weight: 700;
+	color: $color__black--lighter;
 }
 
 .token.important,

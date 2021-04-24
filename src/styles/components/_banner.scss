@@ -56,7 +56,10 @@
 }
 
 .banner__listItem {
-	font-size: ms(0) !important;
+	font-size: ms(-1);
+	@include media(">=screen960") {
+		font-size: ms(0);
+	}
 }
 
 .banner__intro {

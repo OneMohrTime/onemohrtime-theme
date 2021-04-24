@@ -96,6 +96,10 @@
 			path {
 				fill: $color__black;
 				transition: $speed linear;
+				// always white at small sizes
+				@include media("<screen600") {
+					fill: $color__white;
+				}
 			}
 		}
 	}
