@@ -3,6 +3,7 @@
  */
 
 ._gallery {
+	width: 100%;
 
 	.media {
 		position: relative;
@@ -11,6 +12,7 @@
 		@include box-shadow();
 
 		@include media('>=screen600') {
+			width: auto;
 			max-width: calc(50% - #{$gutter});
 		}
 
@@ -110,4 +112,10 @@
 			width: $gutter;
 		}
 	}
+}
+
+// reset galleries if animated in
+
+._clearGrid {
+	width: 100%;
 }

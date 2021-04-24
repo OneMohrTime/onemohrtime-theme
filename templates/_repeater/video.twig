@@ -49,7 +49,7 @@
 			{% set decimal = height / width * 100 %}
 			{# Label: Internal Upload #}
 			<figure class="wrapper -isCustom -ratio{{ width }}:{{ height }}">
-				<video controls preload="metadata" autoplay="false" width="{{ width }}" height="{{ height }}">
+				<video controls preload="none" autoplay="false" width="{{ width }}" height="{{ height }}">
 					<source src="{{ upload.url }}" type="{{ upload.mime_type }}" />
 					<p>Sorry, your browser doesn't support embedded videos. You can still <a href="{{ upload.url }}" download>download</a> it.</p>
 				</video>
