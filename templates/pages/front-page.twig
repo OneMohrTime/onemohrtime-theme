@@ -4,7 +4,7 @@
 {% block content %}
 	<section id="home_banner" class="banner -typographic -yellow">
 
-		<ul id="home_banner_list" class="banner__list get-faded">
+		<ul id="home_banner_list" class="banner__list -getFaded">
 			{% for link in links %}
 				{% set link = link.link %}
 				<li class="banner__listItem">
@@ -58,7 +58,7 @@
 					</span>
 				</span>
 			</h2>
-			<p class="_tagline get-faded">
+			<p class="_tagline -getFaded">
 				<span><a href="{{ site.link }}/about" class="banner__link">Derek Mohr</a> // </span>
 				<span>Grand Rapids, MI // </span>
 				<span>
@@ -83,7 +83,7 @@
 				srcset="{{ Image(about.image).src('medium') }} 1000w,
 						{{ Image(about.image).src('large') }} 1500w" />
 
-			<figcaption class="homepage__about--content _wysiwyg get-faded">
+			<figcaption class="homepage__about--content _wysiwyg -getFaded">
 				{{ about.text }}
 			</figcaption>
 

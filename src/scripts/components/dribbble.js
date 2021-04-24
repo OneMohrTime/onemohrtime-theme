@@ -15,7 +15,7 @@ export default function dribbble() {
     return;
   }
 
-  // dribbbles.classList.add('get-faded')
+  // dribbbles.classList.add('-getFaded')
 
   // Set the Access Token
   const accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
