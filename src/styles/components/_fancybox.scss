@@ -99,3 +99,47 @@
 	height: 10px;
 	background-color: $yellow;
 }
+
+/**
+ * Logo design fancybox
+ */
+
+.-logo-design {
+	@include media(">=screen1170") {
+		// caption on the right, with new fields
+		.fancybox-caption {
+			top: 0;
+			left: auto;
+			bottom: auto;
+			width: calc(40% - #{$gutter-xl});
+			height: auto;
+			max-height: calc(100% - #{$gutter-xl * 2});
+			margin-top: $gutter-xl;
+			margin-right: $gutter-xl;
+			padding: $gutter $gutter-lg;
+			overflow: auto;
+			font-size: ms(1);
+			line-height: $base-line-height;
+			text-align: left;
+			background: $white;
+			color: $black--lighter;
+			@include box-shadow();
+		}
+		.fancybox-caption__body {
+			max-height: 100%;
+		}
+		// logo pushed to left, but still overlapped
+		.fancybox-content {
+			margin-left: 5%;
+			margin-right: 30%;
+		}
+		// when zoomed in
+		.fancybox-can-pan {
+			.fancybox-slide--current {
+				.fancybox-content {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
