@@ -2,6 +2,7 @@
 * === BUTTONS ===
 */
 
+// bourbon mixins
 #{$all-buttons} {
 	position: relative;
 	display: inline-block;
@@ -26,8 +27,8 @@
 	color: inherit;
 }
 
-.btn,
-._button {
+// create custom mixin
+@mixin btn-style {
 	@include btn-color();
 	border-radius: $base-border-radius;
 	@include body-copy();
@@ -37,7 +38,6 @@
 	text-align: center;
 	text-transform: uppercase;
 	padding: $small-spacing $base-spacing;
-	//	@include mask-texture();
 
 	&::after {
 		content: "";
@@ -48,16 +48,12 @@
 		height: 10px;
 	}
 
-	&:disabled {
-		background-color: transparent;
-	}
-
 	@include media(">=screen960") {
 		&::after { transition: all $speed; }
 	}
 
-	&:hover,
-	&:focus {
+	// hover, focus
+	@include hocus {
 		background-color: transparent;
 		color: inherit;
 
@@ -69,6 +65,29 @@
 			}
 		}
 	}
+
+	// disabled buttons
+	&:disabled {
+		opacity: 1;
+		border-color: $gray;
+		background-color: transparent;
+		color: $gray;
+		cursor: not-allowed !important;
+		// hover, focus
+		@include hocus {
+			background-color: $white--dark;
+			color: $gray;
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
+.btn,
+._button {
+	@include btn-style();
+	//	@include mask-texture();
 
 	.-svg {
 		position: relative;

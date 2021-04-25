@@ -56,9 +56,11 @@ $base-duration: $speed;
 $cubic-bezier: cubic-bezier(0.17, 0.04, 0.03, 0.94);
 
 $gutter: 36px;
+$gutter-xs: $gutter / 3;
 $gutter-sm: $gutter / 2;
 $gutter-md: $gutter;
 $gutter-lg: $gutter * 2;
+$gutter-xl: $gutter * 3;
 
 $breakpoints : (
 	'screen320' : 320px,
