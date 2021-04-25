@@ -28,7 +28,7 @@ export default function dribbble() {
     type: 'GET',
     success: function( data ) {
       if ( 0 < data.length ) {
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < numberOfShots; i++) {
           let title       = data[i].title || '';
           let htmlUrl     = data[i].html_url || 'https://dribbble.com/onemohrtime';
           let teaserUrl   = data[i].images.teaser || null;
