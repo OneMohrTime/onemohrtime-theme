@@ -15,13 +15,13 @@
 	}
 
 	&.-yellow {
-		color: $color__black--light;
+		color: $black--light;
 	}
 
 	.-home & {
 		// make banner links accessible
 		a:focus {
-			outline-color: fade-out($color__white, 0.4);
+			outline-color: fade-out($white, 0.4);
 		}
 	}
 }
@@ -56,7 +56,10 @@
 }
 
 .banner__listItem {
-	font-size: ms(0) !important;
+	font-size: ms(-1);
+	@include media(">=screen960") {
+		font-size: ms(0);
+	}
 }
 
 .banner__intro {
@@ -99,7 +102,7 @@
 			bottom: 0;
 			width: 100%;
 			height: 0;
-			background-color: $color__black--light;
+			background-color: $black--light;
 			animation: blockIn forwards 1s cubic-bezier(0.22, 0.68, 0, 1.71);
 		}
 
@@ -121,7 +124,7 @@
 	box-shadow: none;
 
 	&:hover {
-		box-shadow: 0 7px 0 0 $color__white;
+		box-shadow: 0 7px 0 0 $white;
 	}
 }
 
@@ -130,7 +133,7 @@
 
 	&::before {
 		height: 12px !important;
-		background-color: $color__white !important;
+		background-color: $white !important;
 	}
 
 	&:hover {

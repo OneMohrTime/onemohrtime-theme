@@ -2,7 +2,7 @@
 
 	<div class="_column -projects">
 		<h3>Pages of Interest</h3>
-		<ul class="get-faded">
+		<ul class="-getFaded">
 			{% for item in footer.items %}
 			<li>
 				<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
@@ -22,14 +22,14 @@
 
 	<div class="_column -about">
 		<h3>About Thy Website</h3>
-		<div class="get-faded">
+		<div class="-getFaded">
 			{{ globals.site_about }}
 		</div>
 	</div>
 
 	<div class="_column -socialMedia">
 		<a class="top btn" href="#page" id="scroll_to_top">Back to Top</a>
-		<ul class="-icons get-faded">
+		<ul class="-icons -getFaded">
 			<li>
 				<a target="_blank" rel="noopener" href="//dribbble.com/OneMohrTime" title="Dribbble" aria-label="Dribbble">
 					{% include '/assets/media/icons/logo-dribbble.svg' %}

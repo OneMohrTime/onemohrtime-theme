@@ -31,14 +31,14 @@
 		}
 
 		& > p {
-			// color: shade($color__yellow, 67%);
+			// color: shade($yellow, 67%);
 			// display: inline;
-			// background: linear-gradient(to bottom, fade-out($color__white, 1) 0%, fade-out($color__white, 1) 49%, $color__yellow 50%, $color__yellow 100%);
+			// background: linear-gradient(to bottom, fade-out($white, 1) 0%, fade-out($white, 1) 49%, $yellow 50%, $yellow 100%);
 			@include responsive-type();
 
 			@include media(">=screen960") {
 				padding-left: 10px;
-				border-left: 10px $color__white--dark solid;
+				border-left: 10px $white--dark solid;
 			}
 
 			@include media(">=screen1440") {
@@ -50,7 +50,7 @@
 	&.-withImage {
 		// .blockquote.-withImage
 		position: relative;
-		background-color: fade-out($color__white, 0.15);
+		background-color: fade-out($white, 0.15);
 		padding: $gutter;
 		margin: $gutter;
 

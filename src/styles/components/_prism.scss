@@ -11,7 +11,7 @@ pre[class*="language-"] {
 	font-family: $font__code;
 	font-size: ms(0);
 	text-align: left;
-	text-shadow: 0 1px $color__white;
+	text-shadow: 0 1px $white;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
@@ -20,7 +20,7 @@ pre[class*="language-"] {
 	tab-size: 4;
 	hyphens: none;
 	background: none;
-	color: $color__black;
+	color: $black;
 }
 
 pre[class*="language-"]::selection,
@@ -28,7 +28,7 @@ pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
 	text-shadow: none;
-	background: $color__white--dark;
+	background: $white--dark;
 }
 
 @media print {
@@ -47,7 +47,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: $color__white--dark;
+	background: $white--dark;
 }
 
 // Inline code
@@ -61,11 +61,11 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: $color__gray;
+	color: $gray;
 }
 
 .token.punctuation {
-	color: $color__gray--light;
+	color: $gray--light;
 }
 
 .token.namespace {
@@ -79,7 +79,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: $color__red;
+	color: $red;
 }
 
 .token.selector,
@@ -88,7 +88,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: $color__yellow--dark;
+	color: $yellow--dark;
 }
 
 .token.operator,
@@ -96,25 +96,26 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	color: $color__yellow--dark;
+	color: $yellow--dark;
 	background: hsla(0, 0%, 100%, .5); //This background color was intended by the author of this theme
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: $color__black--lighter;
+	color: $black--lighter;
 }
 
 .token.function,
 .token.class-name {
-	color: $color__red;
+	color: $red;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	color: $color__yellow;
+	font-weight: 700;
+	color: $black--lighter;
 }
 
 .token.important,

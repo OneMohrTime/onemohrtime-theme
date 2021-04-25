@@ -16,7 +16,7 @@
 		margin-top: $gutter;
 		margin-bottom: $gutter;
 		line-height: $base-line-height;
-		color: $color__black--light;
+		color: $black--light;
 
 		@include media(">=screen1440") {
 			margin-top: $gutter * 1.5;
@@ -63,8 +63,8 @@
 					box-shadow: none;
 					@include hocus {
 						opacity: 1 !important;
-						box-shadow: 0 0 0 10px $color__white--dark,
-									0 0 0 20px $color__yellow;
+						box-shadow: 0 0 0 10px $white--dark,
+									0 0 0 20px $yellow;
 					}
 				}
 			}

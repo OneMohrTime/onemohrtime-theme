@@ -60,8 +60,8 @@ object {
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		background-color: fade-out($color__black, 0.1);
-		color: $color__white;
+		background-color: fade-out($black, 0.1);
+		color: $white;
 		font-size: .75em;
 		font-weight: 700;
 		text-align: right;

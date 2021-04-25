@@ -7,7 +7,6 @@
 	width: 100%;
 	height: auto;
 	margin-bottom: $large-spacing;
-	// overflow: hidden;
 	@include body-copy();
 
 	@include media(">=screen768") {
@@ -32,7 +31,7 @@
 			// move text up to center, slowish
 			.article__content {
 				// transform: translate(-#{$gutter-lg}, -#{$gutter-lg});
-				// background-color: $color__yellow;
+				// background-color: $yellow;
 			}
 		}
 	}
@@ -101,7 +100,7 @@
 			@include caption();
 			line-height: 1.7em;
 			text-align: center;
-			color: $color__gray--darkest;
+			color: $gray--darkest;
 
 			.updated,
 			.author,
@@ -124,14 +123,14 @@
 		&:hover {
 
 			._meta {
-				color: $color__black--light;
+				color: $black--light;
 			}
 
 			.post-format {
 				.-svg {
 					opacity: 1;
 					path {
-						fill: $color__yellow;
+						fill: $yellow;
 					}
 				}
 			}
@@ -168,13 +167,14 @@
 		margin-top: $base-line-height;
 		font-size: ms(-1) !important;
 		letter-spacing: 1px !important;
+		border-width: 2px !important;
 
 		&::before {
 			display: none;
 		}
 
 		&::after {
-			height: 5px;
+			height: 6px !important;
 		}
 	}
 

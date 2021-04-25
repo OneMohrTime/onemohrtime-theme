@@ -20,11 +20,11 @@ $lgImage: 200px;
 			// .card__link:focus
 			.card__body {
 				transform: translateY(-#{$gutter-sm});
-				background-color: $color__yellow;
-				color: $color__black;
+				background-color: $yellow;
+				color: $black;
 
 				._text {
-					border-color: $color__black;
+					border-color: $black;
 				}
 			}
 		}
@@ -96,7 +96,7 @@ $lgImage: 200px;
 		transition: background-color $speed,
 					color $speed,
 					transform $speed;
-		background-color: $color__white--dark;
+		background-color: $white--dark;
 		// @include box-shadow();
 		z-index: 9;
 
@@ -136,7 +136,7 @@ $lgImage: 200px;
 		// Card Subheadline
 		//
 		._subheadline {
-			color: $color__gray--dark;
+			color: $gray--dark;
 		}
 
 		//
@@ -146,7 +146,7 @@ $lgImage: 200px;
 			margin-top: 0.75em;
 			padding-top: $gutter-sm / 2;
 			transition: border-color $speed;
-			border-top: 1px $color__gray--light solid;
+			border-top: 1px $gray--light solid;
 		}
 
 		//

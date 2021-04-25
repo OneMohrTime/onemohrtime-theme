@@ -11,10 +11,10 @@
 	width: auto;
 	height: auto;
 	padding: $gutter;
-	background-color: shade($color__black, 67%);
+	background-color: shade($black, 67%);
 	background-image: url("../img/concrete-dark.png");
 	background-position: center center;
-	color: $color__white;
+	color: $white;
 
 	@include media(">=screen600") {
 		column-gap: $small-spacing;
@@ -82,14 +82,14 @@
 		}
 
 		h3 {
-			border-bottom: 4px $color__yellow solid;
+			border-bottom: 4px $yellow solid;
 			font-size: 1em;
 			padding-bottom: $small-spacing;
 		}
 
 		p, ul, ol {
 			@include type();
-			color: $color__white--dark;
+			color: $white--dark;
 
 			a {
 				line-height: 1em;
@@ -125,7 +125,7 @@
 					path,
 					polygon,
 					rect {
-						fill: $color__white;
+						fill: $white;
 					}
 				}
 			}
@@ -176,11 +176,11 @@
 	}
 
 	.btn {
-		border-color: $color__yellow;
-		color: $color__white;
+		border-color: $yellow;
+		color: $white;
 
 		@include media(">=screen960") {
-			border-color: $color__white--darkest;
+			border-color: $white--darkest;
 		}
 	}
 
@@ -190,14 +190,14 @@
 
 		&::before {
 			bottom: -2px;
-			background-color: $color__black--lightest;
+			background-color: $black--lightest;
 		}
 
 		&:hover {
 
 			&::before {
 				bottom: 2px;
-				background-color: $color__gray--dark;
+				background-color: $gray--dark;
 			}
 		}
 	}

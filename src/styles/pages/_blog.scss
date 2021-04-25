@@ -2,13 +2,11 @@
  * === BLOG ===
  */
 
-body.-posts,
-body.archive {
+body.-posts {
 	position: relative;
 	margin-bottom: 2em;
 
-	.posts,
-	.archives {
+	.posts {
 		@include block-width();
 		// width: 100%;
 		margin-bottom: 0;
@@ -25,4 +23,10 @@ body.archive {
 			@include media(">=screen1600") { padding-right: 50%; }
 		}
 	}
+}
+
+.posts__pagination {
+	width: auto;
+	margin-left: $gutter;
+	margin-right: $gutter;
 }

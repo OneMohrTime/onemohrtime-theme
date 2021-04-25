@@ -10,7 +10,7 @@
  */
 
 $context     = Timber::context();
-$timber_post = Timber::query_post();
+$timber_post = new Timber\Post();
 
 $context['post']     = $timber_post;
 $context['banner']   = get_field('project_header');

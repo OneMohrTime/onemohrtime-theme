@@ -10,11 +10,11 @@
 	height: 72px;
 	max-width: 100vw;
 	transition: $speed linear;
-	background: linear-gradient(to bottom right, $color__white 85%, $color__white--dark);
-	background-color: $color__black;
+	background: linear-gradient(to bottom right, $white 85%, $white--dark);
+	background-color: $black;
 	background-image: url("../img/concrete-dark.png");
 	background-position: center center;
-	box-shadow: 0 -1px 3px fade-out($color__black, 0.94), 0 -1px 2px fade-out($color__black, 0.88);
+	box-shadow: 0 -1px 3px fade-out($black, 0.94), 0 -1px 2px fade-out($black, 0.88);
 	z-index: 20;
 
 	&.nav-is-open {
@@ -94,8 +94,12 @@
 		#design {
 			// ID inside inline-svg
 			path {
-				fill: $color__black;
+				fill: $black;
 				transition: $speed linear;
+				// always white at small sizes
+				@include media("<screen600") {
+					fill: $white;
+				}
 			}
 		}
 	}
@@ -104,7 +108,7 @@
 		#design {
 			// ID inside inline-svg
 			path {
-				fill: $color__white;
+				fill: $white;
 			}
 		}
 		// only turn logo yellow when menu is down
@@ -112,7 +116,7 @@
 			.logo {
 				#design {
 					path {
-						fill: $color__yellow;
+						fill: $yellow;
 					}
 				}
 			}

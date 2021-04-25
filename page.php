@@ -34,11 +34,11 @@ $timber_post = new Timber\Post();
 // 	'numberposts'    => 999 ) );
 $projects  = get_field('project_grid');
 
-$context['post']        = $timber_post;
+$context['post']         = $timber_post;
 // $context['post_images'] = $images;
-$context['projects']    = Timber::get_posts( $projects );
-$context['builder']     = get_field('sections');
-$context['roles']       = new TimberTerm('design');
-$context['image_grid']  = get_field('image_grid');
+$context['projects']     = new Timber\PostQuery($projects);
+$context['builder']      = get_field('sections');
+$context['roles']        = new TimberTerm('design');
+$context['image_grid']   = get_field('image_grid');
 
 Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );

@@ -15,7 +15,7 @@ body.-instagram {
 	}
 
 	.site__main {
-		background-color: $color__yellow;
+		background-color: $yellow;
 	}
 
 	.page__content {
@@ -40,7 +40,7 @@ body.-instagram {
 				display: block;
 				overflow: hidden;
 				appearance: none;
-				@include btn-color($color__black, $color__white);
+				@include btn-color($black, $white);
 				border-radius: $base-border-radius;
 				@include body-copy();
 				font-family: $font__header;

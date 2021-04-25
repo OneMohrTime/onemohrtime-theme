@@ -59,8 +59,8 @@
 		font-family: $font__secondary;
 		text-transform: lowercase;
 		letter-spacing: .075em;
-		background-color: $color__white;
-		color: $color__black;
+		background-color: $white;
+		color: $black;
 		@include box-shadow();
 		z-index: 2;
 
@@ -82,7 +82,7 @@
 
 	&__title {
 		// .project__title
-		color: $color__white;
+		color: $white;
 		@include title();
 		text-align: left;
 		@include text-shadow();
@@ -98,7 +98,7 @@
 			margin: 0 $gutter 0 $gutter * 2;
 			padding-bottom: $gutter;
 			&::after {
-				background-color: $color__white;
+				background-color: $white;
 			}
 		}
 
@@ -116,10 +116,10 @@
 
 		// make the "reveal" text white
 		.-block {
-			background-color: $color__white;
+			background-color: $white;
 		}
 		.-text {
-			color: $color__white;
+			color: $white;
 		}
 	}
 
@@ -128,10 +128,10 @@
 		position: relative;
 		padding: $gutter;
 		@include body-copy();
-		background-color: $color__white--dark;
+		background-color: $white--dark;
 		background-image: url("../img/concrete-light.png");
 		background-position: center center;
-		color: $color__black--lightest;
+		color: $black--lightest;
 
 		@include media(">=screen600") {
 			display: flex;
@@ -170,8 +170,8 @@
 				padding-top: $gutter-sm;
 				padding-right: $gutter-sm;
 				padding-bottom: $gutter-sm;
-				border-right: 1px $color__white--darkest solid;
-				border-bottom: 1px $color__white--darkest solid;
+				border-right: 1px $white--darkest solid;
+				border-bottom: 1px $white--darkest solid;
 			}
 
 			@include media(">=screen600") {
@@ -182,7 +182,7 @@
 		.spec {
 			margin-bottom: $small-spacing;
 			padding-bottom: $small-spacing;
-			border-bottom: 1px $color__white--darkest solid;
+			border-bottom: 1px $white--darkest solid;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -199,7 +199,7 @@
 				padding-left: $gutter-sm;
 				padding-top: $gutter-sm;
 				padding-bottom: 0;
-				border-right: 1px $color__white--darkest solid;
+				border-right: 1px $white--darkest solid;
 				border-bottom: 0;
 				@include body-copy();
 			}
@@ -258,8 +258,8 @@
 					margin-bottom: $small-spacing;
 					transition: background-color $speed;
 					border-radius: $base-border-radius;
-					background-color: $color__black--lightest;
-					color: $color__white--dark;
+					background-color: $black--lightest;
+					color: $white--dark;
 				}
 			}
 		}

@@ -11,7 +11,7 @@
 {% set iFrame   = section.script ?? null %}
 {% set upload   = section.upload ?? null %}
 
-<div class="builder__section -video -from{{ layout|capitalize }} get-faded">
+<div class="builder__section -video -from{{ layout|capitalize }} -getFaded">
 	{% if headline %}
 		<h2 class="_headline">{{ headline }}</h2>
 	{% endif %}
@@ -49,7 +49,7 @@
 			{% set decimal = height / width * 100 %}
 			{# Label: Internal Upload #}
 			<figure class="wrapper -isCustom -ratio{{ width }}:{{ height }}">
-				<video controls preload="metadata" autoplay="false" width="{{ width }}" height="{{ height }}">
+				<video controls preload="none" autoplay="false" width="{{ width }}" height="{{ height }}">
 					<source src="{{ upload.url }}" type="{{ upload.mime_type }}" />
 					<p>Sorry, your browser doesn't support embedded videos. You can still <a href="{{ upload.url }}" download>download</a> it.</p>
 				</video>

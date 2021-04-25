@@ -6,33 +6,33 @@
  * — Colors —
  */
 
-$color__black: #171409;
-$color__black--light: tint($color__black, 5%);
-$color__black--lighter: tint($color__black, 10%);
-$color__black--lightest: tint($color__black, 15%);
+$black: #171409;
+$black--light: tint($black, 5%);
+$black--lighter: tint($black, 10%);
+$black--lightest: tint($black, 15%);
 
-$color__white: #fffefa;
-$color__white--dark: shade($color__white, 5%);
-$color__white--darker: shade($color__white, 10%);
-$color__white--darkest: shade($color__white, 15%);
+$white: #fffefa;
+$white--dark: shade($white, 5%);
+$white--darker: shade($white, 10%);
+$white--darkest: shade($white, 15%);
 
-$color__yellow: #ffc300;
-$color__yellow--light: #fef7e3;
-$color__yellow--transparent: fade-out($color__yellow--light, 0.75);
-$color__yellow--dark: shade($color__yellow, 10%);
+$yellow: #ffc300;
+$yellow--light: #fef7e3;
+$yellow--transparent: fade-out($yellow--light, 0.75);
+$yellow--dark: shade($yellow, 10%);
 
-$color__gray: #9b9a95;
-$color__gray--light: tint($color__gray, 15%);
-$color__gray--dark: shade($color__gray, 15%);
-$color__gray--darker: shade($color__gray, 15%);
-$color__gray--darkest: #51514d;
+$gray: #9b9a95;
+$gray--light: tint($gray, 15%);
+$gray--dark: shade($gray, 15%);
+$gray--darker: shade($gray, 15%);
+$gray--darkest: #51514d;
 
-$color__red: #9c0000;
+$red: #9c0000;
 
 //$color--notice: #9c0000 !important;
 //$color--success: #9c0000 !important;
 //$color--warning: #9c0000 !important;
-$color--error: $color__red;
+$color--error: $red;
 
 /**
  * — Typography —
@@ -56,9 +56,11 @@ $base-duration: $speed;
 $cubic-bezier: cubic-bezier(0.17, 0.04, 0.03, 0.94);
 
 $gutter: 36px;
+$gutter-xs: $gutter / 3;
 $gutter-sm: $gutter / 2;
 $gutter-md: $gutter;
 $gutter-lg: $gutter * 2;
+$gutter-xl: $gutter * 3;
 
 $breakpoints : (
 	'screen320' : 320px,

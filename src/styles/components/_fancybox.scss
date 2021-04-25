@@ -2,55 +2,144 @@
  * === FANCYBOX ===
  */
 
+// use a light colored background
 .fancybox-bg {
-	background: $color__black;
-}
+	background: $white;
 
-.fancybox-button {
-	width: 96px;
-	height: 72px;
-	padding: $gutter / 2 $gutter;
-	transition: background-color $speed, color $speed;
-	background: $color__yellow;
-	color: $color__black;
-
-	&:focus,
-	&:hover {
-		background-color: $color__yellow--dark;
+	.fancybox-is-open & {
+		opacity: 0.95;
 	}
 }
 
-.fancybox-infobar {
+// override default image paddiing
+.fancybox-slide--image {
+	padding: $gutter 0 !important;
+	@include media(">=screen600") {
+		padding: $gutter-xs 0 !important;
+	}
+}
+
+// place button group
+.fancybox-toolbar {
+	display: flex;
+	top: $gutter-xs;
+	right: $gutter-xs;
+}
+
+// mimic site buttons
+.fancybox-button {
+	@include btn-style();
 	width: 96px;
-	height: 72px;
-	padding: 0 $gutter / 2;
-	line-height: 72px;
-	color: $color__white;
+	height: 52px;
+	padding: 10px $gutter;
+	margin-left: $gutter-xs;
+	border-width: 2px;
+	background-color: transparent;
+
+	// hover, focus
+	@include hocus {
+		// color: $white;
+	}
+}
+
+// index counter
+.fancybox-infobar {
+	top: $gutter-xs;
+	left: $gutter-xs;
+	width: 96px;
+	height: 52px;
+	padding: 0 $gutter-sm;
+	font-size: ms(0);
+	line-height: 52px;
+	color: $black--light;
+	mix-blend-mode: normal;
 }
 
 .fancybox-navigation {
 	.fancybox-button {
-		width: 98px;
-		height: 158px;
+		width: 52px;
+		height: 100px;
 		div {
-			padding: $gutter $gutter / 2;
-			transition: background-color $speed, color $speed;
+			width: 20px;
+			margin: 0 auto;
+			padding: 0;
+			svg {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 	.fancybox-button--arrow_left {
-		padding-left: 0;
-		transition: background-color $speed, color $speed;
+		margin: 0 0 0 $gutter-xs;
+		padding: $gutter-xs 5px;
 	}
 	.fancybox-button--arrow_right {
-		padding-right: 0;
-		transition: background-color $speed, color $speed;
+		margin: 0 $gutter-xs 0 0;
+		padding: $gutter-xs 5px;
 	}
 }
 
+// add typical box shadow images have
+.fancybox-content {
+	@include box-shadow();
+}
+
+// style grid hovers
 .fancybox-thumbs__list {
 	a {
 		&::before {
-			border: 5px solid $color__yellow;
+			border: 5px solid $yellow;
+		}
+	}
+}
+
+// autoplay progress bar
+.fancybox-progress {
+	height: 10px;
+	background-color: $yellow;
+}
+
+/**
+ * Logo design fancybox
+ */
+
+.-logo-design {
+	@include media(">=screen1170") {
+		// caption on the right, with new fields
+		.fancybox-caption {
+			top: 0;
+			left: auto;
+			bottom: auto;
+			width: calc(40% - #{$gutter-xl});
+			height: auto;
+			max-height: calc(100% - #{$gutter-xl * 2});
+			margin-top: $gutter-xl;
+			margin-right: $gutter-xl;
+			padding: $gutter $gutter-lg;
+			overflow: auto;
+			font-size: ms(1);
+			line-height: $base-line-height;
+			text-align: left;
+			background: $white;
+			color: $black--lighter;
+			@include box-shadow();
+		}
+		.fancybox-caption__body {
+			max-height: 100%;
+		}
+		// logo pushed to left, but still overlapped
+		.fancybox-content {
+			margin-left: 5%;
+			margin-right: 30%;
+		}
+		// when zoomed in
+		.fancybox-can-pan {
+			.fancybox-slide--current {
+				.fancybox-content {
+					margin: 0;
+				}
+			}
 		}
 	}
 }

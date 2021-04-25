@@ -1,0 +1,33 @@
+{% if posts.pagination.pages|length %}
+	<ul class="pagination">
+
+		{% if posts.pagination.prev %}
+			<li class="pagination__item -first">
+				<a href="{{ posts.pagination.prev.link }}" class="pagination__link _button">Prev</a>
+			</li>
+		{% endif %}
+
+		{% for page in posts.pagination.pages %}
+			<li class="pagination__item -child{{ loop.index }}">
+				{% if page.link %}
+					<a href="{{ page.link }}" class="pagination__link _button">{{ page.title }}</a>
+				{% else %}
+					<span class="pagination__current _button">{{ page.title }}</span>
+				{% endif %}
+			</li>
+		{% endfor %}
+
+		{% if posts.pagination.next %}
+			<li class="pagination__item{% if not term_page %} -last{% endif %}">
+				<a href="{{ posts.pagination.next.link }}" class="pagination__link _button">Next</a>
+			</li>
+		{% endif %}
+
+		{% if term_page %}
+			<li class="pagination__item -last">
+				<a href="{{ site.link }}/posts" class="pagination__link _button">All Posts</a>
+			</li>
+		{% endif %}
+
+	</ul>
+{% endif %}

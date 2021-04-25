@@ -3,6 +3,7 @@
  */
 
 ._gallery {
+	width: 100%;
 
 	.media {
 		position: relative;
@@ -11,6 +12,7 @@
 		@include box-shadow();
 
 		@include media('>=screen600') {
+			width: auto;
 			max-width: calc(50% - #{$gutter});
 		}
 
@@ -26,7 +28,7 @@
 			// .media__caption
 			transition: $speed;
 			@include small-font-size();
-			color: $color__gray;
+			color: $gray;
 
 			@include media(">=screen840") {
 				position: absolute;
@@ -40,13 +42,13 @@
 				padding: $base-spacing;
 				opacity: 0;
 				@include text-shadow();
-				background-color: fade-out($color__black--light, 0.4);
+				background-color: fade-out($black--light, 0.4);
 				z-index: 1;
 			}
 
 			&.-text {
 				@include media(">=screen840") {
-					color: $color__white;
+					color: $white;
 				}
 			}
 
@@ -57,7 +59,7 @@
 					justify-content: center;
 					align-items: center;
 					@include paragraph();
-					color: fade-out($color__white, 0.6);
+					color: fade-out($white, 0.6);
 				}
 			}
 
@@ -69,7 +71,7 @@
 				margin: 0;
 
 				path {
-					fill: $color__white;
+					fill: $white;
 				}
 			}
 		}
@@ -110,4 +112,10 @@
 			width: $gutter;
 		}
 	}
+}
+
+// reset galleries if animated in
+
+._clearGrid {
+	width: 100%;
 }
