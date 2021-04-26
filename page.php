@@ -21,8 +21,7 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::context();
-
+$context     = Timber::context();
 $timber_post = new Timber\Post();
 
 // $images = get_children( array(
