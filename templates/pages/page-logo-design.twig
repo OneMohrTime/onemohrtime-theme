@@ -44,12 +44,12 @@
 						class="_image"
 						srcset="{{ imageOptimized.src('medium') }} 1000w,
 								{{ imageOptimized.src('large') }} 1500w"
-						sizes="(max-width: {{ width }}px) 100vw, {{ width }}px"/>
-					{% if caption %}
-						<figcaption class="media__caption -text">{{ caption }}</figcaption>
-					{% else %}
-						<figcaption class="media__caption -zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
-					{% endif %}
+						sizes="(max-width: {{ width }}px) 100vw, (max-width: 1440px) 25vw, 100vw"/>
+
+					<figcaption class="media__caption -text">
+						{% include 'assets/img/icons/plus-zoom.svg' %}
+						<span>{{ image.title }}</span>
+					</figcaption>
 
 					<a href="{{ imageOptimized.src('full') }}" class="media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
 						<span class="screen-reader-text">Zoom</span>

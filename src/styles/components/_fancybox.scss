@@ -44,15 +44,20 @@
 
 // index counter
 .fancybox-infobar {
-	top: $gutter-xs;
-	left: $gutter-xs;
-	width: 96px;
-	height: 52px;
-	padding: 0 $gutter-sm;
-	font-size: ms(0);
-	line-height: 52px;
-	color: $black--light;
-	mix-blend-mode: normal;
+	display: none;
+
+	@include media(">=screen1170") {
+		top: $gutter-xs;
+		left: $gutter-xs;
+		display: block;
+		width: 96px;
+		height: 52px;
+		padding: 0 $gutter-sm;
+		font-size: ms(0);
+		line-height: 52px;
+		color: $black--light;
+		mix-blend-mode: normal;
+	}
 }
 
 .fancybox-navigation {

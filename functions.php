@@ -198,7 +198,7 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css', array(), null, 'screen' );
 
 		// Google Webfonts
-		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,700|Barlow:400,700', array('main'), false, null );
+		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,500,700|Barlow:400,700', array('main'), false, null );
 
 		// Upgrade jQuery
 		wp_deregister_script( 'jquery' );
