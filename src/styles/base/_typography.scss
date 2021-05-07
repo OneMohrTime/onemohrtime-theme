@@ -31,11 +31,6 @@
 		a {
 			line-height: inherit;
 			color: inherit;
-
-			// ._wysiwyg & {
-			// 	&:focus { outline: none; }
-			// 	&::before { display: none; }
-			// }
 		}
 	}
 }
@@ -74,9 +69,9 @@ p {
 	}
 }
 
-b, strong { font-weight: 700; }
-
-i, em { font-style: italic; }
+b, strong {
+	font-weight: 700;
+}
 
 sub, sup {
 	font-size: .75em;
@@ -174,6 +169,7 @@ ul, ol, dl {
 
 i, cite, em, var, address, dfn {
 	// cancel out italics
+	font-family: $font__header;
 	font-style: normal;
 }
 
@@ -208,7 +204,7 @@ abbr {
 
 mark {
 	background-color: $yellow--light;
-	color: $yellow--dark;
+	color: $black;
 }
 
 blockquote {
@@ -222,8 +218,11 @@ blockquote {
 
 	footer {
 		font-size: .75em;
-		color: $gray;
-		cite {font-weight: 700;}
+		color: $black--light;
+
+		cite {
+			font-weight: 700;
+		}
 
 		&::before {
 			content: "\2014 \00A0";
