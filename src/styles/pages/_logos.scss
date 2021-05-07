@@ -2,11 +2,32 @@
  * === LOGOS ===
  */
 
-.-logos {
+.-logo-design {
 
 	.page__gallery {
 		// .-logos .page__gallery
 		@include block-width();
 		@include content-width();
+		width: auto;
+
+		@include media(">screen1170") {
+			._sizer,
+			.media {
+				width: calc(25% - #{$gutter});
+			}
+		}
+
+		// zoom icon
+		.image.-svg {
+			display: block;
+			width: 1em;
+			height: 1em;
+			margin-right: 0.5em;
+
+			path {
+				max-width: 1em;
+				max-height: 1em;
+			}
+		}
 	}
 }
