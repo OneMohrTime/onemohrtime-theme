@@ -20,10 +20,11 @@ export default function dribbble() {
   // Set the Access Token
   const accessToken   = '49a19ad15272251972056008d1f46e1be28cca04264a5ddf535cb735a2bf2ac6';
   const numberOfShots = 6;
+  const todaysDate    = new Date().toISOString();
 
   // Call Dribbble v2 API
   $.ajax({
-    url: 'https://api.dribbble.com/v2/user/shots?access_token=' + accessToken,
+    url: 'https://api.dribbble.com/v2/user/shots?access_token=' + accessToken + '&published_at=' + todaysDate,
     dataType: 'json',
     type: 'GET',
     success: function( data ) {
@@ -41,11 +42,16 @@ export default function dribbble() {
           // $('#dribbbles').append('<li class="dribbble-list__item grid-col"><a href="' + shotUrl + '"><article class="dribbble"><header class="dribbble__detail"><h1 class="dribbble__title">' + shotTitle + '</h1></header><img class="dribbble__thumb" src="' + shotImg + '" width="320" height="240" alt="' + shotTitle + '" /></article></a></li>');
           $('#dribbbles').append(`
             <figure id="shot_${data[i].id}" class="shot">
-              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" data-caption="${trimmedDesc}" title="See ${title} on Dribbble" aria-describedby="caption-${i}"></a>
+              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" data-caption="${trimmedDesc}" title="See ${title} on Dribbble" aria-describedby="caption-${i}">Click to see ${title} on Dribbble</a>
               <img src="${teaserUrl}" alt="${title}" srcset="${normalUrl} 800w, ${hidpiUrl} 1600w" class="shot__image" />
               <figcaption class="shot--hover" id="caption-${i}">
                 <h3 class="shot__headline _headline -underline">${title}</h3>
-                <span class="shot__description">${trimmedDesc}</span>
+                <div class="shot__description">
+                  <span>${trimmedDesc}</span>
+                  <div class="shot__button">
+                    <a href="${htmlUrl}" target="_blank">See on Dribbble</a>
+                  </div>
+                </div>
               </figcaption>
             </figure>
           `);

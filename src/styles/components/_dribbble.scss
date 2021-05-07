@@ -74,10 +74,10 @@
 			display: block;
 			height: 0;
 			padding-bottom: 75%;
+			opacity: 0;
 			z-index: 20;
 
-			&:hover,
-			&:focus {
+			@include hocus {
 				// .shot__link:hover
 				// .shot__link:focus
 				& ~ .shot--hover {
@@ -137,6 +137,30 @@
 			transition-delay: $speed;
 			@include small-font-size();
 			line-height: $heading-line-height;
+		}
+
+		&__button {
+			// .shot__button
+			position: relative;
+			display: inline-block;
+			margin-top: 0.5em;
+			margin-bottom: 2px;
+			padding-bottom: 2px;
+			border-bottom: 3px solid $yellow;
+			z-index: 50;
+
+			// external arrow
+			&::after {
+				content: " →";
+				color: $yellow;
+			}
+
+			// make link clickable
+			a {
+				position: relative;
+				display: block;
+				z-index: 50;
+			}
 		}
 	}
 }
