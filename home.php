@@ -7,14 +7,22 @@
  * @since  SageTimber 0.1
  */
 
+global $paged;
+
+if (!isset($paged) || !$paged){
+	$paged = 1;
+}
+
 $context = Timber::context();
 
 $args = array(
-	'post_type' => ['post', 'design'],
-	'orderby'   => array(
+	'post_type'      => ['post', 'design'],
+	'posts_per_page' => 8,
+	'paged'          => $paged,
+	'orderby'        => array(
 		'date' => 'DESC'
 	),
-	'tax_query' => array(
+	'tax_query'      => array(
 		'relation' => 'AND',
 		array(
 			'taxonomy' => 'category',

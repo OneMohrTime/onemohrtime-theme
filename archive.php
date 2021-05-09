@@ -14,9 +14,31 @@
  * @since   Timber 0.2
  */
 
-$templates = array( 'pages/archive.twig', 'pages/index.twig' );
+global $paged;
+
+if (!isset($paged) || !$paged){
+	$paged = 1;
+}
 
 $context = Timber::context();
+
+$args = array(
+	'post_type'      => ['post', 'design'],
+	'posts_per_page' => 8,
+	'paged'          => $paged,
+	'orderby'        => array(
+		'date' => 'DESC'
+	),
+	'tax_query'      => array(
+		'relation' => 'AND',
+		array(
+			'taxonomy' => 'category',
+			'field'    => 'slug',
+			'terms'    => array('uncategorized', 'shit'),
+			'operator' => 'NOT IN',
+		),
+	),
+);
 
 $context['title'] = 'Archive';
 if ( is_day() ) {
@@ -34,8 +56,8 @@ if ( is_day() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
-
-$context['posts']     = new Timber\PostQuery();
+$context['posts']     = new Timber\PostQuery($args);
 $context['term_page'] = new Timber\Term();
 
+$templates = array( 'pages/archive.twig', 'pages/index.twig' );
 Timber::render( $templates, $context );
