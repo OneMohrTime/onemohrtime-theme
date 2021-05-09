@@ -284,7 +284,7 @@
 		margin: 0 $gutter $base-spacing;
 
 		@include media(">=screen840") {
-			max-width: 840px;
+			max-width: $copy-width;
 			margin-bottom: $gutter * 2;
 			margin-left: $gutter * 2;
 			margin-right: auto;

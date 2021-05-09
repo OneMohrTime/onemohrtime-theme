@@ -71,7 +71,7 @@
 	// custom html audio podcast uploads
 	audio {
 		@include media(">=screen1170") {
-			width: 840px;
+			width: $copy-width;
 		}
 	}
 }

@@ -17,6 +17,7 @@
 		max-width: 100%;
 		overflow: hidden;
 		transition: box-shadow $speed;
+		border-radius: 3px;
 		background-color: $black;
 		color: $white;
 		@include box-shadow();
@@ -109,6 +110,7 @@
 			height: 100%;
 			margin: 0 auto;
 			transition: opacity $speed, transform $speed;
+			border-radius: 3px;
 			object-fit: cover
 		}
 
@@ -142,24 +144,25 @@
 		&__button {
 			// .shot__button
 			position: relative;
-			display: inline-block;
-			margin-top: 0.5em;
-			margin-bottom: 2px;
-			padding-bottom: 2px;
-			border-bottom: 3px solid $yellow;
+			display: block;
+			margin-top: 1em;
+			text-align: right;
 			z-index: 50;
-
-			// external arrow
-			&::after {
-				content: " →";
-				color: $yellow;
-			}
 
 			// make link clickable
 			a {
 				position: relative;
-				display: block;
+				display: inline-block;
+				margin-bottom: 2px;
+				padding-bottom: 2px;
+				border-bottom: 3px solid $yellow;
 				z-index: 50;
+
+				// external arrow
+				&::after {
+					content: " →";
+					color: $yellow;
+				}
 			}
 		}
 	}

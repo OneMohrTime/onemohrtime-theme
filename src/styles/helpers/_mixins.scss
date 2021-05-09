@@ -34,7 +34,7 @@
 		& > p,
 		& > ul,
 		& > ol {
-			max-width: 840px;
+			max-width: $copy-width;
 		}
 	}
 }
@@ -489,15 +489,15 @@
  * — Buttons and links —
  */
 
-@mixin inline() {
+@mixin inline-block() {
 	position: relative;
 	color: inherit;
 	line-height: $base-line-height;
 	z-index: 1;
 
 	@include media(">=screen1170") {
-		&:hover,
-		&:focus {
+		// hover, focus
+		@include hocus{
 			color: inherit;
 
 			&::before {
@@ -507,7 +507,7 @@
 				width: calc(100% + 8px);
 				height: 80%;
 				transform: translateY(2px) scaleY(1.2);
-				animation: inline-expand;
+				animation: none;
 			}
 
 			.-svg {

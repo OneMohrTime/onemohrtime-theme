@@ -105,6 +105,26 @@
 	background-color: $yellow;
 }
 
+// default captions
+.fancybox-caption {
+	max-width: calc(100% - #{$gutter});
+	padding: $gutter-sm;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: $gutter-sm;
+	text-align: left;
+	line-height: $base-line-height;
+	border-radius: 3px;
+	background: $white;
+	color: $black--light;
+	@include box-shadow();
+
+	@include media(">=screen1170") {
+		max-width: $copy-width;
+		max-width: 80ch;
+	}
+}
+
 /**
  * Logo design fancybox
  */

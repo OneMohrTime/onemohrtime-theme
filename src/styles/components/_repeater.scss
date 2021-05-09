@@ -4,7 +4,7 @@
 
 .repeater {
 	position: relative;
-	max-width: 840px;
+	max-width: $copy-width;
 	margin-bottom: $gutter;
 	@include base-font-size();
 

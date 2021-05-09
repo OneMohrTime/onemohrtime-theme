@@ -25,7 +25,7 @@ a {
 		._wysiwyg &,
 		.-wysiwyg & {
 			// stylize as inline link
-			@include inline();
+			@include inline-block();
 		}
 	}
 }

@@ -6,12 +6,12 @@
 
 	&__about {
 		// .homepage__about
+		@include base-font-size();
 		background-color: $black;
-		// background-image: linear-gradient(to top left, $black 85%, $black--light);
 		background-image: url("../img/concrete-dark.png");
 		background-position: center center;
 		color: $white;
-		@include base-font-size();
+
 		@include media(">=screen960") {
 			display: flex;
 			align-items: flex-start;
@@ -63,12 +63,7 @@
 			a {
 				&::before {
 					background-color: $black--lightest !important;
-				}
-
-				&:hover {
-					&::before {
-						background-color: $gray--dark !important;
-					}
+					background-color: $gray--dark !important;
 				}
 			}
 		}
@@ -133,7 +128,8 @@
 	@include media(">=screen1170") {
 		position: relative;
 		margin-bottom: $gutter-lg;
-		padding: $gutter / 3 $gutter $gutter / 3 0;
+		padding: $gutter / 3 $gutter;
+		transform: translate(-#{$gutter}) rotate(-3deg);
 		text-shadow: none;
 		line-height: 1em;
 		border-top-right-radius: 3px;
@@ -143,18 +139,5 @@
 		background-position: center center;
 		color: fade-out($white, 0.05);
 		@include box-shadow();
-
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			right: 100%;
-			height: 100%;
-			width: 100vw;
-			max-width: $gutter * 4; // keep within frame of 1600px screens
-			background-color: $black;
-			background-image: url("../img/concrete-dark.png");
-			background-position: center center;
-		}
 	}
 }

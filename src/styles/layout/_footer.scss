@@ -185,7 +185,7 @@
 	}
 
 	a:not(.btn) {
-		@include inline();
+		@include inline-block();
 		line-height: 1em;
 
 		&::before {

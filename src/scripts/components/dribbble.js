@@ -39,10 +39,10 @@ export default function dribbble() {
           let description = data[i].description.replace( /(<([^>]+)>)/gi, '' ) || data[i].title;
           // manually truncate description
           let trimmedDesc = jQuery.trim( description ).substring( 0, 80 ).trim( this ) + '...';
-          // $('#dribbbles').append('<li class="dribbble-list__item grid-col"><a href="' + shotUrl + '"><article class="dribbble"><header class="dribbble__detail"><h1 class="dribbble__title">' + shotTitle + '</h1></header><img class="dribbble__thumb" src="' + shotImg + '" width="320" height="240" alt="' + shotTitle + '" /></article></a></li>');
+          // build out html shot
           $('#dribbbles').append(`
             <figure id="shot_${data[i].id}" class="shot">
-              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" data-caption="${trimmedDesc}" title="See ${title} on Dribbble" aria-describedby="caption-${i}">Click to see ${title} on Dribbble</a>
+              <a class="shot__link" href="${hidpiUrl}" data-fancybox="dribbble" data-caption="${description}" title="See ${title} on Dribbble" aria-describedby="caption-${i}">Click to see ${title} on Dribbble</a>
               <img src="${teaserUrl}" alt="${title}" srcset="${normalUrl} 800w, ${hidpiUrl} 1600w" class="shot__image" />
               <figcaption class="shot--hover" id="caption-${i}">
                 <h3 class="shot__headline _headline -underline">${title}</h3>
@@ -57,7 +57,7 @@ export default function dribbble() {
           `);
         }
       } else {
-        $( '#dribbbles' ).append( '<code>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</code>' );
+        $( '#dribbbles' ).append( '<div class="-wysiwyg"><p>Error loading shots. Try <a href="javascript:history.go(0);">reloading</a> the page?</p></div>' );
       }
     }
   });
