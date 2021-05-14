@@ -23,21 +23,21 @@ if (!isset($paged) || !$paged){
 $context = Timber::context();
 
 $args = array(
-	'post_type'      => ['post', 'design'],
-	'posts_per_page' => 8,
+// 	'post_type'      => ['post', 'design'],
+	'posts_per_page' => -1,
 	'paged'          => $paged,
 	'orderby'        => array(
 		'date' => 'DESC'
 	),
-	'tax_query'      => array(
-		'relation' => 'AND',
-		array(
-			'taxonomy' => 'category',
-			'field'    => 'slug',
-			'terms'    => array('uncategorized', 'shit'),
-			'operator' => 'NOT IN',
-		),
-	),
+// 	'tax_query'      => array(
+// 		'relation' => 'AND',
+// 		array(
+// 			'taxonomy' => 'category',
+// 			'field'    => 'slug',
+// 			'terms'    => array('uncategorized', 'shit'),
+// 			'operator' => 'NOT IN',
+// 		),
+// 	),
 );
 
 $context['title'] = 'Archive';

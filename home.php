@@ -17,7 +17,7 @@ $context = Timber::context();
 
 $args = array(
 	'post_type'      => ['post', 'design'],
-	'posts_per_page' => 8,
+	'posts_per_page' => -1,
 	'paged'          => $paged,
 	'orderby'        => array(
 		'date' => 'DESC'
