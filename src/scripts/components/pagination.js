@@ -1,5 +1,6 @@
 /**
- * Fade in content blocks
+ * Pagination
+ * https://codepen.io/laura-chesches/pen/xgEOpY
  */
 
 var initial_items = 5;
