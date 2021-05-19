@@ -19,14 +19,15 @@
 
 		// zoom icon
 		.image.-svg {
+			position: relative;
 			display: block;
 			width: 1em;
 			height: 1em;
 			margin-right: 0.5em;
 
 			path {
-				max-width: 1em;
-				max-height: 1em;
+				width: 1em;
+				height: 1em;
 			}
 		}
 	}
