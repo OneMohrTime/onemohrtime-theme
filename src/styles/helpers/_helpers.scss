@@ -2,6 +2,7 @@
  * === HELPERS ===
  */
 
+// parallax images animating in
 .parallax {
 	// parent element
 	position: relative;
@@ -13,9 +14,9 @@
 		}
 	}
 
+	// child element
 	&__image {
 		// .parallax__image
-		// child element
 		position: relative;
 		width: 100%;
 		height: 100%;
@@ -38,6 +39,7 @@
 	}
 }
 
+// fade in sections
 .-getFaded {
 	position: relative;
 
@@ -55,29 +57,17 @@
 	}
 }
 
-.-svg {
-	$base: $black;
-	font-size: 1em;
-	line-height: 1em;
-	width: 1em;
-	height: 1em;
-
-	path,
-	polygon,
-	rect {
-		fill: $base;
-	}
-
-	circle {
-		stroke: $base;
-		stroke-width: 1;
-	}
-}
-
+// animate titles in with shifting blocks
 .title--animated {
 	@include animateTitle();
 }
 
+// text meant only for screen readers
+.a11yText {
+	@include visually-hidden(true);
+}
+
+// devices that require no motion or animations
 @media (prefers-reduced-motion: reduce) {
 	* {
 		animation: none !important;

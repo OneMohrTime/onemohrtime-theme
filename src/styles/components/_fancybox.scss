@@ -107,6 +107,7 @@
 
 // default captions
 .fancybox-caption {
+	position: relative;
 	max-width: calc(100% - #{$gutter});
 	padding: $gutter-sm;
 	margin-left: auto;

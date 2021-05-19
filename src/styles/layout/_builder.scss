@@ -7,10 +7,10 @@
 .entry__builder,
 .project__builder {
 	position: relative;
-	margin-bottom: $base-line-height;
+	margin-bottom: $base-line-height * 3;
 
 	@include media(">=screen1170") {
-		margin-bottom: $base-line-height * 2;
+		// margin-bottom: $base-line-height * 5;
 	}
 }
 
@@ -42,7 +42,6 @@
 	 */
 
 	// moved to `/components/_text-image`
-	// &.-textAndImage {}
 
 	/**
 	 * Image

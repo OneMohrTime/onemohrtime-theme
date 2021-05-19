@@ -52,7 +52,7 @@
 					</figcaption>
 
 					<a href="{{ imageOptimized.src('full') }}" class="media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
-						<span class="screen-reader-text">Zoom</span>
+						<span class="a11yText">Zoom</span>
 					</a>
 
 				</figure>
