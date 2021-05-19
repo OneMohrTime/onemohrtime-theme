@@ -8,10 +8,6 @@
 .project__builder {
 	position: relative;
 	margin-bottom: $base-line-height * 3;
-
-	@include media(">=screen1170") {
-		// margin-bottom: $base-line-height * 5;
-	}
 }
 
 .builder__section {
@@ -35,6 +31,19 @@
 	// cap text line lengths
 	.-wysiwyg {
 		@include content-width();
+	}
+
+	/**
+	 * Text
+	 */
+
+	&.-text {
+		position: relative;
+
+		// increase text size
+		.-isLarge {
+			font-size: ms(1) !important;
+		}
 	}
 
 	/**
