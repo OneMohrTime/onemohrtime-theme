@@ -79,6 +79,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'smartwp_disable_emojis' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		add_action( 'widgets_init', array( $this, 'widgets' ) );
+		// add_action( 'pre_get_posts', 'my_home_query' );
 		add_filter( 'wpseo_metabox_prio', array( $this, 'yoasttobottom' ) );
 		parent::__construct();
 	}
@@ -237,6 +238,12 @@ class StarterSite extends Timber\Site {
 			'after_title'   => '</h3>'
 		]);
 	}
+
+	// public function my_home_query( $query ) {
+	// 	if ( $query->is_main_query() && !is_admin() ) {
+	// 		$query->set( 'post_type', array( 'design', 'post' ));
+	// 	}
+	// }
 
 	/**
 	 * Move Yoast to bottom

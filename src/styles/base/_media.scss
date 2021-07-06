@@ -15,6 +15,29 @@ object {
 }
 
 /**
+ * — SVG icon default —
+ */
+
+.-svg {
+	$base: $black;
+	font-size: 1em;
+	line-height: 1em;
+	width: 1em;
+	height: 1em;
+
+	path,
+	polygon,
+	rect {
+		fill: $base;
+	}
+
+	circle {
+		stroke: $base;
+		stroke-width: 1;
+	}
+}
+
+/**
  * — Utility Classes —
  */
 

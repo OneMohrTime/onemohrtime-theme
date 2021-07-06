@@ -35,12 +35,24 @@
 	}
 }
 
-h1 { font-size: ms(3); }
-h2 { font-size: ms(2); }
-h3 { font-size: ms(1); }
-h4 { font-size: ms(0); }
-h5 { font-size: ms(-1); }
-h6 { font-size: ms(-2); }
+h1 {
+	font-size: ms(3);
+}
+h2 {
+	font-size: ms(2);
+}
+h3 {
+	font-size: ms(1);
+}
+h4 {
+	font-size: ms(0);
+}
+h5 {
+	font-size: ms(-1);
+}
+h6 {
+	font-size: ms(-2);
+}
 
 ._wysiwyg,
 .-wysiwyg {
@@ -48,10 +60,11 @@ h6 { font-size: ms(-2); }
 
 		// headers in a wysiwyg section only...hopefully
 		&:not([class]) {
-			margin-bottom: $heading-line-height;
+			margin-bottom: ($base-line-height / 3);
 		}
+		// remove top margin for first heading in sections
 		&:not([class]):not(:first-child) {
-			margin-top: $base-line-height;
+			margin-top: ($base-line-height / 2);
 		}
 	}
 }
@@ -96,11 +109,17 @@ ul, ol, dl {
 	margin: 0;
 	padding: 0;
 
+
 	._wysiwyg &,
 	.-wysiwyg & {
 		@include type();
 		margin: 0 0 $base-line-height;
 		padding-left: $base-line-height;
+
+		// yellow dots
+		li::marker {
+			color: $yellow;
+		}
 
 		& ul,
 		& ol,
@@ -111,9 +130,14 @@ ul, ol, dl {
 }
 
 ._wysiwyg ul,
-.-wysiwyg ul { list-style: disc; }
+.-wysiwyg ul {
+	list-style: square;
+}
+
 ._wysiwyg ol,
-.-wysiwyg ol { list-style: decimal; }
+.-wysiwyg ol {
+	list-style: decimal;
+}
 
 /**
  * — Code —

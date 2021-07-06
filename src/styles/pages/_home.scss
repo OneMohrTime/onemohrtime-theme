@@ -132,8 +132,7 @@
 		transform: translate(-#{$gutter}) rotate(-3deg);
 		text-shadow: none;
 		line-height: 1em;
-		border-top-right-radius: 3px;
-		border-bottom-right-radius: 3px;
+		border-radius: 3px;
 		background-color: $black;
 		background-image: url("../img/concrete-dark.png");
 		background-position: center center;

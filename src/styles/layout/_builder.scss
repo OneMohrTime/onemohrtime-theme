@@ -7,11 +7,7 @@
 .entry__builder,
 .project__builder {
 	position: relative;
-	margin-bottom: $base-line-height;
-
-	@include media(">=screen1170") {
-		margin-bottom: $base-line-height * 2;
-	}
+	margin-bottom: $base-line-height * 3;
 }
 
 .builder__section {
@@ -38,11 +34,23 @@
 	}
 
 	/**
+	 * Text
+	 */
+
+	&.-text {
+		position: relative;
+
+		// increase text size
+		.-isLarge {
+			font-size: ms(1) !important;
+		}
+	}
+
+	/**
 	 * Text & Image
 	 */
 
 	// moved to `/components/_text-image`
-	// &.-textAndImage {}
 
 	/**
 	 * Image

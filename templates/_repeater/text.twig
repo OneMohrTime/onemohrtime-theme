@@ -8,7 +8,7 @@
 {% set subheadline = section.subheadline|default(null) %}
 {% set text        = section.text ?? null %}
 {% set button      = section.button ?? null %}
-{% set isLarge     = section.is_large.value ?? false %}
+{% set isLarge     = section.is_large[0] ?? null %}
 
 <div class="builder__section -text -getFaded">
 	{% if headline %}
@@ -18,7 +18,7 @@
 		<h3 class="_subheadline">{{ subheadline }}</h3>
 	{% endif %}
 	{% if text %}
-		<div class="_wysiwyg _text -wysiwyg{% if isLarge %} -isLarge{% endif %}">
+		<div class="_wysiwyg _text -wysiwyg{% if isLarge == true %} -isLarge{% endif %}">
 			{{ text }}
 		</div>
 	{% endif %}
