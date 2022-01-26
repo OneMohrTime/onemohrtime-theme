@@ -94,7 +94,9 @@ class StarterSite extends Timber\Site {
 	/**
 	 * This is where you can register custom taxonomies.
 	 */
-	public function register_taxonomies() {}
+	public function register_taxonomies() {
+		include( 'includes/custom-taxonomies.php' );
+	}
 
 	/** This is where you add some context
 	 *

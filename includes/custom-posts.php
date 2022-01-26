@@ -2,6 +2,7 @@
 /**
  * 1. Copy code from CPT UI / Tools / Get Code
  * 2. Paste below, but delete the `cptui_register_my_cpts()` wrapper
+ * 3. Delete `add_action( 'init', 'cptui_register_my_cpts' )` at the bottom
  */
 
 /**
@@ -53,6 +54,7 @@ $args = [
 	"menu_icon" => "dashicons-layout",
 	"supports" => [ "title", "thumbnail", "excerpt", "revisions" ],
 	"taxonomies" => [ "role" ],
+	"show_in_graphql" => false,
 ];
 
 register_post_type( "design", $args );
