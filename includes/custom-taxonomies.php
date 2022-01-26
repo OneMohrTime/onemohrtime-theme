@@ -2,10 +2,7 @@
 /**
  * 1. Copy code from CPT UI / Tools / Get Code
  * 2. Paste below, but delete the `cptui_register_my_cpts()` wrapper
- */
-
-/**
- * Taxonomy: Roles.
+ * 3. Delete `add_action( 'init', 'cptui_register_my_taxes' )` at the bottom
  */
 
 $labels = [
@@ -35,10 +32,13 @@ $args = [
 	"rewrite" => [ 'slug' => 'role', 'with_front' => true, ],
 	"show_admin_column" => false,
 	"show_in_rest" => false,
+	"show_tagcloud" => true,
 	"rest_base" => "role",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
 	"show_in_quick_edit" => true,
-	];
+	"show_in_graphql" => false,
+];
+
 register_taxonomy( "role", [ "design" ], $args );
 
 /**
@@ -74,9 +74,11 @@ $args = [
 	"rewrite" => [ 'slug' => 'coding', 'with_front' => true, ],
 	"show_admin_column" => false,
 	"show_in_rest" => false,
+	"show_tagcloud" => true,
 	"rest_base" => "coding",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
 	"show_in_quick_edit" => true,
+	"show_in_graphql" => false,
 ];
 
 register_taxonomy( "coding", [ "design" ], $args );
@@ -103,9 +105,11 @@ $args = [
 	"rewrite" => [ 'slug' => 'job_type', 'with_front' => true, ],
 	"show_admin_column" => false,
 	"show_in_rest" => false,
+	"show_tagcloud" => true,
 	"rest_base" => "job_type",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
 	"show_in_quick_edit" => true,
+	"show_in_graphql" => false,
 ];
 
 register_taxonomy( "job_type", [ "design" ], $args );
