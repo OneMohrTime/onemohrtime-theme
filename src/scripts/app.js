@@ -5,9 +5,8 @@
  * amongst elements
  * ===================================================================== */
 
-const doc = document.documentElement;
-doc.setAttribute( 'data-useragent', navigator.userAgent );
-doc.setAttribute( 'data-platform', navigator.platform );
+document.documentElement.setAttribute( 'data-useragent', navigator.userAgent );
+document.documentElement.setAttribute( 'data-platform', navigator.platform );
 
 ///////////////
 // POLYFILLS //
