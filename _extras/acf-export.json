@@ -367,7 +367,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_604d05e3d2f5d",
@@ -419,7 +420,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5b60ec726011e",
@@ -469,7 +471,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_583243bb8c402",
@@ -600,7 +603,8 @@
             "send-trackbacks"
         ],
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_583243bbabd96",
@@ -650,7 +654,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_583243bbb167e",
@@ -1243,7 +1248,8 @@
             "the_content"
         ],
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5a5af8043b4ad",
@@ -1327,7 +1333,8 @@
             "the_content"
         ],
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5f7d16b9e1feb",
@@ -1980,7 +1987,7 @@
                                 "label": "Card Layout",
                                 "name": "card_layout",
                                 "type": "radio",
-                                "instructions": "Vertical: Image on top\r\nHorizontal: Image on left",
+                                "instructions": "<b>Default:<\/b> Image on top<br\/>\r\n<b>Flag:<\/b> Image on left",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -1989,8 +1996,8 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "vertical": "Vertical",
-                                    "horizontal": "Horizontal"
+                                    "vertical": "Default",
+                                    "horizontal": "Flag"
                                 },
                                 "allow_null": 0,
                                 "other_choice": 0,
@@ -2156,7 +2163,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": "Section builder used on multiple \"page builder\" layouts"
+        "description": "Section builder used on multiple \"page builder\" layouts",
+        "show_in_rest": false
     },
     {
         "key": "group_5b3799d77260c",
@@ -2198,6 +2206,7 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     }
 ]
