@@ -1,52 +1,159 @@
-html {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap");
+
+body {
+	font-family: "Barlow", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 	font-size: 1em;
 	line-height: 1.7em;
 }
 
 /* — Headers — */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3,
+h4, h5, h6 {
 	margin: 0 0 0.75em;
 	line-height: 1.2em;
 }
 
-h1 { position: relative; display: block; color: inherit; font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 3.0517578125em; font-weight: 700; text-transform: uppercase; line-height: 1.2em; margin: 0 0 .5em; }
+h1 {
+	position: relative;
+	display: block;
+	color: inherit;
+	font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 3.0517578125em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	margin: 0 0 .5em;
+}
 
-h1 a { color: inherit; line-height: inherit; }
+h1 a {
+	color: inherit;
+	line-height: inherit;
+}
 
-h2 { position: relative; display: block; color: inherit; font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 2.44140625em; font-weight: 700; text-transform: uppercase; line-height: 1.2em; margin: 0 0 .5em; }
+h2 {
+	position: relative;
+	display: block;
+	color: inherit;
+	font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 2.44140625em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	margin: 0 0 .5em;
+}
 
-h2 a { color: inherit; line-height: inherit; }
+h2 a {
+	color: inherit;
+	line-height: inherit;
+}
 
-h3 { position: relative; display: block; color: inherit; font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 1.953125em; font-weight: 700; text-transform: uppercase; line-height: 1.2em; margin: 0 0 .5em; }
+h3 {
+	position: relative;
+	display: block;
+	color: inherit;
+	font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 1.953125em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	margin: 0 0 .5em;
+}
 
-h3 a { color: inherit; line-height: inherit; }
+h3 a {
+	color: inherit;
+	line-height: inherit;
+}
 
-h4 { position: relative; display: block; color: inherit; font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 1.5625em; font-weight: 700; text-transform: uppercase; line-height: 1.2em; margin: 0 0 .5em; }
+h4 {
+	position: relative;
+	display: block;
+	color: inherit;
+	font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 1.5625em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	margin: 0 0 .5em;
+}
 
-h4 a { color: inherit; line-height: inherit; }
+h4 a {
+	color: inherit;
+	line-height: inherit;
+}
 
-h5 { position: relative; display: block; color: inherit; font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 1.25em; font-weight: 700; text-transform: uppercase; line-height: 1.2em; margin: 0 0 .5em; }
+h5 {
+	position: relative;
+	display: block;
+	color: inherit;
+	font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 1.25em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	margin: 0 0 .5em;
+}
 
-h5 a { color: inherit; line-height: inherit; }
+h5 a {
+	color: inherit;
+	line-height: inherit;
+}
 
-h6 { position: relative; display: block; color: inherit; font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 1em; font-weight: 700; text-transform: uppercase; line-height: 1.2em; margin: 0 0 .5em; }
+h6 {
+	position: relative;
+	display: block;
+	color: inherit;
+	font-family: "Barlow Semi Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 1em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	margin: 0 0 .5em;
+}
 
-h6 a { color: inherit; line-height: inherit; }
+h6 a {
+	color: inherit;
+	line-height: inherit;
+}
 
-h1 { font-size: 4.2360680659em; }
+h1 {
+	font-size: 4.2360680659em;
+}
 
-h2 { font-size: 2.6180340252em; }
+h2 {
+	font-size: 2.6180340252em;
+}
 
-h3 { font-size: 1.618034em; }
+h3 {
+	font-size: 1.618034em;
+}
 
-h4 { font-size: 1em; }
+h4 {
+	font-size: 1em;
+}
 
-h5 { font-size: 0.6180339845em; }
+h5 {
+	font-size: 0.6180339845em;
+}
 
-h6 { font-size: 0.3819660059em; }
+h6 {
+	font-size: 0.3819660059em;
+}
 
 /* — Body Copy — */
-p { color: inherit; font-family: inherit; font-weight: normal; line-height: 1.7em; widows: 3; orphans: 3; }
+p {
+	color: inherit;
+	font-family: inherit;
+	font-weight: normal;
+	line-height: 1.7em;
+	widows: 3;
+	orphans: 3;
+}
 
-p:last-child, p:only-child { margin-bottom: 0; }
+p:last-child,
+p:only-child {
+	margin-bottom: 0;
+}
+
+b, strong {
+	font-weight: 600;
+}
