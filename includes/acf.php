@@ -375,6 +375,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
@@ -428,6 +429,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
@@ -479,6 +481,84 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_621bbc0e3a954',
+	'title' => 'Headings',
+	'fields' => array(
+		array(
+			'key' => 'field_621bbc1394e7e',
+			'label' => 'Headline',
+			'name' => 'headline',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => 'Page title override',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_621bbc2f94e7f',
+			'label' => 'Subheadline',
+			'name' => 'subheadline',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'design',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => 'Page headlines',
+	'show_in_rest' => 0,
 ));
 
 acf_add_local_field_group(array(
@@ -611,6 +691,7 @@ acf_add_local_field_group(array(
 	),
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
@@ -663,6 +744,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
@@ -1259,16 +1341,17 @@ acf_add_local_field_group(array(
 	),
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
-	'key' => 'group_5a5af8043b4ad',
-	'title' => 'Resume',
+	'key' => 'group_62258c38cca1a',
+	'title' => 'Related Posts',
 	'fields' => array(
 		array(
-			'key' => 'field_5a5af9921f024',
-			'label' => 'Resume Skills',
-			'name' => 'resume',
+			'key' => 'field_62258c4459f18',
+			'label' => 'Related Posts',
+			'name' => 'related_posts',
 			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
@@ -1278,49 +1361,34 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'collapsed' => '',
+			'collapsed' => 'field_62258c6b59f19',
 			'min' => 0,
-			'max' => 0,
-			'layout' => 'table',
-			'button_label' => '',
+			'max' => 3,
+			'layout' => 'block',
+			'button_label' => 'Add Post',
 			'sub_fields' => array(
 				array(
-					'key' => 'field_5a5af9b41f025',
-					'label' => 'Label',
-					'name' => 'resume_label',
-					'type' => 'wysiwyg',
+					'key' => 'field_62258c6b59f19',
+					'label' => 'Related Post',
+					'name' => 'related_post',
+					'type' => 'page_link',
 					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
-						'width' => '33',
+						'width' => '',
 						'class' => '',
 						'id' => '',
 					),
-					'default_value' => '',
-					'tabs' => 'all',
-					'toolbar' => 'full',
-					'media_upload' => 0,
-					'delay' => 0,
-				),
-				array(
-					'key' => 'field_5a5af9ce1f026',
-					'label' => 'Skill',
-					'name' => 'resume_skill',
-					'type' => 'wysiwyg',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '67',
-						'class' => '',
-						'id' => '',
+					'post_type' => array(
+						0 => 'post',
+						1 => 'page',
+						2 => 'design',
 					),
-					'default_value' => '',
-					'tabs' => 'all',
-					'toolbar' => 'full',
-					'media_upload' => 0,
-					'delay' => 0,
+					'taxonomy' => '',
+					'allow_null' => 0,
+					'allow_archives' => 0,
+					'multiple' => 0,
 				),
 			),
 		),
@@ -1328,22 +1396,21 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'page',
+				'param' => 'post_type',
 				'operator' => '==',
-				'value' => '1014',
+				'value' => 'post',
 			),
 		),
 	),
 	'menu_order' => 0,
 	'position' => 'normal',
-	'style' => 'seamless',
+	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
-	'hide_on_screen' => array(
-		0 => 'the_content',
-	),
+	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => 0,
 ));
 
 acf_add_local_field_group(array(
@@ -2001,8 +2068,8 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 							'label' => 'Card Layout',
 							'name' => 'card_layout',
 							'type' => 'radio',
-							'instructions' => 'Vertical: Image on top
-Horizontal: Image on left',
+							'instructions' => '<b>Default:</b> Image on top<br/>
+<b>Flag:</b> Image on left',
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array(
@@ -2011,8 +2078,8 @@ Horizontal: Image on left',
 								'id' => '',
 							),
 							'choices' => array(
-								'vertical' => 'Vertical',
-								'horizontal' => 'Horizontal',
+								'vertical' => 'Default',
+								'horizontal' => 'Flag',
 							),
 							'allow_null' => 0,
 							'other_choice' => 0,
@@ -2179,12 +2246,41 @@ Horizontal: Image on left',
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => 'Section builder used on multiple "page builder" layouts',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
 	'key' => 'group_5b3799d77260c',
 	'title' => 'Site Globals',
 	'fields' => array(
+		array(
+			'key' => 'field_623bfc58c3ff9',
+			'label' => 'Availability',
+			'name' => 'availability',
+			'type' => 'select',
+			'instructions' => '<b>Open:</b> I’m actively looking for new projects to design<br/>
+<b>Busy:</b> I am currently busy, but accepting future projects<br/>
+<b>None:</b> I’m completely at capacity for the foreseeable future',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'open' => 'Open',
+				'busy' => 'Busy',
+				'none' => 'None',
+			),
+			'default_value' => 'open',
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 1,
+			'ajax' => 0,
+			'return_format' => 'value',
+			'placeholder' => '',
+		),
 		array(
 			'key' => 'field_5b379a4c81e95',
 			'label' => 'About This Site',
@@ -2204,6 +2300,97 @@ acf_add_local_field_group(array(
 			'media_upload' => 0,
 			'delay' => 0,
 		),
+		array(
+			'key' => 'field_621aff059358b',
+			'label' => 'Contact',
+			'name' => 'site_contact',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'block',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_621aff649358c',
+					'label' => 'Headline',
+					'name' => 'headline',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_621aff7d9358d',
+					'label' => 'Body',
+					'name' => 'body',
+					'type' => 'wysiwyg',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'tabs' => 'all',
+					'toolbar' => 'basic',
+					'media_upload' => 0,
+					'delay' => 0,
+				),
+				array(
+					'key' => 'field_621affb89358e',
+					'label' => 'Links',
+					'name' => 'links',
+					'type' => 'repeater',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'collapsed' => '',
+					'min' => 0,
+					'max' => 7,
+					'layout' => 'table',
+					'button_label' => '',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_621affe69358f',
+							'label' => 'Link URL',
+							'name' => 'link_url',
+							'type' => 'link',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'array',
+						),
+					),
+				),
+			),
+		),
 	),
 	'location' => array(
 		array(
@@ -2222,4 +2409,68 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => 0,
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_623bf4c506686',
+	'title' => 'Additional Photos',
+	'fields' => array(
+		array(
+			'key' => 'field_623bf4d346bab',
+			'label' => 'Parallax Image',
+			'name' => 'parallax_image',
+			'type' => 'image',
+			'instructions' => '<i>Optional</i>. Taller photos produce a higher parallax effect.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => 'gif, jpg, jpeg, png, heic, webp, svg, avif',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'design',
+			),
+		),
+	),
+	'menu_order' => 50,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
 ));
