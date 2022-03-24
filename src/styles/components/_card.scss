@@ -124,7 +124,6 @@ $lgImage: 200px;
 		._text,
 		._button {
 			@include base-font-size();
-			letter-spacing: 0.2px;
 
 			@include media(">=screen1170") {
 				font-size: 16px;
