@@ -5,6 +5,7 @@
 		"singular_label": "Role",
 		"description": "My role in the project or job",
 		"public": "true",
+		"publicly_queryable": "true",
 		"hierarchical": "false",
 		"show_ui": "true",
 		"show_in_menu": "true",
@@ -17,8 +18,11 @@
 		"rewrite_hierarchical": "0",
 		"show_admin_column": "false",
 		"show_in_rest": "false",
+		"show_tagcloud": "false",
+		"sort": "false",
 		"show_in_quick_edit": "true",
 		"rest_base": "",
+		"rest_controller_class": "",
 		"labels": {
 			"menu_name": "Roles",
 			"all_items": "All Roles",
@@ -37,8 +41,15 @@
 			"popular_items": "",
 			"separate_items_with_commas": "",
 			"choose_from_most_used": "",
-			"items_list_navigation": ""
+			"items_list_navigation": "",
+			"back_to_items": "",
+			"name_field_description": "",
+			"parent_field_description": "",
+			"slug_field_description": "",
+			"desc_field_description": ""
 		},
+		"meta_box_cb": "",
+		"default_term": "",
 		"object_types": ["design"]
 	},
 	"coding": {
@@ -47,6 +58,7 @@
 		"singular_label": "Coding Language",
 		"description": "Coding languages used on project",
 		"public": "true",
+		"publicly_queryable": "true",
 		"hierarchical": "false",
 		"show_ui": "true",
 		"show_in_menu": "true",
@@ -59,8 +71,11 @@
 		"rewrite_hierarchical": "0",
 		"show_admin_column": "false",
 		"show_in_rest": "false",
+		"show_tagcloud": "false",
+		"sort": "false",
 		"show_in_quick_edit": "true",
 		"rest_base": "",
+		"rest_controller_class": "",
 		"labels": {
 			"menu_name": "Coding Languages",
 			"all_items": "All Coding Languages",
@@ -79,8 +94,15 @@
 			"add_or_remove_items": "",
 			"choose_from_most_used": "",
 			"items_list_navigation": "",
-			"items_list": ""
+			"items_list": "",
+			"back_to_items": "",
+			"name_field_description": "",
+			"parent_field_description": "",
+			"slug_field_description": "",
+			"desc_field_description": ""
 		},
+		"meta_box_cb": "",
+		"default_term": "",
 		"object_types": ["design"]
 	},
 	"job_type": {
@@ -89,6 +111,7 @@
 		"singular_label": "Job Type",
 		"description": "",
 		"public": "true",
+		"publicly_queryable": "true",
 		"hierarchical": "false",
 		"show_ui": "true",
 		"show_in_menu": "true",
@@ -101,8 +124,11 @@
 		"rewrite_hierarchical": "0",
 		"show_admin_column": "false",
 		"show_in_rest": "false",
+		"show_tagcloud": "false",
+		"sort": "false",
 		"show_in_quick_edit": "true",
 		"rest_base": "",
+		"rest_controller_class": "",
 		"labels": {
 			"menu_name": "",
 			"all_items": "",
@@ -121,8 +147,15 @@
 			"not_found": "",
 			"no_terms": "",
 			"items_list_navigation": "",
-			"items_list": ""
+			"items_list": "",
+			"back_to_items": "",
+			"name_field_description": "",
+			"parent_field_description": "",
+			"slug_field_description": "",
+			"desc_field_description": ""
 		},
+		"meta_box_cb": "",
+		"default_term": "",
 		"object_types": ["design"]
 	}
 }

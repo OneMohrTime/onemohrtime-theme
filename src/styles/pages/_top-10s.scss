@@ -1,0 +1,46 @@
+/**
+ * === ABOUT ===
+ */
+
+.site.-about {
+	display: block;
+
+	.repeater {
+		padding-top: $gutter;
+
+		& + .repeater {
+			border-top: 4px $white--dark solid;
+		}
+	}
+
+	.repeater__title {
+		padding-right: $gutter-lg;
+		text-transform: none;
+	}
+}
+
+.-personalityTypes {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	@include small-font-size();
+
+	// space top on mobile
+	& > div {
+		margin-top: $gutter / 2;
+		&:not(:first-child) {
+			margin-top: 0;
+		}
+	}
+
+	@include media('>=screen600') {
+		position: absolute;
+		bottom: $gutter;
+		flex-direction: row;
+
+		& > div {
+			margin-top: 0;
+			margin-right: $gutter / 2;
+		}
+	}
+}
