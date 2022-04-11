@@ -69,27 +69,6 @@
 		}
 	}
 
-	&__dribbble {
-		// .homepage__dribbble
-		width: auto;
-		margin: 0 $gutter #{$gutter * 3};
-
-		@include media(">=screen768") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
-		}
-
-		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
-		}
-
-		@include media(">=screen1440") {
-			margin-left: $gutter * 4;
-			margin-right: $gutter * 4;
-		}
-	}
-
 	&__builder {
 		// .homepage__builder
 		background-color: $white;
@@ -114,7 +93,6 @@
 	}
 }
 
-.dribbble__title,
 .homepage__work--title {
 	display: inline-block;
 	margin-bottom: $gutter;

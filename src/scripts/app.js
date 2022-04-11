@@ -24,7 +24,6 @@ document.documentElement.setAttribute( 'data-platform', navigator.platform );
 // COMPONENTS //
 ////////////////
 
-import dribbble from './components/dribbble';
 import gallery from './components/gallery';
 import homepage from './components/homepage';
 import images from './components/images';
@@ -39,7 +38,6 @@ import titles from './components/titles';
 // INIT //
 //////////
 
-dribbble();
 gallery();
 homepage();
 images();
