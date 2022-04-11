@@ -1,24 +1,44 @@
 {% if displaySidebar is defined and displaySidebar == true %}
 
-<aside class="site__sidebar">
+<aside class="c-sidebar">
 
-	<div class="widget widget__instagram">
+	<h3 class="c-sidebar__headline _wysiwyg">Talk to me &ldquo;Socially&rdquo;</h3>
 
-		<h3 class="widget__instagram--title _wysiwyg">{% include '/assets/media/icons/logo-instagram.svg' %} Instagram : <span><a href="//instagram.com/onemohrtimedesign" target="_blank" rel="noopener">@onemohrtimedesign</a></span></h3>
+	<ul class="c-sidebar__list">
 
-		{% filter shortcodes %}
-			[instagram-feed]
-		{% endfilter %}
+		<li class="c-sidebar__list-item -ratio">
+			<a href="//instagram.com/onemohrtimedesign" class="c-sidebar__link" target="_blank" rel="noopener nofollow">
+				{% include '/assets/media/icons/logo-instagram.svg' %}
+				<h3 class="c-sidebar__social">Instagram</h3>
+				<p class="c-sidebar__social">@onemohrtimedesign</p>
+			</a>
+		</li>
 
-	</div>
+		<li class="c-sidebar__list-item -ratio">
+			<a href="//instagram.com/onemohrtimedesign" class="c-sidebar__link" target="_blank" rel="noopener nofollow">
+				{% include '/assets/media/icons/logo-dribbble.svg' %}
+				<h3 class="c-sidebar__social">Dribbble</h3>
+				<p class="c-sidebar__social">@OneMohrTime</p>
+			</a>
+		</li>
 
-	{{ sidebar }}
+		<li class="c-sidebar__list-item -ratio">
+			<a href="//instagram.com/onemohrtimedesign" class="c-sidebar__link" target="_blank" rel="noopener nofollow">
+				{% include '/assets/media/icons/logo-twitter.svg' %}
+				<h3 class="c-sidebar__social">Twitter</h3>
+				<p class="c-sidebar__social">@OneMohrTime</p>
+			</a>
+		</li>
 
-	{% if dynamic_sidebar %}
-		{% block sidebar %}
-			{{ dynamic_sidebar }}
-		{% endblock %}
-	{% endif %}
+		<li class="c-sidebar__list-item -ratio">
+			<a href="//instagram.com/onemohrtimedesign" class="c-sidebar__link" target="_blank" rel="noopener nofollow">
+				{% include '/assets/media/icons/logo-github.svg' %}
+				<h3 class="c-sidebar__social">GitHub</h3>
+				<p class="c-sidebar__social">@OneMohrTime</p>
+			</a>
+		</li>
+
+	</ul>
 
 </aside>
 

@@ -24,17 +24,7 @@ object {
 	line-height: 1em;
 	width: 1em;
 	height: 1em;
-
-	path,
-	polygon,
-	rect {
-		fill: $base;
-	}
-
-	circle {
-		stroke: $base;
-		stroke-width: 1;
-	}
+	fill: currentColor;
 }
 
 /**
@@ -67,27 +57,5 @@ object {
 	&.-svg {
 		width: 100%;
 		height: auto;
-	}
-}
-
-/**
- * — Captions —
- */
-
-.wp-caption {
-	margin: 0 0 $base-line-height;
-	max-width: 100%;
-	position: relative;
-
-	&-text {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		background-color: fade-out($black, 0.1);
-		color: $white;
-		font-size: .75em;
-		font-weight: 700;
-		text-align: right;
-		padding: $small-spacing;
 	}
 }
