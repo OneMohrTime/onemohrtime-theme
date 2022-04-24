@@ -69,26 +69,19 @@
 		</div>
 	</section>
 
-	<section id="home_dribbble" class="homepage__dribbble">
-		<h2 class="dribbble__title">Recent Designs on Dribbble</h2>
-		<div id="dribbbles" class="dribbbles"></div>
-	</section>
+	<figure id="home_about" class="homepage__about">
 
-	{% if about %}
-		<figure id="home_about" class="homepage__about">
+		{# <img src="{{ Image(about.image).src }}"
+			alt="{{ about.image.alt }}"
+			class="homepage__about--image"
+			srcset="{{ Image(about.image).src('medium') }} 1000w,
+					{{ Image(about.image).src('large') }} 1500w" /> #}
 
-			<img src="{{ Image(about.image).src }}"
-				alt="{{ about.image.alt }}"
-				class="homepage__about--image"
-				srcset="{{ Image(about.image).src('medium') }} 1000w,
-						{{ Image(about.image).src('large') }} 1500w" />
+		<figcaption class="homepage__about--content _wysiwyg -getFaded">
+			{{ post.content }}
+		</figcaption>
 
-			<figcaption class="homepage__about--content _wysiwyg -getFaded">
-				{{ about.text }}
-			</figcaption>
-
-		</figure>
-	{% endif %}
+	</figure>
 
 	{# Add Section Repeater #}
 	{% if post.sections|length %}

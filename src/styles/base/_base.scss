@@ -19,10 +19,19 @@ body {
 	background-image: url("../img/concrete-light.png");
 	background-position: top center;
 	color: $black;
+
 	// crisp typography rendering
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	// "Overflow" scrolling on large monitors
+	@include media(">=screen1600") {
+		padding-bottom: 100px;
+	}
+	@include media(">=screen1920") {
+		padding-bottom: 150px;
+	}
 }
 
 * {

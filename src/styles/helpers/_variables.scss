@@ -2,9 +2,8 @@
  * === VARIABLES ===
  */
 
-/**
- * — Colors —
- */
+// Colors
+// =============================================================================
 
 $black: #171409;
 $black--light: tint($black, 5%);
@@ -34,9 +33,23 @@ $red: #9c0000;
 //$color--warning: #9c0000 !important;
 $color--error: $red;
 
-/**
- * — Typography —
- */
+// Social Colors
+// =============================================================================
+
+$facebook-color:  #4267b2;
+$instagram-color: #e1306c;
+$linkedin-color:  #0e76a8;
+$messenger-color: #006aff;
+$pinterest-color: #e60023;
+$snapchat-color:  #fffc00;
+$twitter-color:   #1da1f2;
+$whatsapp-color:  #25d366;
+$youtube-color:   #f00;
+$dribbble-color:  #ea4c89;
+$github-color:    #4078c0;
+
+// Typography
+// =============================================================================
 
 $font__main     : "Barlow", $font-stack-system;
 $font__secondary: "Abril Fatface", $font-stack-garamond;
@@ -45,17 +58,18 @@ $font__code     : "Inconsolata", $font-stack-monaco;
 
 $copy-width: 840px;
 
-/**
- * — Everything else —
- */
+// Animations
+// =============================================================================
 
 $speed        : 200ms;
 $speed-fast   : $speed / 2;
 $speed-slow   : $speed * 2;
 $base-duration: $speed;
 
-//$cubic-bezier : cubic-bezier(.455, .03, .515, .955);
 $cubic-bezier: cubic-bezier(0.17, 0.04, 0.03, 0.94);
+
+// Sizing
+// =============================================================================
 
 $gutter: 36px;
 $gutter-xs: $gutter / 3;

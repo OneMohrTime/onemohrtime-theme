@@ -39,6 +39,7 @@
     "include-media": "^1.4.9",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.5.1",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "rellax": "^1.12.1"
   }
 }

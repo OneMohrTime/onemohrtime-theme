@@ -298,11 +298,9 @@
 
 @mixin title($underline: null) {
 	font-size: ms(3);
-	letter-spacing: 2px;
 
 	@include media('<screen480') {
 		font-size: ms(2);
-		letter-spacing: 1px;
 		hyphens: auto;
 		word-break: break-word;
 	}
@@ -314,7 +312,6 @@
 
 @mixin subtitle($underline: null) {
 	font-size: ms(2);
-	letter-spacing: 0;
 
 	@include media('<screen480') {
 		hyphens: auto;
@@ -367,7 +364,6 @@
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
-	letter-spacing: 1px;
 	margin: 0;
 }
 
@@ -377,7 +373,6 @@
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
-	letter-spacing: 1px;
 	margin: 0;
 }
 
@@ -563,7 +558,6 @@
 @mixin underline-link() {
 	border-bottom: 3px $black solid;
 	font-weight: 700;
-	letter-spacing: 1px;
 	padding-left: $small-spacing;
 	padding-right: $small-spacing;
 	padding-bottom: .25em;

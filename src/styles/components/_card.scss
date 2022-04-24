@@ -52,9 +52,9 @@ $lgImage: 200px;
 		}
 
 		//
-		// Vertically stacked card deck
+		// Horizontally stacked card deck
 		//
-		.-verticalDeck & {
+		.-horizontalDeck & {
 
 			// images get sized up
 			@include media(">=screen1170") {
@@ -72,9 +72,9 @@ $lgImage: 200px;
 		}
 
 		//
-		// Horizontally stacked card deck
+		// Vertically stacked card deck
 		//
-		.-horizontalDeck & {
+		.-verticalDeck & {
 
 			// no less than 768px
 			@include media(">=screen768") {
@@ -124,7 +124,6 @@ $lgImage: 200px;
 		._text,
 		._button {
 			@include base-font-size();
-			letter-spacing: 0.2px;
 
 			@include media(">=screen1170") {
 				font-size: 16px;
@@ -154,9 +153,9 @@ $lgImage: 200px;
 		}
 
 		//
-		// Horizontally stacked card deck
+		// Vertically stacked card deck
 		//
-		.-horizontalDeck & {
+		.-verticalDeck & {
 
 			// no less than 768px
 			@include media(">=screen768") {
@@ -169,9 +168,9 @@ $lgImage: 200px;
 	}
 
 	//
-	// Vertically stacked card deck
+	// Horizontally stacked card deck
 	//
-	.-verticalDeck & {
+	.-horizontalDeck & {
 
 		// space between siblings
 		& + .card {
@@ -200,9 +199,9 @@ $lgImage: 200px;
 	}
 
 	//
-	// Horizontally stacked card deck
+	// Vertically stacked card deck
 	//
-	.-horizontalDeck & {
+	.-verticalDeck & {
 
 		// space between siblings
 		& + .card {
@@ -270,9 +269,9 @@ $lgImage: 200px;
 }
 
 //
-// Vertically stacked card deck
+// Horizontally stacked card deck
 //
-.-verticalDeck {
+.-horizontalDeck {
 
 	// no less than 600px
 	@include media(">=screen600") {
@@ -284,9 +283,9 @@ $lgImage: 200px;
 }
 
 //
-// Horizontally stacked card deck
+// Vertically stacked card deck
 //
-.-horizontalDeck {
+.-verticalDeck {
 
 	// no greater than 768px, no less than 600px
 	@include media("<screen768", ">=screen600") {

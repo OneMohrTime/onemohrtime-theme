@@ -118,6 +118,7 @@ ul, ol, dl {
 
 		// yellow dots
 		li::marker {
+			font-weight: 700;
 			color: $yellow;
 		}
 

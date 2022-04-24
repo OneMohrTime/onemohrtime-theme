@@ -1,0 +1,77 @@
+/**
+ * === Top 10s / Power Rankings ===
+ */
+
+.-top-10s .site {
+	display: block;
+}
+
+.page__rankings {
+	@include block-width();
+	@include content-width();
+	margin-bottom: 0;
+	padding-bottom: $gutter * 2;
+
+	@include media(">=screen480") {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $gutter-sm;
+	}
+
+	@include media(">=screen768") {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: masonry;
+		masonry-auto-flow: next;
+	}
+
+	@include media(">=screen1170") {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.c-powerRanking {
+	@include base-font-size();
+	padding: $gutter-sm;
+	border: 5px solid $yellow;
+
+	& + & {
+		margin-top: $gutter-sm;
+	}
+
+	@include media(">=screen480") {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 50%;
+		max-width: calc(50% - #{$gutter-sm});
+
+		& + & {
+			margin-top: 0;
+		}
+	}
+
+	@include media(">=screen768") {
+		max-width: 100%;
+	}
+
+	@include media(">=screen1170") {
+		// padding: $gutter;
+		border-width: 10px;
+	}
+}
+
+.c-powerRanking__headline {
+	@include paragraph();
+	text-align: center;
+
+	@include media(">=screen1170") {
+		font-size: ms(0);
+	}
+}
+
+.c-powerRanking__list {
+
+	@include media(">=screen1170") {
+		padding-left: 1em !important;
+	}
+}

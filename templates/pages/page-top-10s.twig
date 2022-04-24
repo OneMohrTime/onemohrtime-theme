@@ -1,0 +1,44 @@
+{% extends 'layouts/base.twig' %}
+{% set displaySidebar = true %}
+
+{% block content %}
+
+<article class="post-{{ post.id }} -{{ post.type }}">
+
+	<header class="page__header">
+		{% if post.subtitle %}
+			<p class="_meta">{{ post.subtitle }}</p>
+		{% elseif post.post_excerpt %}
+			<p class="_meta">{{ post.post_excerpt }}</p>
+		{% endif %}
+		{% include 'components/title.twig' %}
+	</header>
+
+	<section class="page__content -getFaded _wysiwyg">
+		{{ post.content }}
+	</section>
+
+	<ul class="page__rankings -getFaded">
+		{% for list in power_rankings %}
+
+			<li class="c-powerRanking _wysiwyg">
+				<h2 class="c-powerRanking__headline">{{ list.title }}</h2>
+				<ol reversed class="c-powerRanking__list">
+
+					{% for ranking in list.meta('power_ranking')|reverse %}
+						{% set itemName = ranking.power_ranking_item ?? null %}
+						{% set itemLink = ranking.power_ranking_link ?? null %}
+						<li class="c-powerRanking__list-item">
+							{% if itemLink %}<a href="{{ itemLink.url }}"{% if itemLink.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %}>{% endif %}
+								{{ itemName }}
+							{% if itemLink %}</a>{% endif %}
+						</li>
+					{% endfor %}
+				</ol>
+			</li>
+		{% endfor %}
+	</ul>
+
+</article>
+
+{% endblock %}

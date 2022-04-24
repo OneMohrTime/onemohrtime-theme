@@ -2,13 +2,14 @@
  * === SIDEBAR ===
  */
 
-.site__sidebar {
+.c-sidebar {
 	grid-column: span 4;
 	position: relative;
 	width: 100%;
-	padding-bottom: $base-spacing;
+	padding-top: $gutter;
 	padding-left: $gutter;
 	padding-right: $gutter;
+	padding-bottom: $base-spacing;
 	background-color: $white--dark;
 	background-image: url("../img/concrete-light.png");
 	background-position: center center;
@@ -24,11 +25,139 @@
 	}
 
 	@include media(">=screen1440") {
+		padding-top: $gutter * 1.5;
 		padding-left: $gutter * 4;
 		padding-right: $gutter * 4;
 	}
 }
 
-.widget {
+.c-sidebar__headline {
+	@include label();
+	margin-top: 0;
 	margin-bottom: $gutter;
+
+	@include media(">=screen1440") {
+		margin-top: 0;
+		margin-bottom: $gutter * 1.5;
+	}
+}
+
+.c-sidebar__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $gutter;
+
+	@include media(">=screen840") {
+		flex-wrap: nowrap;
+	}
+}
+
+.c-sidebar__list-item {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 50%;
+	max-width: calc(50% - #{$gutter / 2});
+
+	@include media(">=screen840") {
+		flex-basis: 25%;
+		max-width: calc(25% - #{$gutter / 3});
+		max-width: calc(25% - 27px);
+	}
+
+	// Icon
+	.-svg {
+		display: inline-block;
+		width: 36px;
+		height: auto;
+		vertical-align: middle;
+		line-height: 36px;
+	}
+}
+
+.c-sidebar__link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	transition: background-color $speed cubic-bezier(.455,.03,.515,.955),
+				color $speed cubic-bezier(.455,.03,.515,.955);
+	background-color: $white--darker;
+	color: $gray--light;
+
+	@include hocus {
+		background-color: $yellow;
+		color: $black;
+
+		&.-instagram {
+			background-color: $instagram-color;
+			background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+			color: $white;
+		}
+		&.-dribbble {
+			background-color: $dribbble-color;
+			color: $white;
+		}
+		&.-twitter {
+			background-color: $twitter-color;
+			color: $white;
+		}
+		&.-github {
+			background-color: $github-color;
+			background-color: #333;
+			color: $white;
+		}
+
+		.c-sidebar__social {
+			opacity: 1;
+			@include first(2) {
+				margin-top: 32px;
+			}
+			@include last(1) {
+				margin-top: 64px;
+			}
+		}
+	}
+}
+
+.c-sidebar__social {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 5px 10px;
+	opacity: 0;
+	transform: translate(-50%, -50%);
+	transition: opacity $speed cubic-bezier(.455,.03,.515,.955),
+				margin $speed cubic-bezier(.455,.03,.515,.955),
+				color $speed cubic-bezier(.455,.03,.515,.955);
+	border-radius: $base-border-radius;
+	background-color: $black;
+	color: $white;
+
+	@include first(2) {
+		@include caption();
+		margin-top: 0;
+		letter-spacing: 1px;
+		color: $yellow;
+
+		.-instagram & {
+			color: $instagram-color;
+		}
+		.-dribbble & {
+			color: $dribbble-color;
+		}
+		.-twitter & {
+			color: $twitter-color;
+		}
+		.-github & {
+			color: $github-color;
+		}
+	}
+
+	@include last(1) {
+		margin-top: 24px;
+	}
 }

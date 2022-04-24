@@ -1,1 +1,9 @@
-<h1 class="title title--animated">{{ title ?: post.title }}</h1>
+<h1 class="title title--animated">
+	{% if post.headline %}
+		{{ post.headline }}
+	{% elseif title %}
+		{{ title }}
+	{% else %}
+		{{ post.title }}
+	{% endif %}
+</h1>

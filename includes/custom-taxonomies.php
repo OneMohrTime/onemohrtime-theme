@@ -5,6 +5,10 @@
  * 3. Delete `add_action( 'init', 'cptui_register_my_taxes' )` at the bottom
  */
 
+/**
+ * Taxonomy: Roles.
+ */
+
 $labels = [
 	"name" => __( "Roles", "onemohrtime" ),
 	"singular_name" => __( "Role", "onemohrtime" ),
@@ -32,10 +36,11 @@ $args = [
 	"rewrite" => [ 'slug' => 'role', 'with_front' => true, ],
 	"show_admin_column" => false,
 	"show_in_rest" => false,
-	"show_tagcloud" => true,
+	"show_tagcloud" => false,
 	"rest_base" => "role",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
 	"show_in_quick_edit" => true,
+	"sort" => false,
 	"show_in_graphql" => false,
 ];
 
@@ -74,10 +79,11 @@ $args = [
 	"rewrite" => [ 'slug' => 'coding', 'with_front' => true, ],
 	"show_admin_column" => false,
 	"show_in_rest" => false,
-	"show_tagcloud" => true,
+	"show_tagcloud" => false,
 	"rest_base" => "coding",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
 	"show_in_quick_edit" => true,
+	"sort" => false,
 	"show_in_graphql" => false,
 ];
 
@@ -105,10 +111,11 @@ $args = [
 	"rewrite" => [ 'slug' => 'job_type', 'with_front' => true, ],
 	"show_admin_column" => false,
 	"show_in_rest" => false,
-	"show_tagcloud" => true,
+	"show_tagcloud" => false,
 	"rest_base" => "job_type",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
 	"show_in_quick_edit" => true,
+	"sort" => false,
 	"show_in_graphql" => false,
 ];
 

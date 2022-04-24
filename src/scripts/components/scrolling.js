@@ -89,10 +89,5 @@ export default function scrolling() {
         toggleActions: 'play none none none',
       });
     // console.log(homeTimeline);
-    const dribbbleTitle = $('.dribbble__title');
-    homeTimeline.fromTo(dribbbleTitle,
-      {left: '-100%', autoAlpha: 0},
-      {left: 0, autoAlpha: 1, duration: 1, ease: 'power2' }
-    )
   }
 }

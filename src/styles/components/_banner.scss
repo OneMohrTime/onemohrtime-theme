@@ -70,9 +70,6 @@
 
 	._title {
 		@include subtitle();
-		@include media('<screen840') {
-			letter-spacing: 1px;
-		}
 
 		.-row {
 			display: block;
@@ -114,7 +111,6 @@
 
 	._tagline {
 		@include caption();
-		letter-spacing: 1px;
 	}
 }
 

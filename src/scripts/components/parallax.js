@@ -3,7 +3,7 @@
  * ===================================================================== */
 
 import { gsap } from 'gsap';
-import { random } from 'gsap/gsap-core';
+// import { random } from 'gsap/gsap-core';
 import ScrollTrigger from 'gsap/scrollTrigger'
 
 export default function parallax() {
