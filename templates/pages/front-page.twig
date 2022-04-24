@@ -69,21 +69,19 @@
 		</div>
 	</section>
 
-	{% if about %}
-		<figure id="home_about" class="homepage__about">
+	<figure id="home_about" class="homepage__about">
 
-			<img src="{{ Image(about.image).src }}"
-				alt="{{ about.image.alt }}"
-				class="homepage__about--image"
-				srcset="{{ Image(about.image).src('medium') }} 1000w,
-						{{ Image(about.image).src('large') }} 1500w" />
+		{# <img src="{{ Image(about.image).src }}"
+			alt="{{ about.image.alt }}"
+			class="homepage__about--image"
+			srcset="{{ Image(about.image).src('medium') }} 1000w,
+					{{ Image(about.image).src('large') }} 1500w" /> #}
 
-			<figcaption class="homepage__about--content _wysiwyg -getFaded">
-				{{ about.text }}
-			</figcaption>
+		<figcaption class="homepage__about--content _wysiwyg -getFaded">
+			{{ post.content }}
+		</figcaption>
 
-		</figure>
-	{% endif %}
+	</figure>
 
 	{# Add Section Repeater #}
 	{% if post.sections|length %}

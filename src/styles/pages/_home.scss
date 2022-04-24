@@ -76,45 +76,77 @@
 		background-position: center center;
 		margin-bottom: 0;
 
+		// this is pretty custom aligned with the CMS
 		.builder__section {
 			margin-top: 0;
 			margin-bottom: 0;
 			padding-top: $gutter-lg;
 			padding-bottom: $gutter-lg;
 
-			// these styles assume a two section text/card layout _only_
+			// spacing
 			@include first(1) {
 				padding-bottom: 0;
 			}
 			@include last(1) {
 				padding-top: 0;
 			}
+
+			// modules
+			&.-text:nth-of-type(2) {
+				background-color: $yellow;
+				margin-left: 0;
+				margin-right: 0;
+				padding-left: $gutter;
+				padding-right: $gutter;
+
+				@include media(">=screen768") {
+					padding-left: $gutter * 2;
+					padding-right: $gutter * 2;
+				}
+
+				@include media(">=screen1024") {
+					display: grid;
+					grid-template-columns: 3fr 2fr;
+					grid-template-rows: auto auto;
+					column-gap: $gutter;
+					align-items: center;
+					align-content: center;
+					padding-left: $gutter * 3;
+					padding-right: $gutter * 3;
+
+					._headline {
+						grid-column: 1 / 2;
+					}
+
+					._text {
+						grid-column: 1 / 2;
+						margin-bottom: 0;
+					}
+
+					._button {
+						grid-column: 2 / 3;
+						grid-row: 1 / 3;
+						margin-left: auto;
+						padding-top: 0;
+						padding-left: 0;
+						padding-right: 0;
+						padding-bottom: 10px;
+						border-top: 0;
+						border-left: 0;
+						border-right: 0;
+
+						&::after {
+							background-color: $white;
+						}
+					}
+				}
+
+				@include media(">=screen1440") {
+					padding-left: $gutter * 4;
+					padding-right: $gutter * 4;
+				}
+			}
+
 		}
-	}
-}
-
-.homepage__work--title {
-	display: inline-block;
-	margin-bottom: $gutter;
-	@include paragraph();
-	color: $black--light;
-
-	@include media(">=screen840") {
-		@include body-copy();
-	}
-
-	@include media(">=screen1170") {
-		position: relative;
-		margin-bottom: $gutter-lg;
-		padding: $gutter / 3 $gutter;
-		transform: translate(-#{$gutter}) rotate(-3deg);
-		text-shadow: none;
-		line-height: 1em;
-		border-radius: $base-border-radius;
-		background-color: $black;
-		background-image: url("../img/concrete-dark.png");
-		background-position: center center;
-		color: fade-out($white, 0.05);
-		@include box-shadow();
 	}
 }
