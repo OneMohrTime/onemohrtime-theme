@@ -597,66 +597,6 @@
                 "max_height": "",
                 "max_size": "",
                 "mime_types": "gif, jpg, jpeg, png, heic, webp, svg, avif"
-            },
-            {
-                "key": "field_5b3447b4ce6d5",
-                "label": "About Me",
-                "name": "homepage_about",
-                "type": "group",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "layout": "block",
-                "sub_fields": [
-                    {
-                        "key": "field_5b344836ce6d6",
-                        "label": "Image",
-                        "name": "image",
-                        "type": "image",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "50",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "array",
-                        "preview_size": "medium",
-                        "library": "all",
-                        "min_width": "",
-                        "min_height": "",
-                        "min_size": "",
-                        "max_width": "",
-                        "max_height": "",
-                        "max_size": "",
-                        "mime_types": "gif, png, jpg, jpeg, webp, svg"
-                    },
-                    {
-                        "key": "field_5b344885ce6d7",
-                        "label": "Content",
-                        "name": "text",
-                        "type": "wysiwyg",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "50",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "tabs": "all",
-                        "toolbar": "full",
-                        "media_upload": 0,
-                        "delay": 0
-                    }
-                ]
             }
         ],
         "location": [
@@ -686,7 +626,7 @@
             "send-trackbacks"
         ],
         "active": true,
-        "description": "",
+        "description": "Home (front) page fields",
         "show_in_rest": 0
     },
     {
