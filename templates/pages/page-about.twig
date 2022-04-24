@@ -75,6 +75,17 @@
 
 	</article>
 
+	{# Add Section Repeater #}
+	{% if post.sections|length %}
+		<div class="page__builder">
+			{% include 'partials/builder.twig' %}
+		</div>
+	{% endif %}
+
+	{# {% if relatedPosts %}
+		{% include 'components/related-posts.twig' %}
+	{% endif %} #}
+
 {% endblock %}
 
 {% block sidebar %}

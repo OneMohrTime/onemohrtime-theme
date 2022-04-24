@@ -358,7 +358,7 @@ acf_add_local_field_group(array(
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,
-	'description' => '',
+	'description' => 'Almost similar to a Résumé set of fields',
 	'show_in_rest' => 0,
 ));
 
@@ -750,8 +750,8 @@ acf_add_local_field_group(array(
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,
-	'description' => '',
-	'show_in_rest' => false,
+	'description' => 'Select certain design projects to be featured',
+	'show_in_rest' => 0,
 ));
 
 acf_add_local_field_group(array(
@@ -1054,94 +1054,9 @@ acf_add_local_field_group(array(
 	'style' => 'seamless',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
-	'hide_on_screen' => array(
-		0 => 'the_content',
-	),
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-));
-
-acf_add_local_field_group(array(
-	'key' => 'group_62258c38cca1a',
-	'title' => 'Related Posts',
-	'fields' => array(
-		array(
-			'key' => 'field_62258c4459f18',
-			'label' => 'Related Posts',
-			'name' => 'related_posts',
-			'type' => 'repeater',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'collapsed' => 'field_62258c6b59f19',
-			'min' => 0,
-			'max' => 3,
-			'layout' => 'block',
-			'button_label' => 'Add Post',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_62258c6b59f19',
-					'label' => 'Related Post',
-					'name' => 'related_post',
-					'type' => 'page_link',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'post_type' => array(
-						0 => 'post',
-						1 => 'page',
-						2 => 'design',
-					),
-					'taxonomy' => '',
-					'allow_null' => 0,
-					'allow_archives' => 0,
-					'multiple' => 0,
-				),
-			),
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'post',
-			),
-		),
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'page',
-			),
-		),
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'design',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,
-	'description' => '',
+	'description' => 'Custom project banners and details',
 	'show_in_rest' => 0,
 ));
 
@@ -2072,6 +1987,90 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_62258c38cca1a',
+	'title' => 'Related Posts',
+	'fields' => array(
+		array(
+			'key' => 'field_62258c4459f18',
+			'label' => 'Related Posts',
+			'name' => 'related_posts',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_62258c6b59f19',
+			'min' => 0,
+			'max' => 3,
+			'layout' => 'block',
+			'button_label' => 'Add Related Post',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_62258c6b59f19',
+					'label' => 'Related Post',
+					'name' => 'related_post',
+					'type' => 'post_object',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'post_type' => array(
+						0 => 'post',
+						1 => 'page',
+						2 => 'design',
+					),
+					'taxonomy' => '',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'return_format' => 'object',
+					'ui' => 1,
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'design',
+			),
+		),
+	),
+	'menu_order' => 10,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => 'Choose custom pages/posts to visit next',
+	'show_in_rest' => 0,
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5b3799d77260c',
 	'title' => 'Site Globals',
 	'fields' => array(
@@ -2230,7 +2229,7 @@ acf_add_local_field_group(array(
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,
-	'description' => '',
+	'description' => 'Custom settings around the site',
 	'show_in_rest' => 0,
 ));
 

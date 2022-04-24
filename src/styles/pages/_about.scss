@@ -2,7 +2,9 @@
  * === ABOUT ===
  */
 
-.-about {
+.page.-about {
+	display: block;
+
 	.repeater {
 		padding-top: $gutter;
 
@@ -14,6 +16,12 @@
 	.repeater__title {
 		padding-right: $gutter-lg;
 		text-transform: none;
+	}
+
+	@include media(">=screen1280") {
+		.page__repeater {
+			margin-bottom: $gutter * 3;
+		}
 	}
 }
 

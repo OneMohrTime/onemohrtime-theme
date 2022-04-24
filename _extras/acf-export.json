@@ -351,7 +351,7 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": "",
+        "description": "Almost similar to a Résumé set of fields",
         "show_in_rest": 0
     },
     {
@@ -737,8 +737,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": "",
-        "show_in_rest": false
+        "description": "Select certain design projects to be featured",
+        "show_in_rest": 0
     },
     {
         "key": "group_583243bbb167e",
@@ -1038,93 +1038,9 @@
         "style": "seamless",
         "label_placement": "top",
         "instruction_placement": "label",
-        "hide_on_screen": [
-            "the_content"
-        ],
-        "active": true,
-        "description": "",
-        "show_in_rest": 0
-    },
-    {
-        "key": "group_62258c38cca1a",
-        "title": "Related Posts",
-        "fields": [
-            {
-                "key": "field_62258c4459f18",
-                "label": "Related Posts",
-                "name": "related_posts",
-                "type": "repeater",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "collapsed": "field_62258c6b59f19",
-                "min": 0,
-                "max": 3,
-                "layout": "block",
-                "button_label": "Add Post",
-                "sub_fields": [
-                    {
-                        "key": "field_62258c6b59f19",
-                        "label": "Related Post",
-                        "name": "related_post",
-                        "type": "page_link",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "post_type": [
-                            "post",
-                            "page",
-                            "design"
-                        ],
-                        "taxonomy": "",
-                        "allow_null": 0,
-                        "allow_archives": 0,
-                        "multiple": 0
-                    }
-                ]
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "post"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "page"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "design"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": "",
+        "description": "Custom project banners and details",
         "show_in_rest": 0
     },
     {
@@ -2047,6 +1963,89 @@
         "show_in_rest": 1
     },
     {
+        "key": "group_62258c38cca1a",
+        "title": "Related Posts",
+        "fields": [
+            {
+                "key": "field_62258c4459f18",
+                "label": "Related Posts",
+                "name": "related_posts",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_62258c6b59f19",
+                "min": 0,
+                "max": 3,
+                "layout": "block",
+                "button_label": "Add Related Post",
+                "sub_fields": [
+                    {
+                        "key": "field_62258c6b59f19",
+                        "label": "Related Post",
+                        "name": "related_post",
+                        "type": "post_object",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "post",
+                            "page",
+                            "design"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "design"
+                }
+            ]
+        ],
+        "menu_order": 10,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Choose custom pages\/posts to visit next",
+        "show_in_rest": 0
+    },
+    {
         "key": "group_5b3799d77260c",
         "title": "Site Globals",
         "fields": [
@@ -2203,7 +2202,7 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": "",
+        "description": "Custom settings around the site",
         "show_in_rest": 0
     },
     {
