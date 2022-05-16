@@ -32,7 +32,7 @@ $timber_post = new Timber\Post();
 // 	'order'          => 'ASC',
 // 	'numberposts'    => 999 ) );
 $projects = get_field('project_grid');
-$related  = get_field('related_posts')[0];
+// $related  = get_field('related_posts');
 
 $top10s = array(
 	'post_type'   => 'top-10',
@@ -44,14 +44,12 @@ $context['post']          = $timber_post;
 $context['projects']      = new Timber\PostQuery($projects);
 $context['builder']       = get_field('sections');
 // $context['relatedPosts']  = get_posts($related);
-$context['relatedPosts']  = new Timber\Post($related);
+// $context['relatedPosts']  = new Timber\Post($related);
 // $context['relatedPosts']  = var_dump($related);
 // $context['relatedPosts']  = Timber::get_posts($related, 'Card');
 // $context['relatedPosts']  = new Timber\PostQuery($related);
 $context['roles']         = new TimberTerm('design');
 $context['image_grid']    = get_field('image_grid');
-// $context['power_ranking'] = get_field('power_ranking');
 $context['power_rankings'] = Timber::get_posts($top10s);
-// $context['power_rankings'] = new Timber\PostQuery($top10s);
 
 Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );
