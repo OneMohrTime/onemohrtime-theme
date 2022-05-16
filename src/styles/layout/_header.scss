@@ -39,8 +39,12 @@
 		}
 	}
 
+	// center nav on wide displays
 	@include media(">=screen1600") {
-		// center nav on wide displays
+		left: calc(50% - 720px);
+		max-width: 1440px;
+	}
+	@include media(">=screen1920") {
 		left: calc(50% - 800px);
 		max-width: 1600px;
 	}
