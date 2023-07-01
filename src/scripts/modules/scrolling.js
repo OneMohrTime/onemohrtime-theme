@@ -35,6 +35,8 @@ export default function scrolling() {
       let fadeDuration  = 1.25;
       let fadeBetween   = 0.0625;
 
+      console.log($getFaded);
+
       const getFadedIn = gsap.timeline({
         scrollTrigger: {
           trigger: fadeContainer,
