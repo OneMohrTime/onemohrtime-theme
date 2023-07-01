@@ -1,10 +1,6 @@
-/**
- * === TYPOGRAPHY ===
- */
-
-.content-area {
-	@include responsive-type();
-}
+/* ==========================================================================
+	Typography
+========================================================================== */
 
 ::selection {
 	color: $black;
@@ -13,7 +9,7 @@
 }
 
 /**
- * — Headers —
+ * === HEADINGS ===
  */
 
 @for $i from 1 through 6 {
@@ -70,7 +66,7 @@ h6 {
 }
 
 /**
- * — Body Copy —
+ * === BODY COPY ===
  */
 
 p {
@@ -101,14 +97,13 @@ small {
 }
 
 /**
- * — Lists —
+ * === LISTS ===
  */
 
 ul, ol, dl {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-
 
 	._wysiwyg &,
 	.-wysiwyg & {
@@ -141,21 +136,7 @@ ul, ol, dl {
 }
 
 /**
- * — Code —
- */
-
-// pre, code {
-// 	display: inline-block;
-// 	font-family: $font__code;
-// 	font-size: .875em;
-// 	background-color: $white--dark;
-// 	border: 1px $white--darker solid;
-// 	color: inherit;
-// 	padding: $small-spacing;
-// }
-
-/**
- * — Utility classes —
+ * === UTILITY CLASSES ===
  */
 
 .-serif {
@@ -189,7 +170,7 @@ ul, ol, dl {
 }
 
 /**
- * — Additional needs —
+ * === ADDITIONAL ADDITIONS ===
  */
 
 i, cite, em, var, address, dfn {

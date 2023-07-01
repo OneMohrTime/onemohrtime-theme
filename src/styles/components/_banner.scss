@@ -1,9 +1,12 @@
-/**
-* === BANNER ===
-*/
+/* ==========================================================================
+	Banner
+========================================================================== */
 
-.banner {
+.c-banner {
 
+	/**
+	* === HOME ===
+	*/
 	&.-typographic {
 		@include block-width();
 		margin-bottom: $gutter * 3;
@@ -26,7 +29,7 @@
 	}
 }
 
-.banner__list {
+.c-banner__list {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
@@ -55,14 +58,14 @@
 	}
 }
 
-.banner__listItem {
+.c-banner__listItem {
 	font-size: ms(-1);
 	@include media(">=screen960") {
 		font-size: ms(0);
 	}
 }
 
-.banner__intro {
+.c-banner__intro {
 
 	@include media("<screen600") {
 		margin-top: $gutter * 4;
@@ -114,7 +117,7 @@
 	}
 }
 
-.banner__link {
+.c-banner__link {
 	transition: box-shadow $speed linear;
 	line-height: $base-line-height;
 	box-shadow: none;

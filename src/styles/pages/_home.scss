@@ -2,151 +2,146 @@
 * === HOME ===
 */
 
-.homepage {
+.homepage__about {
+	@include base-font-size();
+	background-color: $black;
+	background-image: url("../img/concrete-dark.png");
+	background-position: center center;
+	color: $white;
 
-	&__about {
-		// .homepage__about
-		@include base-font-size();
-		background-color: $black;
-		background-image: url("../img/concrete-dark.png");
-		background-position: center center;
-		color: $white;
+	@include media(">=screen960") {
+		display: flex;
+		align-items: flex-start;
+		min-height: 100vh;
+	}
+
+	&--image {
+		// .homepage__about--image
+		@include media("<screen960") {
+			width: 100%;
+		}
+		@include media(">=screen960") {
+			flex-basis: 40%;
+			max-width: 40%;
+			position: sticky;
+			top: 0;
+			height: 100vh;
+			object-fit: cover;
+		}
+	}
+
+	&--content {
+		// .homepage__about--content
+		padding: #{$gutter * 3} $gutter;
+
+		@include media(">=screen768") {
+			padding-left: $gutter * 2;
+			padding-right: $gutter * 2;
+		}
 
 		@include media(">=screen960") {
-			display: flex;
-			align-items: flex-start;
-			min-height: 100vh;
+			flex-basis: 60%;
+			max-width: 60%;
 		}
 
-		&--image {
-			// .homepage__about--image
-			@include media("<screen960") {
-				width: 100%;
-			}
-			@include media(">=screen960") {
-				flex-basis: 40%;
-				max-width: 40%;
-				position: sticky;
-				top: 0;
-				height: 100vh;
-				object-fit: cover;
+		@include media(">=screen1024") {
+			padding-left: $gutter * 3;
+			padding-right: $gutter * 3;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			// headers in a wysiwyg section only...hopefully
+			margin-bottom: $heading-line-height;
+			&:not(:first-child) {
+				margin-top: $base-line-height;
 			}
 		}
 
-		&--content {
-			// .homepage__about--content
-			padding: #{$gutter * 3} $gutter;
+		a {
+			&::before {
+				background-color: $black--lightest !important;
+				background-color: $gray--dark !important;
+			}
+		}
+	}
+}
+
+.homepage__builder {
+	background-color: $white;
+	background-image: url("../img/concrete-light.png");
+	background-position: center center;
+	margin-bottom: 0;
+
+	// this is pretty custom aligned with the CMS
+	.builder__section {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: $gutter-lg;
+		padding-bottom: $gutter-lg;
+
+		// spacing
+		@include first(1) {
+			padding-bottom: 0;
+		}
+		@include last(1) {
+			padding-top: 0;
+		}
+
+		// modules
+		&.-text:nth-of-type(2) {
+			background-color: $yellow;
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: $gutter;
+			padding-right: $gutter;
 
 			@include media(">=screen768") {
 				padding-left: $gutter * 2;
 				padding-right: $gutter * 2;
 			}
 
-			@include media(">=screen960") {
-				flex-basis: 60%;
-				max-width: 60%;
-			}
-
 			@include media(">=screen1024") {
+				display: grid;
+				grid-template-columns: 3fr 2fr;
+				grid-template-rows: auto auto;
+				column-gap: $gutter;
+				align-items: center;
+				align-content: center;
 				padding-left: $gutter * 3;
 				padding-right: $gutter * 3;
-			}
 
-			h1, h2, h3, h4, h5, h6 {
-				// headers in a wysiwyg section only...hopefully
-				margin-bottom: $heading-line-height;
-				&:not(:first-child) {
-					margin-top: $base-line-height;
+				._headline {
+					grid-column: 1 / 2;
+				}
+
+				._text {
+					grid-column: 1 / 2;
+					margin-bottom: 0;
+				}
+
+				._button {
+					grid-column: 2 / 3;
+					grid-row: 1 / 3;
+					margin-left: auto;
+					padding-top: 0;
+					padding-left: 0;
+					padding-right: 0;
+					padding-bottom: 10px;
+					border-top: 0;
+					border-left: 0;
+					border-right: 0;
+
+					&::after {
+						background-color: $white;
+					}
 				}
 			}
 
-			a {
-				&::before {
-					background-color: $black--lightest !important;
-					background-color: $gray--dark !important;
-				}
+			@include media(">=screen1440") {
+				padding-left: $gutter * 4;
+				padding-right: $gutter * 4;
 			}
 		}
-	}
 
-	&__builder {
-		// .homepage__builder
-		background-color: $white;
-		background-image: url("../img/concrete-light.png");
-		background-position: center center;
-		margin-bottom: 0;
-
-		// this is pretty custom aligned with the CMS
-		.builder__section {
-			margin-top: 0;
-			margin-bottom: 0;
-			padding-top: $gutter-lg;
-			padding-bottom: $gutter-lg;
-
-			// spacing
-			@include first(1) {
-				padding-bottom: 0;
-			}
-			@include last(1) {
-				padding-top: 0;
-			}
-
-			// modules
-			&.-text:nth-of-type(2) {
-				background-color: $yellow;
-				margin-left: 0;
-				margin-right: 0;
-				padding-left: $gutter;
-				padding-right: $gutter;
-
-				@include media(">=screen768") {
-					padding-left: $gutter * 2;
-					padding-right: $gutter * 2;
-				}
-
-				@include media(">=screen1024") {
-					display: grid;
-					grid-template-columns: 3fr 2fr;
-					grid-template-rows: auto auto;
-					column-gap: $gutter;
-					align-items: center;
-					align-content: center;
-					padding-left: $gutter * 3;
-					padding-right: $gutter * 3;
-
-					._headline {
-						grid-column: 1 / 2;
-					}
-
-					._text {
-						grid-column: 1 / 2;
-						margin-bottom: 0;
-					}
-
-					._button {
-						grid-column: 2 / 3;
-						grid-row: 1 / 3;
-						margin-left: auto;
-						padding-top: 0;
-						padding-left: 0;
-						padding-right: 0;
-						padding-bottom: 10px;
-						border-top: 0;
-						border-left: 0;
-						border-right: 0;
-
-						&::after {
-							background-color: $white;
-						}
-					}
-				}
-
-				@include media(">=screen1440") {
-					padding-left: $gutter * 4;
-					padding-right: $gutter * 4;
-				}
-			}
-
-		}
 	}
 }

@@ -11,10 +11,10 @@
 	{% set postTitleClass = '-category' %}
 {% else %}
 	{% set postTypeClass  = post ? post.type.slug : 'error404' %}
-	{% set postTitleClass = post ? '-' ~ post.slug : '' %}
+	{% set postTitleClass = post ? 'is-' ~ post.slug : '' %}
 {% endif %}
 
-<body class="{{ postTypeClass }} {{ postTitleClass }}">
+<body class="o-{{ postTypeClass }} {{ postTitleClass }}">
 	<div id="page" class="o-site">
 
 		{% include 'components/skip-to-content.twig' %}
@@ -25,7 +25,7 @@
 			{% endblock %}
 		</header>
 
-		<main id="main" class="o-site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
+		<main id="main" class="o-site__main {% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
 			{% block content %}
 				Sorry, no content
 			{% endblock %}
@@ -37,7 +37,9 @@
 
 		{% block footer %}
 			{% include 'partials/footer.twig' %}
+			<!-- Start WP Footer Function -->
 			{{ function('wp_footer') }}
+			<!-- End WP Footer Function -->
 		{% endblock %}
 
 	</div>

@@ -2,19 +2,19 @@
 {% set displaySidebar = true %}
 
 {% block content %}
-	<section id="home_banner" class="banner -typographic -yellow">
+	<section id="home_banner" class="c-banner -typographic -yellow">
 
-		<ul id="home_banner_list" class="banner__list .u-get-faded">
+		<ul id="home_banner_list" class="c-banner__list u-get-faded">
 			{% for link in links %}
 				{% set link = link.link %}
-				<li class="banner__listItem">
-					<a href="{{ link.url }}" class="banner__link">{{ link.title }}</a>
+				<li class="c-banner__listItem">
+					<a href="{{ link.url }}" class="c-banner__link">{{ link.title }}</a>
 					{% if not loop.last %}//&nbsp;{% endif %}
 				</li>
 			{% endfor %}
 		</ul>
 
-		<div id="home_intro" class="banner__intro">
+		<div id="home_intro" class="c-banner__intro">
 			<div class="_line"></div>
 			<h2 id="home_title" class="_title -wysiwyg">
 				<span class="-row">
@@ -58,12 +58,12 @@
 					</span>
 				</span>
 			</h2>
-			<p class="_tagline .u-get-faded">
-				<span><a href="{{ site.link }}/about" class="banner__link">Derek Mohr</a> // </span>
-				<span><a href="{{ site.link }}/about/now" class="banner__link">Grand Rapids, MI</a> // </span>
+			<p class="_tagline u-get-faded">
+				<span><a href="{{ site.link }}/about" class="c-banner__link">Derek Mohr</a> // </span>
+				<span><a href="{{ site.link }}/about/now" class="c-banner__link">Grand Rapids, MI</a> // </span>
 				<span>
-					<a href="{{ site.link }}/work" class="banner__link" title="Full Stack Developer">Full Stack Developer</a> +
-					<a href="{{ site.link }}/logo-design" class="banner__link" title="Graphic Designer">Graphic Designer</a>
+					<a href="{{ site.link }}/work" class="c-banner__link" title="Full Stack Developer">Full Stack Developer</a> +
+					<a href="{{ site.link }}/logo-design" class="c-banner__link" title="Graphic Designer">Graphic Designer</a>
 				</span>
 			</p>
 		</div>
@@ -77,7 +77,7 @@
 			srcset="{{ Image(image).src('medium') }} 1000w,
 					{{ Image(image).src('large') }} 1500w" />
 
-		<figcaption class="homepage__about--content _wysiwyg .u-get-faded">
+		<figcaption class="homepage__about--content _wysiwyg u-get-faded">
 			{{ post.content }}
 		</figcaption>
 

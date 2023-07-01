@@ -10,12 +10,6 @@
 	<link rel="pingback" href="{{ site.pingback_url }}" />
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-	{# Ask for JS immediately to determine if it exists.
-	   This is helpful for hiding with CSS on page load, to avoid a "blink"
-	   of what might need to be "hidden" elements #}
-	<script>
-		document.querySelector('html').classList.remove('no-js');
-		document.querySelector('html').classList.add('js-friendly');
-	</script>
-
+	<!-- Start WP Head Function -->
 	{{ function('wp_head') }}
+	<!-- End WP Head Function -->
