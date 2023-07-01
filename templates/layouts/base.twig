@@ -15,17 +15,17 @@
 {% endif %}
 
 <body class="{{ postTypeClass }} {{ postTitleClass }}">
-	<div id="page" class="site">
+	<div id="page" class="o-site">
 
 		{% include 'components/skip-to-content.twig' %}
 
-		<header id="masthead" class="site__header">
+		<header id="masthead" class="o-site__header">
 			{% block header %}
 				{% include 'partials/header.twig' %}
 			{% endblock %}
 		</header>
 
-		<main id="main" class="site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
+		<main id="main" class="o-site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
 			{% block content %}
 				Sorry, no content
 			{% endblock %}

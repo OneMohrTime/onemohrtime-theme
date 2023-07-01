@@ -1,6 +1,6 @@
-/**
- * === HELPERS ===
- */
+/* ==========================================================================
+	Helpers
+========================================================================== */
 
 // parallax images animating in
 .parallax {
@@ -40,7 +40,7 @@
 }
 
 // fade in sections
-.-getFaded {
+.u-get-faded {
 	position: relative;
 
 	& > * {

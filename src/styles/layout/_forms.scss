@@ -1,5 +1,18 @@
-/**
- * === FORMS ===
- */
+/* ==========================================================================
+	Forms
+========================================================================== */
 
-// #{$all-text-inputs} {}
+#{$all-text-inputs} {
+	display: block;
+	width: auto;
+	height: auto;
+	border: 3px solid $black;
+	border-radius: $base-border-radius;
+	background-color: transparent;
+	color: $black;
+	padding: $small-spacing $base-spacing;
+}
+
+.wpcf7-form {
+	position: relative;
+}

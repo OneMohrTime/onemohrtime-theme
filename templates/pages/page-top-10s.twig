@@ -5,7 +5,7 @@
 
 <article class="post-{{ post.id }} -{{ post.type }}">
 
-	<header class="page__header">
+	<header class="o-page__header">
 		{% if post.subtitle %}
 			<p class="_meta">{{ post.subtitle }}</p>
 		{% elseif post.post_excerpt %}
@@ -14,11 +14,11 @@
 		{% include 'components/title.twig' %}
 	</header>
 
-	<section class="page__content -getFaded _wysiwyg">
+	<section class="o-page__content .u-get-faded _wysiwyg">
 		{{ post.content }}
 	</section>
 
-	<ul class="page__rankings -getFaded">
+	<ul class="o-page__rankings .u-get-faded">
 		{% for list in power_rankings %}
 
 			<li class="c-powerRanking _wysiwyg">

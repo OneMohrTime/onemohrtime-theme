@@ -5,20 +5,20 @@
 body.-instagram {
 	position: relative;
 
-	.site {
+	.o-site {
 		padding: 0;
 	}
 
-	.site__header,
-	.site__footer {
+	.o-site__header,
+	.o-site__footer {
 		display: none;
 	}
 
-	.site__main {
+	.o-site__main {
 		background-color: $yellow;
 	}
 
-	.page__content {
+	.o-page__content {
 		height: 100vh;
 		margin-top: 0;
 		margin-bottom: $gutter;

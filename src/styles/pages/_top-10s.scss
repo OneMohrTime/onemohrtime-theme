@@ -1,12 +1,12 @@
-/**
- * === Top 10s / Power Rankings ===
- */
+/* ==========================================================================
+	Top 10s / Power Rankings
+========================================================================== */
 
-.-top-10s .site {
+.-power-rankings .o-site {
 	display: block;
 }
 
-.page__rankings {
+.o-page__rankings {
 	@include block-width();
 	@include content-width();
 	margin-bottom: 0;

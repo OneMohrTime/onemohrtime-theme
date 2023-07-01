@@ -1,89 +1,82 @@
 @charset "utf-8";
 
 /*--------------------------------------------------------------
-	1.0 Base
+=== 1.0 Base ===
 --------------------------------------------------------------*/
 
-@import
-	// full vendor mixins + variables
-	"../../node_modules/normalize-scss/sass/normalize",
-	"../../node_modules/bourbon/core/bourbon",
-	"vendor/base/base",
-	// "../../node_modules/font-awesome/scss/font-awesome",
-	"../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox",
-	// "../../node_modules/swiper/swiper",
-	// needs variables
-	"../../node_modules/include-media/dist/include-media",
-	"vendor/modularscale",
-	"vendor/texture-mixin";
+// full vendor mixins + variables
+// @import "../../node_modules/normalize-scss/sass/normalize";
+@import "../../../../../../node_modules/bourbon/core/bourbon";
+@import "vendor/base/base";
+// @import "../../node_modules/font-awesome/scss/font-awesome";
+// @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
+// @import "../../node_modules/swiper/swiper";
+// needs variables
+@import "../../../../../../node_modules/include-media/dist/include-media";
+// @import "vendor/modularscale";
+// @import "vendor/texture-mixin";
 
-@import
-	"tools/family",
-	"tools/functions",
-	"tools/mixins";
+@import "tools/family";
+@import "tools/functions";
+@import "tools/mixins";
 
-@import
-	// site mixins + variables
-	"helpers/variables",
-	"helpers/mixins",
-	"helpers/helpers",
-	"helpers/ratio",
-	"helpers/animations";
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/helpers";
+@import "helpers/ratio";
+@import "helpers/animations";
 
-@import
-	"base/base",
-	"base/typography",
-	"base/links",
-	"base/media";
+@import "base/base";
+@import "base/typography";
+@import "base/links";
+@import "base/media";
 
 /*--------------------------------------------------------------
-	2.0 Layout
+=== 2.0 Layout ===
 --------------------------------------------------------------*/
 
-@import
-	"layout/builder",
-	"layout/footer",
-	"layout/forms",
-	"layout/header",
-	"layout/post",
-	"layout/project",
-	"layout/sidebar";
+@import "layout/builder";
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/header";
+@import "layout/post";
+@import "layout/project";
+@import "layout/sidebar";
 
 /*--------------------------------------------------------------
-	3.0 Components
+=== 3.0 Components ===
 --------------------------------------------------------------*/
 
-@import
-	"components/article",
-	"components/banner",
-	"components/blockquote",
-	"components/buttons",
-	"components/card",
-	"components/contact",
-	"components/css-design-award",
-	"components/embed",
-	"components/fancybox",
-	"components/gallery",
-	"components/instagram",
-	"components/nav",
-	"components/pagination",
-	"components/parallax",
-	"components/prism",
-	"components/repeater",
-	"components/text-image",
-	"components/wp-classes";
+@import"components/article";
+@import"components/banner";
+@import"components/blockquote";
+@import"components/buttons";
+@import"components/card";
+@import"components/contact";
+@import"components/css-design-award";
+@import"components/embed";
+@import"components/fancybox";
+@import"components/forms";
+@import"components/gallery";
+@import"components/instagram";
+@import"components/nav";
+@import"components/pagination";
+@import"components/parallax";
+@import"components/prism";
+@import"components/repeater";
+@import"components/text-image";
+@import"components/wp-classes";
 
 /*--------------------------------------------------------------
-	4.0 Pages
+=== 4.0 Pages ===
 --------------------------------------------------------------*/
 
-@import
-	"pages/about",
-	"pages/archives",
-	"pages/errors",
-	"pages/blog",
-	"pages/home",
-	"pages/instagram",
-	"pages/logos",
-	"pages/top-10s",
-	"pages/work";
+@import "pages/about";
+@import "pages/archives";
+@import "pages/errors";
+@import "pages/blog";
+@import "pages/home";
+@import "pages/instagram";
+@import "pages/logos";
+@import "pages/top-10s";
+@import "pages/work";

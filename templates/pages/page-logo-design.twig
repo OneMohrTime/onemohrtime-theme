@@ -5,7 +5,7 @@
 
 	<article class="post-{{ post.id }} -{{ post.type }}">
 
-		<header class="page__header">
+		<header class="o-page__header">
 			{% if post.post_excerpt %}
 				<p class="_meta">{{ post.post_excerpt }}</p>
 			{% endif %}
@@ -13,7 +13,7 @@
 		</header>
 
 		{% if image_grid %}
-		<div id="images" class="page__gallery _gallery">
+		<div id="images" class="o-page__gallery _gallery">
 
 			<div class="_sizer"></div>
 			<div class="_gutter"></div>
@@ -61,11 +61,11 @@
 		</div>
 		{% endif %}
 
-		<div class="page__content -getFaded _wysiwyg">
+		<div class="o-page__content .u-get-faded _wysiwyg">
 			{{ post.content }}
 		</div>
 
-		<footer class="page__footer">
+		<footer class="o-page__footer">
 		</footer>
 
 	</article>

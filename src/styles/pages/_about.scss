@@ -2,7 +2,7 @@
  * === ABOUT ===
  */
 
-.page.-about {
+.o-page.-about {
 	display: block;
 
 	.repeater {
@@ -19,7 +19,7 @@
 	}
 
 	@include media(">=screen1280") {
-		.page__repeater {
+		.o-page__repeater {
 			margin-bottom: $gutter * 3;
 		}
 	}

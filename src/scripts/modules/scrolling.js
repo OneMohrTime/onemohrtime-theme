@@ -23,7 +23,7 @@ export default function scrolling() {
    */
 
   // find all fading containers on page
-  const $getFaded = $('.-getFaded');
+  const $getFaded = $('.u-get-faded');
 
   if ($getFaded.length > 1) {
     // divide up child elements of fade container
@@ -44,8 +44,8 @@ export default function scrolling() {
           // scrub: 0.2,        // smooth scrubbing, takes 0.2 seconds to "catch up" to the scrollbar
           // markers: 'true',
           toggleActions: 'play none none none',
-          onEnter: () => $(this).removeClass('-getFaded').addClass('-gotFaded'),
-          onEnterBack: () => $(this).removeClass('-getFaded').addClass('-gotFaded'),
+          onEnter: () => $(this).removeClass('.u-get-faded').addClass('.u-get-faded'),
+          onEnterBack: () => $(this).removeClass('.u-get-faded').addClass('.u-get-faded'),
         }
       });
 

@@ -1,8 +1,8 @@
-<footer class="site__footer">
+<footer class="o-site__footer">
 
 	<div class="_column -projects">
 		<h3>Pages of Interest</h3>
-		<ul class="-getFaded">
+		<ul class=".u-get-faded">
 			{% for item in footer.items %}
 			<li>
 				<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
@@ -22,14 +22,14 @@
 
 	<div class="_column -about">
 		<h3>About Thy Website</h3>
-		<div class="-getFaded">
+		<div class=".u-get-faded">
 			{{ globals.site_about }}
 		</div>
 	</div>
 
 	<div class="_column -socialMedia">
 		<a class="top btn" href="#page" id="scroll_to_top">Back to Top</a>
-		<ul class="-icons -getFaded">
+		<ul class="-icons .u-get-faded">
 			<li>
 				<a target="_blank" rel="noopener" href="//dribbble.com/OneMohrTime" title="Dribbble" aria-label="Dribbble">
 					{% include '/assets/media/icons/logo-dribbble.svg' %}

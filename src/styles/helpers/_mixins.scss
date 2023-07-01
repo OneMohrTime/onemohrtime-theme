@@ -1,9 +1,9 @@
-/**
- * === MIXINS ===
- */
+/* ==========================================================================
+	Mixins
+========================================================================== */
 
 /**
- * — Structure —
+ * === STRUCTURE ===
  */
 
 @mixin block-width() {
@@ -40,7 +40,7 @@
 }
 
 /**
- * — Accessibility —
+ * === ACCESSIBILITY ===
  */
 
 @mixin visually-hidden($focus: null) {
@@ -113,7 +113,7 @@
 }
 
 /**
- * — Tools —
+ * === TOOLS ===
  */
 
 @mixin aspect-ratio($width, $height) {
@@ -148,7 +148,7 @@
 }
 
 /**
- * — Header Styles —
+ * === HEADER STYLES ===
  */
 
 @mixin white-shadow() {
@@ -258,7 +258,7 @@
 }
 
 /**
- * — Type Styles —
+ * === TYPE STYLES ===
  */
 
 @mixin type() {
@@ -449,7 +449,7 @@
 }
 
 /**
- * — Texture effects —
+ * === TEXTURE EFFECTS ===
  */
 
 @mixin texture-grid() {
@@ -481,7 +481,7 @@
 }
 
 /**
- * — Buttons and links —
+ * === BUTTONS AND LINKS ===
  */
 
 @mixin inline-block() {

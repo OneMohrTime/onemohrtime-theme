@@ -1,11 +1,10 @@
-/**
- * === LOGOS ===
- */
+/* ==========================================================================
+	Logos
+========================================================================== */
 
 .-logo-design {
 
-	.page__gallery {
-		// .-logos .page__gallery
+	.o-page__gallery {
 		@include block-width();
 		@include content-width();
 		width: auto;

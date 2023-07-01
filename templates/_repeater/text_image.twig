@@ -20,8 +20,8 @@
 {% set reverse = section.reverse ?? false %}
 {% set width   = section.image.width ?? null %}
 
-<div class="builder__section -textAndImage{% if reverse %} -reversed{% endif %} -getFaded">
-	<div class="_col -content _text -wysiwyg -getFaded">
+<div class="builder__section -textAndImage{% if reverse %} -reversed{% endif %} .u-get-faded">
+	<div class="_col -content _text -wysiwyg .u-get-faded">
 		{{ text }}
 	</div>
 	<figure class="_col -image">

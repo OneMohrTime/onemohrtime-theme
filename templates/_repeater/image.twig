@@ -20,7 +20,7 @@
 {% set width   = section.image.width ?? null %}
 {% set imgLink = section.link_to_file ?? null %}
 
-<figure class="builder__section -image -{{ section.layout }} -getFaded">
+<figure class="builder__section -image -{{ section.layout }} .u-get-faded">
 	{% if imgLink and section.layout != 'fixed' %}<a href="{{ image.src('large') }}" data-fancybox="{{ section.image.uid }}">{% endif %}
 
 	<img src="{{ image.src('thumbnail') }}"
