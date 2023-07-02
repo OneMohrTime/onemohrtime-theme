@@ -12,11 +12,12 @@
 $context     = Timber::context();
 $timber_post = new Timber\Post();
 
-$context['post']     = $timber_post;
-$context['banner']   = get_field('project_header');
-$context['details']  = get_field('project_deets');
-$context['sections'] = get_field('project_specs');
-$context['builder']  = get_field('sections');
+$context['post']         = $timber_post;
+$context['banner']       = get_field('project_header');
+$context['details']      = get_field('project_deets');
+$context['sections']     = get_field('project_specs');
+$context['builder']      = get_field('sections');
+$context['relatedPosts'] = get_field('related_posts');
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'pages/single-password.twig', $context );
