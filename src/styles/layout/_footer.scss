@@ -21,8 +21,8 @@
 	}
 
 	@include media(">=screen768") {
-		padding-left: $gutter * 2;
-		padding-right: $gutter * 2;
+		padding-left: $gutter-lg;
+		padding-right: $gutter-lg;
 	}
 
 	@include media(">=screen960") {
@@ -31,7 +31,7 @@
 	}
 
 	@include media(">=screen1024") {
-		padding: $gutter * 2 $gutter * 3;
+		padding: $gutter-lg $gutter-xl;
 	}
 
 	@include media(">=screen1440") {

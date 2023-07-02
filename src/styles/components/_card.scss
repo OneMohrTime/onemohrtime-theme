@@ -1,24 +1,24 @@
-/**
-* === CARD ===
-*/
+/* ==========================================================================
+	Card
+========================================================================== */
 
 $smImage: 100px;
 $mdImage: 150px;
 $lgImage: 200px;
 
-.card {
+.c-card {
 	position: relative;
 
 	//
 	// Wrapping link
 	//
-	.card__link {
+	.c-card__link {
 		display: block;
 
 		@include hocus {
-			// .card__link:hover
-			// .card__link:focus
-			.card__body {
+			// .c-card__link:hover
+			// .c-card__link:focus
+			.c-card__body {
 				transform: translateY(-#{$gutter-sm});
 				background-color: $yellow;
 				color: $black;
@@ -37,7 +37,7 @@ $lgImage: 200px;
 	//
 	// Image area
 	//
-	.card__image {
+	.c-card__image {
 		position: absolute;
 		top: calc(50% - #{$smImage / 2});
 		width: $smImage;
@@ -91,7 +91,7 @@ $lgImage: 200px;
 	//
 	// Text area
 	//
-	.card__body {
+	.c-card__body {
 		position: relative;
 		width: calc(100% - #{$smImage - $gutter-sm});
 		margin-left: #{$smImage - $gutter-sm};
@@ -122,7 +122,7 @@ $lgImage: 200px;
 		._headline,
 		._subheadline,
 		._text,
-		._button {
+		.c-button {
 			@include base-font-size();
 
 			@include media(">=screen1170") {
@@ -173,7 +173,7 @@ $lgImage: 200px;
 	.-horizontalDeck & {
 
 		// space between siblings
-		& + .card {
+		& + .c-card {
 			margin-top: $gutter;
 		}
 
@@ -204,7 +204,7 @@ $lgImage: 200px;
 	.-verticalDeck & {
 
 		// space between siblings
-		& + .card {
+		& + .c-card {
 			margin-top: $gutter;
 		}
 
@@ -307,7 +307,7 @@ $lgImage: 200px;
 
 	// no greater than 1170px, no less than 768px
 	@include media("<screen1170", ">=screen768") {
-		.card {
+		.c-card {
 			// hide the last card between these sizes
 			@include after-first(3) {
 				display: none;

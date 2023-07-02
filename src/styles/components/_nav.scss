@@ -9,7 +9,7 @@
 .c-navigation {
 	width: 100%;
 	height: auto;
-	margin-bottom: $gutter * 2;
+	margin-bottom: $gutter-lg;
 	color: $white;
 
 	@include media(">=screen600") {
@@ -51,17 +51,17 @@
 			align-items: center;
 			height: 100%;
 			padding: 0;
-			padding-left: calc(50px + #{$gutter} + #{$gutter / 2});
+			padding-left: calc(50px + #{$gutter} + #{$gutter-sm});
 			opacity: 1;
 			visibility: visible;
 		}
 
 		@include media(">=screen768") {
-			padding-left: calc(50px + #{$gutter * 2} + #{$gutter / 2});
+			padding-left: calc(50px + #{$gutter-lg} + #{$gutter-sm});
 		}
 
 		@include media(">=screen1024") {
-			padding-left: calc(50px + #{$gutter * 2});
+			padding-left: calc(50px + #{$gutter-lg});
 		}
 
 		&-item {
@@ -118,12 +118,12 @@
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	margin: $gutter / 2 $gutter;
+	margin: $gutter-sm $gutter;
 	padding: $small-spacing / 2 0;
 	transition: background-color $speed-slow linear,
 				color $speed-slow linear,
 				box-shadow $speed-slow linear;
-	font-family: $font__header;
+	font-family: $font-header;
 	font-size: 1.25em !important;
 	font-weight: 700;
 	color: $white;
@@ -162,11 +162,11 @@
 	}
 
 	@include media(">=screen768") {
-		margin-left: $gutter * 2;
+		margin-left: $gutter-lg;
 	}
 
 	@include media(">=screen1024") {
-		margin-left: $gutter * 3;
+		margin-left: $gutter-xl;
 		transform: translateX(0);
 		transition: transform $speed;
 

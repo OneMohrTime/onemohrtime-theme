@@ -13,7 +13,7 @@
 		position: relative;
 		padding-left: calc(#{$gutter} + 10px);
 		@include media(">=screen1440") {
-			padding-left: $gutter * 2;
+			padding-left: $gutter-lg;
 		}
 
 		&::before {
@@ -31,10 +31,6 @@
 		}
 
 		& > p {
-			// color: shade($yellow, 67%);
-			// display: inline;
-			// background: linear-gradient(to bottom, fade-out($white, 1) 0%, fade-out($white, 1) 49%, $yellow 50%, $yellow 100%);
-			@include responsive-type();
 
 			@include media(">=screen960") {
 				padding-left: 10px;
@@ -55,13 +51,13 @@
 		margin: $gutter;
 
 		@include media(">=screen768") {
-			padding: $gutter * 2;
-			margin: $gutter * 2;
+			padding: $gutter-lg;
+			margin: $gutter-lg;
 		}
 
 		@include media(">=screen1024") {
-			padding: $gutter * 3;
-			margin: $gutter * 3;
+			padding: $gutter-xl;
+			margin: $gutter-xl;
 		}
 
 		@include media(">=screen1440") {
@@ -73,10 +69,6 @@
 			position: relative;
 			padding-top: 1.5em;
 			margin-bottom: $small-spacing;
-		}
-
-		& > p {
-			@include responsive-type();
 		}
 
 		// Background image is actually a sibling

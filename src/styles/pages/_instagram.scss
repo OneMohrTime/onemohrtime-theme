@@ -2,7 +2,7 @@
  * === INSTAGRAM ===
  */
 
-body.-instagram {
+body.is-instagram {
 	position: relative;
 
 	.o-site {
@@ -43,7 +43,7 @@ body.-instagram {
 				@include btn-color($black, $white);
 				border-radius: $base-border-radius;
 				@include body-copy();
-				font-family: $font__header;
+				font-family: $font-header;
 				font-weight: 700;
 				text-align: center;
 				text-transform: uppercase;

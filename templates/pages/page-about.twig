@@ -33,7 +33,7 @@
 				<h3 id="work-history" class="_subheadline -underline">Professional History</h3>
 
 				{% for work in workHistory %}
-					<details class="repeater{{ work.end_date ? '' : ' -current' }}"{% if work.end_date is empty %} data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
+					<details class="repeater{{ work.end_date ? '' : ' -current' }}"{% if work.end_date is empty %} data-start="{{ work.start_date ?? '' }}" data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
 						<summary class="repeater__summary">
 							<h4 id="{{ work.company|sanitize }}" class="repeater__title">{{ work.company }}</h4>
 						</summary>

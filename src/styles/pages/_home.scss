@@ -32,11 +32,11 @@
 
 	&--content {
 		// .homepage__about--content
-		padding: #{$gutter * 3} $gutter;
+		padding: #{$gutter-xl} $gutter;
 
 		@include media(">=screen768") {
-			padding-left: $gutter * 2;
-			padding-right: $gutter * 2;
+			padding-left: $gutter-lg;
+			padding-right: $gutter-lg;
 		}
 
 		@include media(">=screen960") {
@@ -45,8 +45,8 @@
 		}
 
 		@include media(">=screen1024") {
-			padding-left: $gutter * 3;
-			padding-right: $gutter * 3;
+			padding-left: $gutter-xl;
+			padding-right: $gutter-xl;
 		}
 
 		h1, h2, h3, h4, h5, h6 {
@@ -96,8 +96,8 @@
 			padding-right: $gutter;
 
 			@include media(">=screen768") {
-				padding-left: $gutter * 2;
-				padding-right: $gutter * 2;
+				padding-left: $gutter-lg;
+				padding-right: $gutter-lg;
 			}
 
 			@include media(">=screen1024") {
@@ -107,8 +107,8 @@
 				column-gap: $gutter;
 				align-items: center;
 				align-content: center;
-				padding-left: $gutter * 3;
-				padding-right: $gutter * 3;
+				padding-left: $gutter-xl;
+				padding-right: $gutter-xl;
 
 				._headline {
 					grid-column: 1 / 2;
@@ -119,7 +119,7 @@
 					margin-bottom: 0;
 				}
 
-				._button {
+				.c-button {
 					grid-column: 2 / 3;
 					grid-row: 1 / 3;
 					margin-left: auto;

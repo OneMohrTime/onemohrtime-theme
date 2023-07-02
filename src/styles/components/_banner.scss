@@ -9,7 +9,7 @@
 	*/
 	&.-typographic {
 		@include block-width();
-		margin-bottom: $gutter * 3;
+		margin-bottom: $gutter-xl;
 		// reverse order on mobile
 		@include media("<screen600") {
 			display: flex;
@@ -43,8 +43,8 @@
 		max-width: $copy-width;
 
 		@include media('>=screen600') {
-			margin-top: $gutter * 3;
-			margin-bottom: $gutter * 3;
+			margin-top: $gutter-xl;
+			margin-bottom: $gutter-xl;
 		}
 
 		@include media('>=screen1024') {

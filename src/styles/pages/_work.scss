@@ -21,13 +21,13 @@
 			height: calc(100vh - 72px);
 			height: 100vh;
 			margin-bottom: 0;
-			padding-left: $gutter * 2;
-			padding-right: $gutter * 2;
+			padding-left: $gutter-lg;
+			padding-right: $gutter-lg;
 		}
 
 		@include media(">=screen1024") {
-			padding-left: $gutter * 3;
-			padding-right: $gutter * 3;
+			padding-left: $gutter-xl;
+			padding-right: $gutter-xl;
 		}
 
 		@include media(">=screen1440") {
@@ -56,7 +56,7 @@
 			align-items: center;
 			height: 100%;
 			max-width: 1115px;
-			padding: 0 #{$gutter * 2} 0 $gutter;
+			padding: 0 #{$gutter-lg} 0 $gutter;
 			z-index: 2;
 
 			@include media(">=screen768") {
@@ -92,13 +92,13 @@
 		z-index: 30;
 
 		@include media(">=screen768") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
+			margin-left: $gutter-lg;
+			margin-right: $gutter-lg;
 		}
 
 		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
+			margin-left: $gutter-xl;
+			margin-right: $gutter-xl;
 		}
 
 		@include media(">=screen1440") {
@@ -261,15 +261,15 @@
 		}
 
 		@include media(">=screen600") {
-			margin-left: $gutter * 2;
-			margin-right: $gutter * 2;
+			margin-left: $gutter-lg;
+			margin-right: $gutter-lg;
 		}
 
 		// @include media(">=screen768") {}
 
 		@include media(">=screen1024") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
+			margin-left: $gutter-xl;
+			margin-right: $gutter-xl;
 		}
 
 		@include media(">=screen1440") {
@@ -280,29 +280,29 @@
 
 	&__content {
 		// .gallery__content
-		grid-column: span 4;
-		margin: 0 $gutter $base-spacing;
+		margin: 0 $gutter;
+		padding-bottom: $base-spacing;
 
 		@include media(">=screen840") {
 			max-width: $copy-width;
-			margin-bottom: $gutter * 2;
-			margin-left: $gutter * 2;
+			margin-left: $gutter-lg;
 			margin-right: auto;
+			padding-bottom: $gutter-lg;
 		}
 
 		@include media(">=screen1170") {
-			margin-left: $gutter * 3;
-			margin-bottom: $gutter * 3;
+			margin-left: $gutter-xl;
+			padding-bottom: $gutter-xl;
 		}
 
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;
-			margin-bottom: $gutter * 4;
+			padding-bottom: $gutter * 4;
 		}
 
 		@include media(">=screen1920") {
 			margin-left: $gutter * 5;
-			margin-bottom: $gutter * 5;
+			padding-bottom: $gutter * 5;
 		}
 	}
 }

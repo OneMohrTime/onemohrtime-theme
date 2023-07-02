@@ -39,23 +39,23 @@
 	}
 }
 
-// fade in sections
-.u-get-faded {
-	position: relative;
+// // fade in sections
+// .u-get-faded {
+// 	position: relative;
 
-	& > * {
-		// get all children
-		opacity: 0;
-		transform: translate3d(0, 2em, 0);
-		// transition: opacity $speed, transform $speed-slow;
-		transition-timing-function: $ease-out-back;
+// 	& > * {
+// 		// get all children
+// 		opacity: 0;
+// 		transform: translate3d(0, 2em, 0);
+// 		// transition: opacity $speed, transform $speed-slow;
+// 		transition-timing-function: $ease-out-back;
 
-		html.no-js & {
-			opacity: 1 !important;
-			transform: translate3d(0,0,0) !important;
-		}
-	}
-}
+// 		html.no-js & {
+// 			opacity: 1 !important;
+// 			transform: translate3d(0,0,0) !important;
+// 		}
+// 	}
+// }
 
 // animate titles in with shifting blocks
 .title--animated {

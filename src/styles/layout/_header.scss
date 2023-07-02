@@ -70,18 +70,18 @@
 
 	@include media(">=screen768") {
 		right: 0;
-		margin-right: $gutter * 2;
+		margin-right: $gutter-lg;
 	}
 
 	@include media(">=screen1024") {
-		margin-right: $gutter * 3;
+		margin-right: $gutter-xl;
 		transform: translateX(0);
 		transition: transform $speed;
 
 		.-slideUp &,
 		.-slideDown &,
 		.-activeNavigationAreaUpTopButNotWhenScrolling & {
-			transform: translateX( calc(100% + #{$gutter} + #{$gutter / 2}) );
+			transform: translateX( calc(100% + #{$gutter} + #{$gutter-sm}) );
 		}
 	}
 

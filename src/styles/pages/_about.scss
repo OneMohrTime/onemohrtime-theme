@@ -2,7 +2,7 @@
  * === ABOUT ===
  */
 
-.o-page.-about {
+.o-page.is-about {
 	display: block;
 
 	.repeater {
@@ -11,16 +11,23 @@
 		& + .repeater {
 			border-top: 4px $white--dark solid;
 		}
+
+		&[open] {
+			.repeater__title {
+				margin-bottom: 0.5em;
+			}
+		}
 	}
 
 	.repeater__title {
-		padding-right: $gutter-lg;
+		margin-bottom: 0;
+		padding-right: 115px;
 		text-transform: none;
 	}
 
 	@include media(">=screen1280") {
 		.o-page__repeater {
-			margin-bottom: $gutter * 3;
+			margin-bottom: $gutter-xl;
 		}
 	}
 }
@@ -33,7 +40,7 @@
 
 	// space top on mobile
 	& > div {
-		margin-top: $gutter / 2;
+		margin-top: $gutter-sm;
 		&:not(:first-child) {
 			margin-top: 0;
 		}
@@ -46,7 +53,7 @@
 
 		& > div {
 			margin-top: 0;
-			margin-right: $gutter / 2;
+			margin-right: $gutter-sm;
 		}
 	}
 }

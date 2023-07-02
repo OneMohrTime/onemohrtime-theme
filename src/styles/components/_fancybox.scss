@@ -115,7 +115,7 @@
 	margin-bottom: $gutter-sm;
 	text-align: left;
 	line-height: $base-line-height;
-	border-radius: 3px;
+	border-radius: $base-border-radius;
 	background: $white;
 	color: $black--light;
 	@include box-shadow();

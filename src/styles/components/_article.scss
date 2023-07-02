@@ -37,11 +37,11 @@
 	}
 
 	@include media(">=screen1024") {
-		margin-bottom: $gutter * 2;
+		margin-bottom: $gutter-lg;
 	}
 
 	@include media(">=screen1440") {
-		margin-bottom: $gutter * 3;
+		margin-bottom: $gutter-xl;
 	}
 
 	&__image {
@@ -141,7 +141,7 @@
 		// .article__title
 		position: relative;
 		@include paragraph();
-		margin-top: $gutter / 2;
+		margin-top: $gutter-sm;
 
 		@include media(">=screen840") {
 			margin-top: 0;

@@ -31,10 +31,10 @@
 @mixin btn-style {
 	@include btn-color();
 	border-radius: $base-border-radius;
-	@include body-copy();
-	font-family: $font__header;
+	font-family: $font-header;
+	font-size: 1.042vw;
 	font-weight: 700;
-	letter-spacing: 1px;
+	letter-spacing: 1.25px;
 	text-align: center;
 	text-transform: uppercase;
 	padding: $small-spacing $base-spacing;
@@ -85,7 +85,7 @@
 }
 
 .btn,
-._button {
+.c-button {
 	@include btn-style();
 	//	@include mask-texture();
 
@@ -95,7 +95,7 @@
 	}
 
 	&.gallery__banner--contact,
-	&.project__banner--contact,
+	&.c-project__banner--contact,
 	&.posts__banner--contact {
 		display: flex;
 		align-items: center;

@@ -13,7 +13,7 @@
 				sizes="(max-width: 840px) 100vw, 50vw" />
 
 		{% else %}
-			<img src="{{ theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image{% if postType == 'design' %} -parallax{% endif %}" />
+			<img src="{{ site.theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image{% if postType == 'design' %} -parallax{% endif %}" />
 
 		{% endif %}
 	</figure>
@@ -38,6 +38,6 @@
 			<p>{{ post.post_content|striptags|raw|truncate(30) }}[&hellip;]</p>
 		{% endif %}
 
-		<a href="{{ post.link }}" class="article__link _button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a>
+		<a href="{{ post.link }}" class="article__link c-button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a>
 	</div>
 </article>

@@ -123,7 +123,7 @@
 
 	.-sizer,
 	.image {
-		width: calc(50% - #{$gutter / 2});
+		width: calc(50% - #{$gutter-sm});
 		@include media(">=screen600") {
 			width: calc(50% - #{$gutter});
 		}
@@ -139,7 +139,7 @@
 	}
 
 	.-gutter {
-		width: #{$gutter / 2};
+		width: #{$gutter-sm};
 
 		@include media(">=screen600") {
 			width: $gutter;

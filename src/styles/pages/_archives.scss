@@ -17,7 +17,7 @@ body.archive {
 	&__article {
 		// .archives__article
 		width: 100%;
-		margin: $base-spacing 0 #{$gutter * 2};
+		margin: $base-spacing 0 #{$gutter-lg};
 
 		@include media(">=screen600") {
 			padding-right: 20%;
