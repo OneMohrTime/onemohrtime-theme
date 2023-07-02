@@ -54,12 +54,19 @@ $github-color:    #4078c0;
  * === TYPOGRAPHY ===
  */
 
-$font__main     : "Barlow", $font-stack-system;
-$font__secondary: "Abril Fatface", $font-stack-garamond;
-$font__header   : "Barlow Semi Condensed", $font-stack-helvetica;
-$font__code     : "Inconsolata", $font-stack-monaco;
+$font-main     : "Barlow", $font-stack-system;
+$font-secondary: "Barlow Condensed", $font-stack-helvetica;
+$font-header   : $font-secondary;
+$font-code     : "Inconsolata", $font-stack-monaco;
 
 $copy-width: 840px;
+
+$font-h1: 7.083vw;
+$font-h2: 4.445vw;
+$font-h3: 3.542vw;
+$font-h4: 2.5vw;
+$font-h5: 1.736vw;
+$font-h6: 1.458vw;
 
 /**
  * === ANIMATIONS ===
@@ -100,9 +107,4 @@ $breakpoints : (
 	'screen1600': 1600px,
 	'screen1920': 1920px,
 	'screen2560': 2560px
-);
-
-$modularscale: (
-	base : 1em,
-	ratio: $golden
 );

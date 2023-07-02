@@ -17,9 +17,8 @@
 		position: relative;
 		display: block;
 		margin: 0 0 .5em;
-		font-family: $font__header;
-		font-size: modular-scale((6 - $i), 1em, $major-third);
-		font-weight: 700;
+		font-family: $font-header;
+		font-weight: 800;
 		text-transform: uppercase;
 		line-height: $heading-line-height;
 		color: inherit;
@@ -31,23 +30,35 @@
 	}
 }
 
+.is-h1,
 h1 {
-	font-size: ms(3);
+	font-size: 102px;
+	font-size: 7.083vw;
 }
+.is-h2,
 h2 {
-	font-size: ms(2);
+	font-size: 64px;
+	font-size: 4.445vw;
 }
+.is-h3,
 h3 {
-	font-size: ms(1);
+	font-size: 51px;
+	font-size: 3.542vw;
 }
+.is-h4,
 h4 {
-	font-size: ms(0);
+	font-size: 36px;
+	font-size: 2.5vw;
 }
+.is-h5,
 h5 {
-	font-size: ms(-1);
+	font-size: 25px;
+	font-size: 1.736vw;
 }
+.is-h6,
 h6 {
-	font-size: ms(-2);
+	font-size: 21px;
+	font-size: 1.458vw;
 }
 
 ._wysiwyg,
@@ -79,12 +90,11 @@ p {
 }
 
 b, strong {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 sub, sup {
 	font-size: .75em;
-	font-size: ms(-1);
 	line-height: 0;
 	position: relative;
 	vertical-align: baseline;
@@ -93,7 +103,7 @@ sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
 small {
-	font-size: ms(-1);
+	font-size: .75em;
 }
 
 /**
@@ -139,10 +149,6 @@ ul, ol, dl {
  * === UTILITY CLASSES ===
  */
 
-.-serif {
-	font-family: $font__secondary;
-}
-
 ._title {
 	@include title();
 	&.-underline {
@@ -175,7 +181,7 @@ ul, ol, dl {
 
 i, cite, em, var, address, dfn {
 	// cancel out italics
-	font-family: $font__header;
+	font-family: $font-header;
 	font-style: normal;
 }
 
@@ -199,7 +205,6 @@ abbr {
 			content: attr(title);
 			display: inline-block;
 			padding: 2px 4px;
-			@include responsive-type();
 			text-decoration: none;
 			line-height: inherit;
 			border-bottom: 1px $black dotted;
