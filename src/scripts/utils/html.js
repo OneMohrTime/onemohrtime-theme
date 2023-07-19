@@ -1,162 +1,140 @@
+/**
+ * Escape HTML string
+ * @param {string}  str   - string to escape
+ * @return {string} escaped string
+ */
 
-// *****************************************************************************
-// =============================================================================
-// Utilities: Html
-// =============================================================================
-// A collection of html related functions
-// *****************************************************************************
+const escapeHtml = str =>
+    str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[tag]))
 
-// Escape html
-// =============================================================================
-// @param  {String} str - html to escape
-// @return {String}     - escaped html
-export function escapeHtml(str) {
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-}
 
-// Unescape html
-// =============================================================================
-// @param  {String} str - html to unescape
-// @return {String}     - unescaped html
-export function unescapeHtml(str) {
-    return str
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&amp;/g, '&');
-}
+/**
+ * Unescape HTML string
+ * @param {string}  str   - string to unescape
+ * @return {string} unescaped string
+ */
 
-// Get node data
-// =============================================================================
-// @param  {DOMElement} node - target node
-// @return {Array}           - node data
-export function getNodeData(node) {
-    // Get all attriutes from target node
-    const attributes = node.attributes;
+const unescapeHtml = str =>
+    str.replace('&amp;', '&')
+        .replace('&lt;', '<')
+        .replace('&gt;', '>')
+        .replace('&#39;', "'")
+        .replace('&quot;', '"')
 
-    // Search for attributes starting with 'data-'
-    const pattern = /^data\-(.+)$/;
 
-    // Establish output data object
-    const data = {};
+/**
+ * Get element data attributes
+ * @param {HTMLElement}  node   - node element
+ * @return {array}       node data
+ */
 
-    // Loop all attributes and build out the return array
+const getNodeData = node => {
+
+    // All attributes
+    const attributes = node.attributes
+
+    // Regex Pattern
+    const pattern = /^data\-(.+)$/
+
+    // Output
+    const data = {}
+
     for (let i in attributes) {
-        // If not found, continue
         if (!attributes[i]) {
-            continue;
+            continue
         }
 
         // Attributes name (ex: data-module)
-        let name = attributes[i].name;
+        let name = attributes[i].name
 
-        // If no name, continue
+        // This happens.
         if (!name) {
-            continue;
+            continue
         }
 
-        // Ensure attribute follows our 'data-' pattern
-        let match = name.match(pattern);
-
-        // If no match, continue
+        let match = name.match(pattern)
         if (!match) {
-            continue;
+            continue
         }
 
-        // If this throws an error, you have some serious problems in your HTML.
-        data[match[1]] = getData(node.getAttribute(name));
+        // If this throws an error, you have some
+        // serious problems in your HTML.
+        data[match[1]] = getData(node.getAttribute(name))
     }
 
-    // Return final data array
     return data;
+
 }
 
-// Establish rbrace
-// =============================================================================
-const rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/;
 
-// Get data
-// =============================================================================
-// @param  {String} data - value to convert
-// @return {Mixed}       - returns value in its natural data type
-export function getData(data) {
-    // Return true
+
+
+/**
+ * Parse value to data type.
+ *
+ * @link   https://github.com/jquery/jquery/blob/3.1.1/src/data.js
+ * @param  {string} data - value to convert
+ * @return {mixed}  value in its natural data type
+ */
+
+const rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/
+const getData = data => {
     if (data === 'true') {
-        return true;
+        return true
     }
 
-    // Return false
     if (data === 'false') {
-        return false;
+        return false
     }
 
-    // Return null
     if (data === 'null') {
-        return null;
+        return null
     }
 
     // Only convert to a number if it doesn't change the string
     if (data === +data+'') {
-        return +data;
+        return +data
     }
 
-    // Return array
     if (rbrace.test(data)) {
-        return JSON.parse(data);
+        return JSON.parse(data)
     }
 
-    // Return in original state
-    return data;
+    return data
 }
 
-// Get parents
-// =============================================================================
-// Returns an array containing all the parent nodes of the given node
-// @param  {Object} node - child node
-// @return {Array}       - parent nodes
-export function getParents(elem) {
+
+/**
+ * Returns an array containing all the parent nodes of the given node
+ * @param  {HTMLElement}    $el     - DOM Element
+ * @return {array}          parent nodes
+ */
+
+const getParents = $el => {
+
     // Set up a parent array
-    let parents = [];
+    let parents = []
 
     // Push each parent element to the array
-    for ( ; elem && elem !== document; elem = elem.parentNode ) {
-        parents.push(elem);
+    for (; $el && $el !== document; $el = $el.parentNode) {
+        parents.push($el)
     }
 
     // Return our parent array
-    return parents;
+    return parents
 }
 
-// Query closest parent
-// =============================================================================
-// @param  {Object} elem     - child node
-// @param  {String} selector - element selector
-// @return {Array}           - closest parent
-export function queryClosestParent(elem, selector) {
 
-    // Element.matches() polyfill
-    if (!Element.prototype.matches) {
-        Element.prototype.matches =
-            Element.prototype.matchesSelector ||
-            Element.prototype.mozMatchesSelector ||
-            Element.prototype.msMatchesSelector ||
-            Element.prototype.oMatchesSelector ||
-            Element.prototype.webkitMatchesSelector ||
-            function(s) {
-                var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-                    i = matches.length;
-                while (--i >= 0 && matches.item(i) !== this) {}
-                return i > -1;
-            };
-    }
-
-    // Get the closest matching element
-    for (; elem && elem !== document; elem = elem.parentNode) {
-        if (elem.matches(selector)) return elem;
-    }
-
-    // If no closest parent was found, return null
-    return null;
+export {
+    escapeHtml,
+    unescapeHtml,
+    getNodeData,
+    getData,
+    getParents,
 }

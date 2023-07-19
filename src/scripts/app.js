@@ -1,54 +1,75 @@
 // =============================================================================
 // Main App
 // =============================================================================
-// This file is the centerpiece of the javascript front end and kicks it all of
-// on load.
 
 // Import dependencies
 // =============================================================================
 import modular from 'modujs';
 import * as modules from './modules';
 import globals from './globals';
-import { html } from './utils/environment';
+import { debounce } from './utils/tickers'
+import { $html } from './utils/dom';
+import { ENV, FONT, CUSTOM_EVENT, CSS_CLASS } from './config'
+import { isFontLoadingAPIAvailable, loadFonts } from './utils/fonts';
 
 // Run a new instance of "Modules"
 // =============================================================================
-// Modular watches for modules coming and going within the frontend and
-// deploys the process of init or destroy as they're moving in and out
-
 const app = new modular({
-  // Set to the modules imported above
-  modules: modules
+    modules: modules,
 });
+
+window.onload = (event) => {
+    const $style = document.getElementById('main-css');
+
+    if ($style) {
+        if ($style.isLoaded) {
+            init();
+        } else {
+            $style.addEventListener('load', (event) => {
+                init();
+            });
+        }
+    } else {
+        console.warn('The "main-css" stylesheet not found');
+    }
+};
 
 // Init our app
 // =========================================================================
-// Take the above 'Modular' instance, place it into our apps init and
-// start up our app!
-
-window.addEventListener('load', (event) => {
-    // const $style = document.getElementById("stylesheet");
-
-    // if ($style.isLoaded) {
-        init();
-    // } else {
-    //     $style.addEventListener('load', (event) => {
-    //         init();
-    //     });
-    // }
-});
-
 function init() {
-  // Delay site init
-  setTimeout(() => {
     globals();
+
     app.init(app);
 
-    html.classList.add('is-loaded');
-    html.classList.add('is-ready');
-    html.classList.remove('is-loading');
-    html.classList.remove('is-first-load');
-    html.classList.remove('no-js');
-    html.classList.add('has-js');
-  }, 300);
+    $html.classList.add(CSS_CLASS.LOADED);
+    $html.classList.add(CSS_CLASS.READY);
+    $html.classList.remove(CSS_CLASS.LOADING);
+
+    // Bind window resize event with default vars
+    const resizeEndEvent = new CustomEvent(CUSTOM_EVENT.RESIZE_END)
+    window.addEventListener('resize', () => {
+        $html.style.setProperty('--vw', `${document.documentElement.clientWidth * 0.01}px`)
+        debounce(() => {
+            window.dispatchEvent(resizeEndEvent)
+        }, 200, false)
+    })
+
+    /**
+     * Eagerly load the following fonts.
+     */
+    if (isFontLoadingAPIAvailable) {
+        loadFonts(FONT.EAGER, ENV.IS_DEV).then((eagerFonts) => {
+            $html.classList.add(CSS_CLASS.FONTS_LOADED);
+
+            if (ENV.IS_DEV) {
+                console.group('Eager fonts loaded!', eagerFonts.length, '/', document.fonts.size);
+                console.group('State of eager fonts:')
+                eagerFonts.forEach((font) => console.log(font.family, font.style, font.weight, font.status/*, font*/))
+                console.groupEnd()
+                console.group('State of all fonts:')
+                document.fonts.forEach((font) => console.log(font.family, font.style, font.weight, font.status/*, font*/))
+                console.groupEnd()
+            }
+        });
+    }
 }

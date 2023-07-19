@@ -1,73 +1,64 @@
-
-// *****************************************************************************
 // =============================================================================
 // Modules: Scroll
 // =============================================================================
 // Establishes custom scrolling functionality allowing for anything from smooth
 // scrolling to parallax elements right out of the box with use of 'Mighty Scroll'
-// *****************************************************************************
 
 // Import dependencies
 // =============================================================================
-import { module as moduModule } from 'modujs';
+import { module } from 'modujs';
+import { lazyLoadImage } from '../utils/image';
 import LocomotiveScroll from 'locomotive-scroll';
-import { html } from '../utils/environment';
 
-// Set default function and extend it ontop of our imported 'MightyModule'
+// Set default function and extend it ontop of our imported 'module'
 // =============================================================================
-export default class extends moduModule {
-    // Set initial values
-    // =========================================================================
-    constructor(m) {
-        super(m);
-    }
+export default class extends module {
+  constructor(m) {
+    super(m);
+  }
 
-    // Init module
-    // =========================================================================
-    init() {
-        setTimeout(() => {
-            this.scroll = new LocomotiveScroll({
-                el: this.el,
-                class: 'is-inview',
-                scrollbarClass: 'c-scrollbar',
-                scrollingClass: 'is-scrolling',
-                draggingClass: 'has-scroll-dragging',
-                smoothClass: 'has-scroll-smooth',
-                initClass: 'has-scroll-init',
-                smooth: false,
-                multiplier: 1.5
-            });
+  // Init module
+  // ===========================================================================
+  init() {
+    this.scroll = new LocomotiveScroll({
+      el: this.el,
+      smooth: true
+    });
 
-            this.scroll.on('call', (func,way,obj,id) => {
-                // Using modularJS
-                this.call(func[0],{way,obj},func[1],func[2]);
-            });
+    this.scroll.on('call', (func, way, obj, id) => {
+      // Using modularJS
+      this.call(func[0], { way, obj }, func[1], func[2]);
+    });
 
-            this.scroll.on('scroll', (args) => {
+    this.scroll.on('scroll', (args) => {
+      // console.log(args.scroll);
+    })
+  }
 
-                // Tell browser whether or not we're at the top of the viewport
-                if (args.scroll.y > 20) {
-                    // Set that we're not at the top by adding a class that we can
-                    // use to change the views
-                    html.classList.add('is-not-top');
-                } else {
-                    // Set that we're not at the top, emove the class and let views
-                    // return to their default state
-                    html.classList.remove('is-not-top');
-                }
-            });
+  /**
+   * Lazy load the related image.
+   *
+   * @see ../utils/image.js
+   *
+   * It is recommended to wrap your `<img>` into an element with the
+   * CSS class name `.c-lazy`. The CSS class name modifier `.-lazy-loaded`
+   * will be applied on both the image and the parent wrapper.
+   *
+   * ```html
+   * <div class="c-lazy o-ratio u-4:3">
+   *     <img data-scroll data-scroll-call="lazyLoad, Scroll, main" data-src="http://picsum.photos/640/480?v=1" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+   * </div>
+   * ```
+   *
+   * @param {LocomotiveScroll} args - The Locomotive Scroll instance.
+   */
+  lazyLoad(args) {
+    lazyLoadImage(args.obj.el, null, () => {
+      //callback
+    })
+  }
 
-            this.scroll.update();
-        }, 200);
-    }
-
-    // Destroy module
-    // =========================================================================
-    destroy() {
-        // Ensure view is reset
-        html.classList.remove('is-not-top');
-
-        // Destroy scroll within 'MightyScroll' module
-        this.scroll.destroy();
-    }
+  destroy() {
+    this.scroll.destroy();
+  }
 }
