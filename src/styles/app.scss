@@ -6,13 +6,13 @@
 
 // full vendor mixins + variables
 // @import "../../node_modules/normalize-scss/sass/normalize";
-@import "../../../../../../node_modules/bourbon/core/bourbon";
+@import "../../../../../node_modules/bourbon/core/bourbon";
 @import "vendor/base/base";
 // @import "../../node_modules/font-awesome/scss/font-awesome";
 // @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
 // @import "../../node_modules/swiper/swiper";
 // needs variables
-@import "../../../../../../node_modules/include-media/dist/include-media";
+@import "../../../../../node_modules/include-media/dist/include-media";
 // @import "vendor/modularscale";
 // @import "vendor/texture-mixin";
 

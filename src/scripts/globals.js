@@ -5,33 +5,15 @@
 
 // Import dependencies
 // =============================================================================
-import svg4everybody from 'svg4everybody';
-import { ENV } from './config';
-
-// Dynamic imports for development mode only
-// =============================================================================
-let gridHelper;
-(async () => {
-  if (ENV.IS_DEV) {
-    const gridHelperModule = await import('./utils/grid-helper');
-    gridHelper = gridHelperModule?.gridHelper;
-  }
-})();
+// import npm from 'npm';
 
 // Set default function
 // =============================================================================
-export default function () {
-  document.documentElement.setAttribute( 'data-user-language', navigator.language || null );
-  document.documentElement.setAttribute( 'data-useragent', navigator.userAgent || null );
-  document.documentElement.setAttribute( 'data-platform', navigator.userAgentData.platform || null );
+export default function() {
 
   /**
-   * Use external SVG spritemaps
+   * Use browser cookies to show Email Newsletter popup
    */
-  svg4everybody();
+ 
 
-  /**
-   * Add grid helper
-   */
-  gridHelper?.();
 }

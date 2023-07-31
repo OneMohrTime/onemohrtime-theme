@@ -46,7 +46,7 @@
 		}
 	}
 
-	@include media('>=screen600') {
+	@include media(">=screen600") {
 		position: absolute;
 		bottom: $gutter;
 		flex-direction: row;

@@ -29,14 +29,14 @@
 		background: transparent;
 		box-shadow: none;
 
-		// when the window scrolls up the page
-		&.-slideUp {
-			animation: navSlideUp $speed-slow ease forwards;
-		}
-		// when the window scrolls down the page
-		&.-slideDown {
-			animation: navSlideDown $speed-slow ease forwards;
-		}
+		// // when the window scrolls up the page
+		// &.-slideUp {
+		// 	animation: navSlideUp $speed-slow ease forwards;
+		// }
+		// // when the window scrolls down the page
+		// &.-slideDown {
+		// 	animation: navSlideDown $speed-slow ease forwards;
+		// }
 	}
 
 	// center nav on wide displays
@@ -44,6 +44,7 @@
 		left: calc(50% - 720px);
 		max-width: 1440px;
 	}
+
 	@include media(">=screen1920") {
 		left: calc(50% - 800px);
 		max-width: 1600px;

@@ -180,9 +180,9 @@ ul, ol, dl {
  */
 
 i, cite, em, var, address, dfn {
-	// cancel out italics
-	font-family: $font-header;
-	font-style: normal;
+	margin: 0;
+	font-family: inherit;
+	font-style: italic;
 }
 
 abbr {

@@ -6,13 +6,13 @@
 .o-posts__header,
 .o-archives__header,
 .o-entry__header {
+	@include block-width();
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
 	height: 100vh;
-	@include block-width();
 	margin-bottom: 0;
 
 	.title {
@@ -58,6 +58,8 @@
 .o-entry__content {
 	@include block-width();
 	@include content-width();
+	margin-bottom: 0;
+	padding-bottom: $gutter-lg;
 
 	.gallery {
 		// yes, exact class as '/design' page I know

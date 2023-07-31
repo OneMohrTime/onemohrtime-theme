@@ -5,10 +5,7 @@
 .c-sidebar {
 	position: relative;
 	width: 100%;
-	padding-top: $gutter;
-	padding-left: $gutter;
-	padding-right: $gutter;
-	padding-bottom: $base-spacing;
+	padding: $gutter;
 	background-color: $white--dark;
 	background-image: url("../img/concrete-light.png");
 	background-position: center center;
@@ -27,6 +24,7 @@
 		padding-top: $gutter * 1.5;
 		padding-left: $gutter * 4;
 		padding-right: $gutter * 4;
+		padding-bottom: $gutter * 1.5;
 	}
 }
 

@@ -1,17 +1,31 @@
-import { module } from 'modujs';
-import { FONT } from '../config';
-import { whenReady } from '../utils/fonts';
+// =============================================================================
+// Modules: Example
+// =============================================================================
+// ...
 
-export default class extends module {
-    constructor(m) {
-        super(m);
-    }
+// Import dependencies
+// =============================================================================
+import { module as es6Module } from 'modujs';
+import modularLoad from 'modularload';
 
-    init() {
-        whenReady(FONT.EAGER).then((fonts) => this.onFontsLoaded(fonts));
-    }
+// Set default function and extend it ontop of our imported 'module'
+// =============================================================================
+export default class extends es6Module {
+  // Set initial values
+  // =========================================================================
+  constructor(m) {
+    super(m);
+  }
 
-    onFontsLoaded(fonts) {
-        console.log('Example: Eager Fonts Loaded!', fonts)
-    }
+  // Init module
+  // =========================================================================
+  init() {
+    console.log('Component mounted:');
+    console.log('==================');
+    console.log(this.el);
+  }
+
+  // Destroy
+  // =========================================================================
+  destroy() {}
 }

@@ -1,8 +1,8 @@
-/**
- * === ARCHIVES ===
- */
+/* ==========================================================================
+	Archives
+========================================================================== */
 
-body.archive {
+.t-archive {
 	position: relative;
 	margin-bottom: 2em;
 }
@@ -37,6 +37,10 @@ body.archive {
 
 	}
 }
+
+/**
+ * === PAGINATION ===
+ */
 
 .archives__pagination {
 	width: auto;
