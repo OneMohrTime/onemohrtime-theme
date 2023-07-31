@@ -3,9 +3,10 @@
 
 {% block content %}
 
-	<header class="posts__header">
+	<header class="o-page__header">
+		{% include 'components/title.twig' %}
 		{% if categories is defined and categories is not empty %}
-			<ul class="posts__categories _meta">
+			<ul class="c-definitionList -personalityTypes">
 				{# {% if post and post.show_categories %} #}
 				{% for cat in categories %}
 					{% if cat.slug != 'shit' and cat.slug != 'uncategorized' %}
@@ -16,10 +17,9 @@
 				{% endfor %}
 			</ul>
 		{% endif %}
-		{% include 'components/title.twig' %}
 	</header>
 
-	<section id="all_posts" class="posts">
+	<section id="all_posts" class="o-page__content">
 		{% for post in posts %}
 			{% include 'components/article.twig' %}
 		{% endfor %}

@@ -10,7 +10,6 @@
 		width: auto;
 
 		@include media(">screen1170") {
-			._sizer,
 			.media {
 				width: calc(25% - #{$gutter});
 			}

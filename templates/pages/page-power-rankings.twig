@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<article class="post-{{ post.id }} -{{ post.type }}">
+<article class="o-page post-{{ post.id }} is-{{ post.type }}">
 
 	<header class="o-page__header">
 		{% if post.subtitle %}
@@ -11,7 +11,9 @@
 		{% elseif post.post_excerpt %}
 			<p class="_meta">{{ post.post_excerpt }}</p>
 		{% endif %}
-		{% include 'components/title.twig' %}
+		{% include 'components/title.twig' with {
+			title: post.headline ?? post.title
+		} %}
 	</header>
 
 	<section class="o-page__content u-get-faded _wysiwyg">
@@ -38,6 +40,16 @@
 			</li>
 		{% endfor %}
 	</ul>
+
+	{# Navigate between pagess #}
+	{% if relatedPosts %}
+		<footer class="o-page__related has-{{ relatedPosts|length }}-columns">
+			<h2 class="_subheadline">Related Reading</h2>
+			{% include 'components/related-posts.twig' with {
+				related: relatedPosts
+			} only %}
+		</footer>
+	{% endif %}
 
 </article>
 

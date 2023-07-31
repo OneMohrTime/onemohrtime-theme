@@ -2,27 +2,33 @@
 {% set displaySidebar = true %}
 
 {% block content %}
-	<article class="post-{{ post.id }} -{{ post.type }}">
+	<article class="o-entry post-{{ post.id }} -{{ post.type }}">
 
-		<header class="entry__header">
+		<header class="o-entry__header">
 			{% include "components/entry-meta.twig" %}
 			{% include "components/title.twig" %}
 		</header>
 
-		<div class="entry__content _wysiwyg u-get-faded">
+		<div class="o-entry__content _wysiwyg u-get-faded">
 			{{ post.content }}
 		</div>
 
 		{# Add Section Repeater #}
 		{% if post.sections|length %}
-			<div class="entry__builder">
+			<div class="o-entry__builder">
 				{% include 'partials/builder.twig' %}
 			</div>
 		{% endif %}
 
-		<footer class="entry__foooter u-get-faded">
-			{{ wp_link_pages }}
-		</footer>
+		{# Navigate between pagess #}
+		{% if relatedPosts %}
+			<footer class="o-entry__related has-{{ relatedPosts|length }}-columns">
+				<h2 class="_subheadline">Related Reading</h2>
+				{% include 'components/related-posts.twig' with {
+					related: relatedPosts
+				} only %}
+			</footer>
+		{% endif %}
 
 	</article>
 {% endblock %}

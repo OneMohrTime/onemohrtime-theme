@@ -255,6 +255,13 @@
 	}
 }
 
+.o-entry__related {
+	@include block-width();
+	@include content-width();
+	margin-bottom: 0;
+	padding-bottom: $gutter;
+}
+
 /**
  * === CATEGORIES ===
  */

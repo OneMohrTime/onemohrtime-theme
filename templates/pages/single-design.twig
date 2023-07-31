@@ -80,12 +80,6 @@
 		{% include 'components/related-posts.twig' with {
 			related: relatedPosts
 		} only %}
-		{# {% for project in relatedPosts %}
-			{% set project = Post(project.related_post) %}
-			<h3>{{ project.headline|default(project.title) }}</h3>
-			<p>{{ project.post_excerpt }}</p>
-			<a href="{{ project.link }}">{{ project.title }}</a>
-		{% endfor %} #}
 	</footer>
 {% endif %}
 

@@ -8,18 +8,18 @@
 
 {% if term_page %}
 	{% set postTypeClass  = 'archive' %}
-	{% set postTitleClass = '-category' %}
+	{% set postTitleClass = 'is-category' %}
 {% else %}
 	{% set postTypeClass  = post ? post.type.slug : 'error404' %}
 	{% set postTitleClass = post ? 'is-' ~ post.slug : '' %}
 {% endif %}
 
-<body class="o-{{ postTypeClass }} {{ postTitleClass }}">
-	<div id="page" class="o-site">
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}">
+	<div id="page" class="o-site" data-load-container>
 
 		{% include 'components/skip-to-content.twig' %}
 
-		<header id="masthead" class="o-site__header">
+		<header id="masthead" class="o-site__header" data-module-navigation>
 			{% block header %}
 				{% include 'partials/header.twig' %}
 			{% endblock %}
@@ -41,6 +41,21 @@
 			{{ function('wp_footer') }}
 			<!-- End WP Footer Function -->
 		{% endblock %}
+
+		<!--
+		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+		<script>
+		const lenis = new Lenis()
+		lenis.on('scroll', (e) => {
+		console.log(e)
+		})
+		function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+		}
+		requestAnimationFrame(raf)
+		</script>
+		-->
 
 	</div>
 	{# Add personal branding mark, just for funsies #}

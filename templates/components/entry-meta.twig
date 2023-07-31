@@ -9,10 +9,10 @@
 	</time>
 	<span class="post-format">
 		{% if post.format is defined and post.format != false %}
-			{% include '/assets/media/icons/post-' ~ post.format ~ '.svg' %}
+			{% include '/assets/img/icons/post-' ~ post.format ~ '.svg' %}
 			<span class="image__caption">{{ post.format|capitalize }}</span>
 		{% else %}
-			{% include '/assets/media/icons/post-standard.svg' %}
+			{% include '/assets/img/icons/post-standard.svg' %}
 			<span class="image__caption">Standard</span>
 		{% endif %}
 	</span>
