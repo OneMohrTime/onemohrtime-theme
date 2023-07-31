@@ -6,6 +6,8 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
+import { html } from '../utils/environment';
+
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -15,24 +17,34 @@ export default class extends es6Module {
   constructor(m) {
     super(m);
 
+    // Vars
+    this.navigation = null;
+    this.toggleMenu = null;
     this.classes = [];
   }
 
   // Init module
   // =========================================================================
   init() {
+    // Vars
+    this.navigation = this.el.querySelector('.c-navigation');
+    this.toggleMenu = this.el.querySelector('.toggle__menu');
+
     // Function to handle scroll events
     this.handleScroll();
 
     // Function to handle navbar transparency
     this.handleNavbarTransparency();
 
-    // Function to change MENU to EXIT
-    const toggleButton = document.querySelector('.toggle__menu');
-
     // Attach click event listener to the toggle button
+    const toggleButton = this.el.querySelector('.toggle__menu');
     toggleButton.addEventListener('click', () => {
+
+      // Change MENU to EXIT
       this.changeMenuToExit(toggleButton);
+
+      // Open primary navigation
+      this.togglePrimaryNav();
     });
   }
 
@@ -102,18 +114,19 @@ export default class extends es6Module {
     });
   }
 
-  // Destroy
+  // Change "Menu" to "Exit"
   // =========================================================================
   changeMenuToExit(btn) {
-    this.toggleMenu = this.el.querySelector('.toggle__menu');
-    const m = this.toggleMenu.querySelector('.toggle__menu span.m');
-    const e = this.toggleMenu.querySelector('.toggle__menu span.e');
-    const n = this.toggleMenu.querySelector('.toggle__menu span.n');
-    const u = this.toggleMenu.querySelector('.toggle__menu span.u');
+    const m = this.toggleMenu.querySelector('.m');
+    const e = this.toggleMenu.querySelector('.e');
+    const n = this.toggleMenu.querySelector('.n');
+    const u = this.toggleMenu.querySelector('.u');
 
+    // Switch E to X
     e.classList.toggle('toggle__close');
 
-    if (btn.classList.contains('open')) {
+    // Click detection is 1 click slow
+    if (!btn.classList.contains('open')) {
       m.innerHTML = 'E';
       n.innerHTML = 'I';
       u.innerHTML = 'T';
@@ -122,6 +135,18 @@ export default class extends es6Module {
       n.innerHTML = 'N';
       u.innerHTML = 'U';
     }
+  }
+
+  // Toggle Primary Nav
+  // =========================================================================
+  togglePrimaryNav() {
+    // Find sit elements
+    const siteContainer = html.querySelector('.o-site');
+
+    // Set classes to "open"
+    this.navigation.classList.toggle('is-visible');
+    this.toggleMenu.classList.toggle('open');
+    siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');
   }
 
   // Destroy
