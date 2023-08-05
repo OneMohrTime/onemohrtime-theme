@@ -17,6 +17,7 @@ body {
 	overflow-x: hidden;
 	overflow-y: auto;
 	font-family: $font-main;
+	font-size: clamp(100%, 1rem + 2vw, 1.33em);
 	background-attachment: fixed;
 	background-color: $white--darker;
 	background-image: url("../img/concrete-light.png");
@@ -57,9 +58,9 @@ body {
 		}
 	}
 
-	@include media(">=screen1440") {
-		font-size: 1.181vw;
-	}
+	// @include media(">=screen1440") {
+	// 	font-size: 1.181vw;
+	// }
 
 	@include media(">=screen1600") {
 		max-width: 1440px;

@@ -14,17 +14,28 @@ object {
 	max-width: 100%;
 }
 
+.c-media {
+	position: relative;
+}
+
 /**
  * === SVG ICONS ===
  */
 
 .-svg {
-	$base: $black;
 	font-size: 1em;
 	line-height: 1em;
 	width: 1em;
 	height: 1em;
 	fill: currentColor;
+}
+
+.c-media__svg {
+	display: block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	resize: both;
 }
 
 /**

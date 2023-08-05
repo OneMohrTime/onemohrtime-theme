@@ -1,14 +1,16 @@
 /* ==========================================================================
-	Forms
+	Logo
 ========================================================================== */
 
-.wpcf7-form {
+.c-logo {
 	position: relative;
+}
 
-	// links
-	a:not([class]) {
-		// @include inline-link()
-		@include underline-link()
-	}
-
+.c-logo__link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
 }

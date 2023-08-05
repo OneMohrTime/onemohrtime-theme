@@ -123,11 +123,11 @@ $lgImage: 200px;
 		._subheadline,
 		._text,
 		.c-button {
-			@include base-font-size();
+			// @include base-font-size();
 
-			@include media(">=screen1170") {
-				font-size: 16px;
-			}
+			// @include media(">=screen1170") {
+			// 	font-size: 16px;
+			// }
 		}
 
 		//

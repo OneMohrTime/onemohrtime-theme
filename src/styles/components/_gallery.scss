@@ -7,68 +7,76 @@ $image-height: 250px;
 $image-width: 150px;
 
 .c-gallery {
-	display: flex;
-	flex-flow: row wrap;
-	width: calc(100% + $image-gap);
+
+	@include media(">=screen600") {
+		display: flex;
+		flex-flow: row wrap;
+		width: calc(100% + $image-gap);
+	}
 
 	.c-media {
 		position: relative;
-		flex: auto;
-		height: $image-height;
-		min-width: $image-width;
-		margin: 0 $image-gap $image-gap 0;
 		overflow: hidden;
 
-		&:nth-child(4n+1) {
-			width: 250px;
-		}
-
-		&:nth-child(4n+1):nth-child(4n+2) {
-			width: 325px;
-		}
-
-		&:nth-child(4n+1):nth-child(4n+3) {
-			width: 180px;
-		}
-
-		&:nth-child(4n+1):nth-child(4n+4) {
-			width: 380px;
-		}
-
 		@include media(">=screen600") {
-		}
+			flex: auto;
+			height: $image-height;
+			min-width: $image-width;
+			margin: 0 $image-gap $image-gap 0;
 
-		@include media(">=screen768") {
+			&:nth-child(4n+1) {
+				width: 250px;
+			}
+
+			&:nth-child(4n+1):nth-child(4n+2) {
+				width: 325px;
+			}
+
+			&:nth-child(4n+1):nth-child(4n+3) {
+				width: 180px;
+			}
+
+			&:nth-child(4n+1):nth-child(4n+4) {
+				width: 380px;
+			}
 		}
 	}
 
 	.c-media__image {
-		width: 100%;
-		height: $image-height;
 		max-width: 100%;
 		opacity: 1;
 		transition: $speed;
-		object-fit: cover;
+
+		@include media(">=screen600") {
+			width: 100%;
+			height: $image-height;
+			object-fit: cover;
+		}
 	}
 
 	.c-media__caption {
-		transition: $speed;
-		color: $gray;
+		// @include small-font-size();
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		// transition: $speed;
+		padding: 0.5em;
+		font-size: $font-h4;
+		line-height: $heading-line-height;
+		background-color: fade-out($white, 0.15);
+		color: $gray--darkest;
 
 		@include media(">=screen840") {
-			@include text-shadow();
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: $base-spacing;
-			opacity: 0;
-			background-color: fade-out($black--light, 0.4);
-			z-index: 1;
+			// @include text-shadow();
+			// top: 0;
+			// display: flex;
+			// justify-content: center;
+			// align-items: center;
+			// padding: $base-spacing;
+			// opacity: 0;
+			// background-color: fade-out($black--light, 0.4);
+			// z-index: 1;
 		}
 
 		&.-text {
@@ -104,12 +112,12 @@ $image-width: 150px;
 		z-index: 2;
 
 		@include hocus {
-			& + .c-media__image {
-				opacity: 0;
-			}
-			& + .c-media__caption {
-				opacity: 1;
-			}
+			// & + .c-media__image {
+			// 	opacity: 0;
+			// }
+			// & + .c-media__caption {
+			// 	opacity: 1;
+			// }
 		}
 	}
 }

@@ -1,6 +1,6 @@
-/**
- * === ARTICLE ===
- */
+/* ==========================================================================
+	Article
+========================================================================== */
 
 .article {
 	position: relative;
@@ -97,7 +97,7 @@
 			flex-flow: row wrap;
 			margin-bottom: $small-spacing;
 			transition: color $speed;
-			@include caption();
+
 			line-height: 1.7em;
 			text-align: center;
 			color: $gray--darkest;
@@ -165,15 +165,9 @@
 	&__link {
 		// .article__link
 		margin-top: $base-line-height;
-		font-size: ms(-1) !important;
-		border-width: 2px !important;
 
 		&::before {
 			display: none;
-		}
-
-		&::after {
-			height: 6px !important;
 		}
 	}
 

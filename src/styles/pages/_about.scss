@@ -2,7 +2,7 @@
  * === ABOUT ===
  */
 
-.o-page.is-about {
+.t-page.is-about {
 	display: block;
 
 	.repeater {
@@ -22,7 +22,9 @@
 	.repeater__title {
 		margin-bottom: 0;
 		padding-right: 115px;
+		font-family: $font-header;
 		text-transform: none;
+		font-weight: 800;
 	}
 
 	@include media(">=screen1280") {

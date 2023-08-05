@@ -23,8 +23,8 @@
 	}
 
 	@include media(">=screen1440") {
-		margin-left: $gutter * 4;
-		margin-right: $gutter * 4;
+		margin-left: $gutter-xxl;
+		margin-right: $gutter-xxl;
 	}
 }
 
@@ -262,7 +262,6 @@
  */
 
 @mixin type() {
-	margin: 0 0 $base-line-height;
 	font-family: inherit;
 	font-weight: normal;
 	line-height: $base-line-height;
@@ -270,7 +269,7 @@
 	orphans: 3;
 	color: inherit;
 
-	&:last-child {
+	@include last(1) {
 		margin-bottom: 0;
 	}
 }
@@ -304,7 +303,7 @@
 }
 
 @mixin paragraph($underline: null) {
-	font-size: ms(1);
+	font-size: $font-h3;
 	@include media("<=screen320") {
 		font-size: 1rem;
 	}
@@ -314,34 +313,32 @@
 }
 
 @mixin body-copy($underline: null) {
-	font-size: ms(0);
+	@include type();
+	margin: 0 0 math.div($base-line-height, 2);
+
 	@if $underline == "underlined" {
 		@include underlined();
 	}
 }
 
 @mixin base-font-size() {
-	font-size: 1rem;
-	font-size: 1.181vw;
-	// @include media(">=screen1170") {
-	// 	font-size: 1.618rem;
-	// }
+	// font-size: 1.181vw;
+	font-size: clamp(100%, 1rem + 1vw, 1.33em);
 }
 
 @mixin small-font-size() {
-	font-size: ms(-1);
+	font-size: clamp(75%, 1rem + 1vw, 1em);
 }
 
 @mixin smaller-font-size() {
-	font-size: ms(-1);
+	font-size: clamp(75%, 1rem + 1vw, 1em);
 }
 
 @mixin smallest-font-size() {
-	font-size: ms(-2);
+	font-size: clamp(62.5%, 1rem + 1vw, 0.75em);
 }
 
 @mixin label() {
-	// @include base-font-size();
 	font-family: $font-header;
 	font-size: $font-h5;
 	font-weight: 700;
@@ -351,12 +348,13 @@
 }
 
 @mixin caption() {
-	@include small-font-size();
+	margin: 0;
+	font-size: 1.15vw;
 	font-family: $font-header;
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
-	margin: 0;
+	letter-spacing: 2px;
 }
 
 @mixin underlined() {

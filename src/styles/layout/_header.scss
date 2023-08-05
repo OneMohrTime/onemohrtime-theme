@@ -54,10 +54,21 @@
 //
 // allow clicking "behind" transparent area of nav
 //
-.o-site__header { pointer-events: none; }
+.o-site__header {
+
+	@include media(">=screen600") {
+		pointer-events: none;
+	}
+}
+
 .toggle__menu,
 .o-site__logo,
-.c-navigation { pointer-events: auto; }
+.c-navigation {
+
+	@include media(">=screen600") {
+		pointer-events: auto;
+	}
+}
 
 .o-site__logo {
 	position: absolute;

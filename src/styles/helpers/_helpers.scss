@@ -63,7 +63,7 @@
 }
 
 // text meant only for screen readers
-.a11yText {
+.u-invisible {
 	@include visually-hidden(true);
 }
 

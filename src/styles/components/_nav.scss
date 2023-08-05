@@ -89,15 +89,13 @@
 	.nav-link {
 		display: block;
 
-		@include media("<screen600") {
-			padding: $small-spacing / 2;
-		}
-
 		@include media(">=screen600") {
-			// @include body-copy();
-			padding: $small-spacing / 2 $small-spacing;
+			padding: 0.5vw 1vw;
 			transition: background-color $speed-slow, color $speed-slow;
+			font-family: $font-header;
+			font-size: $font-h3;
 			font-weight: 800;
+			letter-spacing: -0.5px;
 			border-radius: $base-border-radius;
 
 			@include hocus {
@@ -120,12 +118,12 @@
 	left: 0;
 	bottom: 0;
 	margin: $gutter-sm $gutter;
-	padding: $small-spacing / 2 0;
+	padding: math.div($small-spacing, 2) 0;
 	transition: background-color $speed-slow linear,
 				color $speed-slow linear,
 				box-shadow $speed-slow linear;
 	font-family: $font-header;
-	font-size: 1.25em !important;
+	font-size: 1.25rem;
 	font-weight: 800;
 	color: $white;
 	z-index: 35;

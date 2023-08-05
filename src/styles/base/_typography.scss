@@ -23,6 +23,10 @@
 		line-height: $heading-line-height;
 		color: inherit;
 
+		@include first(1) {
+			margin-top: 0;
+		}
+
 		a {
 			line-height: inherit;
 			color: inherit;
@@ -63,6 +67,7 @@ h6 {
 
 ._wysiwyg,
 .-wysiwyg {
+
 	h1, h2, h3, h4, h5, h6 {
 
 		// headers in a wysiwyg section only...hopefully
@@ -228,15 +233,21 @@ blockquote {
 	}
 
 	footer {
+		position: relative;
 		font-size: .75em;
 		color: $black--light;
 
 		cite {
+			display: block;
+			margin-top: 1em;
+			padding-left: 1.5em;
+			font-style: normal;
 			font-weight: 700;
 		}
 
 		&::before {
 			content: "\2014 \00A0";
+			position: absolute;
 		}
 	}
 }

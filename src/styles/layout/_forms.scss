@@ -6,11 +6,12 @@
 	display: block;
 	width: auto;
 	height: auto;
+	padding: $small-spacing $base-spacing;
 	border: 3px solid $black;
 	border-radius: $base-border-radius;
 	background-color: transparent;
 	color: $black;
-	padding: $small-spacing $base-spacing;
+	// all: revert;
 }
 
 .wpcf7-form {

@@ -1,6 +1,6 @@
-/**
- * === BLOCKQUOTE ===
- */
+/* ==========================================================================
+	Blockquote
+========================================================================== */
 
 .blockquote {
 	border: 0;
@@ -12,6 +12,7 @@
 		// .blockquote.-default
 		position: relative;
 		padding-left: calc(#{$gutter} + 10px);
+
 		@include media(">=screen1440") {
 			padding-left: $gutter-lg;
 		}
@@ -31,6 +32,10 @@
 		}
 
 		& > p {
+			font-family: $font-header;
+			font-size: 1.5em;
+			font-weight: 800;
+			line-height: $heading-line-height;
 
 			@include media(">=screen960") {
 				padding-left: 10px;
@@ -39,6 +44,7 @@
 
 			@include media(">=screen1440") {
 				padding-left: $gutter;
+				font-size: 2em;
 			}
 		}
 	}
@@ -50,19 +56,9 @@
 		padding: $gutter;
 		margin: $gutter;
 
-		@include media(">=screen768") {
+		@include media(">=screen1024") {
 			padding: $gutter-lg;
 			margin: $gutter-lg;
-		}
-
-		@include media(">=screen1024") {
-			padding: $gutter-xl;
-			margin: $gutter-xl;
-		}
-
-		@include media(">=screen1440") {
-			padding: $gutter * 4;
-			margin: $gutter * 4;
 		}
 
 		& > *:first-child {
