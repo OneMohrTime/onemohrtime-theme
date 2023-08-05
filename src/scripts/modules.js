@@ -7,5 +7,8 @@
 // Modules exports
 // =============================================================================
 // export { default as Example } from './modules/Example';
-export { default as Load } from './modules/Load';
+export { default as Fancybox } from './modules/Fancybox';
+// export { default as Load } from './modules/Load';
 export { default as Navigation } from './modules/Navigation';
+export { default as Prism } from './modules/Prism';
+// export { default as Scroll } from './modules/Scroll';

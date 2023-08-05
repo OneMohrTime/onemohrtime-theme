@@ -1,13 +1,12 @@
 // =============================================================================
-// Modules: Example
+// Modules: Navigation
 // =============================================================================
-// ...
+// Controls show/hide of primary navigation menus
 
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
 import { html } from '../utils/environment';
-
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
