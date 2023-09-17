@@ -118,27 +118,18 @@ $lgImage: 200px;
 			margin-left: #{$lgImage - $gutter};
 		}
 
-		// Assimilate card text to be generally the same
-		._headline,
-		._subheadline,
-		._text,
-		.c-button {
-			// @include base-font-size();
-
-			// @include media(">=screen1170") {
-			// 	font-size: 16px;
-			// }
-		}
-
 		//
 		// Card Headline
 		//
-		// ._headline {}
+		._headline {
+			@include base-font-size();
+		}
 
 		//
 		// Card Subheadline
 		//
 		._subheadline {
+			@include base-font-size();
 			color: $black--light;
 		}
 
@@ -146,6 +137,7 @@ $lgImage: 200px;
 		// Card Text
 		//
 		._text {
+			@include small-font-size();
 			margin-top: 0.75em;
 			padding-top: $gutter-sm / 2;
 			transition: border-color $speed;

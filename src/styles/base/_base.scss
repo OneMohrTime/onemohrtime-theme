@@ -17,7 +17,8 @@ body {
 	overflow-x: hidden;
 	overflow-y: auto;
 	font-family: $font-main;
-	font-size: clamp(100%, 1rem + 2vw, 1.33em);
+	// font-size: clamp(100%, 1rem + 2vw, 1.33em);
+	font-size: 1em;
 	background-attachment: fixed;
 	background-color: $white--darker;
 	background-image: url("../img/concrete-light.png");

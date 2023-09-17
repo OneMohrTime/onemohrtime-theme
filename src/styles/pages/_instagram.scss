@@ -5,13 +5,14 @@
 body.is-instagram {
 	position: relative;
 
-	.o-site {
-		padding: 0;
-	}
-
+	#wpadminbar,
 	.o-site__header,
 	.o-site__footer {
 		display: none;
+	}
+
+	.o-site {
+		padding: 0;
 	}
 
 	.o-site__main {
@@ -22,19 +23,18 @@ body.is-instagram {
 		height: 100vh;
 		margin-top: 0;
 		margin-bottom: $gutter;
+		padding-top: $gutter;
 	}
 
 	ul {
 		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		height: 100%;
+		max-width: 100%;
 		margin: 0;
 		padding: 0;
+
 		li {
-			display: block;
-			width: 100%;
 			margin-bottom: $gutter-sm;
+
 			a {
 				position: relative;
 				display: block;
@@ -79,6 +79,28 @@ body.is-instagram {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	ul:first-child {
+		flex-direction: column;
+		justify-content: flex-end;
+
+		li {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	ul:nth-child(2) {
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: $gutter-sm;
+
+		li {
+			a {
+				padding: 0.5em 1em;
 			}
 		}
 	}

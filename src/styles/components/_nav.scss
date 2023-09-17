@@ -91,9 +91,10 @@
 
 		@include media(">=screen600") {
 			padding: 0.5vw 1vw;
-			transition: background-color $speed-slow, color $speed-slow;
+			transition: background-color $speed-slow,
+						color $speed-slow;
 			font-family: $font-header;
-			font-size: $font-h3;
+			font-size: 1.5em;
 			font-weight: 800;
 			letter-spacing: -0.5px;
 			border-radius: $base-border-radius;

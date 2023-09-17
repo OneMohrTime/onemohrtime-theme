@@ -28,8 +28,9 @@
 	._meta {
 		width: 100%;
 		margin-bottom: $small-spacing;
-		@include small-font-size();
-		font-size: 0.75em;
+		// @include small-font-size();
+		// font-size: 0.75em;
+		@include smallest-font-size();
 
 		& > time {
 			position: relative;

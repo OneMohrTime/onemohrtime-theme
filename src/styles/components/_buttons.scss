@@ -34,8 +34,9 @@
 	@include btn-color();
 	padding: 1vw 2vw;
 	font-family: $font-header;
-	font-size: 1.042vw;
-	font-size: 5vmin;
+	// font-size: 1.042vw;
+	// font-size: 5vmin;
+	font-size: 1em;
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	text-align: center;
@@ -104,7 +105,7 @@
 
 	&.c-gallery__banner--contact,
 	&.c-project__banner--contact,
-	&.posts__banner--contact {
+	&.c-posts__banner--contact {
 		display: flex;
 		align-items: center;
 

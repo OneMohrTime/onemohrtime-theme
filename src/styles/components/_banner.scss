@@ -41,7 +41,7 @@
 		max-width: $copy-width;
 		// margin-top: $gutter * 4;
 		margin-bottom: $gutter;
-		padding-top: $gutter * 4;
+		padding-top: $gutter-xxl;
 
 		@include media(">=screen600") {
 			// margin-top: $gutter-xl;
@@ -50,7 +50,7 @@
 		}
 
 		@include media(">=screen1024") {
-			@include small-font-size();
+			@include smaller-font-size();
 			margin-bottom: $gutter * 6;
 		}
 

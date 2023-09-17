@@ -1,6 +1,6 @@
-/**
-* === HOME ===
-*/
+/* ==========================================================================
+	Home
+========================================================================== */
 
 .homepage__about {
 	@include base-font-size();
@@ -14,54 +14,52 @@
 		align-items: flex-start;
 		min-height: 100vh;
 	}
+}
 
-	&--image {
-		// .homepage__about--image
-		@include media("<screen960") {
-			width: 100%;
-		}
-		@include media(">=screen960") {
-			flex-basis: 40%;
-			max-width: 40%;
-			position: sticky;
-			top: 0;
-			height: 100vh;
-			object-fit: cover;
+.homepage__about--image {
+	@include media("<screen960") {
+		width: 100%;
+	}
+	@include media(">=screen960") {
+		flex-basis: 40%;
+		max-width: 40%;
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		object-fit: cover;
+	}
+}
+
+.homepage__about--content {
+	padding: #{$gutter-xl} $gutter;
+
+	@include media(">=screen768") {
+		padding-left: $gutter-lg;
+		padding-right: $gutter-lg;
+	}
+
+	@include media(">=screen960") {
+		flex-basis: 60%;
+		max-width: 60%;
+	}
+
+	@include media(">=screen1024") {
+		padding-left: $gutter-xl;
+		padding-right: $gutter-xl;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		// headers in a wysiwyg section only...hopefully
+		margin-bottom: $heading-line-height;
+		&:not(:first-child) {
+			margin-top: $base-line-height;
 		}
 	}
 
-	&--content {
-		// .homepage__about--content
-		padding: #{$gutter-xl} $gutter;
-
-		@include media(">=screen768") {
-			padding-left: $gutter-lg;
-			padding-right: $gutter-lg;
-		}
-
-		@include media(">=screen960") {
-			flex-basis: 60%;
-			max-width: 60%;
-		}
-
-		@include media(">=screen1024") {
-			padding-left: $gutter-xl;
-			padding-right: $gutter-xl;
-		}
-
-		h1, h2, h3, h4, h5, h6 {
-			// headers in a wysiwyg section only...hopefully
-			margin-bottom: $heading-line-height;
-			&:not(:first-child) {
-				margin-top: $base-line-height;
-			}
-		}
-
-		a {
-			&::before {
-				background-color: $black--lightest !important;
-				background-color: $gray--dark !important;
-			}
+	a {
+		&::before {
+			background-color: $black--lightest !important;
+			background-color: $gray--dark !important;
 		}
 	}
 }
