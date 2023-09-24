@@ -9,7 +9,7 @@
 {% set text        = section.text ?? null %}
 {% set images      = section.images ?? null %}
 
-<div class="builder__section -gallery u-get-faded" data-module-fancybox>
+<div class="c-builder__section -gallery u-get-faded" data-module-fancybox>
 
 	{% if headline %}
 		<h2 class="_headline">{{ headline }}</h2>
@@ -31,11 +31,10 @@
 			{% for image in images %}
 				<figure class="c-media js-image">
 
-					<a href="{{ imageOptimized.src('full') }}" class="c-media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
-						<span class="a11yText">{{ image.caption ?? image.title ?? 'See Image' }}</span>
-					</a>
-
 					{% set imageOptimized = image ? Image(image) : null %}
+					{% set smallestImage = imageOptimized.src('thumbnail') %}
+					{% set mediumImage = imageOptimized.src('medium') %}
+					{% set largeImage = imageOptimized.src('large') %}
 					{% set caption        = image.caption|default(null) %}
 					{% if image.alt is not empty %}
 						{% set alt = image.alt %}
@@ -51,19 +50,25 @@
 					{% set width          = image.width ?? null %}
 					{% set height         = image.height ?? null %}
 
-					<img src="{{ imageOptimized.src('thumbnail') }}"
-						alt="{{ alt }}"
-						width="{{ width }}"
-						height="{{ height }}"
-						class="c-media__image"
-						srcset="{{ imageOptimized.src('medium') }} 1000w,
-								{{ imageOptimized.src('large') }} 1500w"
-						sizes="(max-width: {{ width }}px) 100vw, {{ width }}px"/>
+					<a href="{{ imageOptimized.src('full') }}" class="c-media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
+						<span class="u-invisible">{{ image.caption ?? image.title ?? 'See Image' }}</span>
+					</a>
+
 					{% if caption %}
 						<figcaption class="c-media__caption -text">{{ caption }}</figcaption>
 					{% else %}
 						<figcaption class="c-media__caption -zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
 					{% endif %}
+
+					<img src="{{ imageOptimized.src('thumbnail') }}"
+						alt="{{ alt }}"
+						width="{{ imageOptimized.width('thumbnail') }}"
+						height="{{ imageOptimized.height('thumbnail') }}"
+						class="c-media__image"
+						srcset="{{ mediumImage }} 1000w,
+								{{ largeImage }} 1500w"
+						sizes="(max-width: 1000px) {{ imageOptimized.width('medium') }}px, {{ imageOptimized.width('large') }}px"
+						loading="lazy" />
 
 				</figure>
 			{% endfor %}

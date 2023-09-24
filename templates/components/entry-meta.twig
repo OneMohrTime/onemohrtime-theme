@@ -3,7 +3,7 @@
  # "Last updated" if over 5 years ago, "Updated" if less
  #}
 
-<p class="_meta _wysiwyg">
+<p class="_meta">
 	<time class="original" datetime="{{ post.post_date|date(c) }}">
 		{% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}
 	</time>
@@ -16,5 +16,5 @@
 			<span class="image__caption">Standard</span>
 		{% endif %}
 	</span>
-	<span class="a11yText"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
+	<span class="u-invisible"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
 </p>

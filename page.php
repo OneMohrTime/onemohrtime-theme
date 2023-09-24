@@ -27,16 +27,24 @@ $timber_post = new Timber\Post();
 $projects = get_field('project_grid');
 
 $top10s = array(
-	'post_type'   => 'top-10',
-	'posts_per_page' => '-1'
+	'post_type'      => 'top-10',
+	'posts_per_page' => -1
 );
 
-$context['post']          = $timber_post;
-$context['projects']      = new Timber\PostQuery($projects);
-$context['builder']       = get_field('sections');
-$context['roles']         = new TimberTerm('design');
-$context['image_grid']    = get_field('image_grid');
+$logos = array(
+	'post_type'      => 'logo',
+	'posts_per_page' => -1,
+	'orderby'        => 'menu_order',
+	'order'          => 'ASC'
+);
+
+$context['post']           = $timber_post;
+$context['projects']       = new Timber\PostQuery($projects);
+$context['builder']        = get_field('sections');
+$context['roles']          = new TimberTerm('design');
+$context['image_grid']     = get_field('image_grid');
+$context['myLogos']        = Timber::get_posts($logos);
 $context['power_rankings'] = Timber::get_posts($top10s);
-$context['relatedPosts']  = get_field('related_posts');
+$context['relatedPosts']   = get_field('related_posts');
 
 Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );

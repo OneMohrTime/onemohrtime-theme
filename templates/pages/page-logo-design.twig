@@ -12,48 +12,34 @@
 			{% include 'components/title.twig' %}
 		</header>
 
-		{% if image_grid %}
-		<div id="images" class="o-page__gallery _gallery">
+		{% if myLogos %}
+		<div class="o-page__gallery" data-module-fancybox>
 
-			<div class="_sizer"></div>
-			<div class="_gutter"></div>
+			{% for logo in myLogos %}
+				<figure class="c-logo">
 
-			{% for image in image_grid %}
-				<figure class="media js-image">
+					{% set logoImage = logo ? Image(logo) : null %}
+					{% set caption   = logo.content|default(null) %}
+					{% set width     = logoImage.width ?? null %}
+					{% set height    = logoImage.height ?? null %}
 
-					{% set imageOptimized = image ? Image(image) : null %}
-					{% set caption        = image.caption|default(null) %}
-					{% if image.alt is not empty %}
-						{% set alt = image.alt %}
-					{% elseif image.description is not empty %}
-						{% set alt = image.description %}
-					{% elseif caption is defined and caption is not empty %}
-						{% set alt = caption %}
-					{% elseif image.title is not empty %}
-						{% set alt = image.title %}
-					{% else %}
-						{% set alt = '' %}
-					{% endif %}
-					{% set width          = image.width ?? null %}
-					{% set height         = image.height ?? null %}
+					<a href="{{ logoImage.src('full') }}" class="c-logo__link" data-fancybox="logos"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
+						<span class="u-invisible" aria-hidden="true">Zoom {{ logo.title }}</span>
+					</a>
 
-					<img src="{{ imageOptimized.src('thumbnail') }}"
-						alt="{{ alt }}"
+					<img src="{{ logoImage.src('thumbnail') }}"
+						alt="{{ logo.alt ?? logo.description ?? logo.title }}"
 						width="{{ width }}"
 						height="{{ height }}"
-						class="_image"
-						srcset="{{ imageOptimized.src('medium') }} 1000w,
-								{{ imageOptimized.src('large') }} 1500w"
-						sizes="(max-width: {{ width }}px) 100vw, (max-width: 1440px) 25vw, 100vw"/>
+						class="c-logo__image"
+						srcset="{{ logoImage.src('medium') }} 1000w,
+								{{ logoImage.src('large') }} 1500w"
+						sizes="(max-width: {{ width }}px) 100vw, (max-width: 1440px) 25vw, 100vw" />
 
-					<figcaption class="media__caption -text">
-						{% include 'assets/img/icons/plus-zoom.twig' %}
-						<span>{{ image.title }}</span>
+					<figcaption class="c-logo__caption -text">
+						<h3>{{ logo.title }}</h3>
+						<time>{{ logo.post_date|date('Y') }}</time>
 					</figcaption>
-
-					<a href="{{ imageOptimized.src('full') }}" class="media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
-						<span class="a11yText">Zoom</span>
-					</a>
 
 				</figure>
 			{% endfor %}
