@@ -39,6 +39,26 @@
 	}
 }
 
+@mixin padding() {
+	padding-left: $gutter;
+	padding-right: $gutter;
+
+	@include media(">=screen768") {
+		padding-left: $gutter-lg;
+		padding-right: $gutter-lg;
+	}
+
+	@include media(">=screen1024") {
+		padding-left: $gutter-xl;
+		padding-right: $gutter-xl;
+	}
+
+	@include media(">=screen1440") {
+		padding-left: $gutter-xxl;
+		padding-right: $gutter-xxl;
+	}
+}
+
 /**
  * === ACCESSIBILITY ===
  */
@@ -324,18 +344,22 @@
 @mixin base-font-size() {
 	// font-size: 1.181vw;
 	font-size: clamp(100%, 1rem + 1vw, 1.33em);
+	font-size: 1rem;
 }
 
 @mixin small-font-size() {
 	font-size: clamp(75%, 1rem + 1vw, 1em);
+	font-size: 0.875rem;
 }
 
 @mixin smaller-font-size() {
 	font-size: clamp(75%, 1rem + 1vw, 1em);
+	font-size: 0.875rem;
 }
 
 @mixin smallest-font-size() {
 	font-size: clamp(62.5%, 1rem + 1vw, 0.75em);
+	font-size: 0.75rem;
 }
 
 @mixin label() {
@@ -349,7 +373,8 @@
 
 @mixin caption() {
 	margin: 0;
-	font-size: 1.15vw;
+	// font-size: 1.15vw;
+	font-size: 0.875em;
 	font-family: $font-header;
 	font-weight: 700;
 	line-height: 1em;

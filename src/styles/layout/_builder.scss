@@ -10,16 +10,16 @@
 	padding-bottom: $base-line-height * 3;
 }
 
-.builder__section {
+.c-builder__section {
 	@include block-width();
 
 	// no margins at the very top
-	&:first-child {
+	@include first(1) {
 		margin-top: 0;
 	}
 
 	// no margins at the very bottom
-	&:last-child {
+	@include last(1) {
 		margin-bottom: 0;
 	}
 

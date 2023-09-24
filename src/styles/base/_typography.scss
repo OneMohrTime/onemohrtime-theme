@@ -154,22 +154,34 @@ ul, ol, dl {
  * === UTILITY CLASSES ===
  */
 
-._title {
+._title,
+.u-title {
 	@include title();
+
 	&.-underline {
 		@include title("underlined");
 	}
+
+	.u-letter {
+		display: inline-block;
+		transform-origin: 0 100%;
+		line-height: 1em;
+	}
 }
 
-._headline {
+._headline,
+.u-headline {
 	@include subtitle();
+
 	&.-underline {
 		@include subtitle("underlined");
 	}
 }
 
-._subheadline {
+._subheadline,
+.u-subheadline {
 	@include paragraph();
+
 	&.-underline {
 		@include paragraph("underlined");
 	}
