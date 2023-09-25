@@ -96,14 +96,10 @@ $image-width: 150px;
 		}
 
 		// Zoom in icon
-		.image.-svg {
+		.c-media__svg {
 			max-width: 72px;
 			max-height: 72px;
 			margin: 0;
-
-			path {
-				fill: $white;
-			}
 		}
 	}
 

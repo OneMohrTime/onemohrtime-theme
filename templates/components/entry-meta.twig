@@ -7,7 +7,7 @@
 	<time class="original" datetime="{{ post.post_date|date(c) }}">
 		{% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}
 	</time>
-	<span class="post-format">
+	<span class="post-format c-media">
 		{% if post.format is defined and post.format != false %}
 			{% include '/assets/img/icons/post-' ~ post.format ~ '.svg' %}
 			<span class="image__caption">{{ post.format|capitalize }}</span>

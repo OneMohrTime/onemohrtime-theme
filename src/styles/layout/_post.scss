@@ -41,7 +41,7 @@
 			}
 		}
 
-		.-svg {
+		.c-media__svg {
 			top: 5px;
 			width: 1.25em;
 			opacity: 1;
@@ -207,15 +207,11 @@
 			}
 
 			// Zoom in icon
-			.image.-svg {
+			.c-media__svg {
 				width: 72px;
 				height: 72px;
 				max-width: 100%;
 				margin: 0;
-
-				path {
-					fill: $white;
-				}
 			}
 		}
 

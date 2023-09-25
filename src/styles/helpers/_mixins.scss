@@ -511,7 +511,7 @@
 				animation: none;
 			}
 
-			.-svg {
+			.c-media__svg {
 				transform: translateX($small-spacing);
 			}
 		}
@@ -530,7 +530,7 @@
 		z-index: -1;
 	}
 
-	.-svg {
+	.c-media__svg {
 		position: relative;
 		transition: $speed-slow cubic-bezier(.455,.03,.515,.955);
 	}

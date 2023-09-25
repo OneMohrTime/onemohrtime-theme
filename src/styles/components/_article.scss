@@ -127,7 +127,7 @@
 			}
 
 			.post-format {
-				.-svg {
+				.c-media__svg {
 					opacity: 1;
 					path {
 						fill: $yellow;
@@ -189,7 +189,7 @@
 		display: inline-block;
 	}
 
-	.-svg {
+	.c-media__svg {
 		position: absolute;
 		top: 0;
 		left: 0;

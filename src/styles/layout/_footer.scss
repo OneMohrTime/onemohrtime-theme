@@ -109,8 +109,7 @@
 					max-width: 30px;
 					max-height: 30px;
 
-					&:hover,
-					&:focus {
+					@include hocus {
 						.c-media__svg {
 							transform: translateX(0);
 						}
@@ -124,13 +123,13 @@
 					}
 				}
 
-				.c-media__svg {
-					path,
-					polygon,
-					rect {
-						fill: $white;
-					}
-				}
+				// .c-media__svg {
+				// 	path,
+				// 	polygon,
+				// 	rect {
+				// 		fill: $white;
+				// 	}
+				// }
 			}
 		}
 

@@ -98,7 +98,7 @@
 	@include btn-style();
 	//	@include mask-texture();
 
-	.-svg {
+	.c-media__svg {
 		position: relative;
 		transition: $speed cubic-bezier(.455,.03,.515,.955);
 	}
@@ -109,7 +109,7 @@
 		display: flex;
 		align-items: center;
 
-		.-svg {
+		.c-media__svg {
 			margin-right: $small-spacing;
 
 			path {
@@ -120,7 +120,7 @@
 
 		&:hover,
 		&:focus {
-			.-svg {
+			.c-media__svg {
 				transform: translateX(-#{$small-spacing});
 				path {
 					fill: $yellow;
