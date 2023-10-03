@@ -7,6 +7,7 @@
  */
 
 .c-navigation {
+	position: absolute;
 	width: 100%;
 	height: auto;
 	margin-bottom: $gutter-lg;
@@ -14,12 +15,14 @@
 	color: $white;
 
 	@include media(">=screen600") {
+		position: relative;
 		height: 100px;
 		margin-bottom: 0;
 		background-color: $black;
 	}
 
 	&.is-visible {
+		height: auto;
 		max-height: calc(100vh - 72px);
 		overflow: auto;
 		transform: translateY(0);

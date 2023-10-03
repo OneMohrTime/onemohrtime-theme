@@ -10,11 +10,12 @@
 //
 // A list of aspect ratios that get generated as modifier classes.
 $aspect-ratios: (
-	(4:3),
-	(16:9),
-	(2:1),
-	(21:9),
-	(19:10),
+	(1:1),  // Square
+	(4:3),  // Traditional TV
+	(3:2),  // 35mm film
+	(16:9), // HD standard
+	(2:1),  // Universium
+	(32:9), // Super ultrawide
 ) !default;
 
 /* stylelint-disable */
@@ -34,8 +35,8 @@ $aspect-ratios: (
 			@error "`#{$consequent}` needs to be a number."
 		}
 
-		.-ratio#{$antecedent}\:#{$consequent}::before {
-			padding-bottom: ($consequent/$antecedent) * 100%;
+		.u-#{$antecedent}\:#{$consequent}::before {
+			padding-bottom: ($consequent/$antecedent) * 100% !important;
 		}
 	}
 }
@@ -53,7 +54,7 @@ $aspect-ratios: (
 
 // Component class
 // =============================================================================
-.-ratio {
+.u-ratio {
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -68,16 +69,20 @@ $aspect-ratios: (
 
 // Content
 // =============================================================================
-.-ratio__content,
-.-ratio > img,
-.-ratio > picture,
-.-ratio > iframe,
-.-ratio > embed,
-.-ratio > object {
+.u-ratio__content,
+.u-ratio > img,
+.u-ratio > iframe,
+.u-ratio > embed,
+.u-ratio > object {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+// don't distort the newly-stretched images
+.u-ratio img {
+	object-fit: cover;
 }

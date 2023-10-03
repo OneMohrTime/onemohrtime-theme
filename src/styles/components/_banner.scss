@@ -10,96 +10,31 @@
 	&.-typographic {
 		@include block-width();
 		margin-bottom: $gutter-xl;
-		// reverse order on mobile
-		@include media("<screen600") {
-			display: flex;
-			flex-flow: column-reverse nowrap;
-		}
-	}
-
-	&.-yellow {
 		color: $black--light;
 	}
 
 	.is-home & {
-		// make banner links accessible
-		a:focus {
-			outline-color: fade-out($white, 0.4);
-		}
+		display: flex;
+		align-items: center;
+		min-height: 100vh;
 	}
 }
-
-.c-banner__list {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-
-	//
-	// Typographic banner, like home page
-	//
-	.-typographic & {
-		max-width: $copy-width;
-		// margin-top: $gutter * 4;
-		margin-bottom: $gutter;
-		padding-top: $gutter-xxl;
-
-		@include media(">=screen600") {
-			// margin-top: $gutter-xl;
-			margin-bottom: $gutter-xl;
-			padding-top: $gutter-xl;
-		}
-
-		@include media(">=screen1024") {
-			@include smaller-font-size();
-			margin-bottom: $gutter * 6;
-		}
-
-		@include media(">=screen1280") {
-			margin-bottom: $gutter * 7;
-		}
-	}
-}
-
-// .c-banner__listItem {
-// 	font-size: ms(-1);
-// 	@include media(">=screen960") {
-// 		font-size: ms(0);
-// 	}
-// }
 
 .c-banner__intro {
+	max-width: 100%;
 
-	@include media("<screen600") {
-		margin-top: $gutter * 4;
-	}
-
-	._title {
-		// @include subtitle();
-		font-size: 6.5vw;
+	.u-title {
+		@include subtitle();
+		font-weight: 800;
+		max-width: 31ch;
+		margin-bottom: 0;
 		line-height: 1em;
-
-		.-row {
-			display: block;
-		}
-	}
-
-	._tagline {
-		@include caption();
 	}
 }
 
 .c-banner__link {
-	transition: box-shadow $speed linear;
-	line-height: $base-line-height;
-	box-shadow: none;
-
-	&:hover {
-		box-shadow: 0 7px 0 0 $white;
-	}
-}
-
-.intro__link {
-	line-height: 1em !important;
+	@include inline-block();
+	line-height: inherit;
 
 	&::before {
 		bottom: 0;
@@ -107,10 +42,10 @@
 		background-color: $white !important;
 	}
 
-	&:hover {
+	@include hocus {
 		&::before {
-			bottom: 12px !important;
-			height: 80% !important;
+			bottom: 0 !important;
+			height: 100% !important;
 		}
 	}
 }

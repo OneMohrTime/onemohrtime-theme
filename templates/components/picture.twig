@@ -1,0 +1,49 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+	src: params.src ?? null,
+	alt: params.alt|default(params.src.title),
+	classes: params.classes ?? null,
+	ratio: params.ratio ?? null,
+	lazy: params.lazy|default(true),
+	attr: params.attr ?? null
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.src is not empty %}
+
+{# Frame can be set to relative/absolute image ratio-ing #}
+<picture class="c-media
+	{# Custom ratio #}
+	{% if this.ratio %}u-ratio u-{{ this.ratio }}{% endif %}"
+	{# Custom data-attributes #}
+	{% if this.attr %}{{ this.attr }}{% endif %}
+>
+
+	{# img tag for browsers that do not support picture element #}
+	<img src="{{ this.src }}"
+
+		{# Alt text should never be empty, or contain tags, or be too long #}
+		alt="{{ this.alt|striptags }}"
+
+		{# Semantic HTML width & height values #}
+		width="{{ this.src.sizes.thumbnail.width }}"
+		height="{{ this.src.sizes.thumbnail.height }}"
+
+		{# Default class #}
+		class="c-media__image
+
+		{# Additional custom classes #}
+		{% if this.classes %}{{ this.classes }}{% endif %}"
+
+		{# Optimized image sizes #}
+		srcset="{{ this.src.srcset }}"
+
+		{# Lazyloaded by default #}
+		{% if this.lazy %}loading="lazy"{% endif %}
+	/>
+
+</picture>
+
+{% endif %}

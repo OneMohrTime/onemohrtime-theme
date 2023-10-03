@@ -15,7 +15,7 @@
 	height: 100vh;
 	margin-bottom: 0;
 
-	.title {
+	.u-title {
 		@include title();
 		// @include deep-shadow();
 		// @include deep-white-shadow();
@@ -23,6 +23,7 @@
 		// @include retro-text();
 		// @include condensed-shadow();
 		margin-bottom: 0;
+		overflow: hidden;
 	}
 
 	._meta {
@@ -124,7 +125,6 @@
 	margin-right: $gutter;
 	margin-bottom: $base-spacing;
 
-	.-sizer,
 	.image {
 		width: calc(50% - #{$gutter-sm});
 		@include media(">=screen600") {
@@ -138,14 +138,6 @@
 		}
 		@include media(">=screen1920") {
 			width: calc(20% - #{$gutter});
-		}
-	}
-
-	.-gutter {
-		width: #{$gutter-sm};
-
-		@include media(">=screen600") {
-			width: $gutter;
 		}
 	}
 

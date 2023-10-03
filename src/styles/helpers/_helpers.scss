@@ -2,43 +2,6 @@
 	Helpers
 ========================================================================== */
 
-// parallax images animating in
-.parallax {
-	// parent element
-	position: relative;
-	overflow: hidden;
-
-	&.-scrolling {
-		.parallax__image {
-			opacity: 1;
-		}
-	}
-
-	// child element
-	&__image {
-		// .parallax__image
-		position: relative;
-		width: 100%;
-		height: 100%;
-		opacity: 1;
-		@supports (object-fit: cover) {
-			object-fit: cover;
-		}
-		pointer-events: none;
-		transition: opacity $speed-slow;
-
-		@include media(">=screen840") {
-			top: -100%;
-			height: 200%;
-			opacity: 0;
-		}
-
-		html.no-js & {
-			opacity: 1 !important;
-		}
-	}
-}
-
 // // fade in sections
 // .u-get-faded {
 // 	position: relative;
