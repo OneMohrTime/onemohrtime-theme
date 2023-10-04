@@ -26,7 +26,26 @@
 	{% if projects %}
 		<section id="gallery" class="c-gallery__grid">
 			{% for post in projects %}
-				{% include 'components/article.twig' %}
+				{% set article     = Post(post) %}
+				{% set articleType = article.type.slug %}
+				{% set articleMeta = articleType == 'design' ? article.get_field('project_header').subtitle :
+					articleType == 'page' ? article.post_excerpt|truncate(16) :
+					null
+				%}
+				{% set articleExcerpt = article.post_excerpt|default(null) %}
+				{% include 'components/article.twig' with {
+					params: {
+						type: articleType,
+						headline: article.headline ?? article.title,
+						subheadline: articleMeta,
+						excerpt: articleExcerpt,
+						text: articleExcerpt ? articleExcerpt : article.content,
+						image: article.thumbnail ? Image(article.thumbnail) : null,
+						anchor: article.title,
+						link: article.link,
+						oddEven: loop.index is even ? ' -isEven' : ' -isOdd'
+					}
+				} only %}
 			{% endfor %}
 		</section>
 	{% endif %}

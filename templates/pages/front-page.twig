@@ -12,7 +12,7 @@
 	</section>
 
 	<section class="homepage__cta">
-		<h2 class="u-headline">Want To Work Together?</h2>
+		<h2 class="u-headline" data-module-title>Want To Work Together?</h2>
 		<ul class="c-builder__section -cards -horizontalDeck u-get-faded">
 			{% for cta in callToActions %}
 				<li class="c-card">
@@ -117,10 +117,26 @@
 	</section>
 
 	{% if feature1 is defined and feature1 is not empty %}
+		{% set feature1     = Post(feature1) %}
+		{% set feature1Type = feature1.type.slug %}
+		{% set feature1Meta = feature1Type == 'design' ? feature1.get_field('project_header').subtitle :
+			feature1Type == 'page' ? feature1.post_excerpt|truncate(16) :
+			null
+		%}
+		{% set feature1Excerpt = feature1.post_excerpt|default(null) %}
 		<section class="homepage__feature homepage__feature--1">
 			{% include 'components/article.twig' with {
-				post: feature1
-			} %}
+				params: {
+					type: feature1Type,
+					headline: feature1.headline ?? feature1.title,
+					subheadline: feature1Meta,
+					excerpt: feature1Excerpt,
+					text: feature1Excerpt ? feature1Excerpt : feature1.content,
+					image: feature1.thumbnail ? Image(feature1.thumbnail) : null,
+					anchor: feature1.title,
+					link: feature1.link
+				}
+			} only %}
 		</section>
 	{% endif %}
 
@@ -135,10 +151,26 @@
 	{% endif %}
 
 	{% if feature2 is defined and feature2 is not empty %}
+		{% set feature2     = Post(feature2) %}
+		{% set feature2Type = feature2.type.slug %}
+		{% set feature2Meta = feature2Type == 'design' ? feature2.get_field('project_header').subtitle :
+			feature2Type == 'page' ? feature2.post_excerpt|truncate(16) :
+			null
+		%}
+		{% set feature2Excerpt = feature2.post_excerpt|default(null) %}
 		<section class="homepage__feature homepage__feature--2">
 			{% include 'components/article.twig' with {
-				post: feature2
-			} %}
+				params: {
+					type: feature2Type,
+					headline: feature2.headline ?? feature2.title,
+					subheadline: feature2Meta,
+					excerpt: feature2Excerpt,
+					text: feature2Excerpt ? feature2Excerpt : feature2.content,
+					image: feature2.thumbnail ? Image(feature2.thumbnail) : null,
+					anchor: feature2.title,
+					link: feature2.link
+				}
+			} only %}
 		</section>
 	{% endif %}
 

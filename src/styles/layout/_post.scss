@@ -26,7 +26,8 @@
 		overflow: hidden;
 	}
 
-	._meta {
+	._meta,
+	.u-meta {
 		width: 100%;
 		margin-bottom: .25em;
 		// @include smallest-font-size();
@@ -239,7 +240,8 @@
 	flex-wrap: wrap;
 	align-items: baseline;
 
-	&._meta {
+	&._meta,
+	&.u-meta {
 		margin-bottom: 0;
 	}
 }

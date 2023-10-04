@@ -23,7 +23,8 @@ a {
 	&:not(.btn):not([data-fancybox]) {
 		// but is a child of .-wysiwyg
 		._wysiwyg &,
-		.-wysiwyg & {
+		.-wysiwyg &,
+		.c-wysiwyg & {
 			// stylize as inline link
 			@include inline-block();
 		}

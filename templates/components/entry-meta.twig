@@ -1,9 +1,19 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+	text: params.meta ?? null
+} %}
+
+{# -- Component Template -- #}
+
 {##
  # "First posted" if over 5 years ago, "Posted" if less
  # "Last updated" if over 5 years ago, "Updated" if less
  #}
 
-<p class="_meta">
+{% if this.text is not null %}
+
+<strong class="u-meta">
 	<time class="original" datetime="{{ post.post_date|date(c) }}">
 		{% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}
 	</time>
@@ -17,4 +27,6 @@
 		{% endif %}
 	</span>
 	<span class="u-invisible"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
-</p>
+</strong>
+
+{% endif %}

@@ -1,43 +1,48 @@
-{% set loopClass = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %}
-{% set postType  = post.type.slug ?? 'default' %}
+{% set this = {
+	type: params.type ?? null,
+	headline: params.headline ?? null,
+	subheadline: params.subheadline ?? null,
+	excerpt: params.excerpt ?? null,
+	text: params.text ?? null,
+	image: params.image ?? null,
+	anchor: params.anchor ?? null,
+	link: params.link ?? null,
+	oddEven: params.oddEven ?? null
+} %}
 
-<article class="article js-article -{{ postType }}{{ loopClass }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}">
-	<figure class="article__image">
+{# {% set this.oddEven = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %} #}
 
-		{% if post.thumbnail %}
-			<img src="{{ post.thumbnail.src('thumbnail') }}"
-				alt="{{ post.thumbnail.alt }}"
-				class="_image{% if postType == 'design' %} -parallax{% endif %}"
-				srcset="{{ post.thumbnail.src('medium') }} 750w,
-						{{ post.thumbnail.src('large') }} 1500w"
-				sizes="(max-width: 840px) 100vw, 50vw" />
+{# <article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}"> #}
+<article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}" id="post-{{ post.id }}">
 
-		{% else %}
-			<img src="{{ site.theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image{% if postType == 'design' %} -parallax{% endif %}" />
-
-		{% endif %}
+	<figure class="c-article__image">
+		{% include 'components/picture.twig' with {
+			params: {
+				src: this.image,
+				classes: 'u-parallax'
+			}
+		} only %}
 	</figure>
 
-	<div class="article__content _wysiwyg u-get-faded">
+	<div class="c-article__content u-get-faded">
 
-		{% if postType == 'design' %}
-			<p class="_meta">{{ post.get_field('project_header').subtitle }}</p>
-		{% elseif postType == 'page' %}
-			<p class="_meta">{{ post.post_excerpt|truncate(16) }}</p>
-		{% else %}
-			{% include "components/entry-meta.twig" %}
-		{% endif %}
+		{% include 'components/entry-meta.twig' with {
+			params: {
+				meta: this.subheadline ?? null
+			}
+		} only %}
 
-		<h2 id="{{ post.title|lower|replace({' ': '-', '/': '-'}) }}" class="article__title">
-			<a href="{{ post.link }}" tabindex="-1">{{ post.title }}</a>
-		</h2>
+		<h2{% if this.anchor %} id="{{ this.anchor|lower|replace({' ': '-', '/': '-'}) }}"{% endif %} class="c-article__title">{{ this.headline }}</h2>
 
-		{% if post.post_excerpt is defined and post.post_excerpt is not empty %}
-			<p>{{ post.post_excerpt }}</p>
-		{% else %}
-			<p>{{ post.post_content|striptags|raw|truncate(30) }}[&hellip;]</p>
-		{% endif %}
+		<div class="c-article__text c-wysiwyg">
+			{% if this.excerpt %}
+				{{ this.text }}
+			{% else %}
+				{{ this.text|striptags|raw|truncate(30) }} [&hellip;]
+			{% endif %}
+		</div>
 
-		<a href="{{ post.link }}" class="article__link c-button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a>
+		{# <a href="{{ post.link }}" class="c-article__link c-button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a> #}
+		<a href="#" class="c-article__link c-button" aria-label="View Post">View Post</a>
 	</div>
 </article>
