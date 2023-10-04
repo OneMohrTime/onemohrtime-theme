@@ -1,44 +1,41 @@
 {% if menu %}
 
 <nav id="primary_nav" class="c-navigation">
-    <ul id="desktop_menu" class="menu">
+	<ul id="desktop_menu" class="menu">
 
-        {% for item in menu %}
-		<li class="{{ item.classes | join(' ') }}">
+		{% for item in menu %}
+		<li class="menu-item">
 
 			{% if item.children %}
-			{#<a href="#" class="nav-link multilevel-link">#}
-			<a href="{{ item.get_link }}" class="nav-link">
-				{{ item.title }}
-				{#<i class="fa fa-plus"></i>#}
-			</a>
+				<a href="{{ item.get_link }}" class="nav-link">
+					{{ item.title }}
+				</a>
 
 			{% else %}
-			<a href="{{ item.get_link }}" class="nav-link">
-				{{ item.title }}
-			</a>
+				<a href="{{ item.get_link }}" class="nav-link">
+					{{ item.title }}
+				</a>
 
 			{% endif %}
-			{# <img src="{{ item.master_object.thumbnail }} /> #}
 
 			{% if item.children %}
-			<ul id="primary__sub-{{ item.id }}" class="submenu">
+				<ul id="primary__sub-{{ item.id }}" class="submenu">
 
-				{% for submenu in item.children %}
-				<li class="submenu-item{{ submenu.classes | join(' ') }}">
-					<a href="{{ submenu.get_link }}" class="nav-link">
-						{{ submenu.title }}
-					</a>
-				</li>
-				{% endfor %}
+					{% for submenu in item.children %}
+						<li class="submenu-item{{ submenu.classes|join(' ') }}">
+							<a href="{{ submenu.get_link }}" class="nav-link">
+								{{ submenu.title }}
+							</a>
+						</li>
+					{% endfor %}
 
-			</ul>
-		   {% endif %}
+				</ul>
+			{% endif %}
 
 		</li>
 		{% endfor %}
 
-    </ul>
+	</ul>
 </nav>
 
 {% endif %}

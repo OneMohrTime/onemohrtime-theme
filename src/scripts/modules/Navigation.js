@@ -17,17 +17,19 @@ export default class extends es6Module {
     super(m);
 
     // Vars
+    this.classes = [];
+    this.header = null;
     this.navigation = null;
     this.toggleMenu = null;
-    this.classes = [];
   }
 
   // Init module
   // =========================================================================
   init() {
     // Vars
-    this.navigation = this.el.querySelector('.c-navigation');
-    this.toggleMenu = this.el.querySelector('.toggle__menu');
+    this.header     = this.el;
+    this.navigation = this.header.querySelector('.c-navigation');
+    this.toggleMenu = this.header.querySelector('.toggle__menu');
 
     // Function to handle scroll events
     this.handleScroll();
@@ -36,7 +38,7 @@ export default class extends es6Module {
     this.handleNavbarTransparency();
 
     // Attach click event listener to the toggle button
-    const toggleButton = this.el.querySelector('.toggle__menu');
+    const toggleButton = this.header.querySelector('.toggle__menu');
     toggleButton.addEventListener('click', () => {
 
       // Change MENU to EXIT
@@ -51,7 +53,7 @@ export default class extends es6Module {
   // =========================================================================
   handleScroll() {
     // Store navbar classes
-    this.classes = this.el.classList;
+    this.classes = this.header.classList;
 
     // Initial scroll position
     let scrollState = 0;
@@ -103,7 +105,7 @@ export default class extends es6Module {
   handleNavbarTransparency() {
     // Add or remove scrolling navbar classes
     window.addEventListener('scroll', () => {
-      const nav = this.el.querySelector('nav');
+      const nav = this.header.querySelector('nav');
 
       if (50 < window.scrollY) {
         nav.classList.add('transparent');
@@ -143,6 +145,7 @@ export default class extends es6Module {
     const siteContainer = html.querySelector('.o-site');
 
     // Set classes to "open"
+    this.header.classList.toggle('is-active');
     this.navigation.classList.toggle('is-visible');
     this.toggleMenu.classList.toggle('open');
     siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');

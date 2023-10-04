@@ -45,6 +45,23 @@
 		left: calc(50% - 800px);
 		max-width: 1600px;
 	}
+
+	// When mobile nav is active
+	@include media("<screen600") {
+		&.is-active {
+			height: auto;
+			max-height: 100vh;
+
+			.c-navigation {
+				position: relative;
+			}
+
+			.menu {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
 }
 
 //
@@ -74,6 +91,10 @@
 
 	@include media(">=screen600") {
 		top: 30px;
+
+		.is-active & {
+			z-index: 50;
+		}
 	}
 
 	@include media(">=screen768") {
@@ -98,7 +119,7 @@
 	}
 
 
-	.logo {
+	.c-media__svg {
 		display: block;
 		width: auto;
 		height: 40px;
@@ -125,7 +146,7 @@
 		}
 		// only turn logo yellow when menu is down
 		&:hover {
-			.logo {
+			.c-media__svg {
 				#design {
 					path {
 						fill: $yellow;

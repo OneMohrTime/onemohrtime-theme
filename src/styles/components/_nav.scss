@@ -6,30 +6,32 @@
  * === MENU ===
  */
 
+
 .c-navigation {
 	position: absolute;
 	width: 100%;
-	height: auto;
 	margin-bottom: $gutter-lg;
-	transform: translateY(-100%);
 	color: $white;
 
 	@include media(">=screen600") {
 		position: relative;
 		height: 100px;
+		transform: translateY(-100%);
 		margin-bottom: 0;
 		background-color: $black;
 	}
 
 	&.is-visible {
-		height: auto;
-		max-height: calc(100vh - 72px);
 		overflow: auto;
-		transform: translateY(0);
 		z-index: 40;
 
 		.o-site__header--logo {
 			top: 20px;
+		}
+
+		@include media(">=screen600") {
+			max-height: calc(100vh - 72px);
+			transform: translateY(0);
 		}
 	}
 
@@ -67,26 +69,25 @@
 		@include media(">=screen1024") {
 			padding-left: calc(50px + #{$gutter-lg});
 		}
+	}
 
-		&-item {
-			// .menu-item
-			position: relative;
+	.menu-item {
+		position: relative;
 
-			&-home {
-				// .menu-item-home
-				@include media(">=screen600") {
-					display: none;
-				}
-			}
-
-			// mobile only
-			@include media("<screen600") {
-				@include paragraph();
-				font-weight: 800;
-				padding: $small-spacing / 2 0;
+		&-home {
+			// .menu-item-home
+			@include media(">=screen600") {
+				display: none;
 			}
 		}
 
+		// mobile only
+		@include media("<screen600") {
+			font-family: $font-header;
+			font-size: 2em;
+			font-weight: 800;
+			padding: math.div($small-spacing, 2) 0;
+		}
 	}
 
 	.nav-link {
@@ -145,6 +146,7 @@
 
 	&.open {
 		color: $white;
+		z-index: 50;
 	}
 
 	@include media(">=screen600") {
