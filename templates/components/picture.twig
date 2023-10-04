@@ -22,7 +22,7 @@
 >
 
 	{# img tag for browsers that do not support picture element #}
-	<img src="{{ this.src }}"
+	<img src="{{ this.src.thumbnail ?? this.src }}"
 
 		{# Alt text should never be empty, or contain tags, or be too long #}
 		alt="{{ this.alt|striptags }}"
@@ -45,5 +45,8 @@
 	/>
 
 </picture>
+
+{% else %}
+	<img src="{{ site.theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="c-media__image" />
 
 {% endif %}
