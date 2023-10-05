@@ -1,65 +1,109 @@
 <footer class="o-site__footer">
+	<h2 class="u-invisible">Footer Info</h2>
+	<div class="c-footer">
 
-	<div class="_column -projects">
-		<h3>Pages of Interest</h3>
-		<ul class="u-get-faded">
-			{% for item in footer.items %}
-			<li>
-				<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
-				{% if item.children %}
-				<ul class="nav-drop">
-					{% for child in item.children %}
-					<li class="nav-drop-item">
-						<a href="{{ child.link }}">{{ child.title }}</a>
-					</li>
-					{% endfor %}
-				</ul>
-				{% endif %}
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-
-	<div class="_column -about">
-		<h3>About Thy Website</h3>
-		<div class="u-get-faded">
-			{{ globals.site_about }}
+		<div class="c-footer__logo c-footer--col">
+			<a href="{{ site.link }}" id="logo" class="c-media--link">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.05 207.75" class="c-media__svg">
+					<title>Logo</title>
+					<g id="frame" data-name="Main layer">
+						<g id="design">
+							<path d="M54.59,0S58,9,0,64.74v96.09s0,28.87,46.47,46.92c0,0-3.39-9,54.58-64.74V46.92S101.05,18.05,54.59,0ZM67.37,171.24c-33.69-8.68-33.69-32.6-33.69-32.6V36.69c33.69,8.68,33.69,32.6,33.69,32.6Z" />
+						</g>
+					</g>
+				</svg>
+			</a>
 		</div>
-	</div>
 
-	<div class="_column -socialMedia">
-		<a class="top btn" href="#page" id="scroll_to_top">Back to Top</a>
-		<ul class="-icons u-get-faded">
-			<li>
-				<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//dribbble.com/OneMohrTime" title="Dribbble" aria-label="Dribbble">
-					{% include '/assets/img/icons/logo-dribbble.svg' only %}
-				</a>
-			</li>
-			<li>
-				<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//instagram.com/onemohrtimedesign" title="Instagram" aria-label="Instagram">
-					{% include '/assets/img/icons/logo-instagram.svg' only %}
-				</a>
-			</li>
-			<li>
-				<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//github.com/onemohrtime" title="GitHub" aria-label="GitHub">
-					{% include '/assets/img/icons/logo-github.svg' only %}
-				</a>
-			</li>
-			<li>
-				<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//twitter.com/OneMohrTime" title="Twitter" aria-label="Twitter">
-					{% include '/assets/img/icons/logo-twitter.svg' only %}
-				</a>
-			</li>
+		<div class="c-footer__legal c-footer--col" role="contentinfo">
+			<ul class="c-wysiwyg">
+				<li><a href="/privacy-policy" class="c-link">Privacy</a></li>
+				<li><a href="/terms-of-use" class="c-link">Terms</a></li>
+				<li><a href="/cookie-notice" class="c-link">Cookies</a></li>
+			</ul>
+			<p>&copy;2011&thinsp;&mdash;&thinsp;{{ now|date('Y') }}</p>
+			<p>Some Additional Projects</p>
+			<div>
+				<a href="//recipes.onemohrti.me" target="_blank" rel="noopener noreferrer nofollow">Recipes</a> |
+				<a href="//shop.onemohrti.me">Shop</a> |
+				<a href="//grandrapidsbranding.co/" target="_blank" rel="noopener noreferrer nofollow">Grand Rapids Branding</a>
+			</div>
+			<img src="{{ site.link }}/assets/img/macspin.gif" alt="Made With Macintosh" class="c-media__image">
+		</div>
+
+		<div class="c-footer__nav c-footer--col">
+			<h3>Pages of Interest</h3>
+			<ul class="c-wysiwyg">
+				{% for item in footer.items %}
+				<li>
+					<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
+					{% if item.children %}
+					<ul class="nav-drop">
+						{% for child in item.children %}
+						<li class="nav-drop-item">
+							<a href="{{ child.link }}">{{ child.title }}</a>
+						</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="c-footer__about c-footer--col">
+			<h3>About Thy Website</h3>
+			<div class="c-wysiwyg">
+				{{ globals.site_about }}
+			</div>
+		</div>
+
+		<div class="c-footer__socialMedia c-footer--col">
+			<a class="c-button top" href="#page" id="scroll_to_top">Back to Top</a>
+			<ul class="u-icons u-get-faded">
+				<li>
+					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//dribbble.com/OneMohrTime" title="Dribbble" aria-label="Dribbble">
+						{% include '/assets/img/icons/logo-dribbble.svg' only %}
+					</a>
+				</li>
+				<li>
+					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//instagram.com/onemohrtimedesign" title="Instagram" aria-label="Instagram">
+						{% include '/assets/img/icons/logo-instagram.svg' only %}
+					</a>
+				</li>
+				<li>
+					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//github.com/onemohrtime" title="GitHub" aria-label="GitHub">
+						{% include '/assets/img/icons/logo-github.svg' only %}
+					</a>
+				</li>
+				<li>
+					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//twitter.com/OneMohrTime" title="Twitter" aria-label="Twitter">
+						{% include '/assets/img/icons/logo-twitter.svg' only %}
+					</a>
+				</li>
+			</ul>
+			{% include 'components/css-nectar-award.twig' only %}
+			{% include 'components/css-design-award.twig' only %}
+		</div>
+
+		<ul class="c-footer__travel c-footer--col">
+			<li>🇨🇦</li>
+			<li>🇲🇽</li>
+			<li>🇨🇮</li>
+			<li>🇩🇰</li>
+			<li>🇭🇺</li>
+			<li>🇨🇿</li>
+			<li>🇩🇪</li>
+			<li>🇳🇱</li>
+			<li>🇮🇸</li>
+			<li>🇪🇸</li>
+			<li>🇲🇦</li>
+			<li>🇵🇹</li>
+			<li>🇫🇷</li>
+			<li>🏴󠁧󠁢󠁳󠁣󠁴󠁿</li>
+			<!--<li>🇯🇵</li>-->
+			<!--<li>🇰🇷</li>-->
 		</ul>
-		{% include 'components/css-nectar-award.twig' %}
-		{% include 'components/css-design-award.twig' %}
-	</div>
 
-	<div class="copyright" role="contentinfo">
-		<p>&copy;2011&thinsp;&mdash;&thinsp;{{ now | date('Y') }} |
-		<a href="//recipes.onemohrti.me" target="_blank" rel="noopener noreferrer nofollow">Recipes</a> |
-		<a href="//shop.onemohrti.me">Shop</a> |
-		<a href="//grandrapidsbranding.co/" target="_blank" rel="noopener noreferrer nofollow">Grand Rapids Branding</a>
 	</div>
-
 </footer>

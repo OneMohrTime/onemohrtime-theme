@@ -1,0 +1,133 @@
+/* ==========================================================================
+	Footer
+========================================================================== */
+
+.c-footer {
+	position: relative;
+
+	@include media(">=screen600") {}
+	@include media(">=screen768") {}
+	@include media(">=screen960") {}
+	@include media(">=screen1024") {
+		display: grid;
+		grid-template-columns: repeat(12, auto);
+		align-items: start;
+	}
+	@include media(">=screen1440") {}
+}
+
+.c-footer--col {
+
+	h3 {
+		border-bottom: 4px $yellow solid;
+		font-size: 1em;
+		padding-bottom: $small-spacing;
+	}
+}
+
+.c-footer__logo {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -#{$gutter + 50px});
+
+	.c-media__svg {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+.c-footer__legal {
+	text-align: center;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 0.75em;
+		padding-top: 1.5em;
+	}
+
+	p + p {
+		margin-top: 0.75em;
+	}
+
+	.c-media__image {
+		margin: 1.5em auto 2.5em;
+	}
+}
+
+.c-footer__nav {
+	margin-bottom: 2em;
+
+	.c-wysiwyg {
+		@include type();
+	}
+}
+
+.c-footer__about {
+	margin-bottom: 2em;
+}
+
+.c-footer__socialMedia {
+	margin-bottom: 2em;
+	text-align: center;
+
+	.u-icons {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.25em;
+		margin-top: 2em;
+		margin-bottom: 2em;
+		font-size: 3em;
+		list-style-type: none;
+	}
+
+	// CSS Design Awards Kudos
+	.-cssda {
+		&::before {
+			display: none;
+		}
+
+		@include media(">=screen600") {
+			transform: scale(0.75);
+		}
+	}
+
+	// CSS Nectar Site of the Day
+	.-cssNectar {
+		position: relative;
+		width: 60px;
+		height: 60px;
+		margin-right: $gutter-sm;
+		overflow: hidden;
+
+		&::before {
+			display: none;
+		}
+
+		@include media(">=screen600") {
+			margin-right: 5px;
+			margin-bottom: 14px;
+		}
+
+		span {
+			position: absolute;
+			text-indent: -9999px;
+		}
+	}
+
+	@include media(">=screen1024") {
+		text-align: right;
+	}
+}
+
+.c-footer__travel {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.25em;
+	list-style-type: none;
+	font-size: 1.5em;
+}
