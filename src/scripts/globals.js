@@ -15,15 +15,17 @@ export default function() {
    * Footer scroll-to-top
    */
 
-  const scrollToTop = document.querySelector('#scroll_to_top');
+  const scrollToTop = document.querySelector('#scroll_to_top') || null;
 
-  scrollToTop.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (scrollToTop) {
+    scrollToTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   /**
    * Add scrolling class to contact button

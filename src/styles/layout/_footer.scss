@@ -9,6 +9,7 @@
 	padding-top: $gutter;
 	padding-bottom: $gutter;
 	background-color: shade($black, 67%);
+	background-color: $black;
 	background-image: url("/assets/img/concrete-dark.png");
 	background-position: center center;
 	color: $white;
@@ -19,147 +20,18 @@
 	}
 
 	@include media(">=screen1440") {
-		padding-left: $gutter * 4;
-		padding-right: $gutter * 4;
+		padding-left: $gutter-xxl;
+		padding-right: $gutter-xxl;
 	}
 
-	._column {
-		// grid-column: span 12;
-		// width: auto;
-		// margin-bottom: $base-spacing;
+	p, ul, ol {
+		@include type();
+		color: $white--dark;
 
-		// &:last-child {
-		// 	margin-bottom: 0;
-		// }
-
-		// @include media(">=screen600") {
-		// 	grid-column: span 6;
-		// }
-
-		// @include media(">=screen960") {
-		// 	grid-column: minmax(1fr, 2fr);
-		// 	&.-projects {
-		// 		grid-column: span 4;
-		// 	}
-		// 	&.-about {
-		// 		grid-column: span 4;
-		// 	}
-		// 	&.-socialMedia {
-		// 		grid-column: span 4;
-		// 		text-align: right;
-		// 	}
-		// }
-
-		// @include media(">=screen1280") {
-		// 	&.-projects {
-		// 		grid-column: span 2;
-		// 	}
-		// 	&.-about {
-		// 		grid-column: span 5;
-		// 		h3 {
-		// 			width: 37.2%; // mimic grid column
-		// 		}
-		// 	}
-		// 	&.-socialMedia {
-		// 		grid-column: 10 / 13;
-		// 	}
-		// }
-
-		// h3 {
-		// 	border-bottom: 4px $yellow solid;
-		// 	font-size: 1em;
-		// 	padding-bottom: $small-spacing;
-		// }
-
-		p, ul, ol {
-			@include type();
-			color: $white--dark;
-
-			a {
-				line-height: 1em;
-			}
-
-			&.-icons {
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
-
-				li {
-					@include paragraph();
-					margin-right: .5em;
-				}
-
-				a {
-					max-width: 30px;
-					max-height: 30px;
-
-					@include hocus {
-						.c-media__svg {
-							transform: translateX(0);
-						}
-					}
-
-					.c-media__svg {
-						height: 100%;
-						max-width: 100%;
-						max-height: 100%;
-						transition: none;
-					}
-				}
-
-				// .c-media__svg {
-				// 	path,
-				// 	polygon,
-				// 	rect {
-				// 		fill: $white;
-				// 	}
-				// }
-			}
+		a {
+			line-height: 1em;
 		}
-
-		// // CSS Design Awards Kudos
-		// .-cssda {
-		// 	&::before {
-		// 		display: none;
-		// 	}
-
-		// 	@include media(">=screen600") {
-		// 		transform: scale(0.75);
-		// 	}
-		// }
-
-		// // CSS Nectar Site of the Day
-		// .-cssNectar {
-		// 	position: relative;
-		// 	width: 60px;
-		// 	height: 60px;
-		// 	margin-right: $gutter-sm;
-		// 	overflow: hidden;
-
-		// 	&::before {
-		// 		display: none;
-		// 	}
-
-		// 	@include media(">=screen600") {
-		// 		margin-right: 5px;
-		// 		margin-bottom: 14px;
-		// 	}
-
-		// 	span {
-		// 		position: absolute;
-		// 		text-indent: -9999px;
-		// 	}
-		// }
 	}
-
-	// .copyright {
-	// 	grid-column: span 12;
-	// 	grid-row: span 1;
-	// }
-
-	// .top {
-	// 	margin-bottom: $gutter;
-	// }
 
 	.c-button {
 		border-color: $yellow;

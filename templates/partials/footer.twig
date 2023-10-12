@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="c-footer__legal c-footer--col" role="contentinfo">
-			<ul class="c-wysiwyg">
+			{# <ul class="c-wysiwyg">
 				<li><a href="/privacy-policy" class="c-link">Privacy</a></li>
 				<li><a href="/terms-of-use" class="c-link">Terms</a></li>
 				<li><a href="/cookie-notice" class="c-link">Cookies</a></li>
@@ -27,7 +27,8 @@
 				<a href="//recipes.onemohrti.me" target="_blank" rel="noopener noreferrer nofollow">Recipes</a> |
 				<a href="//shop.onemohrti.me">Shop</a> |
 				<a href="//grandrapidsbranding.co/" target="_blank" rel="noopener noreferrer nofollow">Grand Rapids Branding</a>
-			</div>
+			</div> #}
+			{{ globals.footer_details }}
 			<img src="{{ site.link }}/assets/img/macspin.gif" alt="Made With Macintosh" class="c-media__image">
 		</div>
 
@@ -58,52 +59,37 @@
 			</div>
 		</div>
 
-		<div class="c-footer__socialMedia c-footer--col">
-			<a class="c-button top" href="#page" id="scroll_to_top">Back to Top</a>
-			<ul class="u-icons u-get-faded">
-				<li>
-					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//dribbble.com/OneMohrTime" title="Dribbble" aria-label="Dribbble">
-						{% include '/assets/img/icons/logo-dribbble.svg' only %}
-					</a>
-				</li>
-				<li>
-					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//instagram.com/onemohrtimedesign" title="Instagram" aria-label="Instagram">
-						{% include '/assets/img/icons/logo-instagram.svg' only %}
-					</a>
-				</li>
-				<li>
-					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//github.com/onemohrtime" title="GitHub" aria-label="GitHub">
-						{% include '/assets/img/icons/logo-github.svg' only %}
-					</a>
-				</li>
-				<li>
-					<a class="c-media--link" target="_blank" rel="noopener noreferrer nofollow" href="//twitter.com/OneMohrTime" title="Twitter" aria-label="Twitter">
-						{% include '/assets/img/icons/logo-twitter.svg' only %}
-					</a>
-				</li>
+		<div class="c-footer__awards c-footer--col">
+			<h3>Humblebrags</h3>
+			<ul>
+				<li>{% include 'components/css-nectar-award.twig' only %}</li>
+				<li>{% include 'components/css-design-award.twig' only %}</li>
 			</ul>
-			{% include 'components/css-nectar-award.twig' only %}
-			{% include 'components/css-design-award.twig' only %}
 		</div>
 
-		<ul class="c-footer__travel c-footer--col">
-			<li>🇨🇦</li>
-			<li>🇲🇽</li>
-			<li>🇨🇮</li>
-			<li>🇩🇰</li>
-			<li>🇭🇺</li>
-			<li>🇨🇿</li>
-			<li>🇩🇪</li>
-			<li>🇳🇱</li>
-			<li>🇮🇸</li>
-			<li>🇪🇸</li>
-			<li>🇲🇦</li>
-			<li>🇵🇹</li>
-			<li>🇫🇷</li>
-			<li>🏴󠁧󠁢󠁳󠁣󠁴󠁿</li>
-			<!--<li>🇯🇵</li>-->
-			<!--<li>🇰🇷</li>-->
-		</ul>
+		{# <a class="c-button top" href="#page" id="scroll_to_top">Back to Top</a> #}
+
+		<div class="c-footer__travel c-footer--col">
+			<h3>Flags I've Collected</h3>
+			<ul>
+				<li>🇨🇦</li>
+				<li>🇲🇽</li>
+				<li>🇨🇮</li>
+				<li>🇩🇰</li>
+				<li>🇭🇺</li>
+				<li>🇨🇿</li>
+				<li>🇩🇪</li>
+				<li>🇳🇱</li>
+				<li>🇮🇸</li>
+				<li>🇪🇸</li>
+				<li>🇲🇦</li>
+				<li>🇵🇹</li>
+				<li>🇫🇷</li>
+				<li>🏴󠁧󠁢󠁳󠁣󠁴󠁿</li>
+				<!--<li>🇯🇵</li>-->
+				<!--<li>🇰🇷</li>-->
+			</ul>
+		</div>
 
 	</div>
 </footer>
