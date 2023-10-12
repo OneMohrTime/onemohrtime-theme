@@ -13,4 +13,4 @@ export { default as Navigation } from './modules/Navigation';
 export { default as Prism } from './modules/Prism';
 // export { default as Scroll } from './modules/Scroll';
 export { default as Swiper } from './modules/Swiper';
-export { default as Title } from './modules/Title';
+// export { default as Title } from './modules/Title';
