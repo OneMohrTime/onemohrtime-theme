@@ -28,6 +28,8 @@
 		@include hocus {
 			.c-card__headline {
 				@include text-shadow();
+				pointer-events: none;
+				z-index: 11;
 			}
 			.c-card__image {
 				opacity: 1;
@@ -40,6 +42,7 @@
 
 	.c-card__headline {
 		transition: color $speed $cubic-bezier;
+		font-size: 2rem;
 	}
 
 	.c-card__image {

@@ -109,3 +109,12 @@ $breakpoints : (
 	'screen1920': 1920px,
 	'screen2560': 2560px
 );
+
+/**
+ * === CSS VARS ===
+ */
+
+:root {
+	--swiper-theme-color: #{$yellow} !important;
+	--swiper-navigation-size: #{$gutter} !important;
+}

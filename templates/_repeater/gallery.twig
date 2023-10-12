@@ -55,9 +55,9 @@
 					</a>
 
 					{% if caption %}
-						<figcaption class="c-media__caption -text">{{ caption }}</figcaption>
+						<figcaption class="c-media__caption is-text">{{ caption }}</figcaption>
 					{% else %}
-						<figcaption class="c-media__caption -zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
+						<figcaption class="c-media__caption is-zoom">{% include 'assets/img/icons/plus-zoom.svg' %}</figcaption>
 					{% endif %}
 
 					<img src="{{ imageOptimized.src('thumbnail') }}"

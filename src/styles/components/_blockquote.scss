@@ -52,13 +52,15 @@
 	&.-withImage {
 		// .blockquote.-withImage
 		position: relative;
-		background-color: fade-out($white, 0.15);
-		padding: $gutter;
+		max-width: calc(70ch + $gutter);
 		margin: $gutter;
+		padding: $gutter;
+		background-color: fade-out($white, 0.15);
 
 		@include media(">=screen1024") {
-			padding: $gutter-lg;
+			max-width: calc(70ch + $gutter-lg);
 			margin: $gutter-lg;
+			padding: $gutter-lg;
 		}
 
 		& > *:first-child {

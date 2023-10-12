@@ -3,7 +3,7 @@
 ========================================================================== */
 
 .o-page__builder,
-.entry__builder,
+.o-entry__builder,
 .c-project__builder {
 	position: relative;
 	padding-bottom: $base-line-height * 3;
@@ -28,8 +28,14 @@
 	}
 
 	// cap text line lengths
-	.-wysiwyg {
+	.-wysiwyg,
+	._wysiwyg,
+	.c-wysiwyg {
 		@include content-width();
+
+		& + *:not(.c-button) {
+			margin-top: $large-spacing;
+		}
 	}
 
 	/**
