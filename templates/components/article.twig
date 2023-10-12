@@ -10,8 +10,6 @@
 	oddEven: params.oddEven ?? null
 } %}
 
-{# {% set this.oddEven = loop.index is even ? ' -isEven' : ' -isOdd' ?? null %} #}
-
 {# <article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}"> #}
 <article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}" id="post-{{ post.id }}">
 
@@ -43,6 +41,6 @@
 		</div>
 
 		{# <a href="{{ post.link }}" class="c-article__link c-button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a> #}
-		<a href="#" class="c-article__link c-button" aria-label="View Post">View Post</a>
+		<a href="{{ this.link }}" class="c-article__link c-button">Read More</a>
 	</div>
 </article>
