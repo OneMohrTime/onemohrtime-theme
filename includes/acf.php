@@ -397,55 +397,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
-	'key' => 'group_604d05e3d2f5d',
-	'title' => 'Categories',
-	'fields' => array(
-		array(
-			'key' => 'field_604d065079b57',
-			'label' => 'Show Categories',
-			'name' => 'show_categories',
-			'aria-label' => '',
-			'type' => 'taxonomy',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'taxonomy' => 'category',
-			'field_type' => 'multi_select',
-			'allow_null' => 0,
-			'add_term' => 0,
-			'save_terms' => 0,
-			'load_terms' => 0,
-			'return_format' => 'object',
-			'multiple' => 0,
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_category',
-				'operator' => '==',
-				'value' => 'category:travel',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'acf_after_title',
-	'style' => 'seamless',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-) );
-
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_5b60ec726011e',
 	'title' => 'Gallery',
 	'fields' => array(
@@ -498,7 +450,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_621bbc0e3a954',
 	'title' => 'Headings',
 	'fields' => array(
@@ -582,7 +534,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_583243bb8c402',
 	'title' => 'Home Page Banner',
 	'fields' => array(
@@ -756,7 +708,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_6505f07ff108d',
 	'title' => 'Home Page Content',
 	'fields' => array(
@@ -1118,7 +1070,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_64ffdff8e0c7f',
 	'title' => 'Logo Details',
 	'fields' => array(
@@ -1164,7 +1116,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_583243bbabd96',
 	'title' => 'Project Grid',
 	'fields' => array(
@@ -1218,7 +1170,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_583243bbb167e',
 	'title' => 'Projects',
 	'fields' => array(
@@ -1549,7 +1501,7 @@ acf_add_local_field_group( array(
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_5f7d16b9e1feb',
 	'title' => 'Section Builder',
 	'fields' => array(
@@ -2431,7 +2383,7 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_5b3799d77260c',
 	'title' => 'Site Globals',
 	'fields' => array(
@@ -2704,6 +2656,92 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 				),
 			),
 		),
+		array(
+			'key' => 'field_6521bb4829f76',
+			'label' => '404 Page',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6521bb5e29f77',
+			'label' => 'Headline',
+			'name' => 'error_headline',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
+			'key' => 'field_6521bb8029f78',
+			'label' => 'Body',
+			'name' => 'error_body',
+			'aria-label' => '',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'full',
+			'media_upload' => 0,
+			'delay' => 0,
+		),
+		array(
+			'key' => 'field_6521bbda29f79',
+			'label' => 'Links',
+			'name' => 'error_links',
+			'aria-label' => '',
+			'type' => 'relationship',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'post',
+				1 => 'page',
+				2 => 'design',
+			),
+			'post_status' => '',
+			'taxonomy' => '',
+			'filters' => array(
+				0 => 'search',
+			),
+			'return_format' => 'object',
+			'min' => '',
+			'max' => '',
+			'elements' => '',
+		),
 	),
 	'location' => array(
 		array(
@@ -2725,7 +2763,7 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 	'show_in_rest' => 0,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
 	'key' => 'group_623c00a565d33',
 	'title' => 'Top 10 Lists',
 	'fields' => array(
@@ -2821,7 +2859,71 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 	'show_in_rest' => 1,
 ) );
 
-	acf_add_local_field_group( array(
+acf_add_local_field_group( array(
+	'key' => 'group_623bf4c506686',
+	'title' => 'Additional Photos',
+	'fields' => array(
+		array(
+			'key' => 'field_623bf4d346bab',
+			'label' => 'Parallax Image',
+			'name' => 'parallax_image',
+			'aria-label' => '',
+			'type' => 'image',
+			'instructions' => '<i>Optional</i>. Taller photos produce a higher parallax effect.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => 'gif, jpg, jpeg, png, heic, webp, svg, avif',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'design',
+			),
+		),
+	),
+	'menu_order' => 5,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+acf_add_local_field_group( array(
 	'key' => 'group_62258c38cca1a',
 	'title' => 'Related Posts',
 	'fields' => array(
@@ -2912,69 +3014,5 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => 'Choose custom pages/posts to visit next',
-	'show_in_rest' => 0,
-) );
-
-	acf_add_local_field_group( array(
-	'key' => 'group_623bf4c506686',
-	'title' => 'Additional Photos',
-	'fields' => array(
-		array(
-			'key' => 'field_623bf4d346bab',
-			'label' => 'Parallax Image',
-			'name' => 'parallax_image',
-			'aria-label' => '',
-			'type' => 'image',
-			'instructions' => '<i>Optional</i>. Taller photos produce a higher parallax effect.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'array',
-			'preview_size' => 'thumbnail',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => 'gif, jpg, jpeg, png, heic, webp, svg, avif',
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'post',
-			),
-		),
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'page',
-			),
-		),
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'design',
-			),
-		),
-	),
-	'menu_order' => 50,
-	'position' => 'side',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
 	'show_in_rest' => 0,
 ) );

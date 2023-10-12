@@ -390,53 +390,6 @@
         "show_in_rest": 0
     },
     {
-        "key": "group_604d05e3d2f5d",
-        "title": "Categories",
-        "fields": [
-            {
-                "key": "field_604d065079b57",
-                "label": "Show Categories",
-                "name": "show_categories",
-                "aria-label": "",
-                "type": "taxonomy",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "taxonomy": "category",
-                "field_type": "multi_select",
-                "allow_null": 0,
-                "add_term": 0,
-                "save_terms": 0,
-                "load_terms": 0,
-                "return_format": "object",
-                "multiple": 0
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_category",
-                    "operator": "==",
-                    "value": "category:travel"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "acf_after_title",
-        "style": "seamless",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
-        "show_in_rest": 0
-    },
-    {
         "key": "group_5b60ec726011e",
         "title": "Gallery",
         "fields": [
@@ -2677,6 +2630,92 @@
                         "parent_repeater": "field_651e39dff7400"
                     }
                 ]
+            },
+            {
+                "key": "field_6521bb4829f76",
+                "label": "404 Page",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "left",
+                "endpoint": 0
+            },
+            {
+                "key": "field_6521bb5e29f77",
+                "label": "Headline",
+                "name": "error_headline",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6521bb8029f78",
+                "label": "Body",
+                "name": "error_body",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_6521bbda29f79",
+                "label": "Links",
+                "name": "error_links",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "post",
+                    "page",
+                    "design"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "elements": ""
             }
         ],
         "location": [
@@ -2794,6 +2833,69 @@
         "show_in_rest": 1
     },
     {
+        "key": "group_623bf4c506686",
+        "title": "Additional Photos",
+        "fields": [
+            {
+                "key": "field_623bf4d346bab",
+                "label": "Parallax Image",
+                "name": "parallax_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "<i>Optional<\/i>. Taller photos produce a higher parallax effect.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "gif, jpg, jpeg, png, heic, webp, svg, avif"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "design"
+                }
+            ]
+        ],
+        "menu_order": 5,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
         "key": "group_62258c38cca1a",
         "title": "Related Posts",
         "fields": [
@@ -2884,69 +2986,6 @@
         "hide_on_screen": "",
         "active": true,
         "description": "Choose custom pages\/posts to visit next",
-        "show_in_rest": 0
-    },
-    {
-        "key": "group_623bf4c506686",
-        "title": "Additional Photos",
-        "fields": [
-            {
-                "key": "field_623bf4d346bab",
-                "label": "Parallax Image",
-                "name": "parallax_image",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "<i>Optional<\/i>. Taller photos produce a higher parallax effect.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "preview_size": "thumbnail",
-                "library": "all",
-                "min_width": "",
-                "min_height": "",
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": "gif, jpg, jpeg, png, heic, webp, svg, avif"
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "post"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "page"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "design"
-                }
-            ]
-        ],
-        "menu_order": 50,
-        "position": "side",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
         "show_in_rest": 0
     }
 ]
