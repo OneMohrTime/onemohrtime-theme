@@ -1,6 +1,4 @@
 body#tinymce {
-	background: #fffefa;
-	color: #171409;
 	font-family: "Barlow", -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Segoe UI, Lucida Grande, Helvetica Neue, Helvetica, Fira Sans, Roboto, Noto, Droid Sans, Cantarell, Oxygen, Ubuntu, Franklin Gothic Medium, Century Gothic, Liberation Sans, sans-serif;
 }
 
@@ -23,10 +21,11 @@ li {
 p a,
 li a {
 	color: #ffc300;
-	border-bottom: 4px #ffc300 solid;
+	border-bottom: 2px #ffc300 solid;
 }
 
-.btn {
+.btn,
+.c-button {
 	display: block;
 	border: 1px #171409 solid;
 	color: #171409;
