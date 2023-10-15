@@ -6,6 +6,7 @@
 
 // Modules exports
 // =============================================================================
+export { default as ContactForm } from './modules/ContactForm';
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
 // export { default as Load } from './modules/Load';

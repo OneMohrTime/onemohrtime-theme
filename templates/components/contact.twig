@@ -1,5 +1,23 @@
 <section id="contact" class="o-site__contact">
+
+	{# Close BG #}
+	<div class="o-site__contact-close"></div>
+
+	{# Close Button #}
+	<button class="c-button--close" title="Close Panel" aria-label="Close Panel">
+		<span></span>
+		<span></span>
+	</button>
+
+	{# WP Form #}
 	{% filter shortcodes %}
 		[wpforms id="3394" title="false"]
 	{% endfilter %}
+
+	{# Thank You Confirmation
+		<p>Thank you {field_id="0"}! I will answer you as soon as I can.</p>
+		<p>In the meantime, please keep checking out my website or head over to <a href="https://shop.onemohrti.me/">my shop</a>!</p>
+		<a id="close_panel" class="c-button">Close</a>
+	#}
+
 </section>

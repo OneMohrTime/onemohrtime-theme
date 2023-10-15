@@ -7,6 +7,9 @@ html {
 	font-size: 1em;
 	line-height: 1em;
 	background-color: $black;
+
+	// If Javascript is turned off...
+	// &.no-js {}
 }
 
 body {
@@ -29,6 +32,10 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	&.no-scrollingPlz {
+		overflow: hidden;
+	}
 
 	// "Overflow" scrolling on large monitors
 	@include media(">=screen1600") {
