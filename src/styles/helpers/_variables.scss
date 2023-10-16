@@ -115,6 +115,10 @@ $breakpoints : (
  */
 
 :root {
+	// Fancybox
+	--fancybox-bg: fade-out($black, 0.33) !important;
+	--f-button-color: $yellow !important;
+	// Swiper
 	--swiper-theme-color: #{$yellow} !important;
 	--swiper-navigation-size: #{$gutter} !important;
 }

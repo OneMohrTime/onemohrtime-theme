@@ -246,6 +246,7 @@
 	}
 }
 
+.o-page__related,
 .o-entry__related {
 	@include block-width();
 	@include content-width();
