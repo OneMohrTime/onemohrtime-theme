@@ -120,6 +120,7 @@
 
 	@include media(">=screen1024") {
 		grid-area: about;
+		margin-bottom: 0;
 	}
 }
 

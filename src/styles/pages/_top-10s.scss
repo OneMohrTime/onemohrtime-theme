@@ -61,12 +61,12 @@
 }
 
 .c-powerRanking__headline {
-	@include paragraph();
+	font-size: 1.5em;
 	text-align: center;
 
-	@include media(">=screen1170") {
-		font-size: ms(0);
-	}
+	// @include media(">=screen1170") {
+	// 	font-size: ms(0);
+	// }
 }
 
 .c-powerRanking__list {
