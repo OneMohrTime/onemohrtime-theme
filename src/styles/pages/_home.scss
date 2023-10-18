@@ -11,7 +11,7 @@
 	font-size: clamp(100%, 1rem + 1vw, 1.33em);
 	// @include base-font-size();
 	background-color: $black;
-	background-image: url("/assets/img/concrete-dark.png");
+	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-dark.png");
 	background-position: center center;
 	color: $white;
 
@@ -128,7 +128,7 @@
 	padding-right: 0;
 	padding-bottom: $gutter-xl;
 	background-color: $white;
-	background-image: url("/assets/img/concrete-light.png");
+	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-light.png");
 	background-position: center center;
 
 	@include media(">=screen1024") {
