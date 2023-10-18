@@ -73,6 +73,11 @@
 		position: relative;
 	}
 
+	// .c-media {
+	// 	opacity: 1;
+	// 	transition: opacity $speed $cubic-bezier;
+	// }
+
 	.c-media__image {
 		width: 100%;
 	}
@@ -94,5 +99,24 @@
 		width: 100%;
 		height: 100%;
 		z-index: 1;
+	}
+
+	@include media(">=screen1024") {
+		.u-subheadline {
+			@include box-shadow();
+			opacity: 0;
+			transition: opacity $speed $cubic-bezier;
+			color: $white;
+		}
+		.u-block-link {
+			@include hocus {
+				// & + .c-media {
+				// 	opacity: 0.67;
+				// }
+				& ~ .u-subheadline {
+					opacity: 1;
+				}
+			}
+		}
 	}
 }
