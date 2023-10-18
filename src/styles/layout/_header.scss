@@ -1,8 +1,8 @@
-/**
- * === HEADER ===
- */
+/* ==========================================================================
+	Header
+========================================================================== */
 
-.site__header {
+.o-site__header {
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -12,14 +12,10 @@
 	transition: $speed linear;
 	background: linear-gradient(to bottom right, $white 85%, $white--dark);
 	background-color: $black;
-	background-image: url("../img/concrete-dark.png");
+	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-dark.png");
 	background-position: center center;
 	box-shadow: 0 -1px 3px fade-out($black, 0.94), 0 -1px 2px fade-out($black, 0.88);
 	z-index: 20;
-
-	&.nav-is-open {
-		box-shadow: none;
-	}
 
 	@include media(">=screen600") {
 		top: 0;
@@ -27,6 +23,8 @@
 		height: 100px;
 		max-height: none;
 		background: transparent;
+		// background-color: transparent;
+		// background-image: linear-gradient(to bottom, $white percentage(2/3), fade-out($white, 1));
 		box-shadow: none;
 
 		// when the window scrolls up the page
@@ -44,21 +42,50 @@
 		left: calc(50% - 720px);
 		max-width: 1440px;
 	}
+
 	@include media(">=screen1920") {
 		left: calc(50% - 800px);
 		max-width: 1600px;
+	}
+
+	// When mobile nav is active
+	@include media("<screen600") {
+		&.is-active {
+			height: auto;
+			max-height: 100vh;
+
+			.c-navigation {
+				position: relative;
+			}
+
+			.menu {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
 	}
 }
 
 //
 // allow clicking "behind" transparent area of nav
 //
-.site__header { pointer-events: none; }
-.toggle__menu,
-.site__logo,
-.main-navigation { pointer-events: auto; }
+.o-site__header {
 
-.site__logo {
+	@include media(">=screen600") {
+		pointer-events: none;
+	}
+}
+
+.toggle__menu,
+.o-site__logo,
+.c-navigation {
+
+	@include media(">=screen600") {
+		pointer-events: auto;
+	}
+}
+
+.o-site__logo {
 	position: absolute;
 	top: 15px;
 	right: $gutter;
@@ -66,22 +93,26 @@
 
 	@include media(">=screen600") {
 		top: 30px;
+
+		.is-active & {
+			z-index: 50;
+		}
 	}
 
 	@include media(">=screen768") {
 		right: 0;
-		margin-right: $gutter * 2;
+		margin-right: $gutter-lg;
 	}
 
 	@include media(">=screen1024") {
-		margin-right: $gutter * 3;
+		margin-right: $gutter-xl;
 		transform: translateX(0);
 		transition: transform $speed;
 
 		.-slideUp &,
 		.-slideDown &,
 		.-activeNavigationAreaUpTopButNotWhenScrolling & {
-			transform: translateX( calc(100% + #{$gutter} + #{$gutter / 2}) );
+			transform: translateX( calc(100% + #{$gutter} + #{$gutter-sm}) );
 		}
 	}
 
@@ -90,7 +121,7 @@
 	}
 
 
-	.logo {
+	.c-media__svg {
 		display: block;
 		width: auto;
 		height: 40px;
@@ -117,7 +148,7 @@
 		}
 		// only turn logo yellow when menu is down
 		&:hover {
-			.logo {
+			.c-media__svg {
 				#design {
 					path {
 						fill: $yellow;

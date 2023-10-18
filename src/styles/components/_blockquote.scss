@@ -1,6 +1,6 @@
-/**
- * === BLOCKQUOTE ===
- */
+/* ==========================================================================
+	Blockquote
+========================================================================== */
 
 .blockquote {
 	border: 0;
@@ -12,8 +12,9 @@
 		// .blockquote.-default
 		position: relative;
 		padding-left: calc(#{$gutter} + 10px);
+
 		@include media(">=screen1440") {
-			padding-left: $gutter * 2;
+			padding-left: $gutter-lg;
 		}
 
 		&::before {
@@ -24,17 +25,17 @@
 			display: block;
 			width: $gutter;
 			height: 100%;
-			background-image: url("../img/icons/left-quote.svg");
+			background-image: url("/wp-content/themes/onemohrtime/assets/img/icons/left-quote.svg");
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: $gutter $gutter;
 		}
 
 		& > p {
-			// color: shade($yellow, 67%);
-			// display: inline;
-			// background: linear-gradient(to bottom, fade-out($white, 1) 0%, fade-out($white, 1) 49%, $yellow 50%, $yellow 100%);
-			@include responsive-type();
+			font-family: $font-header;
+			font-size: 1.5em;
+			font-weight: 800;
+			line-height: $heading-line-height;
 
 			@include media(">=screen960") {
 				padding-left: 10px;
@@ -43,6 +44,7 @@
 
 			@include media(">=screen1440") {
 				padding-left: $gutter;
+				font-size: 2em;
 			}
 		}
 	}
@@ -50,33 +52,21 @@
 	&.-withImage {
 		// .blockquote.-withImage
 		position: relative;
-		background-color: fade-out($white, 0.15);
-		padding: $gutter;
+		max-width: calc(70ch + $gutter);
 		margin: $gutter;
-
-		@include media(">=screen768") {
-			padding: $gutter * 2;
-			margin: $gutter * 2;
-		}
+		padding: $gutter;
+		background-color: fade-out($white, 0.15);
 
 		@include media(">=screen1024") {
-			padding: $gutter * 3;
-			margin: $gutter * 3;
-		}
-
-		@include media(">=screen1440") {
-			padding: $gutter * 4;
-			margin: $gutter * 4;
+			max-width: calc(70ch + $gutter-lg);
+			margin: $gutter-lg;
+			padding: $gutter-lg;
 		}
 
 		& > *:first-child {
 			position: relative;
 			padding-top: 1.5em;
 			margin-bottom: $small-spacing;
-		}
-
-		& > p {
-			@include responsive-type();
 		}
 
 		// Background image is actually a sibling

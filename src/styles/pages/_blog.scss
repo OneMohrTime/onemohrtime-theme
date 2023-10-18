@@ -1,8 +1,9 @@
-/**
- * === BLOG ===
- */
+/* ==========================================================================
+	Blog
+========================================================================== */
 
-body.-posts {
+.t-post,
+.t-posts {
 	position: relative;
 	margin-bottom: 2em;
 
@@ -14,7 +15,7 @@ body.-posts {
 		&__article {
 			// .posts__article
 			width: 100%;
-			margin: $base-spacing 0 #{$gutter * 2};
+			margin: $base-spacing 0 #{$gutter-lg};
 			@include media(">=screen600")  {
 				padding-right: 20%;
 			}
@@ -24,6 +25,10 @@ body.-posts {
 		}
 	}
 }
+
+/**
+ * === PAGINATION ===
+ */
 
 .posts__pagination {
 	width: auto;

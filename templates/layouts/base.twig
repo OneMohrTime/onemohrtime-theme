@@ -1,46 +1,81 @@
+{# Site Meta Content #}
 {% block html_head_container %}
-
-{% include 'partials/html-header.twig' %}
-	{% block head %}
-	{% endblock %}
+	{% include 'partials/html-header.twig' %}
+		{% block head %}
+		{% endblock %}
 	</head>
 {% endblock %}
 
+{# Body Classes #}
 {% if term_page %}
 	{% set postTypeClass  = 'archive' %}
-	{% set postTitleClass = '-category' %}
+	{% set postTitleClass = 'is-category' %}
 {% else %}
 	{% set postTypeClass  = post ? post.type.slug : 'error404' %}
-	{% set postTitleClass = post ? '-' ~ post.slug : '' %}
+	{% set postTitleClass = post ? 'is-' ~ post.slug : '' %}
 {% endif %}
 
-<body class="{{ postTypeClass }} {{ postTitleClass }}">
-	<div id="page" class="site">
+{# Site Frame #}
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}{{ globals.site_alert.show_alert ? ' has-alert' : null}}">
+	<div id="page" class="o-site" data-load-container>
 
+		{# Site Alert #}
+		{% include 'components/alert.twig' with {
+			params: {
+				isActive: globals.site_alert.show_alert ?? null,
+				text: globals.site_alert.alert_text ?? null,
+				link: globals.site_alert.alert_link ?? null
+			}
+		} only %}
+
+		{# Skip (Tab) Navigation #}
 		{% include 'components/skip-to-content.twig' %}
 
-		<header id="masthead" class="site__header">
+		{# Primary Navigation #}
+		<header id="masthead" class="o-site__header" data-module-navigation>
 			{% block header %}
 				{% include 'partials/header.twig' %}
 			{% endblock %}
 		</header>
 
-		<main id="main" class="site__main content-area{% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
+		{# Main Site Content Area #}
+		<main id="main" class="o-site__main {% if post.slug is defined or term_page.slug is defined %} -{{ term_page.slug ?? post.slug ?? 'default' }}{% else %} daft-punk{% endif %}{% if displaySidebar == true %} -hasSidebar{% endif %}">
 			{% block content %}
 				Sorry, no content
 			{% endblock %}
 		</main>
 
+		{# Social Links #}
 		{% include 'partials/sidebar.twig' %}
 
+		{# Contact Modal #}
 		{% include 'components/contact.twig' %}
 
+		{# Site Footer #}
 		{% block footer %}
 			{% include 'partials/footer.twig' %}
+			<!-- Start WP Footer Function -->
 			{{ function('wp_footer') }}
+			<!-- End WP Footer Function -->
 		{% endblock %}
 
+		<!--
+		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+		<script>
+		const lenis = new Lenis()
+		lenis.on('scroll', (e) => {
+		console.log(e)
+		})
+		function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+		}
+		requestAnimationFrame(raf)
+		</script>
+		-->
+
 	</div>
+
 	{# Add personal branding mark, just for funsies #}
 	{% include 'components/html-comment.twig' %}
 </body>

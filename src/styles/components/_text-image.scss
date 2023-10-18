@@ -1,6 +1,6 @@
-/**
- * === TEXT AND IMAGE ===
- */
+/* ==========================================================================
+	Text & Image
+========================================================================== */
 
 .-textAndImage {
 
@@ -11,7 +11,7 @@
 		margin-right: 0;
 	}
 	@include media(">=screen1280") {
-		margin-right: $gutter * 3;
+		margin-right: $gutter-xl;
 	}
 	@include media(">=screen1440") {
 		margin-right: $gutter * 4;
@@ -20,11 +20,11 @@
 	// image left, text right
 	&.-reversed {
 		flex-direction: row-reverse;
-		margin-right: $gutter * 2;
+		margin-right: $gutter-lg;
 		margin-left: 0;
 		@include media(">=screen1280") {
-			margin-left: $gutter * 3;
-			margin-right: $gutter * 3;
+			margin-left: $gutter-xl;
+			margin-right: $gutter-xl;
 		}
 		@include media(">=screen1440") {
 			margin-left: $gutter * 4;

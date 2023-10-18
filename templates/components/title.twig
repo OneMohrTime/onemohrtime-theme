@@ -1,9 +1,7 @@
-<h1 class="title title--animated">
-	{% if post.headline %}
-		{{ post.headline }}
-	{% elseif title %}
-		{{ title }}
+<h1 class="u-title" data-module-title>
+	{% if title is iterable %}
+		{{ title[0] }}
 	{% else %}
-		{{ post.title }}
+		{{ title }}
 	{% endif %}
 </h1>

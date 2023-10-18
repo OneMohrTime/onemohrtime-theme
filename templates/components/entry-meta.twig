@@ -1,20 +1,32 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+	text: params.meta ?? null
+} %}
+
+{# -- Component Template -- #}
+
 {##
  # "First posted" if over 5 years ago, "Posted" if less
  # "Last updated" if over 5 years ago, "Updated" if less
  #}
 
-<p class="_meta _wysiwyg">
+{% if this.text is not null %}
+
+<strong class="u-meta">
 	<time class="original" datetime="{{ post.post_date|date(c) }}">
 		{% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}
 	</time>
-	<span class="post-format">
+	<span class="post-format c-media">
 		{% if post.format is defined and post.format != false %}
-			{% include '/assets/media/icons/post-' ~ post.format ~ '.svg' %}
+			{% include '/assets/img/icons/post-' ~ post.format ~ '.svg' %}
 			<span class="image__caption">{{ post.format|capitalize }}</span>
 		{% else %}
-			{% include '/assets/media/icons/post-standard.svg' %}
+			{% include '/assets/img/icons/post-standard.svg' %}
 			<span class="image__caption">Standard</span>
 		{% endif %}
 	</span>
-	<span class="a11yText"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
-</p>
+	<span class="u-invisible"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
+</strong>
+
+{% endif %}

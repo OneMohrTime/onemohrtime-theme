@@ -1,0 +1,32 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+	<article class="o-page post-{{ post.id }} is-{{ post.type }}">
+
+		{# <header class="o-page__header">
+			{% if post.subtitle %}
+				<p class="_meta">{{ post.subtitle }}</p>
+			{% elseif post.post_excerpt %}
+				<p class="_meta">{{ post.post_excerpt }}</p>
+			{% endif %}
+			{% include 'components/title.twig' %}
+		</header> #}
+
+		<div class="o-page__content u-get-faded _wysiwyg">
+			{% filter shortcodes %}
+				[contact-form-7 id="1056" title="New Project"]
+			{% endfilter %}
+		</div>
+
+		{# Add Section Repeater #}
+		{# {% if post.sections|length %}
+			<div class="o-page__builder">
+				{% include 'partials/builder.twig' %}
+			</div>
+		{% endif %}
+
+		<footer class="o-page__footer">
+		</footer> #}
+
+	</article>
+{% endblock %}

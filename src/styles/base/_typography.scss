@@ -1,10 +1,6 @@
-/**
- * === TYPOGRAPHY ===
- */
-
-.content-area {
-	@include responsive-type();
-}
+/* ==========================================================================
+	Typography
+========================================================================== */
 
 ::selection {
 	color: $black;
@@ -13,7 +9,7 @@
 }
 
 /**
- * — Headers —
+ * === HEADINGS ===
  */
 
 @for $i from 1 through 6 {
@@ -21,12 +17,15 @@
 		position: relative;
 		display: block;
 		margin: 0 0 .5em;
-		font-family: $font__header;
-		font-size: modular-scale((6 - $i), 1em, $major-third);
-		font-weight: 700;
+		font-family: $font-header;
+		font-weight: 800;
 		text-transform: uppercase;
 		line-height: $heading-line-height;
 		color: inherit;
+
+		@include first(1) {
+			margin-top: 0;
+		}
 
 		a {
 			line-height: inherit;
@@ -35,27 +34,40 @@
 	}
 }
 
+.is-h1,
 h1 {
-	font-size: ms(3);
+	font-size: 102px;
+	// font-size: 7.083vw;
 }
+.is-h2,
 h2 {
-	font-size: ms(2);
+	font-size: 64px;
+	// font-size: 4.445vw;
 }
+.is-h3,
 h3 {
-	font-size: ms(1);
+	font-size: 51px;
+	// font-size: 3.542vw;
 }
+.is-h4,
 h4 {
-	font-size: ms(0);
+	font-size: 36px;
+	// font-size: 2.5vw;
 }
+.is-h5,
 h5 {
-	font-size: ms(-1);
+	font-size: 25px;
+	// font-size: 1.736vw;
 }
+.is-h6,
 h6 {
-	font-size: ms(-2);
+	font-size: 21px;
+	// font-size: 1.458vw;
 }
 
 ._wysiwyg,
 .-wysiwyg {
+
 	h1, h2, h3, h4, h5, h6 {
 
 		// headers in a wysiwyg section only...hopefully
@@ -70,7 +82,7 @@ h6 {
 }
 
 /**
- * — Body Copy —
+ * === BODY COPY ===
  */
 
 p {
@@ -83,12 +95,11 @@ p {
 }
 
 b, strong {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 sub, sup {
 	font-size: .75em;
-	font-size: ms(-1);
 	line-height: 0;
 	position: relative;
 	vertical-align: baseline;
@@ -97,18 +108,17 @@ sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
 small {
-	font-size: ms(-1);
+	font-size: .75em;
 }
 
 /**
- * — Lists —
+ * === LISTS ===
  */
 
 ul, ol, dl {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-
 
 	._wysiwyg &,
 	.-wysiwyg & {
@@ -141,43 +151,37 @@ ul, ol, dl {
 }
 
 /**
- * — Code —
+ * === UTILITY CLASSES ===
  */
 
-// pre, code {
-// 	display: inline-block;
-// 	font-family: $font__code;
-// 	font-size: .875em;
-// 	background-color: $white--dark;
-// 	border: 1px $white--darker solid;
-// 	color: inherit;
-// 	padding: $small-spacing;
-// }
-
-/**
- * — Utility classes —
- */
-
-.-serif {
-	font-family: $font__secondary;
-}
-
-._title {
+._title,
+.u-title {
 	@include title();
+
 	&.-underline {
 		@include title("underlined");
 	}
+
+	.u-letter {
+		display: inline-block;
+		transform-origin: 0 100%;
+		line-height: 1em;
+	}
 }
 
-._headline {
+._headline,
+.u-headline {
 	@include subtitle();
+
 	&.-underline {
 		@include subtitle("underlined");
 	}
 }
 
-._subheadline {
+._subheadline,
+.u-subheadline {
 	@include paragraph();
+
 	&.-underline {
 		@include paragraph("underlined");
 	}
@@ -189,13 +193,13 @@ ul, ol, dl {
 }
 
 /**
- * — Additional needs —
+ * === ADDITIONAL ADDITIONS ===
  */
 
 i, cite, em, var, address, dfn {
-	// cancel out italics
-	font-family: $font__header;
-	font-style: normal;
+	margin: 0;
+	font-family: inherit;
+	font-style: italic;
 }
 
 abbr {
@@ -218,7 +222,6 @@ abbr {
 			content: attr(title);
 			display: inline-block;
 			padding: 2px 4px;
-			@include responsive-type();
 			text-decoration: none;
 			line-height: inherit;
 			border-bottom: 1px $black dotted;
@@ -242,15 +245,21 @@ blockquote {
 	}
 
 	footer {
+		position: relative;
 		font-size: .75em;
 		color: $black--light;
 
 		cite {
+			display: block;
+			margin-top: 1em;
+			padding-left: 1.5em;
+			font-style: normal;
 			font-weight: 700;
 		}
 
 		&::before {
 			content: "\2014 \00A0";
+			position: absolute;
 		}
 	}
 }

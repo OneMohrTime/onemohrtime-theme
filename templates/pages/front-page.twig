@@ -2,92 +2,184 @@
 {% set displaySidebar = true %}
 
 {% block content %}
-	<section id="home_banner" class="banner -typographic -yellow">
+	<section class="c-banner -typographic">
+		<div class="c-banner__intro">
+			<h1 class="u-title">I&rsquo;m a freelance brand <a href="/logo-design" class="c-banner__link">designer</a>, web <a href="/web-design" class="c-banner__link">developer</a>, and creative something-something. I&rsquo;m based out of <a href="/logo-design" class="c-banner__link">Grand Rapids</a>, MI. <a href="javascript();" class="c-banner__link" data-module-contact-form>Questions?</a></h1>
+		</div>
+		{% if tagline is defined and tagline is not empty %}
+			<strong class="u-caption">{{ tagline }}</strong>
+		{% endif %}
+	</section>
 
-		<ul id="home_banner_list" class="banner__list -getFaded">
-			{% for link in links %}
-				{% set link = link.link %}
-				<li class="banner__listItem">
-					<a href="{{ link.url }}" class="banner__link">{{ link.title }}</a>
-					{% if not loop.last %}//&nbsp;{% endif %}
+	<section class="homepage__cta">
+		<h2 class="u-headline" data-module-title>Want To Work Together?</h2>
+		<ul class="c-builder__section -cards -horizontalDeck u-get-faded">
+			{% for cta in callToActions %}
+				<li class="c-card">
+					{% set headline    = cta.headline|default(null) %}
+					{% set subheadline = cta.subheadline|default(null) %}
+					{% set text        = cta.body ?? null %}
+					{% set button      = cta.link ?? null %}
+					{% set image       = cta.image ? Image(cta.image) : null %}
+					{% set caption     = cta.image.caption|default(null) %}
+					{% if cta.image.alt is not empty %}
+						{% set alt = cta.image.alt %}
+					{% elseif cta.image.description is not empty %}
+						{% set alt = cta.image.description %}
+					{% elseif caption is defined and caption is not empty %}
+						{% set alt = caption %}
+					{% elseif cta.image.title is not empty %}
+						{% set alt = cta.image.title %}
+					{% else %}
+						{% set alt = '' %}
+					{% endif %}
+					{% set width       = cta.image.width ?? null %}
+
+					{% if button %}
+						<a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="c-card__link">
+					{% endif %}
+						{% if image %}
+							<figure class="c-card__image">
+								<img src="{{ image.src('thumbnail') }}"
+									alt="{{ alt }}"
+									class="_image"
+									srcset="{{ image.src('medium') }} 1000w,
+											{{ image.src('large') }} 1500w" />
+							</figure>
+						{% endif %}
+						<div class="c-card__body">
+							{% if headline %}
+								<h3 class="_headline">{{ headline }}</h3>
+							{% endif %}
+							{% if subheadline %}
+								<h3 class="_subheadline">{{ subheadline }}</h3>
+							{% endif %}
+							{% if text %}
+								<div class="_text -wysiwyg">
+									{{ text }}
+								</div>
+							{% endif %}
+						</div>
+					{% if button %}
+						</a>
+					{% endif %}
 				</li>
 			{% endfor %}
 		</ul>
+	</section>
 
-		<div id="home_intro" class="banner__intro">
-			<div class="_line"></div>
-			<h2 id="home_title" class="_title -wysiwyg">
-				<span class="-row">
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">Developer</span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">for</span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text"><a href="//mightyinthemidwest.com/" target="_blank" rel="noopener" title="Mighty In The Midwest" class="intro__link">Mighty</a></span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">by</span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">day,</span>
-					</span>
-				</span>
-				<span class="-row">
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text"><a href="{{ site.link }}/travel/" class="intro__link">Traveling</a></span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">designer</span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">by</span>
-					</span>
-					<span class="-word">
-						<span class="-block"></span>
-						<span class="-text">night.</span>
-					</span>
-				</span>
-			</h2>
-			<p class="_tagline -getFaded">
-				<span><a href="{{ site.link }}/about" class="banner__link">Derek Mohr</a> // </span>
-				<span><a href="{{ site.link }}/about/now" class="banner__link">Grand Rapids, MI</a> // </span>
-				<span>
-					<a href="{{ site.link }}/work" class="banner__link" title="Full Stack Developer">Full Stack Developer</a> +
-					<a href="{{ site.link }}/logo-design" class="banner__link" title="Graphic Designer">Graphic Designer</a>
-				</span>
-			</p>
+	<section class="homepage__caseStudies">
+		<div class="c-caseStudies">
+			<div class="c-caseStudies__content">
+				<h2 class="u-headline">{{ caseStudies.headline|default('Case Studies') }}</h2>
+				{% if caseStudies.body is not empty %}
+					<div class="c-wysiwyg">
+						{{ caseStudies.body }}
+					</div>
+				{% endif %}
+			</div>
+			<div class="c-caseStudies__slides">
+				<div class="swiper -caseStudy" data-module-swiper data-swiper-length="{{ caseStudies.projects|length }}">
+					<div class="swiper-wrapper">
+						{% for project in caseStudies.projects %}
+							{% set project = Post(project) %}
+							<div class="swiper-slide">
+								<a href="{{ project.link }}" class="u-block-link">
+									<span class="u-invisible">View {{ project.title }}</span>
+								</a>
+								{% include 'components/picture.twig' with {
+									params: {
+										src: project.thumbnail,
+										ratio: '4:3'
+									}
+								} only %}
+								<div class="swiper-lazy-preloader"></div>
+								<h3 class="u-subheadline">{{ project.title }}</h3>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<figure id="home_about" class="homepage__about">
-
-		<img src="{{ Image(image).src }}"
-			alt="{{ image.alt }}"
-			class="homepage__about--image"
-			srcset="{{ Image(image).src('medium') }} 1000w,
-					{{ Image(image).src('large') }} 1500w" />
-
-		<figcaption class="homepage__about--content _wysiwyg -getFaded">
+	<section class="homepage__about">
+		<article class="homepage__about--content _wysiwyg u-get-faded">
 			{{ post.content }}
-		</figcaption>
+		</article>
+		<figure class="homepage__about--image c-instagram">
+			{% filter shortcodes %}
+				[instagram-feed feed=1]
+			{% endfilter %}
+		</figure>
+	</section>
 
-	</figure>
+	{% if feature1 is defined and feature1 is not empty %}
+		{% set feature1     = Post(feature1) %}
+		{% set feature1Type = feature1.type.slug %}
+		{% set feature1Meta = feature1Type == 'design' ? feature1.get_field('project_header').subtitle :
+			feature1Type == 'page' ? feature1.post_excerpt|truncate(16) :
+			null
+		%}
+		{% set feature1Excerpt = feature1.post_excerpt|default(null) %}
+		<section class="homepage__feature homepage__feature--1">
+			{% include 'components/article.twig' with {
+				params: {
+					type: feature1Type,
+					headline: feature1.headline ?? feature1.title,
+					subheadline: feature1Meta,
+					excerpt: feature1Excerpt,
+					text: feature1Excerpt ? feature1Excerpt : feature1.content,
+					image: feature1.thumbnail ? Image(feature1.thumbnail) : null,
+					anchor: feature1.title,
+					link: feature1.link
+				}
+			} only %}
+		</section>
+	{% endif %}
 
-	{# Add Section Repeater #}
-	{% if post.sections|length %}
-		<div class="homepage__builder">
-			{% include 'partials/builder.twig' %}
-		</div>
+	{% if contact is defined and contact is not empty %}
+		<section class="homepage__contact">
+			<h2 class="u-headline">{{ contact.headline ?? 'Contact' }}</h2>
+			<div class="u-wysiwyg">
+				{{ contact.body }}
+			</div>
+			<a href="{{ contact.link_url.url }}" class="c-button" data-module-contact-form>{{ contact.link_url.title }}</a>
+		</section>
+	{% endif %}
+
+	{% if feature2 is defined and feature2 is not empty %}
+		{% set feature2     = Post(feature2) %}
+		{% set feature2Type = feature2.type.slug %}
+		{% set feature2Meta = feature2Type == 'design' ? feature2.get_field('project_header').subtitle :
+			feature2Type == 'page' ? feature2.post_excerpt|truncate(16) :
+			null
+		%}
+		{% set feature2Excerpt = feature2.post_excerpt|default(null) %}
+		<section class="homepage__feature homepage__feature--2">
+			{% include 'components/article.twig' with {
+				params: {
+					type: feature2Type,
+					headline: feature2.headline ?? feature2.title,
+					subheadline: feature2Meta,
+					excerpt: feature2Excerpt,
+					text: feature2Excerpt ? feature2Excerpt : feature2.content,
+					image: feature2.thumbnail ? Image(feature2.thumbnail) : null,
+					anchor: feature2.title,
+					link: feature2.link
+				}
+			} only %}
+		</section>
+	{% endif %}
+
+	{% if additional is defined and additional is not empty %}
+		<section class="homepage__cards">
+			{% include '_repeater/cards.twig' with {
+				block: additional
+			} only %}
+		</section>
 	{% endif %}
 
 {% endblock %}

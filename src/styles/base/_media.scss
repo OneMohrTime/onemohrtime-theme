@@ -1,6 +1,6 @@
-/**
- * === MEDIA ===
- */
+/* ==========================================================================
+	Media
+========================================================================== */
 
 img {
 	display: block;
@@ -14,12 +14,21 @@ object {
 	max-width: 100%;
 }
 
+// .c-media {
+// 	position: relative;
+// }
+
+.c-media__image {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
 /**
- * — SVG icon default —
+ * === SVG ICONS ===
  */
 
 .-svg {
-	$base: $black;
 	font-size: 1em;
 	line-height: 1em;
 	width: 1em;
@@ -27,8 +36,16 @@ object {
 	fill: currentColor;
 }
 
+.c-media__svg {
+	display: block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	resize: both;
+}
+
 /**
- * — Utility Classes —
+ * === UTILITY CLASSES ===
  */
 
 .image,

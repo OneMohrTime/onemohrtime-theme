@@ -1,31 +1,37 @@
-/**
- * === NAV ===
- */
+/* ==========================================================================
+	Navigation
+========================================================================== */
 
 /**
- * — Menu —
+ * === MENU ===
  */
 
-.main-navigation {
+
+.c-navigation {
+	position: absolute;
 	width: 100%;
-	height: auto;
-	margin-bottom: $gutter * 2;
+	margin-bottom: $gutter-lg;
 	color: $white;
 
 	@include media(">=screen600") {
+		position: relative;
 		height: 100px;
+		transform: translateY(-100%);
 		margin-bottom: 0;
 		background-color: $black;
 	}
 
 	&.is-visible {
-		max-height: calc(100vh - 72px);
 		overflow: auto;
-		transform: translateY(0);
 		z-index: 40;
 
-		.site__header--logo {
+		.o-site__header--logo {
 			top: 20px;
+		}
+
+		@include media(">=screen600") {
+			max-height: calc(100vh - 72px);
+			transform: translateY(0);
 		}
 	}
 
@@ -51,55 +57,53 @@
 			align-items: center;
 			height: 100%;
 			padding: 0;
-			padding-left: calc(50px + #{$gutter} + #{$gutter / 2});
+			padding-left: calc(50px + #{$gutter} + #{$gutter-sm});
 			opacity: 1;
 			visibility: visible;
 		}
 
 		@include media(">=screen768") {
-			padding-left: calc(50px + #{$gutter * 2} + #{$gutter / 2});
+			padding-left: calc(50px + #{$gutter-lg} + #{$gutter-sm});
 		}
 
 		@include media(">=screen1024") {
-			padding-left: calc(50px + #{$gutter * 2});
+			padding-left: calc(50px + #{$gutter-lg});
 		}
+	}
 
-		&-item {
-			// .menu-item
-			position: relative;
+	.menu-item {
+		position: relative;
 
-			&-home {
-				// .menu-item-home
-				@include media(">=screen600") {
-					display: none;
-				}
-			}
-
-			// mobile only
-			@include media("<screen600") {
-				@include paragraph();
-				font-weight: 700;
-				padding: $small-spacing / 2 0;
+		&-home {
+			// .menu-item-home
+			@include media(">=screen600") {
+				display: none;
 			}
 		}
 
+		// mobile only
+		@include media("<screen600") {
+			font-family: $font-header;
+			font-size: 2em;
+			font-weight: 800;
+			padding: math.div($small-spacing, 2) 0;
+		}
 	}
 
 	.nav-link {
 		display: block;
 
-		@include media("<screen600") {
-			padding: $small-spacing / 2;
-		}
-
 		@include media(">=screen600") {
-			padding: $small-spacing / 2 $small-spacing;
-			transition: background-color $speed-slow, color $speed-slow;
-			@include body-copy();
-			font-weight: 700;
+			padding: 0.5vw 1vw;
+			transition: background-color $speed-slow,
+						color $speed-slow;
+			font-family: $font-header;
+			font-size: 1.5em;
+			font-weight: 800;
+			letter-spacing: -0.5px;
 			border-radius: $base-border-radius;
 
-			&:hover {
+			@include hocus {
 				background-color: fade-out($white, 0.9);
 			}
 		}
@@ -111,21 +115,21 @@
 }
 
 /**
- * — Toggle —
+ * === TOGGLE ===
  */
 
 .toggle__menu {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	margin: $gutter / 2 $gutter;
-	padding: $small-spacing / 2 0;
+	margin: $gutter-sm $gutter;
+	padding: math.div($small-spacing, 2) 0;
 	transition: background-color $speed-slow linear,
 				color $speed-slow linear,
 				box-shadow $speed-slow linear;
-	font-family: $font__header;
-	font-size: 1.25em !important;
-	font-weight: 700;
+	font-family: $font-header;
+	font-size: 1.25rem;
+	font-weight: 800;
 	color: $white;
 	z-index: 35;
 	cursor: pointer;
@@ -142,6 +146,7 @@
 
 	&.open {
 		color: $white;
+		z-index: 50;
 	}
 
 	@include media(">=screen600") {
@@ -162,11 +167,11 @@
 	}
 
 	@include media(">=screen768") {
-		margin-left: $gutter * 2;
+		margin-left: $gutter-lg;
 	}
 
 	@include media(">=screen1024") {
-		margin-left: $gutter * 3;
+		margin-left: $gutter-xl;
 		transform: translateX(0);
 		transition: transform $speed;
 

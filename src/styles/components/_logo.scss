@@ -1,0 +1,77 @@
+/* ==========================================================================
+	Logo
+========================================================================== */
+
+.c-logo {
+	position: relative;
+	width: 50%;
+	padding: 3em 1em;
+	padding: 1em;
+	background-color: $white--dark;
+	box-shadow: 0 0 0 1px $gray;
+
+	@include media(">=screen1170") {
+		display: flex;
+		// flex-direction: column;
+		align-items: center;
+		width: auto;
+		transition: padding $speed $cubic-bezier;
+
+		// @include hocus {
+		// 	padding: 3em 1em;
+		// 	padding: 1em 1em 5em;
+		// }
+	}
+}
+
+.c-logo__image {
+	width: 100%;
+	transition: filter $speed $cubic-bezier;
+	// mix-blend-mode: darken;
+	filter: grayscale(1);
+}
+
+.c-logo__caption {
+	@include box-shadow();
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 0.5em;
+	opacity: 1;
+	transition: opacity $speed $cubic-bezier;
+	background-color: $white;
+
+	h3 {
+		font-size: 1em;
+		margin-bottom: 0.25em;
+	}
+
+	time {
+		@include smallest-font-size();
+	}
+
+	@include media(">=screen1170") {
+		max-width: calc(percentage(2/3) - 1em);
+		opacity: 0;
+	}
+}
+
+.c-logo__link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+
+	@include hocus {
+		& + .c-logo__image {
+			// mix-blend-mode: normal;
+			filter: grayscale(0);
+		}
+		& ~ .c-logo__caption {
+			opacity: 1;
+		}
+	}
+}

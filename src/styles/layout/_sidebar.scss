@@ -1,33 +1,30 @@
-/**
- * === SIDEBAR ===
- */
+/* ==========================================================================
+	Sidebar
+========================================================================== */
 
 .c-sidebar {
-	grid-column: span 4;
 	position: relative;
 	width: 100%;
-	padding-top: $gutter;
-	padding-left: $gutter;
-	padding-right: $gutter;
-	padding-bottom: $base-spacing;
+	padding: $gutter;
 	background-color: $white--dark;
-	background-image: url("../img/concrete-light.png");
+	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-light.png");
 	background-position: center center;
 
 	@include media(">=screen768") {
-		padding-left: $gutter * 2;
-		padding-right: $gutter * 2;
+		padding-left: $gutter-lg;
+		padding-right: $gutter-lg;
 	}
 
 	@include media(">=screen1024") {
-		padding-left: $gutter * 3;
-		padding-right: $gutter * 3;
+		padding-left: $gutter-xl;
+		padding-right: $gutter-xl;
 	}
 
 	@include media(">=screen1440") {
 		padding-top: $gutter * 1.5;
 		padding-left: $gutter * 4;
 		padding-right: $gutter * 4;
+		padding-bottom: $gutter * 1.5;
 	}
 }
 
@@ -56,7 +53,7 @@
 	flex-grow: 0;
 	flex-shrink: 0;
 	flex-basis: 50%;
-	max-width: calc(50% - #{$gutter / 2});
+	max-width: calc(50% - #{$gutter-sm});
 
 	@include media(">=screen840") {
 		flex-basis: 25%;
@@ -65,7 +62,7 @@
 	}
 
 	// Icon
-	.-svg {
+	.c-media__svg {
 		display: inline-block;
 		width: 36px;
 		height: auto;
@@ -120,6 +117,10 @@
 				margin-top: 64px;
 			}
 		}
+	}
+
+	h3.c-sidebar__social {
+		font-size: $font-h5;
 	}
 }
 

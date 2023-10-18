@@ -6,34 +6,36 @@
 
 {% block content %}
 
-	<article class="post-{{ post.id }} -{{ post.type }}">
+	<article class="o-page post-{{ post.id }} is-{{ post.type }}">
 
-		<header class="page__header">
+		<header class="o-page__header">
 			{% if post.subtitle %}
 				<p class="_meta">{{ post.subtitle }}</p>
 			{% elseif post.post_excerpt %}
 				<p class="_meta">{{ post.post_excerpt }}</p>
 			{% endif %}
-			{% include 'components/title.twig' %}
+			{% include 'components/title.twig' with {
+				title: post.heading_headline|default(post.title)
+			} only %}
 			{% include 'components/personality-types.twig' %}
 		</header>
 
-		<section class="page__content -getFaded _wysiwyg">
+		<section class="o-page__content u-get-faded _wysiwyg">
 			{{ post.content }}
 		</section>
 
 		{% if (workHistory is defined and workHistory is not empty)
 			or (education is defined and education is not empty) %}
-			<h2 class="page__headline a11yText">Résumé Specs</h2>
+			<h2 class="o-page__headline u-invisible">Résumé Specs</h2>
 		{% endif %}
 
 		{% if workHistory is defined and workHistory is not empty %}
-			<section class="page__repeater">
+			<section class="o-page__repeater">
 
 				<h3 id="work-history" class="_subheadline -underline">Professional History</h3>
 
 				{% for work in workHistory %}
-					<details class="repeater{{ work.end_date ? '' : ' -current' }}"{% if work.end_date is empty %} data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
+					<details class="repeater{{ work.end_date ? '' : ' -current' }}"{% if work.end_date is empty %} data-start="{{ work.start_date ?? '' }}" data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
 						<summary class="repeater__summary">
 							<h4 id="{{ work.company|sanitize }}" class="repeater__title">{{ work.company }}</h4>
 						</summary>
@@ -48,7 +50,7 @@
 		{% endif %}
 
 		{% if education is defined and education is not empty %}
-			<section class="page__repeater">
+			<section class="o-page__repeater">
 
 				<h3 id="educational-history" class="_subheadline -underline">Education</h3>
 
@@ -77,7 +79,7 @@
 
 	{# Add Section Repeater #}
 	{% if post.sections|length %}
-		<div class="page__builder">
+		<div class="o-page__builder">
 			{% include 'partials/builder.twig' %}
 		</div>
 	{% endif %}

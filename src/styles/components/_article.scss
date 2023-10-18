@@ -1,8 +1,8 @@
-/**
- * === ARTICLE ===
- */
+/* ==========================================================================
+	Article
+========================================================================== */
 
-.article {
+.c-article {
 	position: relative;
 	width: 100%;
 	height: auto;
@@ -22,14 +22,18 @@
 		margin-bottom: $base-spacing;
 		width: 100%;
 
-		//
+		// Inverse odd/even layout
+		&.-isEven {
+			flex-direction: row-reverse;
+		}
+
 		// hover, active state
 		// they also need seperate declarations due to link hover states
 		&:hover,
-		.article__link:focus {
+		.c-article__link:focus {
 
 			// move text up to center, slowish
-			.article__content {
+			.c-article__content {
 				// transform: translate(-#{$gutter-lg}, -#{$gutter-lg});
 				// background-color: $yellow;
 			}
@@ -37,152 +41,135 @@
 	}
 
 	@include media(">=screen1024") {
-		margin-bottom: $gutter * 2;
+		margin-bottom: $gutter-lg;
 	}
 
 	@include media(">=screen1440") {
-		margin-bottom: $gutter * 3;
+		margin-bottom: $gutter-xl;
+	}
+}
+
+.c-article__image {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	margin-bottom: $base-spacing;
+	overflow: hidden;
+	z-index: 1;
+
+	@include media(">=screen768") {
+		height: 400px;
 	}
 
-	&__image {
-		// .article__image
-		position: relative;
+	@include media(">=screen840") {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 60%;
+		max-width: 60%;
+		height: 500px;
+		min-height: 100%;
+		margin-bottom: 0;
+	}
+
+	.c-media__image {
 		width: 100%;
-		height: 300px;
-		margin-bottom: $base-spacing;
-		overflow: hidden;
-		z-index: 1;
+		height: 100%;
+		object-fit: cover;
+	}
+}
 
-		@include media(">=screen768") {
-			height: 400px;
+.c-article__content {
+	position: relative;
+	margin-bottom: $base-spacing;
+
+	@include media(">=screen840") {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: calc(40% - #{$gutter});
+		max-width: calc(40% - #{$gutter});
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		margin-bottom: 0;
+		@include small-font-size();
+	}
+
+	._meta,
+	.u-meta {
+		display: flex;
+		flex-flow: row wrap;
+		margin-bottom: $small-spacing;
+		transition: color $speed;
+
+		line-height: 1.7em;
+		text-align: center;
+		color: $gray--darkest;
+
+		.updated,
+		.author,
+		a:not(.btn) {
+			@include visually-hidden();
 		}
 
 		@include media(">=screen840") {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: 60%;
-			max-width: 60%;
-			height: 500px;
-			min-height: 100%;
-			margin-bottom: 0;
-		}
-
-		._image {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+			text-align: left;
 		}
 	}
 
-	&__content {
-		// .article__content
-		position: relative;
-		margin-bottom: $base-spacing;
-
-		@include media(">=screen840") {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: calc(40% - #{$gutter});
-			max-width: calc(40% - #{$gutter});
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			align-items: flex-start;
+	// adjust margins a bit
+	& > * {
+		@include last(2) {
 			margin-bottom: 0;
-			@include small-font-size();
+		}
+	}
+
+	&:hover {
+
+		._meta,
+		.u-meta {
+			color: $black--light;
 		}
 
-		._meta {
-			display: flex;
-			flex-flow: row wrap;
-			margin-bottom: $small-spacing;
-			transition: color $speed;
-			@include caption();
-			line-height: 1.7em;
-			text-align: center;
-			color: $gray--darkest;
-
-			.updated,
-			.author,
-			a:not(.btn) {
-				@include visually-hidden();
-			}
-
-			@include media(">=screen840") {
-				text-align: left;
-			}
-		}
-
-		// adjust margins a bit
-		& > * {
-			@include last(2) {
-				margin-bottom: 0;
-			}
-		}
-
-		&:hover {
-
-			._meta {
-				color: $black--light;
-			}
-
-			.post-format {
-				.-svg {
-					opacity: 1;
-					path {
-						fill: $yellow;
-					}
+		.post-format {
+			.c-media__svg {
+				opacity: 1;
+				path {
+					fill: $yellow;
 				}
 			}
 		}
 	}
+}
 
-	&__title {
-		// .article__title
-		position: relative;
-		@include paragraph();
-		margin-top: $gutter / 2;
+.c-article__title {
+	position: relative;
+	@include paragraph();
+	margin-top: $gutter-sm;
 
-		@include media(">=screen840") {
-			margin-top: 0;
-			margin-bottom: $base-spacing;
-		}
-
-		@include media(">=screen1280") {
-			@include subtitle();
-		}
-
-		a {
-			line-height: $heading-line-height !important;
-
-			&::before {
-				display: none;
-			}
-		}
+	@include media(">=screen840") {
+		margin-top: 0;
+		margin-bottom: $base-spacing;
 	}
 
-	// button
-	&__link {
-		// .article__link
-		margin-top: $base-line-height;
-		font-size: ms(-1) !important;
-		border-width: 2px !important;
+	@include media(">=screen1280") {
+		@include subtitle();
+	}
+
+	a {
+		line-height: $heading-line-height !important;
 
 		&::before {
 			display: none;
 		}
-
-		&::after {
-			height: 6px !important;
-		}
 	}
+}
 
+.c-article__link {
+	margin-top: $base-line-height;
 
-	// Inverse odd/even layout
-	@include media(">=screen840") {
-		&.-isEven {
-			flex-direction: row-reverse;
-		}
+	&::before {
+		display: none;
 	}
 }
 
@@ -195,7 +182,7 @@
 		display: inline-block;
 	}
 
-	.-svg {
+	.c-media__svg {
 		position: absolute;
 		top: 0;
 		left: 0;

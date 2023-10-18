@@ -1,6 +1,6 @@
-/**
- * === ERROR PAGES ===
- */
+/* ==========================================================================
+	Error Pages
+========================================================================== */
 
 .daft-punk {
 	position: relative;
@@ -10,7 +10,7 @@
 	padding-top: $gutter;
 	padding-top: 0;
 	text-align: center;
-	background: transparent url("../img/daft-punk-404.gif") repeat center center fixed;
+	background: transparent url("/wp-content/themes/onemohrtime/assets/img/daft-punk-404.gif") repeat center center fixed;
 	background-size: cover;
 	color: $white;
 
@@ -28,9 +28,9 @@
 		&--title {
 			// .daft-punk__content--title
 			@include underlined();
-			margin-bottom: $gutter / 2;
-			padding-bottom: $gutter / 2;
-			font-family: $font__secondary;
+			margin-bottom: $gutter-sm;
+			padding-bottom: $gutter-sm;
+			// font-family: $font-secondary;
 			font-size: 5em;
 			text-transform: lowercase;
 
@@ -58,8 +58,8 @@
 }
 
 .error404 {
-	.site__header,
-	.site__footer {
+	.o-site__header,
+	.o-site__footer {
 		display: none;
 	}
 }

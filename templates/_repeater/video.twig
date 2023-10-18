@@ -11,12 +11,12 @@
 {% set iFrame   = section.script ?? null %}
 {% set upload   = section.upload ?? null %}
 
-<div class="builder__section -video -from{{ layout|capitalize }} -getFaded">
+<div class="c-builder__section -video -from{{ layout|capitalize }} u-get-faded">
 	{% if headline %}
 		<h2 class="_headline">{{ headline }}</h2>
 	{% endif %}
 	{% if text %}
-		<div class="_text -wysiwyg">
+		<div class="c-wysiwyg">
 			{{ text }}
 		</div>
 	{% endif %}
@@ -46,9 +46,11 @@
 			{# calculate aspect ratio #}
 			{% set height  = upload.height %}
 			{% set width   = upload.width %}
-			{% set decimal = height / width * 100 %}
+			{# {% set decimal = height / width * 100 %} #}
+
 			{# Label: Internal Upload #}
-			<figure class="wrapper -isCustom -ratio{{ width }}:{{ height }}">
+			<figure class="wrapper -isCustom">
+			{# <figure class="wrapper -isCustom u-ratio u-{{ width }}:{{ height }}"> #}
 				<video controls preload="none" autoplay="false" width="{{ width }}" height="{{ height }}">
 					<source src="{{ upload.url }}" type="{{ upload.mime_type }}" />
 					<p>Sorry, your browser doesn't support embedded videos. You can still <a href="{{ upload.url }}" download>download</a> it.</p>

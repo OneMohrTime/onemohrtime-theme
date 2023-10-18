@@ -3,76 +3,54 @@
 
 {% block content %}
 
-	<figure class="gallery__banner">
+	<figure class="c-gallery__banner">
 
 		<img src="{{ post.thumbnail.src('thumbnail') }}"
 			width="{{ post.thumbnail.width }}"
 			height="{{ post.thumbnail.height }}"
 			alt="{{ post.thumbnail.alt }}"
-			class="gallery__banner--image"
+			class="c-gallery__banner--image"
 			srcset="{{ post.thumbnail.src('medium') }} 500w,
 					{{ post.thumbnail.src('large') }} 1000w,
 					{{ post.thumbnail.src('full') }} 1500w"
 			sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px"/>
 
-		<figcaption class="gallery__banner--title">
+		<figcaption class="c-gallery__banner--title">
 			<h2>{{ post.title }}</h2>
 		</figcaption>
 
-		<a href="#contact" class="gallery__banner--contact btn">{% include '/assets/media/icons/arrow-left.svg' %} Contact</a>
+		<a href="#contact" class="c-gallery__banner--contact c-button">{% include '/assets/img/icons/arrow-left.svg' %} Contact</a>
 
 	</figure>
 
-	<div class="gallery__filter">
-		{#
-		TODO: Build Isotope filters
-
-		<form class="arrays -getFaded" id="featured_project_filter">
-			<ul class="array array__roles" role="group" aria-labelledby="array_1">
-				<li class="array__item">
-					<button type="button" id="array_1" class="array__filter array__title" role="button" data-filter="*">
-						<span class="array__title--before">All</span> Role<span class="array__title--before">s</span><span class="array__title--after">:</span>
-					</button>
-				</li>
-				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-filter=".role-designer">Designer</button>
-				</li>
-				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-filter=".role-developer">Developer</button>
-				</li>
-			</ul>
-			<ul class="array array__category" role="group" aria-labelledby="array_2">
-				<li class="array__item">
-					<button type="button" id="array_2" class="array__filter array__title" role="button" data-filter="*">
-						<span class="array__title--before">All</span> Type<span class="array__title--before">s</span><span class="array__title--after">:</span>
-					</button>
-				</li>
-				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-filter=".job_type-freelance">Freelance</button>
-				</li>
-				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-filter=".job_type-agency">Agency</button>
-				</li>
-				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-filter=".job_type-inhouse">In-house</button>
-				</li>
-				<li class="array__item">
-					<button type="button" class="array__filter" role="button" data-filter=".job_type-personal">Personal</button>
-				</li>
-			</ul>
-		</form>
-		#}
-	</div>
-
 	{% if projects %}
-		<section id="gallery" class="gallery__grid">
+		<section id="gallery" class="c-gallery__grid">
 			{% for post in projects %}
-				{% include 'components/article.twig' %}
+				{% set article     = Post(post) %}
+				{% set articleType = article.type.slug %}
+				{% set articleMeta = articleType == 'design' ? article.get_field('project_header').subtitle :
+					articleType == 'page' ? article.post_excerpt|truncate(16) :
+					null
+				%}
+				{% set articleExcerpt = article.post_excerpt|default(null) %}
+				{% include 'components/article.twig' with {
+					params: {
+						type: articleType,
+						headline: article.heading_headline|default(article.title),
+						subheadline: articleMeta,
+						excerpt: articleExcerpt,
+						text: articleExcerpt ? articleExcerpt : article.content,
+						image: article.thumbnail ? Image(article.thumbnail) : null,
+						anchor: article.title,
+						link: article.link,
+						oddEven: loop.index is even ? ' -isEven' : ' -isOdd'
+					}
+				} only %}
 			{% endfor %}
 		</section>
 	{% endif %}
 
-	<article class="gallery__content -getFaded _wysiwyg">
+	<article class="c-gallery__content u-get-faded _wysiwyg">
 		{{ post.content }}
 	</article>
 

@@ -50,7 +50,9 @@
 		},
 		"meta_box_cb": "",
 		"default_term": "",
-		"object_types": ["design"]
+		"object_types": [
+			"design"
+		]
 	},
 	"coding": {
 		"name": "coding",
@@ -103,7 +105,9 @@
 		},
 		"meta_box_cb": "",
 		"default_term": "",
-		"object_types": ["design"]
+		"object_types": [
+			"design"
+		]
 	},
 	"job_type": {
 		"name": "job_type",
@@ -156,6 +160,8 @@
 		},
 		"meta_box_cb": "",
 		"default_term": "",
-		"object_types": ["design"]
+		"object_types": [
+			"design"
+		]
 	}
 }

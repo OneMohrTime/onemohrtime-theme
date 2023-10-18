@@ -1,141 +1,51 @@
-/**
-* === BANNER ===
-*/
+/* ==========================================================================
+	Banner
+========================================================================== */
 
-.banner {
+.c-banner {
 
+	/**
+	* === HOME ===
+	*/
 	&.-typographic {
 		@include block-width();
-		margin-bottom: $gutter * 3;
-		// reverse order on mobile
-		@include media("<screen600") {
-			display: flex;
-			flex-flow: column-reverse nowrap;
-		}
-	}
-
-	&.-yellow {
+		margin-bottom: $gutter-xl;
 		color: $black--light;
 	}
 
-	.-home & {
-		// make banner links accessible
-		a:focus {
-			outline-color: fade-out($white, 0.4);
-		}
+	.is-home & {
+		display: flex;
+		align-items: center;
+		min-height: calc(100vh - $gutter-lg);
 	}
 }
 
-.banner__list {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
+.c-banner__intro {
+	max-width: 100%;
 
-	//
-	// Typographic banner, like home page
-	//
-	.-typographic & {
-		margin-top: $gutter * 4;
-		margin-bottom: $gutter;
-		max-width: $copy-width;
-
-		@include media('>=screen600') {
-			margin-top: $gutter * 3;
-			margin-bottom: $gutter * 3;
-		}
-
-		@include media('>=screen1024') {
-			margin-bottom: $gutter * 6;
-			@include small-font-size();
-		}
-
-		@include media('>=screen1280') {
-			margin-bottom: $gutter * 7;
-		}
-	}
-}
-
-.banner__listItem {
-	font-size: ms(-1);
-	@include media(">=screen960") {
-		font-size: ms(0);
-	}
-}
-
-.banner__intro {
-
-	@include media("<screen600") {
-		margin-top: $gutter * 4;
-	}
-
-	._title {
+	.u-title {
 		@include subtitle();
-
-		.-row {
-			display: block;
-		}
-
-		.-word {
-			position: relative;
-			display: inline-block;
-
-			// apply animation delays to child elements
-			// that are created with javascript
-			@for $i from 1 through 10 {
-				&:nth-child(#{$i}) {
-					.-block {
-						animation-delay: #{100ms * $i};
-					}
-					.-word {
-						animation-delay: #{100ms * $i};
-					}
-				}
-			}
-		}
-
-		.-block {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 0;
-			background-color: $black--light;
-			animation: blockIn forwards 1s cubic-bezier(0.22, 0.68, 0, 1.71);
-		}
-
-		.-text {
-			display: inline-block;
-			animation: wordIn forwards $speed-slow linear;
-		}
-	}
-
-	._tagline {
-		@include caption();
+		font-weight: 800;
+		max-width: 31ch;
+		margin-bottom: 0;
+		line-height: 1em;
 	}
 }
 
-.banner__link {
-	transition: box-shadow $speed linear;
-	line-height: $base-line-height;
-	box-shadow: none;
-
-	&:hover {
-		box-shadow: 0 7px 0 0 $white;
-	}
-}
-
-.intro__link {
-	line-height: 1.35em !important;
+.c-banner__link {
+	@include inline-block();
+	line-height: inherit;
 
 	&::before {
+		bottom: 0;
 		height: 12px !important;
 		background-color: $white !important;
 	}
 
-	&:hover {
+	@include hocus {
 		&::before {
-			bottom: 12px !important;
-			height: 80% !important;
+			bottom: 0 !important;
+			height: 100% !important;
 		}
 	}
 }

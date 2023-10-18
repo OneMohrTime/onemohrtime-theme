@@ -2,39 +2,39 @@
  * === INSTAGRAM ===
  */
 
-body.-instagram {
+body.is-instagram {
 	position: relative;
 
-	.site {
-		padding: 0;
-	}
-
-	.site__header,
-	.site__footer {
+	#wpadminbar,
+	.o-site__header,
+	.o-site__footer {
 		display: none;
 	}
 
-	.site__main {
+	.o-site {
+		padding: 0;
+	}
+
+	.o-site__main {
 		background-color: $yellow;
 	}
 
-	.page__content {
+	.o-page__content {
 		height: 100vh;
 		margin-top: 0;
 		margin-bottom: $gutter;
+		padding-top: $gutter;
 	}
 
 	ul {
 		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		height: 100%;
+		max-width: 100%;
 		margin: 0;
 		padding: 0;
+
 		li {
-			display: block;
-			width: 100%;
 			margin-bottom: $gutter-sm;
+
 			a {
 				position: relative;
 				display: block;
@@ -43,7 +43,7 @@ body.-instagram {
 				@include btn-color($black, $white);
 				border-radius: $base-border-radius;
 				@include body-copy();
-				font-family: $font__header;
+				font-family: $font-header;
 				font-weight: 700;
 				text-align: center;
 				text-transform: uppercase;
@@ -79,6 +79,28 @@ body.-instagram {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	ul:first-child {
+		flex-direction: column;
+		justify-content: flex-end;
+
+		li {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	ul:nth-child(2) {
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: $gutter-sm;
+
+		li {
+			a {
+				padding: 0.5em 1em;
 			}
 		}
 	}

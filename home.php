@@ -9,9 +9,11 @@
 
 $context = Timber::get_context();
 $context['post']      = new Timber\Post();
+$paged = get_query_var('paged') ?: 1; // Get the current page number
 $args = array(
 	'post_type'      => 'post',
-	'posts_per_page' => -1,
+	'posts_per_page' => 10,
+	'paged'          => $paged,
 	'orderby'        => array(
 		'date' => 'DESC'
 	),
@@ -26,5 +28,6 @@ $args = array(
 	),
 );
 $context['posts']      = Timber::get_posts( $args );
+$context['pagination'] = Timber::get_pagination();
 $context['categories'] = Timber::get_terms( 'category', array('parent' => 0) );
 Timber::render( 'pages/home.twig', $context );

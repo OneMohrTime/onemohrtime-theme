@@ -1,11 +1,12 @@
-/**
- * === PAGINATION ===
- */
+/* ==========================================================================
+	Pagination
+========================================================================== */
 
 .pagination {
 	display: flex;
 	justify-content: center;
-	margin-bottom: $large-spacing;
+	// margin-bottom: $large-spacing;
+	padding-bottom: $large-spacing;
 
 	&__item {
 		// .pagination__item

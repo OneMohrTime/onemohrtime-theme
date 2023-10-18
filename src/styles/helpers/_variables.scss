@@ -1,9 +1,10 @@
-/**
- * === VARIABLES ===
- */
+/* ==========================================================================
+	Variables
+========================================================================== */
 
-// Colors
-// =============================================================================
+/**
+ * === COLORS ===
+ */
 
 $black: #171409;
 $black--light: tint($black, 5%);
@@ -33,8 +34,9 @@ $red: #9c0000;
 //$color--warning: #9c0000 !important;
 $color--error: $red;
 
-// Social Colors
-// =============================================================================
+/**
+ * === SOCIAL COLORS ===
+ */
 
 $facebook-color:  #4267b2;
 $instagram-color: #e1306c;
@@ -48,18 +50,27 @@ $youtube-color:   #f00;
 $dribbble-color:  #ea4c89;
 $github-color:    #4078c0;
 
-// Typography
-// =============================================================================
+/**
+ * === TYPOGRAPHY ===
+ */
 
-$font__main     : "Barlow", $font-stack-system;
-$font__secondary: "Abril Fatface", $font-stack-garamond;
-$font__header   : "Barlow Semi Condensed", $font-stack-helvetica;
-$font__code     : "Inconsolata", $font-stack-monaco;
+$font-main     : "Barlow", $font-stack-system;
+$font-secondary: "Barlow Condensed", $font-stack-helvetica;
+$font-header   : $font-secondary;
+$font-code     : "Inconsolata", $font-stack-monaco;
 
 $copy-width: 840px;
 
-// Animations
-// =============================================================================
+$font-h1: 7.083vw;
+$font-h2: 4.445vw;
+$font-h3: 3.542vw;
+$font-h4: 2.5vw;
+$font-h5: 1.736vw;
+$font-h6: 1.458vw;
+
+/**
+ * === ANIMATIONS ===
+ */
 
 $speed        : 200ms;
 $speed-fast   : $speed / 2;
@@ -68,8 +79,9 @@ $base-duration: $speed;
 
 $cubic-bezier: cubic-bezier(0.17, 0.04, 0.03, 0.94);
 
-// Sizing
-// =============================================================================
+/**
+ * === SIZING ===
+ */
 
 $gutter: 36px;
 $gutter-xs: $gutter / 3;
@@ -77,6 +89,7 @@ $gutter-sm: $gutter / 2;
 $gutter-md: $gutter;
 $gutter-lg: $gutter * 2;
 $gutter-xl: $gutter * 3;
+$gutter-xxl: $gutter * 4;
 
 $breakpoints : (
 	'screen320' : 320px,
@@ -97,7 +110,15 @@ $breakpoints : (
 	'screen2560': 2560px
 );
 
-$modularscale: (
-	base : 1em,
-	ratio: $golden
-);
+/**
+ * === CSS VARS ===
+ */
+
+:root {
+	// Fancybox
+	--fancybox-bg: fade-out($black, 0.33) !important;
+	--f-button-color: $yellow !important;
+	// Swiper
+	--swiper-theme-color: #{$yellow} !important;
+	--swiper-navigation-size: #{$gutter} !important;
+}

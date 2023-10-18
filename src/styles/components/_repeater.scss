@@ -1,55 +1,12 @@
-/**
- * === REPEATER ===
- */
+/* ==========================================================================
+	Repeater
+========================================================================== */
 
 .repeater {
+	@include base-font-size();
 	position: relative;
 	max-width: $copy-width;
 	margin-bottom: $gutter;
-	@include base-font-size();
-
-	&.-current {
-		&::before {
-			content: attr(data-end);
-		}
-	}
-
-	// &[open] {}
-
-	&__summary {
-		// .repeater__summary
-		@include paragraph();
-		list-style: none;
-		cursor: pointer;
-
-		&:focus {
-			outline: $focus-outline;
-			outline-offset: $focus-outline-offset;
-		}
-
-		&::-webkit-details-marker {
-			display: none;
-		}
-	}
-
-	&__title {
-		// .repeater__title
-		@include body-copy();
-	}
-
-	&__body {
-		// .repeater__body
-
-		._subheadline {
-			@include caption();
-			margin-bottom: $base-spacing;
-		}
-	}
-
-	&__link {
-		// .repeater__link
-		font-weight: 700;
-	}
 
 	&::before {
 		content: attr(data-start) " – " attr(data-end);
@@ -58,10 +15,49 @@
 		right: 0;
 		display: block;
 		@include caption();
-		margin-top: 5.5em;
+		margin-top: 3.25em;
 
 		@include media(">=screen1024") {
-			margin-top: 4em;
+			margin-top: 5em;
 		}
 	}
+
+	&.-current {
+		&::before {
+			content: attr(data-end);
+		}
+	}
+
+	// &[open] {}
+}
+
+.repeater__summary {
+	@include paragraph();
+	list-style: none;
+	cursor: pointer;
+
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
+	}
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+}
+
+.repeater__title {
+	@include body-copy();
+}
+
+.repeater__body {
+
+	._subheadline {
+		@include caption();
+		margin-bottom: $base-spacing;
+	}
+}
+
+.repeater__link {
+	font-weight: 700;
 }

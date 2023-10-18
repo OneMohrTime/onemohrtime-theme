@@ -8,8 +8,8 @@
 {% block content %}
 
 {# Banner Area #}
-<header class="project__header">
-	<figure class="project__banner">
+<header class="c-project__header">
+	<figure class="c-project__banner">
 		{% if banner %}
 		<img src="{{ TimberImage(banner.image).src }}"
 			 width="{{ banner.image.width }}" height="{{ banner.image.height }}"
@@ -21,10 +21,10 @@
 			 sizes="(max-width: {{ banner.image.width }}px) 100vw, {{ banner.image.width }}px" />
 		{% endif %}
 
-		<h2 class="project__subtitle">{{ banner.subtitle }}</h2>
-		<h1 class="project__title title title--animated">{{ post.title }}</h1>
+		<h2 class="c-project__subtitle">{{ post.subheadline ?? banner.subtitle }}</h2>
+		<h1 class="c-project__title title title--animated">{{ post.headline ?? post.title }}</h1>
 
-		<a href="#contact" class="project__banner--contact btn">{% include '/assets/img/icons/arrow-left.svg' %}Contact</a>
+		<a href="#contact" class="c-project__banner--contact btn">{% include '/assets/img/icons/arrow-left.svg' %}Contact</a>
 
 	</figure>
 	{# include "components/entry-meta.twig" #}
@@ -32,9 +32,9 @@
 
 {# Project Details #}
 {% if details %}
-<aside class="project__specs -getFaded">
+<aside class="c-project__specs u-get-faded">
 
-	<h2 class="_subheadline" aria-hidden="true">More details</h2>
+	<h2 class="_subheadline">More details</h2>
 
 	{% if roles %}
 		<ul class="spec spec--list">
@@ -68,15 +68,20 @@
 
 {# Add Section Repeater #}
 {% if post.sections|length %}
-	<div class="project__builder">
+	<div class="c-project__builder">
 		{% include 'partials/builder.twig' %}
 	</div>
 {% endif %}
 
-{# Navigate between projects
-<footer>
-	{{ dump(wp_link_pages) }}
-</footer> #}
+{# Navigate between projects #}
+{% if relatedPosts %}
+	<footer class="c-project__related has-{{ relatedPosts|length }}-columns">
+		<h2 class="_subheadline">Related Reading</h2>
+		{% include 'components/related-posts.twig' with {
+			related: relatedPosts
+		} only %}
+	</footer>
+{% endif %}
 
 {% endblock %}
 

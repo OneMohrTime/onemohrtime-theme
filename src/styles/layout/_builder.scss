@@ -1,25 +1,24 @@
-/**
- * === SECTION BUILDER ===
- */
+/* ==========================================================================
+	Section Builder
+========================================================================== */
 
-.page__builder,
-.homepage__builder,
-.entry__builder,
-.project__builder {
+.o-page__builder,
+.o-entry__builder,
+.c-project__builder {
 	position: relative;
-	margin-bottom: $base-line-height * 3;
+	padding-bottom: $base-line-height * 3;
 }
 
-.builder__section {
+.c-builder__section {
 	@include block-width();
 
 	// no margins at the very top
-	&:first-child {
+	@include first(1) {
 		margin-top: 0;
 	}
 
 	// no margins at the very bottom
-	&:last-child {
+	@include last(1) {
 		margin-bottom: 0;
 	}
 
@@ -29,12 +28,18 @@
 	}
 
 	// cap text line lengths
-	.-wysiwyg {
+	.-wysiwyg,
+	._wysiwyg,
+	.c-wysiwyg {
 		@include content-width();
+
+		& + *:not(.c-button) {
+			margin-top: $large-spacing;
+		}
 	}
 
 	/**
-	 * Text
+	 * === TEXT ===
 	 */
 
 	&.-text {
@@ -47,13 +52,13 @@
 	}
 
 	/**
-	 * Text & Image
+	 * === TEXT & IMAGE ===
 	 */
 
 	// moved to `/components/_text-image`
 
 	/**
-	 * Image
+	 * === IMAGE ===
 	 */
 
 	&.-image {
@@ -93,36 +98,23 @@
 	}
 
 	/**
-	 * Video
+	 * === VIDEO ===
 	 */
 
 	// &.-video {
 	// }
 
 	/**
-	 * Blockquote
+	 * === QUOTES ===
 	 */
 
 	&.-blockquote {
 		position: relative;
-		// margin: 0 0 $gutter;
 		overflow: hidden;
-
-		// @include media(">=screen768") {
-		// 	margin: $gutter * 2;
-		// }
-
-		// @include media(">=screen1024") {
-		// 	margin: $gutter * 3;
-		// }
-
-		// @include media(">=screen1440") {
-		// 	margin: $gutter * 4;
-		// }
 	}
 
 	/**
-	 * Card Decks
+	 * === CARD DECKS ===
 	 */
 
 	&.-cards {

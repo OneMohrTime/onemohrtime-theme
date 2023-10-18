@@ -1,8 +1,7 @@
-/**
-* === BUTTONS ===
-*/
+/* ==========================================================================
+	Buttons
+========================================================================== */
 
-// bourbon mixins
 #{$all-buttons} {
 	position: relative;
 	display: inline-block;
@@ -27,17 +26,22 @@
 	color: inherit;
 }
 
-// create custom mixin
+/**
+* === Bourbon Mixins ===
+*/
+
 @mixin btn-style {
 	@include btn-color();
-	border-radius: $base-border-radius;
-	@include body-copy();
-	font-family: $font__header;
+	padding: 1vw 2vw;
+	font-family: $font-header;
+	// font-size: 1.042vw;
+	// font-size: 5vmin;
+	font-size: 1em;
 	font-weight: 700;
-	letter-spacing: 1px;
+	letter-spacing: 0.5px;
 	text-align: center;
 	text-transform: uppercase;
-	padding: $small-spacing $base-spacing;
+	border-radius: $base-border-radius;
 
 	&::after {
 		content: "";
@@ -49,7 +53,10 @@
 	}
 
 	@include media(">=screen960") {
-		&::after { transition: all $speed; }
+		padding: 0.25vw 1vw;
+		&::after {
+			transition: all $speed;
+		}
 	}
 
 	// hover, focus
@@ -84,23 +91,25 @@
 	}
 }
 
-.btn,
-._button {
+/**
+* === Button Class ===
+*/
+.c-button {
 	@include btn-style();
 	//	@include mask-texture();
 
-	.-svg {
+	.c-media__svg {
 		position: relative;
 		transition: $speed cubic-bezier(.455,.03,.515,.955);
 	}
 
-	&.gallery__banner--contact,
-	&.project__banner--contact,
-	&.posts__banner--contact {
+	&.c-gallery__banner--contact,
+	&.c-project__banner--contact,
+	&.c-posts__banner--contact {
 		display: flex;
 		align-items: center;
 
-		.-svg {
+		.c-media__svg {
 			margin-right: $small-spacing;
 
 			path {
@@ -111,7 +120,7 @@
 
 		&:hover,
 		&:focus {
-			.-svg {
+			.c-media__svg {
 				transform: translateX(-#{$small-spacing});
 				path {
 					fill: $yellow;
@@ -121,7 +130,7 @@
 	}
 }
 
-.btn--sm {
+.c-button--small {
 	padding: $small-spacing / 2 $small-spacing;
 	@include small-font-size();
 	border-width: 2px;
@@ -130,9 +139,3 @@
 		height: 5px;
 	}
 }
-
-
-// // WP Contact Form 7
-// .wpcf7-submit {
-// 	@include btn-style();
-// }

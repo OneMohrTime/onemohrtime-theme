@@ -79,7 +79,6 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'smartwp_disable_emojis' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		add_action( 'widgets_init', array( $this, 'widgets' ) );
-		// add_action( 'pre_get_posts', 'my_home_query' );
 		add_filter( 'wpseo_metabox_prio', array( $this, 'yoasttobottom' ) );
 		parent::__construct();
 	}
@@ -188,7 +187,8 @@ class StarterSite extends Timber\Site {
 			'audio',
 		) );
 
-		add_editor_style( 'assets/styles/editor.css' );
+		// add_editor_style( 'assets/styles/editor.css' );
+		add_editor_style();
 		add_theme_support( 'menus' );
 		add_post_type_support( 'page', 'excerpt' );
 	}
@@ -198,24 +198,17 @@ class StarterSite extends Timber\Site {
 	 */
 	public function loadScripts() {
 		// Main "screen" stylesheet
-		wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css', array(), null, 'screen' );
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/app.css', array(), null, 'screen' );
 
-		// Google Webfonts
-		wp_enqueue_style( 'webfonts', '//fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed:400,500,700|Barlow:400,700', array('main'), false, null );
+		// // Upgrade jQuery
+		// wp_deregister_script( 'jquery' );
+		// wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), '3.5.1', true );
 
-		// Upgrade jQuery
-		wp_deregister_script( 'jquery' );
-		wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), '3.5.1', true );
-
-		// Vendor script file
-		// wp_enqueue_script( 'vendor', get_template_directory_uri() . '/assets/scripts/vendor.js', array(), null, true );
-
-		// Load Fancybox seperately
-		// wp_enqueue_style( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', array(), false, null );
-		wp_enqueue_script( 'fancybox', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array(), null, true );
+		// Anime.js
+		wp_enqueue_script( 'anime', 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', array(), null, true );
 
 		// Main script file
-		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array('fancybox'), null, true );
+		wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true );
 	}
 
 	/**
@@ -241,25 +234,11 @@ class StarterSite extends Timber\Site {
 		]);
 	}
 
-	// public function my_home_query( $query ) {
-	// 	if ( $query->is_main_query() && !is_admin() ) {
-	// 		$query->set( 'post_type', array( 'design', 'post' ));
-	// 	}
-	// }
-
 	/**
 	 * Move Yoast to bottom
 	 */
 	public function yoasttobottom() {
 		return 'low';
-	}
-
-	/**
-	 * Remove comments styles from <head>
-	 */
-	function remove_recent_comments_style() {
-		global $wp_widget_factory;
-		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
 	}
 
 	/** This is where you can add your own functions to twig.

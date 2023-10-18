@@ -1,0 +1,21 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+	isActive: params.isActive ?? null,
+	text: params.text ?? null,
+	link: params.link ?? null
+} %}
+
+{# -- Component Template -- #}
+
+<aside class="c-alert{% if this.isActive %} is-active{% else %} not-active{% endif %} c-wysiwyg">
+
+	<p class="c-alert__text">{{ this.text }}</p>
+
+	{% if this.link %}
+		<a href="{{ this.link.url ?? 'javascript:;' }}"{% if this.link.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %} class="c-alert__link">{{ this.link.title }}</a>
+	{% endif %}
+
+	<button class="c-alert__close" title="Close Alert" aria-label="Close Alert"></button>
+
+</aside>

@@ -4,29 +4,31 @@
 {% for post in posts %}
 	<article {{ function('post_class') }}>
 
-		<header class="page__header">
+		<header class="o-page__header">
 
 			{% if post.post_excerpt %}
-				<p class="_meta _wysiwyg">{{ post.post_excerpt }}</p>
+				<p class="_meta">{{ post.post_excerpt }}</p>
 			{% endif %}
 
-			{% include 'components/title.twig' %}
+			{% include 'components/title.twig' with {
+				title: post.heading_headline|default(post.title)
+			} only %}
 		</header>
 
 		{% if post.content %}
-			<div class="page__content -getFaded _wysiwyg">
+			<div class="o-page__content u-get-faded _wysiwyg">
 				{{ post.content }}
 			</div>
 		{% endif %}
 
 		{# Add Section Repeater #}
 		{% if post.sections|length %}
-			<div class="page__builder">
+			<div class="o-page__builder">
 				{% include 'partials/builder.twig' %}
 			</div>
 		{% endif %}
 
-		<footer class="page__footer">
+		<footer class="o-page__footer">
 		</footer>
 
 	</article>

@@ -1,61 +1,24 @@
-/**
- * === HELPERS ===
- */
+/* ==========================================================================
+	Helpers
+========================================================================== */
 
-// parallax images animating in
-.parallax {
-	// parent element
-	position: relative;
-	overflow: hidden;
+// // fade in sections
+// .u-get-faded {
+// 	position: relative;
 
-	&.-scrolling {
-		.parallax__image {
-			opacity: 1;
-		}
-	}
+// 	& > * {
+// 		// get all children
+// 		opacity: 0;
+// 		transform: translate3d(0, 2em, 0);
+// 		// transition: opacity $speed, transform $speed-slow;
+// 		transition-timing-function: $ease-out-back;
 
-	// child element
-	&__image {
-		// .parallax__image
-		position: relative;
-		width: 100%;
-		height: 100%;
-		opacity: 1;
-		@supports (object-fit: cover) {
-			object-fit: cover;
-		}
-		pointer-events: none;
-		transition: opacity $speed-slow;
-
-		@include media(">=screen840") {
-			top: -100%;
-			height: 200%;
-			opacity: 0;
-		}
-
-		html.no-js & {
-			opacity: 1 !important;
-		}
-	}
-}
-
-// fade in sections
-.-getFaded {
-	position: relative;
-
-	& > * {
-		// get all children
-		opacity: 0;
-		transform: translate3d(0, 2em, 0);
-		// transition: opacity $speed, transform $speed-slow;
-		transition-timing-function: $ease-out-back;
-
-		html.no-js & {
-			opacity: 1 !important;
-			transform: translate3d(0,0,0) !important;
-		}
-	}
-}
+// 		html.no-js & {
+// 			opacity: 1 !important;
+// 			transform: translate3d(0,0,0) !important;
+// 		}
+// 	}
+// }
 
 // animate titles in with shifting blocks
 .title--animated {
@@ -63,7 +26,7 @@
 }
 
 // text meant only for screen readers
-.a11yText {
+.u-invisible {
 	@include visually-hidden(true);
 }
 
