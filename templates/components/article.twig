@@ -1,6 +1,6 @@
 {% set this = {
 	type: params.type ?? null,
-	headline: params.headline ?? null,
+	headline: params.headline[0] ?? params.headline ?? null,
 	subheadline: params.subheadline ?? null,
 	excerpt: params.excerpt ?? null,
 	text: params.text ?? null,

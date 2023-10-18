@@ -9,7 +9,9 @@
 			{% if post.post_excerpt %}
 				<p class="_meta">{{ post.post_excerpt }}</p>
 			{% endif %}
-			{% include 'components/title.twig' %}
+			{% include 'components/title.twig' with {
+				title: post.heading_headline|default(post.title)
+			} only %}
 		</header>
 
 		{% if myLogos %}

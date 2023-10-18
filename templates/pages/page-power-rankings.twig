@@ -12,8 +12,8 @@
 			<p class="_meta">{{ post.post_excerpt }}</p>
 		{% endif %}
 		{% include 'components/title.twig' with {
-			title: post.headline ?? post.title
-		} %}
+			title: post.heading_headline|default(post.title)
+		} only %}
 	</header>
 
 	<section class="o-page__content u-get-faded _wysiwyg">

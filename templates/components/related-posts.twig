@@ -3,7 +3,12 @@
 		{% set project = Post(project.related_post) %}
 
 		<div class="c-card">
-			<h3 class="c-card__headline">{{ project.headline|default(project.title) }}</h3>
+			<h3 class="c-card__headline">{{ project.heading_headline|default(project.title) }}</h3>
+			{# <h3 class="c-card__headline">
+				{% include 'components/title.twig' with {
+					title: project.heading_headline|default(project.title)
+				} only %}
+			</h3> #}
 
 			{% if project.post_excerpt %}
 				<p>{{ project.post_excerpt }}</p>

@@ -5,8 +5,10 @@
 	<article class="o-entry post-{{ post.id }} -{{ post.type }}">
 
 		<header class="o-entry__header">
-			{% include "components/entry-meta.twig" %}
-			{% include "components/title.twig" %}
+			{% include 'components/entry-meta.twig' %}
+			{% include 'components/title.twig' with {
+				title: post.heading_headline|default(post.title)
+			} only %}
 		</header>
 
 		<div class="o-entry__content _wysiwyg u-get-faded">

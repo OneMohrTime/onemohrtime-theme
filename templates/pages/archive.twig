@@ -8,7 +8,9 @@
 		{% if term_page.description is defined and term_page.description is not empty %}
 			<p class="_meta">{{ term_page.description }}</p>
 		{% endif %}
-		{% include 'components/title.twig' %}
+		{% include 'components/title.twig' with {
+			title: term_page.name
+		} only %}
 	</header>
 
 	<section class="archives">
@@ -24,7 +26,7 @@
 				{% include 'components/article.twig' with {
 					params: {
 						type: articleType,
-						headline: article.headline ?? article.title,
+						headline: article.title,
 						subheadline: articleMeta,
 						excerpt: articleExcerpt,
 						text: articleExcerpt ? articleExcerpt : article.content,

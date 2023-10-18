@@ -4,7 +4,9 @@
 {% block content %}
 
 	<header class="o-page__header">
-		{% include 'components/title.twig' %}
+		{% include 'components/title.twig' with {
+			title: post.heading_headline|default(post.title)
+		} only %}
 		{% if categories is defined and categories is not empty %}
 			<ul class="c-definitionList -personalityTypes">
 				{# {% if post and post.show_categories %} #}
