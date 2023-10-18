@@ -1,6 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/concrete-dark.png": "/img/concrete-dark.png",
+    "/img/concrete-light.png": "/img/concrete-light.png",
+    "/img/cssnectar-site-of-the-day-light.png": "/img/cssnectar-site-of-the-day-light.png",
+    "/img/daft-punk-404.gif": "/img/daft-punk-404.gif",
     "/img/icons/arrow-left.svg": "/img/icons/arrow-left.svg",
     "/img/icons/arrow-right.svg": "/img/icons/arrow-right.svg",
     "/img/icons/left-quote.svg": "/img/icons/left-quote.svg",

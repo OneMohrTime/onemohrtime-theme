@@ -17,7 +17,9 @@
 
 		<div class="c-footer__legal c-footer--col" role="contentinfo">
 			{{ globals.footer_details }}
-			<img src="{{ site.link }}/assets/img/macspin.gif" alt="Made With Macintosh" class="c-media__image">
+			<figure class="c-media--macintosh">
+				<img src="{{ site.theme.link }}/assets/img/macspin.gif" alt="Made With Macintosh" class="c-media__image">
+			</figure>
 		</div>
 
 		<div class="c-footer__nav c-footer--col">
@@ -50,8 +52,8 @@
 		<div class="c-footer__awards c-footer--col">
 			<h3>Humblebrags</h3>
 			<ul>
-				<li>{% include 'components/css-nectar-award.twig' only %}</li>
-				<li>{% include 'components/css-design-award.twig' only %}</li>
+				<li>{% include 'components/css-nectar-award.twig' %}</li>
+				<li>{% include 'components/css-design-award.twig' %}</li>
 			</ul>
 		</div>
 
