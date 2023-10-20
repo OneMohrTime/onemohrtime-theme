@@ -4,11 +4,13 @@
 
 .c-footer {
 	position: relative;
+	padding-top: $gutter;
 
 	@include media(">=screen768", "<screen1024") {
 		display: flex;
 		flex-wrap: wrap;
 		column-gap: 2em;
+		padding-top: 0;
 	}
 
 	@include media(">=screen1024") {
@@ -22,6 +24,7 @@
 			"legal about about about about";
 		align-items: start;
 		column-gap: 2em;
+		padding-top: 0;
 	}
 }
 
