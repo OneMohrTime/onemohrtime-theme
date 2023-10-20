@@ -390,6 +390,54 @@
         "show_in_rest": 0
     },
     {
+        "key": "group_6531dc0bdb666",
+        "title": "Contact",
+        "fields": [
+            {
+                "key": "field_6531dc0d6b9e5",
+                "label": "Form",
+                "name": "form",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "wpforms"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "return_format": "object",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "3396"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
         "key": "group_5b60ec726011e",
         "title": "Gallery",
         "fields": [
@@ -448,7 +496,7 @@
             {
                 "key": "field_621bbc1394e7e",
                 "label": "Headline",
-                "name": "headline",
+                "name": "heading_headline",
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
@@ -460,10 +508,10 @@
                     "id": ""
                 },
                 "default_value": "",
-                "placeholder": "Page title override",
+                "maxlength": "",
+                "placeholder": "Leave blank to use post title",
                 "prepend": "",
-                "append": "",
-                "maxlength": ""
+                "append": ""
             },
             {
                 "key": "field_621bbc2f94e7f",
@@ -516,7 +564,7 @@
         ],
         "menu_order": 0,
         "position": "acf_after_title",
-        "style": "seamless",
+        "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
@@ -793,7 +841,7 @@
                 "label": "Feature 1",
                 "name": "feature_1",
                 "aria-label": "",
-                "type": "post_object",
+                "type": "group",
                 "instructions": "Highlight a post, page, or project",
                 "required": 0,
                 "conditional_logic": 0,
@@ -802,19 +850,229 @@
                     "class": "",
                     "id": ""
                 },
-                "post_type": [
-                    "post",
-                    "page",
-                    "design"
-                ],
-                "post_status": [
-                    "publish"
-                ],
-                "taxonomy": "",
-                "return_format": "object",
-                "multiple": 0,
-                "allow_null": 0,
-                "ui": 1
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_6531d73d34324",
+                        "label": "Headline",
+                        "name": "headline",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "67",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_6531d78234325",
+                        "label": "Subheadline",
+                        "name": "subheadline",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_6531d79934326",
+                        "label": "Body",
+                        "name": "body",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_6531d7c134327",
+                        "label": "Image",
+                        "name": "image",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "",
+                        "library": "",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "medium"
+                    },
+                    {
+                        "key": "field_6531d83334328",
+                        "label": "Link URL",
+                        "name": "link_url",
+                        "aria-label": "",
+                        "type": "link",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_6531d86134329",
+                "label": "Feature 2",
+                "name": "feature_2",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "Highlight a post, page, or project",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_6531d8613432a",
+                        "label": "Headline",
+                        "name": "headline",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "67",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_6531d8613432b",
+                        "label": "Subheadline",
+                        "name": "subheadline",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_6531d8613432c",
+                        "label": "Body",
+                        "name": "body",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_6531d8613432d",
+                        "label": "Image",
+                        "name": "image",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "medium"
+                    },
+                    {
+                        "key": "field_6531d8613432e",
+                        "label": "Link URL",
+                        "name": "link_url",
+                        "aria-label": "",
+                        "type": "link",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array"
+                    }
+                ]
             },
             {
                 "key": "field_65106d04873a7",
@@ -822,7 +1080,7 @@
                 "name": "contact",
                 "aria-label": "",
                 "type": "group",
-                "instructions": "",
+                "instructions": "The button is generated automatically, since there was no way to add <code>data-module-contact-form<\/code>",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -871,52 +1129,8 @@
                         "toolbar": "full",
                         "media_upload": 0,
                         "delay": 0
-                    },
-                    {
-                        "key": "field_65106d4e873aa",
-                        "label": "Link URL",
-                        "name": "link_url",
-                        "aria-label": "",
-                        "type": "link",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "array"
                     }
                 ]
-            },
-            {
-                "key": "field_65106cfd873a6",
-                "label": "Feature 2",
-                "name": "feature_2",
-                "aria-label": "",
-                "type": "post_object",
-                "instructions": "Highlight a post, page, or project",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "post",
-                    "page",
-                    "design"
-                ],
-                "post_status": [
-                    "publish"
-                ],
-                "taxonomy": "",
-                "return_format": "object",
-                "multiple": 0,
-                "allow_null": 0,
-                "ui": 1
             },
             {
                 "key": "field_65106da28f902",
