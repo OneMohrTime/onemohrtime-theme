@@ -59,6 +59,8 @@ $image-width: 150px;
 		left: 0;
 		right: 0;
 		bottom: 0;
+		display: flex;
+		align-items: flex-end;
 		height: 100%;
 		opacity: 0;
 		padding: 0.5em;
@@ -68,8 +70,6 @@ $image-width: 150px;
 		pointer-events: none;
 
 		@include media(">=screen840") {
-			display: flex;
-			align-items: flex-end;
 			padding: $image-gap;
 		}
 
@@ -82,12 +82,12 @@ $image-width: 150px;
 		}
 
 		&.is-zoom {
+			justify-content: center;
+			align-items: center;
 			font-size: 2em;
 			line-height: 1em;
 
 			@include media(">=screen840") {
-				justify-content: center;
-				align-items: center;
 				font-size: $font-h4;
 			}
 		}
