@@ -50,7 +50,7 @@
 					{% set width          = image.width ?? null %}
 					{% set height         = image.height ?? null %}
 
-					<a href="{{ imageOptimized.src('full') }}" class="c-media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
+					<a href="{{ largeImage }}" class="c-media__link" data-fancybox="gallery-{{ headline|lower|replace({' ': '-', '/': '-'})|slice(0, 16) }}"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
 						<span class="u-invisible">{{ image.caption ?? image.title ?? 'See Image' }}</span>
 					</a>
 

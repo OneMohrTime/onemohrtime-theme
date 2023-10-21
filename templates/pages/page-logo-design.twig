@@ -25,7 +25,7 @@
 					{% set width     = logoImage.width ?? null %}
 					{% set height    = logoImage.height ?? null %}
 
-					<a href="{{ logoImage.src('full') }}" class="c-logo__link" data-fancybox="logos"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
+					<a href="{{ logoImage.src('large') }}" class="c-logo__link" data-fancybox="logos"{% if caption %} data-caption="{{ caption }}"{% endif %} data-width="{{ width }}" data-height="{{ height }}" data-trigger="gallery">
 						<span class="u-invisible" aria-hidden="true">Zoom {{ logo.title }}</span>
 					</a>
 

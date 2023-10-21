@@ -1,6 +1,8 @@
 {# -- Component Variables -- #}
 
 {% set this = {
+	postType: params.type ?? null,
+	postFormat: params.format ?? null,
 	text: params.meta ?? null
 } %}
 
@@ -14,19 +16,32 @@
 {% if this.text is not null %}
 
 <strong class="u-meta">
-	<time class="original" datetime="{{ post.post_date|date(c) }}">
-		{% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }}
-	</time>
-	<span class="post-format c-media">
-		{% if post.format is defined and post.format != false %}
-			{% include '/assets/img/icons/post-' ~ post.format ~ '.svg' %}
-			<span class="image__caption">{{ post.format|capitalize }}</span>
-		{% else %}
-			{% include '/assets/img/icons/post-standard.svg' %}
-			<span class="image__caption">Standard</span>
-		{% endif %}
-	</span>
-	<span class="u-invisible"> | written by <a href="{{ site.link }}" rel="author">Derek Mohr</a></span>
+
+	{% if this.postType == 'post' %}
+		<time class="original" datetime="{{ post.post_date|date(c) }}">
+			{# {% if post.type.slug == 'design' %}Created {% else %}Posted {% endif %}{% if (post.post_date_gmt|time_ago) > '5 years' %}around {% endif %}{{ post.post_date_gmt|time_ago }} #}
+			Posted {% if this.text|time_ago > '5 years' %}around {% endif %}{{ this.text|time_ago }}
+		</time>
+	{% endif %}
+
+	{% if this.postType == 'page' %}
+		{{ this.text }}
+	{% endif %}
+
+	{% if this.postType == 'post' %}
+		<span class="post-format c-media">
+			{% if this.postFormat is defined and this.postFormat != false %}
+				{% include '/assets/img/icons/post-' ~ this.postFormat ~ '.svg' %}
+				<span class="image__caption">{{ this.postFormat|capitalize }}</span>
+			{% else %}
+				{% include '/assets/img/icons/post-standard.svg' %}
+				<span class="image__caption">Standard</span>
+			{% endif %}
+		</span>
+	{% endif %}
+
+	<span class="u-invisible"> | written by <a href="https://onemohrti.me/" rel="author">Derek Mohr</a></span>
+
 </strong>
 
 {% endif %}

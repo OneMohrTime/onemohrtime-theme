@@ -120,5 +120,6 @@ $breakpoints : (
 	--f-button-color: $yellow !important;
 	// Swiper
 	--swiper-theme-color: #{$yellow} !important;
-	--swiper-navigation-size: #{$gutter} !important;
+	--swiper-navigation-color: $black !important;
+	--swiper-navigation-size: #{$gutter-xs} !important;
 }

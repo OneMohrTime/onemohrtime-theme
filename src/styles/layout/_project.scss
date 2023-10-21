@@ -36,14 +36,23 @@
 	._image {
 		z-index: 0;
 		pointer-events: none;
-		@include media(">=screen840") {
-			height: 200vh !important;
-		}
+		// @include media(">=screen840") {
+		// 	height: 200vh !important;
+		// }
+	}
+}
+
+.c-project__banner--contact.c-button {
+	@include btn-contact();
+	@include btn-color($white, $yellow);
+	margin-top: $gutter-sm;
+
+	@include media(">=screen1024") {
+		margin-top: 0;
 	}
 
-	&--contact.btn {
-		// .c-project__banner--contact
-		@include btn-contact();
+	@include media("<screen1170") {
+		display: none !important;
 	}
 }
 
@@ -51,13 +60,14 @@
 	@include small-font-size();
 	@include box-shadow();
 	margin: 0 $gutter $gutter-sm;
-	padding: $gutter-sm;
+	padding: $gutter-xs;
 	background-color: $white;
 	color: $black;
 	z-index: 2;
 
 	@include media(">=screen768") {
 		margin-left: $gutter-lg;
+		padding: $gutter-sm;
 	}
 
 	@include media(">=screen960") {
@@ -66,14 +76,25 @@
 
 	@include media(">=screen1024") {
 		margin-left: $gutter-xl;
-		margin-bottom: $gutter;
 		font-size: $font-h5;
+		font-size: 1.25em;
+	}
+
+	@include media(">=screen1280") {
+		max-width: 50vw;
+	}
+
+	@include media(">=screen1440") {
+		margin-left: $gutter-xxl;
 	}
 }
 
 .c-project__title {
-	margin: 0 $gutter $gutter-sm;
+	margin: 0 $gutter;
 	padding: $gutter-sm;
+	font-size: $font-h4;
+	font-size: 2.5em;
+	line-height: 1em;
 	background-color: $white;
 	color: $black;
 	z-index: 2;
@@ -86,6 +107,7 @@
 	@include media(">=screen960") {
 		max-width: 50vw;
 		margin: 0 $gutter 0 $gutter-lg;
+		font-size: 3em;
 	}
 
 	@include media(">=screen1024") {
@@ -95,10 +117,11 @@
 
 	@include media(">=screen1280") {
 		max-width: 75vw;
+		font-size: 3.5em;
 	}
 
 	@include media(">=screen1440") {
-		margin-left: $gutter * 4;
+		margin-left: $gutter-xxl;
 	}
 }
 
@@ -182,65 +205,67 @@
 			border-bottom: 0;
 			@include body-copy();
 		}
+	}
 
-		&__header {
-			// .spec__header
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: 100%;
-			max-width: 100%;
-			margin-bottom: $small-spacing;
+	.spec__header {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 100%;
+		max-width: 100%;
+		margin-bottom: $small-spacing;
 
-			h3 {
-				@include label();
-				margin-bottom: 0;
-				@include media(">=screen1024") {
-					@include body-copy();
-				}
+		h3 {
+			@include label();
+			font-size: 0.75em;
+			margin-bottom: 0;
+
+			@include media(">=screen1024") {
+				font-size: 1em;
+				color: $black--lightest;
 			}
 		}
+	}
 
-		&--list {
-			// .spec--list
-			@include media(">=screen600") {
-				display: flex;
-				flex-direction: column;
-				max-width: 200px;
-			}
+	.spec--list {
 
-			&__item {
-				// .spec--list__item
-				@include media(">=screen600") {
-					margin-bottom: 8px;
-				}
-				@include media(">=screen1024") {
-					margin-bottom: 0;
-				}
-			}
-		}
-
-		&--group {
-			// .spec--group
+		@include media(">=screen600") {
 			display: flex;
-			flex-flow: row wrap;
-			align-items: baseline;
-
-			@include media(">=screen600") {
-				max-width: 300px;
-			}
-
-			&__item {
-				// spec--group__item
-				@include caption();
-				padding: .5em;
-				margin-right: $small-spacing;
-				margin-bottom: $small-spacing;
-				transition: background-color $speed;
-				border-radius: $base-border-radius;
-				background-color: $black--lightest;
-				color: $white--dark;
-			}
+			flex-direction: column;
+			max-width: 200px;
 		}
+	}
+
+	.spec--list__item {
+		line-height: $heading-line-height;
+
+		@include media(">=screen600") {
+			margin-bottom: 8px;
+		}
+
+		@include media(">=screen1024") {
+			margin-bottom: 0;
+		}
+	}
+
+	.spec--group {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: baseline;
+
+		@include media(">=screen600") {
+			max-width: 300px;
+		}
+	}
+
+	.spec--group__item {
+		@include caption();
+		padding: .5em;
+		margin-right: $small-spacing;
+		margin-bottom: $small-spacing;
+		transition: background-color $speed;
+		border-radius: $base-border-radius;
+		background-color: $black--lightest;
+		color: $white--dark;
 	}
 }
 

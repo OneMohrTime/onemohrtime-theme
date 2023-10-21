@@ -5,6 +5,10 @@
 .t-archive {
 	position: relative;
 	margin-bottom: 2em;
+
+	// .o-site__main + .c-sidebar {
+	// 	margin-top: $gutter;
+	// }
 }
 
 .archives {
@@ -13,29 +17,28 @@
 	margin-left: $gutter;
 	margin-right: $gutter;
 	margin-bottom: 0;
+}
 
-	&__article {
-		// .archives__article
-		width: 100%;
-		margin: $base-spacing 0 #{$gutter-lg};
+.archives__article {
+	width: 100%;
+	margin: $base-spacing 0 #{$gutter-lg};
 
-		@include media(">=screen600") {
-			padding-right: 20%;
-		}
-
-		@include media(">=screen840") {
-			padding-right: 30%;
-		}
-
-		@include media(">=screen1024") {
-			padding-right: 40%;
-		}
-
-		@include media(">=screen1600") {
-			padding-right: 50%;
-		}
-
+	@include media(">=screen600") {
+		padding-right: 20%;
 	}
+
+	@include media(">=screen840") {
+		padding-right: 30%;
+	}
+
+	@include media(">=screen1024") {
+		padding-right: 40%;
+	}
+
+	@include media(">=screen1600") {
+		padding-right: 50%;
+	}
+
 }
 
 /**

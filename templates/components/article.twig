@@ -1,5 +1,6 @@
 {% set this = {
 	type: params.type ?? null,
+	format: params.format ?? null,
 	headline: params.headline[0] ?? params.headline ?? null,
 	subheadline: params.subheadline ?? null,
 	excerpt: params.excerpt ?? null,
@@ -11,7 +12,7 @@
 } %}
 
 {# <article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}"> #}
-<article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}" id="post-{{ post.id }}">
+<article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}">
 
 	<figure class="c-article__image">
 		{% include 'components/picture.twig' with {
@@ -26,19 +27,25 @@
 
 		{% include 'components/entry-meta.twig' with {
 			params: {
-				meta: this.subheadline ?? null
+				type: this.type,
+				format: this.format,
+				meta: this.subheadline
 			}
 		} only %}
 
 		<h2{% if this.anchor %} id="{{ this.anchor|lower|replace({' ': '-', '/': '-'}) }}"{% endif %} class="c-article__title">{{ this.headline }}</h2>
 
-		<div class="c-article__text c-wysiwyg">
-			{% if this.excerpt %}
-				{{ this.text }}
-			{% else %}
-				{{ this.text|striptags|raw|truncate(30) }} [&hellip;]
-			{% endif %}
-		</div>
+		{% if this.excerpt or this.text %}
+			<div class="c-article__text c-wysiwyg">
+				{% if this.excerpt %}
+					{{ this.excerpt }}
+				{% elseif this.text %}
+					{{ this.text|striptags|raw|truncate(30) }} [&hellip;]
+				{% else %}
+					{# silence #}
+				{% endif %}
+			</div>
+		{% endif %}
 
 		{# <a href="{{ post.link }}" class="c-article__link c-button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a> #}
 		<a href="{{ this.link }}" class="c-article__link c-button">Read More</a>
