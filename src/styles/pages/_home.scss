@@ -226,8 +226,11 @@
 		background-color: $black;
 		color: $white;
 
-		.c-article.-isEven {
-			flex-direction: row;
+		.c-article {
+			flex-direction: row-reverse;
+		}
+		.c-article__link {
+			@include btn-color($white, $black--lightest);
 		}
 	}
 }

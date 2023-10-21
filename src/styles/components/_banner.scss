@@ -25,15 +25,17 @@
 
 	.u-title {
 		@include subtitle();
-		font-weight: 800;
+		position: relative;
 		max-width: 31ch;
 		margin-bottom: 0;
+		font-weight: 800;
 		line-height: 1em;
 	}
 }
 
 .c-banner__link {
 	@include inline-block();
+	transform: rotate(-5deg) translate(-40px, 50px);
 	line-height: inherit;
 
 	&::before {

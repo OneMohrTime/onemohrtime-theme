@@ -143,8 +143,8 @@
 }
 
 .c-article__title {
-	position: relative;
 	@include paragraph();
+	position: relative;
 	margin-top: $gutter-sm;
 
 	@include media(">=screen840") {
@@ -154,10 +154,12 @@
 
 	@include media(">=screen1280") {
 		@include subtitle();
+		line-height: 1em;
 	}
 
 	a {
-		line-height: $heading-line-height !important;
+		// line-height: $heading-line-height !important;
+		line-height: inherit;
 
 		&::before {
 			display: none;
