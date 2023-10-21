@@ -3,11 +3,11 @@
 ========================================================================== */
 
 .c-article {
+	@include body-copy();
 	position: relative;
 	width: 100%;
 	height: auto;
 	margin-bottom: $large-spacing;
-	@include body-copy();
 
 	@include media(">=screen768") {
 		width: auto;

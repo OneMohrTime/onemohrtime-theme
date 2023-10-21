@@ -20,20 +20,25 @@
 	}
 
 	.o-site__contact-close {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 1;
+		display: none;
 
-		&::before,
-		&::after {
-			content: "";
+		@include media(">=screen768") {
 			position: absolute;
-			top: 50%;
-			right: 50%;
-			background-color: $white;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				right: 50%;
+				background-color: $white;
+			}
 		}
 	}
 

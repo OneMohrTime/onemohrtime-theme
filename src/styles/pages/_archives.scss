@@ -14,9 +14,8 @@
 .archives {
 	@include block-width();
 	width: auto;
-	margin-left: $gutter;
-	margin-right: $gutter;
 	margin-bottom: 0;
+	padding-bottom: $gutter;
 }
 
 .archives__article {
@@ -49,4 +48,5 @@
 	width: auto;
 	margin-left: $gutter;
 	margin-right: $gutter;
+	padding-bottom: $gutter;
 }
