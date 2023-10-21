@@ -11,8 +11,7 @@
 			alt="{{ post.thumbnail.alt }}"
 			class="c-gallery__banner--image"
 			srcset="{{ post.thumbnail.src('medium') }} 500w,
-					{{ post.thumbnail.src('large') }} 1000w,
-					{{ post.thumbnail.src('full') }} 1500w"
+					{{ post.thumbnail.src('large') }} 1000w"
 			sizes="(max-width: {{ post.thumbnail.width }}px) 100vw, {{ post.thumbnail.width }}px"/>
 
 		<figcaption class="c-gallery__banner--title">
