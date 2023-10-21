@@ -73,6 +73,11 @@
 		}
 	}
 
+	&:active {
+		background-color: $black;
+		color: $white;
+	}
+
 	// disabled buttons
 	&:disabled {
 		opacity: 1;

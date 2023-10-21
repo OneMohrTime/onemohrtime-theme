@@ -69,8 +69,56 @@
 	 * === SWIPER ===
 	 */
 
-	 .swiper-slide {
+	.swiper-slide {
 		position: relative;
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		@include box-shadow();
+		top: auto;
+		bottom: 0.5rem;
+		width: 44px;
+		height: 44px;
+		background-color: $white;
+		transition: background $speed $cubic-bezier;
+
+		@include hocus {
+			background-color: $white--dark;
+		}
+
+		&:active {
+			background-color: $black--lightest;
+			color: $white;
+		}
+	}
+
+	.swiper-button-prev {
+		left: auto;
+		right: calc($gutter + 44px);
+		@include media(">=screen768") {
+			right: calc($gutter-lg + 44px + 0.5rem);
+		}
+		@include media(">=screen1024") {
+			right: calc($gutter-xl + 44px + 0.5rem);
+		}
+		@include media(">=screen1440") {
+			right: calc($gutter-xxl + 44px + 0.5rem);
+		}
+	}
+
+	.swiper-button-next {
+		left: auto;
+		right: $gutter;
+		@include media(">=screen768") {
+			right: $gutter-lg;
+		}
+		@include media(">=screen1024") {
+			right: $gutter-xl;
+		}
+		@include media(">=screen1440") {
+			right: $gutter-xxl;
+		}
 	}
 
 	// .c-media {
