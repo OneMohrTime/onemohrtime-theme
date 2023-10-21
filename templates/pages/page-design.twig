@@ -27,16 +27,17 @@
 			{% for post in projects %}
 				{% set article     = Post(post) %}
 				{% set articleType = article.type.slug %}
-				{% set articleMeta = articleType == 'design' ? article.get_field('project_header').subtitle :
-					articleType == 'page' ? article.post_excerpt|truncate(16) :
-					null
-				%}
+				{% if article.subheadline is not empty %}
+					{% set articleMeta = article.subheadline %}
+				{% elseif article.post_excerpt %}
+					{% set articleMeta = article.post_excerpt %}
+				{% endif %}
 				{% set articleExcerpt = article.post_excerpt|default(null) %}
 				{% include 'components/article.twig' with {
 					params: {
 						type: articleType,
 						headline: article.heading_headline|default(article.title),
-						subheadline: articleMeta,
+						subheadline: articleMeta|default(null),
 						excerpt: articleExcerpt,
 						text: articleExcerpt ? articleExcerpt : article.content,
 						image: article.thumbnail ? Image(article.thumbnail) : null,
