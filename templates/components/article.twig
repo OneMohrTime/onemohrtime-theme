@@ -47,7 +47,6 @@
 			</div>
 		{% endif %}
 
-		{# <a href="{{ post.link }}" class="c-article__link c-button" aria-label="View {{ post.title }}">View {{ post.type.slug ?? 'Post' }}</a> #}
-		<a href="{{ this.link }}" class="c-article__link c-button">Read More</a>
+		<a href="{{ this.link.url|default(this.link) }}"{% if this.link.target is defined and this.link.target == '_blank' %} target="_blank"{% endif %} class="c-article__link c-button">{{ this.link.title|default('Read More') }}</a>
 	</div>
 </article>
