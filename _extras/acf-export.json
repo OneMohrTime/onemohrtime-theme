@@ -897,7 +897,7 @@
                         "label": "Body",
                         "name": "body",
                         "aria-label": "",
-                        "type": "text",
+                        "type": "wysiwyg",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
@@ -907,10 +907,10 @@
                             "id": ""
                         },
                         "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": ""
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0
                     },
                     {
                         "key": "field_6531d7c134327",
@@ -952,6 +952,64 @@
                             "id": ""
                         },
                         "return_format": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_65106d04873a7",
+                "label": "Contact",
+                "name": "contact",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "The button is generated automatically, since there was no way to add <code>data-module-contact-form<\/code>",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_65106d27873a8",
+                        "label": "Headline",
+                        "name": "headline",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_65106d34873a9",
+                        "label": "Body",
+                        "name": "body",
+                        "aria-label": "",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0
                     }
                 ]
             },
@@ -1016,7 +1074,7 @@
                         "label": "Body",
                         "name": "body",
                         "aria-label": "",
-                        "type": "text",
+                        "type": "wysiwyg",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
@@ -1026,10 +1084,10 @@
                             "id": ""
                         },
                         "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": ""
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0
                     },
                     {
                         "key": "field_6531d8613432d",
@@ -1071,64 +1129,6 @@
                             "id": ""
                         },
                         "return_format": "array"
-                    }
-                ]
-            },
-            {
-                "key": "field_65106d04873a7",
-                "label": "Contact",
-                "name": "contact",
-                "aria-label": "",
-                "type": "group",
-                "instructions": "The button is generated automatically, since there was no way to add <code>data-module-contact-form<\/code>",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "layout": "block",
-                "sub_fields": [
-                    {
-                        "key": "field_65106d27873a8",
-                        "label": "Headline",
-                        "name": "headline",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": ""
-                    },
-                    {
-                        "key": "field_65106d34873a9",
-                        "label": "Body",
-                        "name": "body",
-                        "aria-label": "",
-                        "type": "wysiwyg",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "tabs": "all",
-                        "toolbar": "full",
-                        "media_upload": 0,
-                        "delay": 0
                     }
                 ]
             },
