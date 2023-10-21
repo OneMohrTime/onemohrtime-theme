@@ -5,33 +5,30 @@
 .pagination {
 	display: flex;
 	justify-content: center;
-	// margin-bottom: $large-spacing;
-	padding-bottom: $large-spacing;
+	column-gap: 0.5em;
+	margin: 0;
+	padding: 0;
+}
 
-	&__item {
-		// .pagination__item
-		margin-left: 5px;
-		margin-right: 5px;
+.pagination__item {
+	display: block;
+}
+
+.pagination__link {
+	@include small-font-size();
+	padding: $small-spacing / 2 $small-spacing;
+	border-width: 2px;
+
+	&::after {
+		height: 5px;
 	}
+}
 
-	&__link {
-		// .pagination__link
-		@include small-font-size();
-		padding: $small-spacing / 2 $small-spacing;
-		border-width: 2px;
-
-		&::after {
-			height: 5px;
-		}
-	}
-
-	&__current {
-		// .pagination__current
-		@include btn-color($gray);
-		@include small-font-size();
-		display: inline-block;
-		padding: $small-spacing / 2 $small-spacing;
-		border-width: 2px;
-		pointer-events: none;
-	}
+.pagination__current {
+	@include btn-color($gray);
+	@include small-font-size();
+	display: inline-block;
+	padding: $small-spacing / 2 $small-spacing;
+	border-width: 2px;
+	pointer-events: none;
 }

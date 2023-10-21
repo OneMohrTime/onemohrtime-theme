@@ -120,6 +120,7 @@ ul, ol, dl {
 	margin: 0;
 	padding: 0;
 
+	.c-wysiwyg &,
 	._wysiwyg &,
 	.-wysiwyg & {
 		@include type();
@@ -140,11 +141,13 @@ ul, ol, dl {
 	}
 }
 
+.c-wysiwyg ul,
 ._wysiwyg ul,
 .-wysiwyg ul {
 	list-style: square;
 }
 
+.c-wysiwyg ol,
 ._wysiwyg ol,
 .-wysiwyg ol {
 	list-style: decimal;
