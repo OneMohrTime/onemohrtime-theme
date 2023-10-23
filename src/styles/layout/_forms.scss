@@ -6,7 +6,7 @@
 	display: block;
 	width: auto;
 	height: auto;
-	padding: $small-spacing $base-spacing;
+	padding: $small-spacing;
 	border: 3px solid $black;
 	border-radius: $base-border-radius;
 	background-color: transparent;
@@ -14,6 +14,11 @@
 	// all: revert;
 }
 
-.wpcf7-form {
-	position: relative;
+[type=file], select {
+	display: block;
+	padding: $small-spacing;
+	border: 3px solid $black;
+	border-radius: $base-border-radius;
+	background-color: transparent;
+	color: $black;
 }
