@@ -30,6 +30,12 @@
 		margin-bottom: 0;
 		font-weight: 800;
 		line-height: 1em;
+
+		.is-home & {
+			@include media("<screen480") {
+				font-size: 3em;
+			}
+		}
 	}
 }
 

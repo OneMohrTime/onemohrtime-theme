@@ -1,3 +1,5 @@
+{# -- Component Variables -- #}
+
 {% set this = {
 	type: params.type ?? null,
 	format: params.format ?? null,
@@ -10,6 +12,8 @@
 	link: params.link ?? null,
 	oddEven: params.oddEven ?? null
 } %}
+
+{# -- Component Template -- #}
 
 {# <article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}{% for term in post.terms %} {{ term.taxonomy|lower|replace({' ': '-', '/': '-'}) }}-{{ term.name|lower|replace({' ': '-', '/': '-'}) }}{% endfor %}" id="post-{{ post.id }}"> #}
 <article class="c-article js-article -{{ this.type|default('default') }}{{ this.oddEven|default(null) }}">

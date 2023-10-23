@@ -382,7 +382,7 @@ acf_add_local_field_group( array(
 			array(
 				'param' => 'page',
 				'operator' => '==',
-				'value' => '11',
+				'value' => '3018',
 			),
 		),
 	),
@@ -394,55 +394,6 @@ acf_add_local_field_group( array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => 'Almost similar to a Résumé set of fields',
-	'show_in_rest' => 0,
-) );
-
-acf_add_local_field_group( array(
-	'key' => 'group_6531dc0bdb666',
-	'title' => 'Contact',
-	'fields' => array(
-		array(
-			'key' => 'field_6531dc0d6b9e5',
-			'label' => 'Form',
-			'name' => 'form',
-			'aria-label' => '',
-			'type' => 'post_object',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'post_type' => array(
-				0 => 'wpforms',
-			),
-			'post_status' => '',
-			'taxonomy' => '',
-			'return_format' => 'object',
-			'multiple' => 0,
-			'allow_null' => 0,
-			'ui' => 1,
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'page',
-				'operator' => '==',
-				'value' => '3396',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'acf_after_title',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
 	'show_in_rest' => 0,
 ) );
 
@@ -2870,6 +2821,47 @@ acf_add_local_field_group( array(
 					'parent_repeater' => 'field_651e39dff7400',
 				),
 			),
+		),
+		array(
+			'key' => 'field_6535eaaa74d44',
+			'label' => 'Contact Form',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6535eac974d45',
+			'label' => 'Form',
+			'name' => 'form',
+			'aria-label' => '',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'wpforms',
+			),
+			'post_status' => '',
+			'taxonomy' => '',
+			'return_format' => 'id',
+			'multiple' => 0,
+			'allow_null' => 0,
+			'ui' => 1,
 		),
 		array(
 			'key' => 'field_6521bb4829f76',
