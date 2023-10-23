@@ -1,3 +1,11 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+	id: params.id ?? null
+} %}
+
+{# -- Component Template -- #}
+
 <section id="contact" class="o-site__contact">
 
 	{# Close BG #}
@@ -10,14 +18,25 @@
 	</button>
 
 	{# WP Form #}
-	{% filter shortcodes %}
-		[wpforms id="3132" title="false" description="false"]
-	{% endfilter %}
+	{% if this.id %}
+		{% filter shortcodes %}
+			[wpforms id="{{ this.id }}" title="false" description="false"]
+		{% endfilter %}
+	{% endif %}
 
-	{# Thank You Confirmation
-		<p>Thank you {field_id="0"}! I will answer you as soon as I can.</p>
-		<p>In the meantime, please keep checking out my website or head over to <a href="https://shop.onemohrti.me/">my shop</a>!</p>
-		<a id="close_panel" class="c-button">Close</a>
-	#}
+	{# <ul>
+		<li>
+			<a href="//instagram.com/onemohrtimedesign" target="_blank" rel="noopener nofollow noreferrer">{% include '/assets/img/icons/logo-instagram.svg' only %}</a>
+		</li>
+		<li>
+			<a href="//dribbble.com/onemohrtime" target="_blank" rel="noopener nofollow noreferrer">{% include '/assets/img/icons/logo-dribbble.svg' only %}</a>
+		</li>
+		<li>
+			<a href="//twitter.com/onemohrtime" target="_blank" rel="noopener nofollow noreferrer">{% include '/assets/img/icons/logo-twitter.svg' only %}</a>
+		</li>
+		<li>
+			<a href="//github.com/OneMohrTime" target="_blank" rel="noopener nofollow noreferrer">{% include '/assets/img/icons/logo-github.svg' only %}</a>
+		</li>
+	</ul> #}
 
 </section>

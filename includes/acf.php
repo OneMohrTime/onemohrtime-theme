@@ -2858,7 +2858,7 @@ acf_add_local_field_group( array(
 			),
 			'post_status' => '',
 			'taxonomy' => '',
-			'return_format' => 'object',
+			'return_format' => 'id',
 			'multiple' => 0,
 			'allow_null' => 0,
 			'ui' => 1,

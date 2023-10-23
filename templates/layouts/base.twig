@@ -49,7 +49,11 @@
 		{% include 'partials/sidebar.twig' %}
 
 		{# Contact Modal #}
-		{% include 'components/contact.twig' %}
+		{% include 'components/contact.twig' with {
+			params: {
+				id: globals.form|default(null)
+			}
+		} only %}
 
 		{# Site Footer #}
 		{% block footer %}
