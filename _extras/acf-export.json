@@ -375,7 +375,7 @@
                 {
                     "param": "page",
                     "operator": "==",
-                    "value": "11"
+                    "value": "3018"
                 }
             ]
         ],
@@ -387,54 +387,6 @@
         "hide_on_screen": "",
         "active": true,
         "description": "Almost similar to a Résumé set of fields",
-        "show_in_rest": 0
-    },
-    {
-        "key": "group_6531dc0bdb666",
-        "title": "Contact",
-        "fields": [
-            {
-                "key": "field_6531dc0d6b9e5",
-                "label": "Form",
-                "name": "form",
-                "aria-label": "",
-                "type": "post_object",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "wpforms"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "return_format": "object",
-                "multiple": 0,
-                "allow_null": 0,
-                "ui": 1
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "page",
-                    "operator": "==",
-                    "value": "3396"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "acf_after_title",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
         "show_in_rest": 0
     },
     {
@@ -2844,6 +2796,47 @@
                         "parent_repeater": "field_651e39dff7400"
                     }
                 ]
+            },
+            {
+                "key": "field_6535eaaa74d44",
+                "label": "Contact Form",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "left",
+                "endpoint": 0
+            },
+            {
+                "key": "field_6535eac974d45",
+                "label": "Form",
+                "name": "form",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "wpforms"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "return_format": "object",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 1
             },
             {
                 "key": "field_6521bb4829f76",
