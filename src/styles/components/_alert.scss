@@ -37,7 +37,33 @@
 }
 
 .c-alert__link {
+	// @include btn-style(); not yet referenced
+	padding: 2px 8px;
+	font-family: $font-header;
+	font-size: .875em;
 	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: $heading-line-height !important;
+	border: 2px solid $white--dark;
+	border-radius: $base-border-radius;
+
+	&::before {
+		display: none !important;
+	}
+
+	// hover, focus
+	@include hocus {
+		transition: all $speed;
+		background-color: transparent;
+		color: inherit;
+	}
+
+	&:active {
+		background-color: $black;
+		color: $white;
+	}
 }
 
 .c-alert__close {
