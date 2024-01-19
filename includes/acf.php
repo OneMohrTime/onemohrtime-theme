@@ -2754,8 +2754,8 @@ acf_add_local_field_group( array(
 			'sub_fields' => array(
 				array(
 					'key' => 'field_651e3a19f7401',
-					'label' => 'Abbreviation',
-					'name' => 'abbreviation',
+					'label' => 'Flag',
+					'name' => 'flag',
 					'aria-label' => '',
 					'type' => 'text',
 					'instructions' => '',
@@ -2766,8 +2766,8 @@ acf_add_local_field_group( array(
 						'class' => '',
 						'id' => '',
 					),
-					'default_value' => '',
-					'maxlength' => 2,
+					'default_value' => '🇺🇸',
+					'maxlength' => '',
 					'placeholder' => '',
 					'prepend' => '',
 					'append' => '',
