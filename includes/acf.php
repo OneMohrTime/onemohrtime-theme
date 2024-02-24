@@ -6,7 +6,7 @@
 // from the ACF PHP export
 //
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_5e80d898b45f4',
 	'title' => 'About',
 	'fields' => array(
@@ -395,9 +395,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Almost similar to a Résumé set of fields',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_5b60ec726011e',
 	'title' => 'Gallery',
 	'fields' => array(
@@ -448,9 +448,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_621bbc0e3a954',
 	'title' => 'Headings',
 	'fields' => array(
@@ -532,9 +532,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Page headlines',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_583243bb8c402',
 	'title' => 'Home Page Banner',
 	'fields' => array(
@@ -706,9 +706,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Home (front) page fields',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_6505f07ff108d',
 	'title' => 'Home Page Content',
 	'fields' => array(
@@ -1234,9 +1234,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_64ffdff8e0c7f',
 	'title' => 'Logo Details',
 	'fields' => array(
@@ -1280,9 +1280,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_583243bbabd96',
 	'title' => 'Project Grid',
 	'fields' => array(
@@ -1334,9 +1334,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Select certain design projects to be featured',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_583243bbb167e',
 	'title' => 'Projects',
 	'fields' => array(
@@ -1486,8 +1486,7 @@ acf_add_local_field_group( array(
 						'poster' => 'Poster Design',
 						'tshirt' => 'T-shirt Design',
 					),
-					'default_value' => array(
-					),
+					'default_value' => array(),
 					'layout' => 'vertical',
 					'toggle' => 0,
 					'return_format' => 'label',
@@ -1572,8 +1571,7 @@ acf_add_local_field_group( array(
 						'joomla' => 'Joomla',
 						'git' => 'Git',
 					),
-					'default_value' => array(
-					),
+					'default_value' => array(),
 					'allow_custom' => 0,
 					'save_custom' => 0,
 					'toggle' => 0,
@@ -1665,9 +1663,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Custom project banners and details',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_5f7d16b9e1feb',
 	'title' => 'Section Builder',
 	'fields' => array(
@@ -1787,8 +1785,7 @@ acf_add_local_field_group( array(
 								'true' => 'Large Text',
 							),
 							'allow_custom' => 0,
-							'default_value' => array(
-							),
+							'default_value' => array(),
 							'layout' => 'vertical',
 							'toggle' => 0,
 							'return_format' => 'value',
@@ -2547,9 +2544,9 @@ Looking for text for this module? Add a <i>Text</i> module above, and	the spacin
 	'active' => true,
 	'description' => 'Section builder used on multiple "page builder" layouts',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_5b3799d77260c',
 	'title' => 'Site Globals',
 	'fields' => array(
@@ -2672,6 +2669,24 @@ acf_add_local_field_group( array(
 			'ajax' => 0,
 			'return_format' => 'value',
 			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_65d9848dfbf5c',
+			'label' => 'Openings',
+			'name' => 'openings',
+			'aria-label' => '',
+			'type' => 'date_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'display_format' => 'm/Y',
+			'return_format' => 'm/Y',
+			'first_day' => 1,
 		),
 		array(
 			'key' => 'field_651e44832c475',
@@ -2968,9 +2983,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Custom settings around the site',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_623c00a565d33',
 	'title' => 'Top 10 Lists',
 	'fields' => array(
@@ -3064,9 +3079,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Completely unnecessary addition to the site, mostly for argument\'s sake',
 	'show_in_rest' => 1,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_623bf4c506686',
 	'title' => 'Additional Photos',
 	'fields' => array(
@@ -3128,9 +3143,9 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-) );
+));
 
-acf_add_local_field_group( array(
+acf_add_local_field_group(array(
 	'key' => 'group_62258c38cca1a',
 	'title' => 'Related Posts',
 	'fields' => array(
@@ -3222,4 +3237,4 @@ acf_add_local_field_group( array(
 	'active' => true,
 	'description' => 'Choose custom pages/posts to visit next',
 	'show_in_rest' => 0,
-) );
+));
