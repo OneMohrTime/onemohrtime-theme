@@ -3,13 +3,15 @@ body#tinymce {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Barlow Semi Condensed", Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-weight: 700;
+	font-family: "Barlow Condensed", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 800;
 	text-transform: uppercase;
 }
 
 a {
 	text-decoration: none;
+	border-bottom: 1px #171409 solid;
+	color: #ffc300;
 }
 
 p,
@@ -18,13 +20,10 @@ li {
 	line-height: 1.5em;
 }
 
-p a,
-li a {
-	color: #ffc300;
-	border-bottom: 2px #ffc300 solid;
+b, strong {
+	font-weight: 700;
 }
 
-.btn,
 .c-button {
 	display: block;
 	border: 1px #171409 solid;

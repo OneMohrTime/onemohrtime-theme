@@ -62,7 +62,18 @@
 		<div class="c-footer__travel c-footer--col">
 			<h3>Flags I've Collected</h3>
 			<ul>
-				<li title="Canada">🇨🇦</li>
+				{% for flag in globals.footer_flags %}
+					<li>
+						{% if flag.country_link is not empty %}
+							<a href="{{ flag.country_link }}" title="{{ flag.country }}" class="c-media--link">{{ flag.flag }}</a>
+
+						{% else %}
+							<span title="{{ flag.country }}">{{ flag.flag }}</span>
+
+						{% endif %}
+					</li>
+				{% endfor %}
+				{# <li title="Canada">🇨🇦</li>
 				<li title="Mexico">🇲🇽</li>
 				<li title="Ireland">🇨🇮</li>
 				<li title="Denmark">🇩🇰</li>
@@ -77,8 +88,8 @@
 				<li title="Portugal">🇵🇹</li>
 				<li title="France">🇫🇷</li>
 				<li title="Scotland">🏴󠁧󠁢󠁳󠁣󠁴󠁿</li>
-				<!--<li title="Japan">🇯🇵</li>-->
-				<!--<li title="Korea">🇰🇷</li>-->
+				<li title="Japan">🇯🇵</li>
+				<li title="Korea">🇰🇷</li> #}
 			</ul>
 		</div>
 

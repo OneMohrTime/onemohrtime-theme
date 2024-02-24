@@ -8,8 +8,7 @@
 		@include block-width();
 		@include content-width();
 		display: flex;
-		// background-color: $white--darkest;
-		// box-shadow: 0 0 0 1px $gray--light;
+		flex-wrap: wrap;
 
 		@include media(">=screen1170") {
 			display: grid;

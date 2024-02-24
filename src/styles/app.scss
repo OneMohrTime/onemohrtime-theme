@@ -58,27 +58,27 @@
 --------------------------------------------------------------*/
 /* This section contains styles for various reusable components like articles, banners, buttons, cards, and more. */
 
-@import"components/alert";
-@import"components/article";
-@import"components/banner";
-@import"components/blockquote";
-@import"components/buttons";
-@import"components/card";
-@import"components/case-studies";
-@import"components/contact";
-@import"components/css-design-award";
-@import"components/embed";
-@import"components/footer";
-@import"components/forms";
-@import"components/gallery";
-@import"components/logo";
-@import"components/nav";
-@import"components/pagination";
-@import"components/parallax";
-@import"components/prism";
-@import"components/related-posts";
-@import"components/repeater";
-@import"components/text-image";
+@import "components/alert";
+@import "components/article";
+@import "components/banner";
+@import "components/blockquote";
+@import "components/buttons";
+@import "components/card";
+@import "components/case-studies";
+@import "components/contact";
+@import "components/css-design-award";
+@import "components/embed";
+@import "components/footer";
+@import "components/forms";
+@import "components/gallery";
+@import "components/logo";
+@import "components/nav";
+@import "components/pagination";
+@import "components/parallax";
+@import "components/prism";
+@import "components/related-posts";
+@import "components/repeater";
+@import "components/text-image";
 
 /*--------------------------------------------------------------
 === 4.0 Pages ===
@@ -89,6 +89,7 @@
 @import "pages/archives";
 @import "pages/errors";
 @import "pages/blog";
+@import "pages/contact";
 @import "pages/home";
 @import "pages/instagram";
 @import "pages/logos";

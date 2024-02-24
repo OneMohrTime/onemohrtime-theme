@@ -2649,6 +2649,24 @@
                 "placeholder": ""
             },
             {
+                "key": "field_65d9848dfbf5c",
+                "label": "Openings",
+                "name": "openings",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "m\/Y",
+                "return_format": "m\/Y",
+                "first_day": 1
+            },
+            {
                 "key": "field_651e44832c475",
                 "label": "Site Footer",
                 "name": "",
@@ -2729,8 +2747,8 @@
                 "sub_fields": [
                     {
                         "key": "field_651e3a19f7401",
-                        "label": "Abbreviation",
-                        "name": "abbreviation",
+                        "label": "Flag",
+                        "name": "flag",
                         "aria-label": "",
                         "type": "text",
                         "instructions": "",
@@ -2741,8 +2759,8 @@
                             "class": "",
                             "id": ""
                         },
-                        "default_value": "",
-                        "maxlength": 2,
+                        "default_value": "🇺🇸",
+                        "maxlength": "",
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
