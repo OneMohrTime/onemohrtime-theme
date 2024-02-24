@@ -214,7 +214,42 @@
 	}
 }
 
-.wpforms-field-checkbox {
+.wpforms-field-gdpr-checkbox,
+.wpforms-field-checkbox:not(.wpforms-list-inline) {
+	/* Hide the default checkbox */
+	input[type="checkbox"] {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* Style the custom checkbox */
+	input[type="checkbox"] + label:before {
+		content: '';
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 2px solid $black;
+		border-radius: 3px;
+		margin-right: 8px;
+		vertical-align: middle;
+	}
+
+	/* Style the yellow dot inside the checkbox when checked */
+	input[type="checkbox"]:checked + label:before {
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect x='2' y='2' width='4' height='4' rx='3' fill='%23ffc300'/%3E%3C/svg%3E");
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	/* Style the custom checkbox when focused */
+	input[type="checkbox"]:focus + label:before {
+		box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5); /* Add a focus border */
+	}
+}
+
+.wpforms-field-checkbox.wpforms-list-inline {
 
 	.wpforms-icon-choices {
 		display: flex;
