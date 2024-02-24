@@ -28,10 +28,11 @@ $gray--darker: shade($gray, 15%);
 $gray--darkest: #51514d;
 
 $red: #9c0000;
+$green: #61ef61;
 
 //$color--notice: #9c0000 !important;
-//$color--success: #9c0000 !important;
-//$color--warning: #9c0000 !important;
+$color--success: $green;
+$color--warning: $yellow;
 $color--error: $red;
 
 /**

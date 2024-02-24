@@ -4,7 +4,16 @@
 {% block content %}
 	<section class="c-banner -typographic">
 		<div class="c-banner__intro">
-			<h1 class="u-title">I&rsquo;m a freelance brand designer, web developer, and creative something-something. I&rsquo;m based out of Grand Rapids, MI. <a href="javascript:;" class="c-banner__link" data-module-contact-form>Questions?</a></h1>
+			<a class="c-banner__availability c-button--availability is-{{ globals.availability }}" href="javascript:;" data-module-contact-form>
+				{% if globals.availability == 'busy' %}
+					Limited Availablity
+				{% elseif globals.availability == 'none' %}
+					Completely booked for now
+				{% else %}
+					Available for new projects
+				{% endif %}
+			</a>
+			<h1 class="u-title">I&rsquo;m a freelance brand designer, web developer, and creative something-something. I&rsquo;m based out of Grand Rapids, MI.</h1>
 		</div>
 		{% if tagline is defined and tagline is not empty %}
 			<strong class="u-caption">{{ tagline }}</strong>

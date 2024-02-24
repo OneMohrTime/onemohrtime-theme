@@ -2,6 +2,8 @@
 	Banner
 ========================================================================== */
 
+$dotSize: 8px;
+
 .c-banner {
 
 	/**
@@ -21,11 +23,11 @@
 }
 
 .c-banner__intro {
+	position: relative;
 	max-width: 100%;
 
 	.u-title {
 		@include subtitle();
-		position: relative;
 		max-width: 31ch;
 		margin-bottom: 0;
 		font-weight: 800;
@@ -39,21 +41,78 @@
 	}
 }
 
-.c-banner__link {
-	@include inline-block();
-	transform: rotate(-5deg) translate(-40px, 50px);
-	line-height: inherit;
+@keyframes glow-open {
+	0% {
+		box-shadow: 0 0 rgba($green, 1);
+	}
+	100% {
+		box-shadow: 0 0 10px 8px transparent;
+		border-width: 2px;
+	}
+}
+@keyframes glow-busy {
+	0% {
+		box-shadow: 0 0 rgba($yellow, 1);
+	}
+	100% {
+		box-shadow: 0 0 10px 8px transparent;
+		border-width: 2px;
+	}
+}
+@keyframes glow-none {
+	0% {
+		box-shadow: 0 0 rgba($red, 1);
+	}
+	100% {
+		box-shadow: 0 0 10px 8px transparent;
+		border-width: 2px;
+	}
+}
 
+.c-banner__availability {
+	@include box-shadow();
+	@include label();
+	position: absolute;
+	bottom: calc(100% + 1em);
+	padding-top: $dotSize;
+	padding-left: $dotSize * 3;
+	padding-right: $dotSize * 2;
+	padding-bottom: $dotSize;
+	transition: box-shadow $speed $cubic-bezier;
+	background-color: $white;
+	color: $gray--darkest;
+	border-radius: $gutter;
+
+	// Blinking light
 	&::before {
-		bottom: 0;
-		height: 12px !important;
-		background-color: $white !important;
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: $dotSize;
+		display: block;
+		width: $dotSize;
+		height: $dotSize;
+		transform: translateY(-50%);
+		border: 0;
+		border-radius: $dotSize;
+	}
+
+	&.is-open::before {
+		background-color: $green;
+		animation: glow-open 2s ease infinite;
+	}
+
+	&.is-busy::before {
+		background-color: $yellow;
+		animation: glow-busy 2s ease infinite;
+	}
+
+	&.is-none::before {
+		background-color: $red;
+		animation: glow-none 2s ease infinite;
 	}
 
 	@include hocus {
-		&::before {
-			bottom: 0 !important;
-			height: 100% !important;
-		}
+		box-shadow: 1px 2px 10px fade-out($white, 0.5);
 	}
 }
