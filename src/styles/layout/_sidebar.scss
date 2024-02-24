@@ -82,6 +82,7 @@
 	height: 100%;
 	transition: background-color $speed cubic-bezier(.455,.03,.515,.955),
 				color $speed cubic-bezier(.455,.03,.515,.955);
+	border-radius: $base-border-radius;
 	background-color: $white--darker;
 	color: $gray--light;
 

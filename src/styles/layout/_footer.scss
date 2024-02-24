@@ -23,6 +23,11 @@
 		padding-right: $gutter-xxl;
 	}
 
+	@include media(">=screen1600") {
+		border-bottom-left-radius: $base-border-radius;
+		border-bottom-right-radius: $base-border-radius;
+	}
+
 	p, ul, ol {
 		@include type();
 		color: $white--dark;

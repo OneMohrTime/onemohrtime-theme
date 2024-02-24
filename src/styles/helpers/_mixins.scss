@@ -300,6 +300,7 @@
 
 	@include media("<screen480") {
 		font-size: $font-h2;
+		font-size: 2.5em;
 		hyphens: auto;
 		word-break: break-word;
 	}
@@ -315,6 +316,7 @@
 
 	@include media("<screen480") {
 		hyphens: auto;
+		font-size: 1.75em
 	}
 
 	@if $underline == "underlined" {
@@ -324,9 +326,11 @@
 
 @mixin paragraph($underline: null) {
 	font-size: $font-h3;
-	@include media("<=screen320") {
-		font-size: 1rem;
+
+	@include media("<=screen480") {
+		font-size: 1.2em;
 	}
+
 	@if $underline == "underlined" {
 		@include underlined();
 	}
