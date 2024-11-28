@@ -1,12 +1,10 @@
-## Derek Mohr
+## Team
 
+Derek Mohr, OneMohrTime Design Co.
 https://onemohrti.me
-@onemohrtime
 @onemohrtimedesign
-
+@onemohrtime
 
 ## Site
 
-Built with:
-- [Timber](http://upstatement.com/timber) by Upstatement
-- [Sage](http://roots.io/sage/) by Roots
+Software: Built with [Timber](https://upstatement.com/timber/) by Upstatement
