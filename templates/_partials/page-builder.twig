@@ -1,0 +1,25 @@
+{# -- Partial Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set this = {
+    sections: params.sections|default(null)
+} %}
+
+{# -- Partial Template -- #}
+{# ----------------------------------------------------------------- #}
+{% if this.sections %}
+<section class="o-page__sections">
+
+    {% for row in this.sections %}
+        {# Use flexible content block based on section handle #}
+        {% set layout = row.acf_fc_layout %}
+        {% include '_components/section-' ~ layout ~ '.twig' with {
+            params: {
+                section: row,
+                alignment: loop.index is even ? ' is-reversed' : '',
+                order: loop.index
+            }
+        } only %}
+    {% endfor %}
+
+</section>
+{% endif %}

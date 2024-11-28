@@ -1,0 +1,44 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    mediaSection: params.section|default(null),
+    order: params.order,
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.mediaSection %}
+<section class="o-section is-{{ this.mediaSection.media_type }}" data-scroll-trigger>
+    {% switch this.mediaSection.media_type %}
+
+        {% case 'image' %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.mediaSection.image
+                },
+            } only %}
+
+        {% case 'video' %}
+            {% if this.mediaSection.video_type == 'embedded' %}
+                {% include '_elements/embed.twig' with {
+                    params: {
+                        src: this.mediaSection.video_embed,
+                        type: 'video'
+                    },
+                } only %}
+
+            {% elseif this.mediaSection.video_type == 'internal' %}
+                {% include '_elements/video.twig' with {
+                    params: {
+                        src: this.mediaSection.video_file,
+                    },
+                } only %}
+
+            {% endif %}
+
+        {% default %}
+        {# no default configured #}
+
+    {% endswitch %}
+</section>
+{% endif %}

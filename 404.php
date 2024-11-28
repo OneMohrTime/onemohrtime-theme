@@ -10,4 +10,4 @@
  */
 
 $context = Timber::context();
-Timber::render( 'pages/404.twig', $context );
+Timber::render( '_views/404.twig', $context );

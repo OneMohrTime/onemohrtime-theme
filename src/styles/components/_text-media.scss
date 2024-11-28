@@ -1,0 +1,44 @@
+/* ==========================================================================
+    Section: Text & Media
+========================================================================== */
+
+.c-textMedia {
+    position: relative;
+    display: block;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // Even/Odd pattern
+        &.is-reversed {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.c-textMedia__text {
+    margin-bottom: $gutter-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 50%;
+        max-width: calc(50% - $gutter-sm);
+        margin-bottom: 0;
+    }
+
+    .c-button {
+        margin-top: 1em;
+    }
+}
+
+.c-textMedia__media {
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 50%;
+        max-width: calc(50% - $gutter-sm);
+    }
+}

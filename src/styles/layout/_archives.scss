@@ -1,0 +1,25 @@
+/* ==========================================================================
+    Archives
+========================================================================== */
+
+.t-default.is-archive {
+
+    /**
+     * === PRODUCT GRID ===
+     */
+    .c-grid.is-products {
+        @include padding();
+
+        // .c-tease {
+        //     flex: 0 1 50%;
+        //     max-width: calc(50% - ($gutter-sm / 2));
+
+        //     // screen at or above 900px
+        //     @include media(">=medium") {
+        //         flex-basis: percentage(1/3);
+        //         max-width: calc(percentage(1/3) - ($gutter / 3 * 2));
+        //     }
+        // }
+    }
+
+}

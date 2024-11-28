@@ -1,40 +1,5 @@
 /* ==========================================================================
-	Contact
+    Contact
 ========================================================================== */
 
-.t-page.is-contact {
-
-	.wpforms-container {
-
-		.wpforms-form {
-			padding: 0 0 $gutter;
-			@include media(">=screen768") {
-				padding-top: 0;
-			}
-		}
-
-		.wpforms-icon-choices {
-			margin-bottom: 0;
-			padding-left: 0;
-			list-style: none;
-		}
-
-		@include media(">=screen768") {
-			width: auto;
-			transform: translate(0);
-			box-shadow: none;
-		}
-
-		@include media(">=screen1170") {
-			width: auto;
-			max-width: $copy-width;
-			margin-left: 0;
-			margin-right: auto;
-		}
-
-		@include media(">=screen1440") {
-			width: auto;
-		}
-	}
-
-}
+.t-page.is-contact {}

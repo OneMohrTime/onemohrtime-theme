@@ -1,0 +1,49 @@
+/* ==========================================================================
+    Loader
+========================================================================== */
+
+.c-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--loader-bg, $white--dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; // Initially invisible
+    visibility: hidden; // Hides from layout but allows for smooth visibility changes
+    transition: opacity $speed $bezier-slide,
+                visibility $speed $bezier-slide;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .is-loaded.is-ready & {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.c-loader__spinner {
+    border: 5px solid var(--loader-circle, $white--darkest);
+    border-top: 5px solid var(--loader-bar, $white);
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+// Spinner animation
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,80 +1,84 @@
 /* ==========================================================================
-	Blockquote
+    Blockquote
 ========================================================================== */
 
 .blockquote {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
 
-	&.-default {
-		// .blockquote.-default
-		position: relative;
-		padding-left: calc(#{$gutter} + 10px);
+    &.-default {
+        // .blockquote.-default
+        position: relative;
+        padding-left: calc(#{$gutter} + 10px);
 
-		@include media(">=screen1440") {
-			padding-left: $gutter-lg;
-		}
+        // screen at or above 1500px
+        @include media(">=big") {
+            padding-left: $gutter-lg;
+        }
 
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: block;
-			width: $gutter;
-			height: 100%;
-			background-image: url("/wp-content/themes/onemohrtime/assets/img/icons/left-quote.svg");
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: $gutter $gutter;
-		}
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: $gutter;
+            height: 100%;
+            background-image: url("/wp-content/themes/onemohrtime/assets/img/icons/left-quote.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: $gutter $gutter;
+        }
 
-		& > p {
-			font-family: $font-header;
-			font-size: 1.5em;
-			font-weight: 800;
-			line-height: $heading-line-height;
+        & > p {
+            font-family: $font-header;
+            font-size: 1.5em;
+            font-weight: 800;
+            line-height: $heading-height;
 
-			@include media(">=screen960") {
-				padding-left: 10px;
-				border-left: 10px $white--dark solid;
-			}
+            // screen at or above 600px
+            @include media(">=small") {
+                padding-left: 10px;
+                border-left: 10px $white--dark solid;
+            }
 
-			@include media(">=screen1440") {
-				padding-left: $gutter;
-				font-size: 2em;
-			}
-		}
-	}
+            // screen at or above 1500px
+            @include media(">=big") {
+                padding-left: $gutter;
+                font-size: 2em;
+            }
+        }
+    }
 
-	&.-withImage {
-		// .blockquote.-withImage
-		position: relative;
-		max-width: calc(70ch + $gutter);
-		margin: $gutter;
-		padding: $gutter;
-		background-color: fade-out($white, 0.15);
+    &.-withImage {
+        // .blockquote.-withImage
+        position: relative;
+        max-width: calc(70ch + $gutter);
+        margin: $gutter;
+        padding: $gutter;
+        background-color: fade-out($white, 0.15);
 
-		@include media(">=screen1024") {
-			max-width: calc(70ch + $gutter-lg);
-			margin: $gutter-lg;
-			padding: $gutter-lg;
-		}
+        // screen at or above 1200px
+        @include media(">=large") {
+            max-width: calc(70ch + $gutter-lg);
+            margin: $gutter-lg;
+            padding: $gutter-lg;
+        }
 
-		& > *:first-child {
-			position: relative;
-			padding-top: 1.5em;
-			margin-bottom: $small-spacing;
-		}
+        & > *:first-child {
+            position: relative;
+            padding-top: 1.5em;
+            margin-bottom: $small-spacing;
+        }
 
-		// Background image is actually a sibling
-		& + ._image {
-			// margins can push this taller than the viewport, and the bottom of the image shows up
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-	}
+        // Background image is actually a sibling
+        & + ._image {
+            // margins can push this taller than the viewport, and the bottom of the image shows up
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
 }

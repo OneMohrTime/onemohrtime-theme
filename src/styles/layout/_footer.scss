@@ -1,73 +1,16 @@
 /* ==========================================================================
-	Footer
+    Footer
 ========================================================================== */
 
 .o-site__footer {
-	@include padding();
-	width: auto;
-	height: auto;
-	padding-top: $gutter;
-	padding-bottom: $gutter;
-	background-color: shade($black, 67%);
-	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-dark.png");
-	background-position: center center;
-	color: $white;
+    position: relative;
 
-	@include media(">=screen1024") {
-		padding-top: $gutter-lg;
-		padding-bottom: $gutter-lg;
-	}
+    // screen at or above 600px
+    @include media(">=small") {}
 
-	@include media(">=screen1440") {
-		padding-left: $gutter-xxl;
-		padding-right: $gutter-xxl;
-	}
+    // screen at or above 900px
+    @include media(">=medium") {}
 
-	@include media(">=screen1600") {
-		border-bottom-left-radius: $base-border-radius;
-		border-bottom-right-radius: $base-border-radius;
-	}
-
-	p, ul, ol {
-		@include type();
-		color: $white--dark;
-
-		a {
-			line-height: 1em;
-		}
-	}
-
-	.c-button {
-		border-color: $yellow;
-		color: $white;
-
-		@include media(">=screen960") {
-			border-color: $white--darkest;
-		}
-	}
-
-	.c-media--link {
-		transition: color $speed cubic-bezier(.455,.03,.515,.955);
-
-		@include hocus {
-			color: $yellow;
-		}
-	}
-
-	a:not(.c-button):not(.c-media--link) {
-		@include inline-block();
-		line-height: 1em;
-
-		&::before {
-			bottom: -2px;
-			background-color: $black--lightest;
-		}
-
-		&:hover {
-			&::before {
-				bottom: 2px;
-				background-color: $gray--dark;
-			}
-		}
-	}
+    // screen at or above 1200px
+    @include media(">=large") {}
 }

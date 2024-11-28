@@ -33,13 +33,13 @@
 // @param  {List} $supports The type of clearfix to generate.
 // @output Injects `:::after` pseudo-element.
 //
-// @mixin u-clearfix($supports...) {
-//     &::after {
-//         display: if(list-contains($supports, table), table, block);
-//         clear: both;
-//         content: if(list-contains($supports, opera), " ", "");
-//     }
-// }
+@mixin clearfix($supports...) {
+    &::after {
+        display: if(list-contains($supports, table), table, block);
+        clear: both;
+        content: if(list-contains($supports, opera), " ", "");
+    }
+}
 
 //
 // Generate `:hover` and `:focus` styles in one go.
@@ -109,7 +109,11 @@
 //
 @mixin accessibly-hidden($important: true) {
     $important: important($important);
-    position: absolute $important;
+    @if $important == true {
+        position: absolute !important
+    } @else {
+        position: absolute;
+    }
     overflow: hidden;
     clip: rect(0 0 0 0);
     margin: 0;

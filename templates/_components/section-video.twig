@@ -1,0 +1,23 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    video: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.video %}
+<section class="o-section is-video" data-scroll-trigger>
+
+<figure class="c-video">
+
+    {% include '_elements/video.twig' with {
+        params: {
+            video: this.video.video_url
+        }
+    } only %}
+
+</figure>
+
+</section>
+{% endif %}

@@ -1,0 +1,68 @@
+{# -- Partial Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{% set this = {
+    hideCTA: params.cta,
+    headline: params.headline|default('Looking for items on sale?'),
+    text: params.text|default('<p>Offering a range of GE MRI services including high-order calibrations, ramping, shimming, white pixel adjustments, BRM changes, troubleshooting, system part sales, relocations, installations, de-installations, and site planning.</p>'),
+    button: params.button ?? null,
+    siteLogo: params.siteLogo,
+    about: params.about,
+    contact: params.contact,
+    social: params.social,
+    navigation: params.menu,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl
+} %}
+
+{# -- Partial Template -- #}
+{# ----------------------------------------------------------------- #}
+
+<footer class="o-site__footer">
+
+    {# -- Call to Action -- #}
+    {% if this.hideCTA != true %}
+        {% include '_components/cta.twig' with {
+            params: {
+                headline: this.headline,
+                text: this.text
+            }
+        } only %}
+    {% endif %}
+
+    {# -- Footer -- #}
+    <div id="colophon" class="c-footer">
+        <h2 class="u-screen-reader-text">Footer Info</h2>
+        <div class="c-footer__logo">
+            {% if this.siteLogo %}
+                <a href="{{ this.siteUrl }}" class="c-media">
+                    <img src="{{ this.siteLogo }}" alt="{{ this.siteName }}" class="c-media__image" />
+                </a>
+            {% endif %}
+        </div>
+        <div class="c-footer__nav">
+            <ul class="c-menu">
+                {% for item in this.navigation %}
+                    <li class="c-menuItem">
+                        {{ item }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="c-footer__utility">
+            <ul class="c-footer__social">
+                {% for profile in this.social %}
+                    {% set profile = profile.account %}
+                    <li class="c-footer__social-profile">
+                        <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                            {{ source('_components/svg/social-' ~ profile.title ~ '.twig') }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="c-footer__legal">
+                <p>&copy; {{ this.siteName }} {{ 'now'|date('Y') }} | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source={{ this.siteName|replace({' ':'+'}) }}" class="u-link" target="_blank" rel="noopener noreferrer nofollow">Derek Mohr</a></p>
+            </div>
+        </div>
+    </div>
+</footer>

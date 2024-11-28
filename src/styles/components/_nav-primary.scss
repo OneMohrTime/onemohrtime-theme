@@ -1,0 +1,99 @@
+/* ==========================================================================
+    Primary Navigation
+========================================================================== */
+
+.c-navigation {
+    @include padding();
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter-sm;
+    background-color: $black;
+    color: $white;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex-wrap: nowrap;
+        overflow: visible;
+    }
+
+    // &.is-visible {}
+
+    .c-submenu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5em;
+        padding: 1em;
+        background-color: $black--lightest;
+        color: $white;
+        z-index: 100;
+    }
+}
+
+/**
+ * === MENU ===
+ */
+
+.c-navigation__menu {
+    flex: 1 1 100%;
+    flex-direction: column;
+    height: auto;
+    max-height: 100%;
+    opacity: 1;
+    background-color: $black--lightest;
+    color: $white;
+    pointer-events: auto;
+
+    &.is-hidden {
+        height: 0;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 0 1 auto;
+        flex-direction: row;
+        background-color: $black;
+        color: $white;
+
+        &.is-hidden {
+            height: auto;
+            max-height: 100%;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+/**
+ * === LOGO ===
+ */
+
+.c-navigation__logo {
+    margin-right: auto;
+
+    .c-media__image {
+        max-height: 44px;
+        max-width: 220px;
+    }
+}
+
+/**
+ * === TOGGLE ===
+ */
+
+.c-navigation__toggle {
+    position: relative;
+    flex: 0 1 30px;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: none;
+    }
+}

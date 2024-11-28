@@ -1,0 +1,51 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline,
+    image: params.image,
+    missing: params.missing,
+    content: params.content,
+    date: params.date,
+    link: params.link,
+    format: params.format
+} %}
+
+{# -- Component Template -- #}
+
+<article class="c-tease c-tease--{{ this.format }}"{# id="p-{{ post.id }}"#}>
+    {% if this.image %}
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: get_image(this.image),
+                ratio: '4:3',
+                classes: 'c-tease__image'
+            }
+        } only %}
+
+    {% else %}
+        <picture class="c-media u-ratio u-4:3">
+            <img src="{{ this.missing }}" alt="placeholder image" class="c-tease__image c-media__image" />
+        </picture>
+
+    {% endif %}
+
+    <div class="c-tease__content">
+        <h3 class="c-tease__headline u-heading">
+            <a href="{{ this.link }}" title="Read {{ this.headline }}" class="u-link">{{ this.headline }}</a>
+        </h3>
+        <time datetime="{{ this.date|date('c') }}" class="c-tease__meta">Posted on {{ this.date }}</time>
+        <div class="c-tease__text u-wysiwyg">
+            <p>{{ this.content|excerpt(36) }}</p>
+        </div>
+        {% if this.link %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.link,
+                    text: 'Read More',
+                    classes: 'c-tease__button'
+                }
+            } only %}
+        {% endif %}
+    </div>
+
+</article>

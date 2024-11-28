@@ -1,5 +1,5 @@
 /* ==========================================================================
-	Helpers
+    Helpers
 ========================================================================== */
 
 // // fade in sections
@@ -20,20 +20,24 @@
 // 	}
 // }
 
-// animate titles in with shifting blocks
-.title--animated {
-	@include animateTitle();
-}
-
-// text meant only for screen readers
-.u-invisible {
-	@include visually-hidden(true);
-}
-
-// devices that require no motion or animations
+// Devices that require no motion or animations
 @media (prefers-reduced-motion: reduce) {
-	* {
-		animation: none !important;
-		transition: none !important;
-	}
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+// Completely remove from the flow but leave available to screen readers.
+.u-screen-reader-text {
+    @include accessibly-hidden;
+}
+
+// Extends the `.screen-reader-text` class to allow the element
+// to be focusable when navigated to via the keyboard.
+//
+// @link https://www.drupal.org/node/897638
+// @todo Define styles when focused.
+.u-screen-reader-text.is-focusable {
+    @include accessibly-focusable;
 }

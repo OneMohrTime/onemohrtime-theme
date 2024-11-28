@@ -1,0 +1,75 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline|default(null),
+    body: params.text|default(null),
+    highlight: params.feature
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.highlight %}
+<section class="c-feature{% if this.highlight is iterable %} has-{{ this.highlight|length }}-features{% endif %}">
+
+    {% if this.headline or this.body %}
+        <div class="c-feature__text u-wysiwyg">
+    {% endif %}
+
+        {% if this.headline %}
+            <h2 class="u-headline">{{ this.headline }}</h2>
+        {% endif %}
+
+        {% if this.body %}
+            {{ this.body }}
+        {% endif %}
+
+    {% if this.headline or this.body %}
+        </div>
+    {% endif %}
+
+    <div class="c-feature__highlights">
+        {% if this.highlight is iterable %}
+            <div class="swiper is-feature" data-module-swiper>
+                <div class="swiper-wrapper">
+                    {% for feature in this.highlight %}
+                        <div class="swiper-slide c-card">
+                            <a href="{{ feature.event_link.url }}" class="c-card__link" aria-label="{{ feature.event_link.title }}">
+                                {% include '_elements/picture.twig' with {
+                                    params: {
+                                        src: get_image(feature.event_image),
+                                        ratio: '16:9',
+                                        classes: 'c-card__image'
+                                    }
+                                } only %}
+                                <div class="c-card__text">
+                                    <h3 class="c-card__headline u-heading">{{ feature.event_headline }}</h3>
+                                    <div class="c-card__body u-wysiwyg">
+                                        {{ feature.event_body }}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if this.highlight|length > 2 %}
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                {% endif %}
+            </div>
+
+        {% else %}
+            <div class="c-card">
+                <pre>
+                    {{ dump(feature.event_image) }}
+                    {{ dump(feature.event_headline) }}
+                    {{ dump(feature.event_link) }}
+                    {{ dump(feature.event_body) }}
+                </pre>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="c-feature__flouresh"></div>
+
+</section>
+{% endif %}

@@ -1,0 +1,32 @@
+/* ==========================================================================
+    Call to Action (CTA)
+========================================================================== */
+
+.c-callToAction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $gutter;
+    background-color: $gray--light;
+}
+
+.c-callToAction__text {
+    @include content-width();
+    text-align: center;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+    }
+
+    .u-headline {
+        margin-bottom: 0.5em;
+    }
+}
+
+.c-callToAction__button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1em;
+}

@@ -1,5 +1,5 @@
 /* ==========================================================================
-	Ratio
+    Ratio
 ========================================================================== */
 
 //
@@ -10,12 +10,12 @@
 //
 // A list of aspect ratios that get generated as modifier classes.
 $aspect-ratios: (
-	(1:1),  // Square
-	(4:3),  // Traditional TV
-	(3:2),  // 35mm film
-	(16:9), // HD standard
-	(2:1),  // Universium
-	(32:9), // Super ultrawide
+    (1:1),  // Square
+    (4:3),  // Traditional TV
+    (3:2),  // 35mm film
+    (16:9), // HD standard
+    (2:1),  // Universium
+    (32:9), // Super ultrawide
 ) !default;
 
 /* stylelint-disable */
@@ -26,19 +26,19 @@ $aspect-ratios: (
 // @example
 //   <div class="o-ratio u-16:9">
 @each $ratio in $aspect-ratios {
-	@each $antecedent, $consequent in $ratio {
-		@if (type-of($antecedent) != number) {
-			@error "`#{$antecedent}` needs to be a number."
-		}
+    @each $antecedent, $consequent in $ratio {
+        @if (type-of($antecedent) != number) {
+            @error "`#{$antecedent}` needs to be a number."
+        }
 
-		@if (type-of($consequent) != number) {
-			@error "`#{$consequent}` needs to be a number."
-		}
+        @if (type-of($consequent) != number) {
+            @error "`#{$consequent}` needs to be a number."
+        }
 
-		.u-#{$antecedent}\:#{$consequent}::before {
-			padding-bottom: ($consequent/$antecedent) * 100% !important;
-		}
-	}
+        .u-#{$antecedent}\:#{$consequent}::before {
+            padding-bottom: ($consequent/$antecedent) * 100% !important;
+        }
+    }
 }
 
 /* stylelint-enable */
@@ -55,16 +55,16 @@ $aspect-ratios: (
 // Component class
 // =============================================================================
 .u-ratio {
-	position: relative;
-	display: block;
-	overflow: hidden;
+    position: relative;
+    display: block;
+    overflow: hidden;
 
-	&::before {
-		content: "";
-		display: block;
-		padding-bottom: 100%; /* [1] */
-		width: 100%;
-	}
+    &::before {
+        content: "";
+        display: block;
+        padding-bottom: 100%; /* [1] */
+        width: 100%;
+    }
 }
 
 // Content
@@ -74,15 +74,15 @@ $aspect-ratios: (
 .u-ratio > iframe,
 .u-ratio > embed,
 .u-ratio > object {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 // don't distort the newly-stretched images
 .u-ratio img {
-	object-fit: cover;
+    object-fit: cover;
 }

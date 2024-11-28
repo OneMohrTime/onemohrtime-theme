@@ -1,0 +1,26 @@
+/* ==========================================================================
+    Keyboard/Tab Navigation
+========================================================================== */
+
+.c-tab-nav {
+    position: absolute;
+    top: $gutter-xs;
+    left: $gutter-xs;
+    width: 1px;
+    height: 1px;
+    overflow: visible;
+    z-index: 9999;
+
+    // "Buttons"
+    a {
+        transition: none !important;
+        white-space: nowrap;
+
+        &:focus {
+            padding: $gutter-sm;
+            font-weight: $font-bold;
+            background-color: $black;
+            color: $white;
+        }
+    }
+}

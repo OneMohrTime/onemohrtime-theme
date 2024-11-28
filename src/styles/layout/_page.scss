@@ -1,0 +1,55 @@
+/* ==========================================================================
+    General Page Stucture
+========================================================================== */
+
+.o-page {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+}
+
+.o-page__sections {
+    display: flex;
+    flex-direction: column;
+    row-gap: $gutter;
+}
+
+/**
+ * === WOOCOMMERCE ===
+ */
+
+.woocommerce-breadcrumb {
+    @include padding();
+    @include caption();
+    padding-top: 1em;
+}
+
+.woocommerce-sorting {
+    @include padding();
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.woocommerce-result-count {
+    margin-bottom: $small-spacing;
+    font-size: $font-base-sm;
+    font-weight: $font-bold;
+    line-height: $heading-height;
+}
+
+.woocommerce-ordering {
+    font-size: $font-base-sm;
+}
+
+.woocommerce-pagination {
+    margin-top: $gutter;
+    text-align: center;
+
+    .page-numbers {
+        display: flex;
+        justify-content: center;
+        column-gap: 0.5em;
+        margin: 0;
+        padding: 0;
+    }
+}

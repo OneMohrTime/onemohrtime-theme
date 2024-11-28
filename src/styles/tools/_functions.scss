@@ -9,7 +9,7 @@
 // @param  {Number} $base [$ms-base] - The assumed base font size.
 // @return {Number} Scalable pixel value in EMs.
 //
-@function em($size, $base: $ms-base) {
+@function em($size, $base: 16px) {
     @if (type-of($size) == number) {
         @if (unit($size) != "px") {
             @error "`#{$size}` needs to be a pixel value.";
@@ -36,7 +36,7 @@
 // @param  {Number} $base [$ms-base] - The assumed base font size.
 // @return {Number} Scalable pixel value in REMs.
 //
-@function rem($size, $base: $ms-base) {
+@function rem($size, $base: 16px) {
     @if (type-of($size) == number) {
         @if (unit($size) != "px") {
             @error "`#{$size}` needs to be a pixel value.";

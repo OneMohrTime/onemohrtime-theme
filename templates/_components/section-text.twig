@@ -1,0 +1,24 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    textSection: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.textSection %}
+<section class="o-section is-text" data-scroll-trigger>
+
+    {% include '_components/content.twig' with {
+        params: {
+            eyebrow: this.textSection.eyebrow|default(null),
+            headline: this.textSection.headline|default(null),
+            text: this.textSection.text|default(null),
+            button: this.textSection.button|default(null),
+            largeHeadline: this.textSection.headline_size ?? false,
+            largeText: this.textSection.text_size ?? false,
+        },
+    } only %}
+
+</section>
+{% endif %}

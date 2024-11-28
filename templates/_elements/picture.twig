@@ -1,0 +1,63 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    src: params.src|default(null),
+    alt: params.alt|default(null),
+    ratio: params.ratio ?? null,
+    attr: params.attr ?? null,
+    sizes: params.sizes ?? '100vw',
+    lazy: lazyload ?? true,
+    classes: classes ?? null,
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.src %}
+
+{# Convert to TimberImage #}
+{% set renderedImage = get_image(this.src) %}
+{% set renderedAltText = renderedImage.alt %}
+
+{# Frame can be set to relative/absolute image ratio-ing #}
+<picture class="c-media
+    {# Custom ratio #}
+    {% if this.ratio %}u-ratio u-{{ this.ratio }}{% endif %}"
+    {# Custom data-attributes #}
+    {% if this.attr %}{{ this.attr }}{% endif %}
+>
+
+    {# img tag for browsers that do not support picture element #}
+    <img src="{{ renderedImage.src('thumbnail') }}"
+
+        {# Alt text should never be empty, or contain tags, or be too long #}
+        alt="{{ this.alt ?? renderedAltText }}"
+
+        {# Semantic HTML width & height values #}
+        width="{{ renderedImage.sizes.thumbnail.width }}"
+        height="{{ renderedImage.sizes.thumbnail.height }}"
+
+        {# Default class #}
+        class="c-media__image
+
+        {# Additional custom classes #}
+        {% if this.classes %}{{ this.classes }}{% endif %}"
+
+        {# Media query sizes #}
+        sizes="{{ this.sizes }}"
+
+        {# Optimized image sizes #}
+        srcset="{{ renderedImage.srcset }}"
+
+        {# Lazyloaded by default #}
+        {% if this.lazy %}loading="lazy"{% endif %}
+    />
+
+</picture>
+
+{% else %}
+<picture class="c-media">
+    <img src="https://timber-wordpress.ddev.site/wp-content/themes/timber-starter-theme/assets/img/placeholder.png" alt="placeholder image" class="c-media__image" loading="lazy" />
+    {# <img src="https://timber-wordpress.ddev.site/wp-content/uploads/placeholder.png" alt="placeholder image" class="c-media__image" loading="lazy" /> #}
+</picture>
+
+{% endif %}

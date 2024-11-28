@@ -1,0 +1,22 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% if not post %}
+    {% set post = {
+        post_type: 'tribe_events',
+        slug: 'events'
+    } %}
+{% endif %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+        {{ event_listings }}
+    </article>
+
+{% endblock %}

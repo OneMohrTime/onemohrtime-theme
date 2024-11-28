@@ -1,0 +1,68 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    isVisible: params.visible|default(true),
+    headline: params.headline|default('Lorem ipsum dolor sit amet.'),
+    body: params.text|default(null),
+    button1: params.btn1|default(null),
+    button2: params.btn2|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-callToAction{% if not this.isVisible %} is-hidden{% endif %}">
+
+    <div class="c-callToAction__text">
+        <h2 class="u-headline">{{ this.headline }}</h2>
+        {% if this.body %}
+            <div class="u-wysiwyg">
+                {{ this.body }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="c-callToAction__button">
+
+        {% if not this.button1 and not this.button2 %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: '/join-us',
+                    text: 'Join MCA',
+                    primary: false
+                }
+            } only %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: '/contact',
+                    text: 'Contact Us',
+                    primary: true
+                }
+            } only %}
+
+        {% else %}
+            {% if this.button1 %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.button1.url,
+                        text: this.button1.title,
+                        target: this.button1.target,
+                        primary: false
+                    }
+                } only %}
+            {% endif %}
+            {% if this.button2 %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.button2.url,
+                        text: this.button2.title,
+                        target: this.button2.target,
+                        primary: true
+                    }
+                } only %}
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+</div>

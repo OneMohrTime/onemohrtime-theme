@@ -13,11 +13,19 @@
  * @since   Timber 0.1
  */
 
-$context          = Timber::context();
-$context['posts'] = new Timber\PostQuery();
-$context['foo']   = 'bar';
-$templates        = array( 'pages/index.twig' );
+$post = Timber::get_post();
+
+$context = Timber::context([
+    'post' => $post,
+    'dynamic_sidebar' => Timber::get_sidebar(
+        '_partials/sidebar.twig',
+    ),
+]);
+
+$context['posts'] = Timber::get_posts();
+
+$templates        = array( 'index.twig' );
 if ( is_home() ) {
-	array_unshift( $templates, 'pages/front-page.twig', 'pages/home.twig' );
+    array_unshift( $templates, '_views/home.twig' );
 }
 Timber::render( $templates, $context );

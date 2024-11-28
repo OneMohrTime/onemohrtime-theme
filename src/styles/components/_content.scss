@@ -1,0 +1,11 @@
+/* ==========================================================================
+    Section: Text Content
+========================================================================== */
+
+.c-content {
+    @include content-width();
+    position: relative;
+
+    // screen at or above 900px
+    @include media(">=medium") {}
+}

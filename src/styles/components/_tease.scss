@@ -1,0 +1,92 @@
+/* ==========================================================================
+    Tease
+========================================================================== */
+
+.c-tease {
+
+    // Media
+    .c-media {
+        margin-bottom: $base-spacing;
+    }
+}
+
+.c-tease__headline {
+    font-size: $font-h4;
+    margin-bottom: 0.2em;
+}
+
+.c-tease__meta {
+    display: block;
+    margin-bottom: $base-spacing;
+    font-size: $font-meta;
+}
+
+.c-tease__text {
+    font-size: $font-base-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        font-size: $font-base-md;
+    }
+}
+
+.c-tease__button {
+    margin-top: 1em;
+}
+
+/**
+ * === WOOCOMMERCE PRODUCT ===
+ */
+
+.c-tease.c-tease--product {
+    flex: 0 1 50%;
+    max-width: calc(50% - ($gutter-sm / 2));
+
+    .attachment-woocommerce_thumbnail {
+        display: block;
+        width: 100%;
+    }
+
+    .onsale {
+        @include caption();
+        position: absolute;
+        top: 0.5em;
+        left: 0.5em;
+        line-height: 1em;
+    }
+
+    .price {
+        display: block;
+        line-height: $heading-height;
+    }
+
+    .woocommerce-loop-product__link {
+        position: relative;
+        display: block;
+
+        // Add to Cart
+        & + a {
+            @include btn-style();
+            display: inline-block;
+            // @include inline-link();
+            margin-top: $gutter-xs;
+            // line-height: $heading-height;
+        }
+    }
+
+    .woocommerce-loop-product__title {
+        @include paragraph();
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex-basis: percentage(1/3);
+        max-width: calc(percentage(1/3) - ($gutter / 3 * 2));
+
+        .woocommerce-loop-product__title {
+            margin-top: $gutter-xs;
+        }
+    }
+}

@@ -1,0 +1,123 @@
+{# -- "Global" Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set websiteName = site.name %}
+{% set websiteLogo = siteLogo|default(null) %}
+{% set websiteUrl = site.url %}
+{% set websiteTheme = theme.link %}
+{% set hasSidebar = post.slug in ['news','latest','blog'] %}
+{% set showCTA = post.cta_hide|default(false) %}
+{% set showAlert = globals.site_alert.show_alert|default(false) %}
+{% set modalForm = globals.modal_form|default(null) %}
+
+{# -- Site Meta Content -- #}
+{# ----------------------------------------------------------------- #}
+{% block html_head_container %}
+    {% include '_base/_header.twig' %}
+        {% block head %}
+        {% endblock %}
+    </head>
+{% endblock %}
+
+{# -- Body Classes -- #}
+{# ----------------------------------------------------------------- #}
+{% set postTypeClass  = post ? post.post_type : 'default' %}
+{% set postTitleClass = post ? 'is-' ~ post.slug : 'is-archive' %}
+
+{# -- Site Frame -- #}
+{# ----------------------------------------------------------------- #}
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}"{% if postTypeClass != 'product' %} data-module-load{% endif %}>
+
+    <!-- Start `wp_body_open` Function -->
+    {{ function('wp_body_open') }}
+    <!-- End `wp_body_open` Function -->
+
+    <!-- Loader Element -->
+    <div id="loader" class="c-loader is-active">
+        <div class="c-loader__spinner"></div>
+    </div>
+
+    <div id="page" class="o-site">
+
+        {# Skip (Tab) Navigation #}
+        {% include '_components/nav-keyboard.twig' only %}
+
+        {# Global Site Alert #}
+        {% if showAlert == true %}
+            {% include '_components/alert.twig' with {
+                params: {
+                    visible: showAlert,
+                    text: globals.site_alert.alert_text|default(null),
+                    link: globals.site_alert.alert_link|default(null)
+                }
+            } only %}
+        {% endif %}
+
+        {# Primary Navigation #}
+        <header id="masthead" class="o-site__header" data-module-navigation>
+            {% block header %}
+                {% include '_partials/header.twig' with {
+                    params: {
+                        menu: primaryMenu,
+                        utility: utilityMenu,
+                        siteName: websiteName,
+                        siteLogo: siteLogo,
+                        siteUrl: websiteUrl
+                    }
+                } only %}
+            {% endblock %}
+        </header>
+
+        {# Main Site Content Area #}
+        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}" data-module-modal data-module-scroll>
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+        </main>
+
+        {# Site Footer #}
+        {% block footer %}
+            {% include '_partials/footer.twig' with {
+                params: {
+                    cta: showCTA ?? post.cta_hide|default(false),
+                    headline: post.cta_headline|default(null),
+                    text: post.cta_body|default(null),
+                    button: post.cta_button|default(null),
+                    logo: globals.footer_logo|default(null),
+                    about: globals.footer_about|default(null),
+                    contact: globals.footer_contact|default(null),
+                    social: globals.social_profiles|default(null),
+                    menu: footerMenu ?? null,
+                    siteName: websiteName,
+                    siteLogo: siteLogo,
+                    siteUrl: websiteUrl
+                }
+            } only %}
+        {% endblock %}
+
+        {% block modal %}
+            {% include '_components/modal.twig' with {
+                params: {
+                    form: modalForm,
+                    text: 'Enter your email for access'
+                }
+            } %}
+        {% endblock %}
+
+    </div>
+
+    <!-- Start `wp_footer` Function -->
+    {{ function('wp_footer') }}
+    <!-- End `wp_footer` Function -->
+
+    {# Custom script embeds #}
+    {% block scripts %}
+    {% endblock %}
+
+    <!--
+    Website by Derek Mohr
+    https://onemohrti.me?utm_campaign=HTML+Comment&utm_source={{ websiteName|replace({' ':'+'}) }}
+    -->
+
+</body>
+
+</html>

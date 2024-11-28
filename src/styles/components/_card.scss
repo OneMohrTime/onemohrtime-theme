@@ -1,5 +1,5 @@
 /* ==========================================================================
-	Card
+    Card
 ========================================================================== */
 
 $smImage: 100px;
@@ -7,257 +7,263 @@ $mdImage: 150px;
 $lgImage: 200px;
 
 .c-card {
-	position: relative;
+    position: relative;
 
-	//
-	// Wrapping link
-	//
-	.c-card__link {
-		display: block;
+    //
+    // Wrapping link
+    //
+    .c-card__link {
+        display: block;
 
-		@include hocus {
-			// .c-card__link:hover
-			// .c-card__link:focus
-			.c-card__body {
-				transform: translateY(-#{$gutter-sm});
-				background-color: $yellow;
-				color: $black;
+        @include hocus {
+            // .c-card__link:hover
+            // .c-card__link:focus
+            .c-card__body {
+                transform: translateY(-#{$gutter-sm});
+                background-color: $yellow;
+                color: $black;
 
-				._subheadline {
-					color: $black;
-				}
+                .u-subheadline {
+                    color: $black;
+                }
 
-				._text {
-					border-color: $black;
-				}
-			}
-		}
-	}
+                ._text {
+                    border-color: $black;
+                }
+            }
+        }
+    }
 
-	//
-	// Image area
-	//
-	.c-card__image {
-		position: absolute;
-		top: calc(50% - #{$smImage / 2});
-		width: $smImage;
-		height: $smImage;
-		z-index: 10;
+    //
+    // Image area
+    //
+    .c-card__image {
+        position: absolute;
+        top: calc(50% - #{$smImage / 2});
+        width: $smImage;
+        height: $smImage;
+        z-index: 10;
 
-		._image {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			@include box-shadow();
-		}
+        ._image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include box-shadow();
+        }
 
-		//
-		// Horizontally stacked card deck
-		//
-		.-horizontalDeck & {
+        //
+        // Horizontally stacked card deck
+        //
+        .-horizontalDeck & {
 
-			// images get sized up
-			@include media(">=screen1170") {
-				top: calc(50% - #{$mdImage / 2});
-				width: $mdImage;
-				height: $mdImage;
-			}
+            // images get sized up
+            // screen at or above 1200px
+            @include media(">=large") {
+                top: calc(50% - #{$mdImage / 2});
+                width: $mdImage;
+                height: $mdImage;
+            }
 
-			// images get sized up
-			@include media(">=screen1440") {
-				top: calc(50% - #{$lgImage / 2});
-				width: $lgImage;
-				height: $lgImage;
-			}
-		}
+            // images get sized up
+            // screen at or above 1500px
+            @include media(">=big") {
+                top: calc(50% - #{$lgImage / 2});
+                width: $lgImage;
+                height: $lgImage;
+            }
+        }
 
-		//
-		// Vertically stacked card deck
-		//
-		.-verticalDeck & {
+        //
+        // Vertically stacked card deck
+        //
+        .-verticalDeck & {
 
-			// no less than 768px
-			@include media(">=screen768") {
-				position: relative;
-				width: auto;
-				height: auto;
-				margin-bottom: -#{$gutter-sm};
-				padding-left: $gutter-sm;
-				padding-right: $gutter-sm;
-			}
-		}
-	}
+            // screen at or above 900px
+            @include media(">=medium") {
+                position: relative;
+                width: auto;
+                height: auto;
+                margin-bottom: -#{$gutter-sm};
+                padding-left: $gutter-sm;
+                padding-right: $gutter-sm;
+            }
+        }
+    }
 
-	//
-	// Text area
-	//
-	.c-card__body {
-		position: relative;
-		width: calc(100% - #{$smImage - $gutter-sm});
-		margin-left: #{$smImage - $gutter-sm};
-		padding: $gutter-sm;
-		padding-left: $gutter;
-		transition: background-color $speed,
-					color $speed,
-					transform $speed;
-		background-color: $white--dark;
-		// @include box-shadow();
-		z-index: 9;
+    //
+    // Text area
+    //
+    .c-card__body {
+        position: relative;
+        width: calc(100% - #{$smImage - $gutter-sm});
+        margin-left: #{$smImage - $gutter-sm};
+        padding: $gutter-sm;
+        padding-left: $gutter;
+        transition: background-color $speed,
+                    color $speed,
+                    transform $speed;
+        background-color: $white--dark;
+        // @include box-shadow();
+        z-index: 9;
 
-		// images get sized up
-		@include media(">=screen1170") {
-			width: calc(100% - #{$mdImage - $gutter});
-			margin-left: #{$mdImage - $gutter};
-			padding: $gutter;
-			padding-left: $gutter-lg;
-		}
+        // images get sized up
+        // screen at or above 1200px
+        @include media(">=large") {
+            width: calc(100% - #{$mdImage - $gutter});
+            margin-left: #{$mdImage - $gutter};
+            padding: $gutter;
+            padding-left: $gutter-lg;
+        }
 
-		// images get sized up
-		@include media(">=screen1440") {
-			width: calc(100% - #{$lgImage - $gutter});
-			margin-left: #{$lgImage - $gutter};
-		}
+        // images get sized up
+        // screen at or above 1500px
+        @include media(">=big") {
+            width: calc(100% - #{$lgImage - $gutter});
+            margin-left: #{$lgImage - $gutter};
+        }
 
-		//
-		// Card Headline
-		//
-		._headline {
-			@include base-font-size();
-		}
+        //
+        // Card Headline
+        //
+        .u-headline {
+            @include base-font-size();
+        }
 
-		//
-		// Card Subheadline
-		//
-		._subheadline {
-			@include base-font-size();
-			color: $black--light;
-		}
+        //
+        // Card Subheadline
+        //
+        .u-subheadline {
+            @include base-font-size();
+            color: $black--light;
+        }
 
-		//
-		// Card Text
-		//
-		._text {
-			@include small-font-size();
-			margin-top: 0.75em;
-			padding-top: $gutter-sm / 2;
-			transition: border-color $speed;
-			border-top: 1px $gray--light solid;
-		}
+        //
+        // Card Text
+        //
+        ._text {
+            @include small-font-size();
+            margin-top: 0.75em;
+            padding-top: $gutter-sm / 2;
+            transition: border-color $speed;
+            border-top: 1px $gray--light solid;
+        }
 
-		//
-		// Vertically stacked card deck
-		//
-		.-verticalDeck & {
+        //
+        // Vertically stacked card deck
+        //
+        .-verticalDeck & {
 
-			// no less than 768px
-			@include media(">=screen768") {
-				width: 100%;
-				margin: 0;
-				padding: $gutter;
-				padding-top: #{$gutter + $gutter-sm};
-			}
-		}
-	}
+            // no less than 768px
+            // screen at or above 900px
+            @include media(">=medium") {
+                width: 100%;
+                margin: 0;
+                padding: $gutter;
+                padding-top: #{$gutter + $gutter-sm};
+            }
+        }
+    }
 
-	//
-	// Horizontally stacked card deck
-	//
-	.-horizontalDeck & {
+    //
+    // Horizontally stacked card deck
+    //
+    .-horizontalDeck & {
 
-		// space between siblings
-		& + .c-card {
-			margin-top: $gutter;
-		}
+        // space between siblings
+        & + .c-card {
+            margin-top: $gutter;
+        }
 
-		// no less than 600px
-		@include media(">=screen600") {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: calc(50% - #{$gutter-sm});
-			max-width: calc(50% - #{$gutter-sm});
-			margin-top: 0 !important;
-			margin-bottom: $gutter;
+        // no less than 600px
+        @include media(">=small") {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: calc(50% - #{$gutter-sm});
+            max-width: calc(50% - #{$gutter-sm});
+            margin-top: 0 !important;
+            margin-bottom: $gutter;
 
-			// end of loop
-			@include last(2) {
-				margin-bottom: 0;
-			}
-		}
+            // end of loop
+            @include last(2) {
+                margin-bottom: 0;
+            }
+        }
 
-		// @include media(">=screen1170") {
-		// 	flex-basis: calc(50% - #{$gutter-sm});
-		// 	max-width: calc(50% - #{$gutter-sm});
-		// }
-	}
+        // @include media(">=large") {
+        // 	flex-basis: calc(50% - #{$gutter-sm});
+        // 	max-width: calc(50% - #{$gutter-sm});
+        // }
+    }
 
-	//
-	// Vertically stacked card deck
-	//
-	.-verticalDeck & {
+    //
+    // Vertically stacked card deck
+    //
+    .-verticalDeck & {
 
-		// space between siblings
-		& + .c-card {
-			margin-top: $gutter;
-		}
+        // space between siblings
+        & + .c-card {
+            margin-top: $gutter;
+        }
 
-		// no greater than 768px, no less than 600px
-		@include media("<screen768", ">=screen600") {
-			margin-top: $gutter;
-			width: calc(50% - #{$gutter-sm});
-			float: left;
+        // no greater than 768px, no less than 600px
+        @include media("<medium", ">=small") {
+            margin-top: $gutter;
+            width: calc(50% - #{$gutter-sm});
+            float: left;
 
-			@include odd() {
-				margin-right: $gutter-sm;
-			}
+            @include odd() {
+                margin-right: $gutter-sm;
+            }
 
-			@include even() {
-				margin-left: $gutter-sm;
-			}
+            @include even() {
+                margin-left: $gutter-sm;
+            }
 
-			@include first(2) {
-				margin-top: 0;
-			}
-		}
+            @include first(2) {
+                margin-top: 0;
+            }
+        }
 
-		// no less than 768px
-		@include media(">=screen768") {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: calc(33.33% - #{$gutter});
-			max-width: calc(33.33% - #{$gutter});
-			margin-top: $gutter;
-			margin-left: $gutter;
+        // no less than 768px
+        // screen at or above 900px
+        @include media(">=medium") {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: calc(33.33% - #{$gutter});
+            max-width: calc(33.33% - #{$gutter});
+            margin-top: $gutter;
+            margin-left: $gutter;
 
-			// first card of each row should be flush left
-			@include first(1) {
-				margin-left: 0;
-			}
-			@include every(5) {
-				margin-left: 0;
-			}
+            // first card of each row should be flush left
+            @include first(1) {
+                margin-left: 0;
+            }
+            @include every(5) {
+                margin-left: 0;
+            }
 
-			// last card of each row should be flush left
-			@include every(4) {
-				margin-right: 0 !important;
-			}
+            // last card of each row should be flush left
+            @include every(4) {
+                margin-right: 0 !important;
+            }
 
-			// last card of all should push left
-			@include last(1) {
-				margin-right: auto;
-			}
+            // last card of all should push left
+            @include last(1) {
+                margin-right: auto;
+            }
 
-			// first four don't need top margins
-			@include first(4) {
-				margin-top: 0;
-			}
-		}
+            // first four don't need top margins
+            @include first(4) {
+                margin-top: 0;
+            }
+        }
 
-		// no less than 1170px
-		@include media(">=screen1170") {
-			flex-basis: calc(25% - #{$gutter});
-			max-width: calc(25% - #{$gutter});
-		}
-	}
+        // screen at or above 1200px
+        @include media(">=large") {
+            flex-basis: calc(25% - #{$gutter});
+            max-width: calc(25% - #{$gutter});
+        }
+    }
 }
 
 //
@@ -265,13 +271,13 @@ $lgImage: 200px;
 //
 .-horizontalDeck {
 
-	// no less than 600px
-	@include media(">=screen600") {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-	}
+    // no less than 600px
+    @include media(">=small") {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 //
@@ -279,31 +285,31 @@ $lgImage: 200px;
 //
 .-verticalDeck {
 
-	// no greater than 768px, no less than 600px
-	@include media("<screen768", ">=screen600") {
-		@include clearfix();
-	}
+    // screen below 900px, at or above 600px
+    @include media("<medium", ">=small") {
+        @include clearfix();
+    }
 
-	// no less than 600px
-	@include media(">=screen600") {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-	}
+    // screen at or above 600px
+    @include media(">=small") {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-	// no less than 768px
-	@include media(">=screen768") {
-		align-items: flex-start;
-	}
+    // screen at or above 900px
+    @include media(">=medium") {
+        align-items: flex-start;
+    }
 
-	// no greater than 1170px, no less than 768px
-	@include media("<screen1170", ">=screen768") {
-		.c-card {
-			// hide the last card between these sizes
-			@include after-first(3) {
-				display: none;
-			}
-		}
-	}
+    // screen below 1200px, at or above 900px
+    @include media("<large", ">=medium") {
+        .c-card {
+            // hide the last card between these sizes
+            @include after-first(3) {
+                display: none;
+            }
+        }
+    }
 }

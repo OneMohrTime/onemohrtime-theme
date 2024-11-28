@@ -1,11 +1,11 @@
 /* ==========================================================================
-	Typography
+    Typography
 ========================================================================== */
 
 ::selection {
-	color: $black;
-	background-color: $yellow;
-	text-shadow: none;
+    color: $white;
+    background-color: $blue;
+    text-shadow: none;
 }
 
 /**
@@ -13,72 +13,70 @@
  */
 
 @for $i from 1 through 6 {
-	h#{$i} {
-		position: relative;
-		display: block;
-		margin: 0 0 .5em;
-		font-family: $font-header;
-		font-weight: 800;
-		text-transform: uppercase;
-		line-height: $heading-line-height;
-		color: inherit;
+    h#{$i} {
+        position: relative;
+        margin: 0;
+        font-family: $font-header;
+        font-weight: $font-bold;
+        line-height: $heading-height;
+        color: inherit;
 
-		@include first(1) {
-			margin-top: 0;
-		}
+        @include first(1) {
+            margin-top: 0;
+        }
 
-		a {
-			line-height: inherit;
-			color: inherit;
-		}
-	}
+        a {
+            line-height: inherit;
+            color: inherit;
+        }
+    }
 }
 
 .is-h1,
 h1 {
-	font-size: 102px;
-	// font-size: 7.083vw;
+    font-size: $font-h1;
 }
 .is-h2,
 h2 {
-	font-size: 64px;
-	// font-size: 4.445vw;
+    font-size: $font-h2;
 }
 .is-h3,
 h3 {
-	font-size: 51px;
-	// font-size: 3.542vw;
+    font-size: $font-h3;
 }
 .is-h4,
 h4 {
-	font-size: 36px;
-	// font-size: 2.5vw;
+    font-size: $font-h4;
 }
 .is-h5,
 h5 {
-	font-size: 25px;
-	// font-size: 1.736vw;
+    font-size: $font-h5;
 }
 .is-h6,
 h6 {
-	font-size: 21px;
-	// font-size: 1.458vw;
+    font-size: $font-h6;
 }
 
-._wysiwyg,
-.-wysiwyg {
+.u-wysiwyg {
+    @include content-width();
 
-	h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 {
+        display: block;
+        margin-bottom: $small-spacing;
 
-		// headers in a wysiwyg section only...hopefully
-		&:not([class]) {
-			margin-bottom: ($base-line-height / 3);
-		}
-		// remove top margin for first heading in sections
-		&:not([class]):not(:first-child) {
-			margin-top: ($base-line-height / 2);
-		}
-	}
+        // headers in a wysiwyg section only...hopefully
+        &:not([class]) {
+            margin-bottom: ($line-height / 2);
+        }
+        // remove top margin for first heading in sections
+        &:not([class]):not(:first-child) {
+            margin-top: ($line-height / 2);
+        }
+    }
+
+    p, ul, ol {
+        line-height: inherit;
+    }
 }
 
 /**
@@ -86,113 +84,108 @@ h6 {
  */
 
 p {
-	@include type();
-
-	&:last-child,
-	&:only-child {
-		margin-bottom: 0;
-	}
+    @include type();
+    @include last(1) {
+        margin-bottom: 0;
+    }
 }
 
 b, strong {
-	font-weight: 600;
+    font-weight: $font-bold;
 }
 
 sub, sup {
-	font-size: .75em;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+    position: relative;
+    font-size: .75em;
+    line-height: 0;
+    vertical-align: baseline;
 }
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
 small {
-	font-size: .75em;
+    font-size: .75em;
 }
 
 /**
- * === LISTS ===
- */
+* === LISTS ===
+*/
 
 ul, ol, dl {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-	.c-wysiwyg &,
-	._wysiwyg &,
-	.-wysiwyg & {
-		@include type();
-		margin: 0 0 $base-line-height;
-		padding-left: $base-line-height;
+    .u-wysiwyg & {
+        @include type();
+        margin: 0 0 $line-height;
+        padding-left: $line-height;
 
-		// yellow dots
-		li::marker {
-			font-weight: 700;
-			color: $yellow;
-		}
+        // custom styled dots
+        li::marker {
+            color: $blue;
+        }
 
-		& ul,
-		& ol,
-		& dl {
-			margin: 0;
-		}
-	}
+        // child elements
+        & ul,
+        & ol,
+        & dl {
+            margin: 0;
+        }
+
+        // sibling elements
+        & + p,
+        & + ul,
+        & + ol,
+        & + .c-button {
+            margin-top: $line-height;
+        }
+    }
 }
 
-.c-wysiwyg ul,
-._wysiwyg ul,
-.-wysiwyg ul {
-	list-style: square;
+.u-wysiwyg ul {
+    list-style: disc;
 }
 
-.c-wysiwyg ol,
-._wysiwyg ol,
-.-wysiwyg ol {
-	list-style: decimal;
+.u-wysiwyg ol {
+    list-style: decimal;
 }
 
 /**
- * === UTILITY CLASSES ===
- */
+* === UTILITY CLASSES ===
+*/
 
-._title,
 .u-title {
-	@include title();
+    @include title();
 
-	&.-underline {
-		@include title("underlined");
-	}
-
-	.u-letter {
-		display: inline-block;
-		transform-origin: 0 100%;
-		line-height: 1em;
-	}
+    &.is-underlined {
+        @include title("underlined");
+    }
 }
 
-._headline,
 .u-headline {
-	@include subtitle();
+    @include subtitle();
 
-	&.-underline {
-		@include subtitle("underlined");
-	}
+    &.is-underlined {
+        @include subtitle("underlined");
+    }
 }
 
-._subheadline,
 .u-subheadline {
-	@include paragraph();
+    @include paragraph();
 
-	&.-underline {
-		@include paragraph("underlined");
-	}
+    &.is-underlined {
+        @include paragraph("underlined");
+    }
 }
 
-._text {
-	@include type();
-	@include content-width();
+.u-eyebrow {
+    display: inline-block;
+    font-size: $font-base-sm;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    letter-spacing: rem(1px);
+    line-height: $heading-height;
 }
 
 /**
@@ -200,77 +193,77 @@ ul, ol, dl {
  */
 
 i, cite, em, var, address, dfn {
-	margin: 0;
-	font-family: inherit;
-	font-style: italic;
+    margin: 0;
+    font-family: inherit;
+    font-style: italic;
 }
 
 abbr {
-	padding: 2px 4px;
-	text-decoration: none;
-	border-bottom: 1px $black dotted;
-	background-color: fade-out($black, 0.95);
-	cursor: help;
+    padding: 2px 4px;
+    text-decoration: none;
+    border-bottom: 1px $black dotted;
+    background-color: fade-out($black, 0.95);
+    cursor: help;
 
-	&:focus {
-		padding: 0;
-		font-size: 0;
-		line-height: initial;
-		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
-		border-bottom: 0;
-		background-color: transparent;
+    &:focus {
+        padding: 0;
+        font-size: 0;
+        line-height: initial;
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+        border-bottom: 0;
+        background-color: transparent;
 
-		&::after {
-			content: attr(title);
-			display: inline-block;
-			padding: 2px 4px;
-			text-decoration: none;
-			line-height: inherit;
-			border-bottom: 1px $black dotted;
-			background-color: fade-out($black, 0.95);
-		}
-	}
+        &::after {
+            content: attr(title);
+            display: inline-block;
+            padding: 2px 4px;
+            text-decoration: none;
+            line-height: inherit;
+            border-bottom: 1px $black dotted;
+            background-color: fade-out($black, 0.95);
+        }
+    }
 }
 
 mark {
-	background-color: $yellow--light;
-	color: $black;
+    background-color: $blue;
+    color: $white;
 }
 
 blockquote {
-	border-left: 10px $yellow solid;
-	margin: $base-spacing 0;
-	padding-left: 10px;
+    border-left: 10px $blue solid;
+    margin: $base-spacing 0;
+    padding-left: 10px;
 
-	p {
-		margin-bottom: 0;
-	}
+    p {
+        margin-bottom: 0;
+    }
 
-	footer {
-		position: relative;
-		font-size: .75em;
-		color: $black--light;
+    footer {
+        position: relative;
+        font-size: .75em;
+        color: $black--light;
 
-		cite {
-			display: block;
-			margin-top: 1em;
-			padding-left: 1.5em;
-			font-style: normal;
-			font-weight: 700;
-		}
+        cite {
+            display: block;
+            margin-top: 1em;
+            padding-left: 1.5em;
+            font-style: normal;
+            font-weight: 700;
+        }
 
-		&::before {
-			content: "\2014 \00A0";
-			position: absolute;
-		}
-	}
+        &::before {
+            content: "\2014 \00A0";
+            position: absolute;
+        }
+    }
 }
 
 hr {
-	width: 50%;
-	height: 10px;
-	margin: 0 auto $base-spacing;
-	border: 0;
-	background-color: $yellow;
+    width: 50%;
+    height: 2px;
+    margin: $base-spacing auto;
+    border: 0;
+    background-color: $blue;
 }

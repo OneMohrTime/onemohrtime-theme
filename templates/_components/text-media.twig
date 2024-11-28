@@ -1,0 +1,80 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    eyebrow: params.eyebrow|default(null),
+    headline: params.headline|default(null),
+    text: params.text|default(''),
+    button: params.button ?? null,
+    media: params.media|default(null),
+    mediaType: params.mediaType|default(null),
+    isReverse: params.alignment|default(false)
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-textMedia{{ this.isReverse }}">
+
+    <div class="c-textMedia__text">
+        {% if this.eyebrow %}
+            <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+        {% endif %}
+        {% if this.headline %}
+            <h2 class="u-subheadline">{{ this.headline }}</h2>
+        {% endif %}
+        {% if this.text %}
+            <div class="u-wysiwyg">
+                {{ this.text }}
+            </div>
+        {% endif %}
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.button.url,
+                    text: this.button.title,
+                    target: this.button.target,
+                }
+            } only %}
+        {% endif %}
+    </div>
+
+    <figure class="c-textMedia__media">
+        {% switch this.mediaType %}
+
+            {% case 'video' %}
+                {% include '_elements/embed.twig' with {
+                    params: {
+                        src: this.media.video,
+                        type: 'video'
+                    }
+                } only %}
+
+            {% case 'slides' %}
+                <div class="swiper is-cards" data-module-swiper>
+                    <div class="swiper-wrapper">
+                        {% for image in this.media.slider %}
+                            <div class="swiper-slide">
+                                {% include '_elements/picture.twig' with {
+                                    params: {
+                                        src: image,
+                                    }
+                                } only %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <nav class="swiper-pagination"></nav>
+                    <button class="swiper-button-prev"></button>
+                    <button class="swiper-button-next"></button>
+                </div>
+
+            {% default %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: this.media.image,
+                        ratio: '1:1'
+                    }
+                } only %}
+
+        {% endswitch %}
+    </figure>
+
+</div>

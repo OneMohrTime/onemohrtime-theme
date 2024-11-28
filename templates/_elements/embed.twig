@@ -1,0 +1,26 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    embed: params.src|default(null),
+    type: params.type|default('default')
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.embed %}
+<div class="c-embed">
+
+    {% if this.type == 'video' %}
+        <figure class="c-embed__video u-ratio u-16:9">
+            {{ this.embed }}
+        </figure>
+
+    {% else %}
+        <figure class="c-embed__script">
+            {{ this.embed|raw }}
+        </figure>
+
+    {% endif %}
+
+</div>
+{% endif %}

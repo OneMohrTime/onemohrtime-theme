@@ -6,7 +6,6 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
-import { html } from '../utils/environment';
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -20,6 +19,7 @@ export default class extends es6Module {
     this.classes = [];
     this.header = null;
     this.navigation = null;
+    this.menu = null;
     this.toggleMenu = null;
   }
 
@@ -29,7 +29,8 @@ export default class extends es6Module {
     // Vars
     this.header     = this.el;
     this.navigation = this.header.querySelector('.c-navigation');
-    this.toggleMenu = this.header.querySelector('.toggle__menu');
+    this.menu       = this.header.querySelector('.c-navigation__menu');
+    this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
 
     // Function to handle scroll events
     this.handleScroll();
@@ -38,15 +39,14 @@ export default class extends es6Module {
     this.handleNavbarTransparency();
 
     // Attach click event listener to the toggle button
-    const toggleButton = this.header.querySelector('.toggle__menu');
-    toggleButton.addEventListener('click', () => {
+    const toggleButton = this.toggleMenu;
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => {
 
-      // Change MENU to EXIT
-      this.changeMenuToExit(toggleButton);
-
-      // Open primary navigation
-      this.togglePrimaryNav();
-    });
+        // Open primary navigation
+        this.togglePrimaryNav();
+      });
+    }
   }
 
   // Handle Scroll
@@ -108,45 +108,23 @@ export default class extends es6Module {
       const nav = this.header.querySelector('nav');
 
       if (50 < window.scrollY) {
-        nav.classList.add('transparent');
+        nav.classList.add('is-transparent');
       } else {
-        nav.classList.remove('transparent');
+        nav.classList.remove('is-transparent');
       }
     });
-  }
-
-  // Change "Menu" to "Exit"
-  // =========================================================================
-  changeMenuToExit(btn) {
-    const m = this.toggleMenu.querySelector('.m');
-    const e = this.toggleMenu.querySelector('.e');
-    const n = this.toggleMenu.querySelector('.n');
-    const u = this.toggleMenu.querySelector('.u');
-
-    // Switch E to X
-    e.classList.toggle('toggle__close');
-
-    // Click detection is 1 click slow
-    if (!btn.classList.contains('open')) {
-      m.innerHTML = 'E';
-      n.innerHTML = 'I';
-      u.innerHTML = 'T';
-    } else {
-      m.innerHTML = 'M';
-      n.innerHTML = 'N';
-      u.innerHTML = 'U';
-    }
   }
 
   // Toggle Primary Nav
   // =========================================================================
   togglePrimaryNav() {
     // Find sit elements
-    const siteContainer = html.querySelector('.o-site');
+    const siteContainer = document.querySelector('.o-site');
 
     // Set classes to "open"
     this.header.classList.toggle('is-active');
     this.navigation.classList.toggle('is-visible');
+    this.menu.classList.toggle('is-hidden');
     this.toggleMenu.classList.toggle('open');
     siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');
   }

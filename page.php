@@ -21,30 +21,15 @@
  * @since    Timber 0.1
  */
 
-$context     = Timber::context();
-$timber_post = new Timber\Post();
+$context = Timber::context();
 
-$projects = get_field('project_grid');
+$timber_post     = Timber::get_post();
+// $paged = get_query_var('paged') ?: 1; // Get the current page number
 
-$top10s = array(
-	'post_type'      => 'top-10',
-	'posts_per_page' => -1
-);
+$context['post'] = $timber_post;
 
-$logos = array(
-	'post_type'      => 'logo',
-	'posts_per_page' => -1,
-	'orderby'        => 'menu_order',
-	'order'          => 'ASC'
-);
-
-$context['post']           = $timber_post;
-$context['projects']       = new Timber\PostQuery($projects);
-$context['builder']        = get_field('sections');
-$context['roles']          = new TimberTerm('design');
-$context['image_grid']     = get_field('image_grid');
-$context['myLogos']        = Timber::get_posts($logos);
-$context['power_rankings'] = Timber::get_posts($top10s);
-$context['relatedPosts']   = get_field('related_posts');
-
-Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );
+$templates        = array( '_views/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
+if ( is_front_page() ) {
+    array_unshift( $templates, '_views/front-page.twig' );
+}
+Timber::render( $templates, $context );

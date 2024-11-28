@@ -1,37 +1,6 @@
 /* ==========================================================================
-	Blog
+    Blog
 ========================================================================== */
 
 .t-post,
-.t-posts {
-	position: relative;
-	margin-bottom: 2em;
-
-	.posts {
-		@include block-width();
-		// width: 100%;
-		margin-bottom: 0;
-
-		&__article {
-			// .posts__article
-			width: 100%;
-			margin: $base-spacing 0 #{$gutter-lg};
-			@include media(">=screen600")  {
-				padding-right: 20%;
-			}
-			@include media(">=screen840")  { padding-right: 30%; }
-			@include media(">=screen1024") { padding-right: 40%; }
-			@include media(">=screen1600") { padding-right: 50%; }
-		}
-	}
-}
-
-/**
- * === PAGINATION ===
- */
-
-.posts__pagination {
-	width: auto;
-	margin-left: $gutter;
-	margin-right: $gutter;
-}
+.t-posts {}

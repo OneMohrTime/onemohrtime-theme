@@ -1,0 +1,29 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    url: params.url|default('javascript:void(0);'),
+    text: params.text|default('Learn More'),
+    target: params.target|default(null),
+    isPrimary: params.primary ?? true,
+    icon: params.icon|default(null),
+    class: params.classes|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<a href="{{ this.url }}"{% if this.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %} class="c-button {{ this.isPrimary ? 'is-primary ' : '' }}{{ this.class }} {% if this.icon or this.target == '_blank' %}has-icon{% endif %}">
+
+    <span class="c-button__text">{{ this.text }}</span>
+
+    {% if this.icon %}
+        <span class="c-button__icon">
+            {{ this.icon }}
+        </span>
+
+    {% elseif this.target == '_blank' %}
+        <span class="c-button__icon">
+            {{ source('assets/img/icons/external-link.svg') }}
+        </span>
+
+    {% endif %}
+</a>

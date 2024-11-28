@@ -11,6 +11,7 @@ import modularLoad from 'modularload';
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
 export default class extends es6Module {
+
   // Set initial values
   // =========================================================================
   constructor(m) {

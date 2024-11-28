@@ -1,0 +1,43 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    eyebrow: params.eyebrow|default(null),
+    headline: params.headline|default(null),
+    text: params.text|default(null),
+    button: params.button|default(null),
+    largeHeadline: params.largeHeadline,
+    largeText: params.largeText,
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-content">
+
+    {% if this.eyebrow %}
+        <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+    {% endif %}
+
+    {% if this.largeHeadline is defined and this.largeHeadline == true %}
+        <div class="c-fittext">
+            <h2 class="c-fittext__headline" data-module-fit-text>{{ this.headline }}</h2>
+        </div>
+    {% else %}
+        <h2 class="u-headline">{{ this.headline }}</h2>
+    {% endif %}
+
+    <div class="u-wysiwyg{% if this.largeText is defined and this.largeText == true %} is-large{% endif %}">
+        {{ this.text }}
+    </div>
+
+    {% if this.button %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.button.url,
+                text: this.button.title,
+                target: this.button.target,
+                primary: true
+            }
+        } only %}
+    {% endif %}
+
+</div>

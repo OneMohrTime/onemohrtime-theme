@@ -1,0 +1,77 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    menu: navMenu,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl,
+    logo: params.logo
+} %}
+
+{# -- Component Template -- #}
+
+<nav class="c-navigation">
+
+    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
+        {% if this.logo is defined and this.logo is not empty %}
+        <img src="{{ this.logo }}" alt="{{ this.siteName }} logo" class="c-media__image" />
+        {% else %}
+        <strong>{{ this.siteName }}</strong>
+        {% endif %}
+    </a>
+
+    <div class="c-navigation__toggle">
+        <button class="c-hamburger" data-toggle-menu>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+        </button>
+    </div>
+
+    {% if this.menu %}
+        <ul class="c-navigation__menu c-menu is-hidden">
+
+            {% for item in this.menu.get_items %}
+                {% set activeMenuClass = ('current-menu-item' in item.classes == 1) ? ' is-current' %}
+
+                <li class="c-navigation__menuItem c-menuItem{{ activeMenuClass }}">
+
+                    {% if 'c-button' in item.classes %}
+                        <a href="{{ item.link }}" class="c-button is-primary"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                            {{ item.title }}
+                        </a>
+
+                    {% elseif item.children %}
+                        <a href="{{ item.link }}" class="u-link">
+                            {{ item.title }}
+                        </a>
+
+                    {% else %}
+                        <a href="{{ item.link }}" class="u-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                            {{ item.title }}
+                            {% if item.target == '_blank' %}
+                                {{ source('assets/img/icons/external-link.svg') }}
+                            {% endif %}
+                        </a>
+
+                    {% endif %}
+
+                    {% if item.children %}
+                        <ul id="primary__sub-{{ item.id }}" class="c-submenu">
+
+                            {% for submenu in item.children %}
+                                {% set activeMenuClass = ('current-menu-item' in submenu.classes == 1) ? ' is-current' %}
+                                <li class="c-submenu__item{{ activeMenuClass }}">
+                                    <a href="{{ submenu.link }}" class="u-link">
+                                        {{ submenu.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</nav>

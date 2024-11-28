@@ -1,0 +1,24 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <section class="c-404">
+        <strong class="u-eyebrow">404 Error</strong>
+        <h1 class="u-title">Sorry, we couldn't find what you're looking for.</h1>
+        {% include '_elements/button.twig' with {
+            params: {
+                url: websiteUrl,
+                text: 'Visit Our Home Page',
+                primary: false
+            }
+        } only %}
+    </section>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+/* ==========================================================================
+    Section: Quotes
+========================================================================== */
+
+.c-quotes {
+    position: relative;
+
+    // screen at or above 900px
+    @include media(">=medium") {}
+}
+
+.c-quotes__testimonial {
+
+}
+
+.c-quote {
+    @include content-width();
+}
