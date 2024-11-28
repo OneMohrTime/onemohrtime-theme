@@ -60,6 +60,9 @@ class StarterSite extends Site {
         // Main "screen" stylesheet
         wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/app.css', array(), null, 'screen' );
 
+        // Google Webfonts
+        wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap', array(), null, 'screen' );
+
         // Main script file
         wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true );
 
