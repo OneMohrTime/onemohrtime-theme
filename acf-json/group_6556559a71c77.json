@@ -1,0 +1,124 @@
+{
+    "key": "group_6556559a71c77",
+    "title": "Footer CTA",
+    "fields": [
+        {
+            "key": "field_655995a0057d8",
+            "label": "Hide CTA",
+            "name": "cta_hide",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Turn off CTA if you would like to remove even the default component from the page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "\"Show\" by default",
+            "default_value": 0,
+            "ui_on_text": "Hide",
+            "ui_off_text": "Show",
+            "ui": 1
+        },
+        {
+            "key": "field_6556559bbf127",
+            "label": "Headline",
+            "name": "cta_headline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Override headline",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_655655f2bf128",
+            "label": "Body Copy",
+            "name": "cta_body",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "Override body copy",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_6556562fbf129",
+            "label": "Button 1",
+            "name": "cta_button_1",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_6556565ebf12a",
+            "label": "Button 2",
+            "name": "cta_button_2",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 50,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1718860962
+}

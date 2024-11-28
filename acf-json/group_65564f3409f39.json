@@ -1,0 +1,176 @@
+{
+    "key": "group_65564f3409f39",
+    "title": "Banner",
+    "fields": [
+        {
+            "key": "field_65564f378621a",
+            "label": "Banner Type",
+            "name": "banner_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Select the way that the banner should appear on the page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Single Image",
+                "video": "Video Embed",
+                "slides": "Slideshow"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_655661987438d",
+            "label": "Button",
+            "name": "banner_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_655650538621b",
+            "label": "Image \/ Thumbnail",
+            "name": "banner_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "The main image on the banner",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65564f378621a",
+                        "operator": "==",
+                        "value": "default"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_65564f378621a",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg, png, gif, webp, avif",
+            "preview_size": "large"
+        },
+        {
+            "key": "field_655650dc8621c",
+            "label": "Video Embed",
+            "name": "banner_video_embed",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "If the video is from YouTube, Vimeo, etc",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65564f378621a",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_655652a88621e",
+            "label": "Images",
+            "name": "banner_images",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Add 2-10 images to be rotated through",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65564f378621a",
+                        "operator": "==",
+                        "value": "slides"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": 2,
+            "max": 10,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg, png, gif, webp, avif",
+            "insert": "prepend",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1719782434
+}

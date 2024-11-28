@@ -1,0 +1,23 @@
+{
+    "key": "ui_options_page_655656869e104",
+    "title": "Globals",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Globals",
+    "menu_slug": "globals",
+    "parent_slug": "themes.php",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "menu_icon": [],
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1718856095
+}
