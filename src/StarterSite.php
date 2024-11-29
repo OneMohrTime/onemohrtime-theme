@@ -154,8 +154,8 @@ class StarterSite extends Site {
         add_theme_support(
             'html5',
             array(
-                'comment-form',
-                'comment-list',
+                // 'comment-form',
+                // 'comment-list',
                 'gallery',
                 'caption',
             )
