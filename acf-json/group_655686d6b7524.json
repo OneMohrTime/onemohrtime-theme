@@ -95,80 +95,49 @@
             ]
         },
         {
-            "key": "field_67311c72cfacd",
-            "label": "Call to Action",
-            "name": "",
+            "key": "field_6748dba3f1cb4",
+            "label": "Availability",
+            "name": "work_availability",
             "aria-label": "",
-            "type": "tab",
+            "type": "radio",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_67311c91cface",
-            "label": "Headline",
-            "name": "footer_cta_headline",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
+            "choices": {
+                "open": "<strong>Open<\/strong> I’m actively looking for new projects to design",
+                "busy": "<strong>Busy<\/strong> I'm currently busy, but looking for future projects",
+                "none": "<strong>None<\/strong> I’m completely at capacity for the foreseeable future"
             },
             "default_value": "",
-            "maxlength": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
-            "key": "field_67311cd9cfacf",
-            "label": "Text",
-            "name": "footer_cta_text",
+            "key": "field_6748dcaff1cb5",
+            "label": "Openings",
+            "name": "work_openings",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "date_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_67311cf4cfad0",
-            "label": "Button",
-            "name": "footer_cta_button",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
+            "display_format": "m\/Y",
+            "return_format": "m\/Y",
+            "first_day": 1,
             "allow_in_bindings": 0
         },
         {
@@ -199,7 +168,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -212,7 +181,252 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "jpg, jpeg, png, gif, webp, avif",
+            "allow_in_bindings": 1,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_6748dd3f1eeac",
+            "label": "Footer Details",
+            "name": "footer_details",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6748dd7d1eead",
+            "label": "Recent Press",
+            "name": "footer_press",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": [
+                "category:podcasts",
+                "category:opinion",
+                "category:grand-rapids"
+            ],
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": 3,
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6748de081eeae",
+            "label": "Flags Collected",
+            "name": "footer_flags",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 1,
+            "rows_per_page": 7,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_6748de771eeb0",
+            "button_label": "Add Flag",
+            "sub_fields": [
+                {
+                    "key": "field_6748de301eeaf",
+                    "label": "Flag Emoji",
+                    "name": "emoji",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6748de081eeae"
+                },
+                {
+                    "key": "field_6748de771eeb0",
+                    "label": "Country Name",
+                    "name": "country",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6748de081eeae"
+                },
+                {
+                    "key": "field_6748de921eeb1",
+                    "label": "Story",
+                    "name": "story",
+                    "aria-label": "",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "post"
+                    ],
+                    "post_status": "",
+                    "taxonomy": [
+                        "category:travel"
+                    ],
+                    "allow_archives": 0,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_6748de081eeae"
+                }
+            ]
+        },
+        {
+            "key": "field_6748d962f1cb3",
+            "label": "404 Page",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6748deec285cf",
+            "label": "Headline",
+            "name": "error_headline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6748def8285d0",
+            "label": "Text",
+            "name": "error_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6748df0b285d1",
+            "label": "Links",
+            "name": "error_links",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "page",
+                "design"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -233,5 +447,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731271978
+    "modified": 1732909185
 }

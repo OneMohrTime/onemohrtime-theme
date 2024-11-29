@@ -10,9 +10,9 @@
 
 {# -- Component Template -- #}
 
-<div class="c-callToAction{% if not this.isVisible %} is-hidden{% endif %}">
+<div class="c-call-to-action{% if not this.isVisible %} is-hidden{% endif %}">
 
-    <div class="c-callToAction__text">
+    <div class="c-call-to-action__text">
         <h2 class="u-headline">{{ this.headline }}</h2>
         {% if this.body %}
             <div class="u-wysiwyg">
@@ -21,7 +21,7 @@
         {% endif %}
     </div>
 
-    <div class="c-callToAction__button">
+    <div class="c-call-to-action__button">
 
         {% if not this.button1 and not this.button2 %}
             {% include '_elements/button.twig' with {

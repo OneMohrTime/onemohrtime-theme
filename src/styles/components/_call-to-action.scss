@@ -2,7 +2,7 @@
     Call to Action (CTA)
 ========================================================================== */
 
-.c-callToAction {
+.c-call-to-action {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
     background-color: $gray--light;
 }
 
-.c-callToAction__text {
+.c-call-to-action__text {
     @include content-width();
     text-align: center;
 
@@ -24,7 +24,7 @@
     }
 }
 
-.c-callToAction__button {
+.c-call-to-action__button {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
