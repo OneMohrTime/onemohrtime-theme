@@ -180,7 +180,7 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "jpg, jpeg, png, gif, webp, avif",
+            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
             "allow_in_bindings": 1,
             "preview_size": "medium"
         },
@@ -337,6 +337,66 @@
             ]
         },
         {
+            "key": "field_674a30e05a5ac",
+            "label": "Social Media",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_674a30f95a5ad",
+            "label": "Accounts",
+            "name": "social_accounts",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_674a312e5a5ae",
+                    "label": "Profile",
+                    "name": "profile",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Use the <em>Link Title<\/em> to pick an icon",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_674a30f95a5ad"
+                }
+            ]
+        },
+        {
             "key": "field_6748d962f1cb3",
             "label": "404 Page",
             "name": "",
@@ -447,5 +507,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732909185
+    "modified": 1732915959
 }
