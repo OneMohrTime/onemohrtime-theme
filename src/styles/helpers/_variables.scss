@@ -6,34 +6,22 @@
 // =============================================================================
 
 $black:           #1c1c1c;
-// $black--light:    tint($black, 5%);
-// $black--lighter:  tint($black, 10%);
-// $black--lightest: tint($black, 15%);
-$black--light:    #333333;
-$black--lighter:  #4d4d4d;
-$black--lightest: #666666;
+$black--light:    tint($black, 5%);
+$black--lighter:  tint($black, 10%);
+$black--lightest: tint($black, 15%);
 
 $white:          #f5f5f5;
-// $white--dark:    shade($white, 5%);
-// $white--darker:  shade($white, 10%);
-// $white--darkest: shade($white, 15%);
-$white--dark:    #e0e0e0;
-$white--darker:  #cccccc;
-$white--darkest: #b8b8b8;
+$white--dark:    shade($white, 5%);
+$white--darker:  shade($white, 10%);
+$white--darkest: shade($white, 15%);
 
 $gray:           #6d6d6d;
-// $gray--lightest: tint($gray, 15%);
-// $gray--lighter:  tint($gray, 10%);
-// $gray--light:    tint($gray, 5%);
-// $gray--dark:     shade($gray, 5%);
-// $gray--darker:   shade($gray, 10%);
-// $gray--darkest:  shade($gray, 15%);
-$gray--lightest: #8e8e8e;
-$gray--lighter:  #a3a3a3;
-$gray--light:    #b8b8b8;
-$gray--dark:     #5f5f5f;
-$gray--darker:   #535353;
-$gray--darkest:  #474747;
+$gray--lightest: tint($gray, 15%);
+$gray--lighter:  tint($gray, 10%);
+$gray--light:    tint($gray, 5%);
+$gray--dark:     shade($gray, 5%);
+$gray--darker:   shade($gray, 10%);
+$gray--darkest:  shade($gray, 15%);
 
 $burgundy: #5b2333;
 $red:      #b03a2e;
