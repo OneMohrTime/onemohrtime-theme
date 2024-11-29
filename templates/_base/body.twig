@@ -5,7 +5,6 @@
 {% set websiteUrl = site.url %}
 {% set websiteTheme = theme.link %}
 {% set hasSidebar = post.slug in ['news','latest','blog'] %}
-{% set showCTA = post.cta_hide|default(false) %}
 {% set showAlert = globals.site_alert.show_alert|default(false) %}
 {% set modalForm = globals.modal_form|default(null) %}
 
@@ -79,9 +78,10 @@
             {% include '_partials/footer.twig' with {
                 params: {
                     logo: globals.footer_logo|default(null),
-                    about: globals.footer_about|default(null),
-                    contact: globals.footer_contact|default(null),
-                    social: globals.social_profiles|default(null),
+                    about: globals.footer_details|default(null),
+                    flags: globals.footer_flags|default(null),
+                    press: globals.footer_press|default(null),
+                    social: globals.social_accounts|default(null),
                     menu: footerMenu ?? null,
                     siteName: websiteName,
                     siteLogo: siteLogo,
