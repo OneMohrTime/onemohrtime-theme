@@ -6,6 +6,12 @@
     @include content-width();
     position: relative;
 
+    // Parallax BG Image
+    &.has-background-image {
+        background-position: center center;
+        background-size: cover;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {}
 }

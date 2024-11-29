@@ -7,11 +7,12 @@
     button: params.button|default(null),
     largeHeadline: params.largeHeadline,
     largeText: params.largeText,
+    bgImg: params.background is defined ? get_image(params.background) : null
 } %}
 
 {# -- Component Template -- #}
 
-<div class="c-content">
+<div class="c-content{% if this.bgImg %} has-background-image{% endif %}" {% if this.bgImg %} style="background-image: url({{ this.bgImg.src('large') }});"{% endif %}>
 
     {% if this.eyebrow %}
         <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
