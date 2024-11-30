@@ -32,26 +32,44 @@
 }
 
 /**
- * === Bourbon Mixins ===
+ * === BOURBON MIXINS ===
  */
 
 @mixin btn-style($bg: $black, $text: $white, $hover: $blue) {
     @include btn-color();
-    display: inline-block;
     padding: $small-spacing $base-spacing;
     font-family: $font-header;
     font-size: $font-base;
-    font-weight: $font-bold;
+    font-weight: $font-extrabold;
     text-align: center;
     text-transform: uppercase;
-    border: none;
+    letter-spacing: rem(0.5px);
+    border: 3px $bg solid;
     border-radius: $border-radius;
-    cursor: pointer;
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 10px;
+    }
+
+    &::after {
+        transition: all $speed;
+    }
 
     // hover, focus
     @include hocus {
         background-color: transparent;
         color: inherit;
+        transition: all $speed;
+
+        &::after {
+            left: 0;
+            width: 100%;
+        }
     }
 
     &:active {
@@ -71,13 +89,17 @@
         @include hocus {
             background-color: $white--dark;
             color: $gray;
+            &::after {
+                display: none;
+            }
         }
     }
 }
 
 /**
- * === Button Class ===
+ * === BUTTON CLASS ===
  */
+
 .c-button {
     @include btn-style();
 
@@ -117,4 +139,15 @@
 .c-button--small {
     padding: math.div($small-spacing, 2) math.div($base-spacing, 2);
     font-size: $font-base;
+}
+
+/**
+ * === BUTTON GROUPS ===
+ */
+
+.c-button-group {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: $small-spacing;
 }

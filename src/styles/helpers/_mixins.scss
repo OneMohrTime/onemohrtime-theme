@@ -445,7 +445,7 @@
 }
 
 @mixin btn-color($buttoncolor: $black, $hover: $yellow) {
-    border: 3px $buttoncolor solid;
+    border-color: $buttoncolor;
     color: $buttoncolor;
 
     &::after {
