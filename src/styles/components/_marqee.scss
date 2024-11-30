@@ -16,11 +16,17 @@
 
 .c-marquee__content {
     display: flex;
+    column-gap: $large-spacing;
     white-space: nowrap;
+
+    & + & {
+        margin-left: $large-spacing;
+    }
 
     span {
         display: flex;
         align-items: center;
+        column-gap: $large-spacing;
     }
 
     strong {

@@ -4,12 +4,16 @@
 
 .c-content {
     @include content-width();
+    @include padding();
     position: relative;
+    text-align: center;
 
     // Parallax BG Image
     &.has-background-image {
-        background-position: center center;
+        font-weight: $font-bold;
+        background-position: top center;
         background-size: cover;
+        color: $white;
     }
 
     // screen at or above 900px

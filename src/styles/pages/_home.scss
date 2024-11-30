@@ -2,4 +2,168 @@
     Home
 ========================================================================== */
 
-.t-page.is-home {}
+.t-page.is-home {
+
+    // Banner Section
+    .c-banner.is-homepage {
+        @include padding();
+        margin-bottom: 0;
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        text-align: center;
+        background-color: transparent;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
+        }
+    }
+
+    // Intro Section
+    .o-section.is-intro {
+
+        .c-content.has-background-image {
+            @include padding('2x');
+            padding-top: $gutter;
+            padding-bottom: $gutter;
+        }
+
+        p {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: $font-base-lg;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            .c-content.has-background-image {
+                padding-top: $gutter-lg;
+                padding-bottom: $gutter-lg;
+            }
+            p {
+                font-size: $font-h6;
+            }
+        }
+    }
+
+
+    // Services Section
+    .o-section.is-services {
+        text-align: center;
+
+        .c-textMedia.is-reversed {
+            @include padding();
+            padding-top: $gutter;
+            padding-bottom: $gutter;
+        }
+
+        .c-textMedia__media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $gutter-sm;
+
+            a {
+                @include text-shadow();
+                flex: 0 0 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: calc(50% - math.div($gutter-sm, 2));
+                padding: $gutter-xs;
+                background-color: $black;
+                background-position: center center;
+                background-size: cover;
+                color: $white;
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            text-align: left;
+
+            .c-textMedia__text {
+                flex: 0 1 40%;
+            }
+            .c-textMedia__media {
+                flex: 1 0 60%;
+                display: grid;
+                grid-template-columns: repeat(5, 20%);
+                grid-template-rows: 1fr 1fr;
+
+                a {
+                    width: auto;
+                    max-width: 100%;
+                    padding: $gutter-sm;
+                    // &:nth-child(1) {
+                    //     grid-column: 1 / 3;
+                    //     grid-row: 1 / 3;
+                    // }
+                    @include first(2) {
+                        grid-column: span 2;
+                        grid-row: span 2;
+                    }
+                }
+            }
+        }
+    }
+
+    // Proposal Section
+    .o-section.is-proposal {
+        text-align: center;
+
+        .c-textMedia {
+            @include padding();
+            padding-bottom: $gutter;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            text-align: left;
+        }
+    }
+
+    // Instagram & Content Section
+    .o-section.is-social-feed {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        background-color: $black;
+        color: $white;
+    }
+
+    // Case Studies
+    .o-section.is-case-studies {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+
+        .u-headline {
+            display: block;
+            text-align: center;
+            margin-bottom: $small-spacing;
+        }
+
+        .c-button-group {
+            justify-content: center;
+
+            .c-button {
+                flex: 0 1 auto;
+            }
+        }
+    }
+
+    // Travel Section
+    .o-section.is-travel {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        text-align: center;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            text-align: left;
+        }
+    }
+}

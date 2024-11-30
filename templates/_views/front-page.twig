@@ -6,12 +6,11 @@
 {# ----------------------------------------------------------------- #}
 {% set headline = post.meta('post_headline')|default(post.title) %}
 {% set subheadline = post.meta('post_subheadline')|default(null) %}
-{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
-{% set bannerImages = post.meta('banner_images')|default(null) %}
-{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
-{% set bannerType = post.meta('banner_type')|default('default') %}
-{% set button = post.meta('banner_button')|default(null) %}
-{% set pageBuilder = post.meta('section_builder')|default(null) %}
+{% set intro = post.meta('homepage_intro')|default(null) %}
+{% set services = post.meta('homepage_services')|default(null) %}
+{% set proposal = post.meta('homepage_proposal')|default(null) %}
+{% set caseStudies = post.meta('homepage_projects')|default(null) %}
+{% set travel = post.meta('homepage_travel')|default(null) %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
@@ -19,31 +18,196 @@
 
     <article class="o-page">
 
-        {% include '_components/banner.twig' with {
-            params: {
-                headline: headline,
-                text: subheadline,
-                style: bannerType,
-                image: get_image(bannerImage),
-                images: bannerImages,
-                video: bannerVideo,
-                button: button
-            }
-        } only %}
+        <section class="c-banner is-homepage" data-scroll-trigger>
+            <div class="c-banner__heading">
+                <h1 class="u-title">{{ headline }}</h1>
+                <strong class="u-tagline">{{ subheadline }}</strong>
+            </div>
+            <div class="c-banner__tagline">
+                <span>I'm a</span>
+                <span>graphic</span>
+                <span>designer</span>
+            </div>
+        </section>
 
-        {% if post.content is not empty %}
-            <section class="c-intro" data-scroll-trigger>
-                <div class="u-wysiwyg">
-                    {{ post.content }}
+        <section class="o-section is-text is-intro" data-scroll-trigger>
+            {% include '_components/content.twig' with {
+                params: {
+                    text: intro.text|default(null),
+                    background: intro.background_image|default(null)
+                },
+            } only %}
+        </section>
+
+        <section class="o-section is-text-media is-services" data-scroll-trigger>
+            <div class="c-textMedia is-reversed">
+                <div class="c-textMedia__text">
+                    {% if services.headline %}
+                        <h2 class="u-subheadline">{{ services.headline }}</h2>
+                    {% endif %}
+                    {% if services.text %}
+                        <div class="u-wysiwyg">
+                            {{ services.text }}
+                        </div>
+                    {% endif %}
                 </div>
-            </section>
-        {% endif %}
+                <figure class="c-textMedia__media">
+                    {% for item in services.services %}
+                        <a style="background-image: url({{ get_image(item.background_image).src('large') }});">
+                            <h3 class="u-subheadline">{{ item.heading}}</h3>
+                        </a>
+                    {% endfor %}
+                </figure>
+            </div>
+        </section>
 
-        {% include '_partials/page-builder.twig' with {
-            params: {
-                sections: pageBuilder
-            }
-        } only %}
+        <section class="o-section is-text-media is-proposal" data-scroll-trigger>
+            <div class="c-textMedia">
+                <div class="c-textMedia__text">
+                    {% if proposal.headline %}
+                        <h2 class="u-subheadline">{{ proposal.headline }}</h2>
+                    {% endif %}
+                    {% if proposal.text %}
+                        <div class="u-wysiwyg">
+                            {{ proposal.text }}
+                        </div>
+                    {% endif %}
+                    {% if proposal.button_1 %}
+                        <div class="c-button-group">
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: proposal.button_1.url,
+                                    text: proposal.button_1.title,
+                                    target: proposal.button_1.target,
+                                }
+                            } only %}
+                            {% if proposal.button_2 %}
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: proposal.button_2.url,
+                                    text: proposal.button_2.title,
+                                    target: proposal.button_2.target,
+                                }
+                            } only %}
+                            {% endif %}
+                            {% if proposal.button_3 %}
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: proposal.button_3.url,
+                                    text: proposal.button_3.title,
+                                    target: proposal.button_3.target,
+                                }
+                            } only %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+                <figure class="c-textMedia__media">
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: proposal.image,
+                            ratio: '4:3'
+                        }
+                    } only %}
+                </figure>
+            </div>
+        </section>
+
+        <section class="o-section is-shop" data-scroll-trigger>
+            {% include '_components/marquee.twig' %}
+        </section>
+
+        <section class="o-section is-social-feed" data-scroll-trigger>
+            <div class="u-wysiwyg">
+                {{ post.content }}
+            </div>
+            <figure class="c-instagram">
+                {% apply shortcodes %}
+                    [instagram-feed feed=1]
+                {% endapply %}
+            </figure>
+        </section>
+
+        <section class="o-section is-text-media is-case-studies" data-scroll-trigger>
+            <h2 class="u-headline">Case Studies</h2>
+            {% for row in caseStudies %}
+                {% set caseStudy = get_post(row) %}
+                {% include '_components/text-media.twig' with {
+                    params: {
+                        eyebrow: caseStudy.meta('post_subheadline')|default(null),
+                        headline: caseStudy.meta('post_headline')|default(caseStudy.title),
+                        text: caseStudy.excerpt|default(null),
+                        button: {
+                            url: caseStudy.url,
+                            title: 'Read Case Study',
+                        },
+                        media: {
+                            image: caseStudy.meta('banner_image'),
+                        },
+                        mediaType: 'default',
+                        isReverse: loop.index is even ? ' is-reversed' : '',
+                    }
+                } only %}
+            {% endfor %}
+            <aside class"c-button-group">
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: '/design',
+                        text: 'View All Projects',
+                        primary: true
+                    }
+                } only %}
+            </aside>
+        </section>
+
+        <section class="o-section is-contact" data-scroll-trigger>
+            {% include '_components/cta.twig' with {
+                params: {
+                    headline: 'Get In Touch',
+                    text: 'Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?',
+                    button: {
+                        url: '/contact',
+                        text: 'Contact Me'
+                    },
+                }
+            } only %}
+        </section>
+
+        <section class="o-section is-text-media is-travel" data-scroll-trigger>
+            <div class="c-textMedia">
+                <div class="c-textMedia__text">
+                    {% if travel.headline %}
+                        <h2 class="u-subheadline">{{ travel.headline }}</h2>
+                    {% endif %}
+                    {% if travel.text %}
+                        <div class="u-wysiwyg">
+                            {{ travel.text }}
+                        </div>
+                    {% endif %}
+                    {% if travel.button %}
+                        {% include '_elements/button.twig' with {
+                            params: {
+                                url: travel.button.url,
+                                text: travel.button.title,
+                                target: travel.button.target,
+                            }
+                        } only %}
+                    {% endif %}
+                </div>
+                <figure class="c-textMedia__media">
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: travel.image,
+                            ratio: '4:3'
+                        }
+                    } only %}
+                </figure>
+            </div>
+        </section>
+
+        <section class="o-section is-shop" data-scroll-trigger>
+            {% include '_components/marquee.twig' %}
+        </section>
 
     </article>
 
