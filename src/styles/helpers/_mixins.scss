@@ -190,8 +190,10 @@
 
 @mixin title($underline: null) {
     font-size: $font-h1;
+    text-transform: uppercase;
     letter-spacing: -1.5px;
 
+    // screen below 599px
     @include media("<small") {
         font-size: $font-h2;
         font-size: 2.5em;
@@ -205,10 +207,12 @@
     }
 }
 
-@mixin subtitle($underline: null) {
+@mixin headline($underline: null) {
     font-size: $font-h2;
+    text-transform: uppercase;
     letter-spacing: -0.5px;
 
+    // screen below 599px
     @include media("<small") {
         font-size: 2.25em;
         letter-spacing: normal;
@@ -220,15 +224,31 @@
     }
 }
 
-@mixin paragraph($underline: null) {
+@mixin subheadline($underline: null) {
     font-size: $font-h3;
+    text-transform: uppercase;
 
+    // screen below 599px
     @include media("<=small") {
         font-size: 2em;
     }
 
     @if $underline == "underlined" {
         @include underlined();
+    }
+}
+
+@mixin tagline() {
+    font-family: $font-header;
+    font-size: $font-h5;
+    font-weight: $font-bold;
+    line-height: $heading-height;
+    text-transform: uppercase;
+    margin: 0;
+
+    // screen below 599px
+    @include media("<=small") {
+        font-size: $font-h6;
     }
 }
 
@@ -255,7 +275,7 @@
 @mixin label() {
     font-family: $font-header;
     font-size: $font-h5;
-    font-weight: 700;
+    font-weight: $font-bold;
     line-height: 1em;
     text-transform: uppercase;
     margin: 0;
@@ -266,7 +286,7 @@
     // font-size: 1.15vw;
     font-size: 0.875em;
     font-family: $font-header;
-    font-weight: 700;
+    font-weight: $font-bold;
     line-height: 1em;
     text-transform: uppercase;
     letter-spacing: 2px;

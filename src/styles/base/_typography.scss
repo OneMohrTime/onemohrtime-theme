@@ -164,19 +164,23 @@ ul, ol, dl {
 }
 
 .u-headline {
-    @include subtitle();
+    @include headline();
 
     &.is-underlined {
-        @include subtitle("underlined");
+        @include headline("underlined");
     }
 }
 
 .u-subheadline {
-    @include paragraph();
+    @include subheadline();
 
     &.is-underlined {
-        @include paragraph("underlined");
+        @include subheadline("underlined");
     }
+}
+
+.u-tagline {
+    @include tagline();
 }
 
 .u-eyebrow {
