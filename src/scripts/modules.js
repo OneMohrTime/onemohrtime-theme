@@ -13,5 +13,6 @@ export { default as Load } from './modules/Load';
 export { default as Marquee } from './modules/Marquee';
 export { default as Modal } from './modules/Modal';
 export { default as Navigation } from './modules/Navigation';
+export { default as Parallax } from './modules/Parallax';
 export { default as Scroll } from './modules/Scroll';
 export { default as Swiper } from './modules/Swiper';

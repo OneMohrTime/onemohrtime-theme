@@ -12,7 +12,7 @@
 
 {# -- Component Template -- #}
 
-<div class="c-content{% if this.bgImg %} has-background-image{% endif %}" {% if this.bgImg %} style="background-image: url({{ this.bgImg.src('large') }});"{% endif %}>
+<div class="c-content{% if this.bgImg %} has-background-image{% endif %}" {% if this.bgImg %} style="background-image: url({{ this.bgImg.src('large') }});" data-module-parallax{% endif %}>
 
     {% if this.eyebrow %}
         <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
