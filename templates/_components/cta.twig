@@ -12,25 +12,23 @@
 
     <div class="c-call-to-action__primary">
         <h2 class="u-headline">{{ this.headline }}</h2>
+        {% if this.body %}
+            <div class="u-wysiwyg">
+                {{ this.body }}
+            </div>
+        {% endif %}
     </div>
 
     <div class="c-call-to-action__secondary">
-        {% if this.body or this.button %}
-
-            <div class="u-wysiwyg">
-                {{ this.body }}
-                {% if this.button %}
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: this.button.url,
-                            text: this.button.title,
-                            target: this.button.target,
-                            primary: true
-                        }
-                    } only %}
-                {% endif %}
-            </div>
-
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.button.url,
+                    text: this.button.title,
+                    target: this.button.target,
+                    primary: true
+                }
+            } only %}
         {% endif %}
     </div>
 

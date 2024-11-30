@@ -3,24 +3,39 @@
 ========================================================================== */
 
 .c-call-to-action {
+    @include padding('2x');
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: $gutter;
-    background-color: $gray--light;
-}
-
-.c-call-to-action__text {
-    @include content-width();
-    text-align: center;
+    row-gap: $base-spacing;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+    background-color: $yellow;
+    color: $black;
 
     // screen at or above 900px
     @include media(">=medium") {
+        flex-direction: row;
+        justify-content: space-between;
     }
+}
+
+.c-call-to-action__primary {
+    @include content-width();
+    text-align: center;
 
     .u-headline {
-        margin-bottom: 0.5em;
+        margin-bottom: $small-spacing;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        text-align: left;
+
+        .u-headline {
+            margin-bottom: 0.25em;
+        }
     }
 }
 
