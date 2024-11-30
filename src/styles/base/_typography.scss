@@ -59,18 +59,20 @@ h6 {
 
 .u-wysiwyg {
     @include content-width();
+    line-height: $line-height;
 
     h1, h2, h3, h4, h5, h6 {
         display: block;
         margin-bottom: $small-spacing;
+        line-height: $heading-height;
 
         // headers in a wysiwyg section only...hopefully
         &:not([class]) {
-            margin-bottom: ($line-height / 2);
+            margin-bottom: math.div($line-height, 2);
         }
         // remove top margin for first heading in sections
         &:not([class]):not(:first-child) {
-            margin-top: ($line-height / 2);
+            margin-top: math.div($line-height, 2);
         }
     }
 
