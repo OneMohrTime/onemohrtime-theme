@@ -1,0 +1,38 @@
+/* ==========================================================================
+    Marquee
+========================================================================== */
+
+.c-marquee {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter-sm;
+    overflow: hidden;
+    background-color: $yellow;
+    color: $black;
+}
+
+.c-marquee__content {
+    display: flex;
+    white-space: nowrap;
+
+    span {
+        display: flex;
+        align-items: center;
+    }
+
+    strong {
+        @include subheadline();
+        font-family: $font-header;
+        font-weight: $font-bold;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        strong {
+            font-size: $font-h3;
+        }
+    }
+}
