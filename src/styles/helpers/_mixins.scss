@@ -364,50 +364,18 @@
  * === BUTTONS AND LINKS ===
  */
 
-@mixin inline-link() {
-    position: relative;
-    color: inherit;
-    line-height: $line-height;
-    z-index: 1;
-
-    // screen at or above 1200px
-    @include media(">=large") {
-        // hover, focus
-        @include hocus{
-            color: inherit;
-
-            &::before {
-                left: -4px;
-                right: -4px;
-                bottom: 0.25em;
-                width: calc(100% + 8px);
-                height: 80%;
-                transform: translateY(2px) scaleY(1.2);
-                animation: none;
-            }
-
-            .c-media__svg {
-                transform: translateX($small-spacing);
-            }
-        }
+ @keyframes dancemonkey {
+    0% {
+        left: 0;
+        right: 25%;
     }
-
-    &::before {
-        content: "";
-        position: absolute;
-        bottom: 0.25em;
-        width: auto;
-        height: 8px;
-        transition: $speed;
-        background-color: $yellow;
-        animation: dancemonkey 2s infinite ease-in-out;
-        // animation-delay: #{random(10)}00ms;
-        z-index: -1;
+    50% {
+        left: 25%;
+        right: 0;
     }
-
-    .c-media__svg {
-        position: relative;
-        transition: $speed-slow cubic-bezier(.455,.03,.515,.955);
+    100% {
+        left: 0;
+        right: 25%;
     }
 }
 
@@ -509,40 +477,26 @@
 //
 // Link hover animation that spans multiple lines
 //
-@mixin inline-link($underline: false, $color: inherit, $display: inline-block) {
-    display: $display;
+@mixin inline-link($color: inherit, $display: inline-block) {
     position: relative;
+    display: $display;
     transition: color $speed $bezier-slide;
     text-decoration: none !important;
     color: $color;
     cursor: pointer;
+    z-index: 1;
 
     // Faux underline
-    &::after {
+    &::before {
         content: "";
         position: absolute;
-        right: 0;
         bottom: 0;
-        width: 0;
-        height: 1px;
-        transition: width $speed linear;
-        background-color: currentColor;
-        background-color: $black;
-        z-index: 2;
-    }
-
-    @if $underline {
-        // Faux underline, faded
-        &::before {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 1px;
-            background-color: $gray;
-            z-index: 1;
-        }
+        width: auto;
+        height: 8px;
+        transition: $speed;
+        background-color: $yellow;
+        animation: dancemonkey 2s infinite ease-in-out;
+        z-index: -1;
     }
 
     // Hover, focus
@@ -550,10 +504,23 @@
         color: $color;
 
         // Faux underline
-        &::after {
-            left: 0;
-            right: auto;
-            width: 100%;
+        &::before {
+            left: -4px;
+            right: -4px;
+            bottom: 0;
+            width: calc(100% + 8px);
+            height: 100%;
+            transform: translateY(2px) scaleY(1.2);
+            animation: none;
         }
+
+        .c-media__svg {
+            transform: translateX($small-spacing);
+        }
+    }
+
+    .c-media__svg {
+        position: relative;
+        transition: $speed-slow $bezier-back;
     }
 }
