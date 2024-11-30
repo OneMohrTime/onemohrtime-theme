@@ -428,13 +428,16 @@
     position: relative;
     text-decoration: none;
     color: $color;
+    transition: color $speed $bezier-slide;
+    transition-delay: $speed-fast;
+    z-index: 1;
 
     &::before {
         content: "";
         position: absolute;
         transform: scaleX(0);
         transform-origin: right;
-        transition: transform 0.5s ease-in-out;
+        transition: transform $speed ease-in-out;
         background-color: $background;
         inset: 0;
         z-index: -1;

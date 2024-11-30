@@ -4,6 +4,13 @@
 
 .o-site__footer {
     position: relative;
+    background-color: $black;
+    color: $white;
+
+    .u-wysiwyg a::before,
+    .u-link::before {
+        background-color: $gray--darkest !important;
+    }
 
     // screen at or above 600px
     @include media(">=small") {}

@@ -3,8 +3,8 @@
 ========================================================================== */
 
 ::selection {
-    color: $white;
-    background-color: $blue;
+    color: $black;
+    background-color: $gold;
     text-shadow: none;
 }
 
@@ -194,6 +194,14 @@ ul, ol, dl {
     line-height: $heading-height;
 }
 
+.u-link {
+    @include inline-link();
+}
+
+.u-highlight {
+    @include highlight-link();
+}
+
 /**
  * === ADDITIONAL ADDITIONS ===
  */
@@ -268,8 +276,8 @@ blockquote {
 
 hr {
     width: 50%;
-    height: 2px;
-    margin: $base-spacing auto;
+    height: 3px;
+    margin: $small-spacing auto;
     border: 0;
-    background-color: $blue;
+    background-color: $yellow;
 }
