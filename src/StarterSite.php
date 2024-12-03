@@ -16,11 +16,14 @@ class StarterSite extends Site {
         // add_action('init', array($this, 'register_taxonomies'));
         add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
         add_action('widgets_init', array($this, 'create_sidebars'));
+        add_action('pre_get_posts', array($this, 'custom_category_query_vars'));
 
         add_filter('timber/context', array($this, 'add_to_context' ));
         add_filter('timber/twig', array($this, 'add_to_twig' ));
         add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
         add_filter('wpseo_metabox_prio', array($this, 'move_yoast_seo_metabox'));
+        // add_filter('term_link', array($this, 'custom_category_pagination_links', 10, 3));
+        add_filter('rewrite_rules_array', array($this, 'custom_category_pagination_rewrite_rules'));
 
         parent::__construct();
     }
@@ -52,6 +55,36 @@ class StarterSite extends Site {
     //  */
     // public function register_taxonomies() {
     // }
+
+    /**
+     * Adjust rewrite rules for paginated category archives
+     */
+    public function custom_category_pagination_rewrite_rules($rules) {
+        $new_rules = [];
+        $new_rules['([^/]+)/page/([0-9]{1,})/?$'] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
+        return $new_rules + $rules;
+    }
+
+    // /**
+    //  * Adjust category archive link structure to include pagination
+    //  */
+    // public function custom_category_pagination_links($link, $term, $taxonomy) {
+    //     if ('category' === $taxonomy) {
+    //         $link = trailingslashit($link);
+    //     }
+    //     return $link;
+    // }
+
+    /**
+     * Ensure query vars handle pagination with category base
+     */
+    public function custom_category_query_vars($query) {
+        if (isset($query->query_vars['category_name']) && isset($query->query_vars['paged'])) {
+            $query->set('category_name', $query->query_vars['category_name']);
+            $query->set('paged', $query->query_vars['paged']);
+        }
+        return $query;
+    }
 
     /**
      * This is where you load the frontend CSS & JS files
