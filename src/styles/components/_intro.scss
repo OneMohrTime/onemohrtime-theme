@@ -6,4 +6,8 @@
     @include content-width();
     padding-top: $gutter;
     padding-bottom: $gutter;
+
+    .c-details {
+        margin-bottom: $line-height;
+    }
 }

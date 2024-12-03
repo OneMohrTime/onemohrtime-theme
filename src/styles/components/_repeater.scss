@@ -1,0 +1,73 @@
+/* ==========================================================================
+    Repeater
+========================================================================== */
+
+.c-repeater {
+    @include content-width();
+    position: relative;
+    margin-bottom: $gutter;
+
+    &::before {
+        @include caption();
+        content: attr(data-start) " – " attr(data-end);
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        margin-top: calc(3.25em + $small-spacing);
+
+        // @include media(">=large") {
+        //     margin-top: 5em;
+        // }
+    }
+
+    &.is-current {
+        &::before {
+            content: attr(data-end);
+        }
+    }
+
+    &[open] {
+        .c-repeater__summary {
+            margin-bottom: $small-spacing;
+        }
+    }
+}
+
+.c-repeater__summary {
+    list-style: none;
+    cursor: pointer;
+
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+}
+
+.c-repeater__title {
+    @include ellipsis();
+}
+
+.c-repeater__body {
+
+    .u-subheadline {
+        @include caption();
+        margin-bottom: $base-spacing;
+    }
+}
+
+.c-repeater__link {
+    margin-top: $base-spacing;
+    padding-left: rem(5px);
+    padding-right: rem(5px);
+    font-weight: $font-bold;
+    line-height: $line-height;
+
+    &::before {
+        background-color: $yellow;
+    }
+}
