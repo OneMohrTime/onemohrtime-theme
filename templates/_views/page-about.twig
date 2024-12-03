@@ -90,6 +90,15 @@
             {% include '_components/marquee.twig' %}
         </section>
 
+        {% if relatedPosts %}
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
+                <h3 class="u-subheadline">Related Reading</h2>
+                {% include '_components/related-posts.twig' with {
+                    related: relatedPosts
+                } only %}
+            </footer>
+        {% endif %}
+
     </article>
 
 {% endblock %}
