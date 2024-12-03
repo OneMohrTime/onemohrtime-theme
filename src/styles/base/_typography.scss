@@ -79,6 +79,10 @@ h6 {
     p, ul, ol {
         line-height: inherit;
     }
+
+    p + p {
+        margin-top: math.div($line-height, 2);
+    }
 }
 
 /**

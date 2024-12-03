@@ -32,7 +32,10 @@
 /**
  * === DEFAULT ===
  */
+
 .c-banner.is-default {
+    @include padding();
+    margin-bottom: 0;
     padding-top: $gutter;
     padding-bottom: $gutter;
 
@@ -79,10 +82,22 @@
 
     // Default Banner
     .c-banner.is-default & {
+        @include text-shadow();
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: flex-start;
+        row-gap: $small-spacing;
+        min-height: 400px;
+        margin-bottom: 0;
+        color: $white;
+    }
+
+    // No Image Banner
+    .c-banner.is-default.no-image & {
+        min-height: 1px;
+        text-shadow: none;
+        color: inherit;
     }
 
     // Video Banner
@@ -132,6 +147,12 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        background-color: $black;
+    }
+
+    // No Image Banner
+    .c-banner.is-default.no-image & {
+        background-color: transparent;
     }
 
     // Slideshow Banner
@@ -144,5 +165,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        .c-banner.is-default &,
+        .c-banner.is-video & {
+            opacity: 0.5;
+        }
     }
 }
