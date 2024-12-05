@@ -1,0 +1,20 @@
+/* ==========================================================================
+    Services
+========================================================================== */
+
+.t-page.is-services {
+
+    // Sections
+    .o-page__sections {
+        @include padding();
+    }
+
+    // Services
+    .o-section.is-services {
+        @include padding();
+        display: flex;
+        flex-direction: column;
+        row-gap: $gutter;
+    }
+
+}
