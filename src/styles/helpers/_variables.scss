@@ -161,6 +161,10 @@ $breakpoints: (
 // =============================================================================
 
 :root {
+    // Custom Loader
+    --loader-bg: #{$yellow};
+    --loader-circle: #{$gold};
+    --loader-bar: #{$white};
     // Fancybox
     --fancybox-bg: fade-out($black, 0.33) !important;
     --f-button-color: $yellow !important;
