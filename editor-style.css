@@ -6,12 +6,14 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Barlow Condensed", Helvetica Neue, Helvetica, Arial, sans-serif;
 	font-weight: 800;
 	text-transform: uppercase;
+  line-height: 1.2em;
 }
 
 a {
+  font-family: inherit;
 	text-decoration: none;
-	border-bottom: 1px #171409 solid;
-	color: #ffc300;
+	border-bottom: 8px #ffc300 solid;
+	color: #171409;
 }
 
 p,
@@ -26,9 +28,9 @@ b, strong {
 
 .c-button {
 	display: block;
-	border: 1px #171409 solid;
+	border: 3px #171409 solid;
 	color: #171409;
 	text-align: center;
 	padding: .75em 1.5em;
-	margin-bottom: .75em;
+	margin-top: .75em;
 }
