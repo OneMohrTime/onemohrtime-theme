@@ -72,9 +72,9 @@
             </section>
         {% endif %}
 
-        {% if relatedPosts %}
+        {% if relatedPosts is not empty %}
             <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
-                <h3 class="u-subheadline">Related Reading</h2>
+                <h3 class="u-subheadline">Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
                 } only %}

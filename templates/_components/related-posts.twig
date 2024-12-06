@@ -1,18 +1,19 @@
 {# -- Component Variables -- #}
 
+{% set this = {
+    relatedProjects: related ?? null,
+} %}
+
 {# -- Component Template -- #}
 
+{% if this.relatedProjects %}
 <nav class="c-related-posts">
-    {% for project in related %}
-        {% set project = get_post(project.related_post) %}
 
-        <div class="c-card" data-scroll-trigger>
-            <h4 class="c-card__headline">{{ project.heading_headline|default(project.title) }}</h3>
-            {# <h3 class="c-card__headline">
-                {% include 'components/title.twig' with {
-                    title: project.heading_headline|default(project.title)
-                } only %}
-            </h3> #}
+    {% for relatedProject in this.relatedProjects %}
+        {% set project = get_post(relatedProject.related_post) %}
+
+        <div class="c-related" data-scroll-trigger>
+            <h4 class="c-related__headline">{{ project.heading_headline|default(project.title) }}</h3>
 
             {% if project.post_excerpt %}
                 <p>{{ project.post_excerpt }}</p>
@@ -20,24 +21,26 @@
                 <p>{{ project.content|striptags|slice(0, 255) }}&hellip;</p>
             {% endif %}
 
-            <figure class="c-card__image">
+            <figure class="c-related__image">
                 {% if project.thumbnail %}
                     <img src="{{ project.thumbnail.src('thumbnail') }}"
                         alt="{{ alt }}"
-                        class="_image"
+                        class="c-media__image"
                         srcset="{{ project.thumbnail.src('medium') }} 1000w,
                                 {{ project.thumbnail.src('large') }} 1500w" />
                 {% else %}
-                    <img src="{{ site.theme.link }}/assets/img/placeholder.png" alt="placeholder image" class="_image">
+                    <img src="{{ websiteUrl }}/assets/img/placeholder.png" alt="placeholder image" class="_image">
                 {% endif %}
             </figure>
 
             {% if project.link %}
-                <a href="{{ project.link }}" class="c-card__link">
+                <a href="{{ project.link }}" class="c-related__link">
                     <span>View {{ project.title }}</span>
                 </a>
             {% endif %}
         </div>
 
     {% endfor %}
+
 </nav>
+{% endif %}
