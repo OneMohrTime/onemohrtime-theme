@@ -46,6 +46,7 @@
     letter-spacing: rem(0.5px);
     border: 3px $bg solid;
     border-radius: $border-radius;
+    cursor: pointer;
 
     &::after {
         content: "";

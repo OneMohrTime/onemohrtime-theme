@@ -24,8 +24,8 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex: 1 1 50%;
-        max-width: calc(50% - $gutter-sm);
+        flex: 1 1 40%;
+        max-width: calc(40% - $gutter-sm);
         margin-bottom: 0;
     }
 
@@ -42,7 +42,7 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex: 1 1 50%;
-        max-width: calc(50% - $gutter-sm);
+        flex: 1 1 60%;
+        max-width: calc(60% - $gutter-sm);
     }
 }

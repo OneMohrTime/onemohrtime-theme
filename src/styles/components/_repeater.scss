@@ -5,6 +5,7 @@
 .c-repeater {
     @include content-width();
     position: relative;
+    max-width: rem(1024px);
     margin-bottom: $gutter;
 
     &::before {
@@ -15,10 +16,6 @@
         right: 0;
         display: block;
         margin-top: calc(3.25em + $small-spacing);
-
-        // @include media(">=large") {
-        //     margin-top: 5em;
-        // }
     }
 
     &.is-current {

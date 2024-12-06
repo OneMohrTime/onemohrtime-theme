@@ -4,7 +4,7 @@
 
 .c-content {
     @include content-width();
-    @include padding();
+    // @include padding();
     position: relative;
     text-align: center;
 
@@ -14,6 +14,23 @@
         background-position: top center;
         background-size: cover;
         color: $white;
+    }
+
+    // Page Builder Section
+    .o-page__sections & {
+        text-align: left;
+    }
+
+    .u-eyebrow {
+        margin-bottom: rem(8px);
+    }
+
+    .u-headline {
+        margin-bottom: math.div($small-spacing, 2);
+    }
+
+    .c-button {
+        margin-top: $base-spacing;
     }
 
     // screen at or above 900px
