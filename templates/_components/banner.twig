@@ -51,27 +51,31 @@
             } only %}
 
         {% case 'slides' %}
-            <div class="swiper is-cards" data-module-swiper>
-                {# Additional required wrapper #}
+            <div class="swiper is-cards" data-module-swiper-banner>
                 <div class="swiper-wrapper">
                     {% for image in this.images %}
-                        {# Slides #}
                         <div class="swiper-slide">
                             {% set image = get_image(image) %}
                             {% include '_elements/picture.twig' with {
                                 params: {
                                     src: image,
-                                    ratio: '1:1'
+                                    ratio: '16:9'
                                 }
                             } only %}
                         </div>
                     {% endfor %}
                 </div>
-                {# If we need pagination #}
-                <div class="swiper-pagination"></div>
-                {# If we need navigation buttons #}
-                <button class="swiper-button-prev"></button>
-                <button class="swiper-button-next"></button>
+                <div class="swiper-scrollbar"></div>
+                <div class="swiper-controls">
+                    <button class="c-button is-prev">
+                        <span class="u-screen-reader-text">Previous</span>
+                        {{ source('_elements/svg/arrow-left.svg') }}
+                    </button>
+                    <button class="c-button is-next">
+                        <span class="u-screen-reader-text">Next</span>
+                        {{ source('_elements/svg/arrow-right.svg') }}
+                    </button>
+                </div>
             </div>
 
         {% default %}
