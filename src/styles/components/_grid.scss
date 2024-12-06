@@ -10,17 +10,73 @@
 
     // screen at or above 900px
     @include media(">=medium") {
+        justify-content: flex-start;
         gap: $gutter;
     }
 }
 
 .c-grid__item {
     flex: 0 1 50%;
-    max-width: calc(50% - ($gutter-sm / 2));
+    max-width: calc(50% - math.div($gutter-sm, 2));
+
+    & > * {
+        margin-top: $small-spacing;
+        @include first(1) {
+            margin-top: 0;
+        }
+    }
+
+    .c-grid.has-two-columns &,
+    .c-grid.has-three-columns &,
+    .c-grid.has-four-columns &,
+    .c-grid.has-five-columns & {
+        flex: 0 1 50%;
+        max-width: calc(50% - ($gutter-sm / 2));
+    }
+
+    .c-media {
+        border-radius: $border-radius;
+    }
+
+    .u-heading {
+        font-size: $font-h5;
+    }
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex-basis: percentage(1/3);
-        max-width: calc(percentage(1/3) - ($gutter / 3 * 2));
+        .c-grid.has-two-columns &,
+        .c-grid.has-four-columns & {
+            flex-basis: 50%;
+            max-width: calc(50% - $gutter-sm);
+        }
+        .c-grid.has-three-columns &,
+        .c-grid.has-five-columns & {
+            flex-basis: percentage(1/3);
+            max-width: calc(percentage(1/3) - ($gutter * 2 / 3));
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        .c-grid.has-four-columns & {
+            flex-basis: 25%;
+            max-width: calc(25% - ($gutter * 3 / 4));
+        }
+        .c-grid.has-five-columns & {
+            flex-basis: 20%;
+            max-width: calc(20% - ($gutter * 4 / 5));
+        }
+    }
+}
+
+.c-grid__item-link {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: $border-radius;
+
+    .c-media__image {
+        height: 100%;
+        object-fit: cover;
     }
 }

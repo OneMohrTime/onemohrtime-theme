@@ -1,58 +1,76 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    grid: params.section|default(null)
+    grid: params.section|default(null),
+    count: params.section.row_count ?? 'four'
 } %}
 
 {# -- Component Template -- #}
 
 {% if this.grid %}
 <section class="o-section is-cards" data-scroll-trigger>
+    <div class="c-grid has-{{ this.count }}-columns">
 
-    <div class="c-grid">
+        {% for card in this.grid.cards %}
+            {% set image = get_image(card.card_image)|default(null) %}
+            {% set headline = card.card_headline|default(null) %}
+            {% set subheadline = card.card_subheadline|default(null) %}
+            {% set text = card.card_body|default(null) %}
+            {% set button = card.card_button|default(null) %}
 
-        {% for item in this.grid.cards %}
-            {% set image = get_image(item.card_image)|default(null) %}
-            {% set headline = item.card_headline|default(null) %}
-            {% set text = item.card_body|default(null) %}
-            {% set button = item.card_button|default(null) %}
+            {% switch this.count %}
+                {% case 'two' %}
+                    {% set srcset = 'sizes: "50vw"' %}
+                {% case 'three' %}
+                    {% set srcset = 'sizes: "(min-width: 900px) 33vw, 50vw"' %}
+                {% case 'four' %}
+                    {% set srcset = 'sizes: "(min-width: 900px) 25vw, 50vw"' %}
+                {% case 'five' %}
+                    {% set srcset = 'sizes: "(min-width: 900px) 20vw, 50vw"' %}
+                {% default %}
+                    {% set srcset = 'sizes: "(min-width: 900px) 25vw, 50vw"' %}
+            {% endswitch %}
 
             <div class="c-grid__item">
-                {% if image %}
-                    {% include '_elements/picture.twig' with {
-                        params: {
-                            src: image,
-                            ratio: '16:9'
-                        }
-                    } only %}
-                {% endif %}
+                <figure class="c-card">
 
-                {% if headline %}
-                    <h3 class="u-heading">{{ headline }}</h3>
-                {% endif %}
+                    {% if button %}
+                        <a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="c-card__link">
+                    {% endif %}
 
-                {% if text %}
-                    <div class="u-wysiwyg">
-                        {{ text }}
-                    </div>
-                {% endif %}
+                        {% if image %}
+                            {% include '_elements/picture.twig' with {
+                                params: {
+                                    src: image,
+                                    ratio: '1:1',
+                                    sizes: srcset
+                                }
+                            } only %}
+                        {% endif %}
 
-                {% if button %}
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: button.url,
-                            text: button.title,
-                            target: button.target,
-                            primary: false
-                        }
-                    } only %}
-                    {# primary: loop.index == loop.length ? true : false #}
-                {% endif %}
+                        <div class="c-card__body">
+                            {% if headline %}
+                                <h3 class="u-heading">{{ headline }}</h3>
+                            {% endif %}
+                            {% if subheadline %}
+                                <strong>{{ subheadline }}</strong>
+                            {% endif %}
+                            {% if text %}
+                                <div class="u-wysiwyg">
+                                    {{ text }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    {% if button %}
+                        </a>
+                    {% endif %}
+
+                </figure>
             </div>
 
         {% endfor %}
 
     </div>
-
 </section>
 {% endif %}
