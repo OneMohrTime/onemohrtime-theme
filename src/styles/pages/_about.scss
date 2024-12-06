@@ -4,11 +4,6 @@
 
 .t-page.is-about {
 
-    // Page Intro
-    .c-intro {
-        @include padding();
-    }
-
     // Work & Education History
     .o-page__sections {
         @include padding();

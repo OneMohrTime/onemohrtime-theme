@@ -145,11 +145,11 @@
                             image: caseStudy.meta('banner_image'),
                         },
                         mediaType: 'default',
-                        isReverse: loop.index is even ? ' is-reversed' : '',
+                        alignment: loop.index is even ? ' is-reversed' : '',
                     }
                 } only %}
             {% endfor %}
-            <aside class"c-button-group">
+            <aside class="c-button-group">
                 {% include '_elements/button.twig' with {
                     params: {
                         url: '/design',

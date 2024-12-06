@@ -64,7 +64,7 @@
                     <div class="c-repeater__body">
                         <h5 id="{{ work.job_title|sanitize }}" class="u-subheadline">{{ work.job_title }}</h5>
                         <div class="u-wysiwyg">{{ work.job_description }}</div>
-                        <a href="{{ work.website }}" target="_blank" class="c-repeater__link u-highlight">Website</a>
+                        <a href="{{ work.website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">Website</a>
                     </div>
                 </details>
             {% endfor %}
@@ -79,7 +79,7 @@
                     <div class="c-repeater__body">
                         <h5 class="u-subheadline">Undergrad</h5>
                         <div class="u-wysiwyg">{{ school.description }}</div>
-                        <a href="{{ school.school_website }}" target="_blank" class="c-repeater__link u-highlight">Website</a>
+                        <a href="{{ school.school_website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">Website</a>
                     </div>
                 </details>
             {% endfor %}
@@ -88,6 +88,25 @@
 
         <section class="o-section is-shop" data-scroll-trigger>
             {% include '_components/marquee.twig' %}
+        </section>
+
+        <figure class="o-section is-social-feed" data-scroll-trigger>
+            {% apply shortcodes %}
+                [instagram-feed feed=1]
+            {% endapply %}
+        </figure>
+
+        <section class="o-section is-contact" data-scroll-trigger>
+            {% include '_components/cta.twig' with {
+                params: {
+                    headline: 'Get In Touch',
+                    text: 'Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?',
+                    button: {
+                        url: '/contact',
+                        text: 'Contact Me'
+                    },
+                }
+            } only %}
         </section>
 
         {% if relatedPosts is not empty %}

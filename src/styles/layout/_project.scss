@@ -1,0 +1,34 @@
+/* ==========================================================================
+    Project (Single Design)
+========================================================================== */
+
+.t-design {
+
+    // Page Intro
+    .c-banner.is-default {
+        .c-banner__media {
+            .c-media {
+                opacity: 1;
+            }
+        }
+        .c-banner__text {
+            justify-content: flex-start; // column-reverse!
+            row-gap: $base-spacing;
+            text-shadow: none;
+        }
+        .u-title,
+        .u-eyebrow {
+            padding-left: rem(10px);
+            padding-right: rem(10px);
+            background-color: $black;
+            box-shadow: 0 0 0 rem(5px) $black;
+        }
+    }
+
+    // Page Builder
+    .o-page__sections {
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+    }
+
+}

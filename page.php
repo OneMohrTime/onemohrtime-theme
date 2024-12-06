@@ -30,6 +30,7 @@ $project_grid = get_field('project_grid');
 $personality_traits = get_field('personality_traits');
 $work_history = get_field('work_history');
 $education = get_field('education');
+$creative_services = get_field('creative_services');
 $related_posts = get_field('related_posts');
 
 $context['post']         = $timber_post;
@@ -37,6 +38,7 @@ $context['projectGrid']  = $project_grid;
 $context['personality']  = $personality_traits;
 $context['resume']       = $work_history;
 $context['education']    = $education;
+$context['allServices']  = $creative_services;
 $context['relatedPosts'] = $related_posts;
 
 $templates        = array( '_views/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );

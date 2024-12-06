@@ -2,4 +2,10 @@
     Contact
 ========================================================================== */
 
-.t-page.is-contact {}
+.t-page.is-contact {
+
+    // Contact Form
+    .c-contact {
+        @include padding();
+    }
+}

@@ -102,9 +102,11 @@
 /* This section includes styles specific to different pages of the website, such as about, blog, home, work, etc. */
 
 @import "pages/about";
+@import "pages/archive";
+@import "pages/blog";
+@import "pages/contact";
 @import "pages/design";
 @import "pages/errors";
-@import "pages/blog";
 @import "pages/contact";
 @import "pages/events";
 @import "pages/home";

@@ -6,7 +6,6 @@
 
     // Page Intro
     .c-intro {
-        @include padding();
         background-color: $white--darker;
         a::before {
             background-color: $gray--lightest;
@@ -16,6 +15,9 @@
     // Case Studies
     .o-section.is-case-studies {
         @include padding();
+        display: flex;
+        flex-direction: column;
+        row-gap: $gutter;
         padding-top: $gutter;
         padding-bottom: $gutter;
 

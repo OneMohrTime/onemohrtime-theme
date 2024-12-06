@@ -12,6 +12,45 @@
     display: flex;
     flex-direction: column;
     row-gap: $gutter;
+    padding-top: $gutter;
+
+    // .is-text {
+    //     padding-top: $gutter;
+    //     padding-bottom: $gutter;
+    // }
+
+    .is-image {
+        .c-media,
+        .c-media__image {
+            border-radius: $border-radius;
+        }
+    }
+
+    .is-text-media {
+        .c-media,
+        .c-media__image {
+            border-radius: $border-radius;
+        }
+    }
+
+    .is-text,
+    .is-image,
+    .is-video,
+    .is-text-media,
+    .is-quotes,
+    .is-cards {
+        @include padding();
+    }
+}
+
+.o-page__related {
+    @include padding();
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    .u-subheadline {
+        margin-bottom: $small-spacing;
+    }
 }
 
 /**
