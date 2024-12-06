@@ -172,4 +172,9 @@ $breakpoints: (
     --swiper-theme-color: #{$blue} !important;
     --swiper-navigation-color: $black !important;
     --swiper-navigation-size: #{$gutter} !important;
+    --swiper-scrollbar-bottom: 0px !important;
+    --swiper-scrollbar-border-radius: #{$border-radius} !important;
+    --swiper-scrollbar-drag-bg-color: #{$yellow} !important;
+    --swiper-scrollbar-sides-offset: 0px !important;
+    --swiper-scrollbar-size: 10px !important;
 }
