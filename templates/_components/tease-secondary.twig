@@ -2,7 +2,6 @@
 
 {% set this = {
     headline: params.headline,
-    image: params.image,
     missing: params.missing,
     content: params.content,
     date: params.date,
@@ -13,21 +12,6 @@
 {# -- Component Template -- #}
 
 <article class="c-tease c-tease--{{ this.format }}"{# id="p-{{ post.id }}"#}>
-    {% if this.image %}
-        {% include '_elements/picture.twig' with {
-            params: {
-                src: get_image(this.image),
-                ratio: '4:3',
-                classes: 'c-tease__image'
-            }
-        } only %}
-
-    {% else %}
-        <picture class="c-media u-ratio u-4:3">
-            <img src="{{ this.missing }}" alt="placeholder image" class="c-tease__image c-media__image" />
-        </picture>
-
-    {% endif %}
 
     <div class="c-tease__content">
         <h3 class="c-tease__headline u-heading">

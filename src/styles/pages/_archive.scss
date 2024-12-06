@@ -1,0 +1,20 @@
+/* ==========================================================================
+    Archives, Categories, Blog
+========================================================================== */
+
+.t-page.is-posts,
+.t-default.is-archive {
+
+    // No Image Banner
+    .c-banner.is-default.no-image {
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
+        }
+    }
+
+}

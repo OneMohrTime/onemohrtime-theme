@@ -10,4 +10,8 @@
     .c-details {
         margin-bottom: $line-height;
     }
+
+    .t-page & {
+        @include padding();
+    }
 }

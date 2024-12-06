@@ -3,9 +3,8 @@
 ========================================================================== */
 
 .c-blog {
+    @include padding();
     display: block;
-    padding-left: $gutter;
-    padding-right: $gutter;
     padding-bottom: $gutter;
 
     // screen at or above 900px
@@ -13,6 +12,29 @@
         display: flex;
         flex-wrap: wrap;
         gap: $gutter;
+    }
+}
+
+.c-blog__primary {
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 0 1 50%;
+        max-width: calc(50% - $gutter-sm);
+    }
+}
+
+.c-blog__secondary {
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 0 1 50%;
+        max-width: calc(50% - $gutter-sm);
+    }
+}
+
+.c-blog__tertiary {
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 100%;
     }
 }
 
