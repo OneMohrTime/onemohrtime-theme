@@ -48,6 +48,17 @@
         padding-left: $gutter-lg;
         padding-right: 0;
     }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex: 0 1 auto;
+        padding-left: $gutter-xl;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-left: calc((100% - $container-width) / 2);
+    }
 }
 
 .c-footer__primary {
@@ -70,6 +81,12 @@
         padding-right: 0;
         padding-bottom: $gutter;
     }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-basis: 25%;
+        padding-left: $gutter-lg;
+    }
 }
 
 .c-footer__secondary {
@@ -91,6 +108,18 @@
         padding-left: $gutter-sm;
         padding-right: $gutter-lg;
         padding-bottom: $gutter;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-basis: 50%;
+        padding-left: $gutter-lg;
+        padding-right: $gutter-xl;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-right: calc((100% - $container-width) / 2);
     }
 }
 
@@ -115,12 +144,7 @@
         line-height: $heading-height;
 
         &::before {
-            background-color: $yellow;
-            color: $black;
-        }
-
-        @include hocus {
-            color: $black;
+            background-color: $gray--darkest;
         }
     }
 
@@ -145,12 +169,26 @@
 }
 
 .c-footer__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $small-spacing;
     font-size: $font-h5;
     text-align: center;
     line-height: 1em;
 
+    a {
+        transition: color $speed $bezier-slide;
+
+        @include hocus {
+            color: $yellow;
+        }
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
+        justify-content: flex-start;
+        margin-top: $gutter;
         font-size: $font-base-lg;
         text-align: left;
     }
@@ -178,7 +216,7 @@
             justify-content: flex-start;
         }
         .c-menuItem {
-            font-size: $font-h6;
+            font-size: $font-h5;
         }
     }
 }
@@ -195,10 +233,6 @@
     background-color: $yellow;
     color: $black;
 
-    .u-link::before {
-        background-color: $gold !important;
-    }
-
     // screen at or above 900px
     @include media(">=medium") {
         flex: 1 1 100%;
@@ -207,6 +241,11 @@
         align-items: center;
         max-width: 100%;
     }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-base-sm;
+    }
 }
 
 
@@ -214,8 +253,15 @@
     margin-top: $gutter-xs;
     line-height: $line-height;
 
+    .u-highlight::before {
+        background-color: $gold !important;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
+        // display: flex;
+        // align-items: baseline;
+        gap: $base-spacing;
         margin-top: 0;
     }
 }
