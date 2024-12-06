@@ -1,0 +1,24 @@
+/* ==========================================================================
+    404 Error
+========================================================================== */
+
+.c-404 {
+    @include padding();
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+    text-align: center;
+
+    .c-button-group {
+        justify-content: center;
+        margin-top: $gutter;
+    }
+
+    @include media(">=medium") {
+        padding-top: $gutter-lg;
+        padding-bottom: $gutter-lg;
+
+        .c-button-group {
+            margin-top: $gutter-lg;
+        }
+    }
+}

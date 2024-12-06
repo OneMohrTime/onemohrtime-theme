@@ -5,20 +5,32 @@
 {# -- Page Variables -- #}
 {# ----------------------------------------------------------------- #}
 
+{% set this = {
+    headline: globals.error_headline,
+    text: globals.error_text,
+    links: globals.error_links
+} %}
+
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
 {% block content %}
 
     <section class="c-404">
         <strong class="u-eyebrow">404 Error</strong>
-        <h1 class="u-title">Sorry, we couldn't find what you're looking for.</h1>
-        {% include '_elements/button.twig' with {
-            params: {
-                url: websiteUrl,
-                text: 'Visit Our Home Page',
-                primary: false
-            }
-        } only %}
+        <h1 class="u-title">{{ this.headline }}</h1>
+        <div class="u-wysiwyg">
+            {{ this.text }}
+        </div>
+        <div class="c-button-group">
+            {% for button in this.links %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: button.link,
+                        text: 'View ' ~ button.post_title,
+                    }
+                } only %}
+            {% endfor %}
+        </div>
     </section>
 
 {% endblock %}
