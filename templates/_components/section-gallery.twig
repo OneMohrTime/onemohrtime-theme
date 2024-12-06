@@ -11,7 +11,7 @@
 {# -- Component Template -- #}
 
 {% if this.images %}
-<section class="o-section is-{{ this.galleryType }}-gallery" data-scroll-trigger>
+<section class="o-section is-{{ this.galleryType }}-gallery">
 
     {% if this.hasIntro %}
         <div class="c-gallery__intro">
@@ -46,7 +46,7 @@
 
         {% case 'slider' %}
             <figure class="c-gallery" data-module-fancybox>
-                <div class="swiper is-gallery" data-module-swiper>
+                <div class="swiper is-gallery" data-module-swiper-gallery>
 
                     <ul class="swiper-wrapper">
                         {% for image in this.images %}
@@ -66,10 +66,16 @@
                         {% endfor %}
                     </ul>
 
-                    <div class="swiper-pagination"></div>
-                    <button class="swiper-button-prev"></button>
-                    <button class="swiper-button-next"></button>
-                    <div class="swiper-scrollbar"></div>
+                    <div class="swiper-controls">
+                        <button class="c-button is-prev">
+                            <span class="u-screen-reader-text">Previous</span>
+                            {{ source('_elements/svg/arrow-left.svg') }}
+                        </button>
+                        <button class="c-button is-next">
+                            <span class="u-screen-reader-text">Next</span>
+                            {{ source('_elements/svg/arrow-right.svg') }}
+                        </button>
+                    </div>
 
                 </div>
             </figure>
@@ -78,5 +84,6 @@
         {# no default configured #}
 
     {% endswitch %}
+
 </section>
 {% endif %}

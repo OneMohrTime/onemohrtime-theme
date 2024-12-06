@@ -14,7 +14,7 @@ import {
   // Controller,
   // EffectCards,
   // EffectCoverflow,
-  EffectCreative,
+  // EffectCreative,
   // EffectCube,
   // EffectFade,
   // EffectFlip,
@@ -22,7 +22,7 @@ import {
   // Grid,
   // HashNavigation,
   // History,
-  // Keyboard,
+  Keyboard,
   // Manipulation,
   // Mousewheel,
   Navigation,
@@ -41,7 +41,7 @@ import 'swiper/scss/a11y';
 // import 'swiper/scss/controller';
 // import 'swiper/scss/effect-cards';
 // import 'swiper/scss/effect-coverflow';
-import 'swiper/scss/effect-creative';
+// import 'swiper/scss/effect-creative';
 // import 'swiper/scss/effect-cube';
 // import 'swiper/scss/effect-fade';
 // import 'swiper/scss/effect-flip';
@@ -49,7 +49,7 @@ import 'swiper/scss/effect-creative';
 // import 'swiper/scss/grid';
 // import 'swiper/scss/hash-navigation';
 // import 'swiper/scss/history';
-// import 'swiper/scss/keyboard';
+import 'swiper/scss/keyboard';
 // import 'swiper/scss/manipulation';
 // import 'swiper/scss/mousewheel';
 import 'swiper/scss/navigation';
@@ -79,15 +79,8 @@ export default class extends es6Module {
   init() {
     this.classes = this.el.classList;
 
-    // Determine which Swiper to configure depending on the class
-    // if (this.classes.contains('is-gallery')) {
-    //   this.createSlides();
-    // }
-    if (this.classes.contains('is-cards')) {
-      this.createCards();
-    }
-    if (this.classes.contains('is-testimonials')) {
-      this.createTestimonials();
+    if (this.classes.contains('is-gallery')) {
+      this.createSlides();
     }
   }
 
@@ -96,7 +89,7 @@ export default class extends es6Module {
   createSlides() {
     this.params = {
       // configure Swiper to use modules
-      modules: [A11y, Navigation, Pagination],
+      modules: [A11y, Keyboard, Navigation, Pagination],
 
       // params
       a11y: {
@@ -143,53 +136,52 @@ export default class extends es6Module {
       //   enabled: true,
       //   sticky: true
       // },
-      // grabCursor: true,
+      grabCursor: true,
       // hashNavigation: {},
       // history: {},
-      // keyboard: {
-      //   enabled: true,
-      //   onlyInViewport: true,
-      //   pageUpDown: true
-      // },
-      // lazy: true,
-      // lazyPreloadPrevNext: 1,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+        pageUpDown: true
+      },
+      lazy: true,
+      lazyPreloadPrevNext: 1,
       loop: true,
       // mousewheel: {},
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.c-button.is-next',
+        prevEl: '.c-button.is-prev',
       },
-      pagination: {
-        // clickable: true,
-        // dynamicBullets: true,
-        // dynamicMainBullets: true,
-        el: '.swiper-pagination',
-        // renderBullet: function (index, className) {
-        //   return '<span class="' + className + '">' + (index + 1) + '</span>';
-        // },
-        // renderFraction: function (currentClass, totalClass) {
-        //   return '<span class="' + currentClass + '"></span>' +
-        //           ' of ' +
-        //           '<span class="' + totalClass + '"></span>';
-        // },
-        type: 'fraction',
-        // type: 'progressbar' | 'bullets' | 'fraction' | 'custom',
-      },
+      // pagination: {
+      //   clickable: true,
+      //   dynamicBullets: true,
+      //   dynamicMainBullets: true,
+      //   el: '.swiper-pagination',
+      //   renderBullet: function (index, className) {
+      //     return '<span class="' + className + '">' + (index + 1) + '</span>';
+      //   },
+      //   renderFraction: function (currentClass, totalClass) {
+      //     return '<span class="' + currentClass + '"></span>' +
+      //             ' of ' +
+      //             '<span class="' + totalClass + '"></span>';
+      //   },
+      //   type: 'fraction',
+      //   type: 'progressbar' | 'bullets' | 'fraction' | 'custom',
+      // },
       // parallax: 4,
       // preventClicks: false,
       // rewind: true,
       // scrollbar: {
-      //   dragSize: 36,
+      //   // dragSize: 36,
       //   draggable: true,
-      //   el: 'swiper-scrollbar',
+      //   el: '.swiper-scrollbar',
       //   hide: false,
       //   snapOnRelease: true,
       // },
       // simulateTouch: false,
-      slidesPerView: 2,
-      // slidesPerView: 'auto',
+      slidesPerView: 'auto',
       spaceBetween: 36,
-      speed: 500,
+      speed: 350,
       // thumbs: {
       //   multipleActiveThumbs: false,
       //   swiper: this.el
@@ -203,86 +195,6 @@ export default class extends es6Module {
       //     spaceBetween: 36,
       //   }
       // }
-    };
-
-    // Init Swiper
-    this.swiper = new Swiper(this.el, this.params);
-  }
-
-  // Create Cards
-  // =========================================================================
-  createCards() {
-    this.params = {
-      // configure Swiper to use modules
-      modules: [A11y, Navigation, Pagination],
-
-      // params
-      a11y: {
-        enabled: true
-      },
-      autoHeight: true,
-      effect: 'slide',
-      lazy: true,
-      lazyPreloadPrevNext: 1,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        clickable: true,
-        dynamicBullets: true,
-        dynamicMainBullets: true,
-        el: '.swiper-pagination',
-        type: 'bullets',
-      },
-      rewind: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      speed: 500,
-
-      // mobile & desktop breakpoints
-      // breakpoints: {
-      //   // when window width is >= 600px
-      //   600: {
-      //     slidesPerView: 2,
-      //     spaceBetween: 36,
-      //   }
-      // }
-    };
-
-    // Init Swiper
-    this.swiper = new Swiper(this.el, this.params);
-  }
-
-  // Create Cards
-  // =========================================================================
-  createTestimonials() {
-    this.params = {
-      // configure Swiper to use modules
-      modules: [A11y, EffectCreative],
-
-      // params
-      a11y: {
-        enabled: true
-      },
-      effect: 'creative',
-      creativeEffect: {
-        prev: {
-          shadow: true,
-          translate: ["-20%", 0, -1],
-        },
-        next: {
-          translate: ["100%", 0, 0],
-        },
-      },
-      // navigation: {
-      //   nextEl: '.swiper-button-next',
-      //   prevEl: '.swiper-button-prev',
-      // },
-      // rewind: true,
-      // slidesPerView: 1,
-      // spaceBetween: 0,
-      // speed: 500,
     };
 
     // Init Swiper

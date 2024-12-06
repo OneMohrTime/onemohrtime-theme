@@ -2,6 +2,10 @@
     Gallery (Masonry)
 ========================================================================== */
 
+$swiper-height-sm: 350px;
+$swiper-height-md: 475px;
+$swiper-height-lg: 600px;
+
 .c-gallery {
     position: relative;
 
@@ -10,11 +14,84 @@
         height: 100%;
     }
 
-    // // screen at or above 600px
-    // @include media(">=small") {
-    // }
+    .swiper-wrapper {
+        box-sizing: border-box;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    .swiper-controls {
+        @include padding();
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: $base-spacing;
+        width: 100%;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        .swiper-controls {
+            position: absolute;
+            top: 50%;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+    }
+}
+
+.c-gallery__intro {
+    @include padding();
+    margin-bottom: $gutter;
+
+    .u-subheadline {
+        margin-bottom: $small-spacing;
+    }
+}
+
+.c-gallery__image {
+    width: auto !important;
+    height: $swiper-height-sm;
+    box-sizing: border-box;
+
+    .c-media__image {
+        width: auto;
+        height: $swiper-height-sm;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        height: $swiper-height-md;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        height: $swiper-height-lg;
+    }
 }
 
 .c-gallery__image-link {
     display: block;
+    height: $swiper-height-sm;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        height: $swiper-height-md;
+        .c-media__image {
+            height: $swiper-height-md;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        height: $swiper-height-lg;
+        .c-media__image {
+            height: $swiper-height-lg;
+        }
+    }
 }
