@@ -129,7 +129,7 @@ ul, ol, dl {
 
         // custom styled dots
         li::marker {
-            color: $blue;
+            color: $gold;
         }
 
         // child elements
@@ -245,12 +245,12 @@ abbr {
 }
 
 mark {
-    background-color: $blue;
-    color: $white;
+    background-color: $gold;
+    color: $black;
 }
 
 blockquote {
-    border-left: 10px $blue solid;
+    border-left: 10px $yellow solid;
     margin: $base-spacing 0;
     padding-left: 10px;
 

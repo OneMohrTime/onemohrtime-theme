@@ -16,7 +16,7 @@ a {
     }
 
     &:focus {
-        outline-color: fade-out($blue, 0.4);
+        outline-color: fade-out($yellow, 0.4);
     }
 
     // if link is not a button...

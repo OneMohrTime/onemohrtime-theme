@@ -454,7 +454,7 @@
 //
 // Link hover animation that spans multiple lines
 //
-@mixin multiline-link($underline: false, $color: $blue) {
+@mixin multiline-link($underline: false, $color: $yellow) {
     display: inline;
     text-decoration: none;
     transition: background-size $speed-slow $bezier-slide;
