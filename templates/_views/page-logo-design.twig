@@ -40,26 +40,60 @@
         {% endif %}
 
         <section class="o-section is-logofolio" data-scroll-trigger>
-        Logo Query
-            {# {% for row in projectGrid %}
-                {% set logo = get_post(row) %}
-                {% include '_components/text-media.twig' with {
-                    params: {
-                        eyebrow: project.meta('post_subheadline')|default(null),
-                        headline: project.meta('post_headline')|default(project.title),
-                        text: (project.excerpt|truncate(36))|default(null),
-                        button: {
-                            url: project.link,
-                            title: 'Read Case Study',
-                        },
-                        media: {
-                            image: project.meta('banner_image'),
-                        },
-                        mediaType: 'default',
-                        alignment: loop.index is even ? ' is-reversed' : '',
-                    }
-                } only %}
-            {% endfor %} #}
+
+            {# <!-- Sorting Dropdown -->
+            <form method="get" class="logos-sorting-form">
+                <label for="sort">Sort by:</label>
+                <select name="sort" id="sort" onchange="this.form.submit()">
+                    <option value="alphabetical" {% if app.request.get('sort') == 'alphabetical' %}selected{% endif %}>Alphabetical</option>
+                    <option value="date" {% if app.request.get('sort') == 'date' %}selected{% endif %}>Date</option>
+                    <option value="random" {% if app.request.get('sort') == 'random' %}selected{% endif %}>Random</option>
+                </select>
+            </form>
+            <!-- Filter by Job Type -->
+            <form method="get" class="logos-filter-form">
+                <fieldset>
+                    <legend>Filter by Job Type:</legend>
+                    {% for job_type in job_types %}
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="job_type[]"
+                                value="{{ job_type.slug }}"
+                                {% if job_type.slug in app.request.get('job_type', []) %}checked{% endif %}
+                                onchange="this.form.submit()"
+                            >
+                            {{ job_type.name }}
+                        </label>
+                    {% endfor %}
+                </fieldset>
+            </form> #}
+
+            <div class="c-grid has-five-columns">
+                {% for row in logofolio %}
+                    {% set logo = get_post(row) %}
+
+                    <div class="c-grid__item c-logo">
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: logo.thumbnail,
+                                ratio: '1:1',
+                                sizes: '(min-width: 900px) 20vw, 50vw'
+                            }
+                        } only %}
+                    </div>
+
+                    {# <a href="{{ logo.thumbnail.src() }}" class="c-grid__item c-logo" data-fancybox>
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: logo.thumbnail,
+                                ratio: '1:1',
+                                sizes: '(min-width: 900px) 20vw, 50vw'
+                            }
+                        } only %}
+                    </a> #}
+                {% endfor %}
+            </div>
         </section>
 
         {% include '_partials/page-builder.twig' with {

@@ -1,0 +1,23 @@
+/* ==========================================================================
+    Logo Design / Logofolio
+========================================================================== */
+
+.t-page.is-logo-design {
+
+    // Logo Section
+    .o-section.is-logofolio {
+        @include padding('2x');
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        background-color: $white--dark;
+
+        .c-logo {
+            pointer-events: none;
+
+            .c-media__image {
+                object-fit: contain;
+            }
+        }
+    }
+
+}

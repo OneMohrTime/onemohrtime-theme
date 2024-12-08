@@ -25,7 +25,37 @@ $context = Timber::context();
 
 $timber_post  = Timber::get_post();
 
-// $paged = get_query_var('paged') ?: 1; // Get the current page number
+$logos = [
+    'post_type' => 'logo',
+    'posts_per_page' => -1,
+    'orderby' => 'title',
+    'order' => 'ASC',
+];
+if (isset($_GET['sort'])) {
+    switch ($_GET['sort']) {
+        case 'date':
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+            break;
+        case 'random':
+            $args['orderby'] = 'rand';
+            break;
+        case 'alphabetical':
+        default:
+            $args['orderby'] = 'title';
+            $args['order'] = 'ASC';
+            break;
+    }
+}
+if (!empty($_GET['job_type'])) {
+    $args['tax_query'] = [
+        [
+            'taxonomy' => 'job_type',
+            'field' => 'slug',
+            'terms' => $_GET['job_type'],
+        ],
+    ];
+}
 $project_grid = get_field('project_grid');
 $personality_traits = get_field('personality_traits');
 $work_history = get_field('work_history');
@@ -40,6 +70,8 @@ $context['resume']       = $work_history;
 $context['education']    = $education;
 $context['allServices']  = $creative_services;
 $context['relatedPosts'] = $related_posts;
+$context['logofolio']    = Timber::get_posts($logos);
+$context['job_types']    = Timber::get_terms('job_type');
 
 $templates        = array( '_views/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
 if ( is_front_page() ) {
