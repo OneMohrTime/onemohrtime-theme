@@ -3,7 +3,6 @@
 ========================================================================== */
 
 .c-article {
-    // @include padding();
     @include content-width();
     position: relative;
     padding: $gutter;

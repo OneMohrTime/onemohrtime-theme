@@ -4,7 +4,6 @@
 
 .c-footer {
     position: relative;
-    // padding: $gutter;
     background-color: $black;
     color: $white;
 
@@ -259,8 +258,6 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        // display: flex;
-        // align-items: baseline;
         gap: $base-spacing;
         margin-top: 0;
     }
