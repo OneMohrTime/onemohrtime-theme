@@ -120,10 +120,8 @@
     {% block scripts %}
     {% endblock %}
 
-    <!--
-    Website by Derek Mohr
-    https://onemohrti.me?utm_campaign=HTML+Comment&utm_source={{ websiteName|replace({' ':'+'}) }}
-    -->
+    {# Add personal branding mark, just for funsies #}
+    {% include '_components/html-comment.twig' %}
 
 </body>
 
