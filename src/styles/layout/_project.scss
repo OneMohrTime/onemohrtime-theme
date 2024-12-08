@@ -31,4 +31,17 @@
         padding-bottom: $gutter;
     }
 
+    // Instagram Feed
+    .o-section.is-social-feed {
+        #sb_instagram {
+            padding-top: 0;
+            padding-bottom: 0 !important;
+            #sbi_images {
+                @include padding();
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+
 }

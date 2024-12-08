@@ -31,6 +31,12 @@
             }
         } only %}
 
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
+
         <section class="c-intro" data-scroll-trigger>
             {% if personality %}
                 <dl class="c-details">
@@ -44,12 +50,6 @@
                 {{ post.content }}
             </div>
         </section>
-
-        {% include '_partials/page-builder.twig' with {
-            params: {
-                sections: pageBuilder
-            }
-        } only %}
 
         <section class="o-page__sections" data-scroll-trigger>
             <h2 class="u-screen-reader-text">Résumé Specs</h2>
@@ -92,7 +92,7 @@
 
         <figure class="o-section is-social-feed" data-scroll-trigger>
             {% apply shortcodes %}
-                [instagram-feed feed=1]
+                [instagram-feed feed=2]
             {% endapply %}
         </figure>
 

@@ -45,6 +45,12 @@
             }
         } only %}
 
+        <figure class="o-section is-social-feed" data-scroll-trigger>
+            {% apply shortcodes %}
+                [instagram-feed feed=3]
+            {% endapply %}
+        </figure>
+
         {% if relatedPosts is not empty %}
             <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
                 <h3 class="u-subheadline">Related Reading</h3>
@@ -56,11 +62,15 @@
 
     </article>
 
+    <aside class="o-section is-shop" data-scroll-trigger>
+        {% include '_components/marquee.twig' %}
+    </aside>
+
     {# Sidebar #}
-    {% include '_partials/sidebar.twig' with {
+    {# {% include '_partials/sidebar.twig' with {
         params: {
             widgets: sidebar
         }
-    } only %}
+    } only %} #}
 
 {% endblock %}
