@@ -23,10 +23,20 @@
     // Intro Section
     .o-section.is-intro {
 
-        .c-content.has-background-image {
-            @include padding('2x');
-            padding-top: $gutter;
-            padding-bottom: $gutter;
+        .c-content {
+            &.has-background-image {
+                @include padding('2x');
+                padding-top: $gutter-lg;
+                padding-bottom: $gutter-lg;
+            }
+            .u-headline {
+                margin: 0;
+            }
+            .u-wysiwyg {
+                max-width: rem(420px);
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         p {
@@ -38,11 +48,19 @@
         // screen at or above 900px
         @include media(">=medium") {
             .c-content.has-background-image {
-                padding-top: $gutter-lg;
-                padding-bottom: $gutter-lg;
+                padding-top: $gutter-xl;
+                padding-bottom: $gutter-xl;
             }
             p {
                 font-size: $font-h6;
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            .c-content.has-background-image {
+                padding-top: $gutter-xxl;
+                padding-bottom: $gutter-xxl;
             }
         }
     }
@@ -79,14 +97,20 @@
             }
         }
 
-
+        .u-subheadline {
+            transition: transform $speed $bezier-slide;
+        }
 
         // screen at or above 900px
         @include media(">=medium") {
             text-align: left;
 
+            .c-textMedia.is-reversed {
+                column-gap: $gutter-lg;
+            }
             .c-textMedia__text {
                 flex: 0 1 auto;
+                padding-left: $gutter;
             }
             .c-textMedia__media {
                 flex: 1 0 auto;
@@ -105,6 +129,11 @@
                     @include last(2) {
                         .u-subheadline {
                             font-size: $font-base-lg;
+                        }
+                    }
+                    @include hocus {
+                        .u-subheadline {
+                            transform: scale(1.15);
                         }
                     }
                 }
@@ -141,18 +170,88 @@
         padding-bottom: $gutter;
         background-color: $black;
         color: $white;
+
+        // a {
+        //     @include btn-style();
+        // }
+
+        // @include media(">=screen768") {
+        //     padding-left: $gutter-lg;
+        //     padding-right: $gutter-lg;
+        //     padding-bottom: $gutter;
+        // }
+        .c-instagram {
+            margin-top: $gutter;
+
+            #sb_instagram {
+                padding-bottom: 0 !important;
+                #sbi_images {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            display: flex;
+            align-items: flex-start;
+            column-gap: $gutter;
+
+            .u-wysiwyg {
+                flex: 1 1 50%;
+                max-width: calc(50% - $gutter-sm);
+            }
+
+            .c-instagram {
+                flex: 1 1 50%;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                max-width: calc(50% - $gutter-sm);
+                margin-top: 0;
+                overflow: hidden;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    display: block;
+                    width: 100%;
+                    height: $gutter-xl;
+                    background-image: linear-gradient(to bottom, fade-out($black, 1) 0, fade-out($black, 0.2) 80%, fade-out($black, 0) 100%);
+                    z-index: 1;
+                }
+            }
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            .u-wysiwyg {
+                flex-basis: 60%;
+                max-width: calc(60% - $gutter-sm);
+            }
+            .c-instagram {
+                flex-basis: 40%;
+                max-width: calc(40% - $gutter-sm);
+            }
+        }
     }
 
     // Case Studies
     .o-section.is-case-studies {
         @include padding();
+        display: flex;
+        flex-direction: column;
+        row-gap: $gutter;
         padding-top: $gutter;
         padding-bottom: $gutter;
 
         .u-headline {
             display: block;
             text-align: center;
-            margin-bottom: $small-spacing;
         }
 
         .c-button-group {

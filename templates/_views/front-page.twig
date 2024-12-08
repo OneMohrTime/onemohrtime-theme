@@ -50,11 +50,20 @@
                             {{ services.text }}
                         </div>
                     {% endif %}
+                    {% if services.button %}
+                        {% include '_elements/button.twig' with {
+                            params: {
+                                url: services.button.url,
+                                text: services.button.title,
+                                target: services.button.target,
+                            }
+                        } only %}
+                    {% endif %}
                 </div>
                 <figure class="c-textMedia__media">
                     {% for item in services.services %}
-                        <a style="background-image: url({{ get_image(item.background_image).src('large') }});">
-                            <h3 class="u-subheadline">{{ item.heading}}</h3>
+                        <a href="{{ item.page_link }}" style="background-image: url({{ get_image(item.background_image).src('large') }});">
+                            <h3 class="u-subheadline">{{ item.heading }}</h3>
                         </a>
                     {% endfor %}
                 </figure>

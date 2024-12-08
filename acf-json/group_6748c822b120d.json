@@ -126,6 +126,23 @@
                     "new_lines": "wpautop"
                 },
                 {
+                    "key": "field_6755c8c48c6a2",
+                    "label": "Button",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
+                },
+                {
                     "key": "field_6748cb09c0588",
                     "label": "Services",
                     "name": "services",
@@ -194,6 +211,34 @@
                             "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                             "allow_in_bindings": 0,
                             "preview_size": "medium",
+                            "parent_repeater": "field_6748cb09c0588"
+                        },
+                        {
+                            "key": "field_6755e10476e05",
+                            "label": "Page Link",
+                            "name": "page_link",
+                            "aria-label": "",
+                            "type": "page_link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "page",
+                                "post"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "allow_archives": 1,
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
                             "parent_repeater": "field_6748cb09c0588"
                         }
                     ]
@@ -356,5 +401,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732830123
+    "modified": 1733681483
 }
