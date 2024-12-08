@@ -103,7 +103,7 @@
         justify-content: center;
         align-items: flex-start;
         row-gap: $small-spacing;
-        min-height: 400px;
+        min-height: 300px;
         margin-bottom: 0;
         color: $white;
     }
@@ -150,11 +150,15 @@
     @include media(">=medium") {
         margin-bottom: 0;
 
+        // Default Banner
+        .c-banner.is-default & {
+            min-height: 400px;
+        }
+
         // Slideshow Banner
         .c-banner.is-slides & {
             flex: 0 1 50%;
             max-width: calc(50% - $gutter-sm);
-            // padding-top: $gutter;
         }
     }
 }

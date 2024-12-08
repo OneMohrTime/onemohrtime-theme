@@ -7,6 +7,8 @@
 {% set hasSidebar = post.slug in ['news','latest','blog'] %}
 {% set showAlert = globals.site_alert.show_alert|default(false) %}
 {% set modalForm = globals.modal_form|default(null) %}
+{% set workAvailability = globals.work_availability|default(null) %}
+{% set workOpenings = globals.work_openings|default(null) %}
 
 {# -- Site Meta Content -- #}
 {# ----------------------------------------------------------------- #}
@@ -58,9 +60,18 @@
                     params: {
                         menu: primaryMenu,
                         utility: utilityMenu,
+                        availability: workAvailability,
+                        openings: workOpenings,
                         siteName: websiteName,
                         siteLogo: siteLogo,
                         siteUrl: websiteUrl
+                    },
+                    megaMenu: {
+                        col1: menuColumn1,
+                        col2: menuColumn2,
+                        col3: menuColumn3,
+                        col4: menuColumn4,
+                        col5: menuColumn5
                     }
                 } only %}
             {% endblock %}

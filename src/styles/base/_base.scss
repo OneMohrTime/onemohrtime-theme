@@ -47,9 +47,8 @@ body {
     padding: 0;
     transition: $speed linear;
 
-    // screen at or above 600px
-    @include media(">=small") {
-        &.-activeNavigationAreaUpTopButNotWhenScrolling {}
+    &.-activeNavigationAreaUpTopButNotWhenScrolling {
+        overflow: hidden;
     }
 
     // screen at or above 1500px

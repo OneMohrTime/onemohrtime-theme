@@ -4,4 +4,22 @@
 
 .c-form {
     position: relative;
+
+    &.is-inline {
+        display: flex;
+        column-gap: $small-spacing;
+    }
+}
+
+/**
+ * === INPUTS ===
+ */
+
+.c-form__input {
+    flex: 1 0 auto;
+    max-width: 100%;
+}
+
+.c-button.is-inverse {
+    flex: 1 0 auto;
 }

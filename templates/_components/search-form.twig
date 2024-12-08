@@ -1,0 +1,8 @@
+{# -- Component Variables -- #}
+
+{# -- Component Template -- #}
+
+<form class="c-form is-inline" role="search" method="get" action="{{ this.siteUrl }}">
+    <input type="search" class="c-form__input" name="s" value="{{ function('get_search_query') }}" placeholder="Search Projects, Services, etc..." />
+    <button type="submit" class="c-button is-inverse">Search</button>
+</form>

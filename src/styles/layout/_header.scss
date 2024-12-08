@@ -12,4 +12,12 @@
 
     // screen at or above 1200px
     @include media(">=large") {}
+
+    // screen below 599px
+    @include media("<small") {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+    }
 }

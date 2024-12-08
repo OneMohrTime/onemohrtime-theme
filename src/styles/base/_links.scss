@@ -27,6 +27,12 @@ a {
             @include inline-link();
         }
     }
+
+    &.is-external {
+        display: inline-flex;
+        align-items: center;
+        column-gap: 0.25em;
+    }
 }
 
 // specific styles for external links

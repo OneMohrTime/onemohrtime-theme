@@ -6,7 +6,6 @@
     @include padding();
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -15,13 +14,23 @@
     background-color: $black;
     color: $white;
 
+    &.is-visible {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
-        flex-wrap: nowrap;
         overflow: visible;
     }
 
-    // &.is-visible {}
+    // screen at or above 1200px
+    @include media(">=large") {
+        &.is-visible {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
 
     .c-submenu {
         display: flex;
@@ -39,35 +48,82 @@
  */
 
 .c-navigation__menu {
-    flex: 1 1 100%;
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     height: auto;
-    max-height: 100%;
-    opacity: 1;
-    background-color: $black--lightest;
+    max-height: 100vh;
+    padding-top: $gutter-sm;
+    padding-bottom: calc($gutter + rem(56px));
+    padding-bottom: $gutter-sm;
+    background-color: $black;
     color: $white;
-    pointer-events: auto;
 
     &.is-hidden {
+        position: absolute;
         height: 0;
         max-height: 0;
         opacity: 0;
         pointer-events: none;
     }
 
-    // screen at or above 900px
-    @include media(">=medium") {
-        flex: 0 1 auto;
-        flex-direction: row;
-        background-color: $black;
-        color: $white;
+    // // screen at or above 900px
+    // @include media(">=medium") {
+    //     flex: 0 1 auto;
+    //     flex-direction: row;
+    //     background-color: $black;
+    //     color: $white;
+
+    //     &.is-hidden {
+    //         height: auto;
+    //         max-height: 100%;
+    //         opacity: 1;
+    //         pointer-events: auto;
+    //     }
+    // }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-wrap: nowrap;
+        padding: 0;
+        background-color: transparent;
 
         &.is-hidden {
+            position: relative;
             height: auto;
-            max-height: 100%;
+            max-height: 100vh;
             opacity: 1;
             pointer-events: auto;
         }
+    }
+}
+
+.c-navigation__menuItem {
+    @include heading();
+    flex: 1 1 50%;
+    font-family: $font-header;
+    font-weight: $font-bold;
+    line-height: $line-height;
+
+    .c-media__svg {
+        display: none;
+        width: 0.75em;
+        height: 0.75em;
+    }
+
+    .u-nav-link {
+        @include hocus {
+            color: $yellow;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex: 0 1 auto;
+        margin-left: $small-spacing;
+        font-size: $font-h6;
+        font-weight: $font-heavy;
+        letter-spacing: rem(1.5px);
     }
 }
 
@@ -76,11 +132,33 @@
  */
 
 .c-navigation__logo {
-    margin-right: auto;
+    $logoSize: 60px;
+    position: absolute;
+    top: -(math.div($logoSize, 3));
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $logoSize;
+    height: $logoSize;
+    transform: translateX(-50%);
+    border-radius: math.div($logoSize, 2);
+    background-color: $black;
 
     .c-media__image {
         max-height: 44px;
         max-width: 220px;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        top: 0;
+        z-index: 50;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        top: (math.div($logoSize, 3));
     }
 }
 
@@ -90,10 +168,216 @@
 
 .c-navigation__toggle {
     position: relative;
-    flex: 0 1 30px;
+    flex: 0 1 auto;
+    padding: 0;
+    transition: background-color $speed-fast linear,
+                color $speed-fast linear,
+                box-shadow $speed-fast linear;
+    font-family: $font-header;
+    font-size: $font-h6;
+    font-weight: $font-heavy;
+    border: 0;
+    border-radius: $border-radius;
+    color: $white;
+    z-index: 35;
+    cursor: pointer;
 
-    // screen at or above 900px
+    @include hocus {
+        color: $yellow !important;
+        .e__bar {
+            background-color: $yellow !important;
+        }
+    }
+
+    &.is-open {
+        min-height: rem(22px);
+        color: $white;
+        z-index: 50;
+        @include hocus {
+            color: $yellow !important;
+            .e__bar {
+                background-color: $yellow !important;
+            }
+        }
+    }
+
+    @include media(">=small") {
+        // top: 0;
+        // bottom: auto;
+        // color: $black;
+        // margin-top: 32px;
+        // margin-bottom: 32px;
+
+        // &:hover {
+        //     .m, .n, .u {
+        //         color: $white;
+        //     }
+        //     .e__bar {
+        //         background-color: $white;
+        //     }
+        // }
+    }
+
     @include media(">=medium") {
-        display: none;
+        // margin-left: $gutter-lg;
+    }
+
+    @include media(">=large") {
+        min-width: rem(56px);
+        // margin-left: $gutter-xl;
+        // transform: translateX(0);
+        // transition: transform $speed;
+
+        // .-slideUp &,
+        // .-slideDown &,
+        // .-activeNavigationAreaUpTopButNotWhenScrolling & {
+        //     transform: translateX( calc(-100% - #{$gutter}) );
+        // }
+    }
+
+    // @include media(">=big") {
+    //     margin-left: $gutter * 4;
+    // }
+
+    .m, .n, .u {
+        display: inline-block;
+    }
+
+    .e {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+
+        &.is-also-x {
+            top: -1px;
+            width: 14px;
+            height: 13px;
+
+            .e__bar {
+                width: 15px;
+                transition: transform $speed-fast $bezier-back;
+                background-color: $white;
+            }
+            .e__bar:nth-child(1) {
+                top: 5px;
+                transform: rotate(45deg);
+            }
+            .e__bar:nth-child(2) {
+                margin: 2px 0;
+                opacity: 0;
+            }
+            .e__bar:nth-child(3) {
+                bottom: 5px;
+                transform: rotate(-45deg);
+            }
+        }
+
+    }
+
+    .e__bar {
+        position: relative;
+        display: block;
+        background-color: $white;
+        transition: background-color $speed-fast;
+        width: 11px;
+        height: 3px;
+
+        &:nth-child(2) {
+            margin: 2px 0;
+        }
+
+        @include media(">=small") {
+            // background-color: $black;
+
+            // &.is-open {
+            //     background-color: $white;
+            // }
+        }
+    }
+
+}
+
+/**
+ * === AVAILABILITY ===
+ */
+
+.c-availability {
+    display: flex;
+    align-items: center;
+    column-gap: $base-spacing;
+}
+
+.c-availability__label {
+    font-weight: $font-bold;
+}
+
+.c-availability__value {
+    $dot-size: 8px;
+    position: relative;
+    margin-bottom: 0;
+    line-height: $heading-height;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: calc(50% - ($dot-size / 2));
+        left: -$dot-size - ($dot-size / 2);
+        display: block;
+        width: $dot-size;
+        height: $dot-size;
+        // background-color: $white;
+        border-radius: $dot-size;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - ($dot-size / 2));
+        left: -$dot-size - ($dot-size / 2);
+        display: block;
+        width: $dot-size;
+        height: $dot-size;
+        border-radius: 50%;
+        // background-color: $white;
+        opacity: 0;
+        animation: radar-blip 1.5s infinite ease-out;
+    }
+
+    &.is-open {
+        &::before,
+        &::after {
+            background-color: $lime;
+        }
+    }
+
+    &.is-busy {
+        &::before,
+        &::after {
+            background-color: $yellow;
+        }
+    }
+
+    &.is-none {
+        &::before,
+        &::after {
+            background-color: $red;
+        }
+    }
+}
+
+@keyframes radar-blip {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    70% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
     }
 }

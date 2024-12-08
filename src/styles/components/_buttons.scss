@@ -104,9 +104,9 @@
 .c-button {
     @include btn-style();
 
-    // &.is-primary {
-    //     @include btn-style($black, $white);
-    // }
+    &.is-primary {
+        @include btn-color($black, $yellow);
+    }
 
     // &.is-secondary {
     //     @include btn-style($black, $white);
@@ -116,9 +116,9 @@
     //     @include btn-style($black, $white);
     // }
 
-    // &.is-inverse {
-    //     @include btn-style($black, $white);
-    // }
+    &.is-inverse {
+        @include btn-color($white, $yellow);
+    }
 
     // &.is-outline {
     //     @include btn-style($black, $white);
@@ -140,6 +140,10 @@
 .c-button--small {
     padding: math.div($small-spacing, 2) math.div($base-spacing, 2);
     font-size: $font-base;
+
+    &::after {
+        height: 6px;
+    }
 }
 
 /**

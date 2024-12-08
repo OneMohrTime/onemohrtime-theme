@@ -114,6 +114,11 @@ class StarterSite extends Site {
     public function navigation_menus() {
         register_nav_menus([
             'primary' => 'Primary Navigation',
+            'mega1' => 'MegaMenu Column 1',
+            'mega2' => 'MegaMenu Column 2',
+            'mega3' => 'MegaMenu Column 3',
+            'mega4' => 'MegaMenu Column 4',
+            'mega5' => 'MegaMenu Column 5',
             'utility' => 'Utility Navigation',
             'footer' => 'Footer Navigation',
         ]);
@@ -155,6 +160,11 @@ class StarterSite extends Site {
         $context['siteLogo'] = $custom_logo_url;
 
         $context['primaryMenu'] = Timber::get_menu('primary');
+        $context['menuColumn1'] = Timber::get_menu('mega1');
+        $context['menuColumn2'] = Timber::get_menu('mega2');
+        $context['menuColumn3'] = Timber::get_menu('mega3');
+        $context['menuColumn4'] = Timber::get_menu('mega4');
+        $context['menuColumn5'] = Timber::get_menu('mega5');
         $context['utilityMenu'] = Timber::get_menu('utility');
         $context['footerMenu']  = Timber::get_menu('footer');
 
