@@ -8,13 +8,15 @@
 {# -- Component Template -- #}
 
 {% if this.mediaSection %}
-<section class="o-section is-{{ this.mediaSection.media_type }}" data-scroll-trigger>
+<section class="o-section is-{{ this.mediaSection.media_type }}{% if this.mediaSection.image_type == 'full' %} is-full-width{% endif %}" data-scroll-trigger>
     {% switch this.mediaSection.media_type %}
 
         {% case 'image' %}
+            {% set var = value %}
             {% include '_elements/picture.twig' with {
                 params: {
-                    src: this.mediaSection.image
+                    src: this.mediaSection.image,
+
                 },
             } only %}
 
