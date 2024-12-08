@@ -6,6 +6,7 @@
     text: params.text|default(''),
     button: params.button ?? null,
     media: params.media|default(null),
+    mediaRatio: params.aspectRatio ?? '4:3',
     mediaType: params.mediaType|default(null),
     isReverse: params.alignment|default(false)
 } %}
@@ -56,6 +57,7 @@
                                 {% include '_elements/picture.twig' with {
                                     params: {
                                         src: image,
+                                        ratio: this.mediaRatio != null ? this.mediaRatio : null
                                     }
                                 } only %}
                             </div>
@@ -70,7 +72,7 @@
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: this.media.image,
-                        ratio: '1:1'
+                        ratio: this.mediaRatio
                     }
                 } only %}
 
