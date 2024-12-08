@@ -39,6 +39,12 @@
     }
 }
 
+.c-call-to-action__secondary {
+    .c-button {
+        @include btn-color($black, $black);
+    }
+}
+
 .c-call-to-action__button {
     display: flex;
     flex-wrap: wrap;
