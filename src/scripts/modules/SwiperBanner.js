@@ -162,13 +162,13 @@ export default class extends es6Module {
       // parallax: 4,
       // preventClicks: false,
       // rewind: true,
-      scrollbar: {
-        // dragSize: 36,
-        draggable: true,
-        el: '.swiper-scrollbar',
-        hide: false,
-        snapOnRelease: true,
-      },
+      // scrollbar: {
+      //   dragSize: 36,
+      //   draggable: true,
+      //   el: '.swiper-scrollbar',
+      //   hide: false,
+      //   snapOnRelease: true,
+      // },
       // simulateTouch: false,
       slidesPerView: 1,
       spaceBetween: 0,
@@ -179,13 +179,18 @@ export default class extends es6Module {
       // },
 
       // mobile & desktop breakpoints
-      // breakpoints: {
-      //   // when window width is >= 600px
-      //   600: {
-      //     slidesPerView: 2,
-      //     spaceBetween: 36,
-      //   }
-      // }
+      breakpoints: {
+        // when window width is >= 600px
+        600: {
+          scrollbar: {
+            // dragSize: 36,
+            draggable: true,
+            el: '.swiper-scrollbar',
+            hide: false,
+            snapOnRelease: true,
+          },
+        }
+      }
     };
 
     // Init Swiper

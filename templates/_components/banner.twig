@@ -59,7 +59,8 @@
                             {% include '_elements/picture.twig' with {
                                 params: {
                                     src: image,
-                                    ratio: '16:9'
+                                    ratio: '16:9',
+                                    sizes: '(min-width: 900px) 50vw, 85vw'
                                 }
                             } only %}
                         </div>

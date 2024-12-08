@@ -53,22 +53,33 @@
  */
 
 .c-banner.is-slides {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: $gutter-sm;
 
     .swiper-controls {
-        @include padding();
         display: flex;
         justify-content: center;
         align-items: center;
         column-gap: $base-spacing;
         width: 100%;
+        padding-left: $gutter;
+        padding-right: $gutter;
     }
 
     .swiper-scrollbar {
         border-radius: 0 !important;
     }
 
+    .c-button.is-prev,
+    .c-button.is-next {
+        background-color: fade-out($white, 0.85);
+    }
+
     // screen at or above 600px
     @include media(">=small") {
+        padding-bottom: 0;
+
         .swiper-controls {
             position: absolute;
             top: 50%;
@@ -83,6 +94,13 @@
         display: flex;
         align-items: center;
         column-gap: $gutter;
+    }
+
+    // screen below 600px
+    @include media("<small") {
+        .swiper-scrollbar {
+            display: none;
+        }
     }
 }
 
@@ -134,9 +152,9 @@
 
     // Slideshow Banner
     .c-banner.is-slides & {
-        // flex: 0 1 50%;
-        // max-width: calc(50% - $gutter-sm);
-        // padding-top: $gutter;
+        @include padding();
+        margin-bottom: $gutter-sm;
+        padding-top: $gutter-sm;
     }
 
     // Elements
@@ -159,6 +177,9 @@
         .c-banner.is-slides & {
             flex: 0 1 50%;
             max-width: calc(50% - $gutter-sm);
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-right: 0;
         }
     }
 }
@@ -190,8 +211,6 @@
 
     // Slideshow Banner
     .c-banner.is-slides & {
-        // flex: 0 1 50%;
-        // max-width: calc(50% - $gutter-sm);
     }
 
     .c-media {
@@ -213,6 +232,13 @@
             flex: 0 1 50%;
             max-width: calc(50% - $gutter-sm);
             // padding-top: $gutter;
+        }
+    }
+
+    // screen at or above 599px
+    @include media("<small") {
+        .c-button {
+            padding: math.div($small-spacing, 2) math.div($base-spacing, 2);
         }
     }
 }
