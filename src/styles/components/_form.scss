@@ -23,3 +23,78 @@
 .c-button.is-inverse {
     flex: 1 0 auto;
 }
+
+/**
+ * === WPFORMS ===
+ */
+
+.wpforms-container {
+    margin-bottom: 0 !important;
+    padding-bottom: $gutter;
+
+    .wpforms-field-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: $gutter-sm;
+
+        .wpforms-field {
+            padding: 0;
+
+            .wpforms-field-label {
+                @include label();
+                margin-bottom: rem(4px);
+            }
+
+            .wpforms-required-label {
+                color: $red;
+            }
+
+            em.wpforms-error {
+                margin-top: rem(5px);
+                font-size: $font-base-sm;
+                color: $red;
+            }
+
+            .wpforms-field-row .wpforms-field-row-block {
+                padding: 0 $gutter-sm;
+            }
+
+            [type=color], [type=date], [type=datetime],
+            [type=datetime-local], [type=email],
+            [type=month], [type=number], [type=password],
+            [type=search], [type=tel], [type=text],
+            [type=time], [type=url], [type=week],
+            input:not([type]),
+            textarea {
+                border: 3px solid $black;
+                background-color: transparent;
+                color: $black;
+
+                &:focus {
+                    outline-color: $gold;
+                }
+            }
+
+            // Form Errors
+            &.wpforms-has-error {
+                [type=color], [type=date], [type=datetime],
+                [type=datetime-local], [type=email],
+                [type=month], [type=number], [type=password],
+                [type=search], [type=tel], [type=text],
+                [type=time], [type=url], [type=week],
+                input:not([type]),
+                textarea {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    .wpforms-submit-container {
+        margin-top: $base-spacing;
+
+        .wpforms-submit {
+            @include btn-style();
+        }
+    }
+}

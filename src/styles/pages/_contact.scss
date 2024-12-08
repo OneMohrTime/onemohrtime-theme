@@ -7,5 +7,6 @@
     // Contact Form
     .c-contact {
         @include padding();
+        padding-top: $gutter;
     }
 }
