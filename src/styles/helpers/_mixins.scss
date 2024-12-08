@@ -238,6 +238,20 @@
     }
 }
 
+@mixin heading($underline: null) {
+    font-size: $font-h4;
+    text-transform: uppercase;
+
+    // screen below 599px
+    @include media("<=small") {
+        font-size: 1.75em;
+    }
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
 @mixin tagline() {
     font-family: $font-header;
     font-size: $font-h5;
