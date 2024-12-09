@@ -9,6 +9,11 @@
 {% set bannerImage = post.meta('thumbnail')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
 {% set button = post.meta('banner_button')|default(null) %}
+{% if 'post-type-archive-design' in body_class %}
+    {% set listType = 'design' %}
+{% else %}
+    {% set listType = 'posts' %}
+{% endif %}
 
 {# -- Page Templates -- #}
 {# ----------------------------------------------------------------- #}
@@ -34,8 +39,15 @@
             </section>
         {% endif %}
 
-        {# {{ parent() }} #}
-        <section class="c-blog">
+        <section class="o-section is-list" data-scroll-trigger>
+            {% include '_components/list.twig' with {
+                style: listType,
+                params: {
+                    items: posts,
+                }
+            } %}
+        </section>
+        {# <section class="c-blog">
             {% for post in posts %}
                 <div class="c-blog__post">
 
@@ -61,13 +73,11 @@
                         </h3>
                         <time datetime="{{ post.date|date('c') }}">Posted on {{ post.date }}</time>
                         <p>{{ post.content|excerpt(40) }}</p>
-                        {# <p>{{ post.content|striptags|slice(0, 160) }}{{ post.content|length > 160 ? '...' : '' }}</p> #}
-                        {# <p>{{ post.content|truncate(40) }}</p> #}
                     </div>
 
                 </div>
             {% endfor %}
-        </section>
+        </section> #}
 
         {% include '_components/pagination.twig' with {
             params: {

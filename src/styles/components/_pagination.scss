@@ -2,7 +2,10 @@
     Pagination
 ========================================================================== */
 
-.c-pagination {}
+.c-pagination {
+    max-width: 100%;
+    overflow-x: auto;
+}
 
 .c-pagination__menu {
     display: flex;

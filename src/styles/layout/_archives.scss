@@ -4,11 +4,32 @@
 
 .t-default.is-archive {
 
+    .o-section.is-list {
+        @include padding();
+    }
+
     /**
      * === PRODUCT GRID ===
      */
-    .c-grid.is-products {
-        @include padding();
+    // .c-grid.is-products {
+    //     @include padding();
+    // }
+
+    /**
+     * === SEARCH RESULTS ===
+     */
+    .o-page.is-search-results {
+        .c-banner.is-default.no-image {
+            margin-bottom: $gutter;
+            background-color: $white--dark;
+        }
+        .o-section.is-list {
+            @include padding();
+            margin-bottom: $gutter;
+        }
+        .c-pagination {
+            margin-bottom: $gutter;
+        }
     }
 
 }

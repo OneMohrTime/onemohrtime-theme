@@ -1,0 +1,46 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    style: style|default('posts'),
+    list: params.items|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+<ul class="c-list">
+
+    {% for item in this.list %}
+        {# Eyebrow Subtitles #}
+        {% switch this.style %}
+            {% case 'design' %}
+                {% set eyebrow = get_post(item).post_subheadline ?? item.post_excerpt|truncate(10) %}
+            {% case 'search' %}
+                {% set eyebrow = item.post_type %}
+            {% default %}
+                {% set eyebrow = item.date('Y/m/d')|time_ago %}
+        {% endswitch %}
+
+        <li class="c-list__item">
+
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: item.banner_image|default(item.thumbnail),
+                    ratio: '1:1',
+                    sizes: '(min-width: 900px) 20vw, 25vw'
+                }
+            } only %}
+
+            <div class="u-wysiwyg">
+                <strong class="u-eyebrow">{{ eyebrow }}</strong>
+                <h2 class="u-headline">{{ item.title }}</h2>
+            </div>
+
+            <a href="{{ item.link }}" class="c-list__item-link" aria-label="Learn More">
+                {{ source('_elements/svg/arrow-right.svg') }}
+            </a>
+
+        </li>
+
+    {% endfor %}
+
+</ul>
