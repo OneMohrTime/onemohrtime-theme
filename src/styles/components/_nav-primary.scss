@@ -62,10 +62,12 @@
 
     &.is-hidden {
         position: absolute;
+        width: 0;
         height: 0;
         max-height: 0;
         opacity: 0;
         pointer-events: none;
+        overflow: hidden;
     }
 
     // screen at or above 1200px

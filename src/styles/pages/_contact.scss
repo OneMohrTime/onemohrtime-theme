@@ -8,5 +8,10 @@
     .c-contact {
         @include padding();
         padding-top: $gutter;
+
+        .wpforms-container {
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 }

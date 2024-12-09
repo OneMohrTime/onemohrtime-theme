@@ -18,10 +18,27 @@
 .c-form__input {
     flex: 1 0 auto;
     max-width: 100%;
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        border: 0;
+        background-color: transparent;
+        color: $white;
+        appearance: none;
+
+        &::placeholder {
+            color: $gray--lightest;
+        }
+    }
 }
 
 .c-button.is-inverse {
     flex: 1 0 auto;
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex: 0 1 auto;
+    }
 }
 
 /**
@@ -29,6 +46,7 @@
  */
 
 .wpforms-container {
+    max-width: rem(1024px);
     margin-bottom: 0 !important;
     padding-bottom: $gutter;
 

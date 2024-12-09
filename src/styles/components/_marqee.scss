@@ -23,6 +23,10 @@
         margin-left: $large-spacing;
     }
 
+    .c-button {
+        @include btn-color($black, $black);
+    }
+
     span {
         display: flex;
         align-items: center;

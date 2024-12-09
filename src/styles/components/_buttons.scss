@@ -47,6 +47,7 @@
     border: 3px $bg solid;
     border-radius: $border-radius;
     cursor: pointer;
+    white-space: nowrap;
 
     &::after {
         content: "";

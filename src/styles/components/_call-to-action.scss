@@ -31,6 +31,7 @@
 
     // screen at or above 900px
     @include media(">=medium") {
+        margin-right: $gutter;
         text-align: left;
 
         .u-headline {
