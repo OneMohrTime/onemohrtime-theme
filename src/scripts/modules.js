@@ -6,6 +6,8 @@
 
 // Modules exports
 // =============================================================================
+export { default as ChangeText } from './modules/ChangeText';
+export { default as DrawSVG } from './modules/DrawSVG';
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
 export { default as FitText } from './modules/FitText';

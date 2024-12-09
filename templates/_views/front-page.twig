@@ -21,22 +21,18 @@
         <section class="c-banner is-homepage" data-scroll-trigger>
             <div class="c-banner__heading">
                 <h1 class="u-title">{{ headline }}</h1>
-                <strong class="u-tagline">{{ subheadline }}</strong>
-            </div>
-            <div class="c-banner__tagline">
-                <span>I'm a</span>
-                <span>graphic</span>
-                <span>designer</span>
+                <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
             </div>
         </section>
 
         <section class="o-section is-text is-intro" data-scroll-trigger>
-            {% include '_components/content.twig' with {
-                params: {
-                    text: intro.text|default(null),
-                    background: intro.background_image|default(null)
-                },
-            } only %}
+            <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.background_image).src('large') }});" data-module-parallax>
+                <div class="c-banner__tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
+                    <span aria-hidden="true">I’m a</span>
+                    <span aria-hidden="true">{{ source('_elements/svg/creative.svg') }}</span>
+                    <span aria-hidden="true">Designer + Developer</span>
+                </div>
+            </div>
         </section>
 
         <section class="o-section is-text-media is-services" data-scroll-trigger>

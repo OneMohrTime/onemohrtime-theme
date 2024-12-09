@@ -191,6 +191,39 @@
     }
 }
 
+.c-banner__tagline {
+    display: block;
+    margin-top: $gutter-lg;
+    font-family: $font-header;
+    font-weight: $font-heavy;
+    text-transform: uppercase;
+    line-height: $heading-height;
+
+    span:nth-child(1) {
+        @include tagline();
+    }
+    span:nth-child(3) {
+        font-size: $font-h4;
+        letter-spacing: rem(1px);
+    }
+
+    .c-media__svg {
+        width: 100%;
+        height: rem(200px);
+    }
+
+    #creative_animated * {
+        fill-opacity: 0;
+        transition: fill-opacity $speed,
+                    stroke-opacity $speed;
+      }
+
+    #creative_animated.is-finished * {
+        fill-opacity: 1;
+        stroke-opacity: 0;
+    }
+}
+
 /**
  * === IMAGE / VIDEO ===
  */
