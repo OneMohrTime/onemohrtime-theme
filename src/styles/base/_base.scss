@@ -63,6 +63,12 @@ body {
     // screen at or above 1800px
     @include media(">=huge") {
         max-width: 1600px;
+        max-width: calc(100% - ($gutter-lg * 2));
+    }
+
+    // screen at or above 599px
+    @include media("<small") {
+        padding-bottom: rem(56px);
     }
 }
 

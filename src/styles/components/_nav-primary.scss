@@ -33,6 +33,18 @@
         }
     }
 
+    // screen below 899px
+    @include media("<medium") {
+        &.is-visible {
+            max-height: 100vh;
+            overflow: auto;
+        }
+        .c-availability,
+        .c-navigation__logo {
+            display: none;
+        }
+    }
+
     .c-submenu {
         display: flex;
         flex-direction: column;

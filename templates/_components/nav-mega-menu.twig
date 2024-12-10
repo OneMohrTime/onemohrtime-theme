@@ -19,7 +19,12 @@
         <ul class="c-mega-menu__menu">
             {% for item in this.menu1.get_items %}
                 <li class="c-mega-menu__menu-item">
-                    <a href="{{ item.url }}" class="u-nav-link">{{ item.title }}</a>
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
                 </li>
             {% endfor %}
         </ul>
@@ -30,7 +35,12 @@
         <ul class="c-mega-menu__menu">
             {% for item in this.menu2.get_items %}
                 <li class="c-mega-menu__menu-item">
-                    <a href="{{ item.url }}" class="u-nav-link">{{ item.title }}</a>
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
                 </li>
             {% endfor %}
         </ul>
@@ -45,9 +55,22 @@
         <ul class="c-mega-menu__menu">
             {% for item in this.menu3.get_items %}
                 <li class="c-mega-menu__menu-item">
-                    <a href="{{ item.url }}" class="u-nav-link">{{ item.title }}</a>
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
                 </li>
             {% endfor %}
+            <li class="c-mega-menu__menu-item is-social-media">
+                {% for profile in this.social %}
+                    {% set profile = profile.profile %}
+                    <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                        {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
+                    </a>
+                {% endfor %}
+            </li>
         </ul>
     </div>
 
@@ -56,7 +79,12 @@
         <ul class="c-mega-menu__menu">
             {% for item in this.menu4.get_items %}
                 <li class="c-mega-menu__menu-item">
-                    <a href="{{ item.url }}" class="u-nav-link">{{ item.title }}</a>
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
                 </li>
             {% endfor %}
         </ul>
@@ -67,7 +95,12 @@
         <ul class="c-mega-menu__menu">
             {% for item in this.menu5.get_items %}
                 <li class="c-mega-menu__menu-item">
-                    <a href="{{ item.url }}" class="u-nav-link">{{ item.title }}</a>
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
                 </li>
             {% endfor %}
         </ul>

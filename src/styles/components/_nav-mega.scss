@@ -99,6 +99,31 @@
 }
 
 .c-mega-menu__menu-item {
+    // Social accounts under "about"
+    &.is-social-media {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: 0.5em;
+        margin-top: rem(5px);
+        line-height: 1em;
+
+        a {
+            transition: color $speed $bezier-slide;
+            @include hocus {
+                color: $yellow;
+            }
+        }
+    }
+
+    .u-nav-link {
+        &.is-external {
+            .c-media__svg {
+                width: 0.75em;
+                height: 0.75em;
+            }
+        }
+    }
 
     // screen at or above 1200px
     @include media(">=large") {
