@@ -15,22 +15,41 @@
 <section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-16:9{% endif %}" data-scroll-trigger>
 
     <div class="c-banner__text">
+    {% switch this.type %}
 
-        <h1 class="u-title">{{ this.headline }}</h1>
+        {% case 'slides' %}
+            <h1 class="u-headline">{{ this.headline }}</h1>
+            {% if this.subheadline %}
+                <div class="u-wysiwyg">
+                    {{ this.subheadline }}
+                </div>
+            {% endif %}
+            {% if this.button %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.button.url,
+                        text: this.button.title,
+                        target: this.button.target
+                    }
+                } only %}
+            {% endif %}
 
-        {% if this.subheadline %}
-            <strong class="u-eyebrow">{{ this.subheadline }}</strong>
-        {% endif %}
+        {% default %}
+            <h1 class="u-title">{{ this.headline }}</h1>
+            {% if this.subheadline %}
+                <strong class="u-eyebrow">{{ this.subheadline }}</strong>
+            {% endif %}
+            {% if this.button %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.button.url,
+                        text: this.button.title,
+                        target: this.button.target
+                    }
+                } only %}
+            {% endif %}
 
-        {% if this.button %}
-            {% include '_elements/button.twig' with {
-                params: {
-                    url: this.button.url,
-                    text: this.button.title,
-                    target: this.button.target
-                }
-            } only %}
-        {% endif %}
+    {% endswitch %}
     </div>
 
     <figure class="c-banner__media">

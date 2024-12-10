@@ -29,6 +29,10 @@ $swiper-height-lg: 600px;
         align-items: center;
         column-gap: $base-spacing;
         width: 100%;
+
+        .c-button {
+            background-color: fade-out($white, 0.85);
+        }
     }
 
     // screen at or above 600px

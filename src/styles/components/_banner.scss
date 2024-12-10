@@ -65,15 +65,14 @@
         width: 100%;
         padding-left: $gutter;
         padding-right: $gutter;
+
+        .c-button {
+            background-color: fade-out($white, 0.85);
+        }
     }
 
     .swiper-scrollbar {
         border-radius: 0 !important;
-    }
-
-    .c-button.is-prev,
-    .c-button.is-next {
-        background-color: fade-out($white, 0.85);
     }
 
     // screen at or above 600px
@@ -155,6 +154,11 @@
         @include padding();
         margin-bottom: $gutter-sm;
         padding-top: $gutter-sm;
+
+        .u-wysiwyg {
+            margin-top: $base-spacing;
+            margin-bottom: $small-spacing;
+        }
     }
 
     // Elements
