@@ -4,7 +4,8 @@
 {% set websiteLogo = siteLogo|default(null) %}
 {% set websiteUrl = site.url %}
 {% set websiteTheme = theme.link %}
-{% set hasSidebar = post.slug in ['news','latest','blog'] %}
+{# {% set hasSidebar = post.slug in ['news','latest','blog'] %} #}
+{% set hasSidebar = null %}
 {% set showAlert = globals.site_alert.show_alert|default(false) %}
 {% set modalForm = globals.modal_form|default(null) %}
 {% set workAvailability = globals.work_availability|default(null) %}
