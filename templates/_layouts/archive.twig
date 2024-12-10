@@ -47,37 +47,6 @@
                 }
             } %}
         </section>
-        {# <section class="c-blog">
-            {% for post in posts %}
-                <div class="c-blog__post">
-
-                    {% if post.thumbnail %}
-                        {% include '_elements/picture.twig' with {
-                            params: {
-                                src: get_image(post.thumbnail),
-                                ratio: '4:3',
-                                classes: 'c-member__logo'
-                            }
-                        } only %}
-
-                    {% else %}
-                        <picture class="c-media u-ratio u-16:9">
-                            <img src="https://michiganciders.com/wp-content/themes/pomich/assets/img/placeholder.png" alt="placeholder image" class="c-media__image" />
-                        </picture>
-
-                    {% endif %}
-
-                    <div class="u-wysiwyg">
-                        <h3 class="u-heading">
-                            <a href="{{ post.link }}" title="{{ post.post_headline|default(post.title) }}" class="u-link">{{ post.post_headline|default(post.title) }}</a>
-                        </h3>
-                        <time datetime="{{ post.date|date('c') }}">Posted on {{ post.date }}</time>
-                        <p>{{ post.content|excerpt(40) }}</p>
-                    </div>
-
-                </div>
-            {% endfor %}
-        </section> #}
 
         {% include '_components/pagination.twig' with {
             params: {
@@ -97,10 +66,10 @@
     </article>
 
     {# Sidebar #}
-    {% include '_partials/sidebar.twig' with {
+    {# {% include '_partials/sidebar.twig' with {
         params: {
             widgets: sidebar
         }
-    } only %}
+    } only %} #}
 
 {% endblock %}
