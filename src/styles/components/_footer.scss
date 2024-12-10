@@ -168,13 +168,17 @@
 }
 
 .c-footer__social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: $small-spacing;
-    font-size: $font-h5;
+    margin-top: $gutter;
     text-align: center;
-    line-height: 1em;
+
+    .u-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $small-spacing;
+        font-size: $font-h5;
+        line-height: 1em;
+    }
 
     a {
         transition: color $speed $bezier-slide;
@@ -186,10 +190,12 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        justify-content: flex-start;
-        margin-top: $gutter;
-        font-size: $font-base-lg;
+        // margin-top: $gutter;
         text-align: left;
+        .u-menu {
+            justify-content: flex-start;
+            font-size: $font-base-lg;
+        }
     }
 }
 

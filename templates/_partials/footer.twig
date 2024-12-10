@@ -33,8 +33,8 @@
         </div>
 
         <div class="c-footer__primary">
-            <h3 class="u-eyebrow">Pages of Interest</h3>
             <nav class="c-footer__nav">
+                <h3 class="u-eyebrow">Pages of Interest</h3>
                 <ul class="c-menu">
                     {% for item in this.navigation.get_items %}
                         <li class="c-menuItem">
@@ -43,16 +43,19 @@
                     {% endfor %}
                 </ul>
             </nav>
-            <ul class="c-footer__social">
-                {% for profile in this.social %}
-                    {% set profile = profile.profile %}
-                    <li class="c-footer__social-profile">
-                        <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
-                            {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <nav class="c-footer__social">
+                <h3 class="u-eyebrow">Social Media</h3>
+                <ul class="c-menu">
+                    {% for profile in this.social %}
+                        {% set profile = profile.profile %}
+                        <li class="c-footer__social-profile">
+                            <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                                {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
         </div>
 
         <div class="c-footer__secondary">
