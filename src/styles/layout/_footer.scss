@@ -7,6 +7,11 @@
     background-color: $black;
     color: $white;
 
+    .u-eyebrow {
+        margin-bottom: $base-spacing;
+        color: $white--darker;
+    }
+
     .u-wysiwyg a::before,
     .u-link::before {
         background-color: $gray--darkest !important;

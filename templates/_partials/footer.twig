@@ -33,6 +33,7 @@
         </div>
 
         <div class="c-footer__primary">
+            <h3 class="u-eyebrow">Pages of Interest</h3>
             <nav class="c-footer__nav">
                 <ul class="c-menu">
                     {% for item in this.navigation.get_items %}
@@ -56,6 +57,7 @@
 
         <div class="c-footer__secondary">
             <div class="c-footer__flags">
+                <h3 class="u-eyebrow">Flags Collected</h3>
                 <ul class="c-menu">
                     {% for flag in this.flags %}
                         <li class="c-menuItem">
@@ -65,11 +67,14 @@
                 </ul>
             </div>
             <nav class="c-footer__press">
+                <h3 class="u-eyebrow">Recent Press</h3>
                 <ul class="c-menu">
                     {% for item in this.press %}
                         {% set press = get_post(item) %}
                         <li class="c-menuItem">
-                            <a href="{{ press.url }}" class="u-link">{{ press.title }}</a>
+                            <a href="{{ press.link }}" title="{{ press.title }}">
+                                <img src="{{ press.thumbnail.src('thumbnail') }}" alt="Learn more about {{ press.title }}" width="200" height="200" class="c-media__image" />
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>

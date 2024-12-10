@@ -222,6 +222,18 @@
 
 .c-footer__press {
     line-height: $line-height;
+
+    .c-menu {
+        align-items: center;
+    }
+
+    .c-menuItem {
+        flex: 0 1 rem(125px);
+        max-width: rem(125px);
+        max-height: rem(125px);
+        border-radius: $border-radius;
+        overflow: hidden;
+    }
 }
 
 .c-footer__utility {
