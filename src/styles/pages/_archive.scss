@@ -17,4 +17,15 @@
         }
     }
 
+    // Posts
+    .o-section.is-list {
+        @include padding();
+    }
+
+    // Pagination
+    .c-pagination {
+        margin-top: $gutter;
+        margin-bottom: $gutter;
+    }
+
 }

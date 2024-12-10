@@ -3,4 +3,19 @@
 ========================================================================== */
 
 .t-post,
-.t-page.is-default {}
+.t-page.is-default {
+
+    // Instagram Section
+    .o-section.is-social-feed {
+        @include padding();
+
+        #sb_instagram {
+            padding-bottom: 0 !important;
+            #sbi_images {
+                padding-top: $gutter;
+                padding-bottom: $gutter;
+            }
+        }
+    }
+
+}

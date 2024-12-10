@@ -18,6 +18,10 @@
         margin-top: calc(3.25em + $small-spacing);
     }
 
+    // & + & {
+    //     border-top: 2px $white--dark solid;
+    // }
+
     &.is-current {
         &::before {
             content: attr(data-end);
