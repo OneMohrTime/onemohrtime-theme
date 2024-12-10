@@ -7,55 +7,76 @@
 {# -- Component Template -- #}
 
 {% if this.quotes %}
-<section class="o-section is-quotes" data-scroll-trigger>
+<div class="c-quotes">
 
-    <div class="c-quotes">
-
-        {% if this.quotes.add_intro_content == true %}
+    {% if this.quotes.add_intro_content == true %}
+        <div class="u-wysiwyg">
+            <h2 class="u-headline">{{ this.quotes.headline }}</h2>
             <div class="u-wysiwyg">
-                <h2 class="u-headline">{{ this.quotes.headline }}</h2>
-                <div class="u-wysiwyg">
-                    {{ this.quotes.text }}
-                </div>
+                {{ this.quotes.text }}
             </div>
-        {% endif %}
+        </div>
+    {% endif %}
 
-        {% if this.quotes.testimonials|length > 1 %}
-            <div class="c-quotes__testimonial swiper is-quotes" data-module-swiper>
-                <ul class="swiper-wrapper">
-                    {% for testimonial in this.quotes.testimonials %}
-                        {% set quote = testimonial.quote %}
-                        {% set name = testimonial.name %}
-                        {% set website = testimonial.website|default(null) %}
-                        <li class="swiper-slide">
-                            <blockquote class="c-quote"{% if website %} cite="{{ website }}"{% endif %}>
-                                {{ quote }}
-                                {% if website %}
-                                    <cite>&ndash; <a href="{{ website }}" target="_blank" rel="noopener noreferrer nofollow" class="u-link" title="Visit website">{{ name }}</a></cite>
-                                {% else %}
-                                    <cite>&ndash; {{ name }}</cite>
-                                {% endif %}
-                            </blockquote>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+    {% if this.quotes.testimonials|length > 1 %}
+        <div class="c-quotes__testimonial swiper is-quotes" data-module-swiper-quotes>
+            <ul class="swiper-wrapper">
+                {% for testimonial in this.quotes.testimonials %}
+                    {% set quote = testimonial.quote %}
+                    {% set name = testimonial.name %}
+                    {% set website = testimonial.website|default(null) %}
+                    {% set logoOrPhoto = testimonial.logo_photo ?? null %}
+                    <li class="swiper-slide">
+                        <blockquote class="c-quote"{% if website %} cite="{{ website }}"{% endif %}>
+                            <span class="u-quotes">&ldquo;</span>
+                            {{ quote }}
+                            {% if website %}
+                                <cite>&ndash; <a href="{{ website }}" target="_blank" rel="noopener noreferrer nofollow" class="u-link" title="Visit website">{{ name }}</a></cite>
+                            {% else %}
+                                <cite>&ndash; {{ name }}</cite>
+                            {% endif %}
+                            <div class="c-quote__controls">
+                            <button class="c-button is-prev">
+                                <span class="u-screen-reader-text">Previous</span>
+                                {{ source('_elements/svg/caret-left.svg') }}
+                            </button>
+                            <button class="c-button is-next">
+                                <span class="u-screen-reader-text">Next</span>
+                                {{ source('_elements/svg/caret-right.svg') }}
+                            </button>
+                            </div>
+                        </blockquote>
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: logoOrPhoto,
+                                sizes: '(min-width: 600px) 33vw, 85vw'
+                            }
+                        } only %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
 
-        {% else %}
-            <div class="c-quotes__testimonial has-single">
-                <blockquote class="c-quote"{% if this.quotes.testimonials[0].website %} cite="{{ this.quotes.testimonials[0].website }}"{% endif %}>
-                    {{ this.quotes.testimonials[0].quote }}
-                    {% if this.quotes.testimonials[0].website %}
-                        <cite>&ndash; <a href="{{ this.quotes.testimonials[0].website }}" target="_blank" rel="noopener noreferrer nofollow" class="u-link" title="Visit website">{{ this.quotes.testimonials[0].name }}</a></cite>
-                    {% else %}
-                        <cite>&ndash; {{ this.quotes.testimonials[0].name }}</cite>
-                    {% endif %}
-                </blockquote>
-            </div>
+    {% else %}
+        <div class="c-quotes__testimonial has-single">
+            <blockquote class="c-quote"{% if this.quotes.testimonials[0].website %} cite="{{ this.quotes.testimonials[0].website }}"{% endif %}>
+                <span class="u-quotes">&ldquo;</span>
+                {{ this.quotes.testimonials[0].quote }}
+                {% if this.quotes.testimonials[0].website %}
+                    <cite>&ndash; <a href="{{ this.quotes.testimonials[0].website }}" target="_blank" rel="noopener noreferrer nofollow" class="u-link" title="Visit website">{{ this.quotes.testimonials[0].name }}</a></cite>
+                {% else %}
+                    <cite>&ndash; {{ this.quotes.testimonials[0].name }}</cite>
+                {% endif %}
+            </blockquote>
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.quotes.testimonials[0].logo_photo,
+                    ratio: '1:1'
+                }
+            } only %}
+        </div>
 
-        {% endif %}
+    {% endif %}
 
-    </div>
-
-</section>
+</div>
 {% endif %}

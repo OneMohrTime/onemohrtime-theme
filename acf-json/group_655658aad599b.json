@@ -893,7 +893,7 @@
                 "layout_67553f530c923": {
                     "key": "layout_67553f530c923",
                     "name": "cta",
-                    "label": "Call to Action Sectiom",
+                    "label": "Call to Action Section",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1003,7 +1003,15 @@
                             "type": "text",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_675893578fe34",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -1011,6 +1019,7 @@
                             },
                             "default_value": "",
                             "maxlength": "",
+                            "allow_in_bindings": 1,
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
@@ -1023,17 +1032,47 @@
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_675893578fe34",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "default_value": "",
+                            "allow_in_bindings": 1,
                             "tabs": "all",
                             "toolbar": "basic",
                             "media_upload": 0,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_675893578fe34",
+                            "label": "Add Intro Content",
+                            "name": "add_intro_content",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Add Intro section above testimonials",
+                            "default_value": 0,
+                            "allow_in_bindings": 1,
+                            "ui_on_text": "Add Intro",
+                            "ui_off_text": "No Intro",
+                            "ui": 1
                         },
                         {
                             "key": "field_66abfcbe320de",
@@ -1168,5 +1207,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733640600
+    "modified": 1733865987
 }

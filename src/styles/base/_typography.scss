@@ -206,6 +206,11 @@ ul, ol, dl {
     @include highlight-link();
 }
 
+.u-quotes {
+    color: $white--darker;
+    line-height: 1em;
+}
+
 /**
  * === ADDITIONAL ADDITIONS ===
  */
