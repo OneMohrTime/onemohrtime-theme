@@ -98,9 +98,12 @@
         {% endif %}
     </a>
 
-    <a href="/contact" class="c-availability" title="Openings beginning in {{ this.openings }}">
-        <span class="c-availability__label">Availability:</span>
-        <span class="c-availability__value is-{{ this.availability }}">Limited</span>
-    </a>
+    <div class="c-availability c-tooltip__container">
+        <a href="/contact" class="c-tooltip__anchor" aria-describedby="my_availability">
+            <span class="c-availability__label">Availability:</span>
+            <span class="c-availability__value is-{{ this.availability }}">Limited</span>
+        </a>
+        <div id="my_availability" class="c-tooltip" role="tooltip">Openings beginning in {{ this.openings }}</div>
+    </div>
 
 </nav>

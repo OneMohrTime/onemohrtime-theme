@@ -63,8 +63,13 @@
                 <h3 class="u-eyebrow">Flags Collected</h3>
                 <ul class="c-menu">
                     {% for flag in this.flags %}
-                        <li class="c-menuItem">
-                            {{ flag.emoji }}
+                        <li class="c-menuItem c-tooltip__container">
+                            {% if flag.story %}
+                                <a href="{{ flag.story }}" class="c-tooltip__anchor" aria-describedby="flag_{{ flag.country }}">{{ flag.emoji }}</a>
+                            {% else %}
+                                <div class="c-tooltip__anchor" aria-describedby="flag_{{ flag.country }}">{{ flag.emoji }}</div>
+                            {% endif %}
+                            <div id="flag_{{ flag.country }}" class="c-tooltip" role="tooltip">{{ flag.country }}</div>
                         </li>
                     {% endfor %}
                 </ul>

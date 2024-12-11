@@ -265,9 +265,11 @@
  */
 
 .c-availability {
-    display: flex;
-    align-items: center;
-    column-gap: $base-spacing;
+    a {
+        display: flex;
+        align-items: center;
+        column-gap: $base-spacing;
+    }
 }
 
 .c-availability__label {
