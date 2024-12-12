@@ -1,0 +1,103 @@
+/* ==========================================================================
+    Specifications
+========================================================================== */
+
+.c-specifications {
+    @include padding();
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter-sm;
+    background-color: $white--dark;
+    color: $black--lighter;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+    }
+}
+
+.c-specifications__headline {
+    margin-bottom: $small-spacing;
+    padding-bottom: $small-spacing;
+    text-align: center;
+    line-height: 1em;
+    border-bottom: 1px solid $gray--lightest;
+
+    .u-headline {
+        font-size: $font-h6;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        margin-bottom: 0;
+        padding-right: $small-spacing;
+        text-align: right;
+        border-right: 1px solid $gray--lightest;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding-right: $gutter;
+        padding-bottom: $gutter-sm;
+    }
+}
+
+.c-specifications__specs {
+    text-align: center;
+    line-height: $heading-height;
+
+    .u-subheadline {
+        font-size: $font-base-lg;
+    }
+
+    div + div {
+        margin-top: $small-spacing;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+
+        .u-subheadline {
+            margin-bottom: rem(5px);
+            color: $black--lightest;
+        }
+
+        div {
+            margin-top: 0 !important;
+            padding-top: $small-spacing;
+            padding-left: $small-spacing;
+            padding-right: $small-spacing;
+            text-align: left;
+            border-right: 1px solid $gray--lightest;
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        div {
+            padding-top: $gutter-sm;
+            padding-left: $gutter;
+            padding-right: $gutter;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        .c-specifications--languages {
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: rem(240px);
+            }
+            li:not(:last-child) {
+                margin-right: 0.25em;
+                &::after {
+                    content: ",";
+                }
+            }
+        }
+    }
+}
