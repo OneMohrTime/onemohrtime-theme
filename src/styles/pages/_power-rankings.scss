@@ -10,6 +10,8 @@
         padding-top: $gutter;
         padding-bottom: $gutter;
         background-color: $white--dark;
+        background-image: url('https://onemohrti.me/wp-content/uploads/old_mathematics.png');
+        background-blend-mode: multiply;
 
         .c-powerRanking {
             @include box-shadow();
