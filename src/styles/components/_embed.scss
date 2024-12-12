@@ -3,15 +3,9 @@
 ========================================================================== */
 
 .c-embed {
-    // @include padding();
+    position: relative;
+}
 
-    &.is-wide {
-        padding-left: $gutter;
-        padding-right: $gutter;
-    }
-
-    &.is-fullWidth {
-        padding-left: 0;
-        padding-right: 0;
-    }
+.c-embed__script {
+    display: block;
 }

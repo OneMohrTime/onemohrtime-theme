@@ -22,6 +22,9 @@ body {
     // font-size: clamp(100%, 1rem + 2vw, 1.33em);
     font-size: 1em;
     background-color: $white--darker;
+    background-image: url("https://onemohrti.me/wp-content/uploads/old_mathematics.png");
+    background-blend-mode: multiply;
+    background-size: 100px 100px;
     color: $black;
 
     // crisp typography rendering
@@ -56,14 +59,18 @@ body {
         display: flex;
         flex-direction: column;
         max-width: 1440px;
+        margin-top: $gutter;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: $gutter;
     }
 
     // screen at or above 1800px
     @include media(">=huge") {
         max-width: 1600px;
         max-width: calc(100% - ($gutter-lg * 2));
+        margin-top: $gutter-lg;
+        margin-bottom: $gutter-lg;
     }
 
     // screen at or above 599px
@@ -74,7 +81,6 @@ body {
 
 .o-site__main {
     position: relative;
-    // padding-bottom: $gutter;
     background-color: $white;
     color: $black;
 
