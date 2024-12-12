@@ -1,0 +1,40 @@
+/* ==========================================================================
+    Power Rankings / Top 10s
+========================================================================== */
+
+.t-page.is-power-rankings {
+
+    // Logo Section
+    .o-section.is-power-rankings {
+        @include padding('2x');
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        background-color: $white--dark;
+
+        .c-powerRanking {
+            @include box-shadow();
+            padding: $small-spacing;
+            border-radius: $border-radius;
+            background-color: $white;
+            color: $black;
+
+            ol {
+                list-style: decimal-leading-zero inside;
+                line-height: $line-height;
+            }
+
+            li::marker {
+                font-family: $font-header;
+                font-weight: $font-bold;
+                color: $gold;
+            }
+        }
+
+        .c-powerRanking__headline {
+            margin-bottom: auto;
+            font-size: $font-h5;
+            line-height: $heading-height;
+        }
+    }
+
+}

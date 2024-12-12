@@ -63,7 +63,6 @@
 @import "components/alert";
 @import "components/article";
 @import "components/banner";
-@import "components/blockquote";
 @import "components/blog";
 // @import "components/buttons";
 @import "components/call-to-action";
@@ -96,6 +95,7 @@
 @import "components/repeater";
 @import "components/tease";
 @import "components/text-media";
+@import "components/tooltip";
 @import "components/video";
 
 /*--------------------------------------------------------------
@@ -113,4 +113,5 @@
 @import "pages/events";
 @import "pages/home";
 @import "pages/logos";
+@import "pages/power-rankings";
 @import "pages/services";
