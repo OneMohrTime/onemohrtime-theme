@@ -178,7 +178,7 @@ export default class extends es6Module {
       // },
       // simulateTouch: false,
       slidesPerView: 1,
-      spaceBetween: 36,
+      spaceBetween: 0,
       speed: 350,
       // thumbs: {
       //   multipleActiveThumbs: false,

@@ -201,6 +201,7 @@
 
 .c-footer__flags {
     margin-bottom: $gutter;
+    text-align: center;
 
     .c-menu {
         display: flex;
@@ -217,6 +218,7 @@
     // screen at or above 900px
     @include media(">=medium") {
         justify-content: flex-start;
+        text-align: left;
         .c-menu {
             justify-content: flex-start;
         }
@@ -227,10 +229,14 @@
 }
 
 .c-footer__press {
+    text-align: center;
     line-height: $line-height;
 
     .c-menu {
+        display: flex;
+        justify-content: center;
         align-items: center;
+        column-gap: $gutter-sm;
     }
 
     .c-menuItem {
@@ -239,6 +245,14 @@
         max-height: rem(125px);
         border-radius: $border-radius;
         overflow: hidden;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        text-align: left;
+        .c-menu {
+            justify-content: flex-start;
+        }
     }
 }
 

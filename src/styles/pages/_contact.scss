@@ -14,4 +14,11 @@
             margin-right: auto;
         }
     }
+
+    // Sections
+    .o-page__sections {
+        padding-top: 0;
+        padding-bottom: $gutter;
+    }
+
 }

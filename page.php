@@ -31,6 +31,12 @@ $logos = [
     'orderby' => 'title',
     'order' => 'ASC',
 ];
+$top10s = [
+    'post_type' => 'top-10',
+    'posts_per_page' => -1,
+    'orderby' => 'rand',
+    // 'order' => 'ASC',
+];
 if (isset($_GET['sort'])) {
     switch ($_GET['sort']) {
         case 'date':
@@ -61,6 +67,7 @@ $personality_traits = get_field('personality_traits');
 $work_history = get_field('work_history');
 $education = get_field('education');
 $creative_services = get_field('creative_services');
+$photo_shoots = get_field('photo_shoots');
 $related_posts = get_field('related_posts');
 
 $context['post']         = $timber_post;
@@ -69,9 +76,11 @@ $context['personality']  = $personality_traits;
 $context['resume']       = $work_history;
 $context['education']    = $education;
 $context['allServices']  = $creative_services;
+$context['photoShoots']  = $photo_shoots;
 $context['relatedPosts'] = $related_posts;
 $context['logofolio']    = Timber::get_posts($logos);
 $context['job_types']    = Timber::get_terms('job_type');
+$context['top10s']       = Timber::get_posts($top10s);
 
 $templates        = array( '_views/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
 if ( is_front_page() ) {
