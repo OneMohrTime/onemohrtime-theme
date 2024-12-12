@@ -27,3 +27,20 @@
  * Club GSAP members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
 */
+
+/*!
+ * TextPlugin 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/**
+ * vivus - JavaScript library to make drawing animation on SVG
+ * @version v0.4.6
+ * @link https://github.com/maxwellito/vivus
+ * @license MIT
+ */
