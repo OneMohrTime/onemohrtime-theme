@@ -14,10 +14,16 @@
         {% switch this.style %}
             {% case 'design' %}
                 {% set eyebrow = get_post(item).post_subheadline ?? item.post_excerpt|truncate(10) %}
+                {% set heading = item.title %}
+            {% case 'modeling' %}
+                {% set eyebrow = get_post(item).date('Y') %}
+                {% set heading = get_post(item).post_headline|default(get_post(item).title) %}
             {% case 'search' %}
                 {% set eyebrow = item.post_type %}
+                {% set heading = item.title %}
             {% default %}
                 {% set eyebrow = item.date('Y/m/d')|time_ago %}
+                {% set heading = item.title %}
         {% endswitch %}
 
         <li class="c-list__item">
@@ -32,7 +38,7 @@
 
             <div class="u-wysiwyg">
                 <strong class="u-eyebrow">{{ eyebrow }}</strong>
-                <h2 class="u-headline">{{ item.title }}</h2>
+                <h2 class="u-headline">{{ heading }}</h2>
             </div>
 
             <a href="{{ item.link }}" class="c-list__item-link" aria-label="Learn More">
