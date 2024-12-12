@@ -39,10 +39,30 @@
 }
 
 .c-textMedia__media {
+    position: relative;
+
+    .swiper-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: $small-spacing;
+        margin-top: $small-spacing;
+    }
 
     // screen at or above 900px
     @include media(">=medium") {
         flex: 1 1 60%;
         max-width: calc(60% - $gutter-sm);
+
+        .swiper-controls {
+            position: absolute;
+            left: $small-spacing;
+            bottom: $small-spacing;
+            z-index: 1;
+        }
+
+        .c-button {
+            background-color: fade-out($white, 0.85);
+        }
     }
 }
