@@ -36,3 +36,47 @@
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+/**
+ * === FANCYBOX ===
+ */
+
+.fancybox__container {
+    --fancybox-bg: #{fade-out($white, 0.15)} !important;
+}
+
+.fancybox__toolbar {
+    --f-button-bg: #{$black--light} !important;
+    --f-button-border-radius: #{$border-radius} !important;
+    border-bottom-left-radius: $border-radius !important;
+
+    .fancybox__toolbar__column {
+        column-gap: rem(5px);
+    }
+
+    .fancybox__infobar {
+        font-size: $font-base-lg;
+        font-weight: $font-bold;
+        text-shadow: none;
+        color: $black;
+    }
+}
+
+.fancybox__nav {
+    --f-button-color: #{$black} !important;
+
+    .f-button svg {
+        filter: none;
+    }
+}
+
+.fancybox__slide {
+    padding: 0 !important;
+}
+
+.fancybox__footer {
+
+    .is-compact & {
+        background-color: fade-out($white, 0.15) !important;
+    }
+}

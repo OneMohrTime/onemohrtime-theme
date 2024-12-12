@@ -29,10 +29,10 @@
     {% switch this.galleryType %}
 
         {% case 'grid' %}
-            <ul class="c-grid is-gallery" data-module-fancybox>
+            <ul class="c-masonry" data-module-fancybox>
                 {% for image in this.images %}
-                <li class="c-grid__item">
-                    <a href="{{ image.sizes.large }}" class="c-grid__item-link" data-fancybox="gallery-of-{{ this.images|length }}">
+                <li class="c-masonry__item">
+                    <a href="{{ image.sizes.large }}" class="c-masonry__item-link" data-fancybox="gallery-of-{{ this.images|length }}">
                         {% include '_elements/picture.twig' with {
                             params: {
                                 src: image,
