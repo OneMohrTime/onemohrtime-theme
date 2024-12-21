@@ -39,6 +39,12 @@
             </section>
         {% endif %}
 
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
+
         <section class="o-section is-text-media is-case-studies" data-scroll-trigger>
             {% for row in projectGrid %}
                 {% set project = get_post(row) %}
@@ -69,12 +75,6 @@
                 } only %}
             </aside>
         </section>
-
-        {% include '_partials/page-builder.twig' with {
-            params: {
-                sections: pageBuilder
-            }
-        } only %}
 
         {% if relatedPosts is not empty %}
             <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
