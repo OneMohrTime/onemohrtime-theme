@@ -76,7 +76,7 @@
                     <li class="c-grid__item c-powerRanking">
                         <h2 class="c-powerRanking__headline">{{ list.title }}</h2>
                         <ol reversed class="c-powerRanking__list">
-                            {% for ranking in list.top_10_list %}
+                            {% for ranking in list.top_10_list|reverse %}
                                 <li class="c-powerRanking__list-item">{{ ranking.item }}</li>
                             {% endfor %}
                         </ol>
