@@ -82,23 +82,27 @@
             gap: $gutter-sm;
 
             a {
-                @include text-shadow();
                 flex: 0 0 50%;
+                max-width: calc(50% - math.div($gutter-sm, 2));
+                border-radius: $border-radius;
+                background-color: $white--dark;
+                background-position: center center;
+                background-size: cover;
+                aspect-ratio: 1 / 1;
+            }
+
+            .u-subheadline {
+                @include text-shadow();
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                max-width: calc(50% - math.div($gutter-sm, 2));
+                width: 100%;
+                height: 100%;
                 padding: $gutter-xs;
-                background-color: $black;
-                background-position: center center;
-                background-size: cover;
+                transition: transform $speed $bezier-slide;
+                background-color: fade-out($black, 0.75);
                 color: $white;
-                aspect-ratio: 1 / 1;
             }
-        }
-
-        .u-subheadline {
-            transition: transform $speed $bezier-slide;
         }
 
         // screen at or above 900px
@@ -121,7 +125,7 @@
                 a {
                     width: auto;
                     max-width: 100%;
-                    padding: $gutter-sm;
+                    overflow: hidden;
                     @include first(2) {
                         grid-column: span 2;
                         grid-row: span 2;
@@ -133,9 +137,18 @@
                     }
                     @include hocus {
                         .u-subheadline {
-                            transform: scale(1.15);
+                            opacity: 0.4;
+                            transform: scale(1.2);
+                            background-color: transparent;
                         }
                     }
+                }
+
+                .u-subheadline {
+                    padding: $gutter-sm;
+                    transition: opacity $speed $bezier-slide,
+                                transform $speed $bezier-slide,
+                                background $speed $bezier-slide;
                 }
             }
         }
