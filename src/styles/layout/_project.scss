@@ -40,7 +40,7 @@
             #sbi_images {
                 @include padding();
                 padding-top: 0;
-                padding-bottom: 0;
+                padding-bottom: $gutter;
             }
         }
     }
