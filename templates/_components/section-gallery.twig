@@ -27,12 +27,13 @@
     {% endif %}
 
     {% switch this.galleryType %}
+        {% set galleryID = random() %}
 
         {% case 'grid' %}
             <ul class="c-masonry" data-module-fancybox>
                 {% for image in this.images %}
                 <li class="c-masonry__item">
-                    <a href="{{ image.sizes.large }}" class="c-masonry__item-link" data-fancybox="gallery-of-{{ this.images|length }}">
+                    <a href="{{ image.sizes.large }}" class="c-masonry__item-link" data-fancybox="gallery-{{ galleryID }}" data-caption="{{ image.caption }}">
                         {% include '_elements/picture.twig' with {
                             params: {
                                 src: image,
@@ -53,7 +54,7 @@
 
                             <li class="swiper-slide c-gallery__image">
                                 {% set slideImage = get_image(image) %}
-                                <a href="{{ slideImage.src('large') }}" class="c-gallery__image-link" data-fancybox="gallery-{{ this.images|length }}">
+                                <a href="{{ slideImage.src('large') }}" class="c-gallery__image-link" data-fancybox="gallery-{{ galleryID }}" data-caption="{{ slideImage.caption }}">
                                     {% include '_elements/picture.twig' with {
                                         params: {
                                             src: slideImage,

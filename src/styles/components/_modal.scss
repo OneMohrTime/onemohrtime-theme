@@ -52,6 +52,10 @@
 
     .fancybox__toolbar__column {
         column-gap: rem(5px);
+        &.is-right {
+            margin-top: rem(5px);
+            margin-right: rem(5px);
+        }
     }
 
     .fancybox__infobar {
@@ -72,6 +76,12 @@
 
 .fancybox__slide {
     padding: 0 !important;
+}
+
+.fancybox__caption {
+    padding: $small-spacing $gutter !important;
+    line-height: $heading-height !important;
+    color: $black !important;
 }
 
 .fancybox__footer {
