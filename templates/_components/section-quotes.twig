@@ -25,7 +25,7 @@
                     {% set quote = testimonial.quote %}
                     {% set name = testimonial.name %}
                     {% set website = testimonial.website|default(null) %}
-                    {% set logoOrPhoto = testimonial.logo_photo ?? null %}
+                    {% set logoOrPhoto = testimonial.image ?? null %}
                     <li class="swiper-slide">
                         <blockquote class="c-quote"{% if website %} cite="{{ website }}"{% endif %}>
                             <span class="u-quotes">&ldquo;</span>
@@ -70,8 +70,7 @@
             </blockquote>
             {% include '_elements/picture.twig' with {
                 params: {
-                    src: this.quotes.testimonials[0].logo_photo,
-                    ratio: '1:1'
+                    src: this.quotes.testimonials[0].image,
                 }
             } only %}
         </div>

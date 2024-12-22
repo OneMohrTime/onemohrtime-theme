@@ -1127,6 +1127,33 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
+                                    "key": "field_676853b391cd9",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_66abfcbe320de"
+                                },
+                                {
                                     "key": "field_66abfe89320df",
                                     "label": "Quote",
                                     "name": "quote",
@@ -1136,12 +1163,13 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "70",
                                         "class": "",
                                         "id": ""
                                     },
                                     "default_value": "",
                                     "maxlength": "",
+                                    "allow_in_bindings": 1,
                                     "rows": 3,
                                     "placeholder": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
                                     "new_lines": "wpautop",
@@ -1238,5 +1266,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734886251
+    "modified": 1734890460
 }
