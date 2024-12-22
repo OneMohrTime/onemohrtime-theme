@@ -28,12 +28,7 @@ export default class extends es6Module {
     // Vars
     this.classes = this.el.classList;
     this.svg = this.el.querySelector('#creative_animated');
-    console.log(this.svg);
 
-    // new Vivus(this.svg, {
-    //   duration: 200
-    // });
-    // /* JavaScript */
     new Vivus(this.svg, {
       duration: 100,
     }, function (obj) {

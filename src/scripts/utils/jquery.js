@@ -38,7 +38,7 @@ const fadeIn = (el, display) => {
 
 /* == Fade TOOGLE == */
 const fadeToggle = (el, duration = 500) => {
-  console.log(window.getComputedStyle(el).display);
+  // console.log(window.getComputedStyle(el).display);
   if (window.getComputedStyle(el).display === 'none') {
     return fadeIn(el, duration);
   } else {
