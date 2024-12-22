@@ -41,7 +41,7 @@
                 <h2 class="u-headline">{{ heading }}</h2>
             </div>
 
-            <a href="{{ item.link }}" class="c-list__item-link" aria-label="Learn More">
+            <a href="{{ get_post(item).link ?? item.link }}" class="c-list__item-link" aria-label="Learn More">
                 {{ source('_elements/svg/arrow-right.svg') }}
             </a>
 
