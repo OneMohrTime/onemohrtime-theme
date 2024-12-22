@@ -6,9 +6,11 @@
 
     // Page Intro
     .c-intro {
-        background-color: $white--darker;
+        background-color: $yellow;
+        background-image: url("https://onemohrti.me/wp-content/uploads/graphy.png");
+        background-blend-mode: multiply;
         a::before {
-            background-color: $gray--lightest;
+            background-color: $gold;
         }
     }
 
