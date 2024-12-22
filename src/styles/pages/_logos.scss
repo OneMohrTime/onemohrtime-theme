@@ -20,6 +20,21 @@
                 object-fit: contain;
             }
         }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            .c-media {
+                &::before {
+                    max-height: rem(140px);
+                }
+            }
+
+            .c-media__image {
+                top: 50%;
+                max-height: rem(140px);
+                transform: translateY(-50%);
+            }
+        }
     }
 
 }
