@@ -41,6 +41,11 @@
 .c-textMedia__media {
     position: relative;
 
+    .c-media,
+    .c-media__image {
+        border-radius: $border-radius;
+    }
+
     .swiper-controls {
         display: flex;
         justify-content: center;
