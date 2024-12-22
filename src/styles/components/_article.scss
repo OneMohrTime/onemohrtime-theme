@@ -4,6 +4,7 @@
 
 .c-article {
     @include content-width();
+    @include padding();
     position: relative;
     padding: $gutter;
 
