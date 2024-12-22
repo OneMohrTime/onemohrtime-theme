@@ -179,7 +179,7 @@
     margin-top: $gutter;
     text-align: center;
 
-    .u-menu {
+    .c-menu {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -200,7 +200,7 @@
     @include media(">=medium") {
         // margin-top: $gutter;
         text-align: left;
-        .u-menu {
+        .c-menu {
             justify-content: flex-start;
             font-size: $font-base-lg;
         }
