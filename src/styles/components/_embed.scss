@@ -9,3 +9,21 @@
 .c-embed__script {
     display: block;
 }
+
+.c-embed__audio {
+
+    audio {
+        width: 100%;
+        max-width: 80ch;
+        border: 3px solid $black;
+        border-radius: $border-radius;
+        background-color: transparent;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        display: flex;
+        align-items: center;
+        column-gap: $gutter-sm;
+    }
+}

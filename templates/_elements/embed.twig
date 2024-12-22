@@ -15,6 +15,21 @@
             {{ this.embed }}
         </figure>
 
+    {% elseif this.type == 'audio' %}
+        <figure class="c-embed__audio">
+            <figcaption class="u-screen-reader-text">{{ this.embed.title }}: {{ this.embed.description }}</figcaption>
+            <audio controls preload="metadata">
+                <source src="{{ this.embed.url }}" type="audio/mpeg">
+            </audio>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.embed.url,
+                    text: 'Download Audio',
+                    target: '_blank'
+                }
+            } only %}
+        </figure>
+
     {% else %}
         <figure class="c-embed__script">
             {{ this.embed|raw }}

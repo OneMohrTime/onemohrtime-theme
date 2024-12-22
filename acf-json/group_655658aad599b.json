@@ -165,11 +165,13 @@
                             },
                             "choices": {
                                 "image": "Image",
-                                "video": "Video"
+                                "video": "Video",
+                                "audio": "Audio"
                             },
                             "default_value": "image",
                             "return_format": "value",
                             "allow_null": 0,
+                            "allow_in_bindings": 1,
                             "layout": "horizontal"
                         },
                         {
@@ -320,6 +322,35 @@
                             "min_size": "",
                             "max_size": "",
                             "mime_types": "mp4, webm, ogg"
+                        },
+                        {
+                            "key": "field_6767c33d1d9f1",
+                            "label": "Audio File",
+                            "name": "audio_file",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_67000fb247d32",
+                                        "operator": "==",
+                                        "value": "audio"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": "mp3, wma, aac",
+                            "allow_in_bindings": 0
                         }
                     ],
                     "min": "",
@@ -1207,5 +1238,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733865987
+    "modified": 1734886251
 }
