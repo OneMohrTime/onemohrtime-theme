@@ -35,6 +35,12 @@
         }
     }
 
+    // screen at or above 1500px
+    @include media(">=big") {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+
     // screen below 899px
     @include media("<medium") {
         &.is-visible {

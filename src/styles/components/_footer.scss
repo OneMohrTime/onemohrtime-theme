@@ -15,6 +15,12 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
 }
 
 .c-footer__branding {
@@ -278,6 +284,12 @@
     // screen at or above 1200px
     @include media(">=large") {
         font-size: $font-base-sm;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
     }
 }
 
