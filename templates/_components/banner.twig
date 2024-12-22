@@ -12,7 +12,7 @@
 
 {# -- Component Template -- #}
 
-<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-16:9{% endif %}" data-scroll-trigger>
+<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-32:9{% endif %}" data-scroll-trigger>
 
     <div class="c-banner__text">
     {% switch this.type %}
@@ -56,9 +56,10 @@
     {% switch this.type %}
 
         {% case 'video' %}
-            {% include '_elements/video.twig' with {
+            {% include '_elements/embed.twig' with {
                 params: {
-                    video: this.video
+                    src: this.video,
+                    type: 'video',
                 }
             } only %}
 
