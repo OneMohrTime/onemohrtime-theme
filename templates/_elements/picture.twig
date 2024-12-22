@@ -25,33 +25,57 @@
     {# Custom data-attributes #}
     {% if this.attr %}{{ this.attr }}{% endif %}
 >
+    {% switch renderedImage.post_mime_type %}
 
-    {# img tag for browsers that do not support picture element #}
-    <img src="{{ renderedImage.src('thumbnail') }}"
+        {# Render GIF without srcsets #}
+        {% case 'image/gif' %}
+            <img src="{{ renderedImage.src('thumbnail') }}"
 
-        {# Alt text should never be empty, or contain tags, or be too long #}
-        alt="{{ this.alt ?? renderedAltText }}"
+                {# Alt text should never be empty, or contain tags, or be too long #}
+                alt="{{ this.alt ?? renderedAltText }}"
 
-        {# Semantic HTML width & height values #}
-        width="{{ renderedImage.sizes.thumbnail.width }}"
-        height="{{ renderedImage.sizes.thumbnail.height }}"
+                {# Semantic HTML width & height values #}
+                width="{{ this.src.width }}"
+                height="{{ this.src.height }}"
 
-        {# Default class #}
-        class="c-media__image
+                {# Default class #}
+                class="c-media__image
 
-        {# Additional custom classes #}
-        {% if this.classes %}{{ this.classes }}{% endif %}"
+                {# Additional custom classes #}
+                {% if this.classes %}{{ this.classes }}{% endif %}"
 
-        {# Media query sizes #}
-        sizes="{{ this.sizes }}"
+                {# Lazyloaded by default #}
+                {% if this.lazy %}loading="lazy"{% endif %}
+            />
 
-        {# Optimized image sizes #}
-        srcset="{{ renderedImage.srcset }}"
+        {# Standard img tag with srcset #}
+        {% default %}
+            <img src="{{ renderedImage.src('thumbnail') }}"
 
-        {# Lazyloaded by default #}
-        {% if this.lazy %}loading="lazy"{% endif %}
-    />
+                {# Alt text should never be empty, or contain tags, or be too long #}
+                alt="{{ this.alt ?? renderedAltText }}"
 
+                {# Semantic HTML width & height values #}
+                width="{{ renderedImage.sizes.thumbnail.width }}"
+                height="{{ renderedImage.sizes.thumbnail.height }}"
+
+                {# Default class #}
+                class="c-media__image
+
+                {# Additional custom classes #}
+                {% if this.classes %}{{ this.classes }}{% endif %}"
+
+                {# Media query sizes #}
+                sizes="{{ this.sizes }}"
+
+                {# Optimized image sizes #}
+                srcset="{{ renderedImage.srcset }}"
+
+                {# Lazyloaded by default #}
+                {% if this.lazy %}loading="lazy"{% endif %}
+            />
+
+    {% endswitch %}
 </picture>
 
 {% else %}
