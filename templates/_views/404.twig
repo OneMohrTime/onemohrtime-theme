@@ -8,14 +8,15 @@
 {% set this = {
     headline: globals.error_headline,
     text: globals.error_text,
-    links: globals.error_links
+    links: globals.error_links,
+    background: globals.error_bg
 } %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
 {% block content %}
 
-    <section class="c-404">
+    <section class="c-404" style="background-image: url('{{ this.background.url }}');">
         <strong class="u-eyebrow">404 Error</strong>
         <h1 class="u-title">{{ this.headline }}</h1>
         <div class="u-wysiwyg">
@@ -27,6 +28,7 @@
                     params: {
                         url: button.link,
                         text: 'View ' ~ button.post_title,
+                        classes: 'is-inverse'
                     }
                 } only %}
             {% endfor %}
