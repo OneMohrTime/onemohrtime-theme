@@ -40,6 +40,11 @@
                                 sizes: '(min-width: 900px) 25vw, 50vw'
                             }
                         } only %}
+                        {% if image.caption %}
+                            <aside class="c-caption">
+                                {{ image.caption }}
+                            </aside>
+                        {% endif %}
                     </a>
                 </li>
                 {% endfor %}
@@ -61,6 +66,11 @@
                                             sizes: '(min-width: 900px) 33vw, 50vw'
                                         }
                                     } only %}
+                                    {% if slideImage.caption %}
+                                        <aside class="c-caption">
+                                            {{ slideImage.caption }}
+                                        </aside>
+                                    {% endif %}
                                 </a>
                             </li>
 

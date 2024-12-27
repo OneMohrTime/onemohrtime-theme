@@ -4,6 +4,7 @@
     mediaSection: params.section|default(null),
     order: params.order,
 } %}
+{% set hasCaption = this.mediaSection.image.caption ?? null %}
 
 {# -- Component Template -- #}
 
@@ -12,13 +13,16 @@
     {% switch this.mediaSection.media_type %}
 
         {% case 'image' %}
-            {% set var = value %}
             {% include '_elements/picture.twig' with {
                 params: {
                     src: this.mediaSection.image,
-
                 },
             } only %}
+            {% if hasCaption %}
+                <aside class="c-caption">
+                    {{ hasCaption }}
+                </aside>
+            {% endif %}
 
         {% case 'video' %}
             {% if this.mediaSection.video_type == 'embedded' %}

@@ -60,6 +60,11 @@
                                         ratio: this.mediaRatio != null ? this.mediaRatio : null
                                     }
                                 } only %}
+                                {% if image.caption %}
+                                    <aside class="c-caption">
+                                        {{ image.caption }}
+                                    </aside>
+                                {% endif %}
                             </div>
                         {% endfor %}
                     </div>
@@ -76,12 +81,19 @@
                 </div>
 
             {% default %}
+                {% set mediaImage = this.media.image %}
+                {% set mediaCaption = this.media.image.caption ?? null %}
                 {% include '_elements/picture.twig' with {
                     params: {
-                        src: this.media.image,
+                        src: mediaImage,
                         ratio: this.mediaRatio
                     }
                 } only %}
+                {% if mediaCaption %}
+                    <aside class="c-caption">
+                        {{ mediaCaption }}
+                    </aside>
+                {% endif %}
 
         {% endswitch %}
     </figure>

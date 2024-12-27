@@ -102,12 +102,18 @@
         {% default %}
             {% if this.image is not empty %}
                 {% set renderedImage = get_image(this.image) %}
+                {% set renderedCaption = renderedImage.caption %}
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: renderedImage,
                         ratio: (this.address or this.logo) ? '16:9' : '4:3'
                     }
                 } only %}
+                {% if renderedCaption %}
+                    <aside class="c-caption">
+                        {{ renderedCaption }}
+                    </aside>
+                {% endif %}
             {% endif %}
 
     {% endswitch %}

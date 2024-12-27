@@ -29,9 +29,11 @@ $swiper-height-lg: 600px;
         align-items: center;
         column-gap: $base-spacing;
         width: 100%;
+        pointer-events: none;
 
         .c-button {
             background-color: fade-out($white, 0.85);
+            pointer-events: auto;
         }
     }
 
@@ -80,6 +82,7 @@ $swiper-height-lg: 600px;
 }
 
 .c-gallery__image-link {
+    position: relative;
     display: block;
     height: $swiper-height-sm;
 
