@@ -26,8 +26,8 @@
         </div>
     {% endif %}
 
+    {% set galleryID = random() %}
     {% switch this.galleryType %}
-        {% set galleryID = random() %}
 
         {% case 'grid' %}
             <ul class="c-masonry" data-module-fancybox>
