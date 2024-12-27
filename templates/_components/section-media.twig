@@ -37,8 +37,15 @@
                 {% include '_elements/video.twig' with {
                     params: {
                         src: this.mediaSection.video_file,
+                        thumbnail: this.mediaSection.image,
+                        controls: true
                     },
                 } only %}
+                {% if this.mediaSection.video_file.caption %}
+                    <aside class="c-caption">
+                        {{ this.mediaSection.video_file.caption }}
+                    </aside>
+                {% endif %}
 
             {% endif %}
 

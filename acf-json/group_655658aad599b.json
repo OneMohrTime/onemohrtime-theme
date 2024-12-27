@@ -252,6 +252,13 @@
                                         "operator": "==",
                                         "value": "image"
                                     }
+                                ],
+                                [
+                                    {
+                                        "field": "field_67000fb247d32",
+                                        "operator": "==",
+                                        "value": "video"
+                                    }
                                 ]
                             ],
                             "wrapper": {
@@ -268,6 +275,7 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                            "allow_in_bindings": 1,
                             "preview_size": "large"
                         },
                         {
@@ -1266,5 +1274,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734890460
+    "modified": 1735333239
 }

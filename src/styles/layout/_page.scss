@@ -40,6 +40,23 @@
         }
     }
 
+    .is-video {
+        position: relative;
+
+        .c-caption {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: auto;
+            height: $line-height;
+            padding: 0;
+            transform: translateX(-50%);
+            background-color: transparent;
+            color: $black--lightest;
+            z-index: 100;
+        }
+    }
+
     .is-text,
     .is-image,
     .is-video,
