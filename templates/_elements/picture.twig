@@ -29,7 +29,7 @@
 
         {# Render GIF without srcsets #}
         {% case 'image/gif' %}
-            <img src="{{ renderedImage.src('thumbnail') }}"
+            <img src="{{ renderedImage.src() }}"
 
                 {# Alt text should never be empty, or contain tags, or be too long #}
                 alt="{{ this.alt ?? renderedAltText }}"
