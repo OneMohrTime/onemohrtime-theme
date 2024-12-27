@@ -184,15 +184,11 @@
         background-color: $black;
         color: $white;
 
-        // a {
-        //     @include btn-style();
-        // }
+        .u-wysiwyg {
+            position: sticky;
+            top: 0;
+        }
 
-        // @include media(">=screen768") {
-        //     padding-left: $gutter-lg;
-        //     padding-right: $gutter-lg;
-        //     padding-bottom: $gutter;
-        // }
         .c-instagram {
             margin-top: $gutter;
 
