@@ -15,16 +15,14 @@
 @import "../../../../../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
 
 /* Custom tools like family, functions, and mixins are included here for reuse throughout the theme. */
+@import "../../../../../node_modules/bourbon/core/bourbon";
 @import "tools/family";
 @import "tools/functions";
+@import "tools/variables";
 @import "tools/mixins";
-
-@import "../../../../../node_modules/bourbon/core/bourbon";
-@import "helpers/variables";
-@import "helpers/mixins";
-@import "helpers/helpers";
-@import "helpers/ratio";
-@import "helpers/animations";
+@import "tools/helpers";
+@import "tools/ratio";
+@import "tools/animations";
 
 /* Full vendor mixins + variables */
 @import "../../../../../node_modules/include-media/dist/include-media";
