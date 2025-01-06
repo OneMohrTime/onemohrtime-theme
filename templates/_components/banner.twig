@@ -12,15 +12,15 @@
 
 {# -- Component Template -- #}
 
-<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-32:9{% endif %}" data-scroll-trigger>
+<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-32:9{% endif %}" data-module-scroll>
 
     <div class="c-banner__text">
     {% switch this.type %}
 
         {% case 'slides' %}
-            <h1 class="u-headline">{{ this.headline }}</h1>
+            <h1 class="u-headline" data-scroll-trigger>{{ this.headline }}</h1>
             {% if this.subheadline %}
-                <div class="u-wysiwyg">
+                <div class="u-wysiwyg" data-scroll-trigger>
                     {{ this.subheadline }}
                 </div>
             {% endif %}
@@ -35,9 +35,9 @@
             {% endif %}
 
         {% default %}
-            <h1 class="u-title">{{ this.headline }}</h1>
+            <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
             {% if this.subheadline %}
-                <strong class="u-eyebrow">{{ this.subheadline }}</strong>
+                <strong class="u-eyebrow" data-scroll-trigger>{{ this.subheadline }}</strong>
             {% endif %}
             {% if this.button %}
                 {% include '_elements/button.twig' with {
@@ -72,9 +72,9 @@
 
         {% case 'slides' %}
             <div class="swiper is-cards" data-module-swiper-slides>
-                <div class="swiper-wrapper">
+                <ul class="swiper-wrapper" data-scroll-trigger>
                     {% for image in this.images %}
-                        <div class="swiper-slide">
+                        <li class="swiper-slide">
                             {% set image = get_image(image) %}
                             {% include '_elements/picture.twig' with {
                                 params: {
@@ -83,11 +83,11 @@
                                     sizes: '(min-width: 900px) 50vw, 85vw'
                                 }
                             } only %}
-                        </div>
+                        </li>
                     {% endfor %}
-                </div>
-                <div class="swiper-scrollbar"></div>
-                <div class="swiper-controls">
+                </ul>
+                <div class="swiper-scrollbar" data-scroll-trigger></div>
+                <div class="swiper-controls" data-scroll-trigger>
                     <button class="c-button is-prev">
                         <span class="u-screen-reader-text">Previous</span>
                         {{ source('_elements/svg/arrow-left.svg') }}
@@ -110,7 +110,7 @@
                     }
                 } only %}
                 {% if renderedCaption %}
-                    <aside class="c-caption">
+                    <aside class="c-caption" data-scroll-trigger>
                         {{ renderedCaption }}
                     </aside>
                 {% endif %}

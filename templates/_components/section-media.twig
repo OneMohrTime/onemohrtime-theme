@@ -9,7 +9,7 @@
 {# -- Component Template -- #}
 
 {% if this.mediaSection %}
-<section class="o-section is-{{ this.mediaSection.media_type }}{% if this.mediaSection.image_type == 'full' %} is-full-width{% endif %}" data-scroll-trigger>
+<section class="o-section is-{{ this.mediaSection.media_type }}{% if this.mediaSection.image_type == 'full' %} is-full-width{% endif %}" data-module-scroll>
     {% switch this.mediaSection.media_type %}
 
         {% case 'image' %}
@@ -19,7 +19,7 @@
                 },
             } only %}
             {% if hasCaption %}
-                <aside class="c-caption">
+                <aside class="c-caption" data-scroll-trigger>
                     {{ hasCaption }}
                 </aside>
             {% endif %}
@@ -42,7 +42,7 @@
                     },
                 } only %}
                 {% if this.mediaSection.video_file.caption %}
-                    <aside class="c-caption">
+                    <aside class="c-caption" data-scroll-trigger>
                         {{ this.mediaSection.video_file.caption }}
                     </aside>
                 {% endif %}

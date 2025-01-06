@@ -11,9 +11,9 @@
 <div class="c-call-to-action">
 
     <div class="c-call-to-action__primary">
-        <h2 class="u-headline">{{ this.headline }}</h2>
+        <h2 class="u-headline" data-scroll-trigger>{{ this.headline }}</h2>
         {% if this.body %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.body }}
             </div>
         {% endif %}

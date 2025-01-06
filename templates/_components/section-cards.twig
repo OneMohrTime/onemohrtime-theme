@@ -8,7 +8,7 @@
 {# -- Component Template -- #}
 
 {% if this.grid %}
-<section class="o-section is-cards" data-scroll-trigger>
+<section class="o-section is-cards" data-module-scroll>
     <div class="c-grid has-{{ this.count }}-columns">
 
         {% for card in this.grid.cards %}
@@ -31,7 +31,7 @@
                     {% set srcset = 'sizes: "(min-width: 900px) 25vw, 50vw"' %}
             {% endswitch %}
 
-            <div class="c-grid__item">
+            <div class="c-grid__item" data-scroll-trigger>
                 <figure class="c-card">
 
                     {% if button %}

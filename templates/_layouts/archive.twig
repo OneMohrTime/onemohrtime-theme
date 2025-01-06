@@ -32,14 +32,14 @@
         } only %}
 
         {% if post.content is not empty %}
-            <section class="c-intro" data-scroll-trigger>
-                <div class="u-wysiwyg">
+            <section class="c-intro" data-module-scroll>
+                <div class="u-wysiwyg" data-scroll-trigger>
                     {{ post.content }}
                 </div>
             </section>
         {% endif %}
 
-        <section class="o-section is-list" data-scroll-trigger>
+        <section class="o-section is-list" data-module-scroll>
             {% include '_components/list.twig' with {
                 style: listType,
                 params: {
@@ -55,8 +55,8 @@
         } %}
 
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
-                <h3 class="u-subheadline">Related Reading</h3>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
                 } only %}

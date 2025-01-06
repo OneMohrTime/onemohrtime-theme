@@ -7,11 +7,12 @@
     isPrimary: params.primary ?? true,
     icon: params.icon|default(null),
     class: params.classes|default(null),
+    scrolls: scrolling ?? true
 } %}
 
 {# -- Component Template -- #}
 
-<a href="{{ this.url }}"{% if this.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %} class="c-button {{ this.isPrimary ? 'is-primary ' : '' }}{{ this.class }} {% if this.icon or this.target == '_blank' %}has-icon{% endif %}">
+<a href="{{ this.url }}"{% if this.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %} class="c-button {{ this.isPrimary ? 'is-primary ' : '' }}{{ this.class }} {% if this.icon or this.target == '_blank' %}has-icon{% endif %}" {% if this.scrolls != false %} data-scroll-trigger{% endif %}>
 
     <span class="c-button__text">{{ this.text }}</span>
 

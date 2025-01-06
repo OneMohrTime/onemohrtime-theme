@@ -15,7 +15,7 @@
 <div class="c-content{% if this.bgImg %} has-background-image{% endif %}" {% if this.bgImg %} style="background-image: url({{ this.bgImg.src('large') }});" data-module-parallax{% endif %}>
 
     {% if this.eyebrow %}
-        <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+        <strong class="u-eyebrow" data-scroll-trigger>{{ this.eyebrow }}</strong>
     {% endif %}
 
     {% if this.largeHeadline is defined and this.largeHeadline == true %}
@@ -23,10 +23,10 @@
             <h2 class="c-fittext__headline" data-module-fit-text>{{ this.headline }}</h2>
         </div>
     {% else %}
-        <h2 class="u-headline">{{ this.headline }}</h2>
+        <h2 class="u-headline" data-scroll-trigger>{{ this.headline }}</h2>
     {% endif %}
 
-    <div class="u-wysiwyg{% if this.largeText is defined and this.largeText == true %} is-large{% endif %}">
+    <div class="u-wysiwyg{% if this.largeText is defined and this.largeText == true %} is-large{% endif %}" data-scroll-trigger>
         {{ this.text }}
     </div>
 

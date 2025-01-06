@@ -31,21 +31,21 @@
             }
         } only %}
 
-        <section class="c-intro" data-scroll-trigger>
+        <section class="c-intro" data-module-scroll>
             {% if personality %}
                 <dl class="c-details">
                 {% for test in personality %}
-                    <dt class="c-details__header">{{ test.test }}</dt>
-                    <dd class="c-details__description">{{ test.result }}</dd>
+                    <dt class="c-details__header" data-scroll-trigger>{{ test.test }}</dt>
+                    <dd class="c-details__description" data-scroll-trigger>{{ test.result }}</dd>
                 {% endfor %}
                 </dl>
             {% endif %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ post.content }}
             </div>
         </section>
 
-        <section class="o-page__sections" data-scroll-trigger>
+        <section class="o-page__sections" data-module-scroll>
             <h2 class="u-screen-reader-text">Résumé Specs</h2>
 
             <h3 id="work-history" class="u-subheadline is-underlined">Professional History</h3>
@@ -80,7 +80,7 @@
 
         </section>
 
-        <section class="o-section is-shop" data-scroll-trigger>
+        <section class="o-section is-shop" data-module-scroll>
             {% include '_components/marquee.twig' %}
         </section>
 
@@ -90,13 +90,13 @@
             }
         } only %}
 
-        <figure class="o-section is-social-feed" data-scroll-trigger>
+        <figure class="o-section is-social-feed" data-module-scroll>
             {% apply shortcodes %}
                 [instagram-feed feed=2]
             {% endapply %}
         </figure>
 
-        <section class="o-section is-contact" data-scroll-trigger>
+        <section class="o-section is-contact" data-module-scroll>
             {% include '_components/cta.twig' with {
                 params: {
                     headline: 'Get In Touch',
@@ -110,8 +110,8 @@
         </section>
 
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
-                <h3 class="u-subheadline">Related Reading</h3>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
                 } only %}

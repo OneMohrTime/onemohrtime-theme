@@ -11,8 +11,8 @@
 
     {% if this.quotes.add_intro_content == true %}
         <div class="u-wysiwyg">
-            <h2 class="u-headline">{{ this.quotes.headline }}</h2>
-            <div class="u-wysiwyg">
+            <h2 class="u-headline" data-scroll-trigger>{{ this.quotes.headline }}</h2>
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.quotes.text }}
             </div>
         </div>
@@ -20,7 +20,7 @@
 
     {% if this.quotes.testimonials|length > 1 %}
         <div class="c-quotes__testimonial swiper is-quotes" data-module-swiper-quotes>
-            <ul class="swiper-wrapper">
+            <ul class="swiper-wrapper" data-scroll-trigger>
                 {% for testimonial in this.quotes.testimonials %}
                     {% set quote = testimonial.quote %}
                     {% set name = testimonial.name %}
@@ -58,7 +58,7 @@
         </div>
 
     {% else %}
-        <div class="c-quotes__testimonial has-single">
+        <div class="c-quotes__testimonial has-single" data-scroll-trigger>
             <blockquote class="c-quote"{% if this.quotes.testimonials[0].website %} cite="{{ this.quotes.testimonials[0].website }}"{% endif %}>
                 <span class="u-quotes">&ldquo;</span>
                 {{ this.quotes.testimonials[0].quote }}

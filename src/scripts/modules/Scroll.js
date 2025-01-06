@@ -29,19 +29,32 @@ export default class extends es6Module {
     this.elements = document.querySelectorAll('[data-scroll-trigger]');
 
     // Animate each element when it comes into the viewport
-    this.elements.forEach(element => {
+    this.elements.forEach((element, index) => {
       gsap.fromTo(element, {
         opacity: 0,
         y: 50
       }, {
         opacity: 1,
         y: 0,
+        // duration: 0.6,
+        // delay: index * 0.2, // Stagger animations based on index
         scrollTrigger: {
           trigger: element,
-          start: 'top 80%',
+          start: 'top 90%',
           toggleActions: 'play none none none',
         }
       });
     });
   }
+
+  // // Fade In Lists
+  // // ===========================================================================
+  // scrollList() {
+  // }
+
+  // // Fade In Footer
+  // // ===========================================================================
+  // scrollFooter() {
+  // }
+
 }

@@ -18,15 +18,15 @@
 
     <article class="o-page">
 
-        <section class="c-banner is-homepage" data-scroll-trigger>
+        <section class="c-banner is-homepage" data-module-scroll>
             <div class="c-banner__heading">
                 <h1 class="u-title">{{ headline }}</h1>
                 <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
             </div>
         </section>
 
-        <section class="o-section is-text is-intro" data-scroll-trigger>
             <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.background_image).src('large') }});" data-module-parallax>
+        <section class="o-section is-text is-intro" data-module-scroll>
                 <div class="c-banner__tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
                     <span aria-hidden="true">I’m a</span>
                     <span aria-hidden="true">{{ source('_elements/svg/creative.svg') }}</span>
@@ -35,7 +35,7 @@
             </div>
         </section>
 
-        <section class="o-section is-text-media is-services" data-scroll-trigger>
+        <section class="o-section is-text-media is-services" data-module-scroll>
             <div class="c-textMedia is-reversed">
                 <div class="c-textMedia__text">
                     {% if services.headline %}
@@ -58,7 +58,7 @@
                 </div>
                 <figure class="c-textMedia__media">
                     {% for item in services.services %}
-                        <a href="{{ item.page_link }}" style="background-image: url({{ get_image(item.background_image).src('large') }});">
+                        <a href="{{ item.page_link }}" style="background-image: url({{ get_image(item.background_image).src('large') }});" data-scroll-trigger>
                             <h3 class="u-subheadline">{{ item.heading }}</h3>
                         </a>
                     {% endfor %}
@@ -66,14 +66,14 @@
             </div>
         </section>
 
-        <section class="o-section is-text-media is-proposal" data-scroll-trigger>
+        <section class="o-section is-text-media is-proposal" data-module-scroll>
             <div class="c-textMedia">
                 <div class="c-textMedia__text">
                     {% if proposal.headline %}
-                        <h2 class="u-subheadline">{{ proposal.headline }}</h2>
+                        <h2 class="u-subheadline" data-scroll-trigger>{{ proposal.headline }}</h2>
                     {% endif %}
                     {% if proposal.text %}
-                        <div class="u-wysiwyg">
+                        <div class="u-wysiwyg" data-scroll-trigger>
                             {{ proposal.text }}
                         </div>
                     {% endif %}
@@ -118,22 +118,22 @@
             </div>
         </section>
 
-        <section class="o-section is-shop" data-scroll-trigger>
+        <section class="o-section is-shop" data-module-scroll>
             {% include '_components/marquee.twig' %}
         </section>
 
-        <section class="o-section is-social-feed" data-scroll-trigger>
-            <div class="u-wysiwyg">
+        <section class="o-section is-social-feed" data-module-scroll>
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ post.content }}
             </div>
-            <figure class="c-instagram">
+            <figure class="c-instagram" data-scroll-trigger>
                 {% apply shortcodes %}
                     [instagram-feed feed=1]
                 {% endapply %}
             </figure>
         </section>
 
-        <section class="o-section is-text-media is-case-studies" data-scroll-trigger>
+        <section class="o-section is-text-media is-case-studies" data-module-scroll>
             <h2 class="u-headline">Case Studies</h2>
             {% for row in caseStudies %}
                 {% set caseStudy = get_post(row) %}
@@ -165,7 +165,7 @@
             </aside>
         </section>
 
-        <section class="o-section is-contact" data-scroll-trigger>
+        <section class="o-section is-contact" data-module-scroll>
             {% include '_components/cta.twig' with {
                 params: {
                     headline: 'Get In Touch',
@@ -178,14 +178,14 @@
             } only %}
         </section>
 
-        <section class="o-section is-text-media is-travel" data-scroll-trigger>
+        <section class="o-section is-text-media is-travel" data-module-scroll>
             <div class="c-textMedia">
                 <div class="c-textMedia__text">
                     {% if travel.headline %}
-                        <h2 class="u-subheadline">{{ travel.headline }}</h2>
+                        <h2 class="u-subheadline" data-scroll-trigger>{{ travel.headline }}</h2>
                     {% endif %}
                     {% if travel.text %}
-                        <div class="u-wysiwyg">
+                        <div class="u-wysiwyg" data-scroll-trigger>
                             {{ travel.text }}
                         </div>
                     {% endif %}
@@ -210,7 +210,7 @@
             </div>
         </section>
 
-        <section class="o-section is-shop" data-scroll-trigger>
+        <section class="o-section is-shop" data-module-scroll>
             {% include '_components/marquee.twig' %}
         </section>
 

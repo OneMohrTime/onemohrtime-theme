@@ -17,13 +17,13 @@
 
     <div class="c-textMedia__text">
         {% if this.eyebrow %}
-            <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+            <strong class="u-eyebrow" data-scroll-trigger>{{ this.eyebrow }}</strong>
         {% endif %}
         {% if this.headline %}
-            <h2 class="u-subheadline">{{ this.headline }}</h2>
+            <h2 class="u-subheadline" data-scroll-trigger>{{ this.headline }}</h2>
         {% endif %}
         {% if this.text %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.text }}
             </div>
         {% endif %}
@@ -51,7 +51,7 @@
 
             {% case 'slides' %}
                 <div class="swiper is-cards" data-module-swiper-slides>
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" data-scroll-trigger>
                         {% for image in this.media.slider %}
                             <div class="swiper-slide">
                                 {% include '_elements/picture.twig' with {
@@ -68,7 +68,7 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <div class="swiper-controls">
+                    <div class="swiper-controls" data-scroll-trigger>
                         <button class="c-button is-prev">
                             <span class="u-screen-reader-text">Previous</span>
                             {{ source('_elements/svg/arrow-left.svg') }}
@@ -90,7 +90,7 @@
                     }
                 } only %}
                 {% if mediaCaption %}
-                    <aside class="c-caption">
+                    <aside class="c-caption" data-scroll-trigger>
                         {{ mediaCaption }}
                     </aside>
                 {% endif %}

@@ -16,10 +16,10 @@
     {% if this.hasIntro %}
         <div class="c-gallery__intro">
         {% if this.headline %}
-            <h2 class="u-subheadline">{{ this.headline }}</h2>
+            <h2 class="u-subheadline" data-scroll-trigger>{{ this.headline }}</h2>
         {% endif %}
         {% if this.text %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.text }}
             </div>
         {% endif %}
@@ -32,7 +32,7 @@
         {% case 'grid' %}
             <ul class="c-masonry" data-module-fancybox>
                 {% for image in this.images %}
-                <li class="c-masonry__item">
+                <li class="c-masonry__item" data-scroll-trigger>
                     <a href="{{ image.sizes.large }}" class="c-masonry__item-link" data-fancybox="gallery-{{ galleryID }}" data-caption="{{ image.caption }}">
                         {% include '_elements/picture.twig' with {
                             params: {
@@ -54,7 +54,7 @@
             <figure class="c-gallery" data-module-fancybox>
                 <div class="swiper is-gallery" data-module-swiper-gallery>
 
-                    <ul class="swiper-wrapper">
+                    <ul class="swiper-wrapper" data-scroll-trigger>
                         {% for image in this.images %}
 
                             <li class="swiper-slide c-gallery__image">
@@ -77,7 +77,7 @@
                         {% endfor %}
                     </ul>
 
-                    <div class="swiper-controls">
+                    <div class="swiper-controls" data-scroll-trigger>
                         <button class="c-button is-prev">
                             <span class="u-screen-reader-text">Previous</span>
                             {{ source('_elements/svg/arrow-left.svg') }}

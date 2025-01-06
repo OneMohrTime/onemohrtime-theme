@@ -11,7 +11,7 @@
 {# -- Component Template -- #}
 
 {% if this.video %}
-<div class="c-video u-ratio u-{{ this.ratio }}">
+<div class="c-video u-ratio u-{{ this.ratio }}" data-scroll-trigger>
     {% set videoPoster = get_image(this.poster) %}
 
     <video width="{{ this.video.width }}" height="{{ this.video.height }}" class="c-video__video"{% if this.controls == true %} controls{% endif %}{% if this.autoplay == true %} autoplay preload="auto" playsinline loop="true" muted{% else %} preload="none"{% endif %}{% if videoPoster %} poster="{{ videoPoster.src('large') }}{% endif %}">
