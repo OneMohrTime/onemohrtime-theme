@@ -91,7 +91,9 @@
     {% endif %}
 
     <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
-        {% if this.logo is defined and this.logo is not empty %}
+        {% if this.logo is not empty and '.svg' in this.logo %}
+            {{ source('_elements/svg/logo.svg') }}
+        {% elseif this.logo is not empty %}
             <img src="{{ this.logo }}" alt="{{ this.siteName }} logo" class="c-media__image" />
         {% else %}
             <strong>{{ this.siteName }}</strong>

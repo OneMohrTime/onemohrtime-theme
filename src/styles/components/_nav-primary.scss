@@ -158,12 +158,22 @@
     .c-media__image {
         max-height: 44px;
         max-width: 220px;
+        transition: fill $speed-fast $bezier-slide;
+        fill: $white;
     }
 
     // screen at or above 600px
     @include media(">=small") {
         top: 0;
+        transition: background $speed-fast $bezier-slide;
         z-index: 50;
+
+        @include hocus {
+            background-color: $yellow;
+            .c-media__image {
+                fill: $black;
+            }
+        }
     }
 
     // screen at or above 1200px
