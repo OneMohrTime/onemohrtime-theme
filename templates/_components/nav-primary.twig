@@ -14,6 +14,14 @@
     siteUrl: params.siteUrl,
     logo: params.logo
 } %}
+{% switch this.availability %}
+    {% case 'busy' %}
+        {% set availabilityValue = 'Limited' %}
+    {% case 'none' %}
+        {% set availabilityValue = 'Reduced' %}
+    {% default %}
+        {% set availabilityValue = 'Open to Work' %}
+{% endswitch %}
 
 {# -- Component Template -- #}
 
@@ -103,9 +111,15 @@
     <div class="c-availability c-tooltip__container">
         <a href="/contact" class="c-tooltip__anchor" aria-describedby="my_availability">
             <span class="c-availability__label">Availability:</span>
-            <span class="c-availability__value is-{{ this.availability }}">Limited</span>
+            <span class="c-availability__value is-{{ this.availability }}">{{ availabilityValue }}</span>
         </a>
-        <div id="my_availability" class="c-tooltip" role="tooltip">Openings beginning in {{ this.openings }}</div>
+        <div id="my_availability" class="c-tooltip" role="tooltip">
+        {% if this.openings|date('Ym') < 'now'|date('Ym') %}
+            Get In Touch
+        {% else %}
+            Openings beginning in {{ this.openings|date('m/Y') }}
+        {% endif %}
+        </div>
     </div>
 
 </nav>
