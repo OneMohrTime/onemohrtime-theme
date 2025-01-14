@@ -59,6 +59,7 @@ h6 {
 
 .u-wysiwyg {
     @include content-width();
+    @include fluid-body-copy();
     line-height: $line-height;
 
     h1, h2, h3, h4, h5, h6 {
@@ -77,6 +78,7 @@ h6 {
     }
 
     p, ul, ol {
+        font-size: inherit;
         line-height: inherit;
     }
 

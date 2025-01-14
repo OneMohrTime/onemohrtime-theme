@@ -271,15 +271,6 @@
 
 @mixin type() {
     font-family: inherit;
-    font-weight: normal;
-    line-height: $line-height;
-    widows: 3;
-    orphans: 3;
-    color: inherit;
-}
-
-@mixin type() {
-    font-family: inherit;
     line-height: inherit;
     widows: 3;
     orphans: 3;
@@ -375,6 +366,17 @@
     @if $underline == "underlined" {
         @include underlined();
     }
+}
+
+// @mixin fluid-body-copy($min: $font-base-sm, $max: $font-base-lg, $min-vw: $minimum-width, $max-vw: $container-width) {
+//     font-size: clamp(
+//         #{$min},
+//         calc(#{$min} + ((#{$max} - #{$min}) * ((100vw - #{$min-vw}) / (#{$max-vw} - #{$min-vw})))),
+//         #{$max}
+//     );
+// }
+@mixin fluid-body-copy($min: $font-base-sm, $max: $font-base-lg, $min-vw: $minimum-width, $max-vw: $container-width) {
+    font-size: clamp($font-base-sm, 0.75rem + 1vw, $font-base-lg);
 }
 
 @mixin base-font-size() {

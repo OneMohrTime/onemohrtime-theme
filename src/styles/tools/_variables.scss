@@ -125,6 +125,8 @@ $bezier-slide: cubic-bezier(0, 0, 0.2, 1);
 // Widths
 $container-width: (1440px - 72px);
 $inner-width: 1280px;
+$maximum-width: 1920px;
+$minimum-width: 375px;
 $copy-width: 80ch;
 $padding: math.div($container-width - $inner-width, 2);
 
