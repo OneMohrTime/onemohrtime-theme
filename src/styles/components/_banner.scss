@@ -116,13 +116,25 @@
     .c-banner.is-default & {
         @include text-shadow();
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         row-gap: $small-spacing;
         min-height: 300px;
         margin-bottom: 0;
         color: $white;
+
+        // Element reordering
+        .u-eyebrow {
+            order: 1;
+        }
+        .u-title {
+            order: 2;
+        }
+        .c-button {
+            order: 3;
+            margin-top: 0;
+        }
     }
 
     // No Image Banner
