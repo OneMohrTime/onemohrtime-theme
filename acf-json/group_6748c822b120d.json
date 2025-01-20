@@ -19,37 +19,16 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6748c8f9c0582",
-                    "label": "Text",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "allow_in_bindings": 0,
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
-                },
-                {
-                    "key": "field_6748c982c0583",
-                    "label": "Background Image",
-                    "name": "background_image",
+                    "key": "field_67797b11b0c63",
+                    "label": "Foreground Image",
+                    "name": "foreground_image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
@@ -63,7 +42,59 @@
                     "max_size": "",
                     "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "preview_size": "medium_large"
+                },
+                {
+                    "key": "field_6748c982c0583",
+                    "label": "Background Image",
+                    "name": "background_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium_large"
+                },
+                {
+                    "key": "field_67797b5cb0c64",
+                    "label": "Sky Image",
+                    "name": "sky_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium_large"
                 }
             ]
         },
@@ -401,5 +432,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733681483
+    "modified": 1736014714
 }

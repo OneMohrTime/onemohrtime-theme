@@ -25,13 +25,29 @@
             </div>
         </section>
 
-            <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.background_image).src('large') }});" data-module-parallax>
         <section class="o-section is-text is-intro" data-module-scroll>
-                <div class="c-banner__tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
+            <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.sky_image).src('1536x1536') }});" data-module-parallax>
+                <figure class="c-banner__foreground" data-parallax-layer="foreground">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: get_image(intro.foreground_image),
+                        lazyload: false
+                    }
+                } only %}
+                </figure>
+                <div class="c-banner__tagline" data-parallax-layer="tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
                     <span aria-hidden="true">I’m a</span>
                     <span aria-hidden="true">{{ source('_elements/svg/creative.svg') }}</span>
                     <span aria-hidden="true">Designer + Developer</span>
                 </div>
+                <figure class="c-banner__background" data-parallax-layer="background">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: get_image(intro.background_image),
+                        lazyload: false
+                    }
+                } only %}
+                </figure>
             </div>
         </section>
 
@@ -126,7 +142,7 @@
             <div class="u-wysiwyg" data-scroll-trigger>
                 {{ post.content }}
             </div>
-            <figure class="c-instagram" data-scroll-trigger>
+            <figure class="c-instagram">
                 {% apply shortcodes %}
                     [instagram-feed feed=1]
                 {% endapply %}

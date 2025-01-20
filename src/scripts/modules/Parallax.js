@@ -20,27 +20,40 @@ export default class extends es6Module {
   // =========================================================================
   constructor(m) {
     super(m);
+
+    // Defaults
+    const parallaxLayers = [];
   }
 
   // Init module
   // =========================================================================
   init() {
+    // Vars
+    const parallaxLayers = this.el.querySelectorAll('[data-parallax-layer]');
 
-    // Apply the parallax effect
-    gsap.to(this.el, {
-      backgroundPosition: '50% 75%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: this.el,
-        start: 'top bottom', // Trigger when the top of the div enters the viewport
-        end: 'bottom top',   // End when the bottom of the div leaves the viewport
-        scrub: true          // Smooth scrubbing
-      }
+    // Define base speeds for each layer
+    const speeds = {
+      background: 0.3, // Slowest
+      foreground: 0.7, // Moderate
+      tagline: 0.5,    // Slightly slower than the foreground
+    };
+
+    // Apply GSAP parallax effect
+    parallaxLayers.forEach((layer) => {
+      const type = layer.dataset.parallaxLayer; // Get layer type
+      const speed = speeds[type] || 0.5;       // Fallback speed
+
+      gsap.to(layer, {
+        yPercent: -100 * speed, // Parallax scrolling
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.el,
+          start: 'top bottom', // Start when container enters viewport
+          end: 'bottom top',   // End when container leaves viewport
+          scrub: true,         // Smooth scrolling
+        },
+      });
     });
-
   }
 
-  // Destroy
-  // =========================================================================
-  destroy() {}
 }

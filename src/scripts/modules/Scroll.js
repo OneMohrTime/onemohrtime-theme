@@ -20,13 +20,22 @@ export default class extends es6Module {
   constructor(m) {
     super(m);
 
+    this.classes = [];
     this.elements = null;
   }
 
   // Init module
   // ===========================================================================
   init() {
+    this.classes = this.el.classList;
     this.elements = document.querySelectorAll('[data-scroll-trigger]');
+
+    if (this.classes.contains('is-social-feed')) {
+      const instagramFeed = this.el.querySelectorAll('.sbi_item');
+      instagramFeed.forEach(insta => {
+        insta.setAttribute('data-scroll-trigger', '');
+      });
+    }
 
     // Animate each element when it comes into the viewport
     this.elements.forEach((element, index) => {

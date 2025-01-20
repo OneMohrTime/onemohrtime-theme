@@ -132,6 +132,7 @@
             order: 2;
         }
         .c-button {
+
             order: 3;
             margin-top: 0;
         }
@@ -210,24 +211,34 @@
 }
 
 .c-banner__tagline {
+    position: relative;
+    top: 10%;
     display: block;
-    margin-top: $gutter-lg;
+    width: 80%;
+    text-align: center;
     font-family: $font-header;
     font-weight: $font-heavy;
     text-transform: uppercase;
     line-height: $heading-height;
+    will-change: transform; // Optimize for GPU rendering
+    z-index: 10;
 
     span:nth-child(1) {
         @include tagline();
+        display: block;
+        white-space: nowrap;
     }
     span:nth-child(3) {
-        font-size: $font-h4;
+        display: block;
+        font-size: $font-h5;
         letter-spacing: rem(1px);
+        white-space: nowrap;
     }
 
     .c-media__svg {
         width: 100%;
-        height: rem(200px);
+        height: auto;
+        max-height: rem(200px);
     }
 
     #creative_animated * {
@@ -239,6 +250,66 @@
     #creative_animated.is-finished * {
         fill-opacity: 1;
         stroke-opacity: 0;
+    }
+
+    // // screen at or above 1200px
+    @include media(">=large") {
+        z-index: 3;
+    }
+}
+
+.c-banner__background,
+.c-banner__foreground {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    will-change: transform; // Optimize for GPU rendering
+}
+
+.c-banner__foreground {
+    bottom: -60%;
+    z-index: 4;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        bottom: -70%;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        bottom: -100%;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        bottom: -150%;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        bottom: -165%;
+    }
+}
+
+.c-banner__background {
+    bottom: -25%;
+    z-index: 2;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        bottom: -40%;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        bottom: -75%;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        bottom: -115%;
     }
 }
 
