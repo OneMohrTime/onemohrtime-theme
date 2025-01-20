@@ -297,8 +297,10 @@
 .c-availability__value {
     $dot-size: 8px;
     position: relative;
+    display: block;
     margin-bottom: 0;
     line-height: $heading-height;
+    white-space: nowrap;
 
     &::before {
         content: "";

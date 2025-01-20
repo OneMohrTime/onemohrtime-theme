@@ -6,7 +6,7 @@
 
     // Logo Section
     .o-section.is-logofolio {
-        @include padding('2x');
+        @include padding("2x");
         padding-top: $gutter;
         padding-bottom: $gutter;
         background-color: $white;

@@ -81,9 +81,10 @@
 
         .swiper-controls {
             position: absolute;
-            top: 50%;
-            justify-content: space-between;
-            transform: translateY(-50%);
+            left: $small-spacing;
+            bottom: calc($small-spacing + 10px);
+            width: auto;
+            padding: 0;
             z-index: 1;
         }
     }

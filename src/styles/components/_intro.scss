@@ -14,4 +14,12 @@
     .t-page & {
         @include padding();
     }
+
+    h2 {
+        @include headline();
+    }
+
+    h3 {
+        @include subheadline();
+    }
 }
