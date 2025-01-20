@@ -1,36 +1,39 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap"); */
+
 body#tinymce {
-	font-family: "Barlow", -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Segoe UI, Lucida Grande, Helvetica Neue, Helvetica, Fira Sans, Roboto, Noto, Droid Sans, Cantarell, Oxygen, Ubuntu, Franklin Gothic Medium, Century Gothic, Liberation Sans, sans-serif;
+  font-family: "Barlow", -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Segoe UI, Lucida Grande, Helvetica Neue, Helvetica, Fira Sans, Roboto, Noto, Droid Sans, Cantarell, Oxygen, Ubuntu, Franklin Gothic Medium, Century Gothic, Liberation Sans, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Barlow Condensed", Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-weight: 800;
-	text-transform: uppercase;
+  font-family: "Barlow", Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* font-family: "Barlow Condensed"; */
+  font-weight: 800;
+  text-transform: uppercase;
   line-height: 1.2em;
 }
 
 a {
   font-family: inherit;
-	text-decoration: none;
-	border-bottom: 8px #ffc300 solid;
-	color: #171409;
+  text-decoration: none;
+  border-bottom: 8px #ffc300 solid;
+  color: #171409;
 }
 
 p,
 li {
-	font-size: 1em;
-	line-height: 1.5em;
+  font-size: 1em;
+  line-height: 1.5em;
 }
 
 b, strong {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 .c-button {
-	display: block;
-	border: 3px #171409 solid;
-	color: #171409;
-	text-align: center;
-	padding: .75em 1.5em;
-	margin-top: .75em;
+  display: block;
+  border: 3px #171409 solid;
+  color: #171409;
+  text-align: center;
+  padding: .75em 1.5em;
+  margin-top: .75em;
 }
