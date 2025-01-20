@@ -57,6 +57,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "design"
+            }
         ]
     ],
     "menu_order": 0,
@@ -68,5 +75,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718856095
+    "modified": 1732909426
 }

@@ -1,0 +1,130 @@
+{# -- "Global" Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set websiteName = site.name %}
+{% set websiteUrl = site.url %}
+{% set websiteTheme = theme.link %}
+{# {% set hasSidebar = post.slug in ['news','latest','blog'] %} #}
+{% set hasSidebar = null %}
+{% set showAlert = globals.site_alert.show_alert|default(false) %}
+{% set modalForm = globals.modal_form|default(null) %}
+{% set workAvailability = globals.work_availability|default(null) %}
+{% set workOpenings = globals.work_openings|default(null) %}
+{% set socialMedia = globals.social_accounts|default(null) %}
+
+{# -- Site Meta Content -- #}
+{# ----------------------------------------------------------------- #}
+{% block html_head_container %}
+    {% include '_base/_header.twig' %}
+        {% block head %}
+        {% endblock %}
+    </head>
+{% endblock %}
+
+{# -- Body Classes -- #}
+{# ----------------------------------------------------------------- #}
+{% set postTypeClass  = post ? post.post_type : 'default' %}
+{% set postTitleClass = post ? 'is-' ~ post.slug : 'is-archive' %}
+
+{# -- Site Frame -- #}
+{# ----------------------------------------------------------------- #}
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}"{% if postTypeClass != 'product' %} data-module-load{% endif %}>
+
+    <!-- Start `wp_body_open` Function -->
+    {{ function('wp_body_open') }}
+    <!-- End `wp_body_open` Function -->
+
+    <!-- Loader Element -->
+    <div id="loader" class="c-loader is-active">
+        <div class="c-loader__spinner"></div>
+    </div>
+
+    <div id="page" class="o-site">
+
+        {# Skip (Tab) Navigation #}
+        {% include '_components/nav-keyboard.twig' only %}
+
+        {# Global Site Alert #}
+        {% if showAlert == true %}
+            {% include '_components/alert.twig' with {
+                params: {
+                    visible: showAlert,
+                    text: globals.site_alert.alert_text|default(null),
+                    link: globals.site_alert.alert_link|default(null)
+                }
+            } only %}
+        {% endif %}
+
+        {# Primary Navigation #}
+        <header id="masthead" class="o-site__header" data-module-navigation>
+            {% block header %}
+                {% include '_partials/header.twig' with {
+                    params: {
+                        menu: primaryMenu,
+                        utility: utilityMenu,
+                        availability: workAvailability,
+                        openings: workOpenings,
+                        siteName: websiteName,
+                        siteLogo: siteLogo,
+                        siteUrl: websiteUrl
+                    },
+                    megaMenu: {
+                        col1: menuColumn1,
+                        col2: menuColumn2,
+                        col3: menuColumn3,
+                        col4: menuColumn4,
+                        col5: menuColumn5,
+                        social: socialMedia
+                    }
+                } only %}
+            {% endblock %}
+        </header>
+
+        {# Main Site Content Area #}
+        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}" data-module-modal>
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+        </main>
+
+        {# Site Footer #}
+        {% block footer %}
+            {% include '_partials/footer.twig' with {
+                params: {
+                    logo: globals.footer_logo|default(null),
+                    about: globals.footer_details|default(null),
+                    flags: globals.footer_flags|default(null),
+                    press: globals.footer_press|default(null),
+                    social: socialMedia,
+                    menu: footerMenu ?? null,
+                    siteName: websiteName,
+                    siteLogo: siteLogo,
+                    siteUrl: websiteUrl
+                }
+            } only %}
+        {% endblock %}
+
+        {% block modal %}
+            {% include '_components/modal.twig' with {
+                params: {
+                    form: modalForm,
+                    text: 'Enter your email for access'
+                }
+            } %}
+        {% endblock %}
+
+    </div>
+
+    <!-- Start `wp_footer` Function -->
+    {{ function('wp_footer') }}
+    <!-- End `wp_footer` Function -->
+
+    {# Custom script embeds #}
+    {% block scripts %}
+    {% endblock %}
+
+    {# Add personal branding mark, just for funsies #}
+    {% include '_components/html-comment.twig' %}
+
+</body>
+
+</html>

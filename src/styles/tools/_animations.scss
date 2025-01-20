@@ -1,0 +1,45 @@
+/* ==========================================================================
+    Animations
+========================================================================== */
+
+/**
+ * === SCROLLING IN ===
+ */
+
+// // Base styles (content visible by default)
+// [data-module-scroll] {
+//     opacity: 1;
+//     transform: none; // Ensure the element is fully visible by default
+
+//     // Hide content when JavaScript is enabled
+//     .has-js & {
+//         opacity: 0;
+//         transform: translateY($gutter-xs);
+//     }
+// }
+
+/**
+ * === SLIDE MENU UP AND DOWN ===
+ */
+
+@keyframes navSlideUp {
+    from {
+        opacity: 1;
+        top: 0;
+    }
+    to {
+        opacity: 0;
+        top: -100px;
+    }
+}
+
+@keyframes navSlideDown {
+    from {
+        opacity: 0;
+        top: -100px;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}

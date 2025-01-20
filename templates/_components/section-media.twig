@@ -1,0 +1,65 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    mediaSection: params.section|default(null),
+    order: params.order,
+} %}
+{% set hasCaption = this.mediaSection.image.caption ?? null %}
+
+{# -- Component Template -- #}
+
+{% if this.mediaSection %}
+<section class="o-section is-{{ this.mediaSection.media_type }}{% if this.mediaSection.image_type == 'full' %} is-full-width{% endif %}" data-module-scroll>
+    {% switch this.mediaSection.media_type %}
+
+        {% case 'image' %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.mediaSection.image,
+                },
+            } only %}
+            {% if hasCaption %}
+                <aside class="c-caption" data-scroll-trigger>
+                    {{ hasCaption }}
+                </aside>
+            {% endif %}
+
+        {% case 'video' %}
+            {% if this.mediaSection.video_type == 'embedded' %}
+                {% include '_elements/embed.twig' with {
+                    params: {
+                        src: this.mediaSection.video_embed,
+                        type: 'video'
+                    },
+                } only %}
+
+            {% elseif this.mediaSection.video_type == 'internal' %}
+                {% include '_elements/video.twig' with {
+                    params: {
+                        src: this.mediaSection.video_file,
+                        thumbnail: this.mediaSection.image,
+                        controls: true
+                    },
+                } only %}
+                {% if this.mediaSection.video_file.caption %}
+                    <aside class="c-caption" data-scroll-trigger>
+                        {{ this.mediaSection.video_file.caption }}
+                    </aside>
+                {% endif %}
+
+            {% endif %}
+
+        {% case 'audio' %}
+            {% include '_elements/embed.twig' with {
+                params: {
+                    src: this.mediaSection.audio_file,
+                    type: 'audio'
+                },
+            } only %}
+
+        {% default %}
+        {# no default configured #}
+
+    {% endswitch %}
+</section>
+{% endif %}

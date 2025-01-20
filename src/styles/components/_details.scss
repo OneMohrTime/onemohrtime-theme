@@ -1,0 +1,23 @@
+/* ==========================================================================
+    Details
+========================================================================== */
+
+.c-details {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    gap: rem(4px) $large-spacing;
+    line-height: $heading-height;
+    overflow-y: auto;
+}
+
+.c-details__header {
+    align-self: end;
+    font-weight: $font-demibold;
+}
+
+.c-details__description {
+    font-style: normal;
+    font-weight: $font-regular;
+}

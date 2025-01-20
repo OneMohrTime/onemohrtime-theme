@@ -1,0 +1,92 @@
+/* ==========================================================================
+    Modals
+========================================================================== */
+
+.c-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+
+    &.is-active {
+        display: flex;
+        z-index: 1000;
+    }
+}
+
+.c-modal__content {
+    background: $white;
+    padding: 2rem;
+    position: relative;
+    max-width: 768px;
+    width: 100%;
+}
+
+.c-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/**
+ * === FANCYBOX ===
+ */
+
+.fancybox__container {
+    --fancybox-bg: #{fade-out($white, 0.15)} !important;
+}
+
+.fancybox__toolbar {
+    --f-button-bg: #{$black--light} !important;
+    --f-button-border-radius: #{$border-radius} !important;
+    border-bottom-left-radius: $border-radius !important;
+
+    .fancybox__toolbar__column {
+        column-gap: rem(5px);
+        &.is-right {
+            margin-top: rem(5px);
+            margin-right: rem(5px);
+        }
+    }
+
+    .fancybox__infobar {
+        font-size: $font-base-lg;
+        font-weight: $font-bold;
+        text-shadow: none;
+        color: $black;
+    }
+}
+
+.fancybox__nav {
+    --f-button-color: #{$black} !important;
+
+    .f-button svg {
+        filter: none;
+    }
+}
+
+.fancybox__slide {
+    padding: 0 !important;
+}
+
+.fancybox__caption {
+    padding: $small-spacing $gutter !important;
+    line-height: $heading-height !important;
+    color: $black !important;
+}
+
+.fancybox__footer {
+
+    .is-compact & {
+        background-color: fade-out($white, 0.15) !important;
+    }
+}

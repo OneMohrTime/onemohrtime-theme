@@ -1,0 +1,37 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set postTypeClass = 'shop' %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+
+{% block content %}
+
+    {% do action('woocommerce_before_main_content') %}
+
+    <div class="woocommerce-sorting">
+        <h1 class="u-title">Shop</h1>
+        {% do action('woocommerce_before_shop_loop') %}
+    </div>
+
+    <div class="c-grid is-products">
+        {% for post in products %}
+            {% include '_components/tease-product.twig' with {
+                product: {
+                    ID: post.id,
+                    title: post.title,
+                    content: post.content,
+                    excerpt: post.excerpt
+                }
+            } only %}
+        {% endfor %}
+    </div>
+
+    {% do action('woocommerce_after_shop_loop') %}
+    {% do action('woocommerce_after_main_content') %}
+
+{% endblock  %}

@@ -1,0 +1,40 @@
+/* ==========================================================================
+    404 Error
+========================================================================== */
+
+.c-404 {
+    @include padding();
+    @include text-shadow();
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+    text-align: center;
+    background-color: $black;
+    background-position: center center;
+    background-size: cover;
+    color: $white;
+
+    .c-button-group {
+        justify-content: center;
+        margin-top: $gutter;
+    }
+
+    p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding-top: $gutter-lg;
+        padding-bottom: $gutter-lg;
+
+        .c-button-group {
+            margin-top: $gutter-lg;
+        }
+    }
+
+    // // screen at or above 1200px
+    // @include media(">=large") {
+    //     min-height: 600px;
+    // }
+}

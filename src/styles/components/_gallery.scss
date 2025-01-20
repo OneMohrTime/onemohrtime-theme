@@ -1,116 +1,104 @@
 /* ==========================================================================
-	Gallery (Masonry)
+    Gallery (Masonry)
 ========================================================================== */
 
-$image-gap: $gutter-sm;
-$image-height: 250px;
-$image-width: 150px;
+$swiper-height-sm: 350px;
+$swiper-height-md: 475px;
+$swiper-height-lg: 600px;
 
 .c-gallery {
+    position: relative;
 
-	@include media(">=screen600") {
-		display: flex;
-		flex-flow: row wrap;
-		width: calc(100% + $image-gap);
-	}
+    .swiper.is-gallery {
+        width: 100%;
+        height: 100%;
+    }
 
-	.c-media {
-		position: relative;
-		overflow: hidden;
+    .swiper-wrapper {
+        box-sizing: border-box;
+    }
 
-		@include media(">=screen600") {
-			flex: auto;
-			height: $image-height;
-			min-width: $image-width;
-			margin: 0 $image-gap $image-gap 0;
+    .swiper-slide {
+        height: auto;
+    }
 
-			&:nth-child(4n+1) {
-				width: 250px;
-			}
+    .swiper-controls {
+        @include padding();
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: $base-spacing;
+        width: 100%;
+        pointer-events: none;
 
-			&:nth-child(4n+1):nth-child(4n+2) {
-				width: 325px;
-			}
+        .c-button {
+            background-color: fade-out($white, 0.85);
+            pointer-events: auto;
+        }
+    }
 
-			&:nth-child(4n+1):nth-child(4n+3) {
-				width: 180px;
-			}
+    // screen at or above 600px
+    @include media(">=small") {
+        .swiper-controls {
+            position: absolute;
+            top: 50%;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+    }
+}
 
-			&:nth-child(4n+1):nth-child(4n+4) {
-				width: 380px;
-			}
-		}
-	}
+.c-gallery__intro {
+    @include padding();
+    margin-bottom: $gutter;
 
-	.c-media__image {
-		max-width: 100%;
-		opacity: 1;
-		transition: $speed;
+    .u-subheadline {
+        margin-bottom: $small-spacing;
+    }
+}
 
-		@include media(">=screen600") {
-			width: 100%;
-			height: $image-height;
-			object-fit: cover;
-		}
-	}
+.c-gallery__image {
+    width: auto !important;
+    height: $swiper-height-sm;
+    box-sizing: border-box;
 
-	.c-media__caption {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		display: flex;
-		align-items: flex-end;
-		height: 100%;
-		opacity: 0;
-		padding: 0.5em;
-		transition: opacity $speed $cubic-bezier;
-		background-color: fade-out($white, 0.15);
-		color: $black;
-		pointer-events: none;
+    .c-media__image {
+        width: auto;
+        height: $swiper-height-sm;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
 
-		@include media(">=screen840") {
-			padding: $image-gap;
-		}
+    // screen at or above 600px
+    @include media(">=small") {
+        height: $swiper-height-md;
+    }
 
-		&.is-text {
-			line-height: $heading-line-height;
+    // screen at or above 1200px
+    @include media(">=large") {
+        height: $swiper-height-lg;
+    }
+}
 
-			@include media(">=screen840") {
-				@include small-font-size();
-			}
-		}
+.c-gallery__image-link {
+    position: relative;
+    display: block;
+    height: $swiper-height-sm;
 
-		&.is-zoom {
-			justify-content: center;
-			align-items: center;
-			font-size: 2em;
-			line-height: 1em;
+    // screen at or above 600px
+    @include media(">=small") {
+        height: $swiper-height-md;
+        .c-media__image {
+            height: $swiper-height-md;
+        }
+    }
 
-			@include media(">=screen840") {
-				font-size: $font-h4;
-			}
-		}
-
-		// Zoom in icon
-		.c-media__svg {
-			max-width: 72px;
-			max-height: 72px;
-			margin: 0;
-		}
-	}
-
-	.c-media__link {
-		@include block-link();
-		z-index: 2;
-
-		@include hocus {
-			// & + .c-media__image {
-			// 	opacity: 0;
-			// }
-			& + .c-media__caption {
-				opacity: 1;
-			}
-		}
-	}
+    // screen at or above 1200px
+    @include media(">=large") {
+        height: $swiper-height-lg;
+        .c-media__image {
+            height: $swiper-height-lg;
+        }
+    }
 }

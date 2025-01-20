@@ -1,0 +1,42 @@
+{# -- Component Variables -- #}
+
+{# -- Component Template -- #}
+
+<div class="c-marquee" data-module-marquee>
+    <div class="c-marquee__content" data-marquee>
+
+        <span>
+            <strong>I have an online shop!</strong>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: 'https://shop.onemohrti.me',
+                    text: 'Visit Store'
+                },
+                scrolling: false
+            } only %}
+        </span>
+
+        <span aria-hidden="true">
+            <strong>I have an online shop!</strong>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: 'https://shop.onemohrti.me',
+                    text: 'Visit Store'
+                },
+                scrolling: false
+            } only %}
+        </span>
+
+        <span aria-hidden="true">
+            <strong>I have an online shop!</strong>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: 'https://shop.onemohrti.me',
+                    text: 'Visit Store'
+                },
+                scrolling: false
+            } only %}
+        </span>
+
+    </div>
+</div>

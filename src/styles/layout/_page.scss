@@ -1,0 +1,125 @@
+/* ==========================================================================
+    General Page Stucture
+========================================================================== */
+
+.o-page {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    background-image: url("https://onemohrti.me/wp-content/uploads/concrete-light.png");
+    background-size: 298.5px 272.5px;
+    background-repeat: repeat;
+}
+
+.o-page__sections {
+    display: flex;
+    flex-direction: column;
+    row-gap: $gutter;
+    padding-top: $gutter;
+
+    .is-image {
+        .c-media,
+        .c-media__image {
+            border-radius: $border-radius;
+        }
+    }
+
+    .is-image.is-full-width {
+        padding-left: 0;
+        padding-right: 0;
+
+        .c-caption {
+            opacity: 0;
+        }
+    }
+
+    .is-text-media {
+        .c-media,
+        .c-media__image {
+            border-radius: $border-radius;
+        }
+    }
+
+    .is-video {
+        position: relative;
+
+        .c-caption {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: auto;
+            height: $line-height;
+            padding: 0;
+            transform: translateX(-50%);
+            background-color: transparent;
+            color: $black--lightest;
+            z-index: 100;
+        }
+    }
+
+    .is-text,
+    .is-image,
+    .is-video,
+    .is-audio,
+    .is-text-media,
+    .is-grid-gallery,
+    .is-quotes,
+    .is-cards,
+    .is-script {
+        @include padding();
+    }
+}
+
+.o-page__related {
+    @include padding();
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    .u-subheadline {
+        margin-bottom: $small-spacing;
+    }
+
+    &.o-section.is-social-feed + & {
+        padding-top: 0
+    }
+}
+
+/**
+ * === WOOCOMMERCE ===
+ */
+
+.woocommerce-breadcrumb {
+    @include padding();
+    @include caption();
+    padding-top: 1em;
+}
+
+.woocommerce-sorting {
+    @include padding();
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.woocommerce-result-count {
+    margin-bottom: $small-spacing;
+    font-size: $font-base-sm;
+    font-weight: $font-bold;
+    line-height: $heading-height;
+}
+
+.woocommerce-ordering {
+    font-size: $font-base-sm;
+}
+
+.woocommerce-pagination {
+    margin-top: $gutter;
+    text-align: center;
+
+    .page-numbers {
+        display: flex;
+        justify-content: center;
+        column-gap: 0.5em;
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,25 @@
+/* ==========================================================================
+    Intro Content
+========================================================================== */
+
+.c-intro {
+    @include content-width();
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    .c-details {
+        margin-bottom: $line-height;
+    }
+
+    .t-page & {
+        @include padding();
+    }
+
+    h2 {
+        @include headline();
+    }
+
+    h3 {
+        @include subheadline();
+    }
+}

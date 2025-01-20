@@ -1,0 +1,29 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    textMediaSection: params.section|default(null),
+    isReverse: params.alignment|default(false)
+} %}
+
+{# -- Component Template -- #}
+{% if this.textMediaSection %}
+
+{% set textSection = this.textMediaSection.text %}
+{% set mediaSection = this.textMediaSection.media %}
+
+<section class="o-section is-text-media" data-module-scroll>
+
+    {% include '_components/text-media.twig' with {
+        params: {
+            eyebrow: textSection.eyebrow|default(null),
+            headline: textSection.headline|default(null),
+            text: textSection.text|default(null),
+            button: textSection.button|default(null),
+            media: mediaSection|default(null),
+            mediaType: mediaSection.media_type|default(null)
+        },
+    } only %}
+
+</section>
+
+{% endif %}

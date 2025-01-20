@@ -1,0 +1,145 @@
+/* ==========================================================================
+    Mega Menu
+========================================================================== */
+
+.c-mega-menu {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+
+    &.is-hidden {
+        position: absolute;
+        width: 0;
+        height: 0;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        position: absolute;
+        top: rem(58px);
+        left: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+        gap: $gutter;
+        padding-top: $gutter-sm;
+        padding-left: $gutter-xl;
+        padding-right: $gutter-xl;
+        padding-bottom: $gutter;
+        background-color: $black;
+        background-image: url("https://onemohrti.me/wp-content/uploads/concrete-dark.png");
+        background-size: 298.5px 272.5px;
+        z-index: 50;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-left: calc((100% - $container-width) / 2);
+        padding-right: calc((100% - $container-width) / 2);
+    }
+}
+
+.c-mega-menu__item {
+    margin-bottom: $base-spacing;
+
+    &.is-search {
+        padding-top: $gutter-sm;
+        padding-bottom: $gutter-sm;
+        border-top: 2px solid $black--lightest;
+        border-bottom: 2px solid $black--lightest;
+    }
+
+    .u-eyebrow {
+        margin-bottom: $small-spacing;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        grid-column: span 1;
+        margin-bottom: 0;
+
+        &.is-double {
+            grid-column: span 2;
+        }
+
+        &.is-search {
+            grid-column: span 3;
+        }
+
+        .u-eyebrow {
+            padding: 0 rem(2px);
+        }
+    }
+}
+
+/**
+ * === MENU ===
+ */
+
+.c-mega-menu__menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em $small-spacing;
+    line-height: $line-height;
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-direction: column;
+        gap: 0 $gutter;
+
+        .c-mega-menu__item.is-double & {
+            flex-direction: row;
+        }
+    }
+}
+
+.c-mega-menu__menu-item {
+    // Social accounts under "about"
+    &.is-social-media {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: 0.5em;
+        margin-top: rem(5px);
+        line-height: 1em;
+
+        a {
+            transition: color $speed $bezier-slide;
+            @include hocus {
+                color: $yellow;
+            }
+        }
+    }
+
+    .u-nav-link {
+        &.is-external {
+            .c-media__svg {
+                width: 0.75em;
+                height: 0.75em;
+            }
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        line-height: $line-height;
+
+        .u-nav-link {
+            @include highlight-link();
+            padding: 0 rem(2px);
+        }
+
+        .c-mega-menu__item.is-double & {
+            flex: 1 1 50%;
+            max-width: calc(50% - $gutter-sm);
+            padding-right: $gutter;
+        }
+    }
+}

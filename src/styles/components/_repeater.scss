@@ -1,63 +1,74 @@
 /* ==========================================================================
-	Repeater
+    Repeater
 ========================================================================== */
 
-.repeater {
-	@include base-font-size();
-	position: relative;
-	max-width: $copy-width;
-	margin-bottom: $gutter;
+.c-repeater {
+    @include content-width();
+    position: relative;
+    max-width: rem(1024px);
+    margin-bottom: $gutter;
 
-	&::before {
-		content: attr(data-start) " – " attr(data-end);
-		position: absolute;
-		top: 0;
-		right: 0;
-		display: block;
-		@include caption();
-		margin-top: 3.25em;
+    &::before {
+        @include caption();
+        content: attr(data-start) " – " attr(data-end);
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        margin-top: calc(3.25em + $small-spacing);
+    }
 
-		@include media(">=screen1024") {
-			margin-top: 5em;
-		}
-	}
+    // & + & {
+    //     border-top: 2px $white--dark solid;
+    // }
 
-	&.-current {
-		&::before {
-			content: attr(data-end);
-		}
-	}
+    &.is-current {
+        &::before {
+            content: attr(data-end);
+        }
+    }
 
-	// &[open] {}
+    &[open] {
+        .c-repeater__summary {
+            margin-bottom: $small-spacing;
+        }
+    }
 }
 
-.repeater__summary {
-	@include paragraph();
-	list-style: none;
-	cursor: pointer;
+.c-repeater__summary {
+    list-style: none;
+    cursor: pointer;
 
-	&:focus {
-		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
-	}
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
 
-	&::-webkit-details-marker {
-		display: none;
-	}
+    &::-webkit-details-marker {
+        display: none;
+    }
 }
 
-.repeater__title {
-	@include body-copy();
+.c-repeater__title {
+    @include ellipsis();
 }
 
-.repeater__body {
+.c-repeater__body {
 
-	._subheadline {
-		@include caption();
-		margin-bottom: $base-spacing;
-	}
+    .u-subheadline {
+        @include caption();
+        margin-bottom: $base-spacing;
+    }
 }
 
-.repeater__link {
-	font-weight: 700;
+.c-repeater__link {
+    margin-top: $base-spacing;
+    padding-left: rem(5px);
+    padding-right: rem(5px);
+    font-weight: $font-bold;
+    line-height: $line-height;
+
+    &::before {
+        background-color: $yellow;
+    }
 }

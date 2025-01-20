@@ -1,0 +1,35 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline,
+    missing: params.missing,
+    content: params.content,
+    date: params.date,
+    link: params.link,
+    format: params.format
+} %}
+
+{# -- Component Template -- #}
+
+<article class="c-tease c-tease--{{ this.format }}"{# id="p-{{ post.id }}"#}>
+
+    <div class="c-tease__content">
+        <h3 class="c-tease__headline u-heading">
+            <a href="{{ this.link }}" title="Read {{ this.headline }}" class="u-link">{{ this.headline }}</a>
+        </h3>
+        <time datetime="{{ this.date|date('c') }}" class="c-tease__meta">Posted on {{ this.date }}</time>
+        <div class="c-tease__text u-wysiwyg">
+            <p>{{ this.content|excerpt(36) }}</p>
+        </div>
+        {% if this.link %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.link,
+                    text: 'Read ' ~ this.format,
+                    classes: 'c-tease__button'
+                }
+            } only %}
+        {% endif %}
+    </div>
+
+</article>

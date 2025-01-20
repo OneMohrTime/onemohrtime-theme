@@ -1,309 +1,47 @@
 /* ==========================================================================
-	Card
+    Card
 ========================================================================== */
 
-$smImage: 100px;
-$mdImage: 150px;
-$lgImage: 200px;
-
 .c-card {
-	position: relative;
+    position: relative;
 
-	//
-	// Wrapping link
-	//
-	.c-card__link {
-		display: block;
+    .c-media {
+        max-width: calc(100% - $gutter);
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 10;
+    }
 
-		@include hocus {
-			// .c-card__link:hover
-			// .c-card__link:focus
-			.c-card__body {
-				transform: translateY(-#{$gutter-sm});
-				background-color: $yellow;
-				color: $black;
+    // Card Headline
+    .u-heading {
+        margin-bottom: $gutter-sm;
+        font-size: $font-h6;
+    }
 
-				._subheadline {
-					color: $black;
-				}
-
-				._text {
-					border-color: $black;
-				}
-			}
-		}
-	}
-
-	//
-	// Image area
-	//
-	.c-card__image {
-		position: absolute;
-		top: calc(50% - #{$smImage / 2});
-		width: $smImage;
-		height: $smImage;
-		z-index: 10;
-
-		._image {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			@include box-shadow();
-		}
-
-		//
-		// Horizontally stacked card deck
-		//
-		.-horizontalDeck & {
-
-			// images get sized up
-			@include media(">=screen1170") {
-				top: calc(50% - #{$mdImage / 2});
-				width: $mdImage;
-				height: $mdImage;
-			}
-
-			// images get sized up
-			@include media(">=screen1440") {
-				top: calc(50% - #{$lgImage / 2});
-				width: $lgImage;
-				height: $lgImage;
-			}
-		}
-
-		//
-		// Vertically stacked card deck
-		//
-		.-verticalDeck & {
-
-			// no less than 768px
-			@include media(">=screen768") {
-				position: relative;
-				width: auto;
-				height: auto;
-				margin-bottom: -#{$gutter-sm};
-				padding-left: $gutter-sm;
-				padding-right: $gutter-sm;
-			}
-		}
-	}
-
-	//
-	// Text area
-	//
-	.c-card__body {
-		position: relative;
-		width: calc(100% - #{$smImage - $gutter-sm});
-		margin-left: #{$smImage - $gutter-sm};
-		padding: $gutter-sm;
-		padding-left: $gutter;
-		transition: background-color $speed,
-					color $speed,
-					transform $speed;
-		background-color: $white--dark;
-		// @include box-shadow();
-		z-index: 9;
-
-		// images get sized up
-		@include media(">=screen1170") {
-			width: calc(100% - #{$mdImage - $gutter});
-			margin-left: #{$mdImage - $gutter};
-			padding: $gutter;
-			padding-left: $gutter-lg;
-		}
-
-		// images get sized up
-		@include media(">=screen1440") {
-			width: calc(100% - #{$lgImage - $gutter});
-			margin-left: #{$lgImage - $gutter};
-		}
-
-		//
-		// Card Headline
-		//
-		._headline {
-			@include base-font-size();
-		}
-
-		//
-		// Card Subheadline
-		//
-		._subheadline {
-			@include base-font-size();
-			color: $black--light;
-		}
-
-		//
-		// Card Text
-		//
-		._text {
-			@include small-font-size();
-			margin-top: 0.75em;
-			padding-top: $gutter-sm / 2;
-			transition: border-color $speed;
-			border-top: 1px $gray--light solid;
-		}
-
-		//
-		// Vertically stacked card deck
-		//
-		.-verticalDeck & {
-
-			// no less than 768px
-			@include media(">=screen768") {
-				width: 100%;
-				margin: 0;
-				padding: $gutter;
-				padding-top: #{$gutter + $gutter-sm};
-			}
-		}
-	}
-
-	//
-	// Horizontally stacked card deck
-	//
-	.-horizontalDeck & {
-
-		// space between siblings
-		& + .c-card {
-			margin-top: $gutter;
-		}
-
-		// no less than 600px
-		@include media(">=screen600") {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: calc(50% - #{$gutter-sm});
-			max-width: calc(50% - #{$gutter-sm});
-			margin-top: 0 !important;
-			margin-bottom: $gutter;
-
-			// end of loop
-			@include last(2) {
-				margin-bottom: 0;
-			}
-		}
-
-		// @include media(">=screen1170") {
-		// 	flex-basis: calc(50% - #{$gutter-sm});
-		// 	max-width: calc(50% - #{$gutter-sm});
-		// }
-	}
-
-	//
-	// Vertically stacked card deck
-	//
-	.-verticalDeck & {
-
-		// space between siblings
-		& + .c-card {
-			margin-top: $gutter;
-		}
-
-		// no greater than 768px, no less than 600px
-		@include media("<screen768", ">=screen600") {
-			margin-top: $gutter;
-			width: calc(50% - #{$gutter-sm});
-			float: left;
-
-			@include odd() {
-				margin-right: $gutter-sm;
-			}
-
-			@include even() {
-				margin-left: $gutter-sm;
-			}
-
-			@include first(2) {
-				margin-top: 0;
-			}
-		}
-
-		// no less than 768px
-		@include media(">=screen768") {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: calc(33.33% - #{$gutter});
-			max-width: calc(33.33% - #{$gutter});
-			margin-top: $gutter;
-			margin-left: $gutter;
-
-			// first card of each row should be flush left
-			@include first(1) {
-				margin-left: 0;
-			}
-			@include every(5) {
-				margin-left: 0;
-			}
-
-			// last card of each row should be flush left
-			@include every(4) {
-				margin-right: 0 !important;
-			}
-
-			// last card of all should push left
-			@include last(1) {
-				margin-right: auto;
-			}
-
-			// first four don't need top margins
-			@include first(4) {
-				margin-top: 0;
-			}
-		}
-
-		// no less than 1170px
-		@include media(">=screen1170") {
-			flex-basis: calc(25% - #{$gutter});
-			max-width: calc(25% - #{$gutter});
-		}
-	}
+    strong {
+        color: $black--light;
+    }
 }
 
-//
-// Horizontally stacked card deck
-//
-.-horizontalDeck {
-
-	// no less than 600px
-	@include media(">=screen600") {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-	}
+.c-card__body {
+    position: relative;
+    padding: $gutter-sm;
+    transition: background-color $speed,
+                color $speed,
+                transform $speed;
+    border-radius: $border-radius;
+    background-color: $white--dark;
+    z-index: 9;
 }
 
-//
-// Vertically stacked card deck
-//
-.-verticalDeck {
+.c-card__link {
+    display: block;
 
-	// no greater than 768px, no less than 600px
-	@include media("<screen768", ">=screen600") {
-		@include clearfix();
-	}
-
-	// no less than 600px
-	@include media(">=screen600") {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	// no less than 768px
-	@include media(">=screen768") {
-		align-items: flex-start;
-	}
-
-	// no greater than 1170px, no less than 768px
-	@include media("<screen1170", ">=screen768") {
-		.c-card {
-			// hide the last card between these sizes
-			@include after-first(3) {
-				display: none;
-			}
-		}
-	}
+    @include hocus {
+        .c-card__body {
+            transform: translateY(-#{$gutter-xs});
+            background-color: $yellow;
+            color: $black;
+        }
+    }
 }

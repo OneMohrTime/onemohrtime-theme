@@ -1,0 +1,41 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    embed: params.src|default(null),
+    type: params.type|default('default')
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.embed %}
+<div class="c-embed" data-scroll-trigger>
+
+    {% if this.type == 'video' %}
+        <figure class="c-embed__video u-ratio u-16:9">
+            {{ this.embed }}
+        </figure>
+
+    {% elseif this.type == 'audio' %}
+        <figure class="c-embed__audio">
+            <figcaption class="u-screen-reader-text">{{ this.embed.title }}: {{ this.embed.description }}</figcaption>
+            <audio controls preload="metadata">
+                <source src="{{ this.embed.url }}" type="audio/mpeg">
+            </audio>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.embed.url,
+                    text: 'Download Audio',
+                    target: '_blank'
+                }
+            } only %}
+        </figure>
+
+    {% else %}
+        <figure class="c-embed__script">
+            {{ this.embed|raw }}
+        </figure>
+
+    {% endif %}
+
+</div>
+{% endif %}

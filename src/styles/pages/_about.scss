@@ -1,61 +1,35 @@
 /* ==========================================================================
-	About
+    About & About Me
 ========================================================================== */
 
 .t-page.is-about {
-	display: block;
 
-	.repeater {
-		padding-top: $gutter;
+    // Sections
+    .o-page__sections {
+        padding-bottom: $gutter;
+    }
 
-		& + .repeater {
-			border-top: 4px $white--dark solid;
-		}
+    // Instagram Section
+    .o-section.is-social-feed {
+        @include padding();
 
-		&[open] {
-			.repeater__title {
-				margin-bottom: 0.5em;
-			}
-		}
-	}
+        #sb_instagram {
+            padding-bottom: 0 !important;
+            #sbi_images {
+                padding-top: $gutter;
+                padding-bottom: $gutter;
+            }
+        }
+    }
 
-	.repeater__title {
-		margin-bottom: 0;
-		padding-right: 115px;
-		font-family: $font-header;
-		text-transform: none;
-		font-weight: 800;
-	}
-
-	@include media(">=screen1280") {
-		.o-page__repeater {
-			margin-bottom: $gutter-xl;
-		}
-	}
 }
 
-.-personalityTypes {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	@include small-font-size();
+.t-page.is-me {
 
-	// space top on mobile
-	& > div {
-		margin-top: $gutter-sm;
-		&:not(:first-child) {
-			margin-top: 0;
-		}
-	}
+    // Work & Education History
+    .o-page__sections {
+        @include padding();
+        padding-bottom: $gutter;
+    }
 
-	@include media(">=screen600") {
-		position: absolute;
-		bottom: $gutter;
-		flex-direction: row;
-
-		& > div {
-			margin-top: 0;
-			margin-right: $gutter-sm;
-		}
-	}
 }

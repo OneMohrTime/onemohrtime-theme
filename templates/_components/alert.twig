@@ -1,0 +1,30 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    alert: params.visible,
+    text: params.text,
+    link: params.link
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.alert %}
+<div class="c-alert is-active">
+
+    {% if this.text %}
+        <p class="c-alert__text">{{ this.text }}</p>
+    {% endif %}
+
+    {% if this.link %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.link.url,
+                text: this.link.title,
+                target: this.link.target,
+                classes: 'c-alert__button'
+            }
+        } only %}
+    {% endif %}
+
+</div>
+{% endif %}

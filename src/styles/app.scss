@@ -13,43 +13,42 @@
 
 /* CSS Reset + Normalize */
 @import "../../../../../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
-/* Full vendor mixins + variables */
-// @import "../../node_modules/normalize-scss/sass/normalize";
-@import "../../../../../node_modules/bourbon/core/bourbon";
-@import "vendor/base/base";
-// @import "../../node_modules/font-awesome/scss/font-awesome";
-// @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
-// @import "../../node_modules/swiper/swiper";
-/* Needs variables */
-@import "../../../../../node_modules/include-media/dist/include-media";
-// @import "vendor/modularscale";
-// @import "vendor/texture-mixin";
+
 /* Custom tools like family, functions, and mixins are included here for reuse throughout the theme. */
+@import "../../../../../node_modules/bourbon/core/bourbon";
 @import "tools/family";
 @import "tools/functions";
+@import "tools/variables";
 @import "tools/mixins";
+@import "tools/helpers";
+@import "tools/ratio";
+@import "tools/animations";
 
-@import "helpers/variables";
-@import "helpers/mixins";
-@import "helpers/helpers";
-@import "helpers/ratio";
-@import "helpers/animations";
+/* Full vendor mixins + variables */
+@import "../../../../../node_modules/include-media/dist/include-media";
+// @import "../../node_modules/swiper/swiper";
+
 /* The 'base' styles provide the fundamental styling for the theme, such as typography and media rules. */
 @import "base/base";
 @import "base/typography";
 @import "base/links";
 @import "base/media";
+@import "base/inputs";
+@import "components/buttons"; // technically a component, but used like an element
 
 /*--------------------------------------------------------------
 === 2.0 Layout ===
 --------------------------------------------------------------*/
 /* This section includes styles for building layout components like the header, footer, sidebar, and post layout. */
 
-@import "layout/builder";
-@import "layout/footer";
-@import "layout/forms";
+@import "layout/archives";
+@import "layout/cart";
+@import "layout/event";
 @import "layout/header";
+@import "layout/footer";
+@import "layout/page";
 @import "layout/post";
+@import "layout/product";
 @import "layout/project";
 @import "layout/sidebar";
 
@@ -58,27 +57,46 @@
 --------------------------------------------------------------*/
 /* This section contains styles for various reusable components like articles, banners, buttons, cards, and more. */
 
+@import "components/404";
 @import "components/alert";
 @import "components/article";
 @import "components/banner";
-@import "components/blockquote";
-@import "components/buttons";
+@import "components/blog";
+// @import "components/buttons";
+@import "components/call-to-action";
+@import "components/caption";
 @import "components/card";
-@import "components/case-studies";
-@import "components/contact";
-@import "components/css-design-award";
+@import "components/content";
+@import "components/details";
+@import "components/dropdowns";
 @import "components/embed";
+@import "components/fittext";
 @import "components/footer";
-@import "components/forms";
+@import "components/form";
 @import "components/gallery";
-@import "components/logo";
-@import "components/nav";
+@import "components/grid";
+@import "components/hamburger";
+@import "components/image";
+@import "components/intro";
+@import "components/list";
+@import "components/loader";
+@import "components/marqee";
+@import "components/masonry";
+@import "components/menu";
+@import "components/modal";
+@import "components/nav-keyboard";
+@import "components/nav-primary";
+@import "components/nav-mega";
+@import "components/nav-utility";
 @import "components/pagination";
-@import "components/parallax";
-@import "components/prism";
-@import "components/related-posts";
+@import "components/quotes";
+@import "components/related";
 @import "components/repeater";
-@import "components/text-image";
+@import "components/specifications";
+@import "components/tease";
+@import "components/text-media";
+@import "components/tooltip";
+@import "components/video";
 
 /*--------------------------------------------------------------
 === 4.0 Pages ===
@@ -86,12 +104,15 @@
 /* This section includes styles specific to different pages of the website, such as about, blog, home, work, etc. */
 
 @import "pages/about";
-@import "pages/archives";
-@import "pages/errors";
+@import "pages/archive";
 @import "pages/blog";
 @import "pages/contact";
+@import "pages/design";
+@import "pages/errors";
+@import "pages/contact";
+@import "pages/events";
 @import "pages/home";
-@import "pages/instagram";
 @import "pages/logos";
-@import "pages/top-10s";
-@import "pages/work";
+@import "pages/modeling";
+@import "pages/power-rankings";
+@import "pages/services";

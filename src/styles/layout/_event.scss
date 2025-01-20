@@ -1,0 +1,204 @@
+/* ==========================================================================
+    Event
+========================================================================== */
+
+// :root {
+//     --tec-grid-width: 100%;
+// }
+
+.t-tribe_events:not(.is-events) {
+
+    // Page Frame
+    #tribe-events-pg-template.tribe-events-pg-template {
+        @include padding();
+        max-width: 100%;
+        min-height: 1px;
+        padding-top: $gutter-sm;
+        padding-bottom: 0;
+
+        // screen at or above 600
+        @include media(">=small") {
+            padding-top: $gutter;
+            padding-bottom: 0;
+        }
+    }
+
+    // Event Image
+    .tribe-events-event-image {
+        img {
+            width: 100%;
+        }
+    }
+
+    // Event Header
+    .tribe-events-single-event-title {
+        line-height: $heading-height;
+    }
+    .tribe-events-schedule {
+        margin: 0 0 $line-height;
+    }
+
+    // Event Description
+    .tribe-events-single-event-description.tribe-events-content {
+        @include body-copy();
+        @include content-width();
+        margin-bottom: 0;
+        line-height: $line-height;
+    }
+
+    // Add to Calendar
+    .tribe-events-c-subscribe-dropdown {
+        margin: 0;
+    }
+
+    // Event Meta
+    .tribe-events-meta-group {
+        flex: 1 1 100%;
+        margin-right: 0;
+
+        .tribe-events-single-section-title {
+            font-size: $font-h5;
+        }
+
+        // screen at or above 600px
+        @include media(">=small") {
+            width: auto;
+            // max-width: 100%;
+            flex-basis: 50%;
+            max-width: calc(50% - $gutter-sm);
+        }
+    }
+    .tribe-events-event-meta {
+        dt {
+            font-weight: $font-bold;
+            font-weight: $font-semibold;
+        }
+        dd {
+            line-height: $line-height;
+        }
+    }
+    .tribe-events-event-meta.primary,
+    .tribe-events-event-meta.secondary {
+        margin: $gutter 0;
+        padding: 0;
+
+        // screen at or above 600px
+        @include media(">=small") {
+            flex-flow: row nowrap;
+            column-gap: $gutter;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            width: 100%;
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            width: 50%;
+        }
+    }
+
+    // Details
+    .tribe-event-tags a,
+    .tribe-events-event-categories a {
+        @include inline-link(true);
+    }
+
+    // Location
+    .tribe-events-address {
+        font-style: normal;
+        line-height: $heading-height;
+        .tribe-address,
+        .tribe-country-name {
+            display: block;
+        }
+        .tribe-events-gmap {
+            @include inline-link(true);
+        }
+    }
+
+    // Google Maps
+    .tribe-events-venue-map {
+        flex: 1 1 100%;
+        width: auto;
+
+        // screen at or above 600px
+        @include media(">=small") {
+            flex-basis: 50%;
+            max-width: calc(50% - $gutter-sm);
+        }
+    }
+
+    // Venue, Organizer
+    .tribe-organizer,
+    .tribe-venue {
+        margin-bottom: $small-spacing;
+        font-size: $font-h6;
+        font-weight: $font-bold;
+    }
+    .tribe-common-a11y-visual-hide {
+        display: none;
+    }
+
+    // Footer
+    #tribe-events-footer {
+        padding: 0;
+    }
+    .tribe-events-sub-nav {
+        flex-direction: column;
+        gap: 1em;
+
+        a {
+            display: block !important;
+        }
+
+        // screen at or above 600
+        @include media(">=small") {
+            flex-direction: row;
+        }
+    }
+
+    // Links
+    .tribe-events-event-url a {
+        @include inline-link(true);
+    }
+
+    // Buttons
+    .tribe-events-c-subscribe-dropdown__button,
+    .tribe-organizer-url a,
+    .tribe-venue-url a,
+    .tribe-events-back a,
+    .tribe-events-nav-previous a,
+    .tribe-events-nav-next a {
+        @include btn-style();
+        @include btn-color($black);
+        @include ellipsis;
+    }
+    .tribe-events-c-subscribe-dropdown__button-text,
+    .tribe-common-c-btn--clear {
+        border: 0;
+        appearance: none;
+    }
+
+    // Dropdowns
+    .tribe-events-c-subscribe-dropdown__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $small-spacing;
+        margin-top: $small-spacing;
+        padding: 0;
+        transform: none;
+    }
+    .tribe-events-c-subscribe-dropdown__list-item {
+        padding: 0;
+        line-height: $line-height;
+
+        a {
+            @include inline-link();
+            padding: 0;
+        }
+    }
+
+}

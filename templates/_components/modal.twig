@@ -1,0 +1,17 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    ID: params.id|default(null),
+    content: params.text|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+<div {% if this.ID %}id="modal" {% endif %}class="c-modal" aria-hidden="true" data-site-modal>
+    <div class="c-modal__content">
+        <button class="c-modal__close" aria-label="Close modal">×</button>
+        <div class="c-modal__body">
+            {{ this.content }}
+        </div>
+    </div>
+</div>

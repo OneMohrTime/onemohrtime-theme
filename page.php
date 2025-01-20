@@ -21,30 +21,69 @@
  * @since    Timber 0.1
  */
 
-$context     = Timber::context();
-$timber_post = new Timber\Post();
+$context = Timber::context();
 
-$projects = get_field('project_grid');
+$timber_post  = Timber::get_post();
 
-$top10s = array(
-	'post_type'      => 'top-10',
-	'posts_per_page' => -1
-);
+$logos = [
+    'post_type' => 'logo',
+    'posts_per_page' => -1,
+    'orderby' => 'title',
+    'order' => 'ASC',
+];
+$top10s = [
+    'post_type' => 'top-10',
+    'posts_per_page' => -1,
+    'orderby' => 'rand',
+    // 'order' => 'ASC',
+];
+if (isset($_GET['sort'])) {
+    switch ($_GET['sort']) {
+        case 'date':
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+            break;
+        case 'random':
+            $args['orderby'] = 'rand';
+            break;
+        case 'alphabetical':
+        default:
+            $args['orderby'] = 'title';
+            $args['order'] = 'ASC';
+            break;
+    }
+}
+if (!empty($_GET['job_type'])) {
+    $args['tax_query'] = [
+        [
+            'taxonomy' => 'job_type',
+            'field' => 'slug',
+            'terms' => $_GET['job_type'],
+        ],
+    ];
+}
+$project_grid = get_field('project_grid');
+$personality_traits = get_field('personality_traits');
+$work_history = get_field('work_history');
+$education = get_field('education');
+$creative_services = get_field('creative_services');
+$photo_shoots = get_field('photo_shoots');
+$related_posts = get_field('related_posts');
 
-$logos = array(
-	'post_type'      => 'logo',
-	'posts_per_page' => -1,
-	'orderby'        => 'menu_order',
-	'order'          => 'ASC'
-);
+$context['post']         = $timber_post;
+$context['projectGrid']  = $project_grid;
+$context['personality']  = $personality_traits;
+$context['resume']       = $work_history;
+$context['education']    = $education;
+$context['allServices']  = $creative_services;
+$context['photoShoots']  = $photo_shoots;
+$context['relatedPosts'] = $related_posts;
+$context['logofolio']    = Timber::get_posts($logos);
+$context['job_types']    = Timber::get_terms('job_type');
+$context['top10s']       = Timber::get_posts($top10s);
 
-$context['post']           = $timber_post;
-$context['projects']       = new Timber\PostQuery($projects);
-$context['builder']        = get_field('sections');
-$context['roles']          = new TimberTerm('design');
-$context['image_grid']     = get_field('image_grid');
-$context['myLogos']        = Timber::get_posts($logos);
-$context['power_rankings'] = Timber::get_posts($top10s);
-$context['relatedPosts']   = get_field('related_posts');
-
-Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );
+$templates        = array( '_views/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
+if ( is_front_page() ) {
+    array_unshift( $templates, '_views/front-page.twig' );
+}
+Timber::render( $templates, $context );

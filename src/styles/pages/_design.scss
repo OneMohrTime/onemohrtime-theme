@@ -1,0 +1,35 @@
+/* ==========================================================================
+    Design (Case Studies, Projects, Etc)
+========================================================================== */
+
+.t-page.is-design {
+
+    // Page Intro
+    .c-intro {
+        background-color: $yellow;
+        background-image: url("https://onemohrti.me/wp-content/uploads/graphy.png");
+        background-position: center center;
+        background-blend-mode: multiply;
+        a::before {
+            background-color: $gold;
+        }
+    }
+
+    // Case Studies
+    .o-section.is-case-studies {
+        @include padding();
+        display: flex;
+        flex-direction: column;
+        row-gap: $gutter;
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+
+        .c-button-group {
+            justify-content: center;
+
+            .c-button {
+                flex: 0 1 auto;
+            }
+        }
+    }
+}

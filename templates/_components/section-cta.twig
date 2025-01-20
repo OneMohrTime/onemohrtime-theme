@@ -1,0 +1,21 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    cta: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.cta %}
+<section class="o-section is-cta" data-module-scroll>
+
+    {% include '_components/cta.twig' with {
+        params: {
+            headline: this.cta.cta_headline ?? null,
+            text: this.cta.cta_text ?? null,
+            button: this.cta.cta_button ?? null,
+        }
+    } only %}
+
+</section>
+{% endif %}

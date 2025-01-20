@@ -1,0 +1,19 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    embedSection: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.embedSection %}
+<section class="o-section is-script" data-module-scroll>
+
+    {% include '_elements/embed.twig' with {
+        params: {
+            src: this.embedSection.embed_code
+        },
+    } only %}
+
+</section>
+{% endif %}

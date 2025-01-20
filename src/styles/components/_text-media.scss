@@ -1,0 +1,73 @@
+/* ==========================================================================
+    Section: Text & Media
+========================================================================== */
+
+.c-textMedia {
+    position: relative;
+    display: block;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // Even/Odd pattern
+        &.is-reversed {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.c-textMedia__text {
+    margin-bottom: $gutter-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 40%;
+        max-width: calc(40% - $gutter-sm);
+        margin-bottom: 0;
+    }
+
+    .u-subheadline {
+        margin-bottom: $small-spacing;
+    }
+
+    .c-button {
+        margin-top: 1em;
+    }
+}
+
+.c-textMedia__media {
+    position: relative;
+
+    .c-media,
+    .c-media__image {
+        border-radius: $border-radius;
+    }
+
+    .swiper-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: $small-spacing;
+        margin-top: $small-spacing;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 60%;
+        max-width: calc(60% - $gutter-sm);
+
+        .swiper-controls {
+            position: absolute;
+            left: $small-spacing;
+            bottom: $small-spacing;
+            z-index: 1;
+        }
+
+        .c-button {
+            background-color: fade-out($white, 0.85);
+        }
+    }
+}

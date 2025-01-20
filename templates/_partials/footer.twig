@@ -1,0 +1,108 @@
+{# -- Partial Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{% set this = {
+    logo: params.logo,
+    about: params.about,
+    flags: params.flags,
+    press: params.press,
+    social: params.social,
+    navigation: params.menu,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl
+} %}
+
+{# -- Partial Template -- #}
+{# ----------------------------------------------------------------- #}
+
+<footer class="o-site__footer">
+    <div id="colophon" class="c-footer">
+        <h2 class="u-screen-reader-text">Footer Info</h2>
+
+        <div class="c-footer__branding">
+            {% if this.logo %}
+                <a href="{{ this.siteUrl }}" class="c-media">
+                    <img src="{{ this.logo.url }}" alt="Logo for {{ this.siteName }}" class="c-media__image" />
+                </a>
+            {% endif %}
+            <div class="u-wysiwyg">
+                {{ this.about }}
+                <hr>
+                <p><a href="https://shop.onemohrti.me/">Shop</a> | <a href="https://recipes.onemohrti.me/">Recipes</a></p>
+            </div>
+        </div>
+
+        <div class="c-footer__primary">
+            <nav class="c-footer__nav">
+                <h3 class="u-eyebrow">Pages of Interest</h3>
+                <ul class="c-menu">
+                    {% for item in this.navigation.get_items %}
+                        <li class="c-menuItem">
+                            <a href="{{ item.url }}" class="u-highlight">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <nav class="c-footer__social">
+                <h3 class="u-eyebrow">Social Media</h3>
+                <ul class="c-menu">
+                    {% for profile in this.social %}
+                        {% set profile = profile.profile %}
+                        <li class="c-footer__social-profile">
+                            <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                                {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+
+        <div class="c-footer__secondary">
+            <div class="c-footer__flags">
+                <h3 class="u-eyebrow">Flags Collected</h3>
+                <ul class="c-menu">
+                    {% for flag in this.flags %}
+                        <li class="c-menuItem c-tooltip__container">
+                            {% if flag.story %}
+                                <a href="{{ flag.story }}" class="c-tooltip__anchor" aria-describedby="flag_{{ flag.country }}">{{ flag.emoji }}</a>
+                            {% else %}
+                                <div class="c-tooltip__anchor" aria-describedby="flag_{{ flag.country }}">{{ flag.emoji }}</div>
+                            {% endif %}
+                            <div id="flag_{{ flag.country }}" class="c-tooltip" role="tooltip">{{ flag.country }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <nav class="c-footer__press">
+                <h3 class="u-eyebrow">Recent Press</h3>
+                <ul class="c-menu">
+                    {% for item in this.press %}
+                        {% set press = get_post(item) %}
+                        <li class="c-menuItem">
+                            <a href="{{ press.link }}" title="{{ press.title }}">
+                                <img src="{{ press.thumbnail.src('thumbnail') }}" alt="Learn more about {{ press.title }}" width="200" height="200" class="c-media__image" />
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+
+        <div class="c-footer__utility">
+            <p>&copy; 2011 &ndash; {{ 'now'|date('Y') }} Derek Mohr</p>
+            <ul class="c-footer__legal c-menu">
+                <li class="c-menuItem">
+                    <a href="/privacy-policy" class="u-highlight">Privacy</a>
+                </li>
+                <li class="c-menuItem">
+                    <a href="/terms-of-use" class="u-highlight">Terms</a>
+                </li>
+                <li class="c-menuItem">
+                    <a href="/cookie-policy" class="u-highlight">Cookies</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</footer>

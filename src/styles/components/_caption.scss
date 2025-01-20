@@ -1,0 +1,62 @@
+/* ==========================================================================
+    Captions
+========================================================================== */
+
+.c-caption {
+    @include text-shadow();
+    position: absolute;
+    left: $gutter-sm;
+    bottom: 0;
+    max-height: 4em;
+    padding: $gutter-xs;
+    overflow-y: auto;
+    font-size: $font-base-sm;
+    line-height: $heading-height;
+    border-top-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    background-color: fade-out($black, 0.4);
+    color: $white;
+
+    .c-masonry__item &,
+    .c-textMedia__media &,
+    .c-gallery__image-link & {
+        left: 0;
+    }
+
+    .c-banner__media & {
+        left: auto;
+        right: 0;
+        max-width: rem(250px);
+        background-color: transparent;
+    }
+
+    .c-textMedia__media .swiper-slide & {
+        left: auto;
+        right: 0;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        left: $gutter;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        left: $gutter-lg;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        left: $gutter-xl;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        left: $gutter;
+    }
+
+    // screen at or above 1800px
+    @include media(">=huge") {
+        left: calc((100% - $container-width) / 2);
+    }
+}

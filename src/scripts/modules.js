@@ -6,12 +6,17 @@
 
 // Modules exports
 // =============================================================================
-export { default as ContactForm } from './modules/ContactForm';
+export { default as ChangeText } from './modules/ChangeText';
+export { default as DrawSVG } from './modules/DrawSVG';
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
-// export { default as Load } from './modules/Load';
+export { default as FitText } from './modules/FitText';
+export { default as Load } from './modules/Load';
+export { default as Marquee } from './modules/Marquee';
+export { default as Modal } from './modules/Modal';
 export { default as Navigation } from './modules/Navigation';
-export { default as Prism } from './modules/Prism';
-// export { default as Scroll } from './modules/Scroll';
-export { default as Swiper } from './modules/Swiper';
-// export { default as Title } from './modules/Title';
+export { default as Parallax } from './modules/Parallax';
+export { default as Scroll } from './modules/Scroll';
+export { default as SwiperGallery } from './modules/SwiperGallery';
+export { default as SwiperQuotes } from './modules/SwiperQuotes';
+export { default as SwiperSlides } from './modules/SwiperSlides';

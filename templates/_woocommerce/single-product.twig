@@ -1,0 +1,37 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+
+{% block content %}
+
+    {% do action('woocommerce_before_single_product') %}
+
+    <article itemscope itemtype="https://schema.org/Product" class="c-product {{ post.class }}">
+
+        <div class="c-product__images">
+            {% do action('woocommerce_before_single_product_summary') %}
+        </div>
+
+        <div class="c-product__summary">
+            {% do action('woocommerce_single_product_summary') %}
+        </div>
+
+        {% do action('woocommerce_after_single_product_summary') %}
+
+        <meta itemprop="url" content="{{ post.link }}" />
+
+    </article>
+
+    {# {% include '_components/tease-product.twig' with {
+        products: related_products
+    } %} #}
+
+    {% do action('woocommerce_after_single_product') %}
+
+{% endblock  %}

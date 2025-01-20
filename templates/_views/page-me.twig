@@ -1,0 +1,123 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+{% set pageBuilder = post.meta('section_builder')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: bannerImage,
+                images: bannerImages,
+                video: bannerVideo,
+                button: button
+            }
+        } only %}
+
+        <section class="c-intro" data-module-scroll>
+            {% if personality %}
+                <dl class="c-details">
+                {% for test in personality %}
+                    <dt class="c-details__header" data-scroll-trigger>{{ test.test }}</dt>
+                    <dd class="c-details__description" data-scroll-trigger>{{ test.result }}</dd>
+                {% endfor %}
+                </dl>
+            {% endif %}
+            <div class="u-wysiwyg" data-scroll-trigger>
+                {{ post.content }}
+            </div>
+        </section>
+
+        <section class="o-page__sections" data-module-scroll>
+            <h2 class="u-screen-reader-text">Résumé Specs</h2>
+
+            <h3 id="work-history" class="u-subheadline is-underlined">Professional History</h3>
+
+            {% for work in resume %}
+                <details class="c-repeater{{ work.end_date ? '' : ' is-current' }}"{% if work.end_date is empty %} data-start="{{ work.start_date ?? '' }}" data-end="Present"{% else %} data-start="{{ work.start_date ?? '' }}" data-end="{{ work.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
+                    <summary class="c-repeater__summary">
+                        <h4 id="{{ work.company|sanitize }}" class="c-repeater__title">{{ work.company }}</h4>
+                    </summary>
+                    <div class="c-repeater__body">
+                        <h5 id="{{ work.job_title|sanitize }}" class="u-subheadline">{{ work.job_title }}</h5>
+                        <div class="u-wysiwyg">{{ work.job_description }}</div>
+                        <a href="{{ work.website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">Website</a>
+                    </div>
+                </details>
+            {% endfor %}
+
+            <h3 id="educational-history" class="u-subheadline is-underlined">Education</h3>
+
+            {% for school in education %}
+                <details class="c-repeater{{ school.end_date ? '' : ' is-current' }}"{% if school.end_date is empty %} data-start="{{ school.start_date ?? '' }}" data-end="Present"{% else %} data-start="{{ school.start_date ?? '' }}" data-end="{{ school.end_date ?? '' }}" {% endif %}{% if loop.first %} open{% endif %}>
+                    <summary class="c-repeater__summary">
+                        <h4 id="{{ school.school_name|sanitize }}" class="c-repeater__title">{{ school.school_name }}</h4>
+                    </summary>
+                    <div class="c-repeater__body">
+                        <h5 class="u-subheadline">Undergrad</h5>
+                        <div class="u-wysiwyg">{{ school.description }}</div>
+                        <a href="{{ school.school_website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">Website</a>
+                    </div>
+                </details>
+            {% endfor %}
+
+        </section>
+
+        <section class="o-section is-shop" data-module-scroll>
+            {% include '_components/marquee.twig' %}
+        </section>
+
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
+
+        <figure class="o-section is-social-feed" data-module-scroll>
+            {% apply shortcodes %}
+                [instagram-feed feed=2]
+            {% endapply %}
+        </figure>
+
+        <section class="o-section is-contact" data-module-scroll>
+            {% include '_components/cta.twig' with {
+                params: {
+                    headline: 'Get In Touch',
+                    text: 'Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?',
+                    button: {
+                        url: '/contact',
+                        title: 'Contact Me'
+                    },
+                }
+            } only %}
+        </section>
+
+        {% if relatedPosts is not empty %}
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+                {% include '_components/related-posts.twig' with {
+                    related: relatedPosts
+                } only %}
+            </footer>
+        {% endif %}
+
+    </article>
+
+{% endblock %}

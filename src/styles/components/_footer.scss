@@ -1,194 +1,307 @@
 /* ==========================================================================
-	Footer
+    Footer
 ========================================================================== */
 
 .c-footer {
-	position: relative;
-	padding-top: $gutter;
+    position: relative;
+    background-color: $black;
+    background-image: url("https://onemohrti.me/wp-content/uploads/concrete-dark.png");
+    background-size: 298.5px 272.5px;
+    color: $white;
 
-	@include media(">=screen768", "<screen1024") {
-		display: flex;
-		flex-wrap: wrap;
-		column-gap: 2em;
-		padding-top: 0;
-	}
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-	@include media(">=screen1024") {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-auto-flow: row;
-		grid-template-areas:
-			"logo nav nav awards awards"
-			"legal nav nav travel travel"
-			"legal about about about about"
-			"legal about about about about";
-		align-items: start;
-		column-gap: 2em;
-		padding-top: 0;
-	}
+    // screen at or above 1500px
+    @include media(">=big") {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
 }
 
-.c-footer--col {
-	display: block;
+.c-footer__branding {
+    margin-bottom: $gutter;
+    padding-top: $gutter;
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+    padding-bottom: $gutter;
+    text-align: center;
 
-	@include media(">=screen768", "<screen1024") {
-		flex: 0 1 50%;
-		max-width: calc(50% - 1em);
-	}
+    .c-media__svg,
+    .c-media__image {
+        max-height: 100px;
+        max-width: 230px;
+    }
 
-	h3 {
-		border-bottom: 4px $yellow solid;
-		font-size: 1em;
-		padding-bottom: $small-spacing;
-	}
+    .u-wysiwyg {
+        margin-top: $small-spacing;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        padding-top: $gutter;
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 0 30%;
+        margin-bottom: 0;
+        padding-left: $gutter-lg;
+        padding-right: 0;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex: 0 1 auto;
+        padding-left: $gutter-xl;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-left: calc((100% - $container-width) / 2);
+    }
 }
 
-.c-footer__logo {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translate(-50%, -#{$gutter + 50px});
-	border: 0;
-	border-radius: 50px;
-	background-color: $black;
-	box-shadow: 0 0 0 1em $black;
+.c-footer__primary {
+    margin-bottom: $gutter;
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
 
-	.c-media__svg {
-		width: 100px;
-		height: 100px;
-	}
+    // screen at or above 600px
+    @include media(">=small") {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
 
-	@include media(">=screen768", "<screen1024") {
-		flex-basis: 100%;
-		max-width: 100%;
-	}
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 0 30%;
+        margin-bottom: 0;
+        padding-top: $gutter;
+        padding-left: $gutter-sm;
+        padding-right: 0;
+        padding-bottom: $gutter;
+    }
 
-	@include media(">=screen1024") {
-		grid-area: logo;
-		position: relative;
-		top: auto;
-		left: auto;
-		transform: none;
-		text-align: center;
-		border-radius: 0;
-		background-color: transparent;
-		box-shadow: none;
-	}
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-basis: 25%;
+        padding-left: $gutter-lg;
+    }
 }
 
-.c-footer__legal {
-	text-align: center;
+.c-footer__secondary {
+    margin-bottom: $gutter;
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
 
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		gap: 0.75em;
-	}
+    // screen at or above 600px
+    @include media(">=small") {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
 
-	hr {
-		height: 4px;
-		margin: 1.5em auto;
-	}
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 0 40%;
+        margin-bottom: 0;
+        padding-top: $gutter;
+        padding-left: $gutter-sm;
+        padding-right: $gutter-lg;
+        padding-bottom: $gutter;
+    }
 
-	.c-media--macintosh {
-		max-width: 220px;
-		margin: 1.5em auto 2.5em;
-		padding: 3px 7px 2px;
-		border-radius: 18px;
-		background-color: $white;
-	}
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-basis: 50%;
+        padding-left: $gutter-lg;
+        padding-right: $gutter-xl;
+    }
 
-	@include media(">=screen768", "<screen1024") {
-		flex-basis: 100%;
-		max-width: 100%;
-	}
-
-	@include media(">=screen1024") {
-		grid-area: legal;
-
-		.c-media--macintosh {
-			margin-bottom: 0;
-		}
-	}
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-right: calc((100% - $container-width) / 2);
+    }
 }
 
 .c-footer__nav {
-	margin-bottom: 2em;
+    margin-bottom: $gutter;
+    text-align: center;
 
-	.c-wysiwyg {
-		@include type();
-		column-count: 2;
-		column-gap: 1em;
-	}
+    .c-menu {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        line-height: $line-height;
 
-	@include media(">=screen1024") {
-		grid-area: nav;
-		margin-bottom: 0;
-	}
+        .c-menuItem {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    .u-highlight {
+        line-height: $heading-height;
+
+        &::before {
+            background-color: $gray--darkest;
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        text-align: left;
+
+        .c-menu {
+            gap: 0.5em 4px;
+
+            .c-menuItem {
+                max-width: calc(50% - 0.25em);
+                white-space: nowrap;
+            }
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        margin-bottom: 0;
+    }
 }
 
-.c-footer__about {
-	margin-bottom: 2em;
+.c-footer__social {
+    margin-top: $gutter;
+    text-align: center;
 
-	@include media(">=screen1024") {
-		grid-area: about;
-		margin-bottom: 0;
-	}
+    .c-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $small-spacing;
+        font-size: $font-h5;
+        line-height: 1em;
+    }
+
+    a {
+        transition: color $speed $bezier-slide;
+
+        @include hocus {
+            color: $yellow;
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        // margin-top: $gutter;
+        text-align: left;
+        .c-menu {
+            justify-content: flex-start;
+            font-size: $font-base-lg;
+        }
+    }
 }
 
-.c-footer__awards {
+.c-footer__flags {
+    margin-bottom: $gutter;
+    text-align: center;
 
-	@include media(">=screen1024") {
-		grid-area: awards;
-	}
+    .c-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: $small-spacing;
+    }
 
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5em;
-	}
+    .c-menuItem {
+        font-size: $font-h4;
+    }
 
-	// CSS Design Awards Kudos
-	.-cssda {
-
-		@include media(">=screen600") {
-			transform: scale(0.75);
-		}
-	}
-
-	// CSS Nectar Site of the Day
-	.-cssNectar {
-		position: relative;
-		width: 60px;
-		height: 60px;
-		margin-right: $gutter-sm;
-		overflow: hidden;
-
-		@include media(">=screen600") {
-			margin: 14px 0 0;
-		}
-
-		span {
-			position: absolute;
-			text-indent: -9999px;
-		}
-	}
+    // screen at or above 900px
+    @include media(">=medium") {
+        justify-content: flex-start;
+        text-align: left;
+        .c-menu {
+            justify-content: flex-start;
+        }
+    }
 }
 
-.c-footer__travel {
+.c-footer__press {
+    text-align: center;
+    line-height: $line-height;
 
-	@include media(">=screen1024") {
-		grid-area: travel;
-	}
+    .c-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: $gutter-sm;
+    }
 
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5em;
-		list-style-type: none;
-		font-size: 1.5em;
-		line-height: 1em;
-	}
+    .c-menuItem {
+        flex: 0 1 rem(125px);
+        max-width: rem(125px);
+        max-height: rem(125px);
+        border-radius: $border-radius;
+        overflow: hidden;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        text-align: left;
+        .c-menu {
+            justify-content: flex-start;
+        }
+    }
+}
+
+.c-footer__utility {
+    @include padding();
+    padding-top: $gutter-xs;
+    padding-bottom: $gutter-xs;
+    text-align: center;
+    background-color: $yellow;
+    color: $black;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-base-sm;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+}
+
+
+.c-footer__legal {
+    margin-top: $gutter-xs;
+    line-height: $line-height;
+
+    .u-highlight::before {
+        background-color: $gold !important;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        gap: $base-spacing;
+        margin-top: 0;
+    }
 }

@@ -1,0 +1,14 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    isVisible: params.visible|default(true),
+    headline: params.headline|default('Lorem ipsum dolor sit amet.'),
+    body: params.text|default(null),
+    button1: params.btn1|default(null),
+    button2: params.btn2|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-card">
+</div>

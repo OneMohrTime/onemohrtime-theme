@@ -1,236 +1,310 @@
 /* ==========================================================================
-	Home
+    Home
 ========================================================================== */
 
-/**
- * === ABOUT ===
- */
+.t-page.is-home {
 
-.homepage__about {
-	position: relative;
-	font-size: clamp(100%, 1rem + 1vw, 1.33em);
-	// @include base-font-size();
-	background-color: $black;
-	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-dark.png");
-	background-position: center center;
-	color: $white;
+    // Banner Section
+    .c-banner.is-homepage {
+        @include padding();
+        padding-top: $gutter-lg;
+        padding-bottom: $gutter-lg;
+        margin-bottom: 0;
+        text-align: center;
+        background-color: transparent;
+    }
 
-	@include media(">=screen960") {
-		display: flex;
-		align-items: flex-start;
-		min-height: 100vh;
-	}
-}
+    // Intro Section
+    .o-section.is-intro {
+        overflow: hidden;
 
-.homepage__about--image {
-	padding-top: $gutter;
-	// padding-right: $gutter;
+        .c-content.has-background-image {
+            @include padding("2x");
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            height: calc(400px + 10vh); // Base height + viewport height scaling
+            height: clamp(400px, calc(10vh + 300px), 600px); // Use clamp() for fluid scaling between breakpoints
+            padding-top: 0;
+            padding-bottom: 0;
 
-	a {
-		@include btn-style();
-	}
+            .u-headline {
+                margin: 0;
+            }
 
-	@include media(">=screen768") {
-		padding-left: $gutter-lg;
-		padding-right: $gutter-lg;
-		padding-bottom: $gutter;
-	}
+            .u-wysiwyg {
+                max-width: rem(420px);
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-	@include media(">=screen960") {
-		flex-basis: 40%;
-		max-width: 40%;
-		position: sticky;
-		top: 0;
-		height: 100vh;
-		padding-left: 0;
-		overflow: hidden;
+            // screen at or above 600px
+            @include media(">=small") {
+                height: 450px;
+                height: clamp(450px, calc(12vh + 300px), 600px);
+            }
+            // screen at or above 900px
+            @include media(">=medium") {
+                height: 500px;
+                height: clamp(500px, calc(14vh + 300px), 600px);
+            }
+            // screen at or above 1200px
+            @include media(">=large") {
+                height: 550px;
+                height: clamp(550px, calc(16vh + 300px), 600px);
+            }
+            // screen at or above 1500px
+            @include media(">=big") {
+                height: 600px;
+                height: clamp(600px, calc(20vh + 300px), 700px);
+            }
+        }
 
-		&::before {
-			content: "";
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			display: block;
-			width: 100%;
-			height: $gutter-xl;
-			background-image: linear-gradient(to bottom, fade-out($black, 1) 0, fade-out($black, 0.2) 80%, fade-out($black, 0) 100%);
-			z-index: 1;
-		}
-	}
+        p {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: $font-base-lg;
+        }
 
-	@include media(">=screen1024") {
-		padding-right: $gutter-xl;
-	}
+        // screen at or above 600px
+        @include media(">=small") {
+            // .c-content.has-background-image {
+            //     padding-top: $gutter-xl;
+            //     padding-bottom: $gutter-xl;
+            // }
+            // p {
+            //     font-size: $font-h6;
+            // }
+        }
 
-	@include media("<screen960") {
-		width: 100%;
-	}
-}
+        // screen at or above 900px
+        @include media(">=medium") {
+            // .c-content.has-background-image {
+            //     padding-top: $gutter-xxl;
+            //     padding-bottom: $gutter-xxl;
+            // }
+        }
+    }
 
-.homepage__about--content {
-	padding: $gutter-xl $gutter;
 
-	@include media(">=screen768") {
-		padding-left: $gutter-lg;
-		padding-right: $gutter-lg;
-	}
+    // Services Section
+    .o-section.is-services {
+        text-align: center;
 
-	@include media(">=screen960") {
-		flex-basis: 60%;
-		max-width: 60%;
-	}
+        .c-textMedia.is-reversed {
+            @include padding();
+            padding-top: $gutter;
+            padding-bottom: $gutter;
+        }
 
-	@include media(">=screen1024") {
-		padding-left: $gutter-xl;
-		padding-right: $gutter-xl;
-	}
+        .c-textMedia__media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $gutter-sm;
 
-	h1, h2, h3, h4, h5, h6 {
-		// headers in a wysiwyg section only...hopefully
-		margin-bottom: $base-line-height;
-		font-size: 1.25em;
-		&:not(:first-child) {
-			margin-top: $base-line-height;
-		}
-	}
+            a {
+                flex: 0 0 50%;
+                max-width: calc(50% - math.div($gutter-sm, 2));
+                border-radius: $border-radius;
+                background-color: $white--dark;
+                background-position: center center;
+                background-size: cover;
+                aspect-ratio: 1 / 1;
+            }
 
-	a {
-		&::before {
-			background-color: $black--lightest !important;
-			background-color: $gray--dark !important;
-		}
-	}
-}
+            .u-subheadline {
+                @include text-shadow();
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: $gutter-xs;
+                transition: transform $speed $bezier-slide;
+                background-color: fade-out($black, 0.75);
+                color: $white;
+            }
+        }
 
-/**
- * === CALL TO ACTION ===
- */
+        // screen at or above 900px
+        @include media(">=medium") {
+            text-align: left;
 
-.homepage__cta {
-	@include padding();
-	padding-bottom: $gutter-lg;
-	background-image: linear-gradient(to top left, $white 50%, fade-out($white, 1) 50%);
+            .c-textMedia.is-reversed {
+                column-gap: $gutter-lg;
+            }
+            .c-textMedia__text {
+                flex: 0 1 auto;
+                padding-left: $gutter;
+            }
+            .c-textMedia__media {
+                flex: 1 0 auto;
+                display: grid;
+                grid-template-columns: repeat(5, 20%);
+                grid-template-rows: 1fr 1fr;
 
-	.c-builder__section {
-		margin: 0 !important;
-	}
-}
+                a {
+                    width: auto;
+                    max-width: 100%;
+                    overflow: hidden;
+                    @include first(2) {
+                        grid-column: span 2;
+                        grid-row: span 2;
+                    }
+                    @include last(2) {
+                        .u-subheadline {
+                            font-size: $font-base-lg;
+                        }
+                    }
+                    @include hocus {
+                        .u-subheadline {
+                            opacity: 0.4;
+                            transform: scale(1.2);
+                            background-color: transparent;
+                        }
+                    }
+                }
 
-/**
- * === CASE STUDIES ===
- */
+                .u-subheadline {
+                    padding: $gutter-sm;
+                    transition: opacity $speed $bezier-slide,
+                                transform $speed $bezier-slide,
+                                background $speed $bezier-slide;
+                }
+            }
+        }
+    }
 
-.homepage__caseStudies {
-	@include padding();
-	padding-top: $gutter-xl;
-	padding-left: 0;
-	padding-right: 0;
-	padding-bottom: $gutter-xl;
-	background-color: $white;
-	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-light.png");
-	background-position: center center;
+    // Proposal Section
+    .o-section.is-proposal {
+        text-align: center;
 
-	@include media(">=screen1024") {
-		padding-right: 0;
-	}
-}
+        .c-textMedia {
+            @include padding();
+            padding-bottom: $gutter;
+        }
 
-/**
- * === CONTACT ===
- */
+        .c-button-group {
+            justify-content: center;
+        }
 
-.homepage__contact {
-	@include padding();
-	margin-left: 0;
-	margin-right: 0;
-	padding-top: $gutter;
-	padding-bottom: $gutter;
-	font-size: 1.25em;
-	background-color: $yellow;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e6b000' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-	background-position: top center;
+        // screen at or above 900px
+        @include media(">=medium") {
+            text-align: left;
+            .c-button-group {
+                justify-content: flex-start;
+            }
+        }
+    }
 
-	.u-headline {
-		font-size: 1.25em;
-	}
+    // Instagram & Content Section
+    .o-section.is-social-feed {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        background-color: $black;
+        color: $white;
 
-	.c-button {
-		margin-top: 1em;
-		border-radius: 0;
-		&::after {
-			height: 6px;
-		}
-	}
+        .u-wysiwyg {
+            position: sticky;
+            top: 0;
+        }
 
-	@include media(">=screen1024") {
-		display: grid;
-		grid-template-columns: 3fr 2fr;
-		grid-template-rows: auto auto;
-		column-gap: $gutter;
-		align-items: center;
-		align-content: center;
-		padding-top: $gutter-lg;
-		padding-bottom: $gutter-lg;
+        .c-instagram {
+            margin-top: $gutter;
 
-		.u-headline {
-			grid-column: 1 / 2;
-			font-size: 4.445vw;
-			font-size: 3.542vw;
-		}
+            #sb_instagram {
+                padding-bottom: 0 !important;
+                #sbi_images {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+        }
 
-		.u-wysiwyg {
-			grid-column: 1 / 2;
-			margin-bottom: 0;
-		}
+        // screen at or above 900px
+        @include media(">=medium") {
+            display: flex;
+            align-items: flex-start;
+            column-gap: $gutter;
 
-		.c-button {
-			grid-column: 2 / 3;
-			grid-row: 1 / 3;
-			margin-left: auto;
-			padding-top: 0;
-			padding-left: 0;
-			padding-right: 0;
-			padding-bottom: 10px;
-			border-top: 0;
-			border-left: 0;
-			border-right: 0;
+            .u-wysiwyg {
+                flex: 1 1 50%;
+                max-width: calc(50% - $gutter-sm);
+            }
 
-			&::after {
-				background-color: $white;
-			}
-		}
-	}
-}
+            .c-instagram {
+                flex: 1 1 50%;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                max-width: calc(50% - $gutter-sm);
+                margin-top: 0;
+                overflow: hidden;
 
-/**
- * === FEATURE 1 & 2 ===
- */
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    display: block;
+                    width: 100%;
+                    height: $gutter-xl;
+                    background-image: linear-gradient(to bottom, fade-out($black, 1) 0, fade-out($black, 0.2) 80%, fade-out($black, 0) 100%);
+                    z-index: 1;
+                }
+            }
+        }
 
-.homepage__feature {
-	@include padding();
-	position: relative;
-	padding-top: $gutter;
-	padding-bottom: $gutter;
+        // screen at or above 1200px
+        @include media(">=large") {
+            .u-wysiwyg {
+                flex-basis: 60%;
+                max-width: calc(60% - $gutter-sm);
+            }
+            .c-instagram {
+                flex-basis: 40%;
+                max-width: calc(40% - $gutter-sm);
+            }
+        }
+    }
 
-	@include media(">=screen1024") {
-		padding-top: $gutter-lg;
-		padding-bottom: $gutter-lg;
-	}
+    // Case Studies
+    .o-section.is-case-studies {
+        @include padding();
+        display: flex;
+        flex-direction: column;
+        row-gap: $gutter;
+        padding-top: $gutter;
+        padding-bottom: $gutter;
 
-	&.homepage__feature--1 {
-		background-color: $white;
-	}
+        .u-headline {
+            display: block;
+            text-align: center;
+        }
 
-	&.homepage__feature--2 {
-		background-color: $black;
-		color: $white;
+        .c-button-group {
+            justify-content: center;
 
-		.c-article {
-			flex-direction: row-reverse;
-		}
-		.c-article__link {
-			@include btn-color($white, $black--lightest);
-		}
-	}
+            .c-button {
+                flex: 0 1 auto;
+            }
+        }
+    }
+
+    // Travel Section
+    .o-section.is-travel {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        text-align: center;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            text-align: left;
+        }
+    }
 }

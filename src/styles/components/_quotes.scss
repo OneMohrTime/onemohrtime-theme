@@ -1,0 +1,153 @@
+/* ==========================================================================
+    Section: Quotes
+========================================================================== */
+
+.c-quotes {
+    @include padding();
+    position: relative;
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        .c-quote {
+            position: relative;
+            padding-top: rem(10px);
+            z-index: 1;
+        }
+        .u-quotes {
+            position: absolute;
+            top: rem(-40px);
+            left: rem(-25px);
+            font-size: rem(250px);
+            line-height: rem(250px);
+            z-index: -1;
+            pointer-events: none;
+        }
+    }
+}
+
+.c-quotes__testimonial {
+
+    .swiper-slide {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: $gutter-sm;
+        background-color: $white;
+
+        // screen at or above 600px
+        @include media(">=small") {
+            flex-direction: row-reverse;
+
+            .c-media {
+                flex: 0 1 percentage(1/3);
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            gap: $gutter;
+        }
+    }
+
+    &.has-single {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: $gutter-sm;
+
+        // screen at or above 600px
+        @include media(">=small") {
+            flex-direction: row-reverse;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            gap: $gutter;
+        }
+    }
+}
+
+.c-quote {
+    @include content-width();
+    position: relative;
+    margin: 0;
+    padding: $gutter-sm;
+    line-height: $heading-height;
+    border: 0;
+    border-radius: $border-radius;
+    background-color: $white--dark;
+
+    cite {
+        display: block;
+        margin-top: $line-height;
+        font-style: normal;
+        font-weight: $font-bold;
+    }
+
+    // Corresponding photo or logo
+    & + .c-media {
+        border-radius: $border-radius;
+        overflow: hidden;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        .c-quotes__testimonial.swiper & {
+            flex: 1 1 percentage(2/3);
+            max-width: calc(percentage(2/3) - $gutter-sm);
+
+            & + .c-media {
+                flex: 1 1 percentage(1/3);
+                max-width: calc(percentage(1/3) - $gutter-sm);
+            }
+        }
+
+        .c-quotes__testimonial.has-single & {
+            flex: 0 1 percentage(2/3);
+
+            & + .c-media {
+                flex: 0 1 percentage(1/3);
+            }
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding: $gutter;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        padding: 0;
+        border-radius: 0;
+        background-color: transparent;
+
+        p {
+            font-family: $font-header;
+            font-size: $font-h4;
+            font-weight: $font-bold;
+            line-height: $heading-height;
+        }
+
+        cite {
+            font-size: $font-h6;
+            line-height: $line-height;
+        }
+    }
+}
+
+.c-quote__controls {
+    display: flex;
+    column-gap: 8px;
+    padding-top: $gutter-sm;
+
+    .c-button.is-prev,
+    .c-button.is-next {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        border-radius: 30px;
+    }
+}

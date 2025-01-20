@@ -7,8 +7,11 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
-import { lazyLoadImage } from '../utils/image';
-import LocomotiveScroll from 'locomotive-scroll';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register the ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -16,50 +19,51 @@ export default class extends es6Module {
 
   constructor(m) {
     super(m);
+
+    this.classes = [];
+    this.elements = null;
   }
 
   // Init module
   // ===========================================================================
   init() {
-    this.scroll = new LocomotiveScroll({
-      el: this.el,
-      smooth: true
+    this.classes = this.el.classList;
+    this.elements = document.querySelectorAll('[data-scroll-trigger]');
+
+    if (this.classes.contains('is-social-feed')) {
+      const instagramFeed = this.el.querySelectorAll('.sbi_item');
+      instagramFeed.forEach(insta => {
+        insta.setAttribute('data-scroll-trigger', '');
+      });
+    }
+
+    // Animate each element when it comes into the viewport
+    this.elements.forEach((element, index) => {
+      gsap.fromTo(element, {
+        opacity: 0,
+        y: 50
+      }, {
+        opacity: 1,
+        y: 0,
+        // duration: 0.6,
+        // delay: index * 0.2, // Stagger animations based on index
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        }
+      });
     });
-
-    this.scroll.on('call', (func, way, obj, id) => {
-      // Using modularJS
-      this.call(func[0], { way, obj }, func[1], func[2]);
-    });
-
-    this.scroll.on('scroll', (args) => {
-      // console.log(args.scroll);
-    })
   }
 
-  /**
-   * Lazy load the related image.
-   *
-   * @see ../utils/image.js
-   *
-   * It is recommended to wrap your `<img>` into an element with the
-   * CSS class name `.c-lazy`. The CSS class name modifier `.-lazy-loaded`
-   * will be applied on both the image and the parent wrapper.
-   *
-   * ```html
-   * <div class="c-lazy o-ratio u-4:3">
-   *     <img data-scroll data-scroll-call="lazyLoad, Scroll, main" data-src="http://picsum.photos/640/480?v=1" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-   * </div>
-   * ```
-   *
-   * @param {LocomotiveScroll} args - The Locomotive Scroll instance.
-   */
-  lazyLoad(args) {
-    lazyLoadImage(args.obj.el, null, () => {
-      //callback
-    })
-  }
+  // // Fade In Lists
+  // // ===========================================================================
+  // scrollList() {
+  // }
 
-  destroy() {
-    this.scroll.destroy();
-  }
+  // // Fade In Footer
+  // // ===========================================================================
+  // scrollFooter() {
+  // }
+
 }

@@ -1,0 +1,48 @@
+{# -- Partial Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{% set this = {
+    primary: params.menu|default(null),
+    utility: params.utility|default(null),
+    megaMenu1: megaMenu.col1|default(null),
+    megaMenu2: megaMenu.col2|default(null),
+    megaMenu3: megaMenu.col3|default(null),
+    megaMenu4: megaMenu.col4|default(null),
+    megaMenu5: megaMenu.col5|default(null),
+    socialMedia: megaMenu.social|default(null),
+    availability: params.availability|default(null),
+    openings: params.openings|default(null),
+    siteName: params.siteName|default(null),
+    siteLogo: params.siteLogo|default(null),
+    siteUrl: params.siteUrl|default(null),
+} %}
+
+{# -- Partial Template -- #}
+{# ----------------------------------------------------------------- #}
+
+{% if this.utility %}
+    {% include '_components/nav-utility.twig' with {
+        utilityMenu: this.utility
+    } only %}
+{% endif %}
+
+{% if this.primary %}
+    {% include '_components/nav-primary.twig' with {
+        navMenu: this.primary,
+        megaMenu: {
+            menu1: this.megaMenu1,
+            menu2: this.megaMenu2,
+            menu3: this.megaMenu3,
+            menu4: this.megaMenu4,
+            menu5: this.megaMenu5,
+            social: this.socialMedia
+        },
+        params: {
+            siteName: this.siteName,
+            siteUrl: this.siteUrl,
+            logo: this.siteLogo,
+            availability: this.availability,
+            openings: this.openings
+        }
+    } only %}
+{% endif %}

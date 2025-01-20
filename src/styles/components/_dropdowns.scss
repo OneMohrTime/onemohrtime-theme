@@ -1,0 +1,39 @@
+/* ==========================================================================
+    Dropdowns
+========================================================================== */
+
+.c-dropdown {
+    line-height: $line-height;
+    border-top: 1px solid $gray--lightest;
+    padding: $gutter-sm;
+}
+
+.c-dropdown__title {
+    position: relative;
+    font-weight: $font-bold;
+    cursor: pointer;
+
+    // Remove default dropdown arrow
+    list-style: none;
+    &::marker,
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    // Create custom arrow
+    &::after {
+        content: "+";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transition: transform $speed $bezier-slide;
+        line-height: inherit;
+        .c-dropdown[open] & {
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.c-dropdown__text {
+    margin-top: $line-height / 2;
+}

@@ -6,9 +6,8 @@
  * @subpackage  Timber
  */
 
-$context = array();
+$context = [
+    'dynamic_sidebar' => Timber::get_widgets('globalSidebar'),
+];
 
-$context['sidebar']         = Timber::get_sidebar('sidebar.twig');
-$context['dynamic_sidebar'] = Timber::get_widgets('dynamic_sidebar');
-
-Timber::render( array( 'components/sidebar.twig' ), $context );
+Timber::render('_partials/sidebar.twig', $context);

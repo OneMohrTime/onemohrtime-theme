@@ -1,0 +1,101 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    eyebrow: params.eyebrow|default(null),
+    headline: params.headline|default(null),
+    text: params.text|default(''),
+    button: params.button ?? null,
+    media: params.media|default(null),
+    mediaRatio: params.aspectRatio ?? '4:3',
+    mediaType: params.mediaType|default(null),
+    isReverse: params.alignment|default(false)
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-textMedia{{ this.isReverse }}">
+
+    <div class="c-textMedia__text">
+        {% if this.eyebrow %}
+            <strong class="u-eyebrow" data-scroll-trigger>{{ this.eyebrow }}</strong>
+        {% endif %}
+        {% if this.headline %}
+            <h2 class="u-subheadline" data-scroll-trigger>{{ this.headline }}</h2>
+        {% endif %}
+        {% if this.text %}
+            <div class="u-wysiwyg" data-scroll-trigger>
+                {{ this.text }}
+            </div>
+        {% endif %}
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.button.url,
+                    text: this.button.title,
+                    target: this.button.target,
+                }
+            } only %}
+        {% endif %}
+    </div>
+
+    <figure class="c-textMedia__media">
+        {% switch this.mediaType %}
+
+            {% case 'video' %}
+                {% include '_elements/embed.twig' with {
+                    params: {
+                        src: this.media.video,
+                        type: 'video'
+                    }
+                } only %}
+
+            {% case 'slides' %}
+                <div class="swiper is-cards" data-module-swiper-slides>
+                    <div class="swiper-wrapper" data-scroll-trigger>
+                        {% for image in this.media.slider %}
+                            <div class="swiper-slide">
+                                {% include '_elements/picture.twig' with {
+                                    params: {
+                                        src: image,
+                                        ratio: this.mediaRatio != null ? this.mediaRatio : null
+                                    }
+                                } only %}
+                                {% if image.caption %}
+                                    <aside class="c-caption">
+                                        {{ image.caption }}
+                                    </aside>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-controls" data-scroll-trigger>
+                        <button class="c-button is-prev">
+                            <span class="u-screen-reader-text">Previous</span>
+                            {{ source('_elements/svg/arrow-left.svg') }}
+                        </button>
+                        <button class="c-button is-next">
+                            <span class="u-screen-reader-text">Next</span>
+                            {{ source('_elements/svg/arrow-right.svg') }}
+                        </button>
+                    </div>
+                </div>
+
+            {% default %}
+                {% set mediaImage = this.media.image %}
+                {% set mediaCaption = this.media.image.caption ?? null %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: mediaImage,
+                        ratio: this.mediaRatio
+                    }
+                } only %}
+                {% if mediaCaption %}
+                    <aside class="c-caption" data-scroll-trigger>
+                        {{ mediaCaption }}
+                    </aside>
+                {% endif %}
+
+        {% endswitch %}
+    </figure>
+
+</div>

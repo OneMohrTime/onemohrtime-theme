@@ -1,0 +1,100 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    hasIntro: params.section.add_intro_content|default(null),
+    galleryType: params.section.gallery_type|default(null),
+    headline: params.section.headline|default(null),
+    text: params.section.text|default(null),
+    images: params.section.images|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.images %}
+<section class="o-section is-{{ this.galleryType }}-gallery">
+
+    {% if this.hasIntro %}
+        <div class="c-gallery__intro">
+        {% if this.headline %}
+            <h2 class="u-subheadline" data-scroll-trigger>{{ this.headline }}</h2>
+        {% endif %}
+        {% if this.text %}
+            <div class="u-wysiwyg" data-scroll-trigger>
+                {{ this.text }}
+            </div>
+        {% endif %}
+        </div>
+    {% endif %}
+
+    {% set galleryID = random() %}
+    {% switch this.galleryType %}
+
+        {% case 'grid' %}
+            <ul class="c-masonry" data-module-fancybox>
+                {% for image in this.images %}
+                <li class="c-masonry__item" data-scroll-trigger>
+                    <a href="{{ image.sizes.large }}" class="c-masonry__item-link" data-fancybox="gallery-{{ galleryID }}" data-caption="{{ image.caption }}">
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: image,
+                                sizes: '(min-width: 900px) 25vw, 50vw'
+                            }
+                        } only %}
+                        {% if image.caption %}
+                            <aside class="c-caption">
+                                {{ image.caption }}
+                            </aside>
+                        {% endif %}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% case 'slider' %}
+            <figure class="c-gallery" data-module-fancybox>
+                <div class="swiper is-gallery" data-module-swiper-gallery>
+
+                    <ul class="swiper-wrapper" data-scroll-trigger>
+                        {% for image in this.images %}
+
+                            <li class="swiper-slide c-gallery__image">
+                                {% set slideImage = get_image(image) %}
+                                <a href="{{ slideImage.src('1536x1536') }}" class="c-gallery__image-link" data-fancybox="gallery-{{ galleryID }}" data-caption="{{ slideImage.caption }}">
+                                    {% include '_elements/picture.twig' with {
+                                        params: {
+                                            src: slideImage,
+                                            sizes: '(min-width: 900px) 33vw, 50vw'
+                                        }
+                                    } only %}
+                                    {% if slideImage.caption %}
+                                        <aside class="c-caption">
+                                            {{ slideImage.caption }}
+                                        </aside>
+                                    {% endif %}
+                                </a>
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+
+                    <div class="swiper-controls" data-scroll-trigger>
+                        <button class="c-button is-prev">
+                            <span class="u-screen-reader-text">Previous</span>
+                            {{ source('_elements/svg/arrow-left.svg') }}
+                        </button>
+                        <button class="c-button is-next">
+                            <span class="u-screen-reader-text">Next</span>
+                            {{ source('_elements/svg/arrow-right.svg') }}
+                        </button>
+                    </div>
+
+                </div>
+            </figure>
+
+        {% default %}
+        {# no default configured #}
+
+    {% endswitch %}
+
+</section>
+{% endif %}

@@ -1,49 +1,38 @@
 /* ==========================================================================
-	Base
+    Base
 ========================================================================== */
 
 html {
-	// height: 100%;
-	font-size: 1em;
-	line-height: 1em;
-	background-color: $black;
+    // height: 100%;
+    font-size: 1em;
+    line-height: 1em;
 
-	// If Javascript is turned off...
-	// &.no-js {}
+    // If Javascript is turned off...
+    // &.no-js {}
 }
 
 body {
-	position: relative;
-	width: 100%;
-	// height: 100%;
-	min-height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-	font-family: $font-main;
-	// font-size: clamp(100%, 1rem + 2vw, 1.33em);
-	font-size: 1em;
-	background-attachment: fixed;
-	background-color: $white--darker;
-	background-image: url("/wp-content/themes/onemohrtime/assets/img/concrete-light.png");
-	background-position: top center;
-	color: $black;
+    position: relative;
+    width: 100%;
+    // height: 100%;
+    min-height: 100vh;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    font-family: $font-body;
+    font-size: 1em;
+    background-color: $white--darker;
+    background-image: url("https://onemohrti.me/wp-content/uploads/graphy.png");
+    background-position: center center;
+    color: $black;
 
-	// crisp typography rendering
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    // crisp typography rendering
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-	&.no-scrollingPlz {
-		overflow: hidden;
-	}
-
-	// "Overflow" scrolling on large monitors
-	@include media(">=screen1600") {
-		padding-bottom: 100px;
-	}
-	@include media(">=screen1920") {
-		padding-bottom: 150px;
-	}
+    &.no-scrollingPlz {
+        overflow: hidden;
+    }
 }
 
 /**
@@ -51,53 +40,50 @@ body {
  */
 
 .o-site {
-	position: relative;
-	max-width: 100%;
-	min-height: 100vh;
-	padding-top: 0;
-	padding-bottom: 72px;
-	transition: $speed linear;
+    position: relative;
+    display: block;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    transition: $speed linear;
 
-	@include media(">=screen600") {
-		padding-bottom: 0;
+    &.-activeNavigationAreaUpTopButNotWhenScrolling {
+        overflow: hidden;
+    }
 
-		&.-activeNavigationAreaUpTopButNotWhenScrolling {
-			padding-top: 100px;
-		}
-	}
+    // screen at or above 1500px
+    @include media(">=big") {
+        display: flex;
+        flex-direction: column;
+        max-width: 1440px;
+        margin-top: $gutter;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: $gutter;
+    }
 
-	// @include media(">=screen1440") {
-	// 	font-size: 1.181vw;
-	// }
+    // screen at or above 1800px
+    @include media(">=huge") {
+        max-width: 1600px;
+        max-width: calc(100% - ($gutter-lg * 2));
+        margin-top: $gutter-lg;
+        margin-bottom: $gutter-lg;
+    }
 
-	@include media(">=screen1600") {
-		max-width: 1440px;
-		margin-left: auto;
-		margin-right: auto;
-		border-bottom-left-radius: $base-border-radius;
-		border-bottom-right-radius: $base-border-radius;
-		box-shadow: #{$gutter-sm} 0 #{$gutter * 0.67} -#{$gutter * 0.67} fade-out($black, 0.4),
-					-#{$gutter-sm} 0 #{$gutter * 0.67} -#{$gutter * 0.67} fade-out($black, 0.4);
-	}
-
-	@include media(">=screen1920") {
-		max-width: 1600px;
-	}
+    // screen at or above 599px
+    @include media("<small") {
+        padding-bottom: rem(56px);
+    }
 }
 
 .o-site__main {
-	position: relative;
-	min-height: 100vh;
-	background-color: $white;
-	background-image: url("/wp-content/themes/onemohrtime/assets/img/old_mathematics.png");
-	background-position: top center;
-	color: $black;
+    position: relative;
+    background-color: $white;
+    color: $black;
 
-	&.-home {
-		// .o-site__main.-home
-		background-color: $yellow;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e6b000' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-		background-position: top center;
-		color: $black;
-	}
+    // screen at or above 1500px
+    @include media(">=big") {
+        flex: 1 0 auto;
+    }
 }

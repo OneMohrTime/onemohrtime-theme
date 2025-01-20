@@ -1,0 +1,125 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    menu: navMenu,
+    mega1: megaMenu.menu1,
+    mega2: megaMenu.menu2,
+    mega3: megaMenu.menu3,
+    mega4: megaMenu.menu4,
+    mega5: megaMenu.menu5,
+    social: megaMenu.social,
+    availability: params.availability,
+    openings: params.openings,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl,
+    logo: params.logo
+} %}
+{% switch this.availability %}
+    {% case 'busy' %}
+        {% set availabilityValue = 'Limited' %}
+    {% case 'none' %}
+        {% set availabilityValue = 'Reduced' %}
+    {% default %}
+        {% set availabilityValue = 'Open to Work' %}
+{% endswitch %}
+
+{# -- Component Template -- #}
+
+<nav class="c-navigation">
+
+    <button type="button" class="c-navigation__toggle" aria-label="Menu" data-toggle-menu>
+        <span class="m">M</span>
+        <span class="e">
+            <span class="e__bar"></span>
+            <span class="e__bar"></span>
+            <span class="e__bar"></span>
+        </span>
+        <span class="n">N</span>
+        <span class="u">U</span>
+    </button>
+
+    {% if this.menu %}
+        <ul class="c-navigation__menu is-hidden">
+
+            {% for item in this.menu.get_items %}
+                {% set activeMenuClass = ('current-menu-item' in item.classes == 1) ? ' is-current' %}
+
+                <li class="c-navigation__menuItem {{ activeMenuClass }}">
+
+                    {% if 'c-button' in item.classes %}
+                        <a href="{{ item.link }}" class="c-button is-primary"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                            {{ item.title }}
+                        </a>
+
+                    {% elseif item.children %}
+                        <a href="{{ item.link }}" class="u-nav-link">
+                            {{ item.title }}
+                        </a>
+
+                    {% else %}
+                        <a href="{{ item.link }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                            {{ item.title }}
+                            {% if item.target == '_blank' %}
+                                {{ source('_elements/svg/external-link.svg') }}
+                            {% endif %}
+                        </a>
+
+                    {% endif %}
+
+                    {% if item.children %}
+                        <ul id="primary__sub-{{ item.id }}" class="c-submenu">
+
+                            {% for submenu in item.children %}
+                                {% set activeMenuClass = ('current-menu-item' in submenu.classes == 1) ? ' is-current' %}
+                                <li class="c-submenu__item{{ activeMenuClass }}">
+                                    <a href="{{ submenu.link }}" class="u-nav-link">
+                                        {{ submenu.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% include '_components/nav-mega-menu.twig' with {
+            params: {
+                mega1: this.mega1,
+                mega2: this.mega2,
+                mega3: this.mega3,
+                mega4: this.mega4,
+                mega5: this.mega5,
+                social: this.social,
+                search: this.siteUrl
+            }
+        } only %}
+
+    {% endif %}
+
+    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
+        {% if this.logo is not empty and '.svg' in this.logo %}
+            {{ source('_elements/svg/logo.svg') }}
+        {% elseif this.logo is not empty %}
+            <img src="{{ this.logo }}" alt="{{ this.siteName }} logo" class="c-media__image" />
+        {% else %}
+            <strong>{{ this.siteName }}</strong>
+        {% endif %}
+    </a>
+
+    <div class="c-availability c-tooltip__container">
+        <a href="/contact" class="c-tooltip__anchor" aria-describedby="my_availability">
+            <span class="c-availability__label">Availability:</span>
+            <span class="c-availability__value is-{{ this.availability }}">{{ availabilityValue }}</span>
+        </a>
+        <div id="my_availability" class="c-tooltip" role="tooltip">
+        {% if this.openings|date('Ym') < 'now'|date('Ym') %}
+            Get In Touch
+        {% else %}
+            Openings beginning in {{ this.openings|date('m/Y') }}
+        {% endif %}
+        </div>
+    </div>
+
+</nav>

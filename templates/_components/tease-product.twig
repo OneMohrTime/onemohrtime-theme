@@ -1,0 +1,18 @@
+{# -- Component Variables -- #}
+
+{# {{ fn('timber_set_product', post) }} #}
+{% set this = {
+    title: product.title
+} %}
+
+{# -- Component Template -- #}
+
+<article class="c-tease c-tease--product">
+
+    {% do action('woocommerce_before_shop_loop_item') %}
+    {% do action('woocommerce_before_shop_loop_item_title') %}
+    {% do action('woocommerce_shop_loop_item_title') %}
+    {% do action('woocommerce_after_shop_loop_item_title') %}
+    {% do action('woocommerce_after_shop_loop_item') %}
+
+</article>

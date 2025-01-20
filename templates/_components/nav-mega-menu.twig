@@ -1,0 +1,109 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    menu1: params.mega1,
+    menu2: params.mega2,
+    menu3: params.mega3,
+    menu4: params.mega4,
+    menu5: params.mega5,
+    social: params.social,
+    siteUrl: params.search
+} %}
+
+{# -- Component Template -- #}
+
+<nav class="c-mega-menu is-hidden">
+
+    <div class="c-mega-menu__item">
+        <h3 class="u-eyebrow">Services</h3>
+        <ul class="c-mega-menu__menu">
+            {% for item in this.menu1.get_items %}
+                <li class="c-mega-menu__menu-item">
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="c-mega-menu__item is-double">
+        <h3 class="u-eyebrow">Recent Work</h3>
+        <ul class="c-mega-menu__menu">
+            {% for item in this.menu2.get_items %}
+                <li class="c-mega-menu__menu-item">
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="c-mega-menu__item is-search">
+        {% include '_components/search-form.twig' %}
+    </div>
+
+    <div class="c-mega-menu__item">
+        <h3 class="u-eyebrow">OneMohrTime Design Co.</h3>
+        <ul class="c-mega-menu__menu">
+            {% for item in this.menu3.get_items %}
+                <li class="c-mega-menu__menu-item">
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+            <li class="c-mega-menu__menu-item is-social-media">
+                {% for profile in this.social %}
+                    {% set profile = profile.profile %}
+                    <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                        {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
+                    </a>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+
+    <div class="c-mega-menu__item">
+        <h3 class="u-eyebrow">For The Hell Of It</h3>
+        <ul class="c-mega-menu__menu">
+            {% for item in this.menu4.get_items %}
+                <li class="c-mega-menu__menu-item">
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="c-mega-menu__item">
+        <h3 class="u-eyebrow">Latest Travels</h3>
+        <ul class="c-mega-menu__menu">
+            {% for item in this.menu5.get_items %}
+                <li class="c-mega-menu__menu-item">
+                    <a href="{{ item.url }}" class="u-nav-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        {{ item.title }}
+                        {% if item.target == '_blank' %}
+                            {{ source('_elements/svg/external-link.svg') }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</nav>

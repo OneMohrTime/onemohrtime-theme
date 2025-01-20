@@ -1,30 +1,6 @@
 /* ==========================================================================
-	Mixins
+    Mixins
 ========================================================================== */
-
-//
-// Set the color of the highlight that appears over a link while it's being tapped.
-//
-// By default, the highlight is suppressed.
-//
-// @param  {Color} $value [rgba(0, 0, 0, 0)] - The value of the highlight.
-// @output `-webkit-tap-highlight-color`
-//
-@mixin tap-highlight-color($value: rgba(0, 0, 0, 0)) {
-    -webkit-tap-highlight-color: $value;
-}
-
-//
-// Set whether or not touch devices use momentum-based scrolling for the given element.
-//
-// By default, applies momentum-based scrolling for the current element.
-//
-// @param  {String} $value [rgba(0, 0, 0, 0)] - The type of scrolling.
-// @output `-webkit-overflow-scrolling`
-//
-@mixin overflow-scrolling($value: touch) {
-    -webkit-overflow-scrolling: $value;
-}
 
 //
 // Micro clearfix rules for containing floats.
@@ -33,13 +9,13 @@
 // @param  {List} $supports The type of clearfix to generate.
 // @output Injects `:::after` pseudo-element.
 //
-// @mixin u-clearfix($supports...) {
-//     &::after {
-//         display: if(list-contains($supports, table), table, block);
-//         clear: both;
-//         content: if(list-contains($supports, opera), " ", "");
-//     }
-// }
+@mixin clearfix($supports...) {
+    &::after {
+        display: if(list-contains($supports, table), table, block);
+        clear: both;
+        content: if(list-contains($supports, opera), " ", "");
+    }
+}
 
 //
 // Generate `:hover` and `:focus` styles in one go.
@@ -67,17 +43,6 @@
     &:active {
         @content;
     }
-}
-
-//
-// Injects generic rules for disabling UL/OL/LI styles.
-//
-// @output `list-style`, `margin`, `padding`
-//
-@mixin list-reset {
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
 //
@@ -109,7 +74,11 @@
 //
 @mixin accessibly-hidden($important: true) {
     $important: important($important);
-    position: absolute $important;
+    @if $important == true {
+        position: absolute !important
+    } @else {
+        position: absolute;
+    }
     overflow: hidden;
     clip: rect(0 0 0 0);
     margin: 0;
@@ -135,32 +104,544 @@
     }
 }
 
-//
-// Hide the current element from all.
-//
-// The element will be hidden from screen readers and removed from the document flow.
-//
-// @link   http://juicystudio.com/article/screen-readers-display-none.php
-// @param  {Boolean} $important [true] - Whether the visibility is important.
-// @output `display`, `visibility`
-//
-@mixin hidden($important: true) {
-    $important: important($important);
-    display: none   $important;
-    visibility: hidden $important;
+/**
+ * === STRUCTURE ===
+ */
+
+// Force aspect ratio on elements
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        padding-top: math.div($height, $width) * 100%;
+    }
+
+    & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+// Cap line lengths to stay legible
+@mixin content-width() {
+    p, ul, ol {
+        max-width: $copy-width;
+    }
+}
+
+// Set basic section padding from mobile to desktop
+@mixin padding($multiplier: null) {
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding-left: $gutter-lg;
+        padding-right: $gutter-lg;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        padding-left: $gutter-xl;
+        padding-right: $gutter-xl;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-left: calc((100% - $container-width) / 2);
+        padding-right: calc((100% - $container-width) / 2);
+    }
+
+    $multiplier: null !default;
+    @if $multiplier == null {
+        // nothing, continue on
+    } @else if $multiplier == '2x' {
+        // screen at or above 1500px
+        @include media(">=big") {
+            padding-left: calc(((100% - $container-width) / 2) * 2);
+            padding-right: calc(((100% - $container-width) / 2) * 2);
+        }
+    }
+}
+
+/**
+ * === ACCESSIBILITY ===
+ */
+
+@mixin visually-hidden($focus: null) {
+    position: absolute !important;
+    border: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    overflow: hidden;
+    word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
+
+    $focus: null !default;
+    @if $focus == null {
+        // nothing, continue on
+    } @else {
+        &:focus {
+            top: 5px;
+            left: 5px;
+            display: block;
+            background-color: $yellow--light;
+            color: $black;
+            font-size: 1em;
+            text-decoration: none;
+            line-height: normal;
+            width: auto;
+            height: auto;
+            padding: $gutter-sm $gutter;
+            clip: auto !important;
+            clip-path: none;
+            z-index: 100000; // Above WP toolbar.
+        }
+    }
+}
+
+@mixin hide-visually($toggle: "hide") {
+    @if not index("hide" "unhide", $toggle) {
+        @error "`#{$toggle}` is not a valid value for the `$toggle` argument in " +
+            "the `hide-visually` mixin. Must be either `hide` or `unhide`.";
+    } @else if $toggle == "hide" {
+        border: 0;
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(100%);
+        height: 1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    } @else if $toggle == "unhide" {
+        clip: auto;
+        clip-path: none;
+        height: auto;
+        overflow: visible;
+        position: static;
+        white-space: inherit;
+        width: auto;
+    }
+    // @example scss
+    //   .element {
+    //     @include hide-visually;
+    //
+    //     &:active,
+    //     &:focus {
+    //       @include hide-visually("unhide");
+    //     }
+    //   }
+}
+
+/**
+ * === TOOLS ===
+ */
+
+@mixin text-shadow() {
+    text-shadow: 2px 2px 4px fade-out($black, 0.95);
+}
+
+@mixin box-shadow($inset: null) {
+    @if $inset == "inset" {
+        box-shadow: inset 1px 2px 10px fade-out($black, 0.95);
+    } @else {
+        box-shadow: 1px 2px 10px fade-out($black, 0.95);
+    }
+}
+
+/**
+ * === TYPE STYLES ===
+ */
+
+@mixin type() {
+    font-family: inherit;
+    line-height: inherit;
+    widows: 3;
+    orphans: 3;
+    color: inherit;
+
+    @include last(1) {
+        margin-bottom: 0;
+    }
+}
+
+@mixin title($underline: null) {
+    font-size: $font-h1;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+
+    // screen below 599px
+    @include media("<small") {
+        font-size: $font-h2;
+        font-size: 2.5em;
+        letter-spacing: normal;
+        hyphens: auto;
+        word-break: break-word;
+    }
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
+@mixin headline($underline: null) {
+    font-size: $font-h2;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+
+    // screen below 599px
+    @include media("<small") {
+        font-size: 2.25em;
+        letter-spacing: normal;
+        hyphens: auto;
+    }
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
+@mixin subheadline($underline: null) {
+    font-size: $font-h3;
+    text-transform: uppercase;
+
+    // screen below 599px
+    @include media("<=small") {
+        font-size: 2em;
+    }
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
+@mixin heading($underline: null) {
+    font-size: $font-h4;
+    text-transform: uppercase;
+
+    // screen below 599px
+    @include media("<=small") {
+        font-size: 1.75em;
+    }
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
+@mixin tagline() {
+    font-family: $font-header;
+    font-size: $font-h5;
+    font-weight: $font-bold;
+    line-height: $heading-height;
+    text-transform: uppercase;
+    margin: 0;
+
+    // screen below 599px
+    @include media("<=small") {
+        font-size: $font-h6;
+    }
+}
+
+@mixin body-copy($underline: null) {
+    @include type();
+    margin: 0 0 math.div($line-height, 2);
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
+// @mixin fluid-body-copy($min: $font-base-sm, $max: $font-base-lg, $min-vw: $minimum-width, $max-vw: $container-width) {
+//     font-size: clamp(
+//         #{$min},
+//         calc(#{$min} + ((#{$max} - #{$min}) * ((100vw - #{$min-vw}) / (#{$max-vw} - #{$min-vw})))),
+//         #{$max}
+//     );
+// }
+@mixin fluid-body-copy($min: $font-base-sm, $max: $font-base-lg, $min-vw: $minimum-width, $max-vw: $container-width) {
+    font-size: clamp($font-base-sm, 0.75rem + 1vw, $font-base-lg);
+}
+
+@mixin base-font-size() {
+    // font-size: 1.181vw;
+    font-size: clamp(100%, 1rem + 1vw, 1.33em);
+    font-size: 1rem;
+}
+
+@mixin small-font-size() {
+    font-size: clamp(75%, 1rem + 1vw, 1em);
+    font-size: 0.875rem;
+}
+
+@mixin label() {
+    font-family: $font-header;
+    font-size: $font-h5;
+    font-weight: $font-bold;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+@mixin caption() {
+    margin: 0;
+    // font-size: 1.15vw;
+    font-size: 0.875em;
+    font-family: $font-header;
+    font-weight: $font-bold;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@mixin underlined() {
+    position: relative;
+    padding-bottom: calc(.5em + 10px);
+    margin-bottom: .5em;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 10px;
+        transition: background-color $speed, width $speed;
+        background-color: $yellow;
+
+        // screen at or above 600px
+        @include media(">=small") {
+            width: 100px;
+        }
+    }
+}
+
+@mixin drop-cap() {
+    &:first-letter {
+        margin: 0 0.25em 0 0;
+        float: left;
+        font-family: $font-header;
+        font-size: 3.25em;
+        // font-size: 3.375em;
+        // font-size: 2em;
+        font-size: 5.5em;
+        line-height: 0.9em;
+        color: $yellow;
+    }
+}
+
+/**
+ * === TEXTURE EFFECTS ===
+ */
+
+@mixin texture-grid() {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
+}
+
+@mixin image-overlay() {
+    @supports (background-blend-mode: multiply) {
+        z-index: 0;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: transparent url("/wp-content/themes/onemohrtime/assets/img/img-texture.png") repeat center center;
+            background-blend-mode: multiply;
+            z-index: 1;
+        }
+    }
+}
+
+@mixin mask-texture() {
+    -webkit-mask-image: url("/wp-content/themes/onemohrtime/assets/img/rough-texture.png");
+            mask-image: url("/wp-content/themes/onemohrtime/assets/img/rough-texture.png");
+}
+
+/**
+ * === BUTTONS AND LINKS ===
+ */
+
+ @keyframes dancemonkey {
+    0% {
+        left: 0;
+        right: 25%;
+    }
+    50% {
+        left: 25%;
+        right: 0;
+    }
+    100% {
+        left: 0;
+        right: 25%;
+    }
+}
+
+@mixin block-link($border: null) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: none;
+
+    @if $border == "has-border" {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border: 10px transparent solid;
+        transition: border $speed;
+        &:hover,
+        &:focus {
+            border-color: fade-out($yellow, 0.15);
+        }
+    } @else {
+        // nothing, continue on
+    }
+}
+
+@mixin underline-link() {
+    border-bottom: 3px $black solid;
+    font-weight: 700;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    padding-bottom: .25em;
+}
+
+@mixin btn-color($buttoncolor: $black, $hover: $yellow) {
+    border-color: $buttoncolor;
+    color: $buttoncolor;
+
+    &::after {
+        background-color: $hover;
+    }
 }
 
 //
-// Show the current element for all.
+// Link hover animation that highlights behind the anchor
 //
-// The element will be accessible from screen readers and visible in the document flow.
+@mixin highlight-link($background: $gray--lightest, $color: inherit) {
+    position: relative;
+    text-decoration: none;
+    color: $color;
+    transition: color $speed $bezier-slide;
+    transition-delay: $speed-fast;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform $speed ease-in-out;
+        background-color: $background;
+        inset: 0;
+        z-index: -1;
+    }
+
+    @include hocus {
+        &::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}
+
 //
-// @param  {String}  $display   [block] - The rendering box used for the element.
-// @param  {Boolean} $important [true]  - Whether the visibility is important.
-// @output `display`, `visibility`
+// Link hover animation that spans multiple lines
 //
-@mixin shown($display: block, $important: true) {
-    $important: important($important);
-    display: $display $important;
-    visibility: visible  $important;
+@mixin multiline-link($underline: false, $color: $yellow) {
+    display: inline;
+    text-decoration: none;
+    transition: background-size $speed-slow $bezier-slide;
+    background: linear-gradient(0deg, $color, $color) no-repeat right bottom / 0 var(--bg-height);
+    color: inherit;
+    line-height: 1em;
+
+    &:where(:hover, :focus-visible) {
+        background-size: 100% var(--bg-height);
+        background-position-x: left;
+    }
+
+    // If underline or background
+    @if $underline {
+        --bg-height: 2px;
+        padding-bottom: 2px;
+
+    } @else {
+        --bg-height: 100%;
+    }
+}
+
+//
+// Link hover animation that spans multiple lines
+//
+@mixin inline-link($color: inherit, $display: inline-block) {
+    position: relative;
+    display: $display;
+    transition: color $speed $bezier-slide;
+    text-decoration: none !important;
+    color: $color;
+    cursor: pointer;
+    z-index: 1;
+
+    // Faux underline
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: auto;
+        height: 8px;
+        transition: $speed;
+        background-color: $yellow;
+        animation: dancemonkey 2s infinite ease-in-out;
+        z-index: -1;
+    }
+
+    // Hover, focus
+    @include hocus {
+        color: $color;
+
+        // Faux underline
+        &::before {
+            left: -4px;
+            right: -4px;
+            bottom: 0;
+            width: calc(100% + 8px);
+            height: 100%;
+            transform: translateY(2px) scaleY(1.2);
+            animation: none;
+        }
+
+        .c-media__svg {
+            transform: translateX($small-spacing);
+        }
+    }
+
+    .c-media__svg {
+        position: relative;
+        transition: $speed-slow $bezier-back;
+    }
 }

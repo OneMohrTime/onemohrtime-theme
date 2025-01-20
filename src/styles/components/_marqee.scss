@@ -1,0 +1,48 @@
+/* ==========================================================================
+    Marquee
+========================================================================== */
+
+.c-marquee {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter-sm;
+    overflow: hidden;
+    background-color: $yellow;
+    color: $black;
+}
+
+.c-marquee__content {
+    display: flex;
+    column-gap: $large-spacing;
+    white-space: nowrap;
+
+    & + & {
+        margin-left: $large-spacing;
+    }
+
+    .c-button {
+        @include btn-color($black, $black);
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        column-gap: $large-spacing;
+    }
+
+    strong {
+        @include subheadline();
+        font-family: $font-header;
+        font-weight: $font-bold;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        strong {
+            font-size: $font-h3;
+        }
+    }
+}

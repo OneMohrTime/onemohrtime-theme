@@ -1,0 +1,68 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+{% set pageBuilder = post.meta('section_builder')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: bannerImage,
+                images: bannerImages,
+                video: bannerVideo,
+                button: button
+            }
+        } only %}
+
+        {% if post.content is not empty %}
+            <section class="c-intro" data-module-scroll>
+                <div class="u-wysiwyg" data-scroll-trigger>
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
+
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
+
+        <section class="o-section is-modeling" data-module-scroll>
+            {% include '_components/list.twig' with {
+                style: 'modeling',
+                params: {
+                    items: photoShoots,
+                }
+            } %}
+        </section>
+
+        {% if relatedPosts is not empty %}
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+                {% include '_components/related-posts.twig' with {
+                    related: relatedPosts
+                } only %}
+            </footer>
+        {% endif %}
+
+    </article>
+
+{% endblock %}

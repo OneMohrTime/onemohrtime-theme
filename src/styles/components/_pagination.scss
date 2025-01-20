@@ -1,34 +1,39 @@
 /* ==========================================================================
-	Pagination
+    Pagination
 ========================================================================== */
 
-.pagination {
-	display: flex;
-	justify-content: center;
-	column-gap: 0.5em;
-	margin: 0;
-	padding: 0;
+.c-pagination {
+    max-width: 100%;
+    overflow-x: auto;
 }
 
-.pagination__item {
-	display: block;
+.c-pagination__menu {
+    display: flex;
+    justify-content: center;
+    column-gap: 0.5em;
+    margin: 0;
+    padding: 0;
 }
 
-.pagination__link {
-	@include small-font-size();
-	padding: $small-spacing / 2 $small-spacing;
-	border-width: 2px;
-
-	&::after {
-		height: 5px;
-	}
+.c-pagination__item {
+    display: block;
 }
 
-.pagination__current {
-	@include btn-color($gray);
-	@include small-font-size();
-	display: inline-block;
-	padding: $small-spacing / 2 $small-spacing;
-	border-width: 2px;
-	pointer-events: none;
+.c-pagination__link {
+    @include small-font-size();
+    padding: $small-spacing / 2 $small-spacing;
+    border-width: 2px;
+
+    &::after {
+        height: 5px;
+    }
+}
+
+.c-pagination__current {
+    @include btn-color($gray);
+    @include small-font-size();
+    display: inline-block;
+    padding: $small-spacing / 2 $small-spacing;
+    border-width: 2px;
+    pointer-events: none;
 }

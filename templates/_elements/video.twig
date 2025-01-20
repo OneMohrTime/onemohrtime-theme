@@ -1,0 +1,23 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    video: params.src|default(null),
+    ratio: params.ratio|default('16:9'),
+    poster: params.thumbnail ?? null,
+    autoplay: params.autoplay ?? null,
+    controls: params.controls ?? null
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.video %}
+<div class="c-video u-ratio u-{{ this.ratio }}" data-scroll-trigger>
+    {% set videoPoster = get_image(this.poster) %}
+
+    <video width="{{ this.video.width }}" height="{{ this.video.height }}" class="c-video__video"{% if this.controls == true %} controls{% endif %}{% if this.autoplay == true %} autoplay preload="auto" playsinline loop="true" muted{% else %} preload="none"{% endif %}{% if videoPoster %} poster="{{ videoPoster.src('large') }}{% endif %}">
+        <source src="{{ this.video.url }}" type="{{ this.video.mime_type }}">
+        Your browser does not support the video tag.
+    </video>
+
+</div>
+{% endif %}

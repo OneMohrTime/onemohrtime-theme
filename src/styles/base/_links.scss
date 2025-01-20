@@ -1,35 +1,39 @@
 /* ==========================================================================
-	Links
+    Links
 ========================================================================== */
 
 a {
-	position: relative;
-	display: inline-block;
-	// outline: none;
-	text-decoration: none;
-	color: inherit;
-	vertical-align: baseline;
-	cursor: pointer;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    line-height: inherit;
+    color: inherit;
+    vertical-align: baseline;
+    cursor: pointer;
 
-	&:hover {
-		color: inherit;
-	}
+    &:hover {
+        color: inherit;
+    }
 
-	&:focus {
-		outline-color: fade-out($yellow, 0.4);
-	}
+    &:focus {
+        outline-color: fade-out($yellow, 0.4);
+    }
 
-	// if link is not a button
-	&:not(.btn):not([data-fancybox]) {
-		// but is a child of .-wysiwyg
-		._wysiwyg &,
-		.-wysiwyg &,
-		.c-wysiwyg & {
-			// stylize as inline link
-			@include inline-block();
-		}
-	}
+    // if link is not a button...
+    &:not(.btn):not([data-fancybox]) {
+        // ...but is a child of .u-wysiwyg...
+        .u-wysiwyg & {
+            // ...stylize as inline link
+            @include inline-link();
+        }
+    }
+
+    &.is-external {
+        display: inline-flex;
+        align-items: center;
+        column-gap: 0.25em;
+    }
 }
 
 // specific styles for external links
-//a[href*="//"]:not([href*="onemohrti.me"]) {}
+//a[href*="https://"]:not([href*="onemohrti.me"]) {}

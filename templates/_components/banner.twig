@@ -1,0 +1,122 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline|default(''),
+    subheadline: params.text|default(null),
+    type: params.style|default('default'),
+    image: params.image|default(null),
+    images: params.images|default(null),
+    video: params.video|default(null),
+    button: params.button|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-32:9{% endif %}" data-module-scroll>
+
+    <div class="c-banner__text">
+    {% switch this.type %}
+
+        {% case 'slides' %}
+            <h1 class="u-headline" data-scroll-trigger>{{ this.headline }}</h1>
+            {% if this.subheadline %}
+                <div class="u-wysiwyg" data-scroll-trigger>
+                    {{ this.subheadline }}
+                </div>
+            {% endif %}
+            {% if this.button %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.button.url,
+                        text: this.button.title,
+                        target: this.button.target
+                    }
+                } only %}
+            {% endif %}
+
+        {% default %}
+            <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
+            {% if this.subheadline %}
+                <strong class="u-eyebrow" data-scroll-trigger>{{ this.subheadline }}</strong>
+            {% endif %}
+            {% if this.button %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.button.url,
+                        text: this.button.title,
+                        target: this.button.target
+                    }
+                } only %}
+            {% endif %}
+
+    {% endswitch %}
+    </div>
+
+    <figure class="c-banner__media">
+    {% switch this.type %}
+
+        {% case 'video' %}
+            {% include '_elements/embed.twig' with {
+                params: {
+                    src: this.video,
+                    type: 'video',
+                }
+            } only %}
+
+        {% case 'stacked' %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.image
+                }
+            } only %}
+
+        {% case 'slides' %}
+            <div class="swiper is-cards" data-module-swiper-slides>
+                <ul class="swiper-wrapper" data-scroll-trigger>
+                    {% for image in this.images %}
+                        <li class="swiper-slide">
+                            {% set image = get_image(image) %}
+                            {% include '_elements/picture.twig' with {
+                                params: {
+                                    src: image,
+                                    ratio: '16:9',
+                                    sizes: '(min-width: 900px) 50vw, 85vw'
+                                }
+                            } only %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="swiper-scrollbar" data-scroll-trigger></div>
+                <div class="swiper-controls" data-scroll-trigger>
+                    <button class="c-button is-prev">
+                        <span class="u-screen-reader-text">Previous</span>
+                        {{ source('_elements/svg/arrow-left.svg') }}
+                    </button>
+                    <button class="c-button is-next">
+                        <span class="u-screen-reader-text">Next</span>
+                        {{ source('_elements/svg/arrow-right.svg') }}
+                    </button>
+                </div>
+            </div>
+
+        {% default %}
+            {% if this.image is not empty %}
+                {% set renderedImage = get_image(this.image) %}
+                {% set renderedCaption = renderedImage.caption %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: renderedImage,
+                        ratio: (this.address or this.logo) ? '16:9' : '4:3'
+                    }
+                } only %}
+                {% if renderedCaption %}
+                    <aside class="c-caption" data-scroll-trigger>
+                        {{ renderedCaption }}
+                    </aside>
+                {% endif %}
+            {% endif %}
+
+    {% endswitch %}
+    </figure>
+
+</section>

@@ -1,77 +1,29 @@
 /* ==========================================================================
-	Embedded Scripts
+    Section: Embeds
 ========================================================================== */
 
-.wrapper {
-	position: relative;
+.c-embed {
+    position: relative;
+}
 
-	// 4:3 ratio
-	&.-sd {
-		@include aspect-ratio(4, 3);
-		@include box-shadow();
-	}
+.c-embed__script {
+    display: block;
+}
 
-	// 16:9 ratio
-	&.-hd {
-		@include aspect-ratio(16, 9);
-		@include box-shadow();
-	}
+.c-embed__audio {
 
-	// Most theaters
-	&.-theater {
-		@include aspect-ratio(21, 9);
-		@include box-shadow();
-	}
+    audio {
+        width: 100%;
+        max-width: 80ch;
+        border: 3px solid $black;
+        border-radius: $border-radius;
+        background-color: transparent;
+    }
 
-	// Most IMAX theaters
-	&.-imax {
-		@include aspect-ratio(19, 10);
-		@include box-shadow();
-	}
-
-	// iFrames, embeds, etc.
-	&.-fullSize {
-		max-width: 100%;
-		height: auto;
-	}
-
-	iframe:not(.cp_embed_iframe) // codepen embed
-		  :not(.instagram-media) // instagram embed
-		  :not(.-absoluteSize),  // general embeds
-	object,
-	embed {
-		width: 100%;
-		height: 100%;
-	}
-
-	// Codepen embeds
-	iframe.cp_embed_iframe {
-		max-width: 100%;
-		height: auto;
-		min-height: 265px;
-		max-height: 500px;
-	}
-
-	// youtube, vimeo embeds
-	&.-sd,
-	&.-hd {
-		iframe {
-			width: 100%;
-			height: 100%
-		}
-	}
-
-	// custom html video uploads
-	video {
-		width: 100%;
-		height: 100%;
-		max-width: 100%;
-	}
-
-	// custom html audio podcast uploads
-	audio {
-		@include media(">=screen1170") {
-			width: $copy-width;
-		}
-	}
+    // screen at or above 600px
+    @include media(">=small") {
+        display: flex;
+        align-items: center;
+        column-gap: $gutter-sm;
+    }
 }

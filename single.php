@@ -9,18 +9,16 @@
  * @since    Timber 0.1
  */
 
-$context     = Timber::context();
-$timber_post = new Timber\Post();
+$context = Timber::context();
+
+$timber_post = Timber::get_post();
+$related_posts = get_field('related_posts');
 
 $context['post']         = $timber_post;
-$context['banner']       = get_field('project_header');
-$context['details']      = get_field('project_deets');
-$context['sections']     = get_field('project_specs');
-$context['builder']      = get_field('sections');
-$context['relatedPosts'] = get_field('related_posts');
+$context['relatedPosts'] = $related_posts;
 
 if ( post_password_required( $timber_post->ID ) ) {
-	Timber::render( 'pages/single-password.twig', $context );
+    Timber::render( '_views/single-password.twig', $context );
 } else {
-	Timber::render( array( 'pages/single-' . $timber_post->ID . '.twig', 'pages/single-' . $timber_post->post_type . '.twig', 'pages/single-' . $timber_post->slug . '.twig', 'pages/single.twig' ), $context );
+    Timber::render( array( '_views/single-' . $timber_post->ID . '.twig', '_layouts/single-' . $timber_post->post_type . '.twig', '_views/single-' . $timber_post->slug . '.twig', '_layouts/single.twig' ), $context );
 }

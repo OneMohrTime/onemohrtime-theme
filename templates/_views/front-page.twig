@@ -1,0 +1,235 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set intro = post.meta('homepage_intro')|default(null) %}
+{% set services = post.meta('homepage_services')|default(null) %}
+{% set proposal = post.meta('homepage_proposal')|default(null) %}
+{% set caseStudies = post.meta('homepage_projects')|default(null) %}
+{% set travel = post.meta('homepage_travel')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        <section class="c-banner is-homepage" data-module-scroll>
+            <div class="c-banner__heading">
+                <h1 class="u-title">{{ headline }}</h1>
+                <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
+            </div>
+        </section>
+
+        <section class="o-section is-text is-intro" data-module-scroll>
+            <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.sky_image).src('1536x1536') }});" data-module-parallax>
+                <figure class="c-banner__foreground" data-parallax-layer="foreground">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: get_image(intro.foreground_image),
+                        lazyload: false
+                    }
+                } only %}
+                </figure>
+                <div class="c-banner__tagline" data-parallax-layer="tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
+                    <span aria-hidden="true">I’m a</span>
+                    <span aria-hidden="true">{{ source('_elements/svg/creative.svg') }}</span>
+                    <span aria-hidden="true">Designer + Developer</span>
+                </div>
+                <figure class="c-banner__background" data-parallax-layer="background">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: get_image(intro.background_image),
+                        lazyload: false
+                    }
+                } only %}
+                </figure>
+            </div>
+        </section>
+
+        <section class="o-section is-text-media is-services" data-module-scroll>
+            <div class="c-textMedia is-reversed">
+                <div class="c-textMedia__text">
+                    {% if services.headline %}
+                        <h2 class="u-subheadline">{{ services.headline }}</h2>
+                    {% endif %}
+                    {% if services.text %}
+                        <div class="u-wysiwyg">
+                            {{ services.text }}
+                        </div>
+                    {% endif %}
+                    {% if services.button %}
+                        {% include '_elements/button.twig' with {
+                            params: {
+                                url: services.button.url,
+                                text: services.button.title,
+                                target: services.button.target,
+                            }
+                        } only %}
+                    {% endif %}
+                </div>
+                <figure class="c-textMedia__media">
+                    {% for item in services.services %}
+                        <a href="{{ item.page_link }}" style="background-image: url({{ get_image(item.background_image).src('large') }});" data-scroll-trigger>
+                            <h3 class="u-subheadline">{{ item.heading }}</h3>
+                        </a>
+                    {% endfor %}
+                </figure>
+            </div>
+        </section>
+
+        <section class="o-section is-text-media is-proposal" data-module-scroll>
+            <div class="c-textMedia">
+                <div class="c-textMedia__text">
+                    {% if proposal.headline %}
+                        <h2 class="u-subheadline" data-scroll-trigger>{{ proposal.headline }}</h2>
+                    {% endif %}
+                    {% if proposal.text %}
+                        <div class="u-wysiwyg" data-scroll-trigger>
+                            {{ proposal.text }}
+                        </div>
+                    {% endif %}
+                    {% if proposal.button_1 %}
+                        <div class="c-button-group">
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: proposal.button_1.url,
+                                    text: proposal.button_1.title,
+                                    target: proposal.button_1.target,
+                                }
+                            } only %}
+                            {% if proposal.button_2 %}
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: proposal.button_2.url,
+                                    text: proposal.button_2.title,
+                                    target: proposal.button_2.target,
+                                }
+                            } only %}
+                            {% endif %}
+                            {% if proposal.button_3 %}
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: proposal.button_3.url,
+                                    text: proposal.button_3.title,
+                                    target: proposal.button_3.target,
+                                }
+                            } only %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+                <figure class="c-textMedia__media">
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: proposal.image,
+                            ratio: '4:3'
+                        }
+                    } only %}
+                </figure>
+            </div>
+        </section>
+
+        <section class="o-section is-shop" data-module-scroll>
+            {% include '_components/marquee.twig' %}
+        </section>
+
+        <section class="o-section is-social-feed" data-module-scroll>
+            <div class="u-wysiwyg" data-scroll-trigger>
+                {{ post.content }}
+            </div>
+            <figure class="c-instagram">
+                {% apply shortcodes %}
+                    [instagram-feed feed=1]
+                {% endapply %}
+            </figure>
+        </section>
+
+        <section class="o-section is-text-media is-case-studies" data-module-scroll>
+            <h2 class="u-headline">Case Studies</h2>
+            {% for row in caseStudies %}
+                {% set caseStudy = get_post(row) %}
+                {% include '_components/text-media.twig' with {
+                    params: {
+                        eyebrow: caseStudy.meta('post_subheadline')|default(null),
+                        headline: caseStudy.meta('post_headline')|default(caseStudy.title),
+                        text: caseStudy.excerpt|default(null),
+                        button: {
+                            url: caseStudy.link,
+                            title: 'Read Case Study',
+                        },
+                        media: {
+                            image: caseStudy.meta('banner_image'),
+                        },
+                        mediaType: 'default',
+                        alignment: loop.index is even ? ' is-reversed' : '',
+                    }
+                } only %}
+            {% endfor %}
+            <aside class="c-button-group">
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: '/design',
+                        text: 'View All Projects',
+                        primary: true
+                    }
+                } only %}
+            </aside>
+        </section>
+
+        <section class="o-section is-contact" data-module-scroll>
+            {% include '_components/cta.twig' with {
+                params: {
+                    headline: 'Get In Touch',
+                    text: 'Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?',
+                    button: {
+                        url: '/contact',
+                        title: 'Contact Me'
+                    },
+                }
+            } only %}
+        </section>
+
+        <section class="o-section is-text-media is-travel" data-module-scroll>
+            <div class="c-textMedia">
+                <div class="c-textMedia__text">
+                    {% if travel.headline %}
+                        <h2 class="u-subheadline" data-scroll-trigger>{{ travel.headline }}</h2>
+                    {% endif %}
+                    {% if travel.text %}
+                        <div class="u-wysiwyg" data-scroll-trigger>
+                            {{ travel.text }}
+                        </div>
+                    {% endif %}
+                    {% if travel.button %}
+                        {% include '_elements/button.twig' with {
+                            params: {
+                                url: travel.button.url,
+                                text: travel.button.title,
+                                target: travel.button.target,
+                            }
+                        } only %}
+                    {% endif %}
+                </div>
+                <figure class="c-textMedia__media">
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: travel.image,
+                            ratio: '4:3'
+                        }
+                    } only %}
+                </figure>
+            </div>
+        </section>
+
+        <section class="o-section is-shop" data-module-scroll>
+            {% include '_components/marquee.twig' %}
+        </section>
+
+    </article>
+
+{% endblock %}

@@ -1,78 +1,42 @@
 /* ==========================================================================
-	Media
+    Media
 ========================================================================== */
 
-img {
-	display: block;
-	height: auto;
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-// Make sure embeds and iframes fit their containers
 embed,
 iframe,
 object {
-	max-width: 100%;
+    max-width: 100%; // Make sure embeds and iframes fit their containers
 }
 
-// .c-media {
-// 	position: relative;
-// }
+.c-media {
+    position: relative;
+}
+
+/**
+ * === IMAGES ===
+ */
 
 .c-media__image {
-	display: block;
-	width: 100%;
-	max-width: 100%;
+    display: block;
+    width: 100%;
+    max-width: 100%;
 }
 
 /**
  * === SVG ICONS ===
  */
 
-.-svg {
-	font-size: 1em;
-	line-height: 1em;
-	width: 1em;
-	height: 1em;
-	fill: currentColor;
-}
-
 .c-media__svg {
-	display: block;
-	width: 1em;
-	height: 1em;
-	fill: currentColor;
-	resize: both;
-}
-
-/**
- * === UTILITY CLASSES ===
- */
-
-.image,
-._image {
-	display: block;
-	max-width: 100%;
-
-	&.-background {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-
-	&.-cover {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	&.-contain {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-	}
-
-	&.-svg {
-		width: 100%;
-		height: auto;
-	}
+    display: block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    resize: both;
 }

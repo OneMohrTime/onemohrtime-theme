@@ -1,0 +1,41 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    menu: utilityMenu
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.menu %}
+<div class="c-utility">
+
+    <ul class="c-utility__menu c-menu">
+        {% for item in this.menu.get_items %}
+            <li class="c-utility__menuItem c-menuItem">
+
+                <a href="{{ item.get_link }}" class="u-link">
+                    {{ item.title }}
+                </a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="c-utility__search">
+        {{ fn('get_product_search_form') }}
+    </div>
+
+    {# <div class="c-utility__account">
+        {% if fn('is_user_logged_in') %}
+            <a href="{{ site.url }}/my-account">My Account</a>
+        {% else %}
+            <a href="{{ fn('wp_login_url') }}">Login</a> / <a href="{{ fn('wp_registration_url') }}">Register</a>
+        {% endif %}
+    </div> #}
+
+    <div class="c-utility__cart">
+        <a href="{{ fn('wc_get_checkout_url') }}" class="u-link">View Cart</a>
+    </div>
+
+</div>
+{% endif %}

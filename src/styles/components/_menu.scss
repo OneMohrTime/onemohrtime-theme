@@ -1,0 +1,41 @@
+/* ==========================================================================
+    Menus
+========================================================================== */
+
+/**
+ * === DEFAULT ===
+ */
+
+.c-menu {
+
+    @include media(">=medium") {
+        display: flex;
+        align-items: baseline;
+        gap: 1em;
+    }
+}
+
+.c-menuItem {
+
+    @include media(">=medium") {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+    }
+}
+
+/**
+ * === DROPDOWNS ===
+ */
+
+.c-submenu {
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        position: absolute;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

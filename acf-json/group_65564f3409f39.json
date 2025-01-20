@@ -90,7 +90,7 @@
             "label": "Video Embed",
             "name": "banner_video_embed",
             "aria-label": "",
-            "type": "oembed",
+            "type": "textarea",
             "instructions": "If the video is from YouTube, Vimeo, etc",
             "required": 0,
             "conditional_logic": [
@@ -107,8 +107,12 @@
                 "class": "",
                 "id": ""
             },
-            "width": "",
-            "height": ""
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
         },
         {
             "key": "field_655652a88621e",
@@ -160,6 +164,18 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page",
+                "operator": "!=",
+                "value": "620"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "design"
             }
         ]
     ],
@@ -172,5 +188,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719782434
+    "modified": 1734852943
 }

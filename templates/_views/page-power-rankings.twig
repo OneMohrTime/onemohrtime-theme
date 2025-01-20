@@ -1,0 +1,107 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+{% set pageBuilder = post.meta('section_builder')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: bannerImage,
+                images: bannerImages,
+                video: bannerVideo,
+                button: button
+            }
+        } only %}
+
+        {% if post.content is not empty %}
+            <section class="c-intro" data-module-scroll>
+                <div class="u-wysiwyg" data-scroll-trigger>
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
+
+        <section class="o-section is-power-rankings" data-module-scroll>
+
+            {# <!-- Sorting Dropdown -->
+            <form method="get" class="logos-sorting-form">
+                <label for="sort">Sort by:</label>
+                <select name="sort" id="sort" onchange="this.form.submit()">
+                    <option value="alphabetical" {% if app.request.get('sort') == 'alphabetical' %}selected{% endif %}>Alphabetical</option>
+                    <option value="date" {% if app.request.get('sort') == 'date' %}selected{% endif %}>Date</option>
+                    <option value="random" {% if app.request.get('sort') == 'random' %}selected{% endif %}>Random</option>
+                </select>
+            </form>
+            <!-- Filter by Job Type -->
+            <form method="get" class="logos-filter-form">
+                <fieldset>
+                    <legend>Filter by Job Type:</legend>
+                    {% for job_type in job_types %}
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="job_type[]"
+                                value="{{ job_type.slug }}"
+                                {% if job_type.slug in app.request.get('job_type', []) %}checked{% endif %}
+                                onchange="this.form.submit()"
+                            >
+                            {{ job_type.name }}
+                        </label>
+                    {% endfor %}
+                </fieldset>
+            </form> #}
+
+            <ul class="c-grid has-five-columns">
+                {% for row in top10s %}
+                    {% set list = get_post(row) %}
+
+                    <li class="c-grid__item c-powerRanking">
+                        <h2 class="c-powerRanking__headline">{{ list.title }}</h2>
+                        <ol reversed class="c-powerRanking__list">
+                            {% for ranking in list.top_10_list|reverse %}
+                                <li class="c-powerRanking__list-item">{{ ranking.item }}</li>
+                            {% endfor %}
+                        </ol>
+                    </li>
+
+                {% endfor %}
+            </ul>
+
+        </section>
+
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
+
+        {% if relatedPosts is not empty %}
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+                {% include '_components/related-posts.twig' with {
+                    related: relatedPosts
+                } only %}
+            </footer>
+        {% endif %}
+
+    </article>
+
+{% endblock %}

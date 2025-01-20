@@ -1,83 +1,61 @@
 /* ==========================================================================
-	Alert
+    Alert
 ========================================================================== */
 
 .c-alert {
-	position: relative;
-	display: none;
-	padding: 0.5em;
-	text-align: center;
-	background-color: $black;
-	color: $white;
+    @include padding();
+    position: relative;
+    display: none;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    background-color: $black;
+    color: $white;
 
-	&.is-active {
-		display: block;
-		transition: transform $speed, opacity $speed;
-	}
+    &.is-active {
+        display: block;
+        transition: transform $speed, opacity $speed;
+    }
 
-	&.not-active {
-		display: none;
-		transform: translateY(-100%);
-		opacity: 0;
-	}
+    &.not-active {
+        display: none;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
 
-	@include media(">=screen540") {
-		&.is-active {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			column-gap: 0.75em;
-		}
-	}
+    @include media(">=small") {
+        &.is-active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 0.75em;
+        }
+    }
 }
 
 .c-alert__text {
-	margin-bottom: 0;
-	line-height: $heading-line-height;
+    margin-bottom: 0.5em;
+    line-height: $heading-height;
+
+    @include media(">=small") {
+        margin-bottom: 0;
+    }
 }
 
-.c-alert__link {
-	// @include btn-style(); not yet referenced
-	padding: 2px 8px;
-	font-family: $font-header;
-	font-size: .875em;
-	font-weight: 700;
-	letter-spacing: 0.5px;
-	text-align: center;
-	text-transform: uppercase;
-	line-height: $heading-line-height !important;
-	border: 2px solid $white--dark;
-	border-radius: $base-border-radius;
-
-	&::before {
-		display: none !important;
-	}
-
-	// hover, focus
-	@include hocus {
-		transition: all $speed;
-		background-color: transparent;
-		color: inherit;
-	}
-
-	&:active {
-		background-color: $black;
-		color: $white;
-	}
-}
+// .c-alert__button {}
 
 .c-alert__close {
-	position: absolute;
-	top: 50%;
-	right: $gutter;
-	width: 10px;
-	height: 10px;
-	background-color: $white;
+    position: absolute;
+    top: 50%;
+    right: $gutter;
+    width: 10px;
+    height: 10px;
+    background-color: $white;
 }
 
 // document.addEventListener("DOMContentLoaded", function() {
 //     const alertBar = document.querySelector(".c-alert");
-//     const closeBtn = document.querySelector(".close-button");
+//     const closeBtn = document.querySelector(".c-alert__close");
 
 //     closeBtn.addEventListener("click", function() {
 //         // Add the "closed" class to trigger the closing animation

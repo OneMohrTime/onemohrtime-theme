@@ -1,0 +1,75 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('thumbnail')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+{% if 'post-type-archive-design' in body_class %}
+    {% set listType = 'design' %}
+{% else %}
+    {% set listType = 'posts' %}
+{% endif %}
+
+{# -- Page Templates -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: title,
+                text: subheadline,
+                style: null,
+                image: null,
+                button: null
+            }
+        } only %}
+
+        {% if post.content is not empty %}
+            <section class="c-intro" data-module-scroll>
+                <div class="u-wysiwyg" data-scroll-trigger>
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
+
+        <section class="o-section is-list" data-module-scroll>
+            {% include '_components/list.twig' with {
+                style: listType,
+                params: {
+                    items: posts,
+                }
+            } %}
+        </section>
+
+        {% include '_components/pagination.twig' with {
+            params: {
+                pagination: pagination
+            }
+        } %}
+
+        {% if relatedPosts is not empty %}
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+                {% include '_components/related-posts.twig' with {
+                    related: relatedPosts
+                } only %}
+            </footer>
+        {% endif %}
+
+    </article>
+
+    {# Sidebar #}
+    {# {% include '_partials/sidebar.twig' with {
+        params: {
+            widgets: sidebar
+        }
+    } only %} #}
+
+{% endblock %}
