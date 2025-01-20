@@ -5,7 +5,7 @@
     text: params.text|default('Learn More'),
     target: params.target|default(null),
     isPrimary: params.primary ?? true,
-    isInverse: params.inverse ?? true,
+    isInverse: params.inverse|default(false),
     icon: params.icon|default(null),
     class: params.classes|default(null),
     scrolls: scrolling ?? true
