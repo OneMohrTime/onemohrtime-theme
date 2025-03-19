@@ -9,6 +9,7 @@
 {% set intro = post.meta('homepage_intro')|default(null) %}
 {% set services = post.meta('homepage_services')|default(null) %}
 {% set proposal = post.meta('homepage_proposal')|default(null) %}
+{% set offerings = post.meta('homepage_offerings')|default(null) %}
 {% set caseStudies = post.meta('homepage_projects')|default(null) %}
 {% set travel = post.meta('homepage_travel')|default(null) %}
 
@@ -136,6 +137,22 @@
 
         <section class="o-section is-shop" data-module-scroll>
             {% include '_components/marquee.twig' %}
+        </section>
+
+        <section class="o-section is-offerings" data-module-scroll>
+            <h2 class="u-headline">{{ offerings.headline }}</h2>
+            <ul class="c-grid has-four-columns">
+                {% for service in offerings.offerings %}
+                    <li class="c-grid__item" data-scroll-trigger>
+                        <a href="{{ service.page_link }}" class="c-card">
+                            <h3 class="u-heading">{{ service.headline }}</h3>
+                            <div class="u-wysiwyg">
+                                {{ service.text }}
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </section>
 
         <section class="o-section is-social-feed" data-module-scroll>

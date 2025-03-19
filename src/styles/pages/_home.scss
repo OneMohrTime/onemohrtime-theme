@@ -199,6 +199,48 @@
         }
     }
 
+    // Offerings Section
+    .o-section.is-offerings {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        background-color: $black;
+        color: $white;
+
+        .c-card {
+            padding: $gutter-sm;
+            transition: border-color $speed $bezier-slide,
+                        background-color $speed $bezier-slide,
+                        color $speed $bezier-slide;
+            border: 2px solid $white--darkest;
+            border-radius: $border-radius;
+
+            @include hocus {
+                border-color: $yellow;
+                color: $yellow;
+            }
+
+            &:active {
+                background-color: $yellow;
+                color: $black;
+            }
+        }
+
+        .u-headline {
+            display: block;
+            margin-bottom: $small-spacing;
+            text-align: center;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+        }
+    }
+
     // Instagram & Content Section
     .o-section.is-social-feed {
         @include padding();
@@ -206,11 +248,6 @@
         padding-bottom: $gutter;
         background-color: $black;
         color: $white;
-
-        .u-wysiwyg {
-            position: sticky;
-            top: 0;
-        }
 
         .c-instagram {
             margin-top: $gutter;
@@ -232,6 +269,8 @@
 
             .u-wysiwyg {
                 flex: 1 1 50%;
+                position: sticky;
+                top: 0;
                 max-width: calc(50% - $gutter-sm);
             }
 
