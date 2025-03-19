@@ -18,6 +18,8 @@
     padding-top: $gutter;
 
     .is-image {
+        position: relative;
+
         .c-media,
         .c-media__image {
             border-radius: $border-radius;

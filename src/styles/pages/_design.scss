@@ -9,7 +9,7 @@
         background-color: $yellow;
         background-image: url("https://onemohrti.me/wp-content/uploads/graphy.png");
         background-position: center center;
-        background-blend-mode: multiply;
+        background-blend-mode: darken;
         a::before {
             background-color: $gold;
         }
