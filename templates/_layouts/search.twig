@@ -19,12 +19,16 @@
         } only %}
 
         <section class="o-section is-list" data-module-scroll>
-            {% include '_components/list.twig' with {
-                style: 'search',
-                params: {
-                    items: posts,
-                }
-            } %}
+            {% if posts|length < 1 %}
+                <p>Nothing appears to match your search. Try something else!</p>
+            {% else %}
+                {% include '_components/list.twig' with {
+                    style: 'search',
+                    params: {
+                        items: posts,
+                    }
+                } %}
+            {% endif %}
         </section>
 
         {% include '_components/pagination.twig' with {
@@ -48,11 +52,4 @@
 
     </article>
 
-    {# <div class="content-wrapper">
-        {% for post in posts %}
-            {% include ['_components/tease-' ~ post.post_type ~ '.twig', '_components/tease.twig'] %}
-        {% endfor %}
-
-        {% include '_components/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-    </div> #}
 {% endblock %}
