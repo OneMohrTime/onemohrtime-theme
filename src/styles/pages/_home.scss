@@ -257,6 +257,13 @@
                 #sbi_images {
                     padding-top: 0;
                     padding-bottom: 0;
+                    .sbi_item {
+                        transition: opacity $speed $bezier-slide,
+                                    transform $speed $bezier-slide;
+                    }
+                    .sbi_photo {
+                        transition: opacity $speed $bezier-slide;
+                    }
                 }
             }
         }
