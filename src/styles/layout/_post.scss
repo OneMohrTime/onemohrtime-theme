@@ -5,23 +5,41 @@
 .t-post,
 .t-page.is-default {
 
-    // Instagram Section
-    .o-section.is-social-feed {
-        @include padding();
+    .o-section {
 
-        #sb_instagram {
-            padding-bottom: 0 !important;
-            #sbi_images {
-                padding-top: $gutter;
-                padding-bottom: $gutter;
-                .sbi_item {
-                    transition: opacity $speed $bezier-slide,
-                                transform $speed $bezier-slide;
-                }
-                .sbi_photo {
-                    transition: opacity $speed $bezier-slide;
+        @include last(1) {
+            padding-bottom: $gutter;
+        }
+
+        // Instagram Section
+        &.is-social-feed {
+            @include padding();
+
+            #sb_instagram {
+                padding-bottom: 0 !important;
+                #sbi_images {
+                    padding-top: $gutter;
+                    padding-bottom: $gutter;
+                    .sbi_item {
+                        transition: opacity $speed $bezier-slide,
+                                    transform $speed $bezier-slide;
+                    }
+                    .sbi_photo {
+                        transition: opacity $speed $bezier-slide;
+                    }
                 }
             }
+        }
+    }
+
+    .o-page__sections {
+        padding-bottom: $gutter;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        .o-page__sections {
+            padding-bottom: $gutter-lg;
         }
     }
 

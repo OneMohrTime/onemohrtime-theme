@@ -70,6 +70,11 @@
     .is-script {
         @include padding();
     }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        row-gap: $gutter-lg;
+    }
 }
 
 .o-page__related {

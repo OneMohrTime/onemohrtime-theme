@@ -160,6 +160,12 @@
 
     // screen at or above 1500px
     @include media(">=big") {
+        padding-left: $gutter-lg;
+        padding-right: $gutter-lg;
+    }
+
+    // screen at or above 1800px
+    @include media(">=huge") {
         padding-left: calc((100% - $container-width) / 2);
         padding-right: calc((100% - $container-width) / 2);
     }
