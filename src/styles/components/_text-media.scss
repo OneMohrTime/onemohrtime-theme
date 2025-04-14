@@ -13,7 +13,8 @@
         align-items: center;
 
         // Even/Odd pattern
-        &.is-reversed {
+        &.is-reversed,
+        .o-section.is-text-media:nth-child(even) & {
             flex-direction: row-reverse;
         }
     }
