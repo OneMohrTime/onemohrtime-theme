@@ -252,8 +252,14 @@ abbr {
 }
 
 mark {
-    background-color: $gold;
+    display: inline-block;
+    transform: rotate(-2deg);
+    border: 0;
+    border-radius: $border-radius;
+    background-color: $yellow;
     color: $black;
+    box-shadow: 0 0 0 3px $yellow;
+    padding: 0 0.15em;
 }
 
 blockquote {
