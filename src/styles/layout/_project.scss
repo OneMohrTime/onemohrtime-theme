@@ -23,6 +23,10 @@
             background-color: $black;
             box-shadow: 0 0 0 rem(5px) $black;
         }
+        .c-banner.is-primary {
+            background-color: $black;
+            color: $white;
+        }
     }
 
     // Page Builder
