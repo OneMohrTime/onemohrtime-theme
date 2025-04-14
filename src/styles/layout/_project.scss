@@ -23,6 +23,10 @@
             background-color: $black;
             box-shadow: 0 0 0 rem(5px) $black;
         }
+        .c-banner.is-primary {
+            background-color: $black;
+            color: $white;
+        }
     }
 
     // Page Builder
@@ -40,7 +44,21 @@
                 @include padding();
                 padding-top: 0;
                 padding-bottom: $gutter;
+                .sbi_item {
+                    transition: opacity $speed $bezier-slide,
+                                transform $speed $bezier-slide;
+                }
+                .sbi_photo {
+                    transition: opacity $speed $bezier-slide;
+                }
             }
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        .o-page__sections {
+            padding-top: $gutter-lg;
         }
     }
 

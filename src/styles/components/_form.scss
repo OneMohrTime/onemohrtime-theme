@@ -60,6 +60,8 @@
         .wpforms-title {
             @include subheadline();
             margin-bottom: 0;
+            font-family: $font-header;
+            line-height: $heading-height;
         }
     }
 
@@ -217,7 +219,7 @@
                         .wpforms-field-label-inline {
                             font-size: $font-base;
                             font-weight: $font-regular;
-                            font-weight: $font-semibold;
+                            // font-weight: $font-semibold;
                         }
                     }
                 }
@@ -249,7 +251,7 @@
                             transition: border-color $speed $bezier-slide,
                                         background-color $speed $bezier-slide;
                             outline: none;
-                            border: 3px solid $black--light;
+                            border: 2px solid $black--light;
                             border-radius: $border-radius;
                             background-color: transparent;
                             cursor: pointer;
