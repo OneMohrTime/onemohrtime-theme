@@ -53,6 +53,11 @@ $swiper-height-lg: 600px;
     @include padding();
     margin-bottom: $gutter;
 
+    .is-grid-gallery & {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .u-subheadline {
         margin-bottom: $small-spacing;
     }
