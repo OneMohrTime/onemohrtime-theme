@@ -530,7 +530,7 @@
 
 @mixin underline-link() {
     border-bottom: 3px $black solid;
-    font-weight: 700;
+    font-weight: $font-bold;
     padding-left: $small-spacing;
     padding-right: $small-spacing;
     padding-bottom: .25em;

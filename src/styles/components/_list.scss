@@ -52,6 +52,7 @@
         flex: 1 1 100px;
         height: 100px;
         max-width: 100px;
+        border-radius: $border-radius;
     }
 
     .u-wysiwyg {
@@ -61,7 +62,9 @@
         max-width: calc(100% - 100px);
     }
 
-    .u-headline {
+    .u-headline,
+    .u-subheadline,
+    .u-heading {
         @include ellipsis;
         margin-bottom: 0;
     }

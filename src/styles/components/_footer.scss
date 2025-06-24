@@ -64,7 +64,7 @@
 
     // screen at or above 1500px
     @include media(">=big") {
-        padding-left: calc((100% - $container-width) / 2);
+        padding-left: calc(((100% - $container-width) / 2) * 2);
     }
 }
 
@@ -126,7 +126,7 @@
 
     // screen at or above 1500px
     @include media(">=big") {
-        padding-right: calc((100% - $container-width) / 2);
+        padding-right: calc(((100% - $container-width) / 2) * 2);
     }
 }
 
@@ -266,6 +266,8 @@
     padding-top: $gutter-xs;
     padding-bottom: $gutter-xs;
     text-align: center;
+    font-weight: $font-bold;
+    font-weight: $font-semibold;
     background-color: $yellow;
     color: $black;
 
@@ -285,6 +287,8 @@
 
     // screen at or above 1500px
     @include media(">=big") {
+        border: 3px solid $black;
+        border-top: 0;
         border-bottom-left-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
     }
