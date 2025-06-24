@@ -281,7 +281,7 @@ blockquote {
             margin-top: 1em;
             padding-left: 1.5em;
             font-style: normal;
-            font-weight: 700;
+            font-weight: $font-bold;
         }
 
         &::before {

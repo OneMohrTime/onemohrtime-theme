@@ -235,7 +235,7 @@
             ],
             "return_format": "object",
             "min": "",
-            "max": 3,
+            "max": 5,
             "allow_in_bindings": 0,
             "elements": "",
             "bidirectional": 0,
@@ -533,5 +533,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1736830018
+    "modified": 1750736697
 }

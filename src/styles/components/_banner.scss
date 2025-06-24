@@ -93,7 +93,7 @@
     @include media(">=medium") {
         display: flex;
         align-items: center;
-        column-gap: $gutter;
+        column-gap: 0;
     }
 
     // screen below 600px
@@ -197,10 +197,10 @@
         // Slideshow Banner
         .c-banner.is-slides & {
             flex: 0 1 50%;
-            max-width: calc(50% - $gutter-sm);
+            max-width: 50%;
             margin-bottom: 0;
             padding-top: 0;
-            padding-right: 0;
+            padding-right: $gutter;
         }
     }
 }
@@ -344,9 +344,8 @@
         background-color: transparent;
     }
 
-    // Slideshow Banner
-    .c-banner.is-slides & {
-    }
+    // // Slideshow Banner
+    // .c-banner.is-slides & {}
 
     .c-media {
         width: 100%;
@@ -365,8 +364,7 @@
         // Slideshow Banner
         .c-banner.is-slides & {
             flex: 0 1 50%;
-            max-width: calc(50% - $gutter-sm);
-            // padding-top: $gutter;
+            max-width: 50%;
         }
     }
 

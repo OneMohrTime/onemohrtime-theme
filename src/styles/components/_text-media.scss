@@ -14,7 +14,7 @@
 
         // Even/Odd pattern
         &.is-reversed,
-        .o-section.is-text-media:nth-child(even) & {
+        .o-section.is-text-media:nth-child(odd) & {
             flex-direction: row-reverse;
         }
     }
@@ -45,6 +45,11 @@
     .c-media,
     .c-media__image {
         border-radius: $border-radius;
+    }
+
+    .swiper.is-cards {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .swiper-controls {
