@@ -15,6 +15,9 @@
             {% case 'design' %}
                 {% set eyebrow = get_post(item).post_subheadline ?? item.post_excerpt|truncate(10) %}
                 {% set heading = item.title %}
+            {% case 'travel' %}
+                {% set eyebrow = get_post(item).post_subheadline %}
+                {% set heading = get_post(item).post_headline|default(get_post(item).title) %}
             {% case 'modeling' %}
                 {% set eyebrow = get_post(item).date('Y') %}
                 {% set heading = get_post(item).post_headline|default(get_post(item).title) %}
@@ -38,7 +41,11 @@
 
             <div class="u-wysiwyg">
                 <strong class="u-eyebrow" data-scroll-trigger>{{ eyebrow }}</strong>
-                <h2 class="u-headline" data-scroll-trigger>{{ heading }}</h2>
+                {% if this.style == 'travel' %}
+                    <h3 class="u-heading" data-scroll-trigger>{{ heading }}</h3>
+                {% else %}
+                    <h2 class="u-headline" data-scroll-trigger>{{ heading }}</h2>
+                {% endif %}
             </div>
 
             <a href="{{ get_post(item).link ?? item.link }}" class="c-list__item-link" aria-label="Learn More">

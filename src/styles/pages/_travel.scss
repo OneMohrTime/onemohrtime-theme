@@ -1,0 +1,33 @@
+/* ==========================================================================
+    Travel
+========================================================================== */
+
+.t-page.is-travel {
+
+    // Featured Trips
+    .o-section.is-list {
+        @include padding();
+        margin-bottom: $gutter;
+
+        .u-headline {
+            margin-bottom: $small-spacing;
+            text-align: center;
+        }
+
+        .c-button-group {
+            justify-content: center;
+            margin-top: $gutter;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            margin-bottom: $gutter-lg
+        }
+    }
+
+    // Sections
+    .o-page__sections {
+        @include padding();
+    }
+
+}
