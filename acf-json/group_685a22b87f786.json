@@ -1,0 +1,61 @@
+{
+    "key": "group_685a22b87f786",
+    "title": "Travel Fields",
+    "fields": [
+        {
+            "key": "field_685a22b8f0b78",
+            "label": "Featured Trips",
+            "name": "featured_trips",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": [
+                "category:travel"
+            ],
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": 5,
+            "allow_in_bindings": 0,
+            "elements": [
+                "featured_image"
+            ],
+            "bidirectional": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "4633"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1750737706
+}
