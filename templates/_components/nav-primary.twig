@@ -20,7 +20,7 @@
     {% case 'none' %}
         {% set availabilityValue = 'Reduced' %}
     {% default %}
-        {% set availabilityValue = 'Open to Work' %}
+        {% set availabilityValue = 'Open' %}
 {% endswitch %}
 
 {# -- Component Template -- #}
@@ -110,7 +110,7 @@
 
     <div class="c-availability c-tooltip__container">
         <a href="/contact" class="c-tooltip__anchor" aria-describedby="my_availability">
-            <span class="c-availability__label">Availability:</span>
+            <span class="c-availability__label">Current Availability:</span>
             <span class="c-availability__value is-{{ this.availability }}">{{ availabilityValue }}</span>
         </a>
         <div id="my_availability" class="c-tooltip" role="tooltip">

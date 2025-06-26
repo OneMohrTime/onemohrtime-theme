@@ -115,6 +115,10 @@
     font-weight: $font-bold;
     line-height: $line-height;
 
+    &.is-current {
+        color: $white--darkest;
+    }
+
     .c-media__svg {
         display: none;
         width: 0.75em;
@@ -291,7 +295,8 @@
 }
 
 .c-availability__label {
-    font-weight: $font-bold;
+    font-weight: $font-regular;
+    white-space: nowrap;
 }
 
 .c-availability__value {
@@ -299,6 +304,7 @@
     position: relative;
     display: block;
     margin-bottom: 0;
+    font-weight: $font-bold;
     line-height: $heading-height;
     white-space: nowrap;
 

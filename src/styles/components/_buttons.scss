@@ -147,6 +147,15 @@
     }
 }
 
+.c-button--large {
+    padding: $base-spacing $large-spacing;
+    font-size: $font-h6;
+
+    &::after {
+        height: 15px;
+    }
+}
+
 /**
  * === BUTTON GROUPS ===
  */
