@@ -175,6 +175,14 @@
                 }
             }
         }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            .c-textMedia.is-reversed {
+                padding-top: $gutter-lg;
+                padding-bottom: $gutter-lg;
+            }
+        }
     }
 
     // Proposal Section
@@ -195,6 +203,13 @@
             text-align: left;
             .c-button-group {
                 justify-content: flex-start;
+            }
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            .c-textMedia {
+                padding-bottom: $gutter-lg;
             }
         }
     }
@@ -339,6 +354,13 @@
                 flex: 0 1 auto;
             }
         }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            row-gap: $gutter-lg;
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
+        }
     }
 
     // Travel Section
@@ -351,6 +373,12 @@
         // screen at or above 900px
         @include media(">=medium") {
             text-align: left;
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
         }
     }
 }

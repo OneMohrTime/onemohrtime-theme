@@ -6,7 +6,14 @@
 
     // Sections
     .o-page__sections {
-        @include padding();
+        padding-top: 0;
+        padding-bottom: $gutter;
+
+        // // screen at or above 900px
+        // @include media(">=medium") {
+        //     padding-top: $gutter;
+        //     padding-bottom: $gutter-lg;
+        // }
     }
 
     // Services

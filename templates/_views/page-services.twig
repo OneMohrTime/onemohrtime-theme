@@ -45,6 +45,7 @@
             }
         } only %}
 
+        {% if allServices %}
         <section class="o-section is-services" data-module-scroll>
             {% for row in allServices %}
                 {% set service = get_post(row) %}
@@ -66,6 +67,7 @@
                 } only %}
             {% endfor %}
         </section>
+        {% endif %}
 
         <section class="o-section is-shop" data-module-scroll>
             {% include '_components/marquee.twig' %}
