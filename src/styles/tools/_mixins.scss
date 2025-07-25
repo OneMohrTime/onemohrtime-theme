@@ -179,6 +179,11 @@
             padding-left: calc(((100% - $container-width) / 2) * 2);
             padding-right: calc(((100% - $container-width) / 2) * 2);
         }
+        // screen at or above 1800px
+        @include media(">=huge") {
+            padding-left: calc((100% - $container-width) / 2);
+            padding-right: calc((100% - $container-width) / 2);
+        }
     }
 }
 
@@ -292,8 +297,8 @@
     text-transform: uppercase;
     letter-spacing: -1.5px;
 
-    // screen below 599px
-    @include media("<small") {
+    // screen below 899px
+    @include media("<medium") {
         font-size: $font-h2;
         font-size: 2.5em;
         letter-spacing: normal;
@@ -311,8 +316,8 @@
     text-transform: uppercase;
     letter-spacing: -0.5px;
 
-    // screen below 599px
-    @include media("<small") {
+    // screen below 899px
+    @include media("<medium") {
         font-size: 2.25em;
         letter-spacing: normal;
         hyphens: auto;
@@ -327,8 +332,8 @@
     font-size: $font-h3;
     text-transform: uppercase;
 
-    // screen below 599px
-    @include media("<=small") {
+    // screen below 899px
+    @include media("<=medium") {
         font-size: 2em;
     }
 
@@ -341,8 +346,8 @@
     font-size: $font-h4;
     text-transform: uppercase;
 
-    // screen below 599px
-    @include media("<=small") {
+    // screen below 899px
+    @include media("<=medium") {
         font-size: 1.75em;
     }
 
@@ -359,8 +364,8 @@
     text-transform: uppercase;
     margin: 0;
 
-    // screen below 599px
-    @include media("<=small") {
+    // screen below 899px
+    @include media("<=medium") {
         font-size: $font-h6;
     }
 }
@@ -407,7 +412,6 @@
 
 @mixin caption() {
     margin: 0;
-    // font-size: 1.15vw;
     font-size: 0.875em;
     font-family: $font-header;
     font-weight: $font-bold;
@@ -444,8 +448,6 @@
         float: left;
         font-family: $font-header;
         font-size: 3.25em;
-        // font-size: 3.375em;
-        // font-size: 2em;
         font-size: 5.5em;
         line-height: 0.9em;
         color: $yellow;
