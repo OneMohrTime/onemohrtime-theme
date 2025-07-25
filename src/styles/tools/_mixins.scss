@@ -397,12 +397,12 @@
 }
 
 @mixin label() {
-    font-family: $font-header;
-    font-size: $font-h5;
+    display: block;
+    margin: 0;
+    font-family: $font-body;
+    font-size: $font-base;
     font-weight: $font-bold;
     line-height: 1em;
-    text-transform: uppercase;
-    margin: 0;
 }
 
 @mixin caption() {
