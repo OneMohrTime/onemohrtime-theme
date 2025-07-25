@@ -4,58 +4,35 @@
     eyebrow: params.eyebrow,
     headline: params.heading,
     text: params.text,
+    button: params.button ?? null,
     image1: params.media.large,
     image2: params.media.small,
     isReverse: params.alignment|default(false),
-    label: params.label|default('Facilitator Guide'),
-    downloads: params.downloads,
-    hasDownloads: (params.downloads|length > 0)|default(false)
 } %}
 
 {# -- Component Template -- #}
 <div class="c-textMedia{{ this.isReverse }}">
 
-    {% if this.hasDownloads == true %}
-        <div class="c-textMedia__header">
-            {% if this.eyebrow %}
-                <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
-            {% endif %}
-            <h3 class="u-subheadline">{{ this.headline }}</h3>
-        </div>
-    {% endif %}
-
-    <div class="c-textMedia__text">
-        {% if this.hasDownloads != true %}
-            <h3 class="u-heading">{{ this.headline }}</h3>
-        {% else %}
-            <strong class="u-eyebrow">{{ this.label }}</strong>
+    <div class="c-textMedia__text" data-scroll-trigger>
+        {% if this.eyebrow %}
+            <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+        {% endif %}
+        {% if this.headline %}
+            <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-subheadline">{{ this.headline }}</h2>
         {% endif %}
         {% if this.text %}
             <div class="u-wysiwyg">
                 {{ this.text }}
             </div>
         {% endif %}
-        {% if this.hasDownloads == true %}
-            <strong class="u-eyebrow">Downloads</strong>
-            <ul class="u-downloads">
-                {% for download in this.downloads %}
-                    {% set download = download.download %}
-                    <li>
-                        <a href="{{ download.url }}" class="u-link">{{ download.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            {% if this.button %}
-                {% include '_elements/button.twig' with {
-                    params: {
-                        url: text.button.url,
-                        text: text.button.title,
-                        target: text.button.target,
-                        primary: false
-                    }
-                } only %}
-            {% endif %}
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: text.button.url,
+                    text: text.button.title,
+                    target: text.button.target
+                }
+            } only %}
         {% endif %}
     </div>
 

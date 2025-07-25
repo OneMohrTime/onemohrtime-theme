@@ -6,7 +6,7 @@
 {# ----------------------------------------------------------------- #}
 {% set headline = post.meta('post_headline')|default(post.title) %}
 {% set subheadline = post.meta('post_subheadline')|default(null) %}
-{% set intro = post.meta('homepage_intro')|default(null) %}
+{% set buttons = post.meta('homepage_buttons')|default(null) %}
 {% set services = post.meta('homepage_services')|default(null) %}
 {% set proposal = post.meta('homepage_proposal')|default(null) %}
 {% set offerings = post.meta('homepage_offerings')|default(null) %}
@@ -21,34 +21,21 @@
 
         <section class="c-banner is-homepage" data-module-scroll>
             <div class="c-banner__heading">
-                <h1 class="u-title">{{ headline }}</h1>
                 <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
-            </div>
-        </section>
-
-        <section class="o-section is-text is-intro" data-module-scroll>
-            <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.sky_image).src('1536x1536') }});" data-module-parallax>
-                <figure class="c-banner__foreground" data-parallax-layer="foreground">
-                {% include '_elements/picture.twig' with {
-                    params: {
-                        src: get_image(intro.foreground_image),
-                        lazyload: false
-                    }
-                } only %}
-                </figure>
-                <div class="c-banner__tagline" data-parallax-layer="tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
-                    <span aria-hidden="true">I’m a</span>
-                    <span aria-hidden="true">{{ source('_elements/svg/creative.svg') }}</span>
-                    <span aria-hidden="true">Designer + Developer</span>
+                <h1 class="u-title">{{ headline }}</h1>
+                <div class="c-button-group">
+                    {% for button in buttons %}
+                        {% if button %}
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: button.url,
+                                    text: button.title,
+                                    target: button.target
+                                }
+                            } only %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
-                <figure class="c-banner__background" data-parallax-layer="background">
-                {% include '_elements/picture.twig' with {
-                    params: {
-                        src: get_image(intro.background_image),
-                        lazyload: false
-                    }
-                } only %}
-                </figure>
             </div>
         </section>
 
@@ -203,7 +190,7 @@
             {% include '_components/cta.twig' with {
                 params: {
                     headline: 'Get In Touch',
-                    text: 'Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?',
+                    text: '<p>Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?</p>',
                     button: {
                         url: '/contact',
                         title: 'Contact Me'

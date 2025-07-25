@@ -6,31 +6,41 @@
     @include content-width();
     position: relative;
     max-width: rem(1024px);
-    margin-bottom: $gutter;
 
-    &::before {
-        @include caption();
-        content: attr(data-start) " – " attr(data-end);
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block;
-        margin-top: calc(3.25em + $small-spacing);
-    }
-
-    // & + & {
-    //     border-top: 2px $white--dark solid;
-    // }
-
-    &.is-current {
-        &::before {
-            content: attr(data-end);
-        }
+    & + & {
+        margin-top: $gutter-sm;
+        padding-top: $gutter-sm;
+        border-top: 2px $white--dark solid;
     }
 
     &[open] {
         .c-repeater__summary {
             margin-bottom: $small-spacing;
+        }
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        &::before {
+            @include caption();
+            content: attr(data-start) " – " attr(data-end);
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            margin-top: calc($font-h4 + $small-spacing);
+        }
+        &.is-current {
+            &::before {
+                content: attr(data-end);
+            }
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        &::before {
+            margin-top: calc($font-h2 + $small-spacing);
         }
     }
 }
@@ -51,6 +61,8 @@
 
 .c-repeater__title {
     @include ellipsis();
+    @include headline();
+    max-width: 75%;
 }
 
 .c-repeater__body {
@@ -62,6 +74,10 @@
 }
 
 .c-repeater__link {
+    display: flex;
+    display: inline-flex;
+    align-items: center;
+    column-gap: rem(5px);
     margin-top: $base-spacing;
     padding-left: rem(5px);
     padding-right: rem(5px);
@@ -70,5 +86,10 @@
 
     &::before {
         background-color: $yellow;
+    }
+
+    .c-media__svg {
+        width: 0.75em;
+        height: 0.75em;
     }
 }

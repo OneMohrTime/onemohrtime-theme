@@ -24,8 +24,14 @@
 
     // Pagination
     .c-pagination {
-        margin-top: $gutter;
-        margin-bottom: $gutter;
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
+        }
     }
 
 }

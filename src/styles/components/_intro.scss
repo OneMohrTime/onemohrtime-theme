@@ -22,4 +22,10 @@
     h3 {
         @include subheadline();
     }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding-top: $gutter-lg;
+        padding-bottom: $gutter-lg;
+    }
 }

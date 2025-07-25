@@ -58,13 +58,19 @@
 
     // screen at or above 1200px
     @include media(">=large") {
-        flex: 0 1 auto;
+        flex-basis: 25%;
         padding-left: $gutter-xl;
     }
 
     // screen at or above 1500px
     @include media(">=big") {
         padding-left: calc(((100% - $container-width) / 2) * 2);
+    }
+
+    // screen at or above 1800px
+    @include media(">=huge") {
+        flex-basis: 30%;
+        padding-left: calc((100% - $container-width) / 2);
     }
 }
 
@@ -93,6 +99,11 @@
     @include media(">=large") {
         flex-basis: 25%;
         padding-left: $gutter-lg;
+    }
+
+    // screen at or above 1800px
+    @include media(">=huge") {
+        flex-basis: 30%;
     }
 }
 
@@ -127,6 +138,12 @@
     // screen at or above 1500px
     @include media(">=big") {
         padding-right: calc(((100% - $container-width) / 2) * 2);
+    }
+
+    // screen at or above 1800px
+    @include media(">=huge") {
+        flex-basis: 40%;
+        padding-right: calc((100% - $container-width) / 2);
     }
 }
 

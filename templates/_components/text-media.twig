@@ -13,17 +13,17 @@
 
 {# -- Component Template -- #}
 
-<div class="c-textMedia{{ this.isReverse }}">
+<div class="c-textMedia{{ this.isReverse }}" data-scroll-trigger>
 
-    <div class="c-textMedia__text">
+    <div class="c-textMedia__text" data-scroll-trigger>
         {% if this.eyebrow %}
-            <strong class="u-eyebrow" data-scroll-trigger>{{ this.eyebrow }}</strong>
+            <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
         {% endif %}
         {% if this.headline %}
-            <h2 class="u-subheadline" data-scroll-trigger>{{ this.headline }}</h2>
+            <h2 class="u-subheadline">{{ this.headline }}</h2>
         {% endif %}
         {% if this.text %}
-            <div class="u-wysiwyg" data-scroll-trigger>
+            <div class="u-wysiwyg">
                 {{ this.text }}
             </div>
         {% endif %}
@@ -51,7 +51,7 @@
 
             {% case 'slides' %}
                 <div class="swiper is-cards" data-module-swiper-slides>
-                    <div class="swiper-wrapper" data-scroll-trigger>
+                    <div class="swiper-wrapper">
                         {% for image in this.media.slider %}
                             <div class="swiper-slide">
                                 {% include '_elements/picture.twig' with {

@@ -4,6 +4,86 @@
 
 .t-page.is-about {
 
+    // Banner Section
+    .c-banner.is-default.no-image {
+        padding-top: $gutter-lg;
+        padding-bottom: $gutter-lg;
+    }
+
+    // Intro Section
+    .o-section.is-intro {
+        overflow: hidden;
+
+        .c-content.has-background-image {
+            @include padding("2x");
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            height: calc(400px + 10vh); // Base height + viewport height scaling
+            height: clamp(400px, calc(10vh + 300px), 600px); // Use clamp() for fluid scaling between breakpoints
+            padding-top: 0;
+            padding-bottom: 0;
+
+            .u-headline {
+                margin: 0;
+            }
+
+            .u-wysiwyg {
+                max-width: rem(420px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            // screen at or above 600px
+            @include media(">=small") {
+                height: 450px;
+                height: clamp(450px, calc(12vh + 300px), 600px);
+            }
+            // screen at or above 900px
+            @include media(">=medium") {
+                height: 500px;
+                height: clamp(500px, calc(14vh + 300px), 600px);
+            }
+            // screen at or above 1200px
+            @include media(">=large") {
+                height: 550px;
+                height: clamp(550px, calc(16vh + 300px), 600px);
+            }
+            // screen at or above 1500px
+            @include media(">=big") {
+                height: 600px;
+                height: clamp(600px, calc(20vh + 300px), 700px);
+            }
+        }
+
+        p {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: $font-base-lg;
+        }
+
+        // screen at or above 600px
+        @include media(">=small") {
+            // .c-content.has-background-image {
+            //     padding-top: $gutter-xl;
+            //     padding-bottom: $gutter-xl;
+            // }
+            // p {
+            //     font-size: $font-h6;
+            // }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            // .c-content.has-background-image {
+            //     padding-top: $gutter-xxl;
+            //     padding-bottom: $gutter-xxl;
+            // }
+        }
+    }
+
     // Sections
     .o-page__sections {
         padding-bottom: $gutter;
@@ -31,12 +111,41 @@
 
 }
 
-.t-page.is-me {
+.t-page.is-derek-mohr {
 
     // Work & Education History
-    .o-page__sections {
+    .o-page__resume {
         @include padding();
         padding-bottom: $gutter;
+
+        & > .u-subheadline {
+            @include heading();
+
+            margin-top: $base-spacing;
+            @include first(2) {
+                margin-top: 0
+            }
+        }
+    }
+
+    // Instagram Section
+    .o-section.is-social-feed {
+        @include padding();
+
+        #sb_instagram {
+            padding-bottom: 0 !important;
+            #sbi_images {
+                padding-top: 0;
+                padding-bottom: $gutter;
+                .sbi_item {
+                    transition: opacity $speed $bezier-slide,
+                                transform $speed $bezier-slide;
+                }
+                .sbi_photo {
+                    transition: opacity $speed $bezier-slide;
+                }
+            }
+        }
     }
 
 }

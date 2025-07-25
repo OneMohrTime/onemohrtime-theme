@@ -7,16 +7,16 @@
 {# -- Component Template -- #}
 
 {% if this.textSection %}
-<section class="o-section is-text" data-module-scroll>
+<section class="o-section is-text">
 
     {% include '_components/content.twig' with {
         params: {
             eyebrow: this.textSection.eyebrow|default(null),
             headline: this.textSection.headline|default(null),
+            headlineSize: this.textSection.headline_size ?? null,
             text: this.textSection.text|default(null),
-            button: this.textSection.button|default(null),
-            largeHeadline: this.textSection.headline_size ?? false,
-            largeText: this.textSection.text_size ?? false,
+            textSize: this.textSection.text_size ?? null,
+            button: this.textSection.button|default(null)
         },
     } only %}
 

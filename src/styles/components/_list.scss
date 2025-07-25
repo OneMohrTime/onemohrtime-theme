@@ -93,9 +93,15 @@
     height: 100%;
     z-index: 1;
 
+    .c-media__svg {
+        transition: transform $speed-slow $bezier-back,
+                    color $speed $bezier-slide;
+    }
+
     @include hocus {
         .c-media__svg {
             transform: translateX(-$gutter) rotate(180deg);
+            color: $yellow;
         }
     }
 }

@@ -11,6 +11,7 @@
 {% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
 {% set button = post.meta('banner_button')|default(null) %}
+{% set intro = post.meta('about_intro')|default(null) %}
 {% set pageBuilder = post.meta('section_builder')|default(null) %}
 
 {# -- Page Template -- #}
@@ -30,6 +31,32 @@
                 button: button
             }
         } only %}
+
+        <section class="o-section is-text is-intro" data-module-scroll>
+            <div class="c-content has-background-image" style="background-image: url({{ get_image(intro.sky_image).src('1536x1536') }});" data-module-parallax>
+                <figure class="c-banner__foreground" data-parallax-layer="foreground">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: get_image(intro.foreground_image),
+                        lazyload: false
+                    }
+                } only %}
+                </figure>
+                <div class="c-banner__tagline" data-parallax-layer="tagline" data-module-draw-s-v-g aria-label="I'm a creative designer and developer.">
+                    <span aria-hidden="true">I’m a</span>
+                    <span aria-hidden="true">{{ source('_elements/svg/creative.svg') }}</span>
+                    <span aria-hidden="true">Designer + Developer</span>
+                </div>
+                <figure class="c-banner__background" data-parallax-layer="background">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: get_image(intro.background_image),
+                        lazyload: false
+                    }
+                } only %}
+                </figure>
+            </div>
+        </section>
 
         <section class="c-intro" data-module-scroll>
             <div class="u-wysiwyg" data-scroll-trigger>
@@ -57,7 +84,7 @@
             {% include '_components/cta.twig' with {
                 params: {
                     headline: 'Get In Touch',
-                    text: 'Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?',
+                    text: '<p>Looking to work on something? A brand refresh? A new website? An interview or podcast episode? A new logo?</p>',
                     button: {
                         url: '/contact',
                         title: 'Contact Me'

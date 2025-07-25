@@ -26,7 +26,7 @@ export default class extends es6Module {
   // ===========================================================================
   init() {
     this.loader = document.querySelector('.c-loader');
-    this.links = document.querySelectorAll('a:not([data-fancybox]):not([href^="#"])');
+    this.links = document.querySelectorAll('a:not([data-fancybox]):not([href^="#"]):not([target="_blank"])');
 
     // // Ensure the loader is active during the initial page load
     // window.addEventListener('load', () => {
