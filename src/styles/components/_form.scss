@@ -186,6 +186,10 @@
                     border-color: $yellow;
                     outline-color: $yellow;
                 }
+
+                &::placeholder {
+                    color: $gray--lightest;
+                }
             }
 
             // Select Fields
