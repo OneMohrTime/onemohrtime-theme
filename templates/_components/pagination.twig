@@ -4,7 +4,7 @@
 
 {% if posts.pagination.pages is not empty %}
     <nav class="c-pagination">
-        <ul class="c-pagination__menu">
+        <ul class="c-pagination__menu" data-scroll-trigger>
 
             {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
                 <li class="is-first">

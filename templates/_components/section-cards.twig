@@ -8,8 +8,8 @@
 {# -- Component Template -- #}
 
 {% if this.grid %}
-<section class="o-section is-cards" data-module-scroll>
-    <div class="c-grid has-{{ this.count }}-columns">
+<section class="o-section is-cards">
+    <div class="c-grid has-{{ this.count }}-columns" data-scroll-trigger>
 
         {% for card in this.grid.cards %}
             {% set image = get_image(card.card_image)|default(null) %}
@@ -31,7 +31,7 @@
                     {% set srcset = 'sizes: "(min-width: 900px) 25vw, 50vw"' %}
             {% endswitch %}
 
-            <div class="c-grid__item" data-scroll-trigger>
+            <div class="c-grid__item">
                 <figure class="c-card">
 
                     {% if button %}
@@ -48,7 +48,7 @@
                             } only %}
                         {% endif %}
 
-                        <div class="c-card__body">
+                        <div class="c-card__body" data-scroll-trigger>
                             {% if headline %}
                                 <h3 class="u-heading">{{ headline }}</h3>
                             {% endif %}

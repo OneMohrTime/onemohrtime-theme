@@ -29,7 +29,7 @@
                 {% set heading = item.title %}
         {% endswitch %}
 
-        <li class="c-list__item">
+        <li class="c-list__item" data-scroll-trigger>
 
             {% include '_elements/picture.twig' with {
                 params: {
@@ -40,11 +40,11 @@
             } only %}
 
             <div class="u-wysiwyg">
-                <strong class="u-eyebrow" data-scroll-trigger>{{ eyebrow }}</strong>
+                <strong class="u-eyebrow">{{ eyebrow }}</strong>
                 {% if this.style == 'travel' %}
-                    <h3 class="u-heading" data-scroll-trigger>{{ heading }}</h3>
+                    <h3 class="u-heading">{{ heading }}</h3>
                 {% else %}
-                    <h2 class="u-headline" data-scroll-trigger>{{ heading }}</h2>
+                    <h2 class="u-headline">{{ heading }}</h2>
                 {% endif %}
             </div>
 

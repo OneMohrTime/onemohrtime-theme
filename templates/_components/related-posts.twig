@@ -12,7 +12,7 @@
     {% for relatedProject in this.relatedProjects %}
         {% set project = get_post(relatedProject.related_post) %}
 
-        <div class="c-related" data-scroll-trigger>
+        <div class="c-related">
             <h4 class="c-related__headline">{{ project.heading_headline|default(project.title) }}</h3>
 
             {% if project.post_excerpt %}

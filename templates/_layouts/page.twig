@@ -45,36 +45,9 @@
             }
         } only %}
 
-        {% if post.children('page')|length > 0 %}
-            <section class="o-section" data-module-scroll>
-                <ul class="c-related-posts">
-
-                    {% for child in post.children('page') %}
-                        <li class="c-related-posts__post">
-
-                            {% include '_components/text-media.twig' with {
-                                params: {
-                                    headline: child.post_headline|default(child.title),
-                                    text: child.content|excerpt(36),
-                                    button: {
-                                        url: child.link,
-                                        title: 'Learn More'
-                                    },
-                                    media: child.image|default(null),
-                                    alignment: loop.index is even ? ' is-reversed' : '',
-                                }
-                            } only %}
-
-                        </li>
-                    {% endfor %}
-
-                </ul>
-            </section>
-        {% endif %}
-
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
-                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-scroll-trigger>
+                <h3 class="u-subheadline">Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
                 } only %}

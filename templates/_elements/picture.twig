@@ -24,8 +24,7 @@
     {% if this.ratio %}u-ratio u-{{ this.ratio }}{% endif %}"
     {# Custom data-attributes #}
     {% if this.attr %}{{ this.attr }}{% endif %}
-    {# Fade in on scroll #}
-    data-scroll-trigger>
+>
 
     {% switch renderedImage.post_mime_type %}
 
@@ -81,7 +80,7 @@
 </picture>
 
 {% else %}
-<picture class="c-media" data-scroll-trigger>
+<picture class="c-media">
     <img src="https://onemohrti.me/wp-content/uploads/placeholder.png" alt="placeholder image" class="c-media__image" loading="lazy" />
 </picture>
 
