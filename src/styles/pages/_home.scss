@@ -7,87 +7,42 @@
     // Banner Section
     .c-banner.is-homepage {
         @include padding();
-        padding-top: $gutter-lg;
-        padding-bottom: $gutter-lg;
         margin-bottom: 0;
+        padding-top: $gutter-lg;
+        padding-bottom: 0;
         text-align: center;
         background-color: transparent;
-    }
-
-    // Intro Section
-    .o-section.is-intro {
-        overflow: hidden;
-
-        .c-content.has-background-image {
-            @include padding("2x");
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 400px;
-            height: calc(400px + 10vh); // Base height + viewport height scaling
-            height: clamp(400px, calc(10vh + 300px), 600px); // Use clamp() for fluid scaling between breakpoints
-            padding-top: 0;
-            padding-bottom: 0;
-
-            .u-headline {
-                margin: 0;
-            }
-
-            .u-wysiwyg {
-                max-width: rem(420px);
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            // screen at or above 600px
-            @include media(">=small") {
-                height: 450px;
-                height: clamp(450px, calc(12vh + 300px), 600px);
-            }
-            // screen at or above 900px
-            @include media(">=medium") {
-                height: 500px;
-                height: clamp(500px, calc(14vh + 300px), 600px);
-            }
-            // screen at or above 1200px
-            @include media(">=large") {
-                height: 550px;
-                height: clamp(550px, calc(16vh + 300px), 600px);
-            }
-            // screen at or above 1500px
-            @include media(">=big") {
-                height: 600px;
-                height: clamp(600px, calc(20vh + 300px), 700px);
-            }
-        }
-
-        p {
-            margin-left: auto;
-            margin-right: auto;
-            font-size: $font-base-lg;
-        }
-
-        // screen at or above 600px
-        @include media(">=small") {
-            // .c-content.has-background-image {
-            //     padding-top: $gutter-xl;
-            //     padding-bottom: $gutter-xl;
-            // }
-            // p {
-            //     font-size: $font-h6;
-            // }
-        }
 
         // screen at or above 900px
         @include media(">=medium") {
-            // .c-content.has-background-image {
-            //     padding-top: $gutter-xxl;
-            //     padding-bottom: $gutter-xxl;
-            // }
+            display: flex;
+            align-items: flex-end;
+            height: calc(100vh - rem(102px) - $gutter);
+            min-height: rem(500px);
+            text-align: left;
+
+            .u-title {
+                max-width: 24ch;
+            }
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            .u-tagline {
+                display: block;
+                margin-bottom: 0.5em;
+            }
+            .u-title {
+                font-size: rem(102px);
+                line-height: 1em;
+            }
+        }
+
+        // screen at or above 1800px
+        @include media(">=huge") {
+            height: auto;
         }
     }
-
 
     // Services Section
     .o-section.is-services {
@@ -201,6 +156,9 @@
         // screen at or above 900px
         @include media(">=medium") {
             text-align: left;
+            .c-textMedia {
+                flex-direction: row;
+            }
             .c-button-group {
                 justify-content: flex-start;
             }
@@ -345,6 +303,10 @@
         .u-headline {
             display: block;
             text-align: center;
+        }
+
+        .c-textMedia:not(.is-reversed) {
+            flex-direction: row;
         }
 
         .c-button-group {

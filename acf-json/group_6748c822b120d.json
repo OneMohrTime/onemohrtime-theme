@@ -3,9 +3,9 @@
     "title": "Homepage Intro Fields",
     "fields": [
         {
-            "key": "field_6748c8d1c0581",
-            "label": "Intro Section",
-            "name": "homepage_intro",
+            "key": "field_6883fdba829ab",
+            "label": "Intro Buttons",
+            "name": "homepage_buttons",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -19,11 +19,11 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_67797b11b0c63",
-                    "label": "Foreground Image",
-                    "name": "foreground_image",
+                    "key": "field_6883fe22829ac",
+                    "label": "Button 1",
+                    "name": "button_1",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -33,68 +33,55 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium_large"
+                    "allow_in_bindings": 0
                 },
                 {
-                    "key": "field_6748c982c0583",
-                    "label": "Background Image",
-                    "name": "background_image",
+                    "key": "field_6883fe5e829ad",
+                    "label": "Button 2",
+                    "name": "button_2",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6883fe22829ac",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "33",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium_large"
+                    "allow_in_bindings": 0
                 },
                 {
-                    "key": "field_67797b5cb0c64",
-                    "label": "Sky Image",
-                    "name": "sky_image",
+                    "key": "field_6883fe6a829ae",
+                    "label": "Button 3",
+                    "name": "button_3",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6883fe5e829ad",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "33",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium_large"
+                    "allow_in_bindings": 0
                 }
             ]
         },
@@ -568,5 +555,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1742355704
+    "modified": 1753480822
 }
