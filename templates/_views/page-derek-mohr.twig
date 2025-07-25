@@ -45,7 +45,7 @@
             </div>
         </section>
 
-        <section class="o-page__sections" data-module-scroll>
+        <section class="o-page__resume" data-module-scroll>
             <h2 class="u-screen-reader-text">Résumé Specs</h2>
 
             <h3 id="work-history" class="u-subheadline is-underlined">Professional History</h3>
@@ -58,7 +58,14 @@
                     <div class="c-repeater__body">
                         <h5 id="{{ work.job_title|sanitize }}" class="u-subheadline">{{ work.job_title }}</h5>
                         <div class="u-wysiwyg">{{ work.job_description }}</div>
-                        <a href="{{ work.website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">Website</a>
+                        {% if work.website %}
+                            <a href="{{ work.website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">
+                                Website
+                                <span class="u-link__icon">
+                                    {{ source('_elements/svg/external-link.svg') }}
+                                </span>
+                            </a>
+                        {% endif %}
                     </div>
                 </details>
             {% endfor %}
@@ -73,7 +80,12 @@
                     <div class="c-repeater__body">
                         <h5 class="u-subheadline">Undergrad</h5>
                         <div class="u-wysiwyg">{{ school.description }}</div>
-                        <a href="{{ school.school_website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">Website</a>
+                        <a href="{{ school.school_website }}" target="_blank" rel="noopener noreferrer nofollow" class="c-repeater__link u-highlight">
+                            Website
+                            <span class="u-link__icon">
+                                {{ source('_elements/svg/external-link.svg') }}
+                            </span>
+                        </a>
                     </div>
                 </details>
             {% endfor %}

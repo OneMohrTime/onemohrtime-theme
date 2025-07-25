@@ -31,12 +31,41 @@
 
 }
 
-.t-page.is-me {
+.t-page.is-derek-mohr {
 
     // Work & Education History
-    .o-page__sections {
+    .o-page__resume {
         @include padding();
         padding-bottom: $gutter;
+
+        & > .u-subheadline {
+            @include heading();
+
+            margin-top: $base-spacing;
+            @include first(2) {
+                margin-top: 0
+            }
+        }
+    }
+
+    // Instagram Section
+    .o-section.is-social-feed {
+        @include padding();
+
+        #sb_instagram {
+            padding-bottom: 0 !important;
+            #sbi_images {
+                padding-top: 0;
+                padding-bottom: $gutter;
+                .sbi_item {
+                    transition: opacity $speed $bezier-slide,
+                                transform $speed $bezier-slide;
+                }
+                .sbi_photo {
+                    transition: opacity $speed $bezier-slide;
+                }
+            }
+        }
     }
 
 }
