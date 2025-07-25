@@ -80,6 +80,7 @@
     // screen at or above 1200px
     @include media(">=large") {
         row-gap: $gutter-lg;
+        padding-top: $gutter-lg
     }
 }
 

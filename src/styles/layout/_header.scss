@@ -4,14 +4,10 @@
 
 .o-site__header {
 
-    // screen at or above 600px
-    @include media(">=small") {}
-
-    // screen at or above 900px
-    @include media(">=medium") {}
-
-    // screen at or above 1200px
-    @include media(">=large") {}
+    .c-tooltip {
+        background-color: $yellow;
+        color: $black;
+    }
 
     // screen below 599px
     @include media("<small") {
