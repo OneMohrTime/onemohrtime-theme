@@ -20,6 +20,7 @@ export default class extends es6Module {
 
     this.loader = null;
     this.links = [];
+    this.onPopState = this.onPopState.bind(this); // Bind once
   }
 
   // Init module
@@ -35,8 +36,20 @@ export default class extends es6Module {
     //   }, 300); // Small delay to allow initial fade-out
     // });
 
-    // Bind transitionPage to all anchor tags
-    this.links.forEach(link => link.addEventListener('click', this.transitionPage.bind(this)));
+    // Handle link clicks normally
+    this.links.forEach(link =>
+      link.addEventListener('click', this.transitionPage.bind(this))
+    );
+
+    // Add back/forward button detection
+    window.addEventListener('popstate', this.onPopState);
+  }
+
+  // When user navigates via back/forward browser buttons
+  onPopState() {
+    if (this.loader) this.loader.classList.remove('is-active');
+    html.classList.remove('is-loading');
+    html.classList.add('is-loaded');
   }
 
   // Transition Page
