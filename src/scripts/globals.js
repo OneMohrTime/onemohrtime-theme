@@ -32,6 +32,15 @@ export default function() {
   });
 
   /**
+   * Make all <abbr> tags focusable
+   */
+
+  const allAbbrTags = document.querySelectorAll('abbr');
+  allAbbrTags.forEach((abbrTag) => {
+    abbrTag.setAttribute('tabindex', '0');
+  });
+
+  /**
    * Floating UI tooltips for multiple elements
    */
 
