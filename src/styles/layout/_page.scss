@@ -28,6 +28,8 @@
 
         .c-media,
         .c-media__image {
+            display: block;
+            overflow: hidden;
             border-radius: $border-radius;
         }
     }
