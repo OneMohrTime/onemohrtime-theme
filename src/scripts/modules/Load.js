@@ -20,7 +20,7 @@ export default class extends es6Module {
 
     this.loader = null;
     this.links = [];
-    this.onPopState = this.onPopState.bind(this); // Bind once
+    this.onPopState = this.onPopState.bind(this);
   }
 
   // Init module
