@@ -9,6 +9,9 @@
 {% set bannerImage = post.meta('thumbnail')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
 {% set button = post.meta('banner_button')|default(null) %}
+{% if term %}
+    {% set subheadline = 'Category' %}
+{% endif %}
 {% if 'post-type-archive-design' in body_class %}
     {% set listType = 'design' %}
 {% else %}
@@ -32,14 +35,14 @@
         } only %}
 
         {% if post.content is not empty %}
-            <section class="c-intro" data-module-scroll>
+            <section class="c-intro">
                 <div class="u-wysiwyg" data-scroll-trigger>
                     {{ post.content }}
                 </div>
             </section>
         {% endif %}
 
-        <section class="o-section is-list" data-module-scroll>
+        <section class="o-section is-list">
             {% include '_components/list.twig' with {
                 style: listType,
                 params: {
@@ -55,8 +58,8 @@
         } %}
 
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
-                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-scroll-trigger>
+                <h3 class="u-subheadline">Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
                 } only %}

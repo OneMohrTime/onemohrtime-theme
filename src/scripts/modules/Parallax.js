@@ -22,14 +22,50 @@ export default class extends es6Module {
     super(m);
 
     // Defaults
-    const parallaxLayers = [];
+    this.classes = [];
+    this.media = null;
+    this.parallaxLayers = [];
   }
 
   // Init module
-  // =========================================================================
+  // ===========================================================================
   init() {
+    this.classes = this.el.classList;
+
+    if (this.classes.contains('c-media__fixed-container')) {
+      this.singleParallax();
+    }
+    if (this.classes.contains('c-content')) {
+      this.layeredParallax();
+    }
+  }
+
+  // Single Parallax
+  // =========================================================================
+  singleParallax() {
+    this.media = this.el.querySelector('.c-media');
+
+    gsap.fromTo(
+      this.media, {
+        yPercent: -25
+      }, {
+        yPercent: 10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      }
+    );
+  }
+
+  // Layered Parallax
+  // =========================================================================
+  layeredParallax() {
     // Vars
-    const parallaxLayers = this.el.querySelectorAll('[data-parallax-layer]');
+    this.parallaxLayers = this.el.querySelectorAll('[data-parallax-layer]');
 
     // Define base speeds for each layer
     const speeds = {
@@ -39,7 +75,7 @@ export default class extends es6Module {
     };
 
     // Apply GSAP parallax effect
-    parallaxLayers.forEach((layer) => {
+    this.parallaxLayers.forEach((layer) => {
       const type = layer.dataset.parallaxLayer; // Get layer type
       const speed = speeds[type] || 0.5;       // Fallback speed
 

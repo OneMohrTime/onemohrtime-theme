@@ -4,20 +4,43 @@
     mediaSection: params.section|default(null),
     order: params.order,
 } %}
-{% set hasCaption = this.mediaSection.image.caption ?? null %}
+{% set imageFrame = this.mediaSection.image_type ?? 'default' %}
 
 {# -- Component Template -- #}
 
 {% if this.mediaSection %}
-<section class="o-section is-{{ this.mediaSection.media_type }}{% if this.mediaSection.image_type == 'full' %} is-full-width{% endif %}" data-scroll-trigger>
+<section class="o-section is-{{ this.mediaSection.media_type }}{% if imageFrame == 'full' or imageFrame == 'fixed' %} is-full-width{% endif %}"{% if imageFrame != 'fixed' %} data-scroll-trigger{% endif %}>
     {% switch this.mediaSection.media_type %}
 
         {% case 'image' %}
-            {% include '_elements/picture.twig' with {
-                params: {
-                    src: this.mediaSection.image,
-                },
-            } only %}
+            {% if imageFrame == 'fixed' %}
+                <figure class="c-media__fixed-container" data-module-parallax>
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: this.mediaSection.image,
+                            sizes: '(min-width: 1200px) 85vw, 100vw'
+                        }
+                    } only %}
+                </figure>
+            {% else %}
+                {% switch this.mediaSection.aspect_ratio %}
+                    {% case 'landscape' %}
+                        {% set aspectRatio = '4:3' %}
+                    {% case 'square' %}
+                        {% set aspectRatio = '1:1' %}
+                    {% case 'portrait' %}
+                        {% set aspectRatio = '3:4' %}
+                    {% default %}
+                        {% set aspectRatio = null %}
+                {% endswitch %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: this.mediaSection.image,
+                        ratio: aspectRatio,
+                        sizes: '(min-width: 1200px) 85vw, 100vw'
+                    }
+                } only %}
+            {% endif %}
             {% if hasCaption %}
                 <aside class="c-caption">
                     {{ hasCaption }}

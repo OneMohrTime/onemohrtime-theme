@@ -29,6 +29,40 @@ object {
     max-width: 100%;
 }
 
+.c-media__fixed-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    max-height: 300px;
+    overflow: hidden;
+
+    .c-media {
+        position: relative;
+        display: block;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        max-height: 350px;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        max-height: 400px;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        height: 75vh;
+        max-height: 450px;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        max-height: 500px;
+    }
+}
+
 /**
  * === SVG ICONS ===
  */

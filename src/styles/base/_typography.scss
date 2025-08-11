@@ -244,6 +244,7 @@ abbr {
             display: inline-block;
             padding: 2px 4px;
             text-decoration: none;
+            font-size: 1rem;
             line-height: inherit;
             border-bottom: 1px $black dotted;
             background-color: fade-out($black, 0.95);

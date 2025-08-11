@@ -23,6 +23,10 @@
         @include subheadline();
     }
 
+    & + .o-page__sections {
+        padding-top: 0;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
         padding-top: $gutter-lg;
