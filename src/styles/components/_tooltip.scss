@@ -12,9 +12,10 @@
     width: max-content;
     padding: rem(5px);
     font-size: rem(15px);
+    font-weight: $font-bold;
     border-radius: $border-radius;
-    background-color: $black--light;
-    color: $white;
+    background-color: $yellow;
+    color: $black--light;
     z-index: 999;
 }
 
