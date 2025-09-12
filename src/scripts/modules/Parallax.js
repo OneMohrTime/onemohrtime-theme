@@ -47,9 +47,9 @@ export default class extends es6Module {
 
     gsap.fromTo(
       this.media, {
-        yPercent: -25
+        yPercent: -10
       }, {
-        yPercent: 10,
+        yPercent: -50,
         ease: 'none',
         scrollTrigger: {
           trigger: this.el,

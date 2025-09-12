@@ -7,22 +7,35 @@
     // Banner Section
     .c-banner.is-homepage {
         @include padding();
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-bottom: 0;
-        padding-top: $gutter-lg;
-        padding-bottom: 0;
+        // padding-top: $gutter-lg;
+        // padding-bottom: 0;
+        height: 80vh;
         text-align: center;
         background-color: transparent;
 
+        .c-button-group {
+            justify-content: center;
+        }
+
         // screen at or above 900px
         @include media(">=medium") {
-            display: flex;
+            justify-content: flex-start;
             align-items: flex-end;
             height: calc(100vh - rem(102px) - $gutter);
             min-height: rem(500px);
+            padding-top: $gutter-lg;
             text-align: left;
 
             .u-title {
                 max-width: 24ch;
+            }
+
+            .c-button-group {
+                justify-content: flex-start;
             }
         }
 
@@ -341,6 +354,15 @@
         @include media(">=large") {
             padding-top: $gutter-lg;
             padding-bottom: $gutter-lg;
+        }
+    }
+
+    // Marquee Section
+    .o-section.is-shop {
+        background-image: linear-gradient(to bottom, transparent 50%, $black 50%);
+
+        // screen at or above 900px
+        @include media(">=medium") {
         }
     }
 }

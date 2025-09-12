@@ -6,13 +6,28 @@
 
     // Page Intro
     .c-intro {
-        background-color: $yellow;
-        background-image: url("https://onemohrti.me/wp-content/uploads/graphy.png");
-        background-position: center center;
-        background-blend-mode: darken;
+        margin-bottom: $gutter;
+        font-size: $font-base-lg;
+        background-color: $black;
+        background-image: url("https://onemohrti.me/wp-content/uploads/concrete-dark.png");
+        background-size: 298.5px 272.5px;
+        color: $white;
 
-        a::before {
-            background-color: $gold;
+        a {
+            &::before {
+                background-color: $black--lightest;
+            }
+            @include hocus {
+                color: $black;
+                &::before {
+                    background-color: $yellow;
+                }
+            }
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            margin-bottom: $gutter-lg
         }
     }
 
