@@ -3,15 +3,20 @@
 ========================================================================== */
 
 .c-marquee {
-    position: relative;
+    position: absolute;
+    top: calc(50% - 41px);
+    left: -$gutter-sm;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: calc(100% + $gutter);
+    max-height: 82px;
     padding-top: $gutter-sm;
     padding-bottom: $gutter-sm;
     overflow: hidden;
+    transform: rotate(-1deg);
     background-color: $yellow;
     color: $black;
+    z-index: 10;
 }
 
 .c-marquee__content {
@@ -43,6 +48,13 @@
     @include media(">=medium") {
         strong {
             font-size: $font-h3;
+        }
+    }
+
+    // screen below 600px
+    @include media("<small") {
+        &:nth-child(2) {
+            display: none;
         }
     }
 }
