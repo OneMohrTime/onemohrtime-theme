@@ -22,6 +22,7 @@ export default class extends es6Module {
     this.menu = null;
     this.megaMenu = null;
     this.toggleMenu = null;
+    this.searchbar = null;
   }
 
   // Init module
@@ -33,12 +34,10 @@ export default class extends es6Module {
     this.menu       = this.header.querySelector('.c-navigation__menu');
     this.megaMenu   = this.header.querySelector('.c-mega-menu');
     this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
+    this.searchbar  = this.header.querySelector('input[type="search"]');
 
     // Function to handle scroll events
     this.handleScroll();
-
-    // // Function to handle navbar transparency
-    // this.handleNavbarTransparency();
 
     // Attach click event listener to the toggle button
     const toggleButton = this.toggleMenu;
@@ -50,6 +49,9 @@ export default class extends es6Module {
 
         // Open primary navigation
         this.togglePrimaryNav();
+
+        // Focus on searchbar
+        this.focusSearch();
       });
     }
   }
@@ -105,20 +107,11 @@ export default class extends es6Module {
     });
   }
 
-  // // Navbar Transparency
-  // // =========================================================================
-  // handleNavbarTransparency() {
-  //   // Add or remove scrolling navbar classes
-  //   window.addEventListener('scroll', () => {
-  //     const nav = this.header.querySelector('.c-navigation');
-
-  //     if (50 < window.scrollY) {
-  //       nav.classList.add('is-transparent');
-  //     } else {
-  //       nav.classList.remove('is-transparent');
-  //     }
-  //   });
-  // }
+  // Focus on Searchbar
+  // =========================================================================
+  focusSearch() {
+    this.searchbar.focus();
+  }
 
   // Change "Menu" to "Exit"
   // =========================================================================
