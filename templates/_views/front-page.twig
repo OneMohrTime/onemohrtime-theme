@@ -221,12 +221,18 @@
                     {% endif %}
                 </div>
                 <figure class="c-textMedia__media">
+                    {% set mediaCaption = this.media.image.caption ?? null %}
                     {% include '_elements/picture.twig' with {
                         params: {
                             src: travel.image,
                             ratio: '4:3'
                         }
                     } only %}
+                    {% if mediaCaption %}
+                        <figcaption class="c-caption" data-scroll-trigger>
+                            {{ mediaCaption }}
+                        </figcaption>
+                    {% endif %}
                 </figure>
             </div>
         </section>
