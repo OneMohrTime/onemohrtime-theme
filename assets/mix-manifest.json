@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/circuit-board.svg": "/img/circuit-board.svg",
     "/img/concrete-dark.png": "/img/concrete-dark.png",
     "/img/concrete-light.png": "/img/concrete-light.png",
     "/img/cssnectar-site-of-the-day-light.png": "/img/cssnectar-site-of-the-day-light.png",
@@ -12,6 +13,5 @@
     "/img/old_mathematics.png": "/img/old_mathematics.png",
     "/img/placeholder.jpg": "/img/placeholder.jpg",
     "/img/placeholder.png": "/img/placeholder.png",
-    "/img/transparent.png": "/img/transparent.png",
-    "/img/circuit-board.svg": "/img/circuit-board.svg"
+    "/img/transparent.png": "/img/transparent.png"
 }
