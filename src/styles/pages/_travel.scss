@@ -27,7 +27,8 @@
 
     // Sections
     .o-page__sections {
-        @include padding();
+        padding-left: 0;
+        padding-right: 0;
     }
 
 }
