@@ -3,7 +3,7 @@
 ========================================================================== */
 
 .c-call-to-action {
-    @include padding("2x");
+    @include padding();
     display: flex;
     flex-direction: column;
     justify-content: center;

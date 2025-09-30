@@ -6,7 +6,7 @@
 
     // Logo Section
     .o-section.is-power-rankings {
-        @include padding("2x");
+        @include padding();
         padding-top: $gutter;
         padding-bottom: $gutter;
         background-color: $white--dark;
