@@ -33,7 +33,7 @@
 
         {% if post.content is not empty %}
             <section class="c-article">
-                <div class="u-wysiwyg">
+                <div class="u-wysiwyg" data-scroll-trigger>
                     {{ post.content }}
                 </div>
             </section>
@@ -45,14 +45,18 @@
             }
         } only %}
 
-        <figure class="o-section is-social-feed" data-module-scroll>
+        <aside class="o-section is-shop">
+            {% include '_components/marquee.twig' %}
+        </aside>
+
+        <figure class="o-section is-social-feed">
             {% apply shortcodes %}
                 [instagram-feed feed=3]
             {% endapply %}
         </figure>
 
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
                 <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
@@ -61,16 +65,5 @@
         {% endif %}
 
     </article>
-
-    <aside class="o-section is-shop" data-module-scroll>
-        {% include '_components/marquee.twig' %}
-    </aside>
-
-    {# Sidebar #}
-    {# {% include '_partials/sidebar.twig' with {
-        params: {
-            widgets: sidebar
-        }
-    } only %} #}
 
 {% endblock %}

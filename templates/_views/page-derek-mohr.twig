@@ -17,7 +17,7 @@
 {# ----------------------------------------------------------------- #}
 {% block content %}
 
-    <article class="o-page">
+    <article class="o-page" data-module-scroll>
 
         {% include '_components/banner.twig' with {
             params: {
@@ -31,9 +31,9 @@
             }
         } only %}
 
-        <section class="c-intro" data-module-scroll>
+        <section class="c-intro">
             {% if personality %}
-                <dl class="c-details">
+                <dl class="c-details" data-scroll-trigger>
                 {% for test in personality %}
                     <dt class="c-details__header" data-scroll-trigger>{{ test.test }}</dt>
                     <dd class="c-details__description" data-scroll-trigger>{{ test.result }}</dd>
@@ -45,7 +45,7 @@
             </div>
         </section>
 
-        <section class="o-page__resume" data-module-scroll>
+        <section class="o-page__resume" data-scroll-trigger>
             <h2 class="u-screen-reader-text">Résumé Specs</h2>
 
             <h3 id="work-history" class="u-subheadline is-underlined">Professional History</h3>
@@ -92,7 +92,7 @@
 
         </section>
 
-        <section class="o-section is-shop" data-module-scroll>
+        <section class="o-section is-shop">
             {% include '_components/marquee.twig' %}
         </section>
 
@@ -102,13 +102,13 @@
             }
         } only %}
 
-        <figure class="o-section is-social-feed" data-module-scroll>
+        <figure class="o-section is-social-feed">
             {% apply shortcodes %}
                 [instagram-feed feed=2]
             {% endapply %}
         </figure>
 
-        <section class="o-section is-contact" data-module-scroll>
+        <section class="o-section is-contact">
             {% include '_components/cta.twig' with {
                 params: {
                     headline: 'Get In Touch',

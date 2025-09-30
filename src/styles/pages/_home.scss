@@ -185,6 +185,17 @@
         }
     }
 
+    // Gallery Section
+    .o-section.is-gallery {
+        @include padding();
+        padding-bottom: $gutter;
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            padding-bottom: $gutter-lg;
+        }
+    }
+
     // Offerings Section
     .o-section.is-offerings {
         @include padding();

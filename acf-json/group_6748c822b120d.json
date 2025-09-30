@@ -264,6 +264,34 @@
             ]
         },
         {
+            "key": "field_68dc2e2444b74",
+            "label": "Intro Gallery",
+            "name": "homepage_gallery",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Add 3 to 5 images showcasing portfolio work",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+            "insert": "prepend",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_6748cc24ecd14",
             "label": "Intro Proposal",
             "name": "homepage_proposal",
@@ -555,5 +583,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753480822
+    "modified": 1759263342
 }

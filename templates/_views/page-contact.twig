@@ -34,14 +34,14 @@
 
         {% if post.content is not empty %}
             <section class="c-intro">
-                <div class="u-wysiwyg">
+                <div class="u-wysiwyg" data-scroll-trigger>
                     {{ post.content }}
                 </div>
             </section>
         {% endif %}
 
         {% if contactForm is not empty %}
-            <section class="c-contact">
+            <section class="c-contact" data-scroll-trigger>
                 {% apply shortcodes %}
                     [wpforms id="{{ contactForm.ID }}" title="false" description="false"]
                 {% endapply %}
