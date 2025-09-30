@@ -23,6 +23,7 @@ export default class extends es6Module {
     this.megaMenu = null;
     this.toggleMenu = null;
     this.searchbar = null;
+    this.overlay = null;
   }
 
   // Init module
@@ -35,6 +36,7 @@ export default class extends es6Module {
     this.megaMenu   = this.header.querySelector('.c-mega-menu');
     this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
     this.searchbar  = this.header.querySelector('input[type="search"]');
+    this.overlay    = document.querySelector('.o-site__overlay');;
 
     // Function to handle scroll events
     this.handleScroll();
@@ -149,6 +151,15 @@ export default class extends es6Module {
     this.megaMenu.classList.toggle('is-hidden');
     this.toggleMenu.classList.toggle('is-open');
     siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');
+
+    // Set overlay visibility
+    if (this.overlay.classList.contains('is-hidden')) {
+      this.overlay.classList.remove('is-hidden');
+      this.overlay.classList.add('is-visible');
+    } else {
+      this.overlay.classList.remove('is-visible');
+      this.overlay.classList.add('is-hidden');
+    }
   }
 
   // Destroy

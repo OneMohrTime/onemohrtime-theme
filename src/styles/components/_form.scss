@@ -19,6 +19,14 @@
     flex: 1 0 auto;
     max-width: 100%;
 
+    &:focus,
+    &:focus-within {
+        background-color: fade-out($white, 0.95);
+        border-color: $yellow;
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
         border: 0;

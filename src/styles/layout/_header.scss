@@ -4,6 +4,10 @@
 
 .o-site__header {
 
+    &.is-active {
+        z-index: 200;
+    }
+
     .c-tooltip {
         background-color: $yellow;
         color: $black;
