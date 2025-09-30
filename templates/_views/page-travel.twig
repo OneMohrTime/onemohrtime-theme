@@ -18,7 +18,7 @@
 {# ----------------------------------------------------------------- #}
 {% block content %}
 
-    <article class="o-page">
+    <article class="o-page" data-module-scroll>
 
         {% include '_components/banner.twig' with {
             params: {
@@ -32,13 +32,13 @@
             }
         } only %}
 
-        <section class="c-intro" data-module-scroll>
+        <section class="c-intro">
             <div class="u-wysiwyg" data-scroll-trigger>
                 {{ post.content }}
             </div>
         </section>
 
-        <section class="o-section is-list" data-module-scroll>
+        <section class="o-section is-list">
             <h2 class="u-headline" data-scroll-trigger>Featured Trips</h2>
             {% include '_components/list.twig' with {
                 style: 'travel',
@@ -64,17 +64,17 @@
             }
         } only %}
 
-        {# <section class="o-section is-shop" data-module-scroll>
+        {# <section class="o-section is-shop">
             {% include '_components/marquee.twig' %}
         </section> #}
 
-        <figure class="o-section is-social-feed" data-module-scroll>
+        <figure class="o-section is-social-feed">
             {% apply shortcodes %}
                 [instagram-feed feed=2]
             {% endapply %}
         </figure>
 
-        <section class="o-section is-contact" data-module-scroll>
+        <section class="o-section is-contact">
             {% include '_components/cta.twig' with {
                 params: {
                     headline: 'Get In Touch',
@@ -88,7 +88,7 @@
         </section>
 
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns">
                 <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts

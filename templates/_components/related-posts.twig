@@ -7,7 +7,7 @@
 {# -- Component Template -- #}
 
 {% if this.relatedProjects %}
-<nav class="c-related-posts">
+<nav class="c-related-posts" data-scroll-trigger>
 
     {% for relatedProject in this.relatedProjects %}
         {% set project = get_post(relatedProject.related_post) %}

@@ -17,7 +17,7 @@
 {# ----------------------------------------------------------------- #}
 {% block content %}
 
-    <article class="o-page">
+    <article class="o-page" data-module-scroll>
 
         {% include '_components/banner.twig' with {
             params: {
@@ -32,7 +32,7 @@
         } only %}
 
         {% if post.content is not empty %}
-            <section class="c-intro" data-module-scroll>
+            <section class="c-intro">
                 <div class="u-wysiwyg" data-scroll-trigger>
                     {{ post.content }}
                 </div>
