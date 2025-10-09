@@ -11,8 +11,6 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 0;
-        // padding-top: $gutter-lg;
-        // padding-bottom: 0;
         height: 80vh;
         text-align: center;
         background-color: transparent;
@@ -48,6 +46,31 @@
             .u-title {
                 font-size: rem(102px);
                 line-height: 1em;
+            }
+            .u-icon {
+                position: relative;
+                // line-height: inherit;
+                transition: background $speed-fast $bezier-slide,
+                            color $speed-fast $bezier-slide;
+                background-image: none;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 72px 72px;
+                cursor: default;
+                pointer-events: auto;
+                &:hover {
+                    color: transparent;
+                }
+            }
+            .u-icon-development {
+                &:hover {
+                    background-image: url("https://onemohrti.me/wp-content/uploads/icon-development.svg");
+                }
+            }
+            .u-icon-design {
+                &:hover {
+                    background-image: url("https://onemohrti.me/wp-content/uploads/icon-design.svg");
+                }
             }
         }
 
@@ -324,14 +347,27 @@
         padding-top: $gutter;
         padding-bottom: $gutter;
 
+        .swiper-controls {
+            position: relative;
+            top: auto;
+            justify-content: center;
+            transform: translate(0, 0);
+            margin-bottom: $gutter-lg;
+
+            .c-button {
+                margin-top: em(5px);
+            }
+        }
+
         .u-headline {
             display: block;
             text-align: center;
+            line-height: 1em;
         }
 
-        .c-textMedia:not(.is-reversed) {
-            flex-direction: row;
-        }
+        // .c-textMedia:not(.is-reversed) {
+        //     flex-direction: row;
+        // }
 
         .c-button-group {
             justify-content: center;

@@ -145,18 +145,19 @@
 
         <section class="o-section is-offerings">
             <h2 class="u-headline">{{ offerings.headline }}</h2>
-            <ul class="c-grid has-four-columns" data-scroll-trigger>
-                {% for service in offerings.offerings %}
-                    <li class="c-grid__item">
-                        <a href="{{ service.page_link }}" class="c-card">
-                            <h3 class="u-heading">{{ service.headline }}</h3>
-                            <div class="u-wysiwyg">
-                                {{ service.text }}
-                            </div>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="swiper is-cards" data-module-swiper-cards>
+                <ul class="c-grid has-four-columns swiper-wrapper" data-card-length="4">
+                    {% for service in offerings.offerings %}
+                        <li class="c-grid__item swiper-slide">
+                            <a href="{{ service.page_link }}" class="c-card">
+                                <h3 class="u-heading">{{ service.headline }}</h3>
+                                <div class="u-wysiwyg">
+                                    {{ service.text }}
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
         </section>
 
         <section class="o-section is-social-feed" data-scroll-trigger>

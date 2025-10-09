@@ -80,3 +80,21 @@
         object-fit: cover;
     }
 }
+
+.c-grid.swiper-wrapper,
+.c-grid.has-two-columns.swiper-wrapper,
+.c-grid.has-three-columns.swiper-wrapper,
+.c-grid.has-four-columns.swiper-wrapper,
+.c-grid.has-five-columns.swiper-wrapper {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: inherit;
+    box-sizing: border-box;
+
+    .c-grid__item {
+        flex: 0 1 auto;
+        flex: none;
+        // width: auto;
+        max-width: none;
+    }
+}
