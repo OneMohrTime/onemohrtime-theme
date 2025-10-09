@@ -14,10 +14,10 @@
 
 <section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-32:9{% endif %}" data-module-scroll>
 
-    <div class="c-banner__text">
     {% switch this.type %}
 
         {% case 'slides' %}
+        <div class="c-banner__text">
             <h1 class="u-headline" data-scroll-trigger>{{ this.headline }}</h1>
             {% if this.subheadline %}
                 <div class="u-wysiwyg" data-scroll-trigger>
@@ -33,11 +33,13 @@
                     }
                 } only %}
             {% endif %}
+        </div>
 
         {% default %}
-            <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
+        <div class="c-banner__text" data-scroll-trigger>
+            <h1 class="u-title">{{ this.headline }}</h1>
             {% if this.subheadline %}
-                <strong class="u-eyebrow" data-scroll-trigger>{{ this.subheadline }}</strong>
+                <strong class="u-eyebrow">{{ this.subheadline }}</strong>
             {% endif %}
             {% if this.button %}
                 {% include '_elements/button.twig' with {
@@ -48,9 +50,9 @@
                     }
                 } only %}
             {% endif %}
+        </div>
 
     {% endswitch %}
-    </div>
 
     <figure class="c-banner__media">
     {% switch this.type %}

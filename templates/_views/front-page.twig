@@ -21,10 +21,10 @@
     <article class="o-page" data-module-scroll>
 
         <section class="c-banner is-homepage">
-            <div class="c-banner__heading" data-scroll-trigger>
+            <div class="c-banner__heading">
                 <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
-                <h1 class="u-title">{{ headline }}</h1>
-                <div class="c-button-group">
+                <h1 class="u-title js-home-headline" data-module-change-text>{{ headline }}</h1>
+                <div class="c-button-group" data-scroll-trigger>
                     {% for button in buttons %}
                         {% if button %}
                             {% include '_elements/button.twig' with {
@@ -145,18 +145,19 @@
 
         <section class="o-section is-offerings">
             <h2 class="u-headline">{{ offerings.headline }}</h2>
-            <ul class="c-grid has-four-columns" data-scroll-trigger>
-                {% for service in offerings.offerings %}
-                    <li class="c-grid__item">
-                        <a href="{{ service.page_link }}" class="c-card">
-                            <h3 class="u-heading">{{ service.headline }}</h3>
-                            <div class="u-wysiwyg">
-                                {{ service.text }}
-                            </div>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="swiper is-cards" data-module-swiper-cards>
+                <ul class="c-grid has-four-columns swiper-wrapper" data-card-length="4">
+                    {% for service in offerings.offerings %}
+                        <li class="c-grid__item swiper-slide">
+                            <a href="{{ service.page_link }}" class="c-card">
+                                <h3 class="u-heading">{{ service.headline }}</h3>
+                                <div class="u-wysiwyg">
+                                    {{ service.text }}
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
         </section>
 
         <section class="o-section is-social-feed" data-scroll-trigger>
@@ -171,26 +172,44 @@
         </section>
 
         <section class="o-section is-text-media is-case-studies">
-            <h2 class="u-headline" data-scroll-trigger>Case Studies</h2>
-            {% for row in caseStudies %}
-                {% set caseStudy = get_post(row) %}
-                {% include '_components/text-media.twig' with {
-                    params: {
-                        eyebrow: caseStudy.meta('post_subheadline')|default(null),
-                        headline: caseStudy.meta('post_headline')|default(caseStudy.title),
-                        text: caseStudy.excerpt|default(null),
-                        button: {
-                            url: caseStudy.link,
-                            title: 'Read Case Study',
-                        },
-                        media: {
-                            image: caseStudy.meta('banner_image'),
-                        },
-                        mediaType: 'default',
-                        alignment: loop.index is even ? ' is-reversed' : '',
-                    }
-                } only %}
-            {% endfor %}
+            <figure class="c-gallery" data-module-fancybox>
+                <div class="swiper is-home" data-module-swiper-gallery>
+                    <div class="swiper-controls" data-scroll-trigger>
+                        <button class="c-button c-button--small is-prev">
+                            <span class="u-screen-reader-text">Previous</span>
+                            {{ source('_elements/svg/arrow-left.svg') }}
+                        </button>
+                        <h2 class="u-headline">Case Studies</h2>
+                        <button class="c-button c-button--small is-next">
+                            <span class="u-screen-reader-text">Next</span>
+                            {{ source('_elements/svg/arrow-right.svg') }}
+                        </button>
+                    </div>
+                    <ul class="swiper-wrapper">
+                        {% for row in caseStudies %}
+                        <li class="swiper-slide">
+                            {% set caseStudy = get_post(row) %}
+                            {% include '_components/text-media.twig' with {
+                                params: {
+                                    eyebrow: caseStudy.meta('post_subheadline')|default(null),
+                                    headline: caseStudy.meta('post_headline')|default(caseStudy.title),
+                                    text: caseStudy.excerpt|default(null),
+                                    button: {
+                                        url: caseStudy.link,
+                                        title: 'Read Case Study',
+                                    },
+                                    media: {
+                                        image: caseStudy.meta('banner_image'),
+                                    },
+                                    mediaType: 'default',
+                                    alignment: ' is-reversed',
+                                }
+                            } only %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </figure>
             <aside class="c-button-group" data-scroll-trigger>
                 {% include '_elements/button.twig' with {
                     params: {

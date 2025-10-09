@@ -35,8 +35,8 @@
             {% if personality %}
                 <dl class="c-details" data-scroll-trigger>
                 {% for test in personality %}
-                    <dt class="c-details__header" data-scroll-trigger>{{ test.test }}</dt>
-                    <dd class="c-details__description" data-scroll-trigger>{{ test.result }}</dd>
+                    <dt class="c-details__header">{{ test.test }}</dt>
+                    <dd class="c-details__description">{{ test.result }}</dd>
                 {% endfor %}
                 </dl>
             {% endif %}

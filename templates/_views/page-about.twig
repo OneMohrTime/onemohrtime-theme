@@ -58,11 +58,13 @@
             </div>
         </section>
 
-        <section class="c-intro">
-            <div class="u-wysiwyg" data-scroll-trigger>
-                {{ post.content }}
-            </div>
-        </section>
+        {% if post.content %}
+            <section class="c-intro">
+                <div class="u-wysiwyg" data-scroll-trigger>
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
 
         {% include '_partials/page-builder.twig' with {
             params: {
