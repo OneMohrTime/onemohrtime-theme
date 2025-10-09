@@ -27,8 +27,27 @@
 
     // Sections
     .o-page__sections {
+        padding-top: 0;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    // Instagram Section
+    .o-section.is-social-feed {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+
+        #sb_instagram,
+        #sbi_images {
+            padding: 0 !important;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
+        }
     }
 
 }

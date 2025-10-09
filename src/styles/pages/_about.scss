@@ -64,23 +64,9 @@
             font-size: $font-base-lg;
         }
 
-        // screen at or above 600px
-        @include media(">=small") {
-            // .c-content.has-background-image {
-            //     padding-top: $gutter-xl;
-            //     padding-bottom: $gutter-xl;
-            // }
-            // p {
-            //     font-size: $font-h6;
-            // }
-        }
-
-        // screen at or above 900px
-        @include media(">=medium") {
-            // .c-content.has-background-image {
-            //     padding-top: $gutter-xxl;
-            //     padding-bottom: $gutter-xxl;
-            // }
+        // handle padding if no intro present
+        & + .o-page__sections {
+            padding-top: $gutter;
         }
     }
 
