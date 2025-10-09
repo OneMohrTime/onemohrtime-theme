@@ -82,6 +82,9 @@ export default class extends es6Module {
     if (this.classes.contains('is-gallery')) {
       this.createSlides();
     }
+    if (this.classes.contains('is-home')) {
+      this.createHomeSlides();
+    }
   }
 
   // Create Slides
@@ -180,6 +183,123 @@ export default class extends es6Module {
       // },
       // simulateTouch: false,
       slidesPerView: 'auto',
+      spaceBetween: 36,
+      speed: 350,
+      // thumbs: {
+      //   multipleActiveThumbs: false,
+      //   swiper: this.el
+      // },
+
+      // mobile & desktop breakpoints
+      // breakpoints: {
+      //   // when window width is >= 600px
+      //   600: {
+      //     slidesPerView: 2,
+      //     spaceBetween: 36,
+      //   }
+      // }
+    };
+
+    // Init Swiper
+    this.swiper = new Swiper(this.el, this.params);
+  }
+
+  // Create Home Slides
+  // =========================================================================
+  createHomeSlides() {
+    this.params = {
+      // configure Swiper to use modules
+      modules: [A11y, Keyboard, Navigation],
+
+      // params
+      a11y: {
+        enabled: true
+      },
+      // autoHeight: true,
+      // autoplay: {
+      //   delay: 5000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true,
+      //   stopOnLastSlide: true,
+      // },
+      // centeredSlides: true,
+      // controller: {},
+      // cardsEffect: {
+      //   perSlideOffset: 8, // Offset distance per slide (in px)
+      //   perSlideRotate: 2, // Rotate angle per slide (in degrees)
+      //   rotate: true, // Enables cards rotation
+      //   slideShadows: true, // Enables slides shadows
+      // },
+      // coverflowEffect: {
+      //   depth: 100,  // Depth offset in px (slides translate in Z axis)
+      //   modifier: 1, // Effect multiplier
+      //   rotate: 50,  // Slide rotate in degrees
+      //   scale: 1,    // Slide scale effect
+      //   slideShadows: true, //Enables slides shadows
+      //   stretch: 0,  // Stretch space between slides (in px)
+      // },
+      // creativeEffect {},
+      // cssMode: true,
+      // cubeEffect: {
+      //   shadow: false,
+      //   slideShadows: false
+      // },
+      effect: 'slide',
+      // effect: 'slide', 'fade', 'cube', 'coverflow', 'flip' or 'creative'
+      // fadeEffect: {
+      //   crossFade: true
+      // },
+      // flipEffect: {
+      //   slideShadows: false
+      // },
+      // freeMode: {
+      //   enabled: true,
+      //   sticky: true
+      // },
+      // grabCursor: true,
+      // hashNavigation: {},
+      // history: {},
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+        pageUpDown: true
+      },
+      // lazy: true,
+      // lazyPreloadPrevNext: 1,
+      // loop: true,
+      // mousewheel: {},
+      navigation: {
+        nextEl: '.c-button.is-next',
+        prevEl: '.c-button.is-prev',
+      },
+      // pagination: {
+      //   clickable: true,
+      //   dynamicBullets: true,
+      //   dynamicMainBullets: true,
+      //   el: '.swiper-pagination',
+      //   renderBullet: function (index, className) {
+      //     return '<span class="' + className + '">' + (index + 1) + '</span>';
+      //   },
+      //   renderFraction: function (currentClass, totalClass) {
+      //     return '<span class="' + currentClass + '"></span>' +
+      //             ' of ' +
+      //             '<span class="' + totalClass + '"></span>';
+      //   },
+      //   type: 'fraction',
+      //   type: 'progressbar' | 'bullets' | 'fraction' | 'custom',
+      // },
+      // parallax: 4,
+      // preventClicks: false,
+      rewind: true,
+      // scrollbar: {
+      //   // dragSize: 36,
+      //   draggable: true,
+      //   el: '.swiper-scrollbar',
+      //   hide: false,
+      //   snapOnRelease: true,
+      // },
+      // simulateTouch: false,
+      slidesPerView: 1,
       spaceBetween: 36,
       speed: 350,
       // thumbs: {
