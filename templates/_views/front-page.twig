@@ -21,10 +21,10 @@
     <article class="o-page" data-module-scroll>
 
         <section class="c-banner is-homepage">
-            <div class="c-banner__heading" data-scroll-trigger>
+            <div class="c-banner__heading">
                 <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
-                <h1 class="u-title">{{ headline }}</h1>
-                <div class="c-button-group">
+                <h1 class="u-title js-home-headline" data-module-change-text>{{ headline }}</h1>
+                <div class="c-button-group" data-scroll-trigger>
                     {% for button in buttons %}
                         {% if button %}
                             {% include '_elements/button.twig' with {
