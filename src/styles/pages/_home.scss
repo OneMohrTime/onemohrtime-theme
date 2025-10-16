@@ -176,9 +176,14 @@
         @include media(">=large") {
             .c-textMedia.is-reversed {
                 padding-top: $gutter-lg;
-                padding-bottom: $gutter-lg;
             }
         }
+    }
+
+    // Gallery Section
+    .o-section.is-gallery {
+        @include padding();
+        padding-bottom: $gutter;
     }
 
     // Proposal Section
@@ -210,17 +215,6 @@
             .c-textMedia {
                 padding-bottom: $gutter-lg;
             }
-        }
-    }
-
-    // Gallery Section
-    .o-section.is-gallery {
-        @include padding();
-        padding-bottom: $gutter;
-
-        // screen at or above 1200px
-        @include media(">=large") {
-            padding-bottom: $gutter-lg;
         }
     }
 

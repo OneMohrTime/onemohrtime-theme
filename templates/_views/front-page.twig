@@ -71,6 +71,22 @@
             </div>
         </section>
 
+        <section class="o-section is-gallery">
+            {% set galleryColumns = gallery|length %}
+            <ul class="c-grid has-{{ galleryColumns|replace({'3':'three', '4':'four', '5':'five'}) }}-columns" data-scroll-trigger>
+                {% for image in gallery %}
+                    <li class="c-grid__item">
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: image,
+                                ratio: '1:1'
+                            }
+                        } only %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
         <section class="o-section is-text-media is-proposal">
             <div class="c-textMedia" data-scroll-trigger>
                 <div class="c-textMedia__text">
@@ -121,22 +137,6 @@
                     } only %}
                 </figure>
             </div>
-        </section>
-
-        <section class="o-section is-gallery">
-            {% set galleryColumns = gallery|length %}
-            <ul class="c-grid has-{{ galleryColumns|replace({'3':'three', '4':'four', '5':'five'}) }}-columns" data-scroll-trigger>
-                {% for image in gallery %}
-                    <li class="c-grid__item">
-                        {% include '_elements/picture.twig' with {
-                            params: {
-                                src: image,
-                                ratio: '1:1'
-                            }
-                        } only %}
-                    </li>
-                {% endfor %}
-            </ul>
         </section>
 
         <section class="o-section is-shop">
