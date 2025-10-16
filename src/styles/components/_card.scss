@@ -51,4 +51,10 @@
             color: $black;
         }
     }
+
+    &:focus {
+        border-radius: $border-radius;
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
 }

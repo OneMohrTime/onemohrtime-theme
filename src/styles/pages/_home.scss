@@ -103,6 +103,11 @@
                 background-position: center center;
                 background-size: cover;
                 aspect-ratio: 1 / 1;
+
+                &:focus {
+                    outline: $focus-outline;
+                    outline-offset: $focus-offset;
+                }
             }
 
             .u-subheadline {
@@ -238,6 +243,11 @@
             @include hocus {
                 border-color: $yellow;
                 color: $yellow;
+            }
+
+            &:focus {
+                outline: $focus-outline;
+                outline-offset: $focus-offset;
             }
 
             &:active {

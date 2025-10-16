@@ -11,6 +11,7 @@ export { default as DrawSVG } from './modules/DrawSVG';
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
 // export { default as FitText } from './modules/FitText';
+export { default as KeyboardMenu } from './modules/KeyboardMenu';
 export { default as Load } from './modules/Load';
 export { default as Marquee } from './modules/Marquee';
 export { default as Modal } from './modules/Modal';

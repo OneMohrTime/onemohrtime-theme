@@ -239,6 +239,13 @@
 
     .c-menuItem {
         font-size: $font-h4;
+
+        a {
+            &:focus {
+                outline: $focus-outline;
+                outline-offset: $focus-offset;
+            }
+        }
     }
 
     // screen at or above 900px
@@ -317,8 +324,11 @@
     margin-top: $gutter-xs;
     line-height: $line-height;
 
-    .u-highlight::before {
-        background-color: $gold !important;
+    .u-highlight {
+        outline-color: $gold !important;
+        &::before {
+            background-color: $gold !important;
+        }
     }
 
     // screen at or above 900px
