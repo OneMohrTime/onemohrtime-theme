@@ -86,8 +86,8 @@
         height: 0;
         max-height: 0;
         opacity: 0;
-        pointer-events: none;
         overflow: hidden;
+        pointer-events: none;
     }
 
     // screen at or above 1200px
@@ -103,6 +103,7 @@
             height: auto;
             max-height: 100vh;
             opacity: 1;
+            overflow: visible;
             pointer-events: auto;
         }
     }
@@ -129,12 +130,17 @@
         @include hocus {
             color: $yellow;
         }
+        &:focus {
+            border-radius: $border-radius;
+            outline: $focus-outline;
+            outline-offset: $focus-offset;
+        }
     }
 
     // screen at or above 1200px
     @include media(">=large") {
         flex: 0 1 auto;
-        margin-left: $small-spacing;
+        margin-left: 0.5em;
         font-size: $font-h6;
         font-weight: $font-heavy;
         letter-spacing: rem(1.5px);
@@ -213,7 +219,13 @@
         }
     }
 
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
+
     &.is-open {
+        min-width: rem(61px);
         min-height: rem(22px);
         color: $white;
         z-index: 50;
@@ -222,6 +234,16 @@
             .e__bar {
                 background-color: $yellow !important;
             }
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding: rem(3px) rem(6px);
+        box-shadow: 0 0 0 2px $gray--lightest;
+
+        &:focus {
+            box-shadow: none;
         }
     }
 
