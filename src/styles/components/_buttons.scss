@@ -15,11 +15,6 @@
     white-space: nowrap;
     overflow: hidden;
     appearance: none;
-
-    &:focus {
-        outline: $focus-outline;
-        outline-offset: $focus-offset;
-    }
 }
 
 #{$all-buttons-focus} {
@@ -72,6 +67,11 @@
             left: 0;
             width: 100%;
         }
+    }
+
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
     }
 
     &:active {

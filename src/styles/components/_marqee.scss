@@ -30,6 +30,10 @@
 
     .c-button {
         @include btn-color($black, $black);
+
+        &:focus {
+            outline-color: $gold;
+        }
     }
 
     span {

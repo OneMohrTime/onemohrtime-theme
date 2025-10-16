@@ -564,11 +564,17 @@
         z-index: -1;
     }
 
-    @include hocus {
+    &:hover {
         &::before {
             transform: scaleX(1);
             transform-origin: left;
         }
+    }
+
+    &:focus {
+        border-radius: $border-radius;
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
     }
 }
 
@@ -640,6 +646,16 @@
 
         .c-media__svg {
             transform: translateX($small-spacing);
+        }
+    }
+
+    &:focus {
+        border-radius: $border-radius;
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+
+        &::before {
+            background-color: fade-out($yellow, 0.85);
         }
     }
 

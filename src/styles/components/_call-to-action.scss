@@ -51,4 +51,8 @@
     flex-wrap: wrap;
     gap: 1em;
     margin-top: 1em;
+
+    &:focus {
+        outline-color: $gold;
+    }
 }

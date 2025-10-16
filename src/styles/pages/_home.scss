@@ -103,6 +103,11 @@
                 background-position: center center;
                 background-size: cover;
                 aspect-ratio: 1 / 1;
+
+                &:focus {
+                    outline: $focus-outline;
+                    outline-offset: $focus-offset;
+                }
             }
 
             .u-subheadline {
@@ -171,9 +176,14 @@
         @include media(">=large") {
             .c-textMedia.is-reversed {
                 padding-top: $gutter-lg;
-                padding-bottom: $gutter-lg;
             }
         }
+    }
+
+    // Gallery Section
+    .o-section.is-gallery {
+        @include padding();
+        padding-bottom: $gutter;
     }
 
     // Proposal Section
@@ -208,17 +218,6 @@
         }
     }
 
-    // Gallery Section
-    .o-section.is-gallery {
-        @include padding();
-        padding-bottom: $gutter;
-
-        // screen at or above 1200px
-        @include media(">=large") {
-            padding-bottom: $gutter-lg;
-        }
-    }
-
     // Offerings Section
     .o-section.is-offerings {
         @include padding();
@@ -238,6 +237,11 @@
             @include hocus {
                 border-color: $yellow;
                 color: $yellow;
+            }
+
+            &:focus {
+                outline: $focus-outline;
+                outline-offset: $focus-offset;
             }
 
             &:active {
