@@ -3,6 +3,8 @@
 ========================================================================== */
 
 .o-site__header {
+    position: relative;
+    width: 100%;
 
     &.is-active {
         z-index: 200;
@@ -18,6 +20,6 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        z-index: 100;
+        z-index: 200;
     }
 }

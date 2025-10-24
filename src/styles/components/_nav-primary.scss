@@ -93,6 +93,7 @@
     // screen at or above 1200px
     @include media(">=large") {
         flex-wrap: nowrap;
+        margin-left: 0.5em;
         margin-right: auto;
         padding: 0;
         background-color: transparent;
@@ -117,7 +118,27 @@
     line-height: $line-height;
 
     &.is-current {
-        color: $white--darkest;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: calc(50% - rem(12px));
+            bottom: 1px;
+            display: block;
+            width: rem(24px);
+            height: rem(3px);
+            opacity: 1;
+            transition: opacity $speed $bezier-slide;
+            transition-delay: $speed-fast;
+            background-color: $yellow;
+        }
+
+        @include hocus {
+            &::after {
+                opacity: 0;
+            }
+        }
     }
 
     .c-media__svg {
@@ -127,13 +148,15 @@
     }
 
     .u-nav-link {
-        @include hocus {
-            color: $yellow;
-        }
+        --bg-height: 3px !important;
+        @include multiline-link(true);
         &:focus {
             border-radius: $border-radius;
             outline: $focus-outline;
             outline-offset: $focus-offset;
+        }
+        &:active {
+            color: $white--darkest;
         }
     }
 
@@ -212,13 +235,6 @@
     z-index: 35;
     cursor: pointer;
 
-    @include hocus {
-        color: $yellow !important;
-        .e__bar {
-            background-color: $yellow !important;
-        }
-    }
-
     &:focus {
         outline: $focus-outline;
         outline-offset: $focus-offset;
@@ -229,21 +245,31 @@
         min-height: rem(22px);
         color: $white;
         z-index: 50;
-        @include hocus {
-            color: $yellow !important;
-            .e__bar {
-                background-color: $yellow !important;
-            }
-        }
     }
 
-    // screen at or above 900px
-    @include media(">=medium") {
+    // screen at or above 600px
+    @include media(">=small") {
         padding: rem(3px) rem(6px);
         box-shadow: 0 0 0 2px $gray--lightest;
 
+        &:hover {
+            background-color: $yellow;
+            color: $black;
+            box-shadow: 0 0 0 2px $yellow;
+            .e__bar {
+                background-color: $black;
+            }
+        }
         &:focus {
             box-shadow: none;
+        }
+
+        &.is-open:hover {
+            .e.is-also-x {
+                .e__bar {
+                    background-color: $black;
+                }
+            }
         }
     }
 
@@ -270,7 +296,8 @@
 
             .e__bar {
                 width: 15px;
-                transition: transform $speed-fast $bezier-back;
+                transition: transform $speed-fast linear,
+                            background-color $speed-fast linear;
                 background-color: $white;
             }
             .e__bar:nth-child(1) {
@@ -293,7 +320,7 @@
         position: relative;
         display: block;
         background-color: $white;
-        transition: background-color $speed-fast;
+        transition: background-color $speed-fast linear;
         width: 11px;
         height: 3px;
 
