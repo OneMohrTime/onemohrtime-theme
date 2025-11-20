@@ -254,13 +254,17 @@ abbr {
 
 mark {
     display: inline-block;
+    padding: 0 0.15em;
     transform: rotate(-2deg);
     border: 0;
     border-radius: $border-radius;
     background-color: $yellow;
     color: $black;
     box-shadow: 0 0 0 3px $yellow;
-    padding: 0 0.15em;
+
+    @include hocus {
+        transform: rotate(0);
+    }
 }
 
 blockquote {
@@ -270,6 +274,9 @@ blockquote {
 
     p {
         margin-bottom: 0;
+        & + p {
+            margin-top: $small-spacing;
+        }
     }
 
     footer {
