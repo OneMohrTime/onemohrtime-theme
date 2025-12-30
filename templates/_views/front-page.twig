@@ -257,13 +257,20 @@
                     {% endif %}
                 </div>
                 <figure class="c-textMedia__media">
-                    {% set mediaCaption = this.media.image.caption ?? null %}
+                    {% set mediaCaption = travel.image.caption ?? null %}
                     {% include '_elements/picture.twig' with {
                         params: {
                             src: travel.image,
                             ratio: '4:3'
                         }
                     } only %}
+                    {# Add video support here
+                    {% include '_elements/embed.twig' with {
+                        params: {
+                            src: this.media.video,
+                            type: 'video'
+                        }
+                    } only %} #}
                     {% if mediaCaption %}
                         <figcaption class="c-caption">
                             {{ mediaCaption }}
