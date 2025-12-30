@@ -1,0 +1,57 @@
+/* ==========================================================================
+    Custom Cursors
+========================================================================== */
+
+.cursor {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9999;
+    width: 32px;
+    height: 32px;
+    display: none;
+    will-change: transform;
+
+    // Using a PNG as the cursor background image
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/default.png');
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cursor.cursor--initialized {
+    display: block;
+}
+
+.cursor.cursor--off-screen {
+    opacity: 0;
+}
+
+.cursor.cursor--focused {
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/pointer.png') !important;
+}
+
+.cursor.cursor--disabled {
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/not-allowed.png') !important;
+}
+
+.cursor.cursor--focused-text {
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/text.png');
+}
+
+.cursor.cursor--focused-help {
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/help.png') !important;
+}
+
+.cursor.cursor--focused-grab {
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/grab.png') !important;
+}
+
+.cursor.cursor--focused-grabbing {
+    background-image: url('/wp-content/themes/onemohrtime/assets/img/cursors/grabbing.png') !important;
+}

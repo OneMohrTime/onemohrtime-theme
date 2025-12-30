@@ -41,7 +41,7 @@
     letter-spacing: rem(0.5px);
     border: 3px $bg solid;
     border-radius: $border-radius;
-    cursor: pointer;
+    // cursor: pointer;
     white-space: nowrap;
 
     &::after {
@@ -85,7 +85,7 @@
         border-color: $gray;
         background-color: transparent;
         color: $gray;
-        cursor: not-allowed !important;
+        // cursor: not-allowed !important;
 
         // hover, focus
         @include hocus {

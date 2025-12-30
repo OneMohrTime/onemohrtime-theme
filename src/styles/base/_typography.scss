@@ -228,7 +228,11 @@ abbr {
     text-decoration: none;
     border-bottom: 1px $black dotted;
     background-color: fade-out($black, 0.95);
-    cursor: help;
+
+    &[title] {
+        // cursor: help;
+        cursor: none;
+    }
 
     &:focus {
         padding: 0;

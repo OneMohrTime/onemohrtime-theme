@@ -233,7 +233,7 @@
     border-radius: $border-radius;
     color: $white;
     z-index: 35;
-    cursor: pointer;
+    // cursor: pointer;
 
     &:focus {
         outline: $focus-outline;

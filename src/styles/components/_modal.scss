@@ -43,6 +43,10 @@
 
 .fancybox__container {
     --fancybox-bg: #{fade-out($white, 0.15)} !important;
+
+    .f-button {
+        cursor: none;
+    }
 }
 
 .fancybox__toolbar {

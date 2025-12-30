@@ -36,6 +36,11 @@ select {
     padding-right: 3em;
 }
 
+select,
+select:read-only {
+    cursor: none !important;
+}
+
 textarea {
-    min-height: em;
+    min-height: 4em;
 }
