@@ -28,7 +28,7 @@ export default class extends es6Module {
       hideTrueCursor: true,
       focusElements: [
         {
-          elements: 'a, button, input[type="submit"], input[type="button"], select, select:read-only .c-button, .f-button, .wpforms-icon-choices-item',
+          elements: 'a, button, input[type="submit"], input[type="button"], select, select:read-only .c-button, .f-button, .wpforms-icon-choices-item, .calendly-badge-widget .calendly-badge-content',
           focusClass: 'cursor--focused',
         },
         {

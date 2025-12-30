@@ -13,6 +13,7 @@
 {% set button = post.meta('banner_button')|default(null) %}
 {% set contactForm = post.meta('contact_form')|default(null) %}
 {% set pageBuilder = post.meta('section_builder')|default(null) %}
+{% set calendly = post.meta('add_calendly')|default(false) %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
@@ -65,4 +66,14 @@
 
     </article>
 
+{% endblock %}
+
+{% block scripts %}
+{% if calendly %}
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/onemohrtime/30min', text: 'Book a Meeting', color: '#171409', textColor: '#fffefa', branding: true }); }</script>
+    <!-- Calendly badge widget end -->
+{% endif %}
 {% endblock %}
