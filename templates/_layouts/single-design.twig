@@ -11,6 +11,10 @@
 {% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
 {% set button = post.meta('banner_button')|default(null) %}
+{% set client = post.meta('project_client') ?? null %}
+{% set startDate = post.meta('project_start') ?? null %}
+{% set endDate = post.meta('project_end') ?? null %}
+{% set team = post.meta('project_team') ?? null %}
 {% set roles = post.terms('role') ?? null %}
 {% set jobType = post.terms('job_type') ?? null %}
 {% set coding = post.terms('coding') ?? null %}
@@ -38,7 +42,32 @@
             <div class="c-specifications__headline">
                 <h2 class="u-headline">More Details</h2>
             </div>
+
             <div class="c-specifications__specs">
+                {% if client %}
+                <div class="c-specifications--client">
+                    <h3 class="u-subheadline">Client</h3>
+                    <p>{{ client }}</p>
+                </div>
+                {% endif %}
+                {% if startDate or endDate %}
+                <div class="c-specifications--timeline">
+                    <h3 class="u-subheadline">Timeline</h3>
+                    {% if startDate and endDate %}
+                        <p><time datetime="{{ startDate }}">{{ startDate }}</time>&ndash;<time datetime="{{ endDate }}">{{ endDate }}</time></p>
+                    {% elseif startDate and not endDate %}
+                        <p>Started <time datetime="{{ startDate }}">{{ startDate }}</time></p>
+                    {% elseif not startDate and endDate %}
+                        <p>Completed <time datetime="{{ endDate }}">{{ endDate }}</time></p>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% if team %}
+                <div class="c-specifications--team">
+                    <h3 class="u-subheadline">Team</h3>
+                    <p>{{ team }}</p>
+                </div>
+                {% endif %}
                 {% if roles %}
                 <div class="c-specifications--roles">
                     <h3 class="u-subheadline">My Role{% if roles|length > 1 %}s{% endif %}</h3>
@@ -51,10 +80,13 @@
                 {% endif %}
                 {% if jobType %}
                 <div class="c-specifications--job-type">
-                    <h3 class="u-subheadline">Job Type{% if jobType|length > 1 %}s{% endif %}</h3>
+                    <h3 class="u-subheadline">Type of Work</h3>
                     <ul>
                         {% for role in jobType %}
                             <li>{{ role }}</li>
+                            {# <pre>
+                                {{ dump(role.link) }}
+                            </pre> #}
                         {% endfor %}
                     </ul>
                 </div>
@@ -70,14 +102,6 @@
                 </div>
                 {% endif %}
             </div>
-            {# <pre>
-                {{ dump(roles) }}
-            </pre> #}
-            {# {% for term in post.terms %}
-                <pre>
-                    {{ dump(term.taxonomy) }}
-                </pre>
-            {% endfor %} #}
         </aside>
 
         {% include '_partials/page-builder.twig' with {

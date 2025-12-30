@@ -15,7 +15,7 @@ class StarterSite extends Site {
         // add_action('init', array($this, 'register_post_types'));
         // add_action('init', array($this, 'register_taxonomies'));
         add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
-        add_action('widgets_init', array($this, 'create_sidebars'));
+        // add_action('widgets_init', array($this, 'create_sidebars'));
         add_action('pre_get_posts', array($this, 'custom_category_query_vars'));
 
         add_filter('timber/context', array($this, 'add_to_context' ));
@@ -124,19 +124,19 @@ class StarterSite extends Site {
         ]);
     }
 
-    /**
-     * Create a global site sidebar
-     */
-    public function create_sidebars() {
-        register_sidebar( array(
-            'name' => 'Global Sidebar',
-            'id' => 'globalSidebar',
-            'before_widget' => '<div class="c-widget">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="u-heading">',
-            'after_title' => '</h3>',
-        ) );
-    }
+    // /**
+    //  * Create a global site sidebar
+    //  */
+    // public function create_sidebars() {
+    //     register_sidebar( array(
+    //         'name' => 'Global Sidebar',
+    //         'id' => 'globalSidebar',
+    //         'before_widget' => '<div class="c-widget">',
+    //         'after_widget' => '</div>',
+    //         'before_title' => '<h3 class="u-heading">',
+    //         'after_title' => '</h3>',
+    //     ) );
+    // }
 
     /**
      * This is where you move SEO fields to the bottom of the page

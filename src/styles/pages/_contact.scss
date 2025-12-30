@@ -16,8 +16,13 @@
 
     // Sections
     .o-page__sections {
-        padding-top: 0;
-        padding-bottom: $gutter;
+        padding-top: $gutter;
+        padding-bottom: 0;
+    }
+
+    // Calendly
+    .calendly-badge-widget .calendly-badge-content {
+        cursor: none;
     }
 
 }

@@ -1,0 +1,70 @@
+/* ==========================================================================
+    Custom Cursors
+========================================================================== */
+
+.cursor {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9999;
+    width: 32px;
+    height: 32px;
+    display: none;
+    will-change: transform;
+
+    // Using a PNG as the cursor background image
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-default.png');
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cursor.cursor--initialized {
+    display: block;
+}
+
+.cursor.cursor--off-screen {
+    opacity: 0;
+}
+
+.cursor.cursor--focused {
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-pointer.png') !important;
+}
+
+.cursor.cursor--disabled {
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-not-allowed.png') !important;
+}
+
+.cursor.cursor--focused-text {
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-text.png');
+}
+
+.cursor.cursor--focused-help {
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-help.png') !important;
+}
+
+.cursor.cursor--focused-grab {
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-grab.png') !important;
+}
+
+.cursor.cursor--focused-grabbing {
+    background-image: url('https://onemohrti.me/wp-content/uploads/cursor-grabbing.png') !important;
+}
+
+// Fallback for no JavaScript
+body.no-js {
+    .cursor {
+        display: none !important;
+    }
+    a, button, .c-button {
+        cursor: pointer;
+    }
+    p, blockquote, h1, h2, h3, h4, h5, h6 {
+        cursor: text;
+    }
+}

@@ -613,7 +613,7 @@
     transition: color $speed $bezier-slide;
     text-decoration: none !important;
     color: $color;
-    cursor: pointer;
+    // cursor: pointer;
     z-index: 1;
 
     // Faux underline

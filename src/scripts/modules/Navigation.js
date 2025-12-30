@@ -36,7 +36,7 @@ export default class extends es6Module {
     this.megaMenu   = this.header.querySelector('.c-mega-menu');
     this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
     this.searchbar  = this.header.querySelector('input[type="search"]');
-    this.overlay    = document.querySelector('.o-site__overlay');;
+    this.overlay    = document.querySelector('.o-site__overlay');
 
     // Function to handle scroll events
     this.handleScroll();

@@ -2,40 +2,40 @@
     Modals
 ========================================================================== */
 
-.c-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
+// .c-modal {
+//     display: none;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.8);
+//     justify-content: center;
+//     align-items: center;
 
-    &.is-active {
-        display: flex;
-        z-index: 1000;
-    }
-}
+//     &.is-active {
+//         display: flex;
+//         z-index: 1000;
+//     }
+// }
 
-.c-modal__content {
-    background: $white;
-    padding: 2rem;
-    position: relative;
-    max-width: 768px;
-    width: 100%;
-}
+// .c-modal__content {
+//     background: $white;
+//     padding: 2rem;
+//     position: relative;
+//     max-width: 768px;
+//     width: 100%;
+// }
 
-.c-modal__close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
+// .c-modal__close {
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//     background: transparent;
+//     border: none;
+//     font-size: 1.5rem;
+//     // cursor: pointer;
+// }
 
 /**
  * === FANCYBOX ===
@@ -43,6 +43,10 @@
 
 .fancybox__container {
     --fancybox-bg: #{fade-out($white, 0.15)} !important;
+
+    .f-button {
+        cursor: none;
+    }
 }
 
 .fancybox__toolbar {

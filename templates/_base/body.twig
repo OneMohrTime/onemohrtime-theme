@@ -33,6 +33,9 @@
     {{ function('wp_body_open') }}
     <!-- End `wp_body_open` Function -->
 
+    <!-- Custom Cursor Element -->
+    <div class="cursor" data-module-custom-cursor></div>
+
     <!-- Loader Element -->
     <div id="loader" class="c-loader is-active">
         <div class="c-loader__spinner"></div>
@@ -80,7 +83,7 @@
         </header>
 
         {# Main Site Content Area #}
-        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}" data-module-modal>
+        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}">
             {% block content %}
                 Sorry, no content
             {% endblock %}
@@ -103,14 +106,14 @@
             } only %}
         {% endblock %}
 
-        {% block modal %}
+        {# {% block modal %}
             {% include '_components/modal.twig' with {
                 params: {
                     form: modalForm,
                     text: 'Enter your email for access'
                 }
             } %}
-        {% endblock %}
+        {% endblock %} #}
 
         <div class="o-site__overlay is-hidden"></div>
 
