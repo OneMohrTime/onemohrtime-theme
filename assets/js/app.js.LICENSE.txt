@@ -1,5 +1,5 @@
 /*!
- * GSAP 3.13.0
+ * GSAP 3.14.2
  * https://gsap.com
  *
  * @license Copyright 2008-2025, GreenSock. All rights reserved.
@@ -8,7 +8,7 @@
 */
 
 /*!
- * Observer 3.13.0
+ * Observer 3.14.2
  * https://gsap.com
  *
  * @license Copyright 2008-2025, GreenSock. All rights reserved.
@@ -17,7 +17,7 @@
 */
 
 /*!
- * ScrollTrigger 3.13.0
+ * ScrollTrigger 3.14.2
  * https://gsap.com
  *
  * @license Copyright 2008-2025, GreenSock. All rights reserved.
@@ -26,7 +26,7 @@
 */
 
 /*!
- * SplitText 3.13.0
+ * SplitText 3.14.2
  * https://gsap.com
  *
  * @license Copyright 2025, GreenSock. All rights reserved. Subject to the terms at https://gsap.com/standard-license.
@@ -34,7 +34,7 @@
  */
 
 /*!
- * TextPlugin 3.13.0
+ * TextPlugin 3.14.2
  * https://gsap.com
  *
  * @license Copyright 2008-2025, GreenSock. All rights reserved.
