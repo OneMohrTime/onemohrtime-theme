@@ -40,7 +40,8 @@
             "display_format": "m\/Y",
             "return_format": "m\/Y",
             "first_day": 1,
-            "allow_in_bindings": 0
+            "allow_in_bindings": 0,
+            "default_to_current_date": 0
         },
         {
             "key": "field_674a1ad76f72c",
@@ -59,7 +60,29 @@
             "display_format": "m\/Y",
             "return_format": "m\/Y",
             "first_day": 1,
-            "allow_in_bindings": 0
+            "allow_in_bindings": 0,
+            "default_to_current_date": 0
+        },
+        {
+            "key": "field_6954150ce9095",
+            "label": "Team",
+            "name": "project_team",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": -4,
+            "placeholder": "",
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -80,5 +103,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732910519
+    "display_title": "",
+    "modified": 1767118153
 }

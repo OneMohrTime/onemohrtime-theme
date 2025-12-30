@@ -86,6 +86,11 @@
 
     // screen at or above 1200px
     @include media(">=large") {
+        // .c-specifications--team {
+        //     p {
+        //         max-width: rem(240px);
+        //     }
+        // }
         .c-specifications--languages {
             ul {
                 display: flex;
