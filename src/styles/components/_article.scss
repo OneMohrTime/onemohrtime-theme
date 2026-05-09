@@ -6,12 +6,15 @@
     @include content-width();
     @include padding();
     position: relative;
-    padding: $gutter;
+    padding-top: $gutter;
 
     // screen at or above 900px
     @include media(">=medium") {
         width: auto;
         margin-left: 0;
         margin-right: 0;
+        padding-top: $gutter-lg;
+        padding-left: $gutter-lg;
+        padding-right: $gutter-lg;
     }
 }
