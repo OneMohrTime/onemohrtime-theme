@@ -4,6 +4,10 @@
 // This file is the centerpiece of the javascript front end and kicks it all of
 // on load.
 
+// Import styles
+// =============================================================================
+import '../styles/app.scss';
+
 // Import dependencies
 // =============================================================================
 import modular from 'modujs';
