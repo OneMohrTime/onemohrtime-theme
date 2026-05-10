@@ -20,11 +20,16 @@ a {
     }
 
     // if link is not a button...
-    &:not(.btn):not([data-fancybox]) {
+    &:not(.c-button):not([data-fancybox]) {
         // ...but is a child of .u-wysiwyg...
         .u-wysiwyg & {
             // ...stylize as inline link
             @include inline-link();
+        }
+
+        &.has-icon {
+            display: inline-flex;
+            align-items: center;
         }
     }
 
