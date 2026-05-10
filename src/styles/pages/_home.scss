@@ -13,11 +13,18 @@
         height: 80vh;
         margin-bottom: 0;
         padding-bottom: $gutter;
-        text-align: center;
         background-color: transparent;
 
+        .u-title {
+            margin-bottom: 0.5em;
+        }
+
         .c-button-group {
-            justify-content: center;
+            margin-top: $base-spacing;
+        }
+
+        .c-button {
+            margin: 0;
         }
 
         // screen at or above 900px
@@ -27,14 +34,9 @@
             height: calc(100vh - rem(102px) - $gutter);
             min-height: rem(500px);
             padding-top: $gutter-lg;
-            text-align: left;
 
             .u-title {
                 max-width: 24ch;
-            }
-
-            .c-button-group {
-                justify-content: flex-start;
             }
         }
 
