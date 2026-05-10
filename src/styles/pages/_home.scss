@@ -138,6 +138,7 @@
         .swiper-controls {
             @include padding();
             margin-bottom: $gutter;
+            text-align: center;
         }
 
         .swiper-slide {
@@ -194,6 +195,7 @@
             .swiper-controls {
                 display: flex;
                 align-items: center;
+                text-align: left;
             }
             .swiper-slide {
                 @include first(1) {
@@ -242,85 +244,6 @@
             }
         }
     }
-
-    // // Proposal Section
-    // .o-section.is-proposal {
-    //     text-align: center;
-
-    //     .c-textMedia {
-    //         @include padding();
-    //         padding-bottom: $gutter;
-    //     }
-
-    //     .c-button-group {
-    //         justify-content: center;
-    //     }
-
-    //     // screen at or above 900px
-    //     @include media(">=medium") {
-    //         text-align: left;
-    //         .c-textMedia {
-    //             flex-direction: row;
-    //         }
-    //         .c-button-group {
-    //             justify-content: flex-start;
-    //         }
-    //     }
-
-    //     // screen at or above 1200px
-    //     @include media(">=large") {
-    //         .c-textMedia {
-    //             padding-bottom: $gutter-lg;
-    //         }
-    //     }
-    // }
-
-    // // Offerings Section
-    // .o-section.is-offerings {
-    //     @include padding();
-    //     padding-top: $gutter;
-    //     padding-bottom: $gutter;
-    //     background-color: $black;
-    //     color: $white;
-
-    //     .c-card {
-    //         padding: $gutter-sm;
-    //         transition: border-color $speed $bezier-slide,
-    //                     background-color $speed $bezier-slide,
-    //                     color $speed $bezier-slide;
-    //         border: 2px solid $white--darkest;
-    //         border-radius: $border-radius;
-
-    //         @include hocus {
-    //             border-color: $yellow;
-    //             color: $yellow;
-    //         }
-
-    //         &:focus {
-    //             outline: $focus-outline;
-    //             outline-offset: $focus-offset;
-    //         }
-
-    //         &:active {
-    //             background-color: $yellow;
-    //             color: $black;
-    //         }
-    //     }
-
-    //     .u-headline {
-    //         display: block;
-    //         margin-bottom: $small-spacing;
-    //         text-align: center;
-    //     }
-
-    //     // screen at or above 900px
-    //     @include media(">=medium") {
-    //     }
-
-    //     // screen at or above 1200px
-    //     @include media(">=large") {
-    //     }
-    // }
 
     // Instagram & Content Section
     .o-section.is-social-feed {
@@ -401,7 +324,6 @@
 
     // Case Studies
     .o-section.is-case-studies {
-        @include padding();
         display: flex;
         flex-direction: column;
         row-gap: $gutter;
@@ -409,6 +331,7 @@
         padding-bottom: $gutter;
 
         .swiper-controls {
+            @include padding();
             position: relative;
             top: auto;
             justify-content: center;
@@ -426,9 +349,11 @@
             line-height: 1em;
         }
 
-        // .c-textMedia:not(.is-reversed) {
-        //     flex-direction: row;
-        // }
+        .swiper-slide {
+            @include first(1) {
+                margin-left: $gutter-sm;
+            }
+        }
 
         .c-button-group {
             justify-content: center;
@@ -438,11 +363,53 @@
             }
         }
 
+        // screen at or above 600px
+        @include media(">=small") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter;
+                }
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
         // screen at or above 1200px
         @include media(">=large") {
             row-gap: $gutter-lg;
             padding-top: $gutter-lg;
             padding-bottom: $gutter-lg;
+
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-xl;
+                }
+            }
+        }
+
+        // screen at or above 1500px
+        @include media(">=big") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
+        // screen at or above 1800px
+        @include media(">=huge") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: calc((100% - $container-width) / 2);
+                }
+            }
         }
     }
 

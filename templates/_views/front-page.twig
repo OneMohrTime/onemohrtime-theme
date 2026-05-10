@@ -9,9 +9,9 @@
 {% set introText = post.meta('homepage_checklist')|default(null) %}
 {% set buttons = post.meta('homepage_buttons')|default(null) %}
 {% set services = post.meta('homepage_services')|default(null) %}
-{% set proposal = post.meta('homepage_proposal')|default(null) %}
+{# {% set proposal = post.meta('homepage_proposal')|default(null) %} #}
 {% set gallery = post.meta('homepage_gallery')|default(null) %}
-{% set offerings = post.meta('homepage_offerings')|default(null) %}
+{# {% set offerings = post.meta('homepage_offerings')|default(null) %} #}
 {% set caseStudies = post.meta('homepage_projects')|default(null) %}
 {% set travel = post.meta('homepage_travel')|default(null) %}
 
@@ -61,11 +61,11 @@
             <figure class="swiper is-featured" data-module-swiper-gallery>
                 <div class="swiper-controls" data-scroll-trigger>
                     <h2 class="u-headline">Selected Work</h2>
-                    <button class="c-button is-small is-prev">
+                    <button class="c-button c-button--small is-prev">
                         <span class="u-screen-reader-text">Previous</span>
                         {{ source('_elements/svg/arrow-left.svg') }}
                     </button>
-                    <button class="c-button is-small is-next">
+                    <button class="c-button c-button--small is-next">
                         <span class="u-screen-reader-text">Next</span>
                         {{ source('_elements/svg/arrow-right.svg') }}
                     </button>
@@ -162,108 +162,11 @@
                 {% endfor %}
 
             </div>
-            {# <div class="c-textMedia is-reversed">
-                <div class="c-textMedia__text" data-scroll-trigger>
-                    {% if services.headline %}
-                        <h2 class="u-subheadline">{{ services.headline }}</h2>
-                    {% endif %}
-                    {% if services.text %}
-                        <div class="u-wysiwyg">
-                            {{ services.text }}
-                        </div>
-                    {% endif %}
-                    {% if services.button %}
-                        {% include '_elements/button.twig' with {
-                            params: {
-                                url: services.button.url,
-                                text: services.button.title,
-                                target: services.button.target,
-                            }
-                        } only %}
-                    {% endif %}
-                </div>
-                <figure class="c-textMedia__media">
-                    {% for item in services.services %}
-                        <a href="{{ item.page_link }}" style="background-image: url({{ get_image(item.background_image).src('large') }});" data-scroll-trigger>
-                            <h3 class="u-subheadline">{{ item.heading }}</h3>
-                        </a>
-                    {% endfor %}
-                </figure>
-            </div> #}
         </section>
-
-        {# <section class="o-section is-text-media is-proposal">
-            <div class="c-textMedia" data-scroll-trigger>
-                <div class="c-textMedia__text">
-                    {% if proposal.headline %}
-                        <h2 class="u-subheadline">{{ proposal.headline }}</h2>
-                    {% endif %}
-                    {% if proposal.text %}
-                        <div class="u-wysiwyg">
-                            {{ proposal.text }}
-                        </div>
-                    {% endif %}
-                    {% if proposal.button_1 %}
-                        <div class="c-button-group" data-scroll-trigger>
-                            {% include '_elements/button.twig' with {
-                                params: {
-                                    url: proposal.button_1.url,
-                                    text: proposal.button_1.title,
-                                    target: proposal.button_1.target,
-                                }
-                            } only %}
-                            {% if proposal.button_2 %}
-                            {% include '_elements/button.twig' with {
-                                params: {
-                                    url: proposal.button_2.url,
-                                    text: proposal.button_2.title,
-                                    target: proposal.button_2.target,
-                                }
-                            } only %}
-                            {% endif %}
-                            {% if proposal.button_3 %}
-                            {% include '_elements/button.twig' with {
-                                params: {
-                                    url: proposal.button_3.url,
-                                    text: proposal.button_3.title,
-                                    target: proposal.button_3.target,
-                                }
-                            } only %}
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                </div>
-                <figure class="c-textMedia__media">
-                    {% include '_elements/picture.twig' with {
-                        params: {
-                            src: proposal.image,
-                            ratio: '4:3'
-                        }
-                    } only %}
-                </figure>
-            </div>
-        </section> #}
 
         <section class="o-section is-shop">
             {% include '_components/marquee.twig' %}
         </section>
-
-        {# <section class="o-section is-offerings">
-            <h2 class="u-headline">{{ offerings.headline }}</h2>
-            <div class="swiper is-cards" data-module-swiper-cards>
-                <ul class="c-grid has-four-columns swiper-wrapper" data-card-length="4">
-                    {% for service in offerings.offerings %}
-                        <li class="c-grid__item swiper-slide">
-                            <a href="{{ service.page_link }}" class="c-card">
-                                <h3 class="u-heading">{{ service.headline }}</h3>
-                                <div class="u-wysiwyg">
-                                    {{ service.text }}
-                                </div>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-        </section> #}
 
         <section class="o-section is-social-feed" data-scroll-trigger>
             <div class="u-wysiwyg" data-scroll-trigger>

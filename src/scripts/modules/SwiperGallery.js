@@ -302,7 +302,7 @@ export default class extends es6Module {
       //   snapOnRelease: true,
       // },
       // simulateTouch: false,
-      slidesPerView: 1,
+      slidesPerView: 1.5,
       spaceBetween: 36,
       speed: 350,
       // thumbs: {
