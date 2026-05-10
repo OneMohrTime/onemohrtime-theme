@@ -27,6 +27,15 @@
             margin: 0;
         }
 
+        ul {
+            margin-top: $small-spacing;
+            padding-left: 1em;
+        }
+
+        li::marker {
+            content: "★";
+        }
+
         // screen at or above 900px
         @include media(">=medium") {
             justify-content: flex-start;
@@ -75,6 +84,9 @@
                 &:hover {
                     background-image: url("https://onemohrti.me/wp-content/uploads/icon-design.svg");
                 }
+            }
+            li {
+                font-size: $font-base-sm;
             }
         }
 

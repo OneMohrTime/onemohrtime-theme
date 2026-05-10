@@ -47,7 +47,6 @@
             max-height: 100vh;
             overflow: auto;
         }
-        .c-availability,
         .c-navigation__logo {
             display: none;
         }
@@ -337,22 +336,24 @@
 
 .c-availability {
     a {
-        display: flex;
-        align-items: center;
-        column-gap: $base-spacing;
+        // display: flex;
+        // align-items: center;
+        // column-gap: $base-spacing;
+        display: inline-block;
     }
 }
 
-.c-availability__label {
-    font-weight: $font-regular;
-    white-space: nowrap;
-}
+// .c-availability__label {
+//     font-weight: $font-regular;
+//     white-space: nowrap;
+// }
 
 .c-availability__value {
     $dot-size: 8px;
     position: relative;
     display: block;
     margin-bottom: 0;
+    transform: translateX(rem(12px));
     font-weight: $font-bold;
     line-height: $heading-height;
     white-space: nowrap;
@@ -402,6 +403,10 @@
         &::after {
             background-color: $red;
         }
+    }
+
+    strong {
+        display: none;
     }
 }
 

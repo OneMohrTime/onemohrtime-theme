@@ -25,14 +25,14 @@
             <div class="c-banner__heading">
                 <div class="c-availability c-tooltip__container">
                     <a href="/contact" class="c-tooltip__anchor" aria-describedby="my_availability">
-                        <span class="c-availability__label">Current Availability:</span>
-                        <span class="c-availability__value is-{{ this.availability }}">{{ availabilityValue }}</span>
+                        {# <span class="c-availability__label">Current Availability:</span> #}
+                        <span class="c-availability__value is-{{ workAvailability.value }}">{{ workAvailability.label }}</span>
                     </a>
                     <div id="my_availability" class="c-tooltip" role="tooltip">
-                    {% if this.openings|date('Ym') < 'now'|date('Ym') %}
+                    {% if globals.work_openings|date('Ym') < 'now'|date('Ym') %}
                         Get In Touch
                     {% else %}
-                        Openings beginning in {{ this.openings|date('m/Y') }}
+                        Openings beginning in {{ globals.work_openings|date('m/Y') }}
                     {% endif %}
                     </div>
                 </div>
@@ -61,14 +61,16 @@
             <figure class="swiper is-featured" data-module-swiper-gallery>
                 <div class="swiper-controls" data-scroll-trigger>
                     <h2 class="u-headline">Selected Work</h2>
-                    <button class="c-button c-button--small is-prev">
-                        <span class="u-screen-reader-text">Previous</span>
-                        {{ source('_elements/svg/arrow-left.svg') }}
-                    </button>
-                    <button class="c-button c-button--small is-next">
-                        <span class="u-screen-reader-text">Next</span>
-                        {{ source('_elements/svg/arrow-right.svg') }}
-                    </button>
+                    <div class="c-button-group">
+                        <button class="c-button c-button--small is-prev">
+                            <span class="u-screen-reader-text">Previous</span>
+                            {{ source('_elements/svg/arrow-left.svg') }}
+                        </button>
+                        <button class="c-button c-button--small is-next">
+                            <span class="u-screen-reader-text">Next</span>
+                            {{ source('_elements/svg/arrow-right.svg') }}
+                        </button>
+                    </div>
                 </div>
                 <ul class="swiper-wrapper" data-scroll-trigger>
                     {% for project in gallery %}

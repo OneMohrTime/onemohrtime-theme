@@ -114,7 +114,7 @@
                 "none": "<strong>None<\/strong> I’m completely at capacity for the foreseeable future"
             },
             "default_value": "",
-            "return_format": "value",
+            "return_format": "array",
             "allow_null": 0,
             "other_choice": 0,
             "allow_in_bindings": 0,
@@ -138,7 +138,8 @@
             "display_format": "m\/Y",
             "return_format": "U",
             "first_day": 1,
-            "allow_in_bindings": 0
+            "allow_in_bindings": 0,
+            "default_to_current_date": 0
         },
         {
             "key": "field_6556898080131",
@@ -533,5 +534,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750736697
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1778390352
 }
