@@ -169,7 +169,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -187,31 +187,10 @@
         },
         {
             "key": "field_6748dd3f1eeac",
-            "label": "Footer Details",
-            "name": "footer_details",
+            "label": "Large Text",
+            "name": "footer_large",
             "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_6748dd7d1eead",
-            "label": "Recent Press",
-            "name": "footer_press",
-            "aria-label": "",
-            "type": "relationship",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -220,27 +199,75 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "post"
-            ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": [
-                "category:podcasts",
-                "category:opinion",
-                "category:grand-rapids"
-            ],
-            "filters": [
-                "search"
-            ],
-            "return_format": "object",
-            "min": "",
-            "max": 5,
-            "allow_in_bindings": 0,
-            "elements": "",
-            "bidirectional": 0,
-            "bidirectional_target": []
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6a009efe7796b",
+            "label": "Small Text",
+            "name": "footer_small",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6a00b2f49fece",
+            "label": "Shop Links",
+            "name": "footer_shop",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_6a00b3069fecf",
+            "button_label": "Add Link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6a00b3069fecf",
+                    "label": "Shop Item",
+                    "name": "shop_item",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 1,
+                    "parent_repeater": "field_6a00b2f49fece"
+                }
+            ]
         },
         {
             "key": "field_6748de081eeae",
@@ -252,7 +279,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -537,5 +564,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778390352
+    "modified": 1778431164
 }

@@ -3,11 +3,12 @@
 
 {% set this = {
     logo: params.logo,
-    about: params.about,
-    flags: params.flags,
-    press: params.press,
-    social: params.social,
     navigation: params.menu,
+    social: params.social,
+    large: params.banner,
+    small: params.about,
+    flags: params.flags,
+    shop: params.shop,
     siteName: params.siteName,
     siteUrl: params.siteUrl
 } %}
@@ -16,23 +17,23 @@
 {# ----------------------------------------------------------------- #}
 
 <footer class="o-site__footer">
-    <div id="colophon" class="c-footer">
+    <section id="colophon" class="c-footer">
         <h2 class="u-screen-reader-text">Footer Info</h2>
 
-        <div class="c-footer__branding">
-            {% if this.logo %}
-                <a href="{{ this.siteUrl }}" class="c-media">
-                    <img src="{{ this.logo.url }}" alt="Logo for {{ this.siteName }}" class="c-media__image" />
-                </a>
-            {% endif %}
-            <div class="u-wysiwyg">
-                {{ this.about }}
-                <hr>
-                <p><a href="https://shop.onemohrti.me/">Shop</a> | <a href="https://recipes.onemohrti.me/">Recipes</a></p>
+        <div class="c-footer__primary">
+            <div class="c-footer__branding">
+                {% if this.logo %}
+                    <a href="{{ this.siteUrl }}" class="c-media">
+                        <img src="{{ this.logo.url }}" alt="Logo for {{ this.siteName }}" class="c-media__image" />
+                    </a>
+                {% endif %}
+                <div class="c-fittext">
+                    <div class="c-fittext__headline" data-module-fit-text>{{ this.large }}</div>
+                </div>
             </div>
         </div>
 
-        <div class="c-footer__primary">
+        <div class="c-footer__secondary">
             <nav class="c-footer__nav">
                 <h3 class="u-eyebrow">Pages of Interest</h3>
                 <ul class="c-menu">
@@ -56,9 +57,19 @@
                     {% endfor %}
                 </ul>
             </nav>
-        </div>
-
-        <div class="c-footer__secondary">
+            <nav class="c-footer__shop">
+                <h3 class="u-eyebrow">Shop</h3>
+                <ul class="c-menu">
+                    {% for item in this.shop %}
+                        {% set product = item.shop_item %}
+                        <li class="c-menuItem">
+                            <a href="{{ product.link }}" title="{{ product.title }}" class="u-highlight">
+                                {{ product.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
             <div class="c-footer__flags">
                 <h3 class="u-eyebrow">Flags Collected</h3>
                 <ul class="c-menu">
@@ -74,35 +85,27 @@
                     {% endfor %}
                 </ul>
             </div>
-            <nav class="c-footer__press">
-                <h3 class="u-eyebrow">Recent Press</h3>
-                <ul class="c-menu">
-                    {% for item in this.press %}
-                        {% set press = get_post(item) %}
-                        <li class="c-menuItem">
-                            <a href="{{ press.link }}" title="{{ press.title }}">
-                                <img src="{{ press.thumbnail.src('thumbnail') }}" alt="Learn more about {{ press.title }}" width="200" height="200" class="c-media__image" />
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
         </div>
 
-        <div class="c-footer__utility">
-            <p>&copy; 2011 &ndash; {{ 'now'|date('Y') }} | Derek Mohr | OneMohrTime Design Co.</p>
-            <ul class="c-footer__legal c-menu">
-                <li class="c-menuItem">
-                    <a href="/privacy-policy" class="u-highlight">Privacy</a>
-                </li>
-                <li class="c-menuItem">
-                    <a href="/terms-of-use" class="u-highlight">Terms</a>
-                </li>
-                <li class="c-menuItem">
-                    <a href="/cookie-policy" class="u-highlight">Cookies</a>
-                </li>
-            </ul>
-        </div>
+        <div class="c-footer__extra">
+            {{ this.small }}
 
-    </div>
+            <img src="{{ this.siteUrl }}/wp-content/uploads/macspin.gif" alt="Made with Macintosh" />
+        </div>
+    </section>
+
+    <aside class="o-site__copyright">
+        <p>&copy; 2011 &ndash; {{ 'now'|date('Y') }} | Derek Mohr | OneMohrTime Design Co.</p>
+        <ul class="c-footer__legal c-menu">
+            <li class="c-menuItem">
+                <a href="/privacy-policy" class="u-highlight">Privacy</a>
+            </li>
+            <li class="c-menuItem">
+                <a href="/terms-of-use" class="u-highlight">Terms</a>
+            </li>
+            <li class="c-menuItem">
+                <a href="/cookie-policy" class="u-highlight">Cookies</a>
+            </li>
+        </ul>
+    </aside>
 </footer>

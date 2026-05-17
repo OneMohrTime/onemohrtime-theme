@@ -23,3 +23,35 @@
         border-bottom-right-radius: $border-radius;
     }
 }
+
+.o-site__copyright {
+    @include padding();
+    padding-top: $gutter-xs;
+    padding-bottom: $gutter-xs;
+    text-align: center;
+    font-weight: $font-bold;
+    font-weight: $font-semibold;
+    background-color: $yellow;
+    color: $black;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-base-sm;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        border: 3px solid $black;
+        border-top: 0;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+}

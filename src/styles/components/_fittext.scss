@@ -3,10 +3,14 @@
 ========================================================================== */
 
 .c-fittext {
-    @include padding();
     position: relative;
 }
 
 .c-fittext__headline {
+    position: relative;
+    width: 100%;
     margin: 0;
+    font-family: $font-header;
+    font-weight: $font-bold;
+    text-transform: uppercase;
 }

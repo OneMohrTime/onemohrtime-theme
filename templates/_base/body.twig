@@ -92,13 +92,13 @@
             {% include '_partials/footer.twig' with {
                 params: {
                     logo: globals.footer_logo|default(null),
-                    about: globals.footer_details|default(null),
+                    banner: globals.footer_large|default(null),
+                    about: globals.footer_small|default(null),
+                    shop: globals.footer_shop|default(null),
                     flags: globals.footer_flags|default(null),
-                    press: globals.footer_press|default(null),
                     social: socialMedia,
                     menu: footerMenu ?? null,
                     siteName: websiteName,
-                    siteLogo: siteLogo,
                     siteUrl: websiteUrl
                 }
             } only %}
