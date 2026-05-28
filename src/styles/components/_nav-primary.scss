@@ -392,18 +392,12 @@
  */
 
 .c-availability {
+    margin-bottom: $small-spacing;
+
     a {
-        // display: flex;
-        // align-items: center;
-        // column-gap: $base-spacing;
         display: inline-block;
     }
 }
-
-// .c-availability__label {
-//     font-weight: $font-regular;
-//     white-space: nowrap;
-// }
 
 .c-availability__value {
     $dot-size: 8px;
@@ -412,6 +406,7 @@
     margin-bottom: 0;
     transform: translateX(rem(12px));
     font-weight: $font-bold;
+    font-weight: $font-semibold;
     line-height: $heading-height;
     white-space: nowrap;
 
