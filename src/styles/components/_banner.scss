@@ -206,9 +206,15 @@
 }
 
 .c-banner__heading {
+
     .u-title {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        margin-left: 0;
     }
 }
 

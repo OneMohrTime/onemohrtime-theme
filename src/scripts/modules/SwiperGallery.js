@@ -218,7 +218,7 @@ export default class extends es6Module {
       a11y: {
         enabled: true
       },
-      // autoHeight: true,
+      autoHeight: true,
       // autoplay: {
       //   delay: 5000,
       //   disableOnInteraction: false,

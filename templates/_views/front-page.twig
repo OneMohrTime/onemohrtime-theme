@@ -71,6 +71,10 @@
                             {{ source('_elements/svg/arrow-right.svg') }}
                         </button>
                     </div>
+                    <a href="{{ site.url }}/services" class="u-link has-icon">
+                        View All Projects
+                        {{ source('_elements/svg/arrow-right.svg') }}
+                    </a>
                 </div>
                 <ul class="swiper-wrapper" data-scroll-trigger>
                     {% for project in gallery %}
@@ -105,6 +109,11 @@
                 <h2 class="u-headline">{{ services.headline }}</h2>
             {% endif %}
 
+            <a href="{{ site.url }}/services" class="u-link has-icon">
+                View All Services
+                {{ source('_elements/svg/arrow-right.svg') }}
+            </a>
+
             <div class="c-grid has-four-columns" data-scroll-trigger>
 
                 {% if services.text %}
@@ -112,11 +121,13 @@
                         <div class="u-wysiwyg">
                             {{ services.text }}
                             {% if services.button %}
-                                <p><strong>
-                                    <a href="{{ services.button.url }}" class="u-link has-icon" {% if services.button.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %}>
-                                        {{ services.button.title }}
-                                        {{ source('_elements/svg/arrow-right.svg') }}
-                                    </a></strong>
+                                <p>
+                                    <strong>
+                                        <a href="{{ services.button.url }}" class="u-link has-icon" {% if services.button.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %}>
+                                            {{ services.button.title }}
+                                            {{ source('_elements/svg/arrow-right.svg') }}
+                                        </a>
+                                    </strong>
                                 </p>
                             {% endif %}
                         </div>
@@ -185,15 +196,21 @@
             <figure class="c-gallery" data-module-fancybox>
                 <div class="swiper is-home" data-module-swiper-gallery>
                     <div class="swiper-controls" data-scroll-trigger>
-                        <button class="c-button c-button--small is-prev">
-                            <span class="u-screen-reader-text">Previous</span>
-                            {{ source('_elements/svg/arrow-left.svg') }}
-                        </button>
                         <h2 class="u-headline">Case Studies</h2>
-                        <button class="c-button c-button--small is-next">
-                            <span class="u-screen-reader-text">Next</span>
+                        <div class="c-button-group">
+                            <button class="c-button c-button--small is-prev">
+                                <span class="u-screen-reader-text">Previous</span>
+                                {{ source('_elements/svg/arrow-left.svg') }}
+                            </button>
+                            <button class="c-button c-button--small is-next">
+                                <span class="u-screen-reader-text">Next</span>
+                                {{ source('_elements/svg/arrow-right.svg') }}
+                            </button>
+                        </div>
+                        <a href="{{ site.url }}/design" class="u-link has-icon">
+                            More Case Studies
                             {{ source('_elements/svg/arrow-right.svg') }}
-                        </button>
+                        </a>
                     </div>
                     <ul class="swiper-wrapper">
                         {% for row in caseStudies %}

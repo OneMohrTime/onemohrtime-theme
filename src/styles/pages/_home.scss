@@ -33,7 +33,7 @@
         }
 
         li::marker {
-            content: "★";
+            content: "✔";
         }
 
         // screen at or above 900px
@@ -52,6 +52,9 @@
         // screen at or above 1200px
         @include media(">=large") {
             padding-bottom: $gutter-lg;
+            height: auto;
+            min-height: calc(100vh - rem(102px) - $gutter);
+
             .u-tagline {
                 display: block;
                 margin-bottom: 0.5em;
@@ -85,9 +88,6 @@
                     background-image: url("https://onemohrti.me/wp-content/uploads/icon-design.svg");
                 }
             }
-            li {
-                font-size: $font-base-sm;
-            }
         }
 
         // screen at or above 1800px
@@ -102,7 +102,15 @@
         padding-top: $gutter;
         padding-bottom: $gutter;
 
+        & > .u-link.has-icon {
+            display: none;
+        }
+
         .u-headline {
+            margin-bottom: $small-spacing;
+        }
+
+        .u-heading {
             margin-top: rem(4px);
             margin-bottom: $small-spacing;
         }
@@ -136,23 +144,55 @@
 
         // screen at or above 900px
         @include media(">=medium") {
+            .c-card__body .u-wysiwyg {
+                font-size: $font-base;
+            }
         }
 
         // screen at or above 1200px
         @include media(">=large") {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            row-gap: $gutter;
             padding-top: $gutter-lg;
             padding-bottom: $gutter-lg;
+
+            & > .u-link.has-icon {
+                display: inline-flex;
+                margin-left: auto;
+                font-weight: $font-bold;
+                line-height: $line-height;
+            }
+
+            .u-headline {
+                flex: 0 1 auto;
+                margin-bottom: 0;
+            }
+
+            .c-grid {
+                flex: 1 1 100%;
+                align-items: stretch;
+
+                .c-card,
+                .c-card__link,
+                .c-card__body {
+                    height: 100%;
+                }
+            }
         }
     }
 
     // Gallery Section
     .o-section.is-gallery {
-        // padding-bottom: $gutter;
 
         .swiper-controls {
             @include padding();
             margin-bottom: $gutter;
-            text-align: center;
+
+            .u-link.has-icon {
+                display: none;
+            }
         }
 
         .swiper-slide {
@@ -233,10 +273,22 @@
 
         // screen at or above 1200px
         @include media(">=large") {
+            .swiper-controls {
+                .u-link.has-icon {
+                    display: inline-flex;
+                    margin-top: auto;
+                    margin-left: auto;
+                    font-weight: $font-bold;
+                    line-height: $line-height;
+                }
+            }
             .swiper-slide {
                 @include first(1) {
                     margin-left: $gutter-xl;
                 }
+            }
+            .c-card .u-wysiwyg {
+                font-size: $font-base;
             }
         }
 
@@ -348,12 +400,12 @@
             @include padding();
             position: relative;
             top: auto;
-            justify-content: center;
+            justify-content: flex-start;
             transform: translate(0, 0);
-            margin-bottom: $gutter-lg;
+            margin-bottom: $gutter;
 
-            .c-button {
-                margin-top: em(5px);
+            .u-link.has-icon {
+                display: none;
             }
         }
 
@@ -401,10 +453,25 @@
             padding-top: $gutter-lg;
             padding-bottom: $gutter-lg;
 
+            .swiper-controls {
+                .u-link.has-icon {
+                    display: inline-flex;
+                    margin-top: auto;
+                    margin-left: auto;
+                    font-weight: $font-bold;
+                    line-height: $line-height;
+                    pointer-events: auto;
+                }
+            }
+
             .swiper-slide {
                 @include first(1) {
                     margin-left: $gutter-xl;
                 }
+            }
+
+            .c-button.c-button--large {
+                display: none;
             }
         }
 
