@@ -45,7 +45,7 @@ $footer-border: 3px solid $gray;
 
     // screen at or above 1200px
     @include media(">=large") {
-        flex-basis: 40%;
+        flex-basis: 50%;
     }
 }
 
@@ -63,7 +63,7 @@ $footer-border: 3px solid $gray;
 
     // screen at or above 1200px
     @include media(">=large") {
-        flex-basis: 60%;
+        flex-basis: 50%;
     }
 }
 
@@ -184,6 +184,13 @@ $footer-border: 3px solid $gray;
             font-size: $font-base-lg;
         }
     }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        .c-menu {
+            font-size: $font-h5;
+        }
+    }
 }
 
 .c-footer__flags {
@@ -214,6 +221,9 @@ $footer-border: 3px solid $gray;
     @include media(">=medium") {
         .c-menu {
             justify-content: flex-start;
+        }
+        .c-menuItem {
+            font-size: $font-h5;
         }
     }
 }
