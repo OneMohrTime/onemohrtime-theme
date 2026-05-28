@@ -22,6 +22,7 @@ export default class extends es6Module {
     this.menu = null;
     this.megaMenu = null;
     this.toggleMenu = null;
+    this.toggleSearch = null;
     this.searchbar = null;
     this.overlay = null;
   }
@@ -53,23 +54,20 @@ export default class extends es6Module {
 
         // Open primary navigation
         this.togglePrimaryNav();
+      });
+    }
+    if (toggleSearchButton) {
+      toggleSearchButton.addEventListener('click', () => {
+
+        // Change MENU to EXIT
+        this.changeMenuToExit(toggleButton);
+
+        // Open primary navigation
+        this.togglePrimaryNav();
 
         // Focus on searchbar
         this.focusSearch();
       });
-      if (toggleSearchButton) {
-        toggleSearchButton.addEventListener('click', () => {
-
-          // Change MENU to EXIT
-          this.changeMenuToExit(toggleButton);
-
-          // Open primary navigation
-          this.togglePrimaryNav();
-
-          // Focus on searchbar
-          this.focusSearch();
-        });
-      }
     }
   }
 
@@ -165,7 +163,8 @@ export default class extends es6Module {
     this.menu.classList.toggle('is-hidden');
     this.megaMenu.classList.toggle('is-hidden');
     this.toggleMenu.classList.toggle('is-open');
-    siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');
+    this.toggleSearch.classList.toggle('is-hidden');
+    siteContainer.classList.toggle('u-activeNavigationAreaUpTopButNotWhenScrolling');
 
     // Set overlay visibility
     if (this.overlay.classList.contains('is-hidden')) {

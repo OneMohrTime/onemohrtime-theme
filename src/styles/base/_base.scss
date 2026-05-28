@@ -55,10 +55,6 @@ body {
     padding: 0;
     transition: $speed linear;
 
-    &.-activeNavigationAreaUpTopButNotWhenScrolling {
-        overflow: hidden;
-    }
-
     // screen at or above 1500px
     @include media(">=big") {
         display: flex;
@@ -80,6 +76,11 @@ body {
     // screen at or above 599px
     @include media("<small") {
         padding-bottom: rem(56px);
+
+        &.u-activeNavigationAreaUpTopButNotWhenScrolling {
+            height: 100vh;
+            overflow: hidden;
+        }
     }
 }
 
