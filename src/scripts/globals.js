@@ -52,7 +52,7 @@ export default function() {
 
     function update() {
       computePosition(tooltipAnchor, tooltip, {
-        placement: 'bottom',
+        placement: 'top',
         middleware: [
           offset(6),
           flip(),

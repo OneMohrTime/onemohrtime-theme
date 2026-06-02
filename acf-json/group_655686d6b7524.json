@@ -109,9 +109,9 @@
                 "id": ""
             },
             "choices": {
-                "open": "<strong>Open<\/strong> I’m actively looking for new projects to design",
-                "busy": "<strong>Busy<\/strong> I'm currently busy, but looking for future projects",
-                "none": "<strong>None<\/strong> I’m completely at capacity for the foreseeable future"
+                "open": "Currently Open Availability",
+                "busy": "Limited Availability",
+                "none": "Currently Unavailable For New Work"
             },
             "default_value": "",
             "return_format": "array",
@@ -564,5 +564,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778431164
+    "modified": 1780408133
 }
