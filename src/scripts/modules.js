@@ -6,6 +6,7 @@
 
 // Modules exports
 // =============================================================================
+export { default as AnimatedBackground } from './modules/AnimatedBackground';
 export { default as ChangeText } from './modules/ChangeText';
 export { default as CustomCursor } from './modules/CustomCursor';
 export { default as DrawSVG } from './modules/DrawSVG';
