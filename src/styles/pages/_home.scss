@@ -195,7 +195,13 @@
             }
         }
 
+        .swiper-wrapper {
+            box-sizing: border-box;
+        }
+
         .swiper-slide {
+            box-sizing: border-box;
+
             @include first(1) {
                 margin-left: $gutter-sm;
             }
