@@ -1,0 +1,97 @@
+/* ==========================================================================
+    Poster Grid
+========================================================================== */
+
+.t-page.is-poster-design {
+
+    // // Page Builder
+    // .o-page__sections {
+    //     padding-top: $gutter;
+    //     padding-bottom: $gutter;
+    // }
+
+    // Poster Section
+    .o-section.is-posters {
+        @include padding();
+    }
+
+    .c-poster-grid {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .c-poster {
+        position: absolute;
+        display: block;
+        margin: 0;
+        padding: 0;
+        transition: box-shadow $speed $bezier-slide;
+        border: none;
+        border-radius: $border-radius;
+
+        .c-media__image {
+            transition: opacity $speed $bezier-slide,
+                        transform $speed $bezier-slide;
+        }
+
+        @include hocus() {
+            box-shadow: 0 0 0 3px $white,
+                        0 0 0 6px $yellow;
+            .c-media__image {
+                opacity: 0.67;
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .c-poster__modal {
+        // max-width: rem(500px);`
+        border: 3px solid $black;
+
+        // overwrite Fancybox defaults
+        padding: $gutter;
+        border-radius: $border-radius;
+        background: $white;
+        color: $black;
+        .f-button.is-close-btn {
+            color: $black;
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            column-gap: $gutter-sm;
+        }
+    }
+
+    .c-poster__image {
+        // screen at or above 1200px
+        @include media(">=large") {
+            min-width: rem(500px);
+        }
+    }
+
+    // // Instagram Feed
+    // .o-section.is-social-feed {
+    //     #sb_instagram {
+    //         padding-top: 0;
+    //         padding-bottom: 0 !important;
+    //         #sbi_images {
+    //             @include padding();
+    //             padding-top: 0;
+    //             padding-bottom: $gutter;
+    //             .sbi_item {
+    //                 transition: opacity $speed $bezier-slide,
+    //                             transform $speed $bezier-slide;
+    //             }
+    //             .sbi_photo {
+    //                 transition: opacity $speed $bezier-slide;
+    //             }
+    //         }
+    //     }
+    // }
+
+}
