@@ -2,8 +2,12 @@
     Footer
 ========================================================================== */
 
+$footer-border: 3px solid $gray;
+
 .c-footer {
+    @include padding();
     position: relative;
+    padding-top: $gutter-sm;
     background-color: $black;
     background-image: url("https://onemohrti.me/wp-content/uploads/concrete-dark.png");
     background-size: 298.5px 272.5px;
@@ -23,149 +27,102 @@
     }
 }
 
-.c-footer__branding {
+.c-footer__primary {
+    width: 100%;
     margin-bottom: $gutter;
-    padding-top: $gutter;
-    padding-left: $gutter-sm;
-    padding-right: $gutter-sm;
-    padding-bottom: $gutter;
-    text-align: center;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 0 percentage(1/3);
+        width: auto;
+        margin-bottom: 0;
+        padding: $gutter-sm;
+        padding-left: 0;
+        border-top: $footer-border;
+        border-right: $footer-border;
+        border-bottom: $footer-border;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-basis: 50%;
+    }
+}
+
+.c-footer__secondary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border-top: $footer-border;
+    border-bottom: $footer-border;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 0 1 percentage(2/3);
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        flex-basis: 50%;
+    }
+}
+
+.c-footer__extra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter-sm;
+
+    img {
+        display: none;
+        visibility: hidden;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 1 1 100%;
+        font-size: $font-base-sm;
+        font-weight: $font-bold;
+        line-height: $line-height;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-meta;
+
+        img {
+            display: block;
+            visibility: visible;
+        }
+    }
+
+    // screen below 900px
+    @include media("<medium") {
+        @include caption();
+    }
+}
+
+.c-footer__branding {
 
     .c-media__svg,
     .c-media__image {
         max-height: 100px;
         max-width: 230px;
     }
-
-    .u-wysiwyg {
-        margin-top: $small-spacing;
-    }
-
-    // screen at or above 600px
-    @include media(">=small") {
-        padding-top: $gutter;
-        padding-left: $gutter;
-        padding-right: $gutter;
-    }
-
-    // screen at or above 900px
-    @include media(">=medium") {
-        flex: 1 0 30%;
-        margin-bottom: 0;
-        padding-left: $gutter-lg;
-        padding-right: 0;
-    }
-
-    // screen at or above 1200px
-    @include media(">=large") {
-        flex-basis: 25%;
-        padding-left: $gutter-xl;
-        padding-right: $gutter;
-    }
-
-    // screen at or above 1500px
-    @include media(">=big") {
-        padding-left: $gutter-lg;
-    }
-
-    // screen at or above 1800px
-    @include media(">=huge") {
-        flex-basis: 30%;
-        padding-left: calc((100% - $container-width) / 2);
-    }
-}
-
-.c-footer__primary {
-    margin-bottom: $gutter;
-    padding-left: $gutter-sm;
-    padding-right: $gutter-sm;
-
-    // screen at or above 600px
-    @include media(">=small") {
-        padding-left: $gutter;
-        padding-right: $gutter;
-    }
-
-    // screen at or above 900px
-    @include media(">=medium") {
-        flex: 1 0 30%;
-        margin-bottom: 0;
-        padding-top: $gutter;
-        padding-left: $gutter-sm;
-        padding-right: 0;
-        padding-bottom: $gutter;
-    }
-
-    // screen at or above 1200px
-    @include media(">=large") {
-        flex-basis: 25%;
-        padding-left: 0;
-    }
-
-    // screen at or above 1800px
-    @include media(">=huge") {
-        flex-basis: 30%;
-    }
-}
-
-.c-footer__secondary {
-    margin-bottom: $gutter;
-    padding-left: $gutter-sm;
-    padding-right: $gutter-sm;
-
-    // screen at or above 600px
-    @include media(">=small") {
-        padding-left: $gutter;
-        padding-right: $gutter;
-    }
-
-    // screen at or above 900px
-    @include media(">=medium") {
-        flex: 1 0 40%;
-        margin-bottom: 0;
-        padding-top: $gutter;
-        padding-left: $gutter-sm;
-        padding-right: $gutter-lg;
-        padding-bottom: $gutter;
-    }
-
-    // screen at or above 1200px
-    @include media(">=large") {
-        flex-basis: 50%;
-        padding-left: $gutter;
-        padding-right: $gutter-xl;
-    }
-
-    // screen at or above 1500px
-    @include media(">=big") {
-        padding-right: $gutter-lg;
-    }
-
-    // screen at or above 1800px
-    @include media(">=huge") {
-        flex-basis: 40%;
-        padding-right: calc((100% - $container-width) / 2);
-    }
 }
 
 .c-footer__nav {
-    margin-bottom: $gutter;
-    text-align: center;
+    padding: $gutter-sm;
+    padding-left: 0;
+    border-right: $footer-border;
 
     .c-menu {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: baseline;
         line-height: $line-height;
-
-        .c-menuItem {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
     }
 
     .u-highlight {
+        @include ellipsis();
         line-height: $heading-height;
 
         &::before {
@@ -173,33 +130,40 @@
         }
     }
 
-    // screen at or above 900px
-    @include media(">=medium") {
-        text-align: left;
-
+    // screen at or above 600px
+    @include media(">=small") {
         .c-menu {
-            gap: 0.5em 4px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            column-gap: rem(8px);
 
             .c-menuItem {
-                max-width: calc(50% - 0.25em);
-                white-space: nowrap;
+                flex: 0 0 50%;
+                max-width: calc(50% - rem(4px));
             }
         }
     }
 
-    // screen at or above 1200px
-    @include media(">=large") {
-        margin-bottom: 0;
+    // screen at or above 900px
+    @include media(">=medium") {
+        padding-left: $gutter-sm;
+
+        .c-menu {
+            gap: 0.5em rem(4px);
+        }
     }
 }
 
 .c-footer__social {
-    margin-top: $gutter;
-    text-align: center;
+    padding: $gutter-sm;
+    padding-right: 0;
 
     .c-menu {
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         align-items: center;
         gap: $small-spacing;
         font-size: $font-h5;
@@ -216,23 +180,28 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        // margin-top: $gutter;
-        text-align: left;
         .c-menu {
-            justify-content: flex-start;
             font-size: $font-base-lg;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        .c-menu {
+            font-size: $font-h5;
         }
     }
 }
 
 .c-footer__flags {
-    margin-bottom: $gutter;
-    text-align: center;
+    padding: $gutter-sm;
+    padding-right: 0;
+    border-top: $footer-border;
 
     .c-menu {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: $small-spacing;
     }
@@ -250,75 +219,41 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        justify-content: flex-start;
-        text-align: left;
         .c-menu {
             justify-content: flex-start;
+        }
+        .c-menuItem {
+            font-size: $font-h5;
         }
     }
 }
 
-.c-footer__press {
-    text-align: center;
+.c-footer__shop {
+    padding: $gutter-sm;
+    padding-left: 0;
     line-height: $line-height;
+    border-top: $footer-border;
+    border-right: $footer-border;
 
-    .c-menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: $gutter-sm;
-    }
+    .u-highlight {
+        @include ellipsis();
+        line-height: $heading-height;
 
-    .c-menuItem {
-        flex: 0 1 rem(125px);
-        max-width: rem(125px);
-        max-height: rem(125px);
-        border-radius: $border-radius;
-        overflow: hidden;
+        &::before {
+            background-color: $gray--darkest;
+        }
     }
 
     // screen at or above 900px
     @include media(">=medium") {
-        text-align: left;
+        padding-left: $gutter-sm;
+
         .c-menu {
-            justify-content: flex-start;
+            flex-direction: column;
+            gap: 0.5em rem(4px);
         }
     }
 }
-
-.c-footer__utility {
-    @include padding();
-    padding-top: $gutter-xs;
-    padding-bottom: $gutter-xs;
-    text-align: center;
-    font-weight: $font-bold;
-    font-weight: $font-semibold;
-    background-color: $yellow;
-    color: $black;
-
-    // screen at or above 900px
-    @include media(">=medium") {
-        flex: 1 1 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 100%;
-    }
-
-    // screen at or above 1200px
-    @include media(">=large") {
-        font-size: $font-base-sm;
-    }
-
-    // screen at or above 1500px
-    @include media(">=big") {
-        border: 3px solid $black;
-        border-top: 0;
-        border-bottom-left-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-    }
-}
-
 
 .c-footer__legal {
     margin-top: $gutter-xs;

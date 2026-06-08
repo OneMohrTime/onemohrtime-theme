@@ -9,8 +9,8 @@
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     text-align: center;
-    background-color: $black;
-    color: $white;
+    background-color: $yellow;
+    color: $black;
 
     &.is-active {
         display: block;
@@ -42,7 +42,11 @@
     }
 }
 
-// .c-alert__button {}
+.c-alert__button {
+    &::after {
+        background-color: $gold !important;
+    }
+}
 
 .c-alert__close {
     position: absolute;
@@ -50,7 +54,7 @@
     right: $gutter;
     width: 10px;
     height: 10px;
-    background-color: $white;
+    background-color: $black;
 }
 
 // document.addEventListener("DOMContentLoaded", function() {

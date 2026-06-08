@@ -52,7 +52,6 @@
         @include media(">=large") {
             row-gap: $gutter-lg;
             padding-top: $gutter-lg;
-            // padding-bottom: $gutter-lg;
         }
     }
 }

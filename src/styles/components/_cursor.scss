@@ -3,19 +3,19 @@
 ========================================================================== */
 
 .cursor {
-    pointer-events: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    position: fixed;
     top: 0;
     left: 0;
-    position: fixed;
-    z-index: 9999;
+    display: none;
     width: 32px;
     height: 32px;
-    display: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     will-change: transform;
+    z-index: 9999;
 
     // Using a PNG as the cursor background image
     background-image: url('https://onemohrti.me/wp-content/uploads/cursor-default.png');

@@ -6,11 +6,12 @@
 {# ----------------------------------------------------------------- #}
 {% set headline = post.meta('post_headline')|default(post.title) %}
 {% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set introText = post.meta('homepage_checklist')|default(null) %}
 {% set buttons = post.meta('homepage_buttons')|default(null) %}
 {% set services = post.meta('homepage_services')|default(null) %}
-{% set proposal = post.meta('homepage_proposal')|default(null) %}
+{# {% set proposal = post.meta('homepage_proposal')|default(null) %} #}
 {% set gallery = post.meta('homepage_gallery')|default(null) %}
-{% set offerings = post.meta('homepage_offerings')|default(null) %}
+{# {% set offerings = post.meta('homepage_offerings')|default(null) %} #}
 {% set caseStudies = post.meta('homepage_projects')|default(null) %}
 {% set travel = post.meta('homepage_travel')|default(null) %}
 
@@ -22,8 +23,24 @@
 
         <section class="c-banner is-homepage">
             <div class="c-banner__heading">
-                <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong>
+                <div class="c-availability c-tooltip__container">
+                    <a href="/contact" class="c-tooltip__anchor" aria-describedby="my_availability">
+                        {# <span class="c-availability__label">Current Availability:</span> #}
+                        <span class="c-availability__value is-{{ workAvailability.value }}">{{ workAvailability.label }}</span>
+                    </a>
+                    <div id="my_availability" class="c-tooltip" role="tooltip">
+                    {% if globals.work_openings|date('Ym') < 'now'|date('Ym') %}
+                        Get In Touch
+                    {% else %}
+                        Openings beginning in {{ globals.work_openings|date('m/Y') }}
+                    {% endif %}
+                    </div>
+                </div>
+                {# <strong class="u-tagline js-home-tagline" data-module-change-text data-text="{{ subheadline }}" aria-label="{{ subheadline }}">Hello There!</strong> #}
                 <h1 class="u-title js-home-headline" data-module-change-text>{{ headline }}</h1>
+                <div class="u-wysiwyg">
+                    {{ introText }}
+                </div>
                 <div class="c-button-group" data-scroll-trigger>
                     {% for button in buttons %}
                         {% if button %}
@@ -40,124 +57,128 @@
             </div>
         </section>
 
-        <section class="o-section is-text-media is-services">
-            <div class="c-textMedia is-reversed">
-                <div class="c-textMedia__text" data-scroll-trigger>
-                    {% if services.headline %}
-                        <h2 class="u-subheadline">{{ services.headline }}</h2>
-                    {% endif %}
-                    {% if services.text %}
+        <section class="o-section is-gallery">
+            <figure class="swiper is-featured" data-module-swiper-gallery>
+                <div class="swiper-controls" data-scroll-trigger>
+                    <h2 class="u-headline">Selected Work</h2>
+                    <div class="c-button-group">
+                        <button class="c-button c-button--small is-prev">
+                            <span class="u-screen-reader-text">Previous</span>
+                            {{ source('_elements/svg/arrow-left.svg') }}
+                        </button>
+                        <button class="c-button c-button--small is-next">
+                            <span class="u-screen-reader-text">Next</span>
+                            {{ source('_elements/svg/arrow-right.svg') }}
+                        </button>
+                    </div>
+                    <a href="{{ site.url }}/services" class="u-link has-icon">
+                        View All Projects
+                        {{ source('_elements/svg/arrow-right.svg') }}
+                    </a>
+                </div>
+                <ul class="swiper-wrapper" data-scroll-trigger>
+                    {% for project in gallery %}
+                        <li class="swiper-slide">
+                            {% set projectName = project.headline %}
+                            {% set projectThumb = project.image %}
+                            {% set projectLabel = project.eyebrow %}
+                            {% set projectDescription = project.text %}
+                            {% set projectLink = project.button %}
+                            <a href="{{ projectLink }}" class="c-card">
+                                <strong class="u-eyebrow">{{ projectLabel }}</strong>
+                                <h3 class="u-subheadline is-underlined">{{ projectName }}</h3>
+                                <div class="u-wysiwyg">
+                                    {{ projectDescription }}
+                                </div>
+                                {% include '_elements/picture.twig' with {
+                                    params: {
+                                        src: projectThumb,
+                                        sizes: '(min-width: 1200px) 25vw, (min-width: 900px) 50vw, (min-width: 600px) 67vw, 75vw'
+                                    }
+                                } only %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </figure>
+        </section>
+
+        <section class="o-section is-services">
+
+            {% if services.headline %}
+                <h2 class="u-headline">{{ services.headline }}</h2>
+            {% endif %}
+
+            <a href="{{ site.url }}/services" class="u-link has-icon">
+                View All Services
+                {{ source('_elements/svg/arrow-right.svg') }}
+            </a>
+
+            <div class="c-grid has-four-columns" data-scroll-trigger>
+
+                {% if services.text %}
+                    <div class="c-grid__item">
                         <div class="u-wysiwyg">
                             {{ services.text }}
+                            {% if services.button %}
+                                <p>
+                                    <strong>
+                                        <a href="{{ services.button.url }}" class="u-link has-icon" {% if services.button.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %}>
+                                            {{ services.button.title }}
+                                            {{ source('_elements/svg/arrow-right.svg') }}
+                                        </a>
+                                    </strong>
+                                </p>
+                            {% endif %}
                         </div>
-                    {% endif %}
-                    {% if services.button %}
-                        {% include '_elements/button.twig' with {
-                            params: {
-                                url: services.button.url,
-                                text: services.button.title,
-                                target: services.button.target,
-                            }
-                        } only %}
-                    {% endif %}
-                </div>
-                <figure class="c-textMedia__media">
-                    {% for item in services.services %}
-                        <a href="{{ item.page_link }}" style="background-image: url({{ get_image(item.background_image).src('large') }});" data-scroll-trigger>
-                            <h3 class="u-subheadline">{{ item.heading }}</h3>
-                        </a>
-                    {% endfor %}
-                </figure>
-            </div>
-        </section>
+                    </div>
+                {% endif %}
 
-        <section class="o-section is-gallery">
-            {% set galleryColumns = gallery|length %}
-            <ul class="c-grid has-{{ galleryColumns|replace({'3':'three', '4':'four', '5':'five'}) }}-columns" data-scroll-trigger>
-                {% for image in gallery %}
-                    <li class="c-grid__item">
-                        {% include '_elements/picture.twig' with {
-                            params: {
-                                src: image,
-                                ratio: '1:1'
-                            }
-                        } only %}
-                    </li>
+                {% for card in services.services %}
+                    {% set icon = card.icon|default(null) %}
+                    {% set headline = card.headline|default(null) %}
+                    {% set subheadline = card.subheadline|default(null) %}
+                    {% set text = card.text|default(null) %}
+                    {% set button = card.page_link|default(null) %}
+
+                    <div class="c-grid__item">
+                        <figure class="c-card">
+
+                            {% if button %}
+                                <a href="{{ button }}" class="c-card__link">
+                            {% endif %}
+
+                                <div class="c-card__body" data-scroll-trigger>
+                                    {% if icon %}
+                                        {{ icon }}
+                                    {% endif %}
+                                    {% if headline %}
+                                        <h3 class="u-heading">{{ headline }}</h3>
+                                    {% endif %}
+                                    {% if subheadline %}
+                                        <strong>{{ subheadline }}</strong>
+                                    {% endif %}
+                                    {% if text %}
+                                        <div class="u-wysiwyg">
+                                            {{ text }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                            {% if button %}
+                                </a>
+                            {% endif %}
+
+                        </figure>
+                    </div>
+
                 {% endfor %}
-            </ul>
-        </section>
 
-        <section class="o-section is-text-media is-proposal">
-            <div class="c-textMedia" data-scroll-trigger>
-                <div class="c-textMedia__text">
-                    {% if proposal.headline %}
-                        <h2 class="u-subheadline">{{ proposal.headline }}</h2>
-                    {% endif %}
-                    {% if proposal.text %}
-                        <div class="u-wysiwyg">
-                            {{ proposal.text }}
-                        </div>
-                    {% endif %}
-                    {% if proposal.button_1 %}
-                        <div class="c-button-group" data-scroll-trigger>
-                            {% include '_elements/button.twig' with {
-                                params: {
-                                    url: proposal.button_1.url,
-                                    text: proposal.button_1.title,
-                                    target: proposal.button_1.target,
-                                }
-                            } only %}
-                            {% if proposal.button_2 %}
-                            {% include '_elements/button.twig' with {
-                                params: {
-                                    url: proposal.button_2.url,
-                                    text: proposal.button_2.title,
-                                    target: proposal.button_2.target,
-                                }
-                            } only %}
-                            {% endif %}
-                            {% if proposal.button_3 %}
-                            {% include '_elements/button.twig' with {
-                                params: {
-                                    url: proposal.button_3.url,
-                                    text: proposal.button_3.title,
-                                    target: proposal.button_3.target,
-                                }
-                            } only %}
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                </div>
-                <figure class="c-textMedia__media">
-                    {% include '_elements/picture.twig' with {
-                        params: {
-                            src: proposal.image,
-                            ratio: '4:3'
-                        }
-                    } only %}
-                </figure>
             </div>
         </section>
 
         <section class="o-section is-shop">
             {% include '_components/marquee.twig' %}
-        </section>
-
-        <section class="o-section is-offerings">
-            <h2 class="u-headline">{{ offerings.headline }}</h2>
-            <div class="swiper is-cards" data-module-swiper-cards>
-                <ul class="c-grid has-four-columns swiper-wrapper" data-card-length="4">
-                    {% for service in offerings.offerings %}
-                        <li class="c-grid__item swiper-slide">
-                            <a href="{{ service.page_link }}" class="c-card">
-                                <h3 class="u-heading">{{ service.headline }}</h3>
-                                <div class="u-wysiwyg">
-                                    {{ service.text }}
-                                </div>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
         </section>
 
         <section class="o-section is-social-feed" data-scroll-trigger>
@@ -175,15 +196,21 @@
             <figure class="c-gallery" data-module-fancybox>
                 <div class="swiper is-home" data-module-swiper-gallery>
                     <div class="swiper-controls" data-scroll-trigger>
-                        <button class="c-button c-button--small is-prev">
-                            <span class="u-screen-reader-text">Previous</span>
-                            {{ source('_elements/svg/arrow-left.svg') }}
-                        </button>
                         <h2 class="u-headline">Case Studies</h2>
-                        <button class="c-button c-button--small is-next">
-                            <span class="u-screen-reader-text">Next</span>
+                        <div class="c-button-group">
+                            <button class="c-button c-button--small is-prev">
+                                <span class="u-screen-reader-text">Previous</span>
+                                {{ source('_elements/svg/arrow-left.svg') }}
+                            </button>
+                            <button class="c-button c-button--small is-next">
+                                <span class="u-screen-reader-text">Next</span>
+                                {{ source('_elements/svg/arrow-right.svg') }}
+                            </button>
+                        </div>
+                        <a href="{{ site.url }}/design" class="u-link has-icon">
+                            More Case Studies
                             {{ source('_elements/svg/arrow-right.svg') }}
-                        </button>
+                        </a>
                     </div>
                     <ul class="swiper-wrapper">
                         {% for row in caseStudies %}

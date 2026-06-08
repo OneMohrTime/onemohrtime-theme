@@ -3,6 +3,27 @@
     "title": "Homepage Intro Fields",
     "fields": [
         {
+            "key": "field_69ff5d09d368a",
+            "label": "Intro Checklist",
+            "name": "homepage_checklist",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Add unordered list items here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_6883fdba829ab",
             "label": "Intro Buttons",
             "name": "homepage_buttons",
@@ -33,7 +54,7 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "allow_in_bindings": 0
+                    "allow_in_bindings": 1
                 },
                 {
                     "key": "field_6883fe5e829ad",
@@ -57,7 +78,7 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "allow_in_bindings": 0
+                    "allow_in_bindings": 1
                 },
                 {
                     "key": "field_6883fe6a829ae",
@@ -81,7 +102,153 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "allow_in_bindings": 0
+                    "allow_in_bindings": 1
+                }
+            ]
+        },
+        {
+            "key": "field_68dc2e2444b74",
+            "label": "Intro Gallery",
+            "name": "homepage_gallery",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add up to 6 cards showcasing portfolio work",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "field_69ff5755534ef",
+            "button_label": "Add Project",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_69ff5724534ee",
+                    "label": "Project Thumbnail",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+                    "allow_in_bindings": 1,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_68dc2e2444b74"
+                },
+                {
+                    "key": "field_69ff576c534f0",
+                    "label": "Project Label",
+                    "name": "eyebrow",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68dc2e2444b74"
+                },
+                {
+                    "key": "field_69ff5755534ef",
+                    "label": "Project Name",
+                    "name": "headline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68dc2e2444b74"
+                },
+                {
+                    "key": "field_69ff578c534f1",
+                    "label": "Project Description",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "rows": 4,
+                    "placeholder": "",
+                    "new_lines": "wpautop",
+                    "parent_repeater": "field_68dc2e2444b74"
+                },
+                {
+                    "key": "field_69ff57b0534f2",
+                    "label": "Project Link",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "design",
+                        "post",
+                        "page"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "taxonomy": "",
+                    "allow_archives": 1,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 1,
+                    "parent_repeater": "field_68dc2e2444b74"
                 }
             ]
         },
@@ -117,7 +284,7 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
@@ -138,7 +305,7 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
+                    "allow_in_bindings": 1,
                     "rows": 3,
                     "placeholder": "",
                     "new_lines": "wpautop"
@@ -158,7 +325,7 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "allow_in_bindings": 0
+                    "allow_in_bindings": 1
                 },
                 {
                     "key": "field_6748cb09c0588",
@@ -177,15 +344,37 @@
                     "layout": "block",
                     "pagination": 0,
                     "min": 0,
-                    "max": 4,
+                    "max": 3,
                     "collapsed": "field_6748cb20c0589",
                     "button_label": "Add Service",
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
+                            "key": "field_69ff5964b73fc",
+                            "label": "Icon",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Paste SVG code for desired icon",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 1,
+                            "rows": 4,
+                            "placeholder": "",
+                            "new_lines": "",
+                            "parent_repeater": "field_6748cb09c0588"
+                        },
+                        {
                             "key": "field_6748cb20c0589",
-                            "label": "Heading",
-                            "name": "heading",
+                            "label": "Headline",
+                            "name": "headline",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -198,37 +387,10 @@
                             },
                             "default_value": "",
                             "maxlength": "",
-                            "allow_in_bindings": 0,
+                            "allow_in_bindings": 1,
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "parent_repeater": "field_6748cb09c0588"
-                        },
-                        {
-                            "key": "field_6748cb3fc058a",
-                            "label": "Background Image",
-                            "name": "background_image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
-                            "allow_in_bindings": 0,
-                            "preview_size": "medium",
                             "parent_repeater": "field_6748cb09c0588"
                         },
                         {
@@ -241,7 +403,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -256,294 +418,15 @@
                             "allow_archives": 1,
                             "multiple": 0,
                             "allow_null": 0,
-                            "allow_in_bindings": 0,
+                            "allow_in_bindings": 1,
                             "parent_repeater": "field_6748cb09c0588"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_68dc2e2444b74",
-            "label": "Intro Gallery",
-            "name": "homepage_gallery",
-            "aria-label": "",
-            "type": "gallery",
-            "instructions": "Add 3 to 5 images showcasing portfolio work",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
-            "insert": "prepend",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_6748cc24ecd14",
-            "label": "Intro Proposal",
-            "name": "homepage_proposal",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_6748cc60ecd15",
-                    "label": "Image",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
-                    "allow_in_bindings": 0,
-                    "preview_size": "large"
-                },
-                {
-                    "key": "field_6748cc77ecd16",
-                    "label": "Headline",
-                    "name": "headline",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_6748cc7eecd17",
-                    "label": "Text",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "rows": 4,
-                    "placeholder": "",
-                    "new_lines": "wpautop"
-                },
-                {
-                    "key": "field_6748ccadecd18",
-                    "label": "Button 1",
-                    "name": "button_1",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "Optional",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33.3",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "allow_in_bindings": 0
-                },
-                {
-                    "key": "field_6748ccf8ecd1a",
-                    "label": "Button 2",
-                    "name": "button_2",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "Optional",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33.3",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "allow_in_bindings": 0
-                },
-                {
-                    "key": "field_6748ccf9ecd1b",
-                    "label": "Button 3",
-                    "name": "button_3",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "Optional",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33.3",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "allow_in_bindings": 0
-                }
-            ]
-        },
-        {
-            "key": "field_67da3a4171d18",
-            "label": "Intro Offerings",
-            "name": "homepage_offerings",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_67da3a5a71d19",
-                    "label": "Headline",
-                    "name": "headline",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_67da3a6a71d1a",
-                    "label": "Services",
-                    "name": "offerings",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "pagination": 0,
-                    "min": 0,
-                    "max": 4,
-                    "collapsed": "field_67da3a7e71d1b",
-                    "button_label": "Add Offering",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_67da3a7e71d1b",
-                            "label": "Offering",
-                            "name": "headline",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_67da3a6a71d1a"
                         },
                         {
-                            "key": "field_67da3ca93534b",
-                            "label": "Offering Link",
-                            "name": "page_link",
-                            "aria-label": "",
-                            "type": "page_link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "page",
-                                "post",
-                                "design"
-                            ],
-                            "post_status": [
-                                "publish"
-                            ],
-                            "taxonomy": "",
-                            "allow_archives": 1,
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "parent_repeater": "field_67da3a6a71d1a"
-                        },
-                        {
-                            "key": "field_67da3aa271d1c",
-                            "label": "Description",
+                            "key": "field_69ff5999b73fd",
+                            "label": "Text",
                             "name": "text",
                             "aria-label": "",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -553,12 +436,12 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "rows": 3,
-                            "placeholder": "",
-                            "new_lines": "wpautop",
-                            "parent_repeater": "field_67da3a6a71d1a"
+                            "allow_in_bindings": 1,
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0,
+                            "parent_repeater": "field_6748cb09c0588"
                         }
                     ]
                 }
@@ -583,5 +466,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759263342
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1778388333
 }

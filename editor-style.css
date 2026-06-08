@@ -2,12 +2,14 @@
 
 body#tinymce {
   font-family: "Barlow", -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Segoe UI, Lucida Grande, Helvetica Neue, Helvetica, Fira Sans, Roboto, Noto, Droid Sans, Cantarell, Oxygen, Ubuntu, Franklin Gothic Medium, Century Gothic, Liberation Sans, sans-serif;
+  background-color: #fffefa;
+  color: #171409;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Barlow", Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* font-family: "Barlow", Helvetica Neue, Helvetica, Arial, sans-serif; */
   /* font-family: "Barlow Condensed"; */
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   line-height: 1.2em;
 }
@@ -15,8 +17,8 @@ h1, h2, h3, h4, h5, h6 {
 a {
   font-family: inherit;
   text-decoration: none;
-  border-bottom: 8px #ffc300 solid;
-  color: #171409;
+  border-bottom: 5px #ffc300 solid;
+  color: inherit;
 }
 
 p,
@@ -29,8 +31,13 @@ b, strong {
   font-weight: 700;
 }
 
+mark {
+  background-color: #ffc300;
+  color: #171409;
+}
+
 .c-button {
-  display: block;
+  display: inline-block;
   border: 3px #171409 solid;
   color: #171409;
   text-align: center;

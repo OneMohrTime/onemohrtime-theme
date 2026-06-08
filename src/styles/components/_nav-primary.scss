@@ -44,10 +44,9 @@
     // screen below 899px
     @include media("<medium") {
         &.is-visible {
-            max-height: 100vh;
+            max-height: calc(100vh - rem(44px));
             overflow: auto;
         }
-        .c-availability,
         .c-navigation__logo {
             display: none;
         }
@@ -216,7 +215,7 @@
 }
 
 /**
- * === TOGGLE ===
+ * === TOGGLES ===
  */
 
 .c-navigation__toggle {
@@ -229,6 +228,7 @@
     font-family: $font-header;
     font-size: $font-h6;
     font-weight: $font-heavy;
+    text-transform: uppercase;
     border: 0;
     border-radius: $border-radius;
     color: $white;
@@ -331,91 +331,58 @@
 
 }
 
-/**
- * === AVAILABILITY ===
- */
-
-.c-availability {
-    a {
-        display: flex;
-        align-items: center;
-        column-gap: $base-spacing;
-    }
-}
-
-.c-availability__label {
-    font-weight: $font-regular;
-    white-space: nowrap;
-}
-
-.c-availability__value {
-    $dot-size: 8px;
+.c-navigation__search {
+    flex: 0 1 auto;
     position: relative;
-    display: block;
-    margin-bottom: 0;
-    font-weight: $font-bold;
-    line-height: $heading-height;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    column-gap: rem(4px);
+    width: auto;
+    padding: 0;
+    transition: background-color $speed-fast linear,
+                color $speed-fast linear,
+                box-shadow $speed-fast linear;
+    font-family: $font-header;
+    font-size: $font-h6;
+    font-weight: $font-heavy;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: $border-radius;
+    color: $white;
+    z-index: 35;
+    // cursor: pointer;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: calc(50% - ($dot-size / 2));
-        left: -$dot-size - ($dot-size / 2);
-        display: block;
-        width: $dot-size;
-        height: $dot-size;
-        // background-color: $white;
-        border-radius: $dot-size;
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: calc(50% - ($dot-size / 2));
-        left: -$dot-size - ($dot-size / 2);
-        display: block;
-        width: $dot-size;
-        height: $dot-size;
-        border-radius: 50%;
-        // background-color: $white;
-        opacity: 0;
-        animation: radar-blip 1.5s infinite ease-out;
+    &.is-hidden {
+        visibility: hidden;
     }
 
-    &.is-open {
-        &::before,
-        &::after {
-            background-color: $lime;
-        }
+    .c-media__svg {
+        width: 0.75em;
+        height: 0.75em;
+        fill: $yellow;
+        transition: fill $speed-fast $bezier-slide;
     }
 
-    &.is-busy {
-        &::before,
-        &::after {
+    // screen at or above 600px
+    @include media(">=small") {
+        padding: rem(3px) rem(6px);
+        box-shadow: 0 0 0 2px $gray--lightest;
+
+        &:hover {
             background-color: $yellow;
+            color: $black;
+            box-shadow: 0 0 0 2px $yellow;
+            .c-media__svg {
+                fill: $black--lightest;
+            }
         }
-    }
-
-    &.is-none {
-        &::before,
-        &::after {
-            background-color: $red;
+        &:focus {
+            box-shadow: none;
         }
-    }
-}
-
-@keyframes radar-blip {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-    70% {
-        transform: scale(2);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(2.5);
-        opacity: 0;
     }
 }

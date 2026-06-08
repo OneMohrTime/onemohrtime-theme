@@ -6,16 +6,17 @@
 
 // Modules exports
 // =============================================================================
+export { default as AnimatedBackground } from './modules/AnimatedBackground';
 export { default as ChangeText } from './modules/ChangeText';
 export { default as CustomCursor } from './modules/CustomCursor';
 export { default as DrawSVG } from './modules/DrawSVG';
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
-// export { default as FitText } from './modules/FitText';
+export { default as FitText } from './modules/FitText';
 export { default as KeyboardMenu } from './modules/KeyboardMenu';
 export { default as Load } from './modules/Load';
 export { default as Marquee } from './modules/Marquee';
-// export { default as Modal } from './modules/Modal';
+export { default as Masonry } from './modules/Masonry';
 export { default as Navigation } from './modules/Navigation';
 export { default as Parallax } from './modules/Parallax';
 export { default as Scroll } from './modules/Scroll';

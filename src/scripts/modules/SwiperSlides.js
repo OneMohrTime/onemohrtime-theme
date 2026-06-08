@@ -88,7 +88,7 @@ export default class extends es6Module {
       },
       // autoHeight: true,
       autoplay: {
-        delay: 7500,
+        delay: 9900,
         // disableOnInteraction: false,
         pauseOnMouseEnter: true,
         // stopOnLastSlide: true,

@@ -68,9 +68,7 @@
         & + a {
             @include btn-style();
             display: inline-block;
-            // @include inline-link();
             margin-top: $gutter-xs;
-            // line-height: $heading-height;
         }
     }
 

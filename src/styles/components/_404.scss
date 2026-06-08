@@ -33,8 +33,8 @@
         }
     }
 
-    // // screen at or above 1200px
-    // @include media(">=large") {
-    //     min-height: 600px;
-    // }
+    // screen at or above 1200px
+    @include media(">=large") {
+        min-height: 700px;
+    }
 }

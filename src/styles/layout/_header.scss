@@ -10,11 +10,6 @@
         z-index: 200;
     }
 
-    .c-tooltip {
-        background-color: $yellow;
-        color: $black;
-    }
-
     // screen below 599px
     @include media("<small") {
         position: fixed;

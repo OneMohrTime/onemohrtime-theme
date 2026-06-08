@@ -10,13 +10,30 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 0;
         height: 80vh;
-        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: $gutter;
         background-color: transparent;
 
+        .u-title {
+            margin-bottom: 0.5em;
+        }
+
         .c-button-group {
-            justify-content: center;
+            margin-top: $base-spacing;
+        }
+
+        .c-button {
+            margin: 0;
+        }
+
+        ul {
+            margin-top: $small-spacing;
+            padding-left: 1em;
+        }
+
+        li::marker {
+            content: "✔";
         }
 
         // screen at or above 900px
@@ -26,19 +43,18 @@
             height: calc(100vh - rem(102px) - $gutter);
             min-height: rem(500px);
             padding-top: $gutter-lg;
-            text-align: left;
 
             .u-title {
                 max-width: 24ch;
-            }
-
-            .c-button-group {
-                justify-content: flex-start;
             }
         }
 
         // screen at or above 1200px
         @include media(">=large") {
+            padding-bottom: $gutter-lg;
+            height: auto;
+            min-height: calc(100vh - rem(102px) - $gutter);
+
             .u-tagline {
                 display: block;
                 margin-bottom: 0.5em;
@@ -82,186 +98,222 @@
 
     // Services Section
     .o-section.is-services {
-        text-align: center;
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
 
-        .c-textMedia.is-reversed {
-            @include padding();
-            padding-top: $gutter;
-            padding-bottom: $gutter;
+        & > .u-link.has-icon {
+            display: none;
         }
 
-        .c-textMedia__media {
-            display: flex;
-            flex-wrap: wrap;
-            gap: $gutter-sm;
+        .u-headline {
+            margin-bottom: $small-spacing;
+        }
 
-            a {
-                flex: 0 0 50%;
-                max-width: calc(50% - math.div($gutter-sm, 2));
-                border-radius: $border-radius;
-                background-color: $white--dark;
-                background-position: center center;
-                background-size: cover;
-                aspect-ratio: 1 / 1;
+        .u-heading {
+            margin-top: rem(4px);
+            margin-bottom: $small-spacing;
+        }
 
-                &:focus {
-                    outline: $focus-outline;
-                    outline-offset: $focus-offset;
-                }
+        .c-card__body {
+            transition: transform $speed $bezier-slide,
+                        border-color $speed $bezier-slide,
+                        background-color $speed $bezier-slide;
+            border: 3px solid $black--lighter;
+            background-color: transparent;
+
+            .c-media__svg {
+                width: rem(72px);
+                height: auto;
+                transition: color $speed $bezier-slide,
+                            fill $speed $bezier-slide;
             }
+        }
 
-            .u-subheadline {
-                @include text-shadow();
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-                padding: $gutter-xs;
-                transition: transform $speed $bezier-slide;
-                background-color: fade-out($black, 0.75);
-                color: $white;
+        .c-card__link {
+            @include hocus {
+                .c-card__body {
+                    border-color: $yellow;
+                    background-color: $white;
+                }
+                .c-media__svg {
+                    color: $yellow;
+                }
             }
         }
 
         // screen at or above 900px
         @include media(">=medium") {
-            text-align: left;
-
-            .c-textMedia.is-reversed {
-                column-gap: $gutter-lg;
-            }
-            .c-textMedia__text {
-                flex: 0 1 auto;
-                padding-left: $gutter;
-            }
-            .c-textMedia__media {
-                flex: 1 0 auto;
-                display: grid;
-                grid-template-columns: repeat(5, 20%);
-                grid-template-rows: 1fr 1fr;
-
-                a {
-                    width: auto;
-                    max-width: 100%;
-                    overflow: hidden;
-                    @include first(2) {
-                        grid-column: span 2;
-                        grid-row: span 2;
-                    }
-                    @include last(2) {
-                        .u-subheadline {
-                            font-size: $font-base-lg;
-                        }
-                    }
-                    @include hocus {
-                        .u-subheadline {
-                            opacity: 0.4;
-                            transform: scale(1.2);
-                            background-color: transparent;
-                        }
-                    }
-                }
-
-                .u-subheadline {
-                    padding: $gutter-sm;
-                    transition: opacity $speed $bezier-slide,
-                                transform $speed $bezier-slide,
-                                background $speed $bezier-slide;
-                }
+            .c-card__body .u-wysiwyg {
+                font-size: $font-base;
             }
         }
 
         // screen at or above 1200px
         @include media(">=large") {
-            .c-textMedia.is-reversed {
-                padding-top: $gutter-lg;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            row-gap: $gutter;
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
+
+            & > .u-link.has-icon {
+                display: inline-flex;
+                margin-left: auto;
+                font-weight: $font-bold;
+                line-height: $line-height;
+            }
+
+            .u-headline {
+                flex: 0 1 auto;
+                margin-bottom: 0;
+            }
+
+            .c-grid {
+                flex: 1 1 100%;
+                align-items: stretch;
+
+                .c-card,
+                .c-card__link,
+                .c-card__body {
+                    height: 100%;
+                }
             }
         }
     }
 
     // Gallery Section
     .o-section.is-gallery {
-        @include padding();
-        padding-bottom: $gutter;
-    }
 
-    // Proposal Section
-    .o-section.is-proposal {
-        text-align: center;
-
-        .c-textMedia {
+        .swiper-controls {
             @include padding();
-            padding-bottom: $gutter;
-        }
+            margin-bottom: $gutter;
 
-        .c-button-group {
-            justify-content: center;
-        }
-
-        // screen at or above 900px
-        @include media(">=medium") {
-            text-align: left;
-            .c-textMedia {
-                flex-direction: row;
-            }
-            .c-button-group {
-                justify-content: flex-start;
+            .u-link.has-icon {
+                display: none;
             }
         }
 
-        // screen at or above 1200px
-        @include media(">=large") {
-            .c-textMedia {
-                padding-bottom: $gutter-lg;
+        .swiper-wrapper {
+            box-sizing: border-box;
+        }
+
+        .swiper-slide {
+            box-sizing: border-box;
+
+            @include first(1) {
+                margin-left: $gutter-sm;
             }
         }
-    }
-
-    // Offerings Section
-    .o-section.is-offerings {
-        @include padding();
-        padding-top: $gutter;
-        padding-bottom: $gutter;
-        background-color: $black;
-        color: $white;
 
         .c-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
             padding: $gutter-sm;
-            transition: border-color $speed $bezier-slide,
-                        background-color $speed $bezier-slide,
-                        color $speed $bezier-slide;
-            border: 2px solid $white--darkest;
-            border-radius: $border-radius;
+            background-color: $black;
+            color: $white;
+            z-index: 1;
+
+            .c-media {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                opacity: 0.85 !important;
+                transition: opacity $speed $bezier-slide;
+                z-index: -1;
+            }
+
+            .c-media__image {
+                height: 100%;
+                object-fit: cover;
+            }
 
             @include hocus {
-                border-color: $yellow;
-                color: $yellow;
+                .c-media {
+                    opacity: 0.15 !important;
+                }
             }
+        }
 
-            &:focus {
-                outline: $focus-outline;
-                outline-offset: $focus-offset;
-            }
-
-            &:active {
-                background-color: $yellow;
-                color: $black;
-            }
+        .u-eyebrow {
+            margin-top: auto;
+            color: $white;
         }
 
         .u-headline {
-            display: block;
             margin-bottom: $small-spacing;
-            text-align: center;
+        }
+
+        // screen at or above 600px
+        @include media(">=small") {
+            .swiper-controls {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter;
+                }
+            }
+            .u-headline {
+                margin-right: $small-spacing;
+                margin-bottom: 0;
+            }
         }
 
         // screen at or above 900px
         @include media(">=medium") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
         }
 
         // screen at or above 1200px
         @include media(">=large") {
+            .swiper-controls {
+                .u-link.has-icon {
+                    display: inline-flex;
+                    margin-top: auto;
+                    margin-left: auto;
+                    font-weight: $font-bold;
+                    line-height: $line-height;
+                }
+            }
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-xl;
+                }
+            }
+            .c-card .u-wysiwyg {
+                font-size: $font-base;
+            }
+        }
+
+        // screen at or above 1500px
+        @include media(">=big") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
+        // screen at or above 1800px
+        @include media(">=huge") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: calc((100% - $container-width) / 2);
+                }
+            }
         }
     }
 
@@ -344,7 +396,6 @@
 
     // Case Studies
     .o-section.is-case-studies {
-        @include padding();
         display: flex;
         flex-direction: column;
         row-gap: $gutter;
@@ -352,14 +403,15 @@
         padding-bottom: $gutter;
 
         .swiper-controls {
+            @include padding();
             position: relative;
             top: auto;
-            justify-content: center;
+            justify-content: flex-start;
             transform: translate(0, 0);
-            margin-bottom: $gutter-lg;
+            margin-bottom: $gutter;
 
-            .c-button {
-                margin-top: em(5px);
+            .u-link.has-icon {
+                display: none;
             }
         }
 
@@ -369,9 +421,11 @@
             line-height: 1em;
         }
 
-        // .c-textMedia:not(.is-reversed) {
-        //     flex-direction: row;
-        // }
+        .swiper-slide {
+            @include first(1) {
+                margin-left: $gutter-sm;
+            }
+        }
 
         .c-button-group {
             justify-content: center;
@@ -381,11 +435,68 @@
             }
         }
 
+        // screen at or above 600px
+        @include media(">=small") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter;
+                }
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
         // screen at or above 1200px
         @include media(">=large") {
             row-gap: $gutter-lg;
             padding-top: $gutter-lg;
             padding-bottom: $gutter-lg;
+
+            .swiper-controls {
+                .u-link.has-icon {
+                    display: inline-flex;
+                    margin-top: auto;
+                    margin-left: auto;
+                    font-weight: $font-bold;
+                    line-height: $line-height;
+                    pointer-events: auto;
+                }
+            }
+
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-xl;
+                }
+            }
+
+            .c-button.c-button--large {
+                display: none;
+            }
+        }
+
+        // screen at or above 1500px
+        @include media(">=big") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
+        // screen at or above 1800px
+        @include media(">=huge") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: calc((100% - $container-width) / 2);
+                }
+            }
         }
     }
 

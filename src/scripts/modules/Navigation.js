@@ -22,6 +22,7 @@ export default class extends es6Module {
     this.menu = null;
     this.megaMenu = null;
     this.toggleMenu = null;
+    this.toggleSearch = null;
     this.searchbar = null;
     this.overlay = null;
   }
@@ -30,21 +31,33 @@ export default class extends es6Module {
   // =========================================================================
   init() {
     // Vars
-    this.header     = this.el;
-    this.navigation = this.header.querySelector('.c-navigation');
-    this.menu       = this.header.querySelector('.c-navigation__menu');
-    this.megaMenu   = this.header.querySelector('.c-mega-menu');
-    this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
-    this.searchbar  = this.header.querySelector('input[type="search"]');
-    this.overlay    = document.querySelector('.o-site__overlay');
+    this.header       = this.el;
+    this.navigation   = this.header.querySelector('.c-navigation');
+    this.menu         = this.header.querySelector('.c-navigation__menu');
+    this.megaMenu     = this.header.querySelector('.c-mega-menu');
+    this.toggleMenu   = this.header.querySelector('[data-toggle-menu]');
+    this.toggleSearch = this.header.querySelector('[data-toggle-search]');
+    this.searchbar    = this.header.querySelector('input[type="search"]');
+    this.overlay      = document.querySelector('.o-site__overlay');
 
     // Function to handle scroll events
     this.handleScroll();
 
     // Attach click event listener to the toggle button
     const toggleButton = this.toggleMenu;
+    const toggleSearchButton = this.toggleSearch;
     if (toggleButton) {
       toggleButton.addEventListener('click', () => {
+
+        // Change MENU to EXIT
+        this.changeMenuToExit(toggleButton);
+
+        // Open primary navigation
+        this.togglePrimaryNav();
+      });
+    }
+    if (toggleSearchButton) {
+      toggleSearchButton.addEventListener('click', () => {
 
         // Change MENU to EXIT
         this.changeMenuToExit(toggleButton);
@@ -150,7 +163,8 @@ export default class extends es6Module {
     this.menu.classList.toggle('is-hidden');
     this.megaMenu.classList.toggle('is-hidden');
     this.toggleMenu.classList.toggle('is-open');
-    siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');
+    this.toggleSearch.classList.toggle('is-hidden');
+    siteContainer.classList.toggle('u-activeNavigationAreaUpTopButNotWhenScrolling');
 
     // Set overlay visibility
     if (this.overlay.classList.contains('is-hidden')) {
