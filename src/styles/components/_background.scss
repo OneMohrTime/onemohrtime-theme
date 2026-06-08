@@ -3,6 +3,10 @@
     https://codepen.io/bogdansandu/pen/bNGrzKV
 ========================================================================== */
 
+.c-gradient-background {
+    display: none;
+}
+
 // screen at or above 1500px
 @include media(">=big") {
 
@@ -10,6 +14,7 @@
         position: fixed;
         top: 0;
         left: 0;
+        display: block;
         width: 100%;
         height: 100%;
         z-index: 1;
