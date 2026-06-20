@@ -1,6 +1,6 @@
 {
     "key": "group_67637a8c9e4d2",
-    "title": "Poster Grid",
+    "title": "Poster Fields",
     "fields": [
         {
             "key": "field_67637a8c9e4d3",
@@ -17,12 +17,12 @@
                 "id": ""
             },
             "layout": "block",
-            "pagination": 0,
+            "pagination": 1,
+            "rows_per_page": 10,
             "min": 0,
             "max": 0,
-            "collapsed": "",
+            "collapsed": "field_67637a8c9e4d5",
             "button_label": "Add Poster",
-            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_67637a8c9e4d4",
@@ -181,5 +181,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1780960094
+    "modified": 1780970606
 }
