@@ -46,8 +46,13 @@
     }
 
     .c-poster__modal {
-        // max-width: rem(500px);`
+        max-width: rem(500px);
         border: 3px solid $black;
+
+        .u-caption {
+            display: block;
+            color: $gray--darkest;
+        }
 
         // overwrite Fancybox defaults
         padding: $gutter;
@@ -63,15 +68,33 @@
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            column-gap: $gutter-sm;
+            column-gap: $gutter;
+            max-width: rem(800px);
+        }
+    }
+
+    .c-poster__modal--image {
+        // screen at or above 1200px
+        @include media(">=large") {
+            flex: 1;
+        }
+    }
+
+    .c-poster__modal--content {
+
+        * + * {
+            margin-top: $small-spacing;
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            flex: 1;
         }
     }
 
     .c-poster__image {
-        // screen at or above 1200px
-        @include media(">=large") {
-            min-width: rem(500px);
-        }
+        width: 100%;
+        height: auto;
     }
 
     // // Instagram Feed
