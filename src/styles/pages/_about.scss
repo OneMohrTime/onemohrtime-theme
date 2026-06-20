@@ -117,12 +117,14 @@
     // Instagram Section
     .o-section.is-social-feed {
         @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
 
         #sb_instagram {
             padding-bottom: 0 !important;
             #sbi_images {
                 padding-top: 0;
-                padding-bottom: $gutter;
+                padding-bottom: 0;
                 .sbi_item {
                     transition: opacity $speed $bezier-slide,
                                 transform $speed $bezier-slide;
@@ -131,6 +133,12 @@
                     transition: opacity $speed $bezier-slide;
                 }
             }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-lg;
+            padding-bottom: $gutter-lg;
         }
     }
 
