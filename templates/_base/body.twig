@@ -103,12 +103,13 @@
             {% include '_partials/footer.twig' with {
                 params: {
                     logo: globals.footer_logo|default(null),
+                    menu: footerMenu ?? null,
+                    social: socialMedia,
                     banner: globals.footer_large|default(null),
                     about: globals.footer_small|default(null),
-                    shop: globals.footer_shop|default(null),
                     flags: globals.footer_flags|default(null),
-                    social: socialMedia,
-                    menu: footerMenu ?? null,
+                    shop: globals.footer_shop|default(null),
+                    dribbble: globals.footer_dribbble|default(null),
                     siteName: websiteName,
                     siteUrl: websiteUrl
                 }
