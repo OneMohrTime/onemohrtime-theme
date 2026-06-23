@@ -72,16 +72,10 @@ export default class extends es6Module {
   // =========================================================================
   init() {
     // this.fitText(this.el);
-    this.fitText(this.el, 0.8, { minFontSize: '24px', maxFontSize: '240px' });
+    this.fitText(this.el, 0.6, { minFontSize: '24px', maxFontSize: '240px' });
   }
 
   // Destroy
   // =========================================================================
-  destroy() {
-    this.fitTextInstances.forEach(({ el, resizer }) => {
-      window.removeEventListener('resize', resizer);
-      window.removeEventListener('orientationchange', resizer);
-    });
-    this.fitTextInstances = [];
-  }
+  destroy() {}
 }
