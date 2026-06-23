@@ -33,8 +33,9 @@ $footer-border: 3px solid $black--lighter;
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex: 1 0 percentage(1/3);
+        flex: 1 1 percentage(1/3);
         width: auto;
+        max-width: percentage(1/3);
         margin-bottom: 0;
         padding: $gutter-sm;
         padding-left: 0;
@@ -46,6 +47,7 @@ $footer-border: 3px solid $black--lighter;
     // screen at or above 1200px
     @include media(">=large") {
         flex-basis: 50%;
+        max-width: 50%;
     }
 }
 
@@ -62,12 +64,14 @@ $footer-border: 3px solid $black--lighter;
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex: 0 1 percentage(2/3);
+        flex: 1 1 percentage(2/3);
+        max-width: percentage(2/3);
     }
 
     // screen at or above 1200px
     @include media(">=large") {
         flex-basis: 50%;
+        max-width: 50%;
     }
 }
 
@@ -111,8 +115,17 @@ $footer-border: 3px solid $black--lighter;
 
     .c-media__svg,
     .c-media__image {
-        max-height: 100px;
-        max-width: 230px;
+        max-height: rem(72px);
+        max-width: rem(36px);
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        height: 100%;
     }
 }
 
@@ -154,6 +167,7 @@ $footer-border: 3px solid $black--lighter;
 
     // screen at or above 900px
     @include media(">=medium") {
+        grid-column: 1 / 2;
         padding-left: $gutter-sm;
 
         .c-menu {
@@ -174,15 +188,40 @@ $footer-border: 3px solid $black--lighter;
         justify-content: flex-start;
         align-items: center;
         gap: $small-spacing;
+        margin-bottom: $gutter;
         font-size: $font-h5;
         line-height: 1em;
+    }
+
+    .c-media.is-badge {
+        display: inline-block;
+
+        .c-media__svg {
+            width: auto;
+            height: auto;
+        }
+
+        .u-hover-switch {
+            transition: fill $speed $bezier-slide;
+        }
+
+        &:hover {
+            .u-hover-switch {
+                fill: $yellow;
+            }
+        }
     }
 
     a {
         transition: color $speed $bezier-slide;
 
-        @include hocus {
+        &:hover {
             color: $yellow;
+        }
+
+        &:focus {
+            outline: $focus-outline;
+            outline-offset: $focus-offset;
         }
     }
 
@@ -194,8 +233,16 @@ $footer-border: 3px solid $black--lighter;
 
     // screen at or above 900px
     @include media(">=medium") {
+        grid-column: 2 / 3;
+
         .c-menu {
             font-size: $font-base-lg;
+        }
+
+        .c-media.is-badge {
+            .c-media__svg {
+                max-width: rem(120px);
+            }
         }
     }
 
@@ -233,6 +280,7 @@ $footer-border: 3px solid $black--lighter;
 
     // screen at or above 900px
     @include media(">=medium") {
+        grid-column: 1 / 2;
         padding-left: $gutter-sm;
 
         .c-menu {
@@ -274,6 +322,7 @@ $footer-border: 3px solid $black--lighter;
 
     // screen at or above 900px
     @include media(">=medium") {
+        grid-column: 2 / 3;
         .c-menu {
             justify-content: flex-start;
         }
