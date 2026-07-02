@@ -89,7 +89,7 @@
 
     {% endif %}
 
-    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
+    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo" aria-label="{{ this.siteName }} Home">
         {% if this.logo is not empty and '.svg' in this.logo %}
             {{ source('_elements/svg/logo.svg') }}
         {% elseif this.logo is not empty %}

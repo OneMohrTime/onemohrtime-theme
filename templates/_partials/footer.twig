@@ -52,6 +52,7 @@
                         {% set profile = profile.profile %}
                         <li class="c-footer__social-profile">
                             <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                                <span class="u-screen-reader-text">{{ profile.title }}</span>
                                 {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
                             </a>
                         </li>
