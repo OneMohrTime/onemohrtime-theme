@@ -374,6 +374,61 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6aa9394afa365",
+                            "label": "Desktop Width",
+                            "name": "desktop_width",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "media": "Larger Media Column",
+                                "default": "50\/50 Split",
+                                "text": "Larger Text Column"
+                            },
+                            "default_value": "default",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 1,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_6aa9389afa364",
+                            "label": "Sticky Section",
+                            "name": "sticky_section",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "<b>Note:<\/b> Works best if one side is significantly longer than the other",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "none": "Neither",
+                                "text": "Text Side",
+                                "media": "Media Side"
+                            },
+                            "default_value": "none",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 1,
+                            "layout": "horizontal"
+                        },
+                        {
                             "key": "field_6aa7403a996ec",
                             "label": "Text",
                             "name": "text",
@@ -383,7 +438,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -532,12 +587,13 @@
                                         "id": ""
                                     },
                                     "choices": {
+                                        "none": "Original",
                                         "1:1": "Square",
                                         "3:4": "Portrait",
-                                        "4:3": "Traditional TV",
-                                        "3:2": "35mm film",
-                                        "16:9": "HD standard",
-                                        "2:1": "Universium",
+                                        "4:3": "Landscape",
+                                        "16:9": "Widescreen",
+                                        "3:2": "35mm",
+                                        "2:1": "Univisium",
                                         "32:9": "Super ultrawide"
                                     },
                                     "default_value": "4:3",
@@ -836,10 +892,10 @@
                             "choices": {
                                 "1:1": "Square",
                                 "3:4": "Portrait",
-                                "4:3": "Traditional TV",
-                                "3:2": "35mm film",
-                                "16:9": "HD standard",
-                                "2:1": "Universium",
+                                "4:3": "Landscape",
+                                "16:9": "Widescreen",
+                                "3:2": "35mm",
+                                "2:1": "Univisium",
                                 "32:9": "Super ultrawide"
                             },
                             "default_value": "1:1",
@@ -1402,5 +1458,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789437525
+    "modified": 1789475265
 }
