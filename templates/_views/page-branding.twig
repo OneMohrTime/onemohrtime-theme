@@ -1,0 +1,322 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+{% set brandingText = post.meta('branding_text')|default(null) %}
+{% set brandingCards = post.meta('branding_cards')|default(null) %}
+{% set projectsText = post.meta('projects_text')|default(null) %}
+{% set projectsGallery = post.meta('projects_gallery')|default(null) %}
+{% set capabilitiesText = post.meta('capabilities_text')|default(null) %}
+{% set capabilitiesTabs = post.meta('capabilities_tabs')|default(null) %}
+{% set marketCards = post.meta('market_cards')|default(null) %}
+{% set testimonials = post.meta('testimonials')|default(null) %}
+{% set awardsRecognition = post.meta('awards_recognition')|default(null) %}
+{% set inquiryForm = post.meta('inquiry_form')|default(null) %}
+{% set bigBanner = post.meta('big_banner')|default(null) %}
+{# {% set pageBuilder = post.meta('section_builder')|default(null) %} #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: bannerImage,
+                images: bannerImages,
+                video: bannerVideo,
+                button: button
+            }
+        } only %}
+
+        {% if post.content is not empty %}
+            <section class="c-intro" data-module-scroll>
+                <div class="u-wysiwyg" data-scroll-trigger>
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
+
+        <div class="o-page__sections">
+
+            {% if brandingText is not empty %}
+                <section class="o-section is-text">
+                    <div class="u-wysiwyg" data-scroll-trigger>
+                        {{ brandingText }}
+                    </div>
+                </section>
+            {% endif %}
+            {% if brandingCards is not empty %}
+                <section class="o-section is-cards">
+                    <div class="c-grid has-{{ brandingCards|length }}-columns">
+                        {% for card in brandingCards %}
+                            {% set image = get_image(card.card_image)|default(null) %}
+                            {% set headline = card.card_headline|default(null) %}
+                            {% set text = card.card_body|default(null) %}
+                            {% set button = card.card_button|default(null) %}
+                            <div class="c-grid__item">
+                                <figure class="c-card">
+                                    {% if button %}
+                                        <a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="c-card__link">
+                                    {% endif %}
+                                        {% if image %}
+                                            {% include '_elements/picture.twig' with {
+                                                params: {
+                                                    src: image,
+                                                    ratio: '32:9',
+                                                    sizes: srcset
+                                                }
+                                            } only %}
+                                        {% endif %}
+                                        <div class="c-card__body" data-scroll-trigger>
+                                            {% if headline %}
+                                                <h3 class="u-heading">{{ headline }}</h3>
+                                            {% endif %}
+                                            {% if text %}
+                                                <div class="u-wysiwyg">
+                                                    {{ text }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% if button %}
+                                        </a>
+                                    {% endif %}
+                                </figure>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if projectsGallery is not empty %}
+                <section class="o-section is-gallery">
+                    <figure class="swiper is-featured" data-module-swiper-gallery>
+                        <div class="swiper-controls" data-scroll-trigger>
+                            <div class="u-wysiwyg" data-scroll-trigger>
+                                {{ projectsText }}
+                            </div>
+                            <div class="c-button-group">
+                                <button class="c-button c-button--small is-prev">
+                                    <span class="u-screen-reader-text">Previous</span>
+                                    {{ source('_elements/svg/arrow-left.svg') }}
+                                </button>
+                                <button class="c-button c-button--small is-next">
+                                    <span class="u-screen-reader-text">Next</span>
+                                    {{ source('_elements/svg/arrow-right.svg') }}
+                                </button>
+                            </div>
+                            <a href="{{ site.url }}/services" class="u-link has-icon">
+                                View All Projects
+                                {{ source('_elements/svg/arrow-right.svg') }}
+                            </a>
+                        </div>
+                        <ul class="swiper-wrapper" data-scroll-trigger>
+                            {% for project in projectsGallery %}
+                                <li class="swiper-slide">
+                                    {% set projectName = project.headline %}
+                                    {% set projectThumb = project.image %}
+                                    {% set projectLabel = project.eyebrow %}
+                                    {% set projectDescription = project.text %}
+                                    {% set projectLink = project.button %}
+                                    <a href="{{ projectLink }}" class="c-card">
+                                        <strong class="u-eyebrow">{{ projectLabel }}</strong>
+                                        <h3 class="u-subheadline is-underlined">{{ projectName }}</h3>
+                                        <div class="u-wysiwyg">
+                                            {{ projectDescription }}
+                                        </div>
+                                        {% include '_elements/picture.twig' with {
+                                            params: {
+                                                src: projectThumb,
+                                                sizes: '(min-width: 1200px) 25vw, (min-width: 900px) 50vw, (min-width: 600px) 67vw, 75vw'
+                                            }
+                                        } only %}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </figure>
+                </section>
+            {% endif %}
+
+            {% if capabilitiesText is not empty %}
+                <section class="o-section is-text">
+                    <div class="u-wysiwyg" data-scroll-trigger>
+                        {{ capabilitiesText }}
+                    </div>
+                </section>
+            {% endif %}
+            {% if capabilitiesTabs is not empty %}
+                <section class="o-section is-tabs" data-module-tabs>
+                    <div class="c-tabs">
+                        <div class="c-tabs__nav" role="tablist" aria-label="Capabilities" aria-orientation="vertical">
+                        {% for tab in capabilitiesTabs %}
+                            {% set tabId = 'capability-tab-' ~ loop.index %}
+                            <button class="c-tabs__tab" id="{{ tabId }}" type="button" role="tab" aria-controls="{{ tabId }}-panel" aria-selected="false">
+                                <span class="u-heading">{{ tab.tab_label }}</span>
+                            </button>
+                        {% endfor %}
+                        </div>
+                        <div class="c-tabs__content">
+                        {% for tab in capabilitiesTabs %}
+                            {% set tabId = 'capability-tab-' ~ loop.index %}
+                            <div class="c-tabs__panel" id="{{ tabId }}-panel" role="tabpanel" aria-labelledby="{{ tabId }}" tabindex="0">
+                                <div class="u-wysiwyg">
+                                    {{ tab.tab_image }}
+                                    {{ tab.tab_content }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if marketCards is not empty %}
+                <section class="o-section is-cards">
+                    <div class="c-grid has-{{ marketCards|length }}-columns" data-scroll-trigger>
+                        {% for card in marketCards %}
+                            {% set image = get_image(card.card_image)|default(null) %}
+                            {% set headline = card.card_headline|default(null) %}
+                            {% set text = card.card_body|default(null) %}
+                            {% set button = card.card_button|default(null) %}
+                            <div class="c-grid__item">
+                                <figure class="c-card">
+                                    {% if button %}
+                                        <a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="c-card__link">
+                                    {% endif %}
+                                        {% if image %}
+                                            {% include '_elements/picture.twig' with {
+                                                params: {
+                                                    src: image,
+                                                    ratio: '4:3',
+                                                    sizes: srcset
+                                                }
+                                            } only %}
+                                        {% endif %}
+                                        <div class="c-card__body" data-scroll-trigger>
+                                            {% if headline %}
+                                                <h3 class="u-heading">{{ headline }}</h3>
+                                            {% endif %}
+                                            {% if text %}
+                                                <div class="u-wysiwyg">
+                                                    {{ text }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% if button %}
+                                        </a>
+                                    {% endif %}
+                                </figure>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if testimonials is not empty %}
+                {% include '_components/section-quotes.twig' with {
+                    params: {
+                        section: testimonials,
+                    }
+                } only %}
+            {% endif %}
+
+            {% if awardsRecognition is not empty %}
+                <section class="o-section is-cards">
+                    <div class="c-grid has-{{ awardsRecognition|length }}-columns" data-scroll-trigger>
+                        {% for card in awardsRecognition %}
+                            {% set image = get_image(card.card_image)|default(null) %}
+                            {% set headline = card.card_headline|default(null) %}
+                            {% set text = card.card_body|default(null) %}
+                            {% set button = card.card_button|default(null) %}
+                            <div class="c-grid__item">
+                                <figure class="c-card">
+                                    {% if button %}
+                                        <a href="{{ button.url }}"{% if button.target == '_blank' %} target="_blank"{% endif %} aria-label="{{ button.title }}" class="c-card__link">
+                                    {% endif %}
+                                        {% if image %}
+                                            {% include '_elements/picture.twig' with {
+                                                params: {
+                                                    src: image,
+                                                    ratio: '1:1',
+                                                    sizes: srcset
+                                                }
+                                            } only %}
+                                        {% endif %}
+                                        <div class="c-card__body" data-scroll-trigger>
+                                            {% if headline %}
+                                                <h3 class="u-heading">{{ headline }}</h3>
+                                            {% endif %}
+                                            {% if text %}
+                                                <div class="u-wysiwyg">
+                                                    {{ text }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% if button %}
+                                        </a>
+                                    {% endif %}
+                                </figure>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if inquiryForm is not empty %}
+                <section class="o-section is-text">
+                    <div class="u-wysiwyg" data-scroll-trigger>
+                        {{ inquiryForm }}
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if bigBanner is not empty %}
+                <section class="o-section is-image is-full-width" data-scroll-trigger>
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: bigBanner,
+                            sizes: '(min-width: 1200px) 85vw, 100vw'
+                        }
+                    } only %}
+                    {% if bigBanner.caption %}
+                        <aside class="c-caption">
+                            {{ bigBanner.caption }}
+                        </aside>
+                    {% endif %}
+                </section>
+            {% endif %}
+
+        </div>
+
+        {# {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %} #}
+
+        {% if relatedPosts is not empty %}
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
+                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+                {% include '_components/related-posts.twig' with {
+                    related: relatedPosts
+                } only %}
+            </footer>
+        {% endif %}
+
+    </article>
+
+{% endblock %}

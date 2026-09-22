@@ -1,0 +1,146 @@
+/* ==========================================================================
+    Branding
+========================================================================== */
+
+.t-page.is-branding {
+
+    // Sections
+    .o-section.is-gallery {
+        .swiper-controls {
+            @include padding();
+        }
+    }
+    .o-section.is-gallery {
+
+        .swiper-controls {
+            @include padding();
+            margin-bottom: $gutter;
+
+            .u-link.has-icon {
+                display: none;
+            }
+        }
+
+        .swiper-wrapper {
+            box-sizing: border-box;
+        }
+
+        .swiper-slide {
+            box-sizing: border-box;
+
+            @include first(1) {
+                margin-left: $gutter-sm;
+            }
+        }
+
+        .c-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            padding: $gutter-sm;
+            background-color: $black;
+            color: $white;
+            z-index: 1;
+
+            .c-media {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                opacity: 0.85 !important;
+                transition: opacity $speed $bezier-slide;
+                z-index: -1;
+            }
+
+            .c-media__image {
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @include hocus {
+                .c-media {
+                    opacity: 0.15 !important;
+                }
+            }
+        }
+
+        .u-eyebrow {
+            margin-top: auto;
+            color: $white;
+        }
+
+        .u-headline {
+            margin-bottom: $small-spacing;
+        }
+
+        // screen at or above 600px
+        @include media(">=small") {
+            .swiper-controls {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter;
+                }
+            }
+            .u-headline {
+                margin-right: $small-spacing;
+                margin-bottom: 0;
+            }
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            .swiper-controls {
+                .u-link.has-icon {
+                    display: inline-flex;
+                    margin-top: auto;
+                    margin-left: auto;
+                    font-weight: $font-bold;
+                    line-height: $line-height;
+                }
+            }
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-xl;
+                }
+            }
+            .c-card .u-wysiwyg {
+                font-size: $font-base;
+            }
+        }
+
+        // screen at or above 1500px
+        @include media(">=big") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: $gutter-lg;
+                }
+            }
+        }
+
+        // screen at or above 1800px
+        @include media(">=huge") {
+            .swiper-slide {
+                @include first(1) {
+                    margin-left: calc((100% - $container-width) / 2);
+                }
+            }
+        }
+    }
+
+}
