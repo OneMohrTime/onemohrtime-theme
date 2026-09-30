@@ -22,7 +22,8 @@
 {% set awardsRecognition = post.meta('awards_recognition')|default(null) %}
 {% set inquiryForm = post.meta('inquiry_form')|default(null) %}
 {% set bigBanner = post.meta('big_banner')|default(null) %}
-{# {% set pageBuilder = post.meta('section_builder')|default(null) %} #}
+{% set callToAction = post.meta('call_to_action')|default(null) %}
+{% set pageBuilder = post.meta('section_builder')|default(null) %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
@@ -160,6 +161,10 @@
             {% endif %}
             {% if capabilitiesTabs is not empty %}
                 <section class="o-section is-tabs" data-module-tabs>
+                    <h2 class="u-headline">A peek into the design process</h2>
+                    <div class="u-wysiwyg">
+                        <p>There is a lot of talk about AI &ldquo;skipping&rdquo; the traditional design process, but I believe that a thoughtful and human-centered approach is still essential for creating effective, meaningful, and beautiful designs.</p>
+                    </div>
                     <div class="c-tabs">
                         <div class="c-tabs__nav" role="tablist" aria-label="Capabilities" aria-orientation="vertical">
                         {% for tab in capabilitiesTabs %}
@@ -186,6 +191,10 @@
 
             {% if marketCards is not empty %}
                 <section class="o-section is-cards">
+                    <h2 class="u-subheadline">Are you in one of these industries?</h2>
+                    <div class="u-wysiwyg">
+                        <p>My services are tailored to meet the unique needs of various industries, ensuring that you receive the most relevant solution to your specific needs/wants.</p>
+                    </div>
                     <div class="c-grid has-{{ marketCards|length }}-columns" data-scroll-trigger>
                         {% for card in marketCards %}
                             {% set image = get_image(card.card_image)|default(null) %}
@@ -300,13 +309,25 @@
                 </section>
             {% endif %}
 
+            {% if callToAction is not empty %}
+                <section class="o-section is-cta">
+                    {% include '_components/cta.twig' with {
+                        params: {
+                            headline: callToAction.cta_headline ?? null,
+                            text: callToAction.cta_text ?? null,
+                            button: callToAction.cta_button ?? null,
+                        }
+                    } only %}
+                </section>
+            {% endif %}
+
         </div>
 
-        {# {% include '_partials/page-builder.twig' with {
+        {% include '_partials/page-builder.twig' with {
             params: {
                 sections: pageBuilder
             }
-        } only %} #}
+        } only %}
 
         {% if relatedPosts is not empty %}
             <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>

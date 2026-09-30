@@ -8,23 +8,15 @@
     .o-section.is-gallery {
         .swiper-controls {
             @include padding();
-        }
-    }
-    .o-section.is-gallery {
-
-        .swiper-controls {
-            @include padding();
             margin-bottom: $gutter;
 
             .u-link.has-icon {
                 display: none;
             }
         }
-
         .swiper-wrapper {
             box-sizing: border-box;
         }
-
         .swiper-slide {
             box-sizing: border-box;
 
@@ -32,7 +24,6 @@
                 margin-left: $gutter-sm;
             }
         }
-
         .c-card {
             position: relative;
             display: flex;
@@ -42,7 +33,6 @@
             background-color: $black;
             color: $white;
             z-index: 1;
-
             .c-media {
                 position: absolute;
                 top: 0;
@@ -54,28 +44,23 @@
                 transition: opacity $speed $bezier-slide;
                 z-index: -1;
             }
-
             .c-media__image {
                 height: 100%;
                 object-fit: cover;
             }
-
             @include hocus {
                 .c-media {
                     opacity: 0.15 !important;
                 }
             }
         }
-
         .u-eyebrow {
             margin-top: auto;
             color: $white;
         }
-
         .u-headline {
             margin-bottom: $small-spacing;
         }
-
         // screen at or above 600px
         @include media(">=small") {
             .swiper-controls {
@@ -93,7 +78,6 @@
                 margin-bottom: 0;
             }
         }
-
         // screen at or above 900px
         @include media(">=medium") {
             .swiper-slide {
@@ -102,7 +86,6 @@
                 }
             }
         }
-
         // screen at or above 1200px
         @include media(">=large") {
             .swiper-controls {
@@ -123,7 +106,6 @@
                 font-size: $font-base;
             }
         }
-
         // screen at or above 1500px
         @include media(">=big") {
             .swiper-slide {
@@ -132,7 +114,6 @@
                 }
             }
         }
-
         // screen at or above 1800px
         @include media(">=huge") {
             .swiper-slide {
@@ -140,6 +121,17 @@
                     margin-left: calc((100% - $container-width) / 2);
                 }
             }
+        }
+    }
+    .o-section.is-cards,
+    .o-section.is-quotes,
+    .o-section.is-tabs {
+        .u-headline,
+        .u-subheadline {
+            margin-bottom: 0.5em;
+        }
+        .u-wysiwyg {
+            margin-bottom: $base-spacing;
         }
     }
 
