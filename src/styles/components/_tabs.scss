@@ -1,0 +1,224 @@
+/* ==========================================================================
+    Tabs
+========================================================================== */
+
+.c-tabs {
+    display: block;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        display: flex;
+        align-items: flex-start;
+        column-gap: $gutter-sm;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        column-gap: $gutter;
+    }
+}
+
+.c-tabs__nav {
+    flex: 0 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: $gutter-sm;
+    background-color: $white--dark;
+    border-radius: $border-radius;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+    }
+}
+
+.c-tabs__content {
+    flex: 2 0 auto;
+    min-width: 0;
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        height: auto;
+        min-height: rem(225px);
+    }
+}
+
+.c-tabs__tab {
+    display: block;
+    padding: $gutter-xs;
+    transition: color $speed-fast $bezier-quad;
+    font-family: $font-header;
+    font-size: $font-base;
+    font-weight: $font-extrabold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: rem(0.5px);
+    border: 0;
+    border-radius: $border-radius;
+    background: transparent;
+    color: $gray;
+    appearance: none;
+
+    &.is-active {
+        color: $black;
+        background-color: $white--darkest;
+    }
+
+    &:focus,
+    &:focus-visible {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        @include fluid-body-copy();
+        padding: $gutter-sm $gutter;
+        transition: box-shadow $speed $bezier-slide;
+        text-align: left;
+        border-radius: 0;
+
+        &.is-active {
+            color: $black;
+            background-color: $white;
+            box-shadow: inset 5px 0 0 0 $yellow;
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        &:hover,
+        &:focus-visible {
+            color: $black;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-h5;
+        letter-spacing: rem(0.5px);
+
+        &.is-active {
+            box-shadow: inset 10px 0 0 0 $gray--dark;
+        }
+    }
+}
+
+.c-tabs__panel {
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+    min-width: 0;
+
+    .c-media + .u-wysiwyg {
+        margin-top: $base-spacing;
+    }
+
+    .u-wysiwyg {
+        max-width: $copy-width;
+        margin-bottom: 0;
+    }
+
+    h2, h3, h4 {
+        @include heading();
+        margin-bottom: $small-spacing;
+    }
+
+    p, ul, ol {
+        @include fluid-body-copy();
+        line-height: $line-height;
+    }
+
+    &:focus-visible {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        padding: 0;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        position: relative;
+        height: 100%;
+        padding-left: calc($gutter-sm + rem(10px));
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: rem(10px);
+            height: auto;
+            min-height: 0;
+            background-color: $yellow;
+        }
+    }
+}
+
+.c-tabs__panel[hidden] {
+    display: none;
+}
+
+.c-tabs__panel.is-active {
+    &::before {
+        min-height: 100%;
+    }
+}
+
+.c-tabs__panel.is-entering::before {
+    animation: tabs-bar-grow $speed $bezier-slide both;
+}
+
+.c-tabs__panel.is-entering .u-wysiwyg > * {
+    animation: tabs-fade-up $speed $bezier-cubic both;
+}
+
+// screen below 600px
+@include media("<small") {
+    .c-tabs {
+        display: block;
+    }
+
+    .c-tabs__content {
+        margin-top: $gutter-sm;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .c-tabs__panel.is-entering::before,
+    .c-tabs__panel.is-entering .u-wysiwyg > * {
+        animation: none !important;
+    }
+}
+
+@keyframes tabs-bar-grow {
+    from {
+        min-height: 0;
+    }
+    to {
+        min-height: 100%;
+    }
+}
+
+@keyframes tabs-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
