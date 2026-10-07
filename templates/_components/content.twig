@@ -19,7 +19,7 @@
     {% endif %}
 
     {% if this.headline %}
-        <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-headline is-{{ this.headlineSize }}">{{ this.headline }}</h2>
+        <h2 id="{{ this.headline|truncate(12) }}" class="u-headline is-{{ this.headlineSize }}">{{ this.headline }}</h2>
     {% endif %}
 
     <div class="u-wysiwyg is-{{ this.textSize }}">
