@@ -30,6 +30,7 @@
             flex-direction: column;
             height: 500px;
             padding: $gutter-sm;
+            overflow: hidden;
             background-color: $black;
             color: $white;
             z-index: 1;
@@ -41,16 +42,37 @@
                 max-width: 100%;
                 height: 100%;
                 opacity: 0.85 !important;
-                transition: opacity $speed $bezier-slide;
+                transition: transform $speed $bezier-slide,
+                            opacity $speed $bezier-slide;
                 z-index: -1;
             }
             .c-media__image {
                 height: 100%;
                 object-fit: cover;
             }
+            .u-wysiwyg {
+                display: grid;
+                grid-template-rows: 0fr;
+                opacity: 0;
+                transform: translateY($gutter-xs);
+                transition: grid-template-rows $speed $bezier-slide,
+                            opacity $speed $bezier-slide,
+                            transform $speed $bezier-slide;
+
+                .u-wysiwyg__content {
+                    min-height: 0;
+                    overflow: hidden;
+                }
+            }
             @include hocus {
                 .c-media {
+                    transform: scale(1.1);
                     opacity: 0.15 !important;
+                }
+                .u-wysiwyg {
+                    grid-template-rows: 1fr;
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
         }
@@ -80,6 +102,13 @@
         }
         // screen at or above 900px
         @include media(">=medium") {
+            .u-heading {
+                font-size: $font-h5;
+            }
+            .swiper-controls {
+                justify-content: space-between;
+                align-items: flex-end;
+            }
             .swiper-slide {
                 @include first(1) {
                     margin-left: $gutter-lg;
@@ -126,13 +155,19 @@
     .o-section.is-cards,
     .o-section.is-quotes,
     .o-section.is-tabs {
-        .u-headline,
-        .u-subheadline {
+        & > .u-headline,
+        & > .u-subheadline {
             margin-bottom: 0.5em;
         }
-        .u-wysiwyg {
+        & > .u-wysiwyg {
             margin-bottom: $base-spacing;
         }
+    }
+
+    // Components
+    .c-quotes__testimonial {
+        padding-left: 0;
+        padding-right: 0;
     }
 
 }

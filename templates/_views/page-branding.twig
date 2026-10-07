@@ -18,10 +18,11 @@
 {% set capabilitiesText = post.meta('capabilities_text')|default(null) %}
 {% set capabilitiesTabs = post.meta('capabilities_tabs')|default(null) %}
 {% set marketCards = post.meta('market_cards')|default(null) %}
+{% set bigBanner1 = post.meta('big_banner_1')|default(null) %}
 {% set testimonials = post.meta('testimonials')|default(null) %}
 {% set awardsRecognition = post.meta('awards_recognition')|default(null) %}
 {% set inquiryForm = post.meta('inquiry_form')|default(null) %}
-{% set bigBanner = post.meta('big_banner')|default(null) %}
+{% set bigBanner2 = post.meta('big_banner_2')|default(null) %}
 {% set callToAction = post.meta('call_to_action')|default(null) %}
 {% set pageBuilder = post.meta('section_builder')|default(null) %}
 
@@ -29,7 +30,7 @@
 {# ----------------------------------------------------------------- #}
 {% block content %}
 
-    <article class="o-page">
+    <article class="o-page" data-module-scroll>
 
         {% include '_components/banner.twig' with {
             params: {
@@ -44,7 +45,7 @@
         } only %}
 
         {% if post.content is not empty %}
-            <section class="c-intro" data-module-scroll>
+            <section class="c-intro">
                 <div class="u-wysiwyg" data-scroll-trigger>
                     {{ post.content }}
                 </div>
@@ -119,10 +120,10 @@
                                     {{ source('_elements/svg/arrow-right.svg') }}
                                 </button>
                             </div>
-                            <a href="{{ site.url }}/services" class="u-link has-icon">
+                            {# <a href="{{ site.url }}/design" class="u-link has-icon">
                                 View All Projects
                                 {{ source('_elements/svg/arrow-right.svg') }}
-                            </a>
+                            </a> #}
                         </div>
                         <ul class="swiper-wrapper" data-scroll-trigger>
                             {% for project in projectsGallery %}
@@ -134,9 +135,11 @@
                                     {% set projectLink = project.button %}
                                     <a href="{{ projectLink }}" class="c-card">
                                         <strong class="u-eyebrow">{{ projectLabel }}</strong>
-                                        <h3 class="u-subheadline is-underlined">{{ projectName }}</h3>
+                                        <h3 class="u-heading is-underlined">{{ projectName }}</h3>
                                         <div class="u-wysiwyg">
-                                            {{ projectDescription }}
+                                            <div class="u-wysiwyg__content">
+                                                {{ projectDescription }}
+                                            </div>
                                         </div>
                                         {% include '_elements/picture.twig' with {
                                             params: {
@@ -160,17 +163,13 @@
                 </section>
             {% endif %}
             {% if capabilitiesTabs is not empty %}
-                <section class="o-section is-tabs" data-module-tabs>
-                    <h2 class="u-headline">A peek into the design process</h2>
-                    <div class="u-wysiwyg">
-                        <p>There is a lot of talk about AI &ldquo;skipping&rdquo; the traditional design process, but I believe that a thoughtful and human-centered approach is still essential for creating effective, meaningful, and beautiful designs.</p>
-                    </div>
-                    <div class="c-tabs">
+                <section class="o-section is-tabs" data-scroll-trigger data-module-tabs>
+                    <div class="c-tabs" data-scroll-trigger>
                         <div class="c-tabs__nav" role="tablist" aria-label="Capabilities" aria-orientation="vertical">
                         {% for tab in capabilitiesTabs %}
                             {% set tabId = 'capability-tab-' ~ loop.index %}
                             <button class="c-tabs__tab" id="{{ tabId }}" type="button" role="tab" aria-controls="{{ tabId }}-panel" aria-selected="false">
-                                <span class="u-heading">{{ tab.tab_label }}</span>
+                                {{ tab.tab_label }}
                             </button>
                         {% endfor %}
                         </div>
@@ -178,8 +177,15 @@
                         {% for tab in capabilitiesTabs %}
                             {% set tabId = 'capability-tab-' ~ loop.index %}
                             <div class="c-tabs__panel" id="{{ tabId }}-panel" role="tabpanel" aria-labelledby="{{ tabId }}" tabindex="0">
+                                {% if tab.tab_image %}
+                                    {% include '_elements/picture.twig' with {
+                                        params: {
+                                            src: tab.tab_image,
+                                            sizes: '(min-width: 600px) 50vw, 85vw'
+                                        }
+                                    } only %}
+                                {% endif %}
                                 <div class="u-wysiwyg">
-                                    {{ tab.tab_image }}
                                     {{ tab.tab_content }}
                                 </div>
                             </div>
@@ -190,12 +196,12 @@
             {% endif %}
 
             {% if marketCards is not empty %}
-                <section class="o-section is-cards">
+                <section class="o-section is-cards" data-scroll-trigger>
                     <h2 class="u-subheadline">Are you in one of these industries?</h2>
                     <div class="u-wysiwyg">
                         <p>My services are tailored to meet the unique needs of various industries, ensuring that you receive the most relevant solution to your specific needs/wants.</p>
                     </div>
-                    <div class="c-grid has-{{ marketCards|length }}-columns" data-scroll-trigger>
+                    <div class="c-grid has-{{ marketCards|length }}-columns">
                         {% for card in marketCards %}
                             {% set image = get_image(card.card_image)|default(null) %}
                             {% set headline = card.card_headline|default(null) %}
@@ -232,6 +238,22 @@
                             </div>
                         {% endfor %}
                     </div>
+                </section>
+            {% endif %}
+
+            {% if bigBanner1 %}
+                <section class="o-section is-image is-full-width" data-scroll-trigger>
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: bigBanner1,
+                            sizes: '(min-width: 1200px) 85vw, 100vw'
+                        }
+                    } only %}
+                    {% if bigBanner1.caption %}
+                        <aside class="c-caption">
+                            {{ bigBanner1.caption }}
+                        </aside>
+                    {% endif %}
                 </section>
             {% endif %}
 
@@ -293,15 +315,15 @@
                 </section>
             {% endif %}
 
-            {% if bigBanner is not empty %}
+            {% if bigBanner2 %}
                 <section class="o-section is-image is-full-width" data-scroll-trigger>
                     {% include '_elements/picture.twig' with {
                         params: {
-                            src: bigBanner,
+                            src: bigBanner2,
                             sizes: '(min-width: 1200px) 85vw, 100vw'
                         }
                     } only %}
-                    {% if bigBanner.caption %}
+                    {% if bigBanner2.caption %}
                         <aside class="c-caption">
                             {{ bigBanner.caption }}
                         </aside>
@@ -330,8 +352,8 @@
         } only %}
 
         {% if relatedPosts is not empty %}
-            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-module-scroll>
-                <h3 class="u-subheadline" data-scroll-trigger>Related Reading</h3>
+            <footer class="o-page__related has-{{ relatedPosts|length }}-columns" data-scroll-trigger>
+                <h3 class="u-subheadline">Related Reading</h3>
                 {% include '_components/related-posts.twig' with {
                     related: relatedPosts
                 } only %}

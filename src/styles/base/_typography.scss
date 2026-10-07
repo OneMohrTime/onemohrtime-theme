@@ -187,6 +187,22 @@ ul, ol, dl {
     }
 }
 
+.u-heading {
+    @include heading();
+
+    &.is-underlined {
+        @include heading("underlined");
+        &::after {
+            width: rem(50px);
+            height: rem(5px);
+        }
+    }
+}
+
+.u-large-text {
+    @include fluid-large-copy();
+}
+
 .u-tagline {
     @include tagline();
 }

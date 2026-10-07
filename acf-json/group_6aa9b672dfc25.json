@@ -532,6 +532,32 @@
             ]
         },
         {
+            "key": "field_6ac65721f3960",
+            "label": "Big Banner 1",
+            "name": "big_banner_1",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+            "allow_in_bindings": 1,
+            "preview_size": "large"
+        },
+        {
             "key": "field_6aa9ff354af66",
             "label": "Testimonials",
             "name": "testimonials",
@@ -644,8 +670,8 @@
                     "pagination": 0,
                     "min": 0,
                     "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Row",
+                    "collapsed": "field_6aaa014c48b0b",
+                    "button_label": "Add Testimonial",
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
@@ -878,8 +904,8 @@
         },
         {
             "key": "field_6aaa01f37c593",
-            "label": "Big Banner",
-            "name": "big_banner",
+            "label": "Big Banner 2",
+            "name": "big_banner_2",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -1001,5 +1027,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789526669
+    "modified": 1791383350
 }
