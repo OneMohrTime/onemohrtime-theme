@@ -20,7 +20,9 @@
             text: textSection.text|default(null),
             button: textSection.button|default(null),
             media: mediaSection|default(null),
-            mediaType: mediaSection.media_type|default(null)
+            mediaType: mediaSection.media_type|default(null),
+            desktopWidth: this.textMediaSection.desktop_width|default('default'),
+            stickySection: this.textMediaSection.sticky_section|default('none')
         },
     } only %}
 

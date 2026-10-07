@@ -11,6 +11,19 @@
 <section class="o-section is-cards">
     <div class="c-grid has-{{ this.count }}-columns" data-scroll-trigger>
 
+        {% if this.grid.add_intro_content %}
+            <div class="c-grid__intro" data-scroll-trigger>
+            {% if this.grid.headline %}
+                <h2 class="u-subheadline">{{ this.grid.headline }}</h2>
+            {% endif %}
+            {% if this.grid.text %}
+                <div class="u-wysiwyg">
+                    {{ this.grid.text }}
+                </div>
+            {% endif %}
+            </div>
+        {% endif %}
+
         {% for card in this.grid.cards %}
             {% set image = get_image(card.card_image)|default(null) %}
             {% set headline = card.card_headline|default(null) %}
@@ -42,7 +55,7 @@
                             {% include '_elements/picture.twig' with {
                                 params: {
                                     src: image,
-                                    ratio: '1:1',
+                                    ratio: this.grid.aspect_ratio,
                                     sizes: srcset
                                 }
                             } only %}

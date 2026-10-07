@@ -221,6 +221,7 @@
             flex-direction: column;
             height: 500px;
             padding: $gutter-sm;
+            overflow: hidden;
             background-color: $black;
             color: $white;
             z-index: 1;
@@ -242,9 +243,29 @@
                 object-fit: cover;
             }
 
+            .u-wysiwyg {
+                display: grid;
+                grid-template-rows: 0fr;
+                opacity: 0;
+                transform: translateY($gutter-xs);
+                transition: grid-template-rows $speed $bezier-slide,
+                            opacity $speed $bezier-slide,
+                            transform $speed $bezier-slide;
+
+                .u-wysiwyg__content {
+                    min-height: 0;
+                    overflow: hidden;
+                }
+            }
+
             @include hocus {
                 .c-media {
                     opacity: 0.15 !important;
+                }
+                .u-wysiwyg {
+                    grid-template-rows: 1fr;
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
         }

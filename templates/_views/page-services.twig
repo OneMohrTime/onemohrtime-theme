@@ -45,30 +45,6 @@
             }
         } only %}
 
-        {% if allServices %}
-        <section class="o-section is-services" data-module-scroll>
-            {% for row in allServices %}
-                {% set service = get_post(row) %}
-                {% include '_components/text-media.twig' with {
-                    params: {
-                        eyebrow: service.meta('post_subheadline')|default(null),
-                        headline: service.meta('post_headline')|default(service.title),
-                        text: (service.excerpt|truncate(36))|default(null),
-                        button: {
-                            url: service.link,
-                            title: 'Learn More',
-                        },
-                        media: {
-                            image: service.meta('banner_image'),
-                        },
-                        aspectRatio: '16:9',
-                        mediaType: 'default',
-                    }
-                } only %}
-            {% endfor %}
-        </section>
-        {% endif %}
-
         <section class="o-section is-shop" data-module-scroll>
             {% include '_components/marquee.twig' %}
         </section>

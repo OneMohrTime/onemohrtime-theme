@@ -25,6 +25,8 @@ export default class extends es6Module {
     // Defaults
     this.container = null;
     this.marquee = null;
+    this.clone = null;
+    this.buttons = [];
   }
 
   // Init module
@@ -39,6 +41,12 @@ export default class extends es6Module {
     // Clone the marquee content for seamless looping
     this.clone = this.marquee.cloneNode(true);
     this.container.appendChild(this.clone);
+
+    // Ensure only the first button is keyboard-focusable
+    this.buttons = Array.from(this.container.querySelectorAll('.c-button'));
+    this.buttons.slice(1).forEach((button) => {
+      button.setAttribute('tabindex', '-1');
+    });
 
     // Create GSAP scroll-driven animation
     gsap.to([this.marquee, this.clone], {

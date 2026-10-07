@@ -41,9 +41,9 @@
                     }
                 } only %}
             {% endif %}
-            {% if hasCaption %}
+            {% if this.mediaSection.image.caption %}
                 <aside class="c-caption">
-                    {{ hasCaption }}
+                    {{ this.mediaSection.image.caption }}
                 </aside>
             {% endif %}
 

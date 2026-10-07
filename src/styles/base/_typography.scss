@@ -77,6 +77,10 @@ h6 {
         }
     }
 
+    .u-large-text {
+        @include fluid-large-copy();
+    }
+
     p, ul, ol {
         font-size: inherit;
         line-height: inherit;
@@ -185,6 +189,22 @@ ul, ol, dl {
     &.is-underlined {
         @include subheadline("underlined");
     }
+}
+
+.u-heading {
+    @include heading();
+
+    &.is-underlined {
+        @include heading("underlined");
+        &::after {
+            width: rem(50px);
+            height: rem(5px);
+        }
+    }
+}
+
+.u-large-text {
+    @include fluid-large-copy();
 }
 
 .u-tagline {

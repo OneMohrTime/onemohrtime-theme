@@ -1,12 +1,14 @@
 {# -- Component Variables -- #}
 
 {% set this = {
+    columnSize: params.desktopWidth|default('default'),
+    isSticky: params.stickySection|default('none'),
     eyebrow: params.eyebrow|default(null),
     headline: params.headline|default(null),
     text: params.text|default(''),
     button: params.button ?? null,
     media: params.media|default(null),
-    mediaRatio: params.aspectRatio ?? '4:3',
+    mediaRatio: params.aspectRatio|default(params.media.aspect_ratio),
     mediaType: params.mediaType|default(null),
     isReverse: params.alignment|default(false)
 } %}
@@ -15,7 +17,7 @@
 
 <div class="c-textMedia{{ this.isReverse }}" data-scroll-trigger>
 
-    <div class="c-textMedia__text" data-scroll-trigger>
+    <div class="c-textMedia__text{% if this.isSticky == 'text' %} is-sticky{% endif %}" data-scroll-trigger>
         {% if this.eyebrow %}
             <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
         {% endif %}
@@ -38,7 +40,7 @@
         {% endif %}
     </div>
 
-    <figure class="c-textMedia__media">
+    <figure class="c-textMedia__media{% if this.isSticky == 'media' %} is-sticky{% endif %}">
         {% switch this.mediaType %}
 
             {% case 'video' %}
@@ -57,7 +59,7 @@
                                 {% include '_elements/picture.twig' with {
                                     params: {
                                         src: image,
-                                        ratio: this.mediaRatio != null ? this.mediaRatio : null
+                                        ratio: this.mediaRatio
                                     }
                                 } only %}
                                 {% if image.caption %}

@@ -24,3 +24,4 @@ export { default as SwiperCards } from './modules/SwiperCards';
 export { default as SwiperGallery } from './modules/SwiperGallery';
 export { default as SwiperQuotes } from './modules/SwiperQuotes';
 export { default as SwiperSlides } from './modules/SwiperSlides';
+export { default as Tabs } from './modules/Tabs';

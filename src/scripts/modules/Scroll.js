@@ -51,7 +51,7 @@ export default class extends es6Module {
             stagger: 0.15,
             scrollTrigger: {
               trigger: element,
-              start: 'top 80%',
+              start: 'top 90%',
               // end: '+=50%',
               end: '+=' + element.offsetHeight,
               // scrub: true,

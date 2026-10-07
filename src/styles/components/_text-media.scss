@@ -28,6 +28,11 @@
         flex: 1 1 40%;
         max-width: calc(40% - $gutter-sm);
         margin-bottom: 0;
+
+        &.is-sticky {
+            position: sticky;
+            top: $gutter-sm;
+        }
     }
 
     .u-subheadline {
@@ -68,6 +73,11 @@
     @include media(">=medium") {
         flex: 1 1 60%;
         max-width: calc(60% - $gutter-sm);
+
+        &.is-sticky {
+            position: sticky;
+            top: $gutter-sm;
+        }
 
         .swiper-controls {
             position: absolute;
