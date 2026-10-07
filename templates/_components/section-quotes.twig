@@ -12,8 +12,8 @@
     <div class="c-quotes">
 
         {% if this.quotes.add_intro_content == true %}
-            <div class="u-wysiwyg" data-scroll-trigger>
-                <h2 id="{{ this.quotes.headline|sanitize|slice(0, 24) }}" class="u-headline">{{ this.quotes.headline }}</h2>
+            <div class="c-quotes__intro" data-scroll-trigger>
+                <h2 id="{{ this.quotes.headline|sanitize|slice(0, 24) }}" class="u-subheadline">{{ this.quotes.headline }}</h2>
                 <div class="u-wysiwyg">
                     {{ this.quotes.text }}
                 </div>
@@ -37,23 +37,25 @@
                                 {% else %}
                                     <cite>&ndash; {{ name }}</cite>
                                 {% endif %}
-                                <div class="c-quote__controls">
-                                <button class="c-button is-prev">
-                                    <span class="u-screen-reader-text">Previous</span>
-                                    {{ source('_elements/svg/caret-left.svg') }}
-                                </button>
-                                <button class="c-button is-next">
-                                    <span class="u-screen-reader-text">Next</span>
-                                    {{ source('_elements/svg/caret-right.svg') }}
-                                </button>
-                                </div>
                             </blockquote>
-                            {% include '_elements/picture.twig' with {
-                                params: {
-                                    src: logoOrPhoto,
-                                    sizes: '(min-width: 600px) 33vw, 85vw'
-                                }
-                            } only %}
+                            <figure class="c-quote__media">
+                                {% include '_elements/picture.twig' with {
+                                    params: {
+                                        src: logoOrPhoto,
+                                        sizes: '(min-width: 600px) 33vw, 85vw'
+                                    }
+                                } only %}
+                                <div class="c-quote__controls">
+                                    <button class="c-button is-prev">
+                                        <span class="u-screen-reader-text">Previous</span>
+                                        {{ source('_elements/svg/caret-left.svg') }}
+                                    </button>
+                                    <button class="c-button is-next">
+                                        <span class="u-screen-reader-text">Next</span>
+                                        {{ source('_elements/svg/caret-right.svg') }}
+                                    </button>
+                                </div>
+                            </figure>
                         </li>
                     {% endfor %}
                 </ul>
@@ -70,11 +72,13 @@
                         <cite>&ndash; {{ this.quotes.testimonials[0].name }}</cite>
                     {% endif %}
                 </blockquote>
-                {% include '_elements/picture.twig' with {
-                    params: {
-                        src: this.quotes.testimonials[0].image,
-                    }
-                } only %}
+                <figure class="c-quote__media">
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: this.quotes.testimonials[0].image,
+                        }
+                    } only %}
+                </figure>
             </div>
 
         {% endif %}
