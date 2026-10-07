@@ -71,7 +71,7 @@
                             {{ source('_elements/svg/arrow-right.svg') }}
                         </button>
                     </div>
-                    <a href="{{ site.url }}/services" class="u-link has-icon">
+                    <a href="{{ site.url }}/design" class="u-link has-icon">
                         View All Projects
                         {{ source('_elements/svg/arrow-right.svg') }}
                     </a>
@@ -88,7 +88,9 @@
                                 <strong class="u-eyebrow">{{ projectLabel }}</strong>
                                 <h3 class="u-subheadline is-underlined">{{ projectName }}</h3>
                                 <div class="u-wysiwyg">
-                                    {{ projectDescription }}
+                                    <div class="u-wysiwyg__content">
+                                        {{ projectDescription }}
+                                    </div>
                                 </div>
                                 {% include '_elements/picture.twig' with {
                                     params: {
