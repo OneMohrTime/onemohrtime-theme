@@ -77,6 +77,10 @@ h6 {
         }
     }
 
+    .u-large-text {
+        @include fluid-large-copy();
+    }
+
     p, ul, ol {
         font-size: inherit;
         line-height: inherit;
